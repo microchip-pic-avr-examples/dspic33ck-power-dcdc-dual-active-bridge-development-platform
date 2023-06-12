@@ -1,6 +1,6 @@
 ![image](images/microchip.jpg) 
 
-## %repoDescritpion%
+## dspic33ck power dcdc dual active bridge development platform
 
 Board Image if any.
 
