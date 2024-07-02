@@ -17,7 +17,6 @@
 #define MAXIMUM_SWITCHING_FREQUENCY     (float)230.0e+3 ///< Maximum Switching frequency in [Hz]
 #define MINIMUM_SWITCHING_FREQUENCY     (float) 65.0e+3 ///< Minimum Switching frequency in [Hz]
 
-#define MINIMUM_CONTROL_PHASE 0 ///< Minimum control phase in degrees phase
 #define MAXIMUM_CONTROL_PHASE 180 ///< Maximum control phase in degrees phase
 
 #endif	/* CONFIG_H */

@@ -33,9 +33,22 @@
           <itemPath>mcc_generated_files/system/traps.h</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>config.h</itemPath>
-      <itemPath>macros.h</itemPath>
-      <itemPath>hal.h</itemPath>
+      <logicalFolder name="sources" displayName="sources" projectFiles="true">
+        <logicalFolder name="config" displayName="config" projectFiles="true">
+          <itemPath>sources/config/config.h</itemPath>
+          <itemPath>sources/config/hal.h</itemPath>
+          <itemPath>sources/config/macros.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="driver_chiplayer"
+                       displayName="driver_chiplayer"
+                       projectFiles="true">
+          <logicalFolder name="mcc_extenstion"
+                         displayName="mcc_extenstion"
+                         projectFiles="true">
+            <itemPath>sources/driver_chiplayer/mcc_extenstion/drv_mcc_extension.h</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -80,6 +93,9 @@
       <itemPath>main.c</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>sources</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">

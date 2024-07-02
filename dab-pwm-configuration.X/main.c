@@ -21,7 +21,7 @@
 #include "mcc_generated_files/system/system.h"
 #include "mcc_generated_files/pwm_hs/pwm.h"
 #include "mcc_generated_files/adc/adc1.h"
-#include "hal.h"
+#include "sources/config/hal.h"
 
 /*
     Main application
@@ -40,41 +40,33 @@ int main(void)
 {
     SYSTEM_Initialize();
     
-    PG2SPCILbits.PSS = 0x17;    //PWM Event A
+    PG2SPCILbits.PSS = 0x18;    // PWM Event B
     PG2SPCILbits.TERM = 1;      // auto terminate
-    PG2SPCILbits.TSYNCDIS = 1;  //termination of latched PCI occurs immediately
-    PWMEVTA = 0x2080;
+    PG2SPCILbits.TSYNCDIS = 1;  // termination of latched PCI occurs immediately
+    PWMEVTBbits.EVTBSTRD = 1;   // Event output signal pulse width is not stretched
+    PWMEVTBbits.EVTBSEL = 0b1001; // ADC Trigger 2 signal
+    PWMEVTBbits.EVTBPGS = 0;    // PWM Event Source: PWM Generator 1
     PG2CONHbits.TRGMOD = 1;     // retriggerable
+    
     PG3IOCONLbits.SWAP = 1;     // swap output for PWM3
-    PG4IOCONLbits.SWAP = 1;     // swap output for PWM3
+    PG4IOCONLbits.SWAP = 1;     // swap output for PWM4
 
-    PG1TRIGC = 2000;    // value for Trigger PG2
-    PG1TRIGA = 1000;    // value for Trigger PG3
-    PG2TRIGB = 2000;    // value for Trigger PG4
+    PG1TRIGB = 2000;    // value for Trigger PG2 - Primary phase
+    PG1TRIGC = 2000;    // value for Trigger PG3 - S
+    PG2TRIGC = 2000;    // value for Trigger PG4 - S
     
-    // test PWM period
-    for(uint16_t ctr = 1; ctr<5; ctr++){
-    PWM_PeriodSet(ctr, MAX_PWM_PERIOD);
-    PWM_SoftwareUpdateRequest(ctr);
-    }
-    
-    //test control phase macros
-    uint16_t max_period = MAX_PWM_PERIOD;
-    uint16_t min_period = MIN_PWM_PERIOD;
-    uint16_t period_range = PERIOD_RANGE;
-    uint16_t adc_range_period = ADC_PERIOD_RANGE;
-    uint16_t period_range_manual = MAX_PWM_PERIOD - MIN_PWM_PERIOD;
+
     
     PWM_Enable();
     
     while(1)
     {
         while(!ADC1_IsConversionComplete(Pot2An0));
-        Nop();
-        Nop();
-        Nop();
+        uint16_t ControlFrequency = (uint16_t)(MIN_PWM_PERIOD + (ADC1_ConversionResultGet(Pot2An0) * ADC_PERIOD_RANGE)); 
         
-        uint16_t ControlPhase = (uint16_t)(MIN_PWM_PERIOD + (ADC1_ConversionResultGet(Pot2An0) * ADC_PERIOD_RANGE)); 
-        
+        // change PWM frequency
+//        for(uint16_t ctr = 1; ctr<5; ctr++){
+//        PWM_PeriodSet(ctr, ControlFrequency);
+//        }
     }    
 }

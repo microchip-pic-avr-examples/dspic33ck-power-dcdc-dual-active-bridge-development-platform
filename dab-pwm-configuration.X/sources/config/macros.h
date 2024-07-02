@@ -22,24 +22,22 @@
 #define PWM_CLOCK_FREQUENCY     (float)500.0e+6 ///< PWM Clock Frequency in [Hz]
 #endif
 
-#define ADC_RESOLUTION          4095 ///< ADC number of ticks for 12-bit ADC resolution
+#define ADC_RESOLUTION          4095U ///< ADC number of ticks for 12-bit ADC resolution
 #define ADC_REFERENCE           (float)3.3
 
-
+#define PHASE_DEGREES           360U
 
 #define PWM_CLOCK_PERIOD    (float)(1.0 / PWM_CLOCK_FREQUENCY) ///< PWM Clock Period in [sec]
-
 #define MAX_SWITCHING_PERIOD   (float)(1.0/MINIMUM_SWITCHING_FREQUENCY)   ///< Switching period in [sec]
 #define MAX_PWM_PERIOD         (uint16_t)(float)(MAX_SWITCHING_PERIOD / PWM_CLOCK_PERIOD) ///< This sets the switching period of the converter
 #define MIN_SWITCHING_PERIOD   (float)(1.0/MAXIMUM_SWITCHING_FREQUENCY)   ///< Switching period in [sec]
 #define MIN_PWM_PERIOD         (uint16_t)(float)(MIN_SWITCHING_PERIOD / PWM_CLOCK_PERIOD) ///< This sets the switching period of the converter
-#define PERIOD_RANGE           (uint16_t)(MAX_PWM_PERIOD - MIN_PWM_PERIOD)
+#define PERIOD_RANGE           (uint16_t)(MAX_PWM_PERIOD - MIN_PWM_PERIOD)  
 #define ADC_PERIOD_RANGE       (uint16_t)(float)(PERIOD_RANGE / ADC_RESOLUTION)
 
-
-#define CONTROL_PHASE_RESOLUTION    (uint16_t)(float)(ADC_RESOLUTION / ADC_REFERENCE)
-#define MIN_CONTROL_PHASE      (uint16_t)(CONTROL_PHASE_RESOLUTION * MINIMUM_CONTROL_PHASE) ///< This sets the minimum PWM phase of the converter
-#define MAX_CONTROL_PHASE      (uint16_t)(CONTROL_PHASE_RESOLUTION * MAXIMUM_CONTROL_PHASE) ///< This sets the minimum PWM phase of the converter
+#define CONTROL_PHASE_RAD      (uint16_t)(float)(PHASE_DEGREES / MAXIMUM_CONTROL_PHASE) ///< This sets the maximum PWM phase of the converter
+#define MIN_PER_CONTROL_PHASE  (uint16_t)(float)(MIN_PWM_PERIOD / CONTROL_PHASE_RAD)
+#define MAX_PER_CONTROL_PHASE  (uint16_t)(float)(MAX_PWM_PERIOD / CONTROL_PHASE_RAD)
 
 #endif	/* MACROS_H */
 
