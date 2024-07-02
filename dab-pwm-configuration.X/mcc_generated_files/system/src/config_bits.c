@@ -55,7 +55,7 @@
 #pragma config IESO = OFF    //Two-speed Oscillator Start-up Enable bit->Start up with user-selected oscillator source
 
 // FOSC
-#pragma config POSCMD = NONE    //Primary Oscillator Mode Select bits->Primary Oscillator disabled
+#pragma config POSCMD = EC    //Primary Oscillator Mode Select bits->EC (External Clock) Mode
 #pragma config OSCIOFNC = ON    //OSC2 Pin Function bit->OSC2 is general purpose digital I/O pin
 #pragma config FCKSM = CSECMD    //Clock Switching Mode bits->Clock switching is enabled,Fail-safe Clock Monitor is disabled
 #pragma config PLLKEN = ON    //PLL Lock Status Control->PLL lock signal will be used to disable PLL clock output if lock is lost
