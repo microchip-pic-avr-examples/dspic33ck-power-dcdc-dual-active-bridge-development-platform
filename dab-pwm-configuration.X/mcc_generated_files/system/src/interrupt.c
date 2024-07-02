@@ -47,10 +47,15 @@ void INTERRUPT_Initialize(void)
     // Priority: 1
     IPC11bits.DMTIP = 1;
     
+    // T1: Timer 1
+    // Priority: 1
+    IPC0bits.T1IP = 1;
+    
 }
 
 void INTERRUPT_Deinitialize(void)
 {
     //POR default value of priority
     IPC11bits.DMTIP = 4;
+    IPC0bits.T1IP = 4;
 }

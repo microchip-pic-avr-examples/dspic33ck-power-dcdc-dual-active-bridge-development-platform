@@ -21,6 +21,8 @@
 #include "mcc_generated_files/system/system.h"
 #include "mcc_generated_files/pwm_hs/pwm.h"
 #include "mcc_generated_files/adc/adc1.h"
+#include "mcc_generated_files/timer/tmr1.h"
+
 #include "sources/config/hal.h"
 
 /*
@@ -28,7 +30,27 @@
 */
 
 
+void Timer1_Interrupt (void){
+    
+    while(!ADC1_IsConversionComplete(Pot2An0));
+        uint16_t ControlFrequency = (uint16_t)(MIN_PWM_PERIOD + (ADC1_ConversionResultGet(Pot2An0) * ADC_PERIOD_RANGE)); 
+       
+        // frequency clamping
+        if(ControlFrequency > MAX_PWM_PERIOD)
+            ControlFrequency = MAX_PWM_PERIOD;
+        
+        if(ControlFrequency < MIN_PWM_PERIOD)
+            ControlFrequency = MIN_PWM_PERIOD;
 
+        uint16_t ControlDutyCycle = (ControlFrequency>>1);
+        
+        // change PWM frequency
+        for(uint16_t ctr = 1; ctr<5; ctr++){
+        PWM_DutyCycleSet(ctr, ControlDutyCycle);
+        PWM_PeriodSet(ctr, ControlFrequency);
+        PG4STATbits.UPDREQ = 1;
+        }
+}
 
 /**
  * TP45_H/47_L - PWM1
@@ -40,33 +62,28 @@ int main(void)
 {
     SYSTEM_Initialize();
     
-    PG2SPCILbits.PSS = 0x18;    // PWM Event B
-    PG2SPCILbits.TERM = 1;      // auto terminate
-    PG2SPCILbits.TSYNCDIS = 1;  // termination of latched PCI occurs immediately
-    PWMEVTBbits.EVTBSTRD = 1;   // Event output signal pulse width is not stretched
-    PWMEVTBbits.EVTBSEL = 0b1001; // ADC Trigger 2 signal
-    PWMEVTBbits.EVTBPGS = 0;    // PWM Event Source: PWM Generator 1
-    PG2CONHbits.TRGMOD = 1;     // retriggerable
+    TMR1_TimeoutCallbackRegister(&Timer1_Interrupt);
+    
+    
+//    PG2SPCILbits.PSS = 0x18;    // PWM Event B
+//    PG2SPCILbits.TERM = 1;      // auto terminate
+//    PG2SPCILbits.TSYNCDIS = 1;  // termination of latched PCI occurs immediately
+//    PWMEVTBbits.EVTBSTRD = 1;   // Event output signal pulse width is not stretched
+//    PWMEVTBbits.EVTBSEL = 0b1001; // ADC Trigger 2 signal
+//    PWMEVTBbits.EVTBPGS = 0;    // PWM Event Source: PWM Generator 1
+//    PG2CONHbits.TRGMOD = 1;     // retriggerable
+//    PG1TRIGB = 2000;  // value for Trigger PG2 - Primary phase
     
     PG3IOCONLbits.SWAP = 1;     // swap output for PWM3
     PG4IOCONLbits.SWAP = 1;     // swap output for PWM4
 
-    PG1TRIGB = 2000;    // value for Trigger PG2 - Primary phase
     PG1TRIGC = 2000;    // value for Trigger PG3 - S
     PG2TRIGC = 2000;    // value for Trigger PG4 - S
-    
-
+    PG3TRIGC = 2000;    // value for Trigger PG2 - Primary phase
     
     PWM_Enable();
     
     while(1)
     {
-        while(!ADC1_IsConversionComplete(Pot2An0));
-        uint16_t ControlFrequency = (uint16_t)(MIN_PWM_PERIOD + (ADC1_ConversionResultGet(Pot2An0) * ADC_PERIOD_RANGE)); 
-        
-        // change PWM frequency
-//        for(uint16_t ctr = 1; ctr<5; ctr++){
-//        PWM_PeriodSet(ctr, ControlFrequency);
-//        }
     }    
 }
