@@ -20,7 +20,7 @@
 */
 #include "mcc_generated_files/system/system.h"
 #include "mcc_generated_files/pwm_hs/pwm.h"
-
+#include "mcc_generated_files/adc/adc1.h"
 #include "hal.h"
 
 /*
@@ -44,7 +44,7 @@ int main(void)
     PG2SPCILbits.TERM = 1;      // auto terminate
     PG2SPCILbits.TSYNCDIS = 1;  //termination of latched PCI occurs immediately
     PWMEVTA = 0x2080;
-    PG2CONHbits.TRGMOD = 1;     // re-triggerable
+    PG2CONHbits.TRGMOD = 1;     // retriggerable
     PG3IOCONLbits.SWAP = 1;     // swap output for PWM3
     PG4IOCONLbits.SWAP = 1;     // swap output for PWM3
 
@@ -54,14 +54,27 @@ int main(void)
     
     // test PWM period
     for(uint16_t ctr = 1; ctr<5; ctr++){
-    PWM_PeriodSet(ctr, MIN_PWM_PERIOD);
+    PWM_PeriodSet(ctr, MAX_PWM_PERIOD);
     PWM_SoftwareUpdateRequest(ctr);
     }
+    
+    //test control phase macros
+    uint16_t max_period = MAX_PWM_PERIOD;
+    uint16_t min_period = MIN_PWM_PERIOD;
+    uint16_t period_range = PERIOD_RANGE;
+    uint16_t adc_range_period = ADC_PERIOD_RANGE;
+    uint16_t period_range_manual = MAX_PWM_PERIOD - MIN_PWM_PERIOD;
+    
     PWM_Enable();
     
     while(1)
     {
+        while(!ADC1_IsConversionComplete(Pot2An0));
+        Nop();
+        Nop();
+        Nop();
         
+        uint16_t ControlPhase = (uint16_t)(MIN_PWM_PERIOD + (ADC1_ConversionResultGet(Pot2An0) * ADC_PERIOD_RANGE)); 
         
     }    
 }
