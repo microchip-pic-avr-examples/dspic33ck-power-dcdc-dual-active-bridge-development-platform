@@ -36,6 +36,7 @@
 #include "../system_types.h"
 #include "../clock.h"
 #include "../pins.h"
+#include "../../adc/adc1.h"
 #include "../dmt.h"
 #include "../../pwm_hs/pwm.h"
 #include "../interrupt.h"
@@ -45,6 +46,7 @@ void SYSTEM_Initialize(void)
 {
     CLOCK_Initialize();
     PINS_Initialize();
+    ADC1_Initialize();
     DMT_Initialize();
     PWM_Initialize();
     INTERRUPT_GlobalEnable();
