@@ -185,8 +185,8 @@ void PWM_Initialize (void)
     PG2DTL = 0x50;
     // ADTR2EN1 disabled; IEVTSEL EOC; SIEN disabled; FFIEN disabled; ADTR1OFS None; CLIEN disabled; FLTIEN disabled; ADTR2EN2 disabled; ADTR2EN3 disabled; 
     PG2EVTH = 0x0;
-    // UPDTRG Trigger A; ADTR1PS 1:1; PGTRGSEL Trigger C compare event; ADTR1EN3 disabled; ADTR1EN1 disabled; ADTR1EN2 disabled; 
-    PG2EVTL = 0x1B;
+    // UPDTRG Trigger A; ADTR1PS 1:1; PGTRGSEL Trigger B compare event; ADTR1EN3 disabled; ADTR1EN1 disabled; ADTR1EN2 disabled; 
+    PG2EVTL = 0x1A;
     // PCIGT disabled; TQPS Not inverted; SWPCI Drives '0'; BPEN disabled; TQSS None; SWPCIM PCI acceptance logic; BPSEL PWM Generator 1; ACP Level-sensitive; 
     PG2FFPCIH = 0x0;
     // PSS Tied to 0; PPS Not inverted; SWTERM disabled; PSYNC disabled; TERM Manual Terminate; AQPS Not inverted; AQSS None; TSYNCDIS PWM EOC; 

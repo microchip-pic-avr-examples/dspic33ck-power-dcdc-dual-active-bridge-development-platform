@@ -33,12 +33,17 @@
 int main(void)
 {
     SYSTEM_Initialize();
+    PG2SPCILbits.PSS = 0x17;    //PWM Event A
+    PG2SPCILbits.TERM = 1; // auto terminate
+    PG2SPCILbits.TSYNCDIS = 1; //termination of latched PCI occurs immediately
     PWMEVTA = 0x2080;
+    PG2CONHbits.TRGMOD = 1; 
     PG3IOCONLbits.SWAP = 1;
     PG4IOCONLbits.SWAP = 1;
 
-    PG1TRIGC = 1000; // value for Trigger PG3
-    PG2TRIGC = 1000; // value for Trigger PG4
+    PG1TRIGC = 2000; // value for Trigger PG2
+    PG1TRIGA = 1000;    // value for Trigger PG3
+    PG2TRIGB = 2000; // value for Trigger PG4
     
     PWM_Enable();
     
