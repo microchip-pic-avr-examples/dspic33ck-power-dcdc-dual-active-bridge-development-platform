@@ -57,16 +57,18 @@ void Timer1_Interrupt (void){
         
         ControlDutyCycle = (ControlFrequency >> 1);
 
-        PG1TRIGC = ControlDutyCycle >> 2;    // value for Trigger PG3 - S
-        PG2TRIGC = ControlDutyCycle >> 2;    // value for Trigger PG4 - S
-        PG3TRIGC = ControlDutyCycle >> 2;    // value for Trigger PG2 - Primary phase
+        uint16_t DummyPhaseAdded = ControlDutyCycle >> 3;
+        PG1TRIGC = (ControlDutyCycle >> 1) + DummyPhaseAdded;    // value for Trigger PG3 - S
+        PG2TRIGC = (ControlDutyCycle >> 1) + DummyPhaseAdded;    // value for Trigger PG4 - S
+        PG3TRIGC = ControlDutyCycle + DummyPhaseAdded;    // value for Trigger PG2 - Primary phase
+
     
         for(uint16_t ctr = 1; ctr<5; ctr++){
         // change PWM frequency and duty cycle
         PWM_DutyCycleSet(ctr, ControlDutyCycle);
         PWM_PeriodSet(ctr, ControlFrequency);
-        PG4STATbits.UPDREQ = 1;
         }
+        PG4STATbits.UPDREQ = 1;
 }
 
 /**
