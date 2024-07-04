@@ -35,16 +35,13 @@
 */
 
 uint16_t ControlFrequency = 0;
-uint16_t ControlDutyCycle =0;
-float ControlPhaseGain = 0;
+uint16_t ControlDutyCycle = 0;
+
 uint16_t ControlPhase = 0;
 
 void Timer1_Interrupt (void){
     
         ControlFrequency = (uint16_t)(MIN_PWM_PERIOD + (ADC1_ConversionResultGet(Pot2An0) * ADC_PERIOD_RANGE)); 
-       
-//        ControlPhaseGain = (float)(ADC1_ConversionResultGet(Pot1An0) / ADC_RESOLUTION);
-//        ControlPhase = (uint16_t)(ControlDutyCycle * ControlPhaseGain);
         
         // frequency clamping
         if(ControlFrequency > MAX_PWM_PERIOD)
@@ -56,12 +53,14 @@ void Timer1_Interrupt (void){
         ControlFrequency = ControlFrequency & ~(0x7);
         
         ControlDutyCycle = (ControlFrequency >> 1);
-
-        uint16_t DummyPhaseAdded = ControlDutyCycle >> 3;
-        PG1TRIGC = (ControlDutyCycle >> 1) + DummyPhaseAdded;    // value for Trigger PG3 - S
-        PG2TRIGC = (ControlDutyCycle >> 1) + DummyPhaseAdded;    // value for Trigger PG4 - S
-        PG3TRIGC = ControlDutyCycle + DummyPhaseAdded;    // value for Trigger PG2 - Primary phase
-
+        ControlPhase = (uint16_t)(ADC1_ConversionResultGet(Pot1An0) * ADC_SCALER * ControlDutyCycle);
+        
+        uint16_t PrimarySecondaryPhase = (ControlDutyCycle >> 1) - (ControlPhase >> 1);
+        uint16_t PrimaryPhaseDelay = (ControlDutyCycle - PrimarySecondaryPhase) + ControlPhase;
+        
+        PG1TRIGC = PrimarySecondaryPhase;   
+        PG2TRIGC = PrimaryPhaseDelay;       
+        PG3TRIGC = PrimarySecondaryPhase;   
     
         for(uint16_t ctr = 1; ctr<5; ctr++){
         // change PWM frequency and duty cycle
@@ -73,7 +72,7 @@ void Timer1_Interrupt (void){
 
 /**
  * TP45_H/47_L - PWM1
- * TP42_H/40_L - PWM2
+ * TP42_L/40_H - PWM2 (output swap)
  * TP37_L/41_H - PWM3 (output swap)
  * TP43_L/44_H - PWM4 (output swap)
  */
@@ -83,26 +82,16 @@ int main(void)
     
     TMR1_TimeoutCallbackRegister(&Timer1_Interrupt);
     
-    //previous implemetation
-//    PG2SPCILbits.PSS = 0x18;    // PWM Event B
-//    PG2SPCILbits.TERM = 1;      // auto terminate
-//    PG2SPCILbits.TSYNCDIS = 1;  // termination of latched PCI occurs immediately
-//    PWMEVTBbits.EVTBSTRD = 1;   // Event output signal pulse width is not stretched
-//    PWMEVTBbits.EVTBSEL = 0b1001; // ADC Trigger 2 signal
-//    PWMEVTBbits.EVTBPGS = 0;    // PWM Event Source: PWM Generator 1
-//    PG2CONHbits.TRGMOD = 1;     // retriggerable
-//    PG1TRIGB = 2000;  // value for Trigger PG2 - Primary phase
-    
     //needed for cascaded PWM
     PG1CONHbits.TRGMOD = 1;     // retriggerable
     PG2CONHbits.TRGMOD = 1;     // retriggerable
     PG3CONHbits.TRGMOD = 1;     // retriggerable
     PG4CONHbits.TRGMOD = 1;     // retriggerable
     
+//    PG2IOCONLbits.SWAP = 1;     // swap output for PWM2
     PG3IOCONLbits.SWAP = 1;     // swap output for PWM3
     PG4IOCONLbits.SWAP = 1;     // swap output for PWM4
 
-    
     PWM_Enable();
     
     while(1)

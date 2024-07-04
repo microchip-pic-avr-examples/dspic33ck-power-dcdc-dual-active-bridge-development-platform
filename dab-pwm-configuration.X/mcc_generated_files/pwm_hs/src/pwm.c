@@ -173,8 +173,8 @@ void PWM_Initialize (void)
     PG2CLPCIH = 0x0;
     // PSS Tied to 0; PPS Not inverted; SWTERM disabled; PSYNC disabled; TERM Manual Terminate; AQPS Not inverted; AQSS None; TSYNCDIS PWM EOC; 
     PG2CLPCIL = 0x0;
-    // MSTEN disabled; TRIGMOD Single trigger mode; SOCS Trigger output selected by PG3 or PG7; UPDMOD Client SOC; MPHSEL disabled; MPERSEL disabled; MDCSEL disabled; 
-    PG2CONH = 0x203;
+    // MSTEN disabled; TRIGMOD Single trigger mode; SOCS Trigger output selected by PG1 or PG5; UPDMOD Client SOC; MPHSEL disabled; MPERSEL disabled; MDCSEL disabled; 
+    PG2CONH = 0x201;
     // DC2 8696; 
     PG2DC = 0x21F8;
     // DCA2 0x0; 
@@ -225,8 +225,8 @@ void PWM_Initialize (void)
     PG3CLPCIH = 0x0;
     // PSS Tied to 0; PPS Not inverted; SWTERM disabled; PSYNC disabled; TERM Manual Terminate; AQPS Not inverted; AQSS None; TSYNCDIS PWM EOC; 
     PG3CLPCIL = 0x0;
-    // MSTEN disabled; TRIGMOD Single trigger mode; SOCS Trigger output selected by PG1 or PG5; UPDMOD Client SOC; MPHSEL disabled; MPERSEL disabled; MDCSEL disabled; 
-    PG3CONH = 0x201;
+    // MSTEN disabled; TRIGMOD Single trigger mode; SOCS Trigger output selected by PG2 or PG6; UPDMOD Client SOC; MPHSEL disabled; MPERSEL disabled; MDCSEL disabled; 
+    PG3CONH = 0x202;
     // DC3 8696; 
     PG3DC = 0x21F8;
     // DCA3 0x0; 
@@ -277,8 +277,8 @@ void PWM_Initialize (void)
     PG4CLPCIH = 0x0;
     // PSS Tied to 0; PPS Not inverted; SWTERM disabled; PSYNC disabled; TERM Manual Terminate; AQPS Not inverted; AQSS None; TSYNCDIS PWM EOC; 
     PG4CLPCIL = 0x0;
-    // MSTEN enabled; TRIGMOD Single trigger mode; SOCS Trigger output selected by PG2 or PG6; UPDMOD SOC; MPHSEL disabled; MPERSEL disabled; MDCSEL disabled; 
-    PG4CONH = 0x802;
+    // MSTEN enabled; TRIGMOD Single trigger mode; SOCS Trigger output selected by PG3 or PG7; UPDMOD SOC; MPHSEL disabled; MPERSEL disabled; MDCSEL disabled; 
+    PG4CONH = 0x803;
     // DC4 8696; 
     PG4DC = 0x21F8;
     // DCA4 0x0; 
