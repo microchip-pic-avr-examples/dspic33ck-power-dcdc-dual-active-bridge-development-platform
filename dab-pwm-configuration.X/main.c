@@ -23,56 +23,79 @@
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h> // include standard definition data types
 
-#include "mcc_generated_files/system/system.h"
-#include "mcc_generated_files/pwm_hs/pwm.h"
-#include "mcc_generated_files/adc/adc1.h"
-#include "mcc_generated_files/timer/tmr1.h"
+#include "system/system.h"
+#include "pwm_hs/pwm.h"
+#include "adc/adc1.h"
+#include "timer/tmr1.h"
+#include "driver_chiplayer/mcc_extenstion/drv_mcc_extension.h"
 
-#include "sources/config/hal.h"
+#include "config/hal.h"
 
 /*
     Main application
 */
 
-uint16_t ControlFrequency = 0;
-uint16_t ControlDutyCycle = 0;
-
-uint16_t ControlPhase = 0;
 
 void Timer1_Interrupt (void){
     
-        ControlFrequency = (uint16_t)(MIN_PWM_PERIOD + (ADC1_ConversionResultGet(Pot2An0) * ADC_PERIOD_RANGE)); 
-        
-        // frequency clamping
-        if(ControlFrequency > MAX_PWM_PERIOD)
-            ControlFrequency = MAX_PWM_PERIOD;
-        
-        if(ControlFrequency < MIN_PWM_PERIOD)
-            ControlFrequency = MIN_PWM_PERIOD;
+    // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
+    // (please refer to the device FRM)
+    uint16_t PeriodMask = 0x7; 
+    uint16_t ControlFrequency = 0;
+    uint16_t ControlDutyCycle = 0;
+    uint16_t ControlPhase = 0;
 
-        ControlFrequency = ControlFrequency & ~(0x7);
-        
-        ControlDutyCycle = (ControlFrequency >> 1);
-        ControlPhase = (uint16_t)(ADC1_ConversionResultGet(Pot1An0) * ADC_SCALER * ControlDutyCycle);
-        
-        uint16_t PrimarySecondaryPhase = (ControlDutyCycle >> 1) - (ControlPhase >> 1);
-        uint16_t PrimaryPhaseDelay = (ControlDutyCycle - PrimarySecondaryPhase) + ControlPhase;
-        
-        PG1TRIGC = PrimarySecondaryPhase;   
-        PG2TRIGC = PrimaryPhaseDelay;       
-        PG3TRIGC = PrimarySecondaryPhase;   
+    //Calculate the Frequency based on the Potentiometer 2 voltage
+    ControlFrequency = (uint16_t)(MIN_PWM_PERIOD + (ADC1_ConversionResultGet(Pot2An0) * ADC_PERIOD_RANGE)); 
     
-        for(uint16_t ctr = 1; ctr<5; ctr++){
-        // change PWM frequency and duty cycle
-        PWM_DutyCycleSet(ctr, ControlDutyCycle);
-        PWM_PeriodSet(ctr, ControlFrequency);
-        }
-        PG4STATbits.UPDREQ = 1;
+    // Maximum frequency clamping
+    if(ControlFrequency > MAX_PWM_PERIOD)
+        ControlFrequency = MAX_PWM_PERIOD;
+    
+    // Minimum frequency clamping
+    if(ControlFrequency < MIN_PWM_PERIOD)
+        ControlFrequency = MIN_PWM_PERIOD;
+
+    // Mask the calculated frequency bits [2:0] to make the cascaded/synchronous
+    // PWM scheme reliable (please refer to the PWM FRM)
+    ControlFrequency = ControlFrequency & ~(PeriodMask);
+    
+    // 
+    ControlDutyCycle = (ControlFrequency >> 1);
+    ControlPhase = (uint16_t)(ADC1_ConversionResultGet(Pot1An0) * ADC_SCALER * ControlDutyCycle);
+    
+    uint16_t PrimarySecondaryPhase = (ControlDutyCycle >> 1) - (ControlPhase >> 1);
+    uint16_t PrimaryPhaseDelay = (ControlDutyCycle - PrimarySecondaryPhase) + ControlPhase;
+    
+    PWM_TriggerCCompareValueSet(PWM_GENERATOR_1, PrimarySecondaryPhase);
+    PWM_TriggerCCompareValueSet(PWM_GENERATOR_2, PrimaryPhaseDelay);
+    PWM_TriggerCCompareValueSet(PWM_GENERATOR_3, PrimarySecondaryPhase);
+
+    PWM_DutyCycleSet(PWM_GENERATOR_1, ControlDutyCycle);
+    PWM_DutyCycleSet(PWM_GENERATOR_2, ControlDutyCycle);
+    PWM_DutyCycleSet(PWM_GENERATOR_3, ControlDutyCycle);
+    PWM_DutyCycleSet(PWM_GENERATOR_4, ControlDutyCycle);
+    
+    PWM_PeriodSet(PWM_GENERATOR_1, ControlFrequency);
+    PWM_PeriodSet(PWM_GENERATOR_2, ControlFrequency);
+    PWM_PeriodSet(PWM_GENERATOR_3, ControlFrequency);
+    PWM_PeriodSet(PWM_GENERATOR_4, ControlFrequency);
+
+    PWM_SoftwareUpdateRequest(PWM_GENERATOR_4);
 }
+
+/*******************************************************************************
+ * @ingroup 
+ * @brief  Application main function executed after device comes out of RESET
+ * @details 
+ * This function is the starting point of the firmware. It is called after the
+ * device is coming out of RESET, starting to execute code. 
+ * 
+ *********************************************************************************/
 
 /**
  * TP45_H/47_L - PWM1
- * TP42_L/40_H - PWM2 (output swap)
+ * TP42_H/40_L - PWM2 
  * TP37_L/41_H - PWM3 (output swap)
  * TP43_L/44_H - PWM4 (output swap)
  */
@@ -83,14 +106,13 @@ int main(void)
     TMR1_TimeoutCallbackRegister(&Timer1_Interrupt);
     
     //needed for cascaded PWM
-    PG1CONHbits.TRGMOD = 1;     // retriggerable
-    PG2CONHbits.TRGMOD = 1;     // retriggerable
-    PG3CONHbits.TRGMOD = 1;     // retriggerable
-    PG4CONHbits.TRGMOD = 1;     // retriggerable
+    PWM_Trigger_Mode(PWM_GENERATOR_1, PWM_TRIG_MODE_RETRIGGERABLE);
+    PWM_Trigger_Mode(PWM_GENERATOR_2, PWM_TRIG_MODE_RETRIGGERABLE);
+    PWM_Trigger_Mode(PWM_GENERATOR_3, PWM_TRIG_MODE_RETRIGGERABLE);
+    PWM_Trigger_Mode(PWM_GENERATOR_4, PWM_TRIG_MODE_RETRIGGERABLE);
     
-//    PG2IOCONLbits.SWAP = 1;     // swap output for PWM2
-    PG3IOCONLbits.SWAP = 1;     // swap output for PWM3
-    PG4IOCONLbits.SWAP = 1;     // swap output for PWM4
+    PWM_Swap_PWMxL_and_PWMxH(PWM_GENERATOR_3, true);
+    PWM_Swap_PWMxL_and_PWMxH(PWM_GENERATOR_4, true);
 
     PWM_Enable();
     
