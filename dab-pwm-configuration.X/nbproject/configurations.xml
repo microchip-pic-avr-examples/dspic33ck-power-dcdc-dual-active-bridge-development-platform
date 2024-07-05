@@ -46,12 +46,21 @@
         <logicalFolder name="driver_chiplayer"
                        displayName="driver_chiplayer"
                        projectFiles="true">
-          <logicalFolder name="mcc_extenstion"
-                         displayName="mcc_extenstion"
+          <logicalFolder name="mcc_extension"
+                         displayName="mcc_extension"
                          projectFiles="true">
-            <itemPath>sources/driver_chiplayer/mcc_extenstion/drv_mcc_extension.h</itemPath>
-            <itemPath>sources/driver_chiplayer/mcc_extenstion/drv_mcc_extension_pwm.h</itemPath>
+            <itemPath>sources/driver_chiplayer/mcc_extension/drv_mcc_extension.h</itemPath>
+            <itemPath>sources/driver_chiplayer/mcc_extension/drv_mcc_extension_pwm.h</itemPath>
+            <itemPath>sources/driver_chiplayer/mcc_extension/drv_mc_extension_adc.h</itemPath>
           </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="os" displayName="os" projectFiles="true">
+          <itemPath>sources/os/os.h</itemPath>
+          <itemPath>sources/os/os_reset.h</itemPath>
+          <itemPath>sources/os/os_scheduler.h</itemPath>
+          <itemPath>sources/os/os_sys_time.h</itemPath>
+          <itemPath>sources/os/os_timer.h</itemPath>
+          <itemPath>sources/os/os_watchdog.h</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -98,6 +107,17 @@
           <logicalFolder name="src" displayName="src" projectFiles="true">
             <itemPath>mcc_generated_files/timer/src/tmr1.c</itemPath>
           </logicalFolder>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="sources" displayName="sources" projectFiles="true">
+        <logicalFolder name="os" displayName="os" projectFiles="true">
+          <itemPath>sources/os/os.c</itemPath>
+          <itemPath>sources/os/os_reset.c</itemPath>
+          <itemPath>sources/os/os_scheduler_100us.c</itemPath>
+          <itemPath>sources/os/os_scheduler_1ms.c</itemPath>
+          <itemPath>sources/os/os_sys_time.c</itemPath>
+          <itemPath>sources/os/os_timer.c</itemPath>
+          <itemPath>sources/os/os_watchdog.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>
@@ -265,7 +285,8 @@
       </C30-LD>
       <C30Global>
         <property key="combine-sourcefiles" value="false"/>
-        <property key="common-include-directories" value="sources;mcc_generated_files"/>
+        <property key="common-include-directories"
+                  value="sources;mcc_generated_files;sources/driver_chiplayer"/>
         <property key="dual-boot-partition" value="0"/>
         <property key="fast-math" value="false"/>
         <property key="generic-16-bit" value="false"/>

@@ -55,7 +55,7 @@
 enum ADC_CHANNEL
 {
     Pot2An0,    /**<Channel Name:AN0   Assigned to:Dedicated Core0*/
-    Pot1An0,    /**<Channel Name:AN1   Assigned to:Dedicated Core1*/
+    Pot1An1,    /**<Channel Name:AN1   Assigned to:Dedicated Core1*/
     MAX_CHANNELS = 2,    /**< MAX_CHANNELS will be removed in future MCC releases. Use ADC_MAX_CHANNELS instead */
     ADC_MAX_CHANNELS = 2    /**< Maximum number of channels configured by user in MCC Melody User Interface */
 };

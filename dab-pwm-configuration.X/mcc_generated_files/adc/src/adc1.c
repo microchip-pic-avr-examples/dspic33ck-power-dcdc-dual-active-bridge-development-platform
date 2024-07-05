@@ -533,7 +533,7 @@ void ADC1_PWMTriggerSourceSet(enum ADC_CHANNEL channel, enum ADC_PWM_INSTANCE pw
         case Pot2An0:
                 ADTRIG0Lbits.TRGSRC0 = adcTriggerValue;
                 break;
-        case Pot1An0:
+        case Pot1An1:
                 ADTRIG0Lbits.TRGSRC1 = adcTriggerValue;
                 break;
         default:
@@ -579,7 +579,7 @@ void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCInterrupt ( void )
         adcVal = ADCBUF1;
         if(NULL != ADC1_ChannelHandler)
         {
-            (*ADC1_ChannelHandler)(Pot1An0, adcVal);
+            (*ADC1_ChannelHandler)(Pot1An1, adcVal);
         }
         IFS5bits.ADCAN1IF = 0;
     }
@@ -635,16 +635,16 @@ void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCAN0Interrupt ( voi
 
 void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCAN1Interrupt ( void )
 {
-    uint16_t valPot1An0;
+    uint16_t valPot1An1;
     //Read the ADC value from the ADCBUF
-    valPot1An0 = ADCBUF1;
+    valPot1An1 = ADCBUF1;
 
     if(NULL != ADC1_ChannelHandler)
     {
-        (*ADC1_ChannelHandler)(Pot1An0, valPot1An0);
+        (*ADC1_ChannelHandler)(Pot1An1, valPot1An1);
     }
 
-    //clear the Pot1An0 interrupt flag
+    //clear the Pot1An1 interrupt flag
     IFS5bits.ADCAN1IF = 0;
 }
 
@@ -667,7 +667,7 @@ void __attribute__ ((weak)) ADC1_ChannelTasks (enum ADC_CHANNEL channel)
                 }
             }
             break;
-        case Pot1An0:
+        case Pot1An1:
             if((bool)ADSTATLbits.AN1RDY == 1)
             {
                 //Read the ADC value from the ADCBUF

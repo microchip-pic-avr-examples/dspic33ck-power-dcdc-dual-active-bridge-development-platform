@@ -27,7 +27,7 @@
 #include "pwm_hs/pwm.h"
 #include "adc/adc1.h"
 #include "timer/tmr1.h"
-#include "driver_chiplayer/mcc_extenstion/drv_mcc_extension.h"
+#include "mcc_extension/drv_mcc_extension.h"
 
 #include "config/hal.h"
 
@@ -64,7 +64,7 @@ void Timer1_Interrupt (void){
     ControlDutyCycle = (ControlFrequency >> 1);
     
     // Scale the potentiometer 1 reading with the Frequency
-    ControlPhase = (uint16_t)(ADC1_ConversionResultGet(Pot1An0) * ADC_SCALER * ControlDutyCycle);
+    ControlPhase = (uint16_t)(ADC1_ConversionResultGet(Pot1An1) * ADC_SCALER * ControlDutyCycle);
     
     // Calculate the DAB Primary to Secondary Phase ((Frequency / 4) - (Control Phase /2))
     uint16_t PrimarySecondaryPhase = (ControlDutyCycle >> 1) - (ControlPhase >> 1);

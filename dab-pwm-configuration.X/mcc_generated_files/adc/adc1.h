@@ -184,7 +184,7 @@ inline static uint16_t ADC1_ConversionResultGet( enum ADC_CHANNEL channel )
         case Pot2An0:
                 result = ADCBUF0;
                 break;
-        case Pot1An0:
+        case Pot1An1:
                 result = ADCBUF1;
                 break;
         default:
@@ -214,7 +214,7 @@ inline static bool ADC1_IsConversionComplete(enum ADC_CHANNEL channel)
         case Pot2An0:
                 status = ADSTATLbits.AN0RDY;
                 break;
-        case Pot1An0:
+        case Pot1An1:
                 status = ADSTATLbits.AN1RDY;
                 break;
         default:
@@ -328,7 +328,7 @@ inline static void ADC1_IndividualChannelInterruptEnable(enum ADC_CHANNEL channe
                 IEC5bits.ADCAN0IE = 1;
                 ADIELbits.IE0 = 1;
                 break;
-        case Pot1An0:
+        case Pot1An1:
                 IEC5bits.ADCAN1IE = 1;
                 ADIELbits.IE1 = 1;
                 break;
@@ -351,7 +351,7 @@ inline static void ADC1_IndividualChannelInterruptDisable(enum ADC_CHANNEL chann
                 IEC5bits.ADCAN0IE = 0;
                 ADIELbits.IE0 = 0;
                 break;
-        case Pot1An0:
+        case Pot1An1:
                 IEC5bits.ADCAN1IE = 0;
                 ADIELbits.IE1 = 0;
                 break;
@@ -373,7 +373,7 @@ inline static void ADC1_IndividualChannelInterruptFlagClear(enum ADC_CHANNEL cha
         case Pot2An0:
                 IFS5bits.ADCAN0IF = 0;
                 break;
-        case Pot1An0:
+        case Pot1An1:
                 IFS5bits.ADCAN1IF = 0;
                 break;
         default:
@@ -395,7 +395,7 @@ inline static void ADC1_IndividualChannelInterruptPrioritySet(enum ADC_CHANNEL c
 		case Pot2An0:
 				IPC22bits.ADCAN0IP = priorityValue;
 				break;
-		case Pot1An0:
+		case Pot1An1:
 				IPC23bits.ADCAN1IP = priorityValue;
 				break;
 		default:
