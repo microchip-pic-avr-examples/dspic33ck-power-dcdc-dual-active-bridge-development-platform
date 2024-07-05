@@ -60,28 +60,40 @@ void Timer1_Interrupt (void){
     // PWM scheme reliable (please refer to the PWM FRM)
     ControlFrequency = ControlFrequency & ~(PeriodMask);
     
-    // 
+    // calculate Duty Cycle for 50%
     ControlDutyCycle = (ControlFrequency >> 1);
+    
+    // Scale the potentiometer 1 reading with the Frequency
     ControlPhase = (uint16_t)(ADC1_ConversionResultGet(Pot1An0) * ADC_SCALER * ControlDutyCycle);
     
+    // Calculate the DAB Primary to Secondary Phase ((Frequency / 4) - (Control Phase /2))
     uint16_t PrimarySecondaryPhase = (ControlDutyCycle >> 1) - (ControlPhase >> 1);
+    
+    // Calculate the bridge delay ((Frequency / 2) - Primary to Secondary Phase + Control Phase)
+    // Note that in the cascaded PWM, the reference phase of the client PWM, is its trigger source
     uint16_t PrimaryPhaseDelay = (ControlDutyCycle - PrimarySecondaryPhase) + ControlPhase;
     
+    // Set the PWM trigger with the calculated PWM phases
     PWM_TriggerCCompareValueSet(PWM_GENERATOR_1, PrimarySecondaryPhase);
     PWM_TriggerCCompareValueSet(PWM_GENERATOR_2, PrimaryPhaseDelay);
     PWM_TriggerCCompareValueSet(PWM_GENERATOR_3, PrimarySecondaryPhase);
 
+    // Set the PWM Duty Cycle at 50% with the given Frequency
     PWM_DutyCycleSet(PWM_GENERATOR_1, ControlDutyCycle);
     PWM_DutyCycleSet(PWM_GENERATOR_2, ControlDutyCycle);
     PWM_DutyCycleSet(PWM_GENERATOR_3, ControlDutyCycle);
     PWM_DutyCycleSet(PWM_GENERATOR_4, ControlDutyCycle);
     
+    // Set the PWM Frequency
     PWM_PeriodSet(PWM_GENERATOR_1, ControlFrequency);
     PWM_PeriodSet(PWM_GENERATOR_2, ControlFrequency);
     PWM_PeriodSet(PWM_GENERATOR_3, ControlFrequency);
     PWM_PeriodSet(PWM_GENERATOR_4, ControlFrequency);
 
+    // Set the Update bit of the last PWM in the cascaded approach to broadcast
+    // it to the other PWMs
     PWM_SoftwareUpdateRequest(PWM_GENERATOR_4);
+    
 }
 
 /*******************************************************************************
