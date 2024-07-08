@@ -61,6 +61,7 @@
           <itemPath>sources/os/os_sys_time.h</itemPath>
           <itemPath>sources/os/os_timer.h</itemPath>
           <itemPath>sources/os/os_watchdog.h</itemPath>
+          <itemPath>sources/os/project_settings.h</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -119,12 +120,17 @@
           <itemPath>sources/os/os_timer.c</itemPath>
           <itemPath>sources/os/os_watchdog.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="x2cScope" displayName="x2cScope" projectFiles="true">
+          <itemPath>sources/x2cScope/X2CScope.c</itemPath>
+          <itemPath>sources/x2cScope/X2CScopeComm.c</itemPath>
+        </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+      <itemPath>main_tasks.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>sources</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -147,6 +153,7 @@
       <compileType>
         <linkerTool>
           <linkerLibItems>
+            <linkerLibFileItem>sources/x2cScope/libx2cscope-33ck-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>

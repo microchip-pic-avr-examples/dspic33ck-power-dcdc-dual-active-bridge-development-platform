@@ -40,23 +40,23 @@
 #include <stddef.h>
 #include <xc.h>
 
-#include "project_settings.h"
+//#include "project_settings.h"
 #include "os/os_sys_time.h"
 #include "os/os_scheduler.h"
 
-#include "sources/device/dev_led.h"
-#include "sources/app/app_PBV_cllc_frame_map.h"
-#include "sources/app/app_PBV_interface.h"
-#include "sources/device/dev_fan.h"
-#include "sources/x2cScope/X2CScope.h"
-#include "sources/config/comms_config.h"
-#include "sources/device/measure_task.h"
-#include "sources/device/dev_temp.h"
-#include "system/pins.h"
-#include "driver_chiplayer/power_controller/drv_pwrctrl_sm.h"
-#include "driver_chiplayer/power_controller/drv_pwrctrl_isr.h"
-
-#include "device/dev_current_sensor.h"
+//#include "sources/device/dev_led.h"
+//#include "sources/app/app_PBV_cllc_frame_map.h"
+//#include "sources/app/app_PBV_interface.h"
+//#include "sources/device/dev_fan.h"
+//#include "sources/x2cScope/X2CScope.h"
+//#include "sources/config/comms_config.h"
+//#include "sources/device/measure_task.h"
+//#include "sources/device/dev_temp.h"
+//#include "system/pins.h"
+//#include "driver_chiplayer/power_controller/drv_pwrctrl_sm.h"
+//#include "driver_chiplayer/power_controller/drv_pwrctrl_isr.h"
+//
+//#include "device/dev_current_sensor.h"
 
 //=======================================================================================================
 //
@@ -107,7 +107,7 @@ void Tasks_Realtime_100us(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_Realtime_1ms(void)
 {
-    Dev_CurrentSensorOffsetCal();
+//    Dev_CurrentSensorOffsetCal();
 }
 
 #if OS_USE_SCHEDULER_100us == 1
@@ -143,8 +143,8 @@ void Tasks_10ms(void)
 {
     // put your application specific code here that needs to be called every 10 milliseconds
     // App_Example_CheckButtons_1ms();
-    App_PBV_Task_10ms();
-    App_PBV_CLLC_Task_10ms();
+//    App_PBV_Task_10ms();
+//    App_PBV_CLLC_Task_10ms();
 }
 
 extern uint16_t os_resetCause;
@@ -154,9 +154,9 @@ extern uint16_t os_resetCause;
 //=======================================================================================================
 void Tasks_100ms(void)
 {
-    Dev_LED_Task_100ms();
-    Dev_Fan_Task_100ms();
-    Dev_Temp_Task_100ms();
+//    Dev_LED_Task_100ms();
+//    Dev_Fan_Task_100ms();
+//    Dev_Temp_Task_100ms();
 }
 
 //=======================================================================================================
@@ -167,7 +167,7 @@ void Tasks_1s(void)
 {
     // put your application specific code here that needs to be called every second
     //OS_SysTime_GetTime(&sysTime);
-    App_PBV_CLLC_Task_1s();
+//    App_PBV_CLLC_Task_1s();
 }
 
 //=======================================================================================================

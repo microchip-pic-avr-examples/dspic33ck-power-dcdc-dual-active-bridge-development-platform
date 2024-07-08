@@ -42,7 +42,7 @@
 #include "os_timer.h"
 
 #ifndef OS_TIMER_NUMBER_OF_TIMERS
-    #error OS_TIMER_NUMBER_OF_TIMERS needs to be defined in the file project_settings.h
+    #pragma message "OS_TIMER_NUMBER_OF_TIMERS needs to be defined in the file project_settings.h"
 #endif  //OS_TIMER_NUMBER_OF_TIMERS
 
 #if OS_TIMER_NUMBER_OF_TIMERS > 0
