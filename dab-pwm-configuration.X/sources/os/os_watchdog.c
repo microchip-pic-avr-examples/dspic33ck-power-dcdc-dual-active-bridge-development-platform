@@ -1,5 +1,5 @@
 
-#include "../project_settings.h"
+#include "os_config.h"
 #if OS_FEATURE_WATCHDOG_ENABLED == 1
 
 #if OS_USE_MCC_WATCHDOG == 1

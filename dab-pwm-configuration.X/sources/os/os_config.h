@@ -32,9 +32,9 @@
 //sometimes the software runs on different hardware versions, so you can make defines for different board settings
 
 //Check with Cormac as this defines are not used
-#define PROJECT_SETTINGS_BOARD_DPPIM_CK 1       // dsPic33CK single core on DPPIM module
+//#define PROJECT_SETTINGS_BOARD_DPPIM_CK 1       // dsPic33CK single core on DPPIM module
 
-#define PROJECT_SETTINGS_BOARD_EXPANDER_CK 0    // BOARD_EXPANDER_CK single core dsPic33CK for testing basic stuff
+//#define PROJECT_SETTINGS_BOARD_EXPANDER_CK 0    // BOARD_EXPANDER_CK single core dsPic33CK for testing basic stuff
 
 //=======================================================================================================
 //  OS Settings for the OS_Scheduler
@@ -60,7 +60,7 @@
     #define OS_TIMER_NUMBER_OF_TIMERS       0
 //-------------------------------------------------------------------------------------------------------
 //  Application specific Timers:
-    #define OS_TIMER_COUNTDOWN_MY_STATUS_LED   0
+//    #define OS_TIMER_COUNTDOWN_MY_STATUS_LED   0
 //=======================================================================================================
 
 //=======================================================================================================
@@ -74,7 +74,7 @@
 //-------------------------------------------------------------------------------------------------------
 #define OS_USE_MCC_TIMER1 1
 #define OS_USE_MCC_WATCHDOG 0
-#define OS_USE_MCC_RESET 1
+//#define OS_USE_MCC_RESET 1
 //=======================================================================================================
 
 

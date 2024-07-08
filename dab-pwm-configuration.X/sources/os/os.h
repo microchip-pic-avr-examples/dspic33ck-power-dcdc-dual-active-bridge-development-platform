@@ -31,7 +31,7 @@
 #ifndef OS_H
 #define OS_H
 
-#include "../project_settings.h" //TODO: move this file
+#include "os_config.h" //TODO: move this file
 #include "os_scheduler.h"
 
 #ifdef __cplusplus  // Provide C++ Compatibility

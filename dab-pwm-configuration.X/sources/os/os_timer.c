@@ -38,7 +38,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
-#include "../project_settings.h"
+#include "os_config.h"
 #include "os_timer.h"
 
 #ifndef OS_TIMER_NUMBER_OF_TIMERS

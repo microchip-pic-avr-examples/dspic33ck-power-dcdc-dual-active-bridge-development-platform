@@ -25,7 +25,6 @@
 //
 //=======================================================================================================
 
-#include "../project_settings.h"
 #include "os/os_scheduler.h"
 #include "os/os.h"
 #include "stdint.h"

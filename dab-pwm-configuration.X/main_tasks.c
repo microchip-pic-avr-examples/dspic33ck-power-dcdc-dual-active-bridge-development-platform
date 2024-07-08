@@ -40,7 +40,7 @@
 #include <stddef.h>
 #include <xc.h>
 
-//#include "project_settings.h"
+#include "os/os_config.h"
 #include "os/os_sys_time.h"
 #include "os/os_scheduler.h"
 
@@ -90,7 +90,7 @@ void Tasks_Realtime_100us(void)
 {    
     // put your application specific code here that needs to be called every 100 micro seconds from the interrupt
     // example: Drv_TestPin_Toggle(DBG_PIN1);    
-    Drv_PwrCtrl_StateMachine();
+//    Drv_PwrCtrl_StateMachine();
   
 #if (X2CDEBUG_ENABLED == 1)
     X2CScope_Update();
@@ -118,7 +118,7 @@ void Tasks_Realtime_1ms(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_100us(void)
 {
-    App_PBV_Task_100us();
+//    App_PBV_Task_100us();
     //Dev_Measure_Task_100us();
     
 }

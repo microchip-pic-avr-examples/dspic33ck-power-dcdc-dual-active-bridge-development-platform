@@ -29,7 +29,7 @@
 
 #include <string.h>
 #include "os/os_sys_time.h"
-#include "../project_settings.h"
+#include "os_config.h"
 
 #if OS_USE_SYSTIME == 1
 
