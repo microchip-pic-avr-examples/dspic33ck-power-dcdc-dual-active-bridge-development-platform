@@ -20,7 +20,7 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
 /**
  * This file shows example for X2CScope_Init implementation.
  */
-#include "config/comms_config.h"
+//#include "config/comms_config.h"
 
 
 #ifdef X2CDEBUG_ENABLED    

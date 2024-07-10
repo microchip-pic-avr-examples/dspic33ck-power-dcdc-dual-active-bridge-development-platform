@@ -20,7 +20,7 @@ Copyright (c) [2012-2020] Microchip Technology Inc.
 /**
  * This file implements the X2C Lin protocol connection with MCC Peripheral drivers.
  */
-#include "config/comms_config.h"
+//#include "config/comms_config.h"
 
 #ifdef X2CDEBUG_ENABLED 
 #include <xc.h>
