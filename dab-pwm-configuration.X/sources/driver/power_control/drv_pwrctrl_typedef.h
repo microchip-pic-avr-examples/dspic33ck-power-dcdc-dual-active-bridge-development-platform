@@ -49,13 +49,15 @@ typedef struct SWITCH_NODE_s SWITCH_NODE_t;
  **********************************************************************************/
 struct FEEDBACK_SETTINGS_s
 {
-    uint16_t vsec; ///> secondary side voltage
-    uint16_t ipri_ct; ///> primary current as measured with CT
-    uint16_t vpri; ///> primary side voltage
-    uint16_t temperature; ///> temperature
-    uint16_t vrail_5v; ///> 5V aux rail
-    uint16_t isec_ct; ///> secondary current as measured with CT
-uint16_t isec_avg; ///> average secondary current as measured with isolated current sensor
+    uint16_t vsec; ///< secondary side voltage
+    uint16_t ipri_ct; ///< primary current as measured with CT
+    uint16_t vpri; ///< primary side voltage
+    uint16_t temperature; ///< temperature
+    uint16_t vrail_5v; ///< 5V aux rail
+    uint16_t isec_ct; ///< secondary current as measured with CT
+    uint16_t isec_avg; ///< average secondary current as measured with isolated current sensor
+    
+    uint16_t isec_sensor_offset; ///< ADC code corresponding to the offset of the secondary current sensor
 };
 
 typedef struct FEEDBACK_SETTINGS_s FEEDBACK_SETTINGS_t;
