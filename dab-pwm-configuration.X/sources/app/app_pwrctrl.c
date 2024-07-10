@@ -42,7 +42,7 @@ void App_PwrCtrl_Initialize(void)
     dab.Pwm.ControlPhase = 0;
    
     // set all PWM output pins to 0
-    Drv_PwrCtrl_PWM_Disable(); 
+    Drv_PwrCtrl_PWM_Disable(&dab); 
     
     // Update the Period, Duty Cycle and Phases of the PWMs based on
     // the given Control period and Control Phase
