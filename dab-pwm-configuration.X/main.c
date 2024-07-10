@@ -30,6 +30,7 @@
 #include "mcc_extension/drv_mcc_extension.h"
 
 #include "config/hal.h"
+#include "os/os.h"
 
 /*
     Main application
@@ -115,7 +116,18 @@ int main(void)
 {
     SYSTEM_Initialize();
     
-    TMR1_TimeoutCallbackRegister(&Timer1_Interrupt);
+   // No need to call the TMR1 callback as this is already initialized by OS_Init()
+//    TMR1_TimeoutCallbackRegister(&Timer1_Interrupt);
+    
+    // X2CScope will be initialized when X2CDEBUG_ENABLED is enabled
+    #if (X2CDEBUG_ENABLED == 1)
+    X2CScope_Init();
+    #endif
+    
+    
+    OS_Init(); 
+    
+    OS_Scheduler_RunForever();
     
     //needed for cascaded PWM
     PWM_Trigger_Mode(PWM_GENERATOR_1, PWM_TRIG_MODE_RETRIGGERABLE);

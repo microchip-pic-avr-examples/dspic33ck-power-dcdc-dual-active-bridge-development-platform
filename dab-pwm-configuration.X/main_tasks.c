@@ -44,19 +44,6 @@
 #include "os/os_sys_time.h"
 #include "os/os_scheduler.h"
 
-//#include "sources/device/dev_led.h"
-//#include "sources/app/app_PBV_cllc_frame_map.h"
-//#include "sources/app/app_PBV_interface.h"
-//#include "sources/device/dev_fan.h"
-//#include "sources/x2cScope/X2CScope.h"
-//#include "sources/config/comms_config.h"
-//#include "sources/device/measure_task.h"
-//#include "sources/device/dev_temp.h"
-//#include "system/pins.h"
-//#include "driver_chiplayer/power_controller/drv_pwrctrl_sm.h"
-//#include "driver_chiplayer/power_controller/drv_pwrctrl_isr.h"
-//
-//#include "device/dev_current_sensor.h"
 
 //=======================================================================================================
 //
@@ -88,14 +75,7 @@
 /* LDRA_EXCLUDE 65 D */
 void Tasks_Realtime_100us(void)
 {    
-    // put your application specific code here that needs to be called every 100 micro seconds from the interrupt
-    // example: Drv_TestPin_Toggle(DBG_PIN1);    
-//    Drv_PwrCtrl_StateMachine();
-  
-#if (X2CDEBUG_ENABLED == 1)
-    X2CScope_Update();
-#endif   
-    
+
 }
 #endif /* OS_USE_SCHEDULER_100us */
 //=======================================================================================================
@@ -107,7 +87,7 @@ void Tasks_Realtime_100us(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_Realtime_1ms(void)
 {
-//    Dev_CurrentSensorOffsetCal();
+
 }
 
 #if OS_USE_SCHEDULER_100us == 1
@@ -118,9 +98,11 @@ void Tasks_Realtime_1ms(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_100us(void)
 {
-//    App_PBV_Task_100us();
-    //Dev_Measure_Task_100us();
     
+    // X2CScope Update will be executed every 100us when X2CDEBUG_ENABLED is enabled
+    #if (X2CDEBUG_ENABLED == 1)
+        X2CScope_Update();
+    #endif   
 }
 #endif /* OS_USE_SCHEDULER_100us */
 //=======================================================================================================
@@ -130,8 +112,7 @@ void Tasks_100us(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_1ms(void)
 {
-//    App_ExampleSomethingOne_1ms();
-//    App_ExampleSomethingTwo_1ms();
+
 }
 
 //=======================================================================================================
@@ -141,10 +122,7 @@ void Tasks_1ms(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_10ms(void)
 {
-    // put your application specific code here that needs to be called every 10 milliseconds
-    // App_Example_CheckButtons_1ms();
-//    App_PBV_Task_10ms();
-//    App_PBV_CLLC_Task_10ms();
+
 }
 
 extern uint16_t os_resetCause;
@@ -154,9 +132,7 @@ extern uint16_t os_resetCause;
 //=======================================================================================================
 void Tasks_100ms(void)
 {
-//    Dev_LED_Task_100ms();
-//    Dev_Fan_Task_100ms();
-//    Dev_Temp_Task_100ms();
+
 }
 
 //=======================================================================================================
@@ -165,9 +141,7 @@ void Tasks_100ms(void)
 //=======================================================================================================
 void Tasks_1s(void)
 {
-    // put your application specific code here that needs to be called every second
-    //OS_SysTime_GetTime(&sysTime);
-//    App_PBV_CLLC_Task_1s();
+
 }
 
 //=======================================================================================================
@@ -179,10 +153,8 @@ void Tasks_1s(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_Background(void)
 {
-    // put your application specific code here that needs to be called in the background.
-    // your application needs to take care of it's timing.
-#if (X2CDEBUG_ENABLED == 1)
-    X2CScope_Communicate();     ///< commuincate needs to be in free running mode. in some while(1) loop
-#endif
-    
+    // X2CScope_Communicate will be executed ina a free running mode when X2CDEBUG_ENABLED is enabled
+    #if (X2CDEBUG_ENABLED == 1)
+    X2CScope_Communicate();    
+    #endif
 }
