@@ -10,11 +10,11 @@
 
 
 
-void Drv_PwrCtrl_PWM_Enable(void);
-void Drv_PwrCtrl_PWM_Disable(void);
-void Drv_PwrCtrl_PWM_Primary_Enable(void);
-void Drv_PwrCtrl_PWM_Secondary_Enable(void);
-void Drv_PwrCtrl_PWM_Update(void);  
+void Drv_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance);
+void Drv_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance);
+void Drv_PwrCtrl_PWM_Primary_Enable(POWER_CONTROL_t* pcInstance);
+void Drv_PwrCtrl_PWM_Secondary_Enable(POWER_CONTROL_t* pcInstance);
+void Drv_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance);
 
 
 

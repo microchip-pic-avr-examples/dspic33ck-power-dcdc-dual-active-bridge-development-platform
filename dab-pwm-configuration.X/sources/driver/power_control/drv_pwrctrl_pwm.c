@@ -36,25 +36,18 @@
  **********************************************************************************/
 void Drv_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance)
 {
-//    PG1IOCONHbits.PENH = 1; // PWMxH Output Port Enable: PWM generator controls the PWMxH output pin
-//    PG1IOCONHbits.PENL = 1; // WMxL Output Port Enable: PWM generator controls the PWMxL output pin
-//    PG2IOCONHbits.PENH = 1; // PWMxH Output Port Enable: PWM generator controls the PWMxH output pin
-//    PG2IOCONHbits.PENL = 1; // WMxL Output Port Enable: PWM generator controls the PWMxL output pin
-//    PG3IOCONHbits.PENH = 1; // PWMxH Output Port Enable: PWM generator controls the PWMxH output pin
-//    PG3IOCONHbits.PENL = 1; // WMxL Output Port Enable: PWM generator controls the PWMxL output pin
-//    PG4IOCONHbits.PENH = 1; // PWMxH Output Port Enable: PWM generator controls the PWMxH output pin
-//    PG4IOCONHbits.PENL = 1; // WMxL Output Port Enable: PWM generator controls the PWMxL output pin
         
     // turn on PWM outputs by disabling the output override on each high and low PWM output
-    PWM_OverrideHighDisable(pcInstance->SwitchNodes[0].Primary.PwmChannel);
-    PWM_OverrideHighDisable(pcInstance->SwitchNodes[1].Primary.PwmChannel);
-    PWM_OverrideHighDisable(pcInstance->SwitchNodes[0].Secondary.PwmChannel);
-    PWM_OverrideHighDisable(pcInstance->SwitchNodes[1].Secondary.PwmChannel);
+    PWM_OverrideHighDisable(pcInstance->Pwm.Primary_1);
+    PWM_OverrideHighDisable(pcInstance->Pwm.Primary_2);
+    PWM_OverrideHighDisable(pcInstance->Pwm.Secondary_1);
+    PWM_OverrideHighDisable(pcInstance->Pwm.Secondary_2);
            
-    PWM_OverrideLowDisable(pcInstance->SwitchNodes[0].Primary.PwmChannel);
-    PWM_OverrideLowDisable(pcInstance->SwitchNodes[1].Primary.PwmChannel);
-    PWM_OverrideLowDisable(pcInstance->SwitchNodes[0].Secondary.PwmChannel);
-    PWM_OverrideLowDisable(pcInstance->SwitchNodes[1].Secondary.PwmChannel); 
+    PWM_OverrideLowDisable(pcInstance->Pwm.Primary_1);
+    PWM_OverrideLowDisable(pcInstance->Pwm.Primary_2);
+    PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_1);
+    PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_2); 
+    
 }
 
 
@@ -72,20 +65,20 @@ void Drv_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance)
 {
     // turn on all PWM pin output overrides, this sets PWM pin to 0
     // even if PWM peripheral is enabled and running in the background
-    PWM_OverrideHighEnable(pcInstance->SwitchNodes[0].Primary.PwmChannel); 
-    PWM_OverrideLowEnable(pcInstance->SwitchNodes[0].Primary.PwmChannel); 
+    PWM_OverrideHighEnable(pcInstance->Pwm.Primary_1); 
+    PWM_OverrideLowEnable(pcInstance->Pwm.Primary_1); 
 
-    PWM_OverrideHighEnable(pcInstance->SwitchNodes[1].Primary.PwmChannel); 
-    PWM_OverrideLowEnable(pcInstance->SwitchNodes[1].Primary.PwmChannel); 
+    PWM_OverrideHighEnable(pcInstance->Pwm.Primary_2); 
+    PWM_OverrideLowEnable(pcInstance->Pwm.Primary_2); 
 
-    PWM_OverrideHighEnable(pcInstance->SwitchNodes[0].Secondary.PwmChannel); 
-    PWM_OverrideLowEnable(pcInstance->SwitchNodes[0].Secondary.PwmChannel); 
+    PWM_OverrideHighEnable(pcInstance->Pwm.Secondary_1); 
+    PWM_OverrideLowEnable(pcInstance->Pwm.Secondary_1); 
 
-    PWM_OverrideHighEnable(pcInstance->SwitchNodes[1].Secondary.PwmChannel); 
-    PWM_OverrideLowEnable(pcInstance->SwitchNodes[1].Secondary.PwmChannel);   
+    PWM_OverrideHighEnable(pcInstance->Pwm.Secondary_2); 
+    PWM_OverrideLowEnable(pcInstance->Pwm.Secondary_2);   
     
     // set update request of the last PWM in the cascade to update all pwm registers
-    PWM_SoftwareUpdateRequest(pcInstance->SwitchNodes[1].Secondary.PwmChannel);
+    PWM_SoftwareUpdateRequest(pcInstance->Pwm.Secondary_2);
     
 }
 
@@ -101,22 +94,18 @@ void Drv_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 void Drv_PwrCtrl_PWM_Primary_Enable(POWER_CONTROL_t* pcInstance)
 {
-//    PG1IOCONHbits.PENH = 1; // PWMxH Output Port Enable: PWM generator controls the PWMxH output pin
-//    PG1IOCONHbits.PENL = 1; // PWMxL Output Port Enable: PWM generator controls the PWMxL output pin
-//    PG3IOCONHbits.PENH = 1; // PWMxH Output Port Enable: PWM generator controls the PWMxH output pin
-//    PG3IOCONHbits.PENL = 1; // PWMxL Output Port Enable: PWM generator controls the PWMxL output pin
  
     // turn on primary side PWM outputs by disabling the output overrides
-    PWM_OverrideHighDisable(pcInstance->SwitchNodes[0].Primary.PwmChannel);
-    PWM_OverrideHighDisable(pcInstance->SwitchNodes[1].Primary.PwmChannel);
-    PWM_OverrideLowDisable(pcInstance->SwitchNodes[0].Primary.PwmChannel);
-    PWM_OverrideLowDisable(pcInstance->SwitchNodes[1].Primary.PwmChannel);
+    PWM_OverrideHighDisable(pcInstance->Pwm.Primary_1);
+    PWM_OverrideLowDisable(pcInstance->Pwm.Primary_1);
+    PWM_OverrideHighDisable(pcInstance->Pwm.Primary_2);
+    PWM_OverrideLowDisable(pcInstance->Pwm.Primary_2);
     
     // turn off secondary PWM outputs by enabling the output overrides
-    PWM_OverrideHighEnable(pcInstance->SwitchNodes[0].Secondary.PwmChannel);
-    PWM_OverrideHighEnable(pcInstance->SwitchNodes[1].Secondary.PwmChannel);
-    PWM_OverrideLowEnable(pcInstance->SwitchNodes[0].Secondary.PwmChannel);
-    PWM_OverrideLowEnable(pcInstance->SwitchNodes[1].Secondary.PwmChannel);
+    PWM_OverrideHighEnable(pcInstance->Pwm.Secondary_1);
+    PWM_OverrideLowEnable(pcInstance->Pwm.Secondary_1);
+    PWM_OverrideHighEnable(pcInstance->Pwm.Secondary_2);
+    PWM_OverrideLowEnable(pcInstance->Pwm.Secondary_2);
 }
 
 /*********************************************************************************
@@ -130,14 +119,65 @@ void Drv_PwrCtrl_PWM_Primary_Enable(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 void Drv_PwrCtrl_PWM_Secondary_Enable(POWER_CONTROL_t* pcInstance)
 {
-//    PG2IOCONHbits.PENH = 1; // PWMxH Output Port Enable: PWM generator controls the PWMxH output pin
-//    PG2IOCONHbits.PENL = 1; // PWMxL Output Port Enable: PWM generator controls the PWMxL output pin
-//    PG4IOCONHbits.PENH = 1; // PWMxH Output Port Enable: PWM generator controls the PWMxH output pin
-//    PG4IOCONHbits.PENL = 1; // PWMxL Output Port Enable: PWM generator controls the PWMxL output pin
- 
     // turn on secondary side PWM outputs by disabling the PWM pin override
-    PWM_OverrideHighDisable(pcInstance->SwitchNodes[0].Secondary.PwmChannel);
-    PWM_OverrideHighDisable(pcInstance->SwitchNodes[1].Secondary.PwmChannel);
-    PWM_OverrideLowDisable(pcInstance->SwitchNodes[0].Secondary.PwmChannel);
-    PWM_OverrideLowDisable(pcInstance->SwitchNodes[1].Secondary.PwmChannel);  
+    PWM_OverrideHighDisable(pcInstance->Pwm.Secondary_1);
+    PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_1);
+    PWM_OverrideHighDisable(pcInstance->Pwm.Secondary_2);
+    PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_2);  
+}
+
+
+/*********************************************************************************
+ * @fn     void Drv_PwrCtrl_PWM_Update(void)
+ * @brief  update PWM registers
+ * @param   none
+ * @return  none
+ * @details
+ * update period, duty cycle and phase registers for primary and secondary side PWMs
+ **********************************************************************************/
+void Drv_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
+{   
+    // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
+    // (please refer to Section 4.1.3.3 in High Resolution PWM FRM)
+    uint16_t PeriodMask = 0x7; 
+    
+    // Mask the calculated frequency bits [2:0] to make the cascaded/synchronous
+    // PWM scheme reliable (please refer to Section 4.1.3.3 in High Resolution PWM FRM)
+    pcInstance->Pwm.ControlPeriod = pcInstance->Pwm.ControlPeriod & ~(PeriodMask);
+    
+    // calculate Duty Cycle for 50%
+    pcInstance->Pwm.ControlDutyCycle = (pcInstance->Pwm.ControlPeriod >> 1);
+    
+    //Todo: Move this to the app layer as this is not generic
+    // Calculate the DAB Primary to Secondary Phase ((Frequency / 4) - (Control Phase /2))
+    uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlDutyCycle >> 1) - 
+            (pcInstance->Pwm.ControlPhase >> 1);
+    
+    //Todo: Move this to the app layer as this is not generic
+    // Calculate the bridge delay ((Frequency / 2) - Primary to Secondary Phase + Control Phase)
+    // Note that in the cascaded PWM, the reference phase of the client PWM, is its trigger source
+    uint16_t PrimaryPhaseDelay = (pcInstance->Pwm.ControlDutyCycle - PrimarySecondaryPhase) + 
+            pcInstance->Pwm.ControlPhase;
+    
+    // Set the PWM trigger with the calculated PWM phases
+    PWM_TriggerCCompareValueSet(pcInstance->Pwm.Primary_1, PrimarySecondaryPhase);
+    PWM_TriggerCCompareValueSet(pcInstance->Pwm.Secondary_1, PrimaryPhaseDelay);
+    PWM_TriggerCCompareValueSet(pcInstance->Pwm.Primary_2, PrimarySecondaryPhase);
+
+    // Set the PWM Duty Cycle at 50% with the given Frequency
+    PWM_DutyCycleSet(pcInstance->Pwm.Primary_1, pcInstance->Pwm.ControlDutyCycle);
+    PWM_DutyCycleSet(pcInstance->Pwm.Secondary_1, pcInstance->Pwm.ControlDutyCycle);
+    PWM_DutyCycleSet(pcInstance->Pwm.Primary_2, pcInstance->Pwm.ControlDutyCycle);
+    PWM_DutyCycleSet(pcInstance->Pwm.Secondary_2, pcInstance->Pwm.ControlDutyCycle);
+    
+    // Set the PWM Frequency
+    PWM_PeriodSet(PWM_GENERATOR_1, pcInstance->Pwm.ControlPeriod);
+    PWM_PeriodSet(PWM_GENERATOR_2, pcInstance->Pwm.ControlPeriod);
+    PWM_PeriodSet(PWM_GENERATOR_3, pcInstance->Pwm.ControlPeriod);
+    PWM_PeriodSet(PWM_GENERATOR_4, pcInstance->Pwm.ControlPeriod);
+
+    // Set the Update bit of the last PWM in the cascaded approach to broadcast
+    // it to the other PWMs
+    PWM_SoftwareUpdateRequest(PWM_GENERATOR_4);
+    
 }
