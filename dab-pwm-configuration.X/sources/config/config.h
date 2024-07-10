@@ -13,11 +13,15 @@
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h> // include standard definition data types
 
-#define PWM_CLOCK_HIGH_RESOLUTION true 
+
+#define X2CDEBUG_ENABLED                false
+
+
+#define PWM_CLOCK_HIGH_RESOLUTION       true 
 #define MAXIMUM_SWITCHING_FREQUENCY     (float)230.0e+3 ///< Maximum Switching frequency in [Hz]
 #define MINIMUM_SWITCHING_FREQUENCY     (float) 65.0e+3 ///< Minimum Switching frequency in [Hz]
 
-#define MAXIMUM_CONTROL_PHASE 180 ///< Maximum control phase in degrees phase
+#define MAXIMUM_CONTROL_PHASE           180 ///< Maximum control phase in degrees phase
 
 #endif	/* CONFIG_H */
 

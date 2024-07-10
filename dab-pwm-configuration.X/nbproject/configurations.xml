@@ -36,22 +36,40 @@
           <itemPath>mcc_generated_files/timer/timer_interface.h</itemPath>
           <itemPath>mcc_generated_files/timer/tmr1.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="uart" displayName="uart" projectFiles="true">
+          <itemPath>mcc_generated_files/uart/uart_interface.h</itemPath>
+          <itemPath>mcc_generated_files/uart/uart_types.h</itemPath>
+          <itemPath>mcc_generated_files/uart/uart1.h</itemPath>
+        </logicalFolder>
       </logicalFolder>
       <logicalFolder name="sources" displayName="sources" projectFiles="true">
+        <logicalFolder name="app" displayName="app" projectFiles="true">
+          <itemPath>sources/app/app_pwrctrl.h</itemPath>
+          <itemPath>sources/app/app_mcc_custom_config.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="config" displayName="config" projectFiles="true">
           <itemPath>sources/config/config.h</itemPath>
           <itemPath>sources/config/hal.h</itemPath>
           <itemPath>sources/config/macros.h</itemPath>
+          <itemPath>sources/config/apps.h</itemPath>
+          <itemPath>sources/config/hardware.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="driver_chiplayer"
-                       displayName="driver_chiplayer"
-                       projectFiles="true">
+        <logicalFolder name="device" displayName="device" projectFiles="true">
+        </logicalFolder>
+        <logicalFolder name="driver" displayName="driver" projectFiles="true">
           <logicalFolder name="mcc_extension"
                          displayName="mcc_extension"
                          projectFiles="true">
-            <itemPath>sources/driver_chiplayer/mcc_extension/drv_mcc_extension.h</itemPath>
-            <itemPath>sources/driver_chiplayer/mcc_extension/drv_mcc_extension_pwm.h</itemPath>
-            <itemPath>sources/driver_chiplayer/mcc_extension/drv_mc_extension_adc.h</itemPath>
+            <itemPath>sources/driver/mcc_extension/drv_mcc_extension.h</itemPath>
+            <itemPath>sources/driver/mcc_extension/drv_mcc_extension_pwm.h</itemPath>
+            <itemPath>sources/driver/mcc_extension/drv_mcc_extension_adc.h</itemPath>
+            <itemPath>sources/driver/mcc_extension/drv_config_custom_pwm.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="power_control"
+                         displayName="power_control"
+                         projectFiles="true">
+            <itemPath>sources/driver/power_control/drv_pwrctrl_pwm.h</itemPath>
+            <itemPath>sources/driver/power_control/drv_pwrctrl_typedef.h</itemPath>
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="os" displayName="os" projectFiles="true">
@@ -62,6 +80,10 @@
           <itemPath>sources/os/os_timer.h</itemPath>
           <itemPath>sources/os/os_watchdog.h</itemPath>
           <itemPath>sources/os/os_config.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="x2cScope" displayName="x2cScope" projectFiles="true">
+          <itemPath>sources/x2cScope/X2CScope.h</itemPath>
+          <itemPath>sources/x2cScope/X2CScopeComm.h</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -109,8 +131,29 @@
             <itemPath>mcc_generated_files/timer/src/tmr1.c</itemPath>
           </logicalFolder>
         </logicalFolder>
+        <logicalFolder name="uart" displayName="uart" projectFiles="true">
+          <logicalFolder name="src" displayName="src" projectFiles="true">
+            <itemPath>mcc_generated_files/uart/src/uart1.c</itemPath>
+          </logicalFolder>
+        </logicalFolder>
       </logicalFolder>
       <logicalFolder name="sources" displayName="sources" projectFiles="true">
+        <logicalFolder name="app" displayName="app" projectFiles="true">
+          <itemPath>sources/app/app_pwrctrl.c</itemPath>
+          <itemPath>sources/app/app_mcc_custom_config.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="device" displayName="device" projectFiles="true">
+          <itemPath>dev_pwrctrl_sm.c</itemPath>
+          <itemPath>sources/device/dev_pwrctrl_utils.c</itemPath>
+          <itemPath>sources/device/dev_current_sensor.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="driver" displayName="driver" projectFiles="true">
+          <logicalFolder name="power_control"
+                         displayName="power_control"
+                         projectFiles="true">
+            <itemPath>sources/driver/power_control/drv_pwrctrl_pwm.c</itemPath>
+          </logicalFolder>
+        </logicalFolder>
         <logicalFolder name="os" displayName="os" projectFiles="true">
           <itemPath>sources/os/os.c</itemPath>
           <itemPath>sources/os/os_reset.c</itemPath>
@@ -293,7 +336,7 @@
       <C30Global>
         <property key="combine-sourcefiles" value="false"/>
         <property key="common-include-directories"
-                  value="sources;mcc_generated_files;sources/driver_chiplayer"/>
+                  value="sources;mcc_generated_files;sources/driver"/>
         <property key="dual-boot-partition" value="0"/>
         <property key="fast-math" value="false"/>
         <property key="generic-16-bit" value="false"/>

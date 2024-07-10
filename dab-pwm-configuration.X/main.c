@@ -24,11 +24,8 @@
 #include <stddef.h> // include standard definition data types
 
 #include "system/system.h"
-#include "pwm_hs/pwm.h"
-#include "adc/adc1.h"
-#include "timer/tmr1.h"
-#include "mcc_extension/drv_mcc_extension.h"
 
+#include "app/app_pwrctrl.h"
 #include "config/hal.h"
 #include "os/os.h"
 
@@ -36,66 +33,6 @@
     Main application
 */
 
-
-void Timer1_Interrupt (void){
-    
-    // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
-    // (please refer to the device FRM)
-    uint16_t PeriodMask = 0x7; 
-    uint16_t ControlFrequency = 0;
-    uint16_t ControlDutyCycle = 0;
-    uint16_t ControlPhase = 0;
-
-    //Calculate the Frequency based on the Potentiometer 2 voltage
-    ControlFrequency = (uint16_t)(MIN_PWM_PERIOD + (ADC1_ConversionResultGet(Pot2An0) * ADC_PERIOD_RANGE)); 
-    
-    // Maximum frequency clamping
-    if(ControlFrequency > MAX_PWM_PERIOD)
-        ControlFrequency = MAX_PWM_PERIOD;
-    
-    // Minimum frequency clamping
-    if(ControlFrequency < MIN_PWM_PERIOD)
-        ControlFrequency = MIN_PWM_PERIOD;
-
-    // Mask the calculated frequency bits [2:0] to make the cascaded/synchronous
-    // PWM scheme reliable (please refer to the PWM FRM)
-    ControlFrequency = ControlFrequency & ~(PeriodMask);
-    
-    // calculate Duty Cycle for 50%
-    ControlDutyCycle = (ControlFrequency >> 1);
-    
-    // Scale the potentiometer 1 reading with the Frequency
-    ControlPhase = (uint16_t)(ADC1_ConversionResultGet(Pot1An1) * ADC_SCALER * ControlDutyCycle);
-    
-    // Calculate the DAB Primary to Secondary Phase ((Frequency / 4) - (Control Phase /2))
-    uint16_t PrimarySecondaryPhase = (ControlDutyCycle >> 1) - (ControlPhase >> 1);
-    
-    // Calculate the bridge delay ((Frequency / 2) - Primary to Secondary Phase + Control Phase)
-    // Note that in the cascaded PWM, the reference phase of the client PWM, is its trigger source
-    uint16_t PrimaryPhaseDelay = (ControlDutyCycle - PrimarySecondaryPhase) + ControlPhase;
-    
-    // Set the PWM trigger with the calculated PWM phases
-    PWM_TriggerCCompareValueSet(PWM_GENERATOR_1, PrimarySecondaryPhase);
-    PWM_TriggerCCompareValueSet(PWM_GENERATOR_2, PrimaryPhaseDelay);
-    PWM_TriggerCCompareValueSet(PWM_GENERATOR_3, PrimarySecondaryPhase);
-
-    // Set the PWM Duty Cycle at 50% with the given Frequency
-    PWM_DutyCycleSet(PWM_GENERATOR_1, ControlDutyCycle);
-    PWM_DutyCycleSet(PWM_GENERATOR_2, ControlDutyCycle);
-    PWM_DutyCycleSet(PWM_GENERATOR_3, ControlDutyCycle);
-    PWM_DutyCycleSet(PWM_GENERATOR_4, ControlDutyCycle);
-    
-    // Set the PWM Frequency
-    PWM_PeriodSet(PWM_GENERATOR_1, ControlFrequency);
-    PWM_PeriodSet(PWM_GENERATOR_2, ControlFrequency);
-    PWM_PeriodSet(PWM_GENERATOR_3, ControlFrequency);
-    PWM_PeriodSet(PWM_GENERATOR_4, ControlFrequency);
-
-    // Set the Update bit of the last PWM in the cascaded approach to broadcast
-    // it to the other PWMs
-    PWM_SoftwareUpdateRequest(PWM_GENERATOR_4);
-    
-}
 
 /*******************************************************************************
  * @ingroup 
@@ -116,8 +53,7 @@ int main(void)
 {
     SYSTEM_Initialize();
     
-   // No need to call the TMR1 callback as this is already initialized by OS_Init()
-//    TMR1_TimeoutCallbackRegister(&Timer1_Interrupt);
+    MCC_Custom_User_Config();
     
     // X2CScope will be initialized when X2CDEBUG_ENABLED is enabled
     #if (X2CDEBUG_ENABLED == 1)
@@ -127,18 +63,10 @@ int main(void)
     
     OS_Init(); 
     
+    App_PwrCtrl_Initialize();
+    App_PwrCtrl_Enable();
+            
     OS_Scheduler_RunForever();
-    
-    //needed for cascaded PWM
-    PWM_Trigger_Mode(PWM_GENERATOR_1, PWM_TRIG_MODE_RETRIGGERABLE);
-    PWM_Trigger_Mode(PWM_GENERATOR_2, PWM_TRIG_MODE_RETRIGGERABLE);
-    PWM_Trigger_Mode(PWM_GENERATOR_3, PWM_TRIG_MODE_RETRIGGERABLE);
-    PWM_Trigger_Mode(PWM_GENERATOR_4, PWM_TRIG_MODE_RETRIGGERABLE);
-    
-    PWM_Swap_PWMxL_and_PWMxH(PWM_GENERATOR_3, true);
-    PWM_Swap_PWMxL_and_PWMxH(PWM_GENERATOR_4, true);
-
-    PWM_Enable();
     
     while(1)
     {

@@ -12,7 +12,7 @@ typedef struct
 
 /* OS_RESETTHINGY is not defined and hence a violation is reported */
 /* LDRA_EXCLUDE 337 S */
-#if OS_RESETTHINGY == 1
+#if OS_RESETTHINGY == 1 //ToDo: check with Cormac: not declared as option in the defines
 void OS_Reset_Init(void);
 OS_RESET_RESETCAUSEBITS_t OS_Reset_GetResetCause(void);
 #endif /* OS_RESETTHINGY */

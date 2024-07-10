@@ -31,7 +31,7 @@
 //=======================================================================================================
 //sometimes the software runs on different hardware versions, so you can make defines for different board settings
 
-//Check with Cormac as this defines are not used
+//ToDo: Check with Cormac as this defines are not used
 //#define PROJECT_SETTINGS_BOARD_DPPIM_CK 1       // dsPic33CK single core on DPPIM module
 
 //#define PROJECT_SETTINGS_BOARD_EXPANDER_CK 0    // BOARD_EXPANDER_CK single core dsPic33CK for testing basic stuff

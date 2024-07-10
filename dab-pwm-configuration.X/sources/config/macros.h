@@ -13,6 +13,7 @@
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h> // include standard definition data types
 
+#include "hardware.h"
 #include "config.h"
 
 //device specific 
@@ -38,6 +39,13 @@
 #define CONTROL_PHASE_RAD      (uint16_t)(float)(PHASE_DEGREES / MAXIMUM_CONTROL_PHASE) ///< This sets the maximum PWM phase of the converter
 #define MIN_PER_CONTROL_PHASE  (uint16_t)(float)(MIN_PWM_PERIOD / CONTROL_PHASE_RAD)
 #define MAX_PER_CONTROL_PHASE  (uint16_t)(float)(MAX_PWM_PERIOD / CONTROL_PHASE_RAD)
+
+//------------------------------------------------------------------------------
+// parameters related to secondary current sensor calibration
+//------------------------------------------------------------------------------
+// allowing for +/-5% from ideal
+#define ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH      (_rnd((ISEC_AVG_SNS_OFS*1.05)/3.3*4096.0))
+#define ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW       (_rnd((ISEC_AVG_SNS_OFS*0.95)/3.3*4096.0))
 
 #endif	/* MACROS_H */
 

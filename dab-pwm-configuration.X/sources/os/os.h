@@ -31,13 +31,8 @@
 #ifndef OS_H
 #define OS_H
 
-#include "os_config.h" //TODO: move this file
+#include "os_config.h" 
 #include "os_scheduler.h"
-
-#ifdef __cplusplus  // Provide C++ Compatibility
-    extern "C" {
-#endif
-
         
 //=======================================================================================================
 //  @brief  Initializes all Operating System Components
@@ -46,7 +41,4 @@
 extern void OS_Init(void);
 
 
-#ifdef __cplusplus  // Provide C++ Compatibility
-    }
-#endif
 #endif              // OS_H
