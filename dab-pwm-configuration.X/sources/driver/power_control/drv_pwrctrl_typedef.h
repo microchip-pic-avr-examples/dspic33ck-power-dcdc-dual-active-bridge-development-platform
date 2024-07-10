@@ -8,7 +8,7 @@
 #ifndef DRV_PWRCTRL_TYPEDEF_H
 #define	DRV_PWRCTRL_TYPEDEF_H
 
-#include "config/config.h"
+#include "device/fault_common.h"
 
 /***********************************************************************************
  * @ingroup 
@@ -17,14 +17,15 @@
  * @details
  * These are all of the states for the power controller state machine
  ***********************************************************************************/
-typedef enum
+enum  PWR_CTRL_STATE_e
 {
   PCS_INIT                  = 0,    
   PCS_WAIT_IF_FAULT_ACTIVE  = 1,    
   PCS_STANDBY               = 2,     
   PCS_SOFT_START            = 3, 
-  PCS_UP_AND_RUNNING        = 4,  
-} PWR_CTRL_STATE_e;
+  PCS_UP_AND_RUNNING        = 4 
+};
+
 typedef enum PWR_CTRL_STATE_e PWR_CTRL_STATE_t;
 
 struct SWITCH_NODE_s
@@ -62,11 +63,90 @@ struct FEEDBACK_SETTINGS_s
 
 typedef struct FEEDBACK_SETTINGS_s FEEDBACK_SETTINGS_t;
 
+/***********************************************************************************
+ * @ingroup 
+ * @struct STATUS_FLAGS_s
+ * @extends 
+ * @brief cllc status flags
+ * @details
+ *  
+ **********************************************************************************/
+struct STATUS_FLAGS_s
+{
+    union
+    {
+        struct
+        {      
+            unsigned running         : 1; ///> Bit 0: CLLC is running
+            unsigned fault           : 1; ///> Bit 1: fault present
+            unsigned notUsed         : 13; 
+        } __attribute__((packed)) bits; 
+        uint16_t value;
+    };
+};
+typedef struct STATUS_FLAGS_s STATUS_FLAGS_t;
+
+/***********************************************************************************
+ * @ingroup 
+ * @struct FAULT_FLAGS_s
+ * @extends 
+ * @brief Fault flags for cllc
+ * @details
+ *  
+ **********************************************************************************/
+struct FAULT_FLAGS_s
+{
+    union
+    {
+        struct
+        {
+            unsigned vPri_ov      : 1;  ///> bit  0
+            unsigned vPri_uv      : 1;  ///> bit  1
+            unsigned vSec_ov      : 1;  ///> bit  2
+            unsigned vSec_uv      : 1;  ///> bit  3
+            unsigned iPri_oc      : 1;  ///> bit  4
+            unsigned iSec_oc      : 1;  ///> bit  5 
+            unsigned i_sc         : 1;  ///> bit  6, primary or secondary short circuit fault
+            unsigned notUsed      : 9;  ///> bits 7 to 15
+        } __attribute__((packed)) bits; 
+        uint16_t value;
+    };
+};
+typedef struct FAULT_FLAGS_s FAULT_FLAGS_t;
+
+/***********************************************************************************
+ * @ingroup 
+ * @struct FAULT_s
+ * @extends 
+ * @brief stores all data related to the fault objects
+ * @details
+ *  
+ **********************************************************************************/
+struct FAULT_s
+{
+    FAULT_OBJ_T ipri_oc; 
+    FAULT_OBJ_T isec_oc;
+    FAULT_OBJ_T vpri_ov;
+    FAULT_OBJ_T vsec_ov;
+    FAULT_OBJ_T i_sc; // primary or secondary short circuit
+};
+typedef struct FAULT_s FAULT_t;
+
+struct FAULT_SETTINGS_s
+{
+    FAULT_OBJ_T Object;                 ///< Fault Objects
+    FAULT_FLAGS_t Flags;                ///< Fault Flags
+    FAULT_FLAGS_t FaultFlagsLatched;    ///< Latch faults in here so can be read by PBV GUI
+};
+typedef struct FAULT_SETTINGS_s FAULT_SETTINGS_t;
+
 struct POWER_CONTROL_s
 {
+    STATUS_FLAGS_t      Status; ///< Power Supply status flags
     PWR_CTRL_STATE_t    State;  ///< Power Control State ID
-    SWITCH_NODE_t       Pwm;    ///< LLC converter switch node settings
+    SWITCH_NODE_t       Pwm;    ///< Switch node settings
     FEEDBACK_SETTINGS_t Adc;    ///< ADC feedback channel settings
+    FAULT_SETTINGS_t    Fault;  ///< Fault flags and settings 
 };
 typedef struct POWER_CONTROL_s POWER_CONTROL_t;
 
