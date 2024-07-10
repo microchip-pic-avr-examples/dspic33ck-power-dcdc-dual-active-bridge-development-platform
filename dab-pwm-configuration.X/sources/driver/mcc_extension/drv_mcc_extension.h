@@ -25,7 +25,7 @@
 #define	DRV_MCC_EXTENSION_H
 
 #include "drv_mcc_extension_pwm.h"
-#include "drv_mc_extension_adc.h"
+#include "drv_mcc_extension_adc.h"
 
 #endif	/* DRV_MCC_EXTENSION_H */
 
