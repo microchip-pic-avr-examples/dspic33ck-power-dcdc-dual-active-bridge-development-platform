@@ -10,32 +10,61 @@
 
 #include "config/config.h"
 
-#ifndef NO_OF_PHASES
-#define NO_OF_PHASES 1U
-#pragma message "warning: macro 'NO_OF_PHASES' has not been found. Number of phases has been set to default=1"
-#endif
-
-
-struct SWITCH_NODE_SETTINGS_s
+/***********************************************************************************
+ * @ingroup 
+ * @enum    PWR_CTRL_STATE_e
+ * @brief   power controller state machine states
+ * @details
+ * These are all of the states for the power controller state machine
+ ***********************************************************************************/
+typedef enum
 {
-    uint16_t PwmChannel;    ///< PWM generator instance used
-    uint16_t DutyCycle;     ///< PWM Duty Cycle during normal operation
-    uint16_t Period;        ///< PWM Period during normal opration
-    uint16_t PhaseShift;    ///< PWM Phase Shift during normal operation
-};
-typedef struct SWITCH_NODE_SETTINGS_s SWITCH_NODE_SETTINGS_t;
+  PCS_INIT                  = 0,    
+  PCS_WAIT_IF_FAULT_ACTIVE  = 1,    
+  PCS_STANDBY               = 2,     
+  PCS_SOFT_START            = 3, 
+  PCS_UP_AND_RUNNING        = 4,  
+} PWR_CTRL_STATE_e;
+typedef enum PWR_CTRL_STATE_e PWR_CTRL_STATE_t;
 
 struct SWITCH_NODE_s
 {
-    SWITCH_NODE_SETTINGS_t Primary;        ///< Primary switch-node configuration
-    SWITCH_NODE_SETTINGS_t Secondary;      ///< Secondary switch-node configuration
+    uint16_t Primary_1;             ///< Primary switch-node configuration
+    uint16_t Primary_2;             ///< Primary switch-node configuration
+    uint16_t Secondary_1;           ///< Secondary switch-node configuration
+    uint16_t Secondary_2;           ///< Secondary switch-node configuration
+    uint16_t ControlPeriod;         ///< Control period value from control loop
+    uint16_t ControlDutyCycle;      ///< Control Duty Cycle calculation based on Control Period
+    uint16_t ControlPhase;          ///< Control phase value from control loop
 };
 typedef struct SWITCH_NODE_s SWITCH_NODE_t;
 
+/***********************************************************************************
+ * @ingroup 
+ * @struct ADC_s
+ * @extends 
+ * @brief stores all data related to the ADC readings
+ * @details
+ *  
+ **********************************************************************************/
+struct FEEDBACK_SETTINGS_s
+{
+    uint16_t vsec; ///> secondary side voltage
+    uint16_t ipri_ct; ///> primary current as measured with CT
+    uint16_t vpri; ///> primary side voltage
+    uint16_t temperature; ///> temperature
+    uint16_t vrail_5v; ///> 5V aux rail
+    uint16_t isec_ct; ///> secondary current as measured with CT
+uint16_t isec_avg; ///> average secondary current as measured with isolated current sensor
+};
+
+typedef struct FEEDBACK_SETTINGS_s FEEDBACK_SETTINGS_t;
 
 struct POWER_CONTROL_s
 {
-    SWITCH_NODE_t SwitchNodes[NO_OF_PHASES]; ///< LLC converter switch node settings
+    PWR_CTRL_STATE_t    State;  ///< Power Control State ID
+    SWITCH_NODE_t       Pwm;    ///< LLC converter switch node settings
+    FEEDBACK_SETTINGS_t Adc;    ///< ADC feedback channel settings
 };
 typedef struct POWER_CONTROL_s POWER_CONTROL_t;
 
