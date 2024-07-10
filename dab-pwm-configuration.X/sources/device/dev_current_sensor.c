@@ -37,7 +37,7 @@
  *  
  **********************************************************************************/
 struct SENSOR_OFFSET_CAL_s
-{
+{  
   uint32_t accumulator; ///> used for sensor offset measurement at startup
   uint16_t measurementCounter; ///> used for  sensor offset measurement at startup
   uint16_t offset; ///> measured offset 
@@ -94,11 +94,11 @@ static void __inline__ Dev_SensorOffsetCal(SENSOR_OFFSET_CAL_t* sensor, uint16_t
  * @details
  * API function
  **********************************************************************************/
-void Dev_CurrentSensorOffsetCal(void)
+void Dev_CurrentSensorOffsetCal(uint16_t adcReading)
 {
     if (!isec_avg_current_sensor.calibrationComplete)
     {
-        Dev_SensorOffsetCal(&isec_avg_current_sensor, ADC1_ConversionResultGet(ISEC_AVG));
+        Dev_SensorOffsetCal(&isec_avg_current_sensor, adcReading);
     }
 }
 
