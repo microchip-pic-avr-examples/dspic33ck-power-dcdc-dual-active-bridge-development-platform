@@ -8,7 +8,7 @@
 #ifndef DRV_PWRCTRL_TYPEDEF_H
 #define	DRV_PWRCTRL_TYPEDEF_H
 
-#include "device/fault_common.h"
+#include "app/fault/fault_common.h"
 
 /***********************************************************************************
  * @ingroup 
@@ -134,11 +134,30 @@ typedef struct FAULT_s FAULT_t;
 
 struct FAULT_SETTINGS_s
 {
-    FAULT_OBJ_T Object;                 ///< Fault Objects
+    FAULT_t Object;                     ///< Fault Objects
     FAULT_FLAGS_t Flags;                ///< Fault Flags
     FAULT_FLAGS_t FaultFlagsLatched;    ///< Latch faults in here so can be read by PBV GUI
 };
 typedef struct FAULT_SETTINGS_s FAULT_SETTINGS_t;
+
+/***********************************************************************************
+ * @ingroup 
+ * @struct CONTROLLER_s
+ * @extends 
+ * @brief stores data related to controller
+ * @details
+ * "output" is the output of the controller
+ * "reference" is the actual reference currently being used
+ * "targetReference" can be different that reference during soft-start etc.
+ **********************************************************************************/
+struct CONTROLLER_s
+{
+  int16_t reference;        ///< actual reference
+  int16_t referenceTarget;  ///< target reference, can be changed via GUI
+  uint16_t feedback;        ///< coming 
+  uint16_t output;          ///< controller output
+};
+typedef struct CONTROLLER_s CONTROLLER_t;
 
 struct POWER_CONTROL_s
 {
@@ -147,6 +166,9 @@ struct POWER_CONTROL_s
     SWITCH_NODE_t       Pwm;    ///< Switch node settings
     FEEDBACK_SETTINGS_t Adc;    ///< ADC feedback channel settings
     FAULT_SETTINGS_t    Fault;  ///< Fault flags and settings 
+    CONTROLLER_t        iloop;  ///< structure for current controller data
+    CONTROLLER_t        vloop;  ///< structure for voltage controller data
+    bool enable;                ///< control flag, set to 1 to run the power supply
 };
 typedef struct POWER_CONTROL_s POWER_CONTROL_t;
 

@@ -181,10 +181,25 @@ inline static uint16_t ADC1_ConversionResultGet( enum ADC_CHANNEL channel )
 
     switch(channel)
     {
-        case Pot2An0:
+        case VSEC:
+                result = ADCBUF2;
+                break;
+        case IPRI_CT:
+                result = ADCBUF7;
+                break;
+        case VPRI:
+                result = ADCBUF10;
+                break;
+        case TEMP:
+                result = ADCBUF14;
+                break;
+        case VRAIL_5V:
+                result = ADCBUF19;
+                break;
+        case ISEC_CT:
                 result = ADCBUF0;
                 break;
-        case Pot1An1:
+        case ISEC_AVG:
                 result = ADCBUF1;
                 break;
         default:
@@ -211,10 +226,25 @@ inline static bool ADC1_IsConversionComplete(enum ADC_CHANNEL channel)
 
     switch(channel)
     {
-        case Pot2An0:
+        case VSEC:
+                status = ADSTATLbits.AN2RDY;
+                break;
+        case IPRI_CT:
+                status = ADSTATLbits.AN7RDY;
+                break;
+        case VPRI:
+                status = ADSTATLbits.AN10RDY;
+                break;
+        case TEMP:
+                status = ADSTATLbits.AN14RDY;
+                break;
+        case VRAIL_5V:
+                status = ADSTATHbits.AN19RDY;
+                break;
+        case ISEC_CT:
                 status = ADSTATLbits.AN0RDY;
                 break;
-        case Pot1An1:
+        case ISEC_AVG:
                 status = ADSTATLbits.AN1RDY;
                 break;
         default:
@@ -324,11 +354,31 @@ inline static void ADC1_IndividualChannelInterruptEnable(enum ADC_CHANNEL channe
 {
     switch(channel)
     {
-        case Pot2An0:
+        case VSEC:
+                IEC5bits.ADCAN2IE = 1;
+                ADIELbits.IE2 = 1;
+                break;
+        case IPRI_CT:
+                IEC6bits.ADCAN7IE = 1;
+                ADIELbits.IE7 = 1;
+                break;
+        case VPRI:
+                IEC6bits.ADCAN10IE = 1;
+                ADIELbits.IE10 = 1;
+                break;
+        case TEMP:
+                IEC6bits.ADCAN14IE = 1;
+                ADIELbits.IE14 = 1;
+                break;
+        case VRAIL_5V:
+                IEC6bits.ADCAN19IE = 1;
+                ADIEHbits.IE19 = 1;
+                break;
+        case ISEC_CT:
                 IEC5bits.ADCAN0IE = 1;
                 ADIELbits.IE0 = 1;
                 break;
-        case Pot1An1:
+        case ISEC_AVG:
                 IEC5bits.ADCAN1IE = 1;
                 ADIELbits.IE1 = 1;
                 break;
@@ -347,11 +397,31 @@ inline static void ADC1_IndividualChannelInterruptDisable(enum ADC_CHANNEL chann
 {
     switch(channel)
     {
-        case Pot2An0:
+        case VSEC:
+                IEC5bits.ADCAN2IE = 0;
+                ADIELbits.IE2 = 0;
+                break;
+        case IPRI_CT:
+                IEC6bits.ADCAN7IE = 0;
+                ADIELbits.IE7 = 0;
+                break;
+        case VPRI:
+                IEC6bits.ADCAN10IE = 0;
+                ADIELbits.IE10 = 0;
+                break;
+        case TEMP:
+                IEC6bits.ADCAN14IE = 0;
+                ADIELbits.IE14 = 0;
+                break;
+        case VRAIL_5V:
+                IEC6bits.ADCAN19IE = 0;
+                ADIEHbits.IE19 = 0;
+                break;
+        case ISEC_CT:
                 IEC5bits.ADCAN0IE = 0;
                 ADIELbits.IE0 = 0;
                 break;
-        case Pot1An1:
+        case ISEC_AVG:
                 IEC5bits.ADCAN1IE = 0;
                 ADIELbits.IE1 = 0;
                 break;
@@ -370,10 +440,25 @@ inline static void ADC1_IndividualChannelInterruptFlagClear(enum ADC_CHANNEL cha
 {
     switch(channel)
     {
-        case Pot2An0:
+        case VSEC:
+                IFS5bits.ADCAN2IF = 0;
+                break;
+        case IPRI_CT:
+                IFS6bits.ADCAN7IF = 0;
+                break;
+        case VPRI:
+                IFS6bits.ADCAN10IF = 0;
+                break;
+        case TEMP:
+                IFS6bits.ADCAN14IF = 0;
+                break;
+        case VRAIL_5V:
+                IFS6bits.ADCAN19IF = 0;
+                break;
+        case ISEC_CT:
                 IFS5bits.ADCAN0IF = 0;
                 break;
-        case Pot1An1:
+        case ISEC_AVG:
                 IFS5bits.ADCAN1IF = 0;
                 break;
         default:
@@ -392,10 +477,25 @@ inline static void ADC1_IndividualChannelInterruptPrioritySet(enum ADC_CHANNEL c
 {
 	switch(channel)
 	{
-		case Pot2An0:
+		case VSEC:
+				IPC23bits.ADCAN2IP = priorityValue;
+				break;
+		case IPRI_CT:
+				IPC24bits.ADCAN7IP = priorityValue;
+				break;
+		case VPRI:
+				IPC25bits.ADCAN10IP = priorityValue;
+				break;
+		case TEMP:
+				IPC26bits.ADCAN14IP = priorityValue;
+				break;
+		case VRAIL_5V:
+				IPC27bits.ADCAN19IP = priorityValue;
+				break;
+		case ISEC_CT:
 				IPC22bits.ADCAN0IP = priorityValue;
 				break;
-		case Pot1An1:
+		case ISEC_AVG:
 				IPC23bits.ADCAN1IP = priorityValue;
 				break;
 		default:

@@ -71,8 +71,8 @@ void CLOCK_Initialize(void)
     APLLFBD1 = 0x7D;
     // APSTSCLR 1:2; APOST2DIV 1:1; AVCODIV FVCO/2; 
     APLLDIV1 = 0x221;
-    // CANCLKEN disabled; CANCLKSEL FPLLO; CANCLKDIV Divide by 1; 
-    CANCLKCON = 0x200;
+    // CANCLKEN enabled; CANCLKSEL FPLLO; CANCLKDIV Divide by 10; 
+    CANCLKCON = 0x8209;
     // ROEN disabled; DIVSWEN disabled; ROSLP disabled; ROSEL ; OE disabled; ROSIDL disabled; 
     REFOCONL = 0x0;
     // RODIV 0; 

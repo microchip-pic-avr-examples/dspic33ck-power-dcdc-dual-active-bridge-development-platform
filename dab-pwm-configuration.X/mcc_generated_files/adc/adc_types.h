@@ -54,10 +54,15 @@
 */
 enum ADC_CHANNEL
 {
-    Pot2An0,    /**<Channel Name:AN0   Assigned to:Dedicated Core0*/
-    Pot1An1,    /**<Channel Name:AN1   Assigned to:Dedicated Core1*/
-    MAX_CHANNELS = 2,    /**< MAX_CHANNELS will be removed in future MCC releases. Use ADC_MAX_CHANNELS instead */
-    ADC_MAX_CHANNELS = 2    /**< Maximum number of channels configured by user in MCC Melody User Interface */
+    VSEC,    /**<Channel Name:AN2   Assigned to:Shared Channel*/
+    IPRI_CT,    /**<Channel Name:AN7   Assigned to:Shared Channel*/
+    VPRI,    /**<Channel Name:AN10   Assigned to:Shared Channel*/
+    TEMP,    /**<Channel Name:AN14   Assigned to:Shared Channel*/
+    VRAIL_5V,    /**<Channel Name:AN19   Assigned to:Shared Channel*/
+    ISEC_CT,    /**<Channel Name:AN0   Assigned to:Dedicated Core0*/
+    ISEC_AVG,    /**<Channel Name:ANA1   Assigned to:Dedicated Core1*/
+    MAX_CHANNELS = 7,    /**< MAX_CHANNELS will be removed in future MCC releases. Use ADC_MAX_CHANNELS instead */
+    ADC_MAX_CHANNELS = 7    /**< Maximum number of channels configured by user in MCC Melody User Interface */
 };
 
 

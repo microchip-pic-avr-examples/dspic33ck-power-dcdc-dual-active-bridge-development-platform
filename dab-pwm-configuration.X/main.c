@@ -25,7 +25,7 @@
 
 #include "system/system.h"
 
-#include "app/app_pwrctrl.h"
+//#include "app/app_pwrctrl.h"
 #include "config/hal.h"
 #include "os/os.h"
 
@@ -63,8 +63,8 @@ int main(void)
     
     OS_Init(); 
     
-    App_PwrCtrl_Initialize();
-    App_PwrCtrl_Enable();
+//    App_PwrCtrl_Initialize();
+//    App_PwrCtrl_Enable();
             
     OS_Scheduler_RunForever();
     

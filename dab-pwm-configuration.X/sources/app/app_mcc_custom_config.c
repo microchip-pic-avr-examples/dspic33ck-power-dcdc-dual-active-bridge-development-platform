@@ -21,12 +21,12 @@
 #include <xc.h>
 #include "driver/mcc_extension/drv_mcc_extension.h"
 #include "driver/mcc_extension/drv_config_custom_pwm.h"
-#include "app_pwrctrl.h"
+#include "app/pwrctrl/app_pwrctrl.h"
 
 
 
 void MCC_Custom_User_Config (void){
     
     //Initialize PWM as retriggerable for the cascaded PWM scheme
-    DRV_Config_Custom_PWM(&dab);
+//    DRV_Config_Custom_PWM(&dab);
 }

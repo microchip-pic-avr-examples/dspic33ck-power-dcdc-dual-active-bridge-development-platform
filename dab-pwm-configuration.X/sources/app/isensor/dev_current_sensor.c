@@ -38,21 +38,21 @@
  **********************************************************************************/
 struct SENSOR_OFFSET_CAL_s
 {  
-  uint32_t accumulator; ///> used for sensor offset measurement at startup
-  uint16_t measurementCounter; ///> used for  sensor offset measurement at startup
-  uint16_t offset; ///> measured offset 
-  bool calibrationComplete; ///> set to true if the sensor is calibrated
-  uint16_t limitHigh;  ///> upper bound of what offset should be, offset needs to be < limitHigh and > limitLow for sensorCalibrated = true
-  uint16_t limitLow; ///> low bound of what offset should be
+  uint32_t Accumulator; ///> used for sensor offset measurement at startup
+  uint16_t MeasurementCounter; ///> used for  sensor offset measurement at startup
+  uint16_t Offset; ///> measured offset 
+  bool CalibrationComplete; ///> set to true if the sensor is calibrated
+  uint16_t LimitHigh;  ///> upper bound of what offset should be, offset needs to be < limitHigh and > limitLow for sensorCalibrated = true
+  uint16_t LimitLow; ///> low bound of what offset should be
 };
 typedef struct SENSOR_OFFSET_CAL_s SENSOR_OFFSET_CAL_t;
 
 // create object to store current sensor 
-SENSOR_OFFSET_CAL_t isec_avg_current_sensor = {.calibrationComplete = false,
-                                               .accumulator = 0,
-                                               .measurementCounter = 0,
-                                               .limitHigh = ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH,
-                                               .limitLow = ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW};
+SENSOR_OFFSET_CAL_t isecAvgCurrentSensor = {.CalibrationComplete = false,
+                                               .Accumulator = 0,
+                                               .MeasurementCounter = 0,
+                                               .LimitHigh = ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH,
+                                               .LimitLow = ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW};
 
 /*********************************************************************************
  * @ingroup 
@@ -66,21 +66,21 @@ SENSOR_OFFSET_CAL_t isec_avg_current_sensor = {.calibrationComplete = false,
 static void __inline__ Dev_SensorOffsetCal(SENSOR_OFFSET_CAL_t* sensor, uint16_t adcReading)
 {
     // current sensor offset is not measured
-    sensor->accumulator += adcReading;
-    if (++sensor->measurementCounter >= SENSOR_OFFSET_NUM_MEASUREMENTS)
+    sensor->Accumulator += adcReading;
+    if (++sensor->MeasurementCounter >= SENSOR_OFFSET_NUM_MEASUREMENTS)
     {
         // average to determine the offset      
-        uint16_t offset = (uint16_t) (__builtin_divud(sensor->accumulator, sensor->measurementCounter));
+        uint16_t offset = (uint16_t) (__builtin_divud(sensor->Accumulator, sensor->MeasurementCounter));
 
-        sensor->accumulator = 0;
-        sensor->measurementCounter = 0;
+        sensor->Accumulator = 0;
+        sensor->MeasurementCounter = 0;
 
         // check if result is within acceptable limits
-        if ((offset < sensor->limitHigh) && (offset > sensor->limitLow))
+        if ((offset < sensor->LimitHigh) && (offset > sensor->LimitLow))
         {
             // measured offset is reasonable. Update stored value and exit
-            sensor->offset = offset;
-            sensor->calibrationComplete = true;
+            sensor->Offset = offset;
+            sensor->CalibrationComplete = true;
         }
     }    
 }
@@ -96,9 +96,9 @@ static void __inline__ Dev_SensorOffsetCal(SENSOR_OFFSET_CAL_t* sensor, uint16_t
  **********************************************************************************/
 void Dev_CurrentSensorOffsetCal(uint16_t adcReading)
 {
-    if (!isec_avg_current_sensor.calibrationComplete)
+    if (!isecAvgCurrentSensor.CalibrationComplete)
     {
-        Dev_SensorOffsetCal(&isec_avg_current_sensor, adcReading);
+        Dev_SensorOffsetCal(&isecAvgCurrentSensor, adcReading);
     }
 }
 
@@ -113,7 +113,7 @@ void Dev_CurrentSensorOffsetCal(uint16_t adcReading)
  **********************************************************************************/ 
 uint16_t Dev_CurrentSensor_Get_CalibrationStatus(void)
 {
-    return(isec_avg_current_sensor.calibrationComplete);
+    return(isecAvgCurrentSensor.CalibrationComplete);
 }
 
 /*********************************************************************************
@@ -127,5 +127,5 @@ uint16_t Dev_CurrentSensor_Get_CalibrationStatus(void)
  **********************************************************************************/ 
 uint16_t Dev_CurrentSensor_Get_Offset(void)
 {
-    return(isec_avg_current_sensor.offset); 
+    return(isecAvgCurrentSensor.Offset); 
 }

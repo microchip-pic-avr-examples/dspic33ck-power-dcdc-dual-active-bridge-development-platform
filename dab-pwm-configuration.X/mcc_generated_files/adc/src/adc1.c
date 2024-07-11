@@ -122,12 +122,12 @@ void ADC1_Initialize (void)
     ADCON2H = 0x30;
     // CNVCHSEL AN0; SWCTRG disabled; SWLCTRG disabled; SHRSAMP disabled; SUSPCIE disabled; SUSPEND disabled; REFSEL disabled; 
     ADCON3L = 0x0;
-    // C0EN enabled; C1EN enabled; SHREN disabled; CLKDIV 1; CLKSEL FOSC/2; 
-    ADCON3H = (uint16_t)0x3 & (uint16_t)0xFF00; //Disabling C0EN, C1EN, C2EN, C3EN and SHREN bits
+    // C0EN enabled; C1EN enabled; SHREN enabled; CLKDIV 1; CLKSEL FOSC/2; 
+    ADCON3H = (uint16_t)0x83 & (uint16_t)0xFF00; //Disabling C0EN, C1EN, C2EN, C3EN and SHREN bits
     // SAMC0EN enabled; SAMC1EN enabled; 
     ADCON4L = 0x3;
-    // C0CHS AN0; C1CHS AN1; 
-    ADCON4H = 0x0;
+    // C0CHS AN0; C1CHS ANA1; 
+    ADCON4H = 0x4;
     // SIGN0 disabled; DIFF0 disabled; SIGN1 disabled; DIFF1 disabled; SIGN2 disabled; DIFF2 disabled; SIGN3 disabled; DIFF3 disabled; SIGN4 disabled; DIFF4 disabled; SIGN5 disabled; DIFF5 disabled; SIGN6 disabled; DIFF6 disabled; SIGN7 disabled; DIFF7 disabled; 
     ADMOD0L = 0x0;
     // SIGN8 disabled; DIFF8 disabled; SIGN9 disabled; DIFF9 disabled; SIGN10 disabled; DIFF10 disabled; SIGN11 disabled; DIFF11 disabled; SIGN12 disabled; DIFF12 disabled; SIGN13 disabled; DIFF13 disabled; SIGN14 disabled; DIFF14 disabled; SIGN15 disabled; DIFF15 disabled; 
@@ -204,8 +204,8 @@ void ADC1_Initialize (void)
     ADLVLTRGL = 0x0;
     // LVLEN16 disabled; LVLEN17 disabled; LVLEN18 disabled; LVLEN19 disabled; LVLEN24 disabled; LVLEN25 disabled; 
     ADLVLTRGH = 0x0;
-    // SAMC 48; 
-    ADCORE0L = 0x30;
+    // SAMC 0; 
+    ADCORE0L = 0x0;
     // SAMC 48; 
     ADCORE1L = 0x30;
     // ADCS 2; RES 12-bit resolution; EISEL Early interrupt is generated 1 TADCORE clock prior to data being ready; 
@@ -280,27 +280,29 @@ void ADC1_Initialize (void)
     ADC1_CorePowerEnable(ADC_CORE_0);
     // Enabling Power for Core1
     ADC1_CorePowerEnable(ADC_CORE_1);
+    // Enabling Power for the Shared Core
+    ADC1_SharedCorePowerEnable();
 
     //TRGSRC0 PWM1 Trigger1; TRGSRC1 PWM1 Trigger1; 
     ADTRIG0L = 0x404;
-    //TRGSRC2 None; TRGSRC3 None; 
-    ADTRIG0H = 0x0;
+    //TRGSRC2 PWM1 Trigger1; TRGSRC3 None; 
+    ADTRIG0H = 0x4;
     //TRGSRC4 None; TRGSRC5 None; 
     ADTRIG1L = 0x0;
-    //TRGSRC6 None; TRGSRC7 None; 
-    ADTRIG1H = 0x0;
+    //TRGSRC6 None; TRGSRC7 PWM1 Trigger1; 
+    ADTRIG1H = 0x400;
     //TRGSRC8 None; TRGSRC9 None; 
     ADTRIG2L = 0x0;
-    //TRGSRC10 None; TRGSRC11 None; 
-    ADTRIG2H = 0x0;
+    //TRGSRC10 PWM1 Trigger1; TRGSRC11 None; 
+    ADTRIG2H = 0x4;
     //TRGSRC12 None; TRGSRC13 None; 
     ADTRIG3L = 0x0;
-    //TRGSRC14 None; TRGSRC15 None; 
-    ADTRIG3H = 0x0;
+    //TRGSRC14 PWM1 Trigger1; TRGSRC15 None; 
+    ADTRIG3H = 0x4;
     //TRGSRC16 None; TRGSRC17 None; 
     ADTRIG4L = 0x0;
-    //TRGSRC18 None; TRGSRC19 None; 
-    ADTRIG4H = 0x0;
+    //TRGSRC18 None; TRGSRC19 PWM1 Trigger1; 
+    ADTRIG4H = 0x400;
     //TRGSRC24 None; TRGSRC25 None; 
     ADTRIG6L = 0x0;
 }
@@ -530,10 +532,25 @@ void ADC1_PWMTriggerSourceSet(enum ADC_CHANNEL channel, enum ADC_PWM_INSTANCE pw
     adcTriggerValue= ADC1_TriggerSourceValueGet(pwmInstance, triggerNumber);
     switch(channel)
     {
-        case Pot2An0:
+        case VSEC:
+                ADTRIG0Hbits.TRGSRC2 = adcTriggerValue;
+                break;
+        case IPRI_CT:
+                ADTRIG1Hbits.TRGSRC7 = adcTriggerValue;
+                break;
+        case VPRI:
+                ADTRIG2Hbits.TRGSRC10 = adcTriggerValue;
+                break;
+        case TEMP:
+                ADTRIG3Hbits.TRGSRC14 = adcTriggerValue;
+                break;
+        case VRAIL_5V:
+                ADTRIG4Hbits.TRGSRC19 = adcTriggerValue;
+                break;
+        case ISEC_CT:
                 ADTRIG0Lbits.TRGSRC0 = adcTriggerValue;
                 break;
-        case Pot1An1:
+        case ISEC_AVG:
                 ADTRIG0Lbits.TRGSRC1 = adcTriggerValue;
                 break;
         default:
@@ -563,13 +580,63 @@ void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCInterrupt ( void )
         (*ADC1_CommonHandler)();
     }
     
+    if(IFS5bits.ADCAN2IF == 1)
+    {
+        //Read the ADC value from the ADCBUF before clearing interrupt
+        adcVal = ADCBUF2;
+        if(NULL != ADC1_ChannelHandler)
+        {
+            (*ADC1_ChannelHandler)(VSEC, adcVal);
+        }
+        IFS5bits.ADCAN2IF = 0;
+    }
+    if(IFS6bits.ADCAN7IF == 1)
+    {
+        //Read the ADC value from the ADCBUF before clearing interrupt
+        adcVal = ADCBUF7;
+        if(NULL != ADC1_ChannelHandler)
+        {
+            (*ADC1_ChannelHandler)(IPRI_CT, adcVal);
+        }
+        IFS6bits.ADCAN7IF = 0;
+    }
+    if(IFS6bits.ADCAN10IF == 1)
+    {
+        //Read the ADC value from the ADCBUF before clearing interrupt
+        adcVal = ADCBUF10;
+        if(NULL != ADC1_ChannelHandler)
+        {
+            (*ADC1_ChannelHandler)(VPRI, adcVal);
+        }
+        IFS6bits.ADCAN10IF = 0;
+    }
+    if(IFS6bits.ADCAN14IF == 1)
+    {
+        //Read the ADC value from the ADCBUF before clearing interrupt
+        adcVal = ADCBUF14;
+        if(NULL != ADC1_ChannelHandler)
+        {
+            (*ADC1_ChannelHandler)(TEMP, adcVal);
+        }
+        IFS6bits.ADCAN14IF = 0;
+    }
+    if(IFS6bits.ADCAN19IF == 1)
+    {
+        //Read the ADC value from the ADCBUF before clearing interrupt
+        adcVal = ADCBUF19;
+        if(NULL != ADC1_ChannelHandler)
+        {
+            (*ADC1_ChannelHandler)(VRAIL_5V, adcVal);
+        }
+        IFS6bits.ADCAN19IF = 0;
+    }
     if(IFS5bits.ADCAN0IF == 1)
     {
         //Read the ADC value from the ADCBUF before clearing interrupt
         adcVal = ADCBUF0;
         if(NULL != ADC1_ChannelHandler)
         {
-            (*ADC1_ChannelHandler)(Pot2An0, adcVal);
+            (*ADC1_ChannelHandler)(ISEC_CT, adcVal);
         }
         IFS5bits.ADCAN0IF = 0;
     }
@@ -579,7 +646,7 @@ void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCInterrupt ( void )
         adcVal = ADCBUF1;
         if(NULL != ADC1_ChannelHandler)
         {
-            (*ADC1_ChannelHandler)(Pot1An1, adcVal);
+            (*ADC1_ChannelHandler)(ISEC_AVG, adcVal);
         }
         IFS5bits.ADCAN1IF = 0;
     }
@@ -617,34 +684,109 @@ void __attribute__ ((weak)) ADC1_ChannelCallback (enum ADC_CHANNEL channel, uint
 } 
 
 
-
-void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCAN0Interrupt ( void )
+void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCAN2Interrupt ( void )
 {
-    uint16_t valPot2An0;
+    uint16_t valVSEC;
     //Read the ADC value from the ADCBUF
-    valPot2An0 = ADCBUF0;
+    valVSEC = ADCBUF2;
 
     if(NULL != ADC1_ChannelHandler)
     {
-        (*ADC1_ChannelHandler)(Pot2An0, valPot2An0);
+        (*ADC1_ChannelHandler)(VSEC, valVSEC);
     }
 
-    //clear the Pot2An0 interrupt flag
+    //clear the VSEC interrupt flag
+    IFS5bits.ADCAN2IF = 0;
+}
+
+void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCAN7Interrupt ( void )
+{
+    uint16_t valIPRI_CT;
+    //Read the ADC value from the ADCBUF
+    valIPRI_CT = ADCBUF7;
+
+    if(NULL != ADC1_ChannelHandler)
+    {
+        (*ADC1_ChannelHandler)(IPRI_CT, valIPRI_CT);
+    }
+
+    //clear the IPRI_CT interrupt flag
+    IFS6bits.ADCAN7IF = 0;
+}
+
+void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCAN10Interrupt ( void )
+{
+    uint16_t valVPRI;
+    //Read the ADC value from the ADCBUF
+    valVPRI = ADCBUF10;
+
+    if(NULL != ADC1_ChannelHandler)
+    {
+        (*ADC1_ChannelHandler)(VPRI, valVPRI);
+    }
+
+    //clear the VPRI interrupt flag
+    IFS6bits.ADCAN10IF = 0;
+}
+
+void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCAN14Interrupt ( void )
+{
+    uint16_t valTEMP;
+    //Read the ADC value from the ADCBUF
+    valTEMP = ADCBUF14;
+
+    if(NULL != ADC1_ChannelHandler)
+    {
+        (*ADC1_ChannelHandler)(TEMP, valTEMP);
+    }
+
+    //clear the TEMP interrupt flag
+    IFS6bits.ADCAN14IF = 0;
+}
+
+void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCAN19Interrupt ( void )
+{
+    uint16_t valVRAIL_5V;
+    //Read the ADC value from the ADCBUF
+    valVRAIL_5V = ADCBUF19;
+
+    if(NULL != ADC1_ChannelHandler)
+    {
+        (*ADC1_ChannelHandler)(VRAIL_5V, valVRAIL_5V);
+    }
+
+    //clear the VRAIL_5V interrupt flag
+    IFS6bits.ADCAN19IF = 0;
+}
+
+
+void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCAN0Interrupt ( void )
+{
+    uint16_t valISEC_CT;
+    //Read the ADC value from the ADCBUF
+    valISEC_CT = ADCBUF0;
+
+    if(NULL != ADC1_ChannelHandler)
+    {
+        (*ADC1_ChannelHandler)(ISEC_CT, valISEC_CT);
+    }
+
+    //clear the ISEC_CT interrupt flag
     IFS5bits.ADCAN0IF = 0;
 }
 
 void __attribute__ ( ( __interrupt__ , auto_psv, weak ) ) _ADCAN1Interrupt ( void )
 {
-    uint16_t valPot1An1;
+    uint16_t valISEC_AVG;
     //Read the ADC value from the ADCBUF
-    valPot1An1 = ADCBUF1;
+    valISEC_AVG = ADCBUF1;
 
     if(NULL != ADC1_ChannelHandler)
     {
-        (*ADC1_ChannelHandler)(Pot1An1, valPot1An1);
+        (*ADC1_ChannelHandler)(ISEC_AVG, valISEC_AVG);
     }
 
-    //clear the Pot1An1 interrupt flag
+    //clear the ISEC_AVG interrupt flag
     IFS5bits.ADCAN1IF = 0;
 }
 
@@ -655,7 +797,67 @@ void __attribute__ ((weak)) ADC1_ChannelTasks (enum ADC_CHANNEL channel)
     
     switch(channel)
     {   
-        case Pot2An0:
+        case VSEC:
+            if((bool)ADSTATLbits.AN2RDY == 1)
+            {
+                //Read the ADC value from the ADCBUF
+                adcVal = ADCBUF2;
+
+                if(NULL != ADC1_ChannelHandler)
+                {
+                    (*ADC1_ChannelHandler)(channel, adcVal);
+                }
+            }
+            break;
+        case IPRI_CT:
+            if((bool)ADSTATLbits.AN7RDY == 1)
+            {
+                //Read the ADC value from the ADCBUF
+                adcVal = ADCBUF7;
+
+                if(NULL != ADC1_ChannelHandler)
+                {
+                    (*ADC1_ChannelHandler)(channel, adcVal);
+                }
+            }
+            break;
+        case VPRI:
+            if((bool)ADSTATLbits.AN10RDY == 1)
+            {
+                //Read the ADC value from the ADCBUF
+                adcVal = ADCBUF10;
+
+                if(NULL != ADC1_ChannelHandler)
+                {
+                    (*ADC1_ChannelHandler)(channel, adcVal);
+                }
+            }
+            break;
+        case TEMP:
+            if((bool)ADSTATLbits.AN14RDY == 1)
+            {
+                //Read the ADC value from the ADCBUF
+                adcVal = ADCBUF14;
+
+                if(NULL != ADC1_ChannelHandler)
+                {
+                    (*ADC1_ChannelHandler)(channel, adcVal);
+                }
+            }
+            break;
+        case VRAIL_5V:
+            if((bool)ADSTATHbits.AN19RDY == 1)
+            {
+                //Read the ADC value from the ADCBUF
+                adcVal = ADCBUF19;
+
+                if(NULL != ADC1_ChannelHandler)
+                {
+                    (*ADC1_ChannelHandler)(channel, adcVal);
+                }
+            }
+            break;
+        case ISEC_CT:
             if((bool)ADSTATLbits.AN0RDY == 1)
             {
                 //Read the ADC value from the ADCBUF
@@ -667,7 +869,7 @@ void __attribute__ ((weak)) ADC1_ChannelTasks (enum ADC_CHANNEL channel)
                 }
             }
             break;
-        case Pot1An1:
+        case ISEC_AVG:
             if((bool)ADSTATLbits.AN1RDY == 1)
             {
                 //Read the ADC value from the ADCBUF

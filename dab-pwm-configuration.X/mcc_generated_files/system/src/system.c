@@ -37,8 +37,14 @@
 #include "../clock.h"
 #include "../pins.h"
 #include "../../adc/adc1.h"
+#include "../../can/can1.h"
+#include "../../cmp/cmp1.h"
+#include "../../cmp/cmp2.h"
+#include "../../cmp/cmp3.h"
+#include "../../crc/crc.h"
 #include "../dmt.h"
 #include "../../pwm_hs/pwm.h"
+#include "../../pwm/sccp3.h"
 #include "../../timer/tmr1.h"
 #include "../../uart/uart1.h"
 #include "../interrupt.h"
@@ -49,8 +55,14 @@ void SYSTEM_Initialize(void)
     CLOCK_Initialize();
     PINS_Initialize();
     ADC1_Initialize();
+    CAN1_Initialize();
+    CMP1_Initialize();
+    CMP2_Initialize();
+    CMP3_Initialize();
+    CRC_Initialize();
     DMT_Initialize();
     PWM_Initialize();
+    SCCP3_PWM_Initialize();
     TMR1_Initialize();
     UART1_Initialize();
     INTERRUPT_GlobalEnable();
