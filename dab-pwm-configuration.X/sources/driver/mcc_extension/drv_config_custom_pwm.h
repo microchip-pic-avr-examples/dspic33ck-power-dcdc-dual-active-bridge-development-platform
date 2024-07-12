@@ -8,7 +8,7 @@
 #ifndef DRV_CONFIG_CUSTOM_PWM_H
 #define	DRV_CONFIG_CUSTOM_PWM_H
 
-#include "app/pwrctrl/drv_pwrctrl_typedef.h"
+#include "device/pwrctrl/dev_pwrctrl_typedef.h"
 #include "drv_mcc_extension_pwm.h"
 
 static __inline__ void DRV_Config_Custom_PWM(POWER_CONTROL_t* pcInstance)

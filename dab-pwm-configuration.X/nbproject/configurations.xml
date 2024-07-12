@@ -77,15 +77,11 @@
           <itemPath>sources/config/apps.h</itemPath>
           <itemPath>sources/config/comms_config.h</itemPath>
           <itemPath>sources/config/config.h</itemPath>
-          <itemPath>sources/config/hal.h</itemPath>
           <itemPath>sources/config/hardware.h</itemPath>
           <itemPath>sources/config/macros.h</itemPath>
+          <itemPath>sources/config/useful_macros.h</itemPath>
         </logicalFolder>
         <logicalFolder name="device" displayName="device" projectFiles="true">
-          <logicalFolder name="fault" displayName="fault" projectFiles="true">
-            <itemPath>sources/device/fault/dev_pwrctrl_fault.h</itemPath>
-            <itemPath>sources/device/fault/dev_fault_common.h</itemPath>
-          </logicalFolder>
           <logicalFolder name="pwrctrl" displayName="pwrctrl" projectFiles="true">
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_utils.h</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl.h</itemPath>
@@ -93,10 +89,11 @@
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_api.h</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_pwm.h</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_typedef.h</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_fault_common.h</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_fault.h</itemPath>
           </logicalFolder>
           <itemPath>sources/device/dev_current_sensor.h</itemPath>
           <itemPath>sources/device/dev_fan.h</itemPath>
-          <itemPath>sources/device/dev_iso_voltage_sense.h</itemPath>
           <itemPath>sources/device/dev_led.h</itemPath>
           <itemPath>sources/device/dev_temp.h</itemPath>
         </logicalFolder>
@@ -202,27 +199,24 @@
       <logicalFolder name="sources" displayName="sources" projectFiles="true">
         <logicalFolder name="app" displayName="app" projectFiles="true">
           <itemPath>sources/app/app_PBV_CAN.c</itemPath>
-          <itemPath>sources/app/app_PBV_cllc_frame_map.c</itemPath>
           <itemPath>sources/app/app_PBV_config.c</itemPath>
           <itemPath>sources/app/app_PBV_interface.c</itemPath>
           <itemPath>sources/app/app_PBV_UART.c</itemPath>
+          <itemPath>sources/app/app_PBV_dab_frame_map.c</itemPath>
         </logicalFolder>
         <logicalFolder name="device" displayName="device" projectFiles="true">
-          <logicalFolder name="fault" displayName="fault" projectFiles="true">
-            <itemPath>sources/device/fault/dev_fault.c</itemPath>
-            <itemPath>sources/device/fault/dev_fault_common.c</itemPath>
-          </logicalFolder>
           <logicalFolder name="pwrctrl" displayName="pwrctrl" projectFiles="true">
-            <itemPath>sources/device/pwrctrl/app_pwrctrl_isr.c</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_sm.c</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_utils.c</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl.c</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_api.c</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_pwm.c</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl_isr.c</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_fault_common.c</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_fault.c</itemPath>
           </logicalFolder>
           <itemPath>sources/device/dev_current_sensor.c</itemPath>
           <itemPath>sources/device/dev_fan.c</itemPath>
-          <itemPath>sources/device/dev_iso_voltage_sense.c</itemPath>
           <itemPath>sources/device/dev_led.c</itemPath>
           <itemPath>sources/device/dev_temp.c</itemPath>
         </logicalFolder>

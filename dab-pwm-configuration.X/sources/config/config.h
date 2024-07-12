@@ -20,6 +20,17 @@
 
 #define MAXIMUM_CONTROL_PHASE           180 ///< Maximum control phase in degrees phase
 
+// T_PRIM_TO_SEC_SECS: delay between primary and secondary side PWM (PWM1H to PWM2H)
+#define T_PRIM_TO_SEC_SECS      (100.0e-9)    //TODO: remove this
+
+// T_ADC_SAMPLE_SECS: smallest period between ADC samples
+#define T_ADC_SAMPLE_SECS       (16.5e-6) // ADC sampling rate
+
+// temperature sample taken every T_ADC_TEMP_SAMPLE_DIVIDER samples 
+#define T_ADC_TEMP_SAMPLE_DIVIDER       (1000)
+
+// 5V rail sample taken every T_ADC_5V_SAMPLE_DIVIDER samples
+#define T_ADC_5V_SAMPLE_DIVIDER         (100)
 
 //------------------------------------------------------------------------------
 // fault related parameters

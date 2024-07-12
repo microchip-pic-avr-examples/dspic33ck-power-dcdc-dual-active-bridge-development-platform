@@ -41,6 +41,7 @@
  * @brief   These have to be renamed to make the Vin device driver abstract
  **********************************************************************************/
 #include "input_capture/sccp2.h"
+
 #define InputCapture_CallbackRegister   SCCP2_InputCapture_CallbackRegister     ///< registering the callback function on interrupt
 #define InputCapture_bufferoverflow     SCCP2_InputCapture_HasBufferOverflowed  ///< 
 #define InputCapture_BufferEmpty        SCCP2_InputCapture_IsBufferEmpty        ///< 

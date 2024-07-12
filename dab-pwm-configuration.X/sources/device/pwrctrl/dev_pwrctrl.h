@@ -8,11 +8,11 @@
 #ifndef APP_PWRCTRL_H
 #define	APP_PWRCTRL_H
 
-#include "app/pwrctrl/drv_pwrctrl_typedef.h"
+#include "device/pwrctrl/dev_pwrctrl_typedef.h"
 
 extern POWER_CONTROL_t dab;
 
-void App_PwrCtrl_Initialize(void);
+void Dev_PwrCtrl_Initialize(void);
 
 #endif	/* APP_PWRCTRL_H */
 

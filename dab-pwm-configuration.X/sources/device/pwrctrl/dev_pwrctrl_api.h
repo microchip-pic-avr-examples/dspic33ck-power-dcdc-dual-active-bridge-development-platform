@@ -24,30 +24,30 @@
 #define	DRV_PWRCTRL_API_H
 
 // "set" APIs
-void Drv_PwrCtrl_SetReferenceTarget(uint16_t reference);
-void Drv_PwrCtrl_SetEnable(bool enable);
+void Dev_PwrCtrl_SetReferenceTarget(uint16_t reference);
+void Dev_PwrCtrl_SetEnable(bool enable);
 
 // "get" APIs
-uint16_t Drv_PwrCtrl_GetAdc_Vpri(void);
-uint16_t Drv_PwrCtrl_GetAdc_Vsec(void);
-uint16_t Drv_PwrCtrl_GetAdc_Ipri_ct(void);
-uint16_t Drv_PwrCtrl_GetAdc_Isec_ct(void);
-uint16_t Drv_PwrCtrl_GetAdc_Isec_avg(void);
-uint16_t Drv_PwrCtrl_GetAdc_Temperature(void);
-uint16_t Drv_PwrCtrl_GetAdc_Vrail_5V(void);
-uint16_t Drv_PwrCtrl_Get_Pwmprd(void);
-uint16_t Drv_PwrCtrl_Get_PwmprdTarget(void);
-uint16_t Drv_PwrCtrl_Get_State(void);
-uint16_t Drv_PwrCtrl_Get_Status(void);
-uint16_t Drv_PwrCtrl_Get_FaultFlags(void);
-uint16_t Drv_PwrCtrl_Get_FaultFlagsLatched(void);
-uint16_t Drv_PwrCtrl_Get_EnableFlag(void);
-void Drv_PwrCtrl_Set_IloopReferenceTarget(uint16_t referenceTarget);
-uint16_t Drv_PwrCtrl_Get_IloopReferenceTarget(void);
-uint16_t Drv_PwrCtrl_Get_IloopReference(void);
-uint16_t Drv_PwrCtrl_Get_IloopOutput(void);
-uint16_t Drv_PwrCtrl_Get_IloopFeedback(void);
-uint16_t Drv_PwrCtrl_Get_CurrentSensorOffset(void);
+uint16_t Dev_PwrCtrl_GetAdc_Vpri(void);
+uint16_t Dev_PwrCtrl_GetAdc_Vsec(void);
+uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct(void);
+uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void);
+uint16_t Dev_PwrCtrl_GetAdc_Isec_avg(void);
+uint16_t Dev_PwrCtrl_GetAdc_Temperature(void);
+uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V(void);
+uint16_t Dev_PwrCtrl_Get_Pwmprd(void);
+uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void);
+uint16_t Dev_PwrCtrl_Get_State(void);
+uint16_t Dev_PwrCtrl_Get_Status(void);
+uint16_t Dev_PwrCtrl_Get_FaultFlags(void);
+uint16_t Dev_PwrCtrl_Get_FaultFlagsLatched(void);
+uint16_t Dev_PwrCtrl_Get_EnableFlag(void);
+void Dev_PwrCtrl_Set_IloopReferenceTarget(uint16_t referenceTarget);
+uint16_t Dev_PwrCtrl_Get_IloopReferenceTarget(void);
+uint16_t Dev_PwrCtrl_Get_IloopReference(void);
+uint16_t Dev_PwrCtrl_Get_IloopOutput(void);
+uint16_t Dev_PwrCtrl_Get_IloopFeedback(void);
+uint16_t Dev_PwrCtrl_Get_CurrentSensorOffset(void);
 
 #endif	/* DRV_PWRCTRL_API_H */
 

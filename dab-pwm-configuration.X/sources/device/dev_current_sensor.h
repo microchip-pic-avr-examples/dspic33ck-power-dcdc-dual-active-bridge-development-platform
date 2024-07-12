@@ -9,9 +9,9 @@
 #define	DEV_CURRENT_SENSOR_H
 
 
-void Dev_CurrentSensorOffsetCal(void);
-uint16_t Dev_CurrentSensor_Get_CalibrationStatus(void);
-uint16_t Dev_CurrentSensor_Get_Offset(void);
+extern void Dev_CurrentSensorOffsetCal(void);
+extern uint16_t Dev_CurrentSensor_Get_CalibrationStatus(void);
+extern uint16_t Dev_CurrentSensor_Get_Offset(void);
 
 #endif	/* DEV_CURRENT_SENSOR_H */
 

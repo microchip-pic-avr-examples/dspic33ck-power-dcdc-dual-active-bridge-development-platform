@@ -8,13 +8,13 @@
 #ifndef DRV_PWRCTRL_PWM_H
 #define	DRV_PWRCTRL_PWM_H
 
+#include "dev_pwrctrl_typedef.h"
 
-
-void Drv_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance);
-void Drv_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance);
-void Drv_PwrCtrl_PWM_Primary_Enable(POWER_CONTROL_t* pcInstance);
-void Drv_PwrCtrl_PWM_Secondary_Enable(POWER_CONTROL_t* pcInstance);
-void Drv_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance);
+extern void Dev_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance);
+extern void Dev_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance);
+extern void Dev_PwrCtrl_PWM_Primary_Enable(POWER_CONTROL_t* pcInstance);
+extern void Dev_PwrCtrl_PWM_Secondary_Enable(POWER_CONTROL_t* pcInstance);
+extern void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance);
 
 
 

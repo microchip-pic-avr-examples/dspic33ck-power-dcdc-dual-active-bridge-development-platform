@@ -25,9 +25,11 @@
                                
 #include "system/interrupt.h"
 
-#include "config/apps.h"
 #include "dev_pwrctrl_typedef.h"
+#include "dev_pwrctrl_pwm.h"
 #include "dev_pwrctrl_utils.h"
+#include "device/dev_current_sensor.h"
+#include "dev_fault.h"
 
 static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance);
 static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance);
@@ -45,7 +47,7 @@ static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance);
  * @details
  *
  **********************************************************************************/
-void Drv_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
+void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
 { 
     switch (pcInstance->State)
     {
@@ -155,8 +157,8 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 //        SMPS_Controller2P2ZInitialize(&icomp_2p2z); 
         INTERRUPT_GlobalEnable();   
         
-        Drv_PwrCtrl_Fault_ClearHardwareFaults(pcInstance);
-        Drv_PwrCtrl_PWM_Primary_Enable(pcInstance); // enable primary side PWMs only 
+        Drv_PwrCtrl_Fault_ClearHardwareFaults();
+        Dev_PwrCtrl_PWM_Primary_Enable(pcInstance); // enable primary side PWMs only 
         
         pcInstance->State = PCS_SOFT_START;   // next state
     }
@@ -182,7 +184,7 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
   
   else if (!pcInstance->enable) 
   {
-    Drv_PwrCtrl_PWM_Disable(pcInstance);
+    Dev_PwrCtrl_PWM_Disable(pcInstance);
     pcInstance->Status.bits.running = 0;
     pcInstance->State = PCS_STANDBY; 
   }
@@ -201,9 +203,9 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     uint16_t step = 1;
     uint16_t delay = 12; // TODO: parameterize this into a soft-start time
     bool rampComplete = false;
-    rampComplete = Drv_PwrCtrl_RampReference(ptr_reference, ptr_referenceTarget, step, delay);
+    rampComplete = Dev_PwrCtrl_RampReference(ptr_reference, ptr_referenceTarget, step, delay);
 #ifdef OPEN_LOOP_PBV    
-    Drv_PwrCtrl_PWM_Update(&dab); // update PWM registers, which will in turn update frequency
+    Dev_PwrCtrl_PWM_Update(&dab); // update PWM registers, which will in turn update frequency
 #endif  // #ifdef OPEN_LOOP_PBV 
     if (rampComplete)
     {
@@ -233,7 +235,7 @@ static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
     {
         if (!pcInstance->enable )
         {
-            Drv_PwrCtrl_PWM_Disable(pcInstance);
+            Dev_PwrCtrl_PWM_Disable(pcInstance);
             pcInstance->Status.bits.running = 0;            
             pcInstance->State = PCS_STANDBY;
         }

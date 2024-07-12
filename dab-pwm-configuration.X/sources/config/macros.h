@@ -13,8 +13,10 @@
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h> // include standard definition data types
 
-#include "hardware.h"
+#include "useful_macros.h"
 #include "config.h"
+#include "hardware.h"
+
 
 //device specific 
 #if (PWM_CLOCK_HIGH_RESOLUTION)
@@ -47,10 +49,6 @@
 // convert a threshold in enginnering units (volts,amps etc,) or amps to ADC threshold
 // formula is:
 // integer threshold = (volts or amps threshold)*gain + offset
-//ToDo: need cleanup
-#define _rnd(a)    ((int16_t)((a)+((a)<0?-0.5:0.5)))
-#define UNITS_FROM_ENG_TO_ADC(threshold, gain, offset)       (_rnd((((float)threshold*(float)gain) + (float)offset)/3.3*4096.0))
-
 // convert fault thresholds and delays into integers that can be used by the firmware
 #define ISEC_OC_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(ISEC_OC_THRES_TRIG_AMPS,ISEC_CT_SNS_GAIN,ISEC_CT_SNS_OFS))
 #define ISEC_OC_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(ISEC_OC_THRES_CLEAR_AMPS,ISEC_CT_SNS_GAIN,ISEC_CT_SNS_OFS))

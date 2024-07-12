@@ -26,18 +26,20 @@
 
 #include <stddef.h>
 
-#include "pwm_hs/pwm.h"
-#include "app/pwrctrl/drv_pwrctrl_pwm.h"
-#include "app/pwrctrl/drv_pwrctrl_typedef.h"
-
 #include "cmp/cmp1.h"
 #include "cmp/cmp3.h"
+
+#include "dev_pwrctrl_typedef.h"
+#include "dev_pwrctrl_utils.h"
+#include "config/config.h"
+
 
 //------------------------------------------------------------------------------
 // functions with external linkage
 //------------------------------------------------------------------------------
 void Drv_PwrCtrl_FaultInit(void);
 void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void);
+void Drv_PwrCtrl_Fault_ClearHardwareFaults(void);
 
 //------------------------------------------------------------------------------
 // inline functions calls below, but keep in a separate header file
@@ -52,41 +54,17 @@ void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void);
  * @return  none
  * @details
  **********************************************************************************/
-void __inline__ Drv_PwrCtrl_Fault_Action(POWER_CONTROL_t * pcInstance)
+void __inline__ Drv_PwrCtrl_Fault_Action(POWER_CONTROL_t* pcInstance)
 {
     // PWMs will have already stopped that this point
     // purpose here is to log the fault and set flags so that 
     // the state machine can be reset
     // stop converter, set flags
-    Drv_PwrCtrl_PWM_Disable(pcInstance);
+    Dev_PwrCtrl_PWM_Disable(pcInstance);
     pcInstance->Status.bits.fault = 1;
     pcInstance->Status.bits.running = 0;
     pcInstance->Fault.FaultFlagsLatched.value = pcInstance->Fault.Flags.value;    
-    
 }
-
-/*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_Fault_ClearHardwareFaults(void)
- * @brief   clear hardware faults
- * @param   none
- * @return  none 
- * @details
- * This is an API function
- **********************************************************************************/
-void Drv_PwrCtrl_Fault_ClearHardwareFaults(POWER_CONTROL_t * pcInstance)
-{
-
-    PWM_FaultModeLatchClear(pcInstance->Pwm.Primary_1);
-    PWM_GeneratorEventStatusClear(pcInstance->Pwm.Primary_1, PWM_GENERATOR_INTERRUPT_FAULT);
-    PWM_FaultModeLatchClear(pcInstance->Pwm.Primary_2);
-    PWM_GeneratorEventStatusClear(pcInstance->Pwm.Primary_2, PWM_GENERATOR_INTERRUPT_FAULT);
-    PWM_FaultModeLatchClear(pcInstance->Pwm.Secondary_1);
-    PWM_GeneratorEventStatusClear(pcInstance->Pwm.Secondary_1, PWM_GENERATOR_INTERRUPT_FAULT);
-    PWM_FaultModeLatchClear(pcInstance->Pwm.Secondary_2);
-    PWM_GeneratorEventStatusClear(pcInstance->Pwm.Secondary_2, PWM_GENERATOR_INTERRUPT_FAULT);
-}
-
 
 /*********************************************************************************
  * @ingroup 
@@ -96,11 +74,9 @@ void Drv_PwrCtrl_Fault_ClearHardwareFaults(POWER_CONTROL_t * pcInstance)
  * @return  none
  * @details
  **********************************************************************************/
-void __inline__ Drv_PwrCtrl_Fault_Vsec_OV(POWER_CONTROL_t * pcInstance)
+void __inline__ Drv_PwrCtrl_Fault_Vsec_OV(POWER_CONTROL_t* pcInstance)
 {
-  pcInstance->Fault.Flags.bits.vSec_ov = FAULT_CheckMax(&pcInstance->Fault.Object.vpri_ov, 
-                                            pcInstance->Adc.vsec, NULL);
-  
+  pcInstance->Fault.Flags.bits.vSec_ov = FAULT_CheckMax(&pcInstance->Fault.Object.vsec_ov, pcInstance->Adc.vsec, NULL);
   if (pcInstance->Fault.Flags.bits.vSec_ov)
   {
     Drv_PwrCtrl_Fault_Action(pcInstance);  
@@ -115,11 +91,9 @@ void __inline__ Drv_PwrCtrl_Fault_Vsec_OV(POWER_CONTROL_t * pcInstance)
  * @return  none
  * @details
  **********************************************************************************/
-void __inline__ Drv_PwrCtrl_Fault_Vpri_OV(POWER_CONTROL_t * pcInstance)
+void __inline__ Drv_PwrCtrl_Fault_Vpri_OV(POWER_CONTROL_t* pcInstance)
 {
-  pcInstance->Fault.Flags.bits.vPri_ov = FAULT_CheckMax(&pcInstance->Fault.Object.vpri_ov, 
-                                            pcInstance->Adc.vpri, NULL);
-  
+  pcInstance->Fault.Flags.bits.vPri_ov = FAULT_CheckMax(&pcInstance->Fault.Object.vpri_ov, pcInstance->Adc.vpri, NULL);
   if (pcInstance->Fault.Flags.bits.vPri_ov)
   {
       Drv_PwrCtrl_Fault_Action(pcInstance);  
@@ -134,11 +108,9 @@ void __inline__ Drv_PwrCtrl_Fault_Vpri_OV(POWER_CONTROL_t * pcInstance)
  * @return  none
  * @details
  **********************************************************************************/
-void __inline__ Drv_PwrCtrl_Fault_Isec_OC(POWER_CONTROL_t * pcInstance)
+void __inline__ Drv_PwrCtrl_Fault_Isec_OC(POWER_CONTROL_t* pcInstance)
 {
-  pcInstance->Fault.Flags.bits.iSec_oc = FAULT_CheckMax(&pcInstance->Fault.Object.isec_oc, 
-                                        pcInstance->Adc.isec_ct, NULL);
-  
+  pcInstance->Fault.Flags.bits.iSec_oc = FAULT_CheckMax(&pcInstance->Fault.Object.isec_oc, pcInstance->Adc.isec_ct, NULL);
   if (pcInstance->Fault.Flags.bits.iSec_oc)
   {
       Drv_PwrCtrl_Fault_Action(pcInstance);  
@@ -153,11 +125,9 @@ void __inline__ Drv_PwrCtrl_Fault_Isec_OC(POWER_CONTROL_t * pcInstance)
  * @return  none
  * @details
  **********************************************************************************/
-void __inline__ Drv_PwrCtrl_Fault_Ipri_OC(POWER_CONTROL_t * pcInstance)
+void __inline__ Drv_PwrCtrl_Fault_Ipri_OC(POWER_CONTROL_t* pcInstance)
 {
-  pcInstance->Fault.Flags.bits.iPri_oc = FAULT_CheckMax(&pcInstance->Fault.Object.ipri_oc, 
-                                        pcInstance->Adc.ipri_ct, NULL);
-  
+  pcInstance->Fault.Flags.bits.iPri_oc = FAULT_CheckMax(&pcInstance->Fault.Object.ipri_oc, pcInstance->Adc.ipri_ct, NULL);
   if (pcInstance->Fault.Flags.bits.iPri_oc)
   {
       Drv_PwrCtrl_Fault_Action(pcInstance);  
@@ -173,20 +143,16 @@ void __inline__ Drv_PwrCtrl_Fault_Ipri_OC(POWER_CONTROL_t * pcInstance)
  * @details
  * This is implemented with comparators -> CLC -> PWM PCI fault inputs
  **********************************************************************************/
-void __inline__ Drv_PwrCtrl_Fault_ShortCircuit(POWER_CONTROL_t * pcInstance)
+void __inline__ Drv_PwrCtrl_Fault_ShortCircuit(POWER_CONTROL_t* pcInstance)
 {
-    // Check the FLTEVT bit in PWM1. If this is set, the fault PCI mechanism was triggered
-    // assume that this has been triggered for all PWMs (so we don't check the FLTEVT bit for each PWM)
-    pcInstance->Fault.Flags.bits.i_sc = FAULT_CheckBit(&pcInstance->Fault.Object.i_sc, 
-                                    PG1STATbits.FLTEVT, NULL);      //ToDo: Check MCC if there is a function for this dependent PWM instance
-    
+    pcInstance->Fault.Flags.bits.i_sc = FAULT_CheckBit(&pcInstance->Fault.Object.i_sc, PG1STATbits.FLTEVT, NULL);
     if (pcInstance->Fault.Flags.bits.i_sc)
     {
       Drv_PwrCtrl_Fault_Action(pcInstance);   
       
       // clear fault bits in PWM peripherals
       // to allow PWM to re-start when fault is no longer present
-      Drv_PwrCtrl_Fault_ClearHardwareFaults(pcInstance);      
+      Drv_PwrCtrl_Fault_ClearHardwareFaults();      
     }
 }
 
@@ -198,7 +164,7 @@ void __inline__ Drv_PwrCtrl_Fault_ShortCircuit(POWER_CONTROL_t * pcInstance)
  * @return  1 if both comparators are 0, 0 otherwise
  * @details
  **********************************************************************************/
-uint16_t __inline__ Drv_PwrCtrl_Fault_SC_Faults_Clear(POWER_CONTROL_t * pcInstance)
+uint16_t __inline__ Drv_PwrCtrl_Fault_SC_Faults_Clear(POWER_CONTROL_t* pcInstance)
 {
 #ifndef FAULT_SHORT_CCT_DISABLE
     uint16_t sc_faults_clear;

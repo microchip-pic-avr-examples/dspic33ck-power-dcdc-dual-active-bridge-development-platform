@@ -33,7 +33,7 @@
  * ramp compensator reference linearly
  *
  **********************************************************************************/
-bool Drv_PwrCtrl_RampReference(uint16_t* ptr_reference, 
+bool Dev_PwrCtrl_RampReference(uint16_t* ptr_reference, 
                                uint16_t* ptr_referenceTarget, 
                                uint16_t step, 
                                uint16_t delay)

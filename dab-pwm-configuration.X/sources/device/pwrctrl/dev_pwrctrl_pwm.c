@@ -34,7 +34,7 @@
  * turn on all potentially active PWMs
  * note that this is an API function
  **********************************************************************************/
-void Drv_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance)
+void Dev_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance)
 {
         
     // turn on PWM outputs by disabling the output override on each high and low PWM output
@@ -61,7 +61,7 @@ void Drv_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance)
  * turn off active all potentially active PWMs
  * note that this is an API function
  **********************************************************************************/
-void Drv_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance)
+void Dev_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance)
 {
     // turn on all PWM pin output overrides, this sets PWM pin to 0
     // even if PWM peripheral is enabled and running in the background
@@ -92,7 +92,7 @@ void Drv_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance)
  * turn on all primary side PWMs
  * note that this is an API function
  **********************************************************************************/
-void Drv_PwrCtrl_PWM_Primary_Enable(POWER_CONTROL_t* pcInstance)
+void Dev_PwrCtrl_PWM_Primary_Enable(POWER_CONTROL_t* pcInstance)
 {
  
     // turn on primary side PWM outputs by disabling the output overrides
@@ -117,7 +117,7 @@ void Drv_PwrCtrl_PWM_Primary_Enable(POWER_CONTROL_t* pcInstance)
  * turn on all secondary side PWMs pins
  * note that this is an API function
  **********************************************************************************/
-void Drv_PwrCtrl_PWM_Secondary_Enable(POWER_CONTROL_t* pcInstance)
+void Dev_PwrCtrl_PWM_Secondary_Enable(POWER_CONTROL_t* pcInstance)
 {
     // turn on secondary side PWM outputs by disabling the PWM pin override
     PWM_OverrideHighDisable(pcInstance->Pwm.Secondary_1);
@@ -135,7 +135,7 @@ void Drv_PwrCtrl_PWM_Secondary_Enable(POWER_CONTROL_t* pcInstance)
  * @details
  * update period, duty cycle and phase registers for primary and secondary side PWMs
  **********************************************************************************/
-void Drv_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
+void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
 {   
      // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
     // (please refer to Section 4.1.3.3 in High Resolution PWM FRM)

@@ -26,11 +26,10 @@
 #include "App_PBV_CLLC_frame_map.h"
 
 #include "system/pins.h"
-#include "app/fan/dev_fan.h"
-#include "app/temp/dev_temp.h"
-#include "app/pwrctrl/drv_pwrctrl_api.h"
+#include "device/dev_fan.h"
+#include "device/dev_temp.h"
+#include "device/pwrctrl/dev_pwrctrl_api.h"
 #include "config/macros.h"
-//#include "device/dev_current_sensor.h"
 
 /*********************************************************************************
  * @ingroup pbv-protocol-ids
@@ -215,32 +214,32 @@ void App_PBV_CLLC_Build_Frame()
     // Power Board Visualizer can only mask single bits
     // so create maskable word that can be parsed by GUI by sending the
     // "2 ^ (state)" instead of "state"
-    buffer_sixteen_tx[0] = 1<<(Drv_PwrCtrl_Get_State());
+    buffer_sixteen_tx[0] = 1<<(Dev_PwrCtrl_Get_State());
     
     // send back one "flag word" which combines fault and status and enable control flag
-    uint16_t enabled = Drv_PwrCtrl_Get_EnableFlag();
-    uint16_t fault_flags = Drv_PwrCtrl_Get_FaultFlagsLatched();
-    uint16_t status_flags = Drv_PwrCtrl_Get_Status();
+    uint16_t enabled = Dev_PwrCtrl_Get_EnableFlag();
+    uint16_t fault_flags = Dev_PwrCtrl_Get_FaultFlagsLatched();
+    uint16_t status_flags = Dev_PwrCtrl_Get_Status();
     uint16_t current_sensor_cal_flag = 0; //ToDo: bring back:: Dev_CurrentSensor_Get_CalibrationStatus();
     uint16_t flag_word = enabled + ((status_flags & 0x0003)<<1) + (fault_flags<<3) + (current_sensor_cal_flag<<10);
     
     buffer_sixteen_tx[1] = flag_word;
-    buffer_sixteen_tx[2] = Drv_PwrCtrl_GetAdc_Vpri();
-    buffer_sixteen_tx[3] = Drv_PwrCtrl_GetAdc_Vsec();
-    buffer_sixteen_tx[4] = Drv_PwrCtrl_GetAdc_Ipri_ct();
-    buffer_sixteen_tx[5] = Drv_PwrCtrl_GetAdc_Isec_ct();
-    buffer_sixteen_tx[6] = Drv_PwrCtrl_GetAdc_Isec_avg();
-    buffer_sixteen_tx[7] = Drv_PwrCtrl_GetAdc_Temperature();
-    buffer_sixteen_tx[8] = Drv_PwrCtrl_GetAdc_Vrail_5V();    
+    buffer_sixteen_tx[2] = Dev_PwrCtrl_GetAdc_Vpri();
+    buffer_sixteen_tx[3] = Dev_PwrCtrl_GetAdc_Vsec();
+    buffer_sixteen_tx[4] = Dev_PwrCtrl_GetAdc_Ipri_ct();
+    buffer_sixteen_tx[5] = Dev_PwrCtrl_GetAdc_Isec_ct();
+    buffer_sixteen_tx[6] = Dev_PwrCtrl_GetAdc_Isec_avg();
+    buffer_sixteen_tx[7] = Dev_PwrCtrl_GetAdc_Temperature();
+    buffer_sixteen_tx[8] = Dev_PwrCtrl_GetAdc_Vrail_5V();    
     buffer_sixteen_tx[9] = 0; //ToDo: bring back:: dev_fan_data_ptr->current_speed_raw;
     buffer_sixteen_tx[10] = 0; //ToDo: bring back:: dev_fan_data_ptr->current_speed_percent;
     buffer_sixteen_tx[11] = temperature;
-    buffer_sixteen_tx[12] = Drv_PwrCtrl_Get_Pwmprd();
-    buffer_sixteen_tx[13] = Drv_PwrCtrl_Get_PwmprdTarget();
-    buffer_sixteen_tx[14] = Drv_PwrCtrl_Get_IloopReferenceTarget();
-    buffer_sixteen_tx[15] = Drv_PwrCtrl_Get_IloopReference();
-    buffer_sixteen_tx[16] = Drv_PwrCtrl_Get_IloopOutput();
-    buffer_sixteen_tx[17] = Drv_PwrCtrl_Get_IloopFeedback(); 
+    buffer_sixteen_tx[12] = Dev_PwrCtrl_Get_Pwmprd();
+    buffer_sixteen_tx[13] = Dev_PwrCtrl_Get_PwmprdTarget();
+    buffer_sixteen_tx[14] = Dev_PwrCtrl_Get_IloopReferenceTarget();
+    buffer_sixteen_tx[15] = Dev_PwrCtrl_Get_IloopReference();
+    buffer_sixteen_tx[16] = Dev_PwrCtrl_Get_IloopOutput();
+    buffer_sixteen_tx[17] = Dev_PwrCtrl_Get_IloopFeedback(); 
     
     PBV_Change_from_Sixteen_to_Eight(buffer_sixteen_tx, buffer_eight_tx, 18);
     
@@ -270,7 +269,7 @@ void App_PBV_CLLC_Process_Rx_Data(uint16_t * data)
             if (control_word < 2) // should be 0 or 1
             {
                 bool enable = (bool)control_word;
-                Drv_PwrCtrl_SetEnable(enable);
+                Dev_PwrCtrl_SetEnable(enable);
             }
             break;
         }
@@ -280,7 +279,7 @@ void App_PBV_CLLC_Process_Rx_Data(uint16_t * data)
             // change target frequency
             if ((data[1] <= MAX_PWM_PERIOD) && (data[1] >= MIN_PWM_PERIOD))             
             {
-                Drv_PwrCtrl_SetReferenceTarget(data[1]);
+                Dev_PwrCtrl_SetReferenceTarget(data[1]);
             }            
             break;
         }
@@ -295,7 +294,7 @@ void App_PBV_CLLC_Process_Rx_Data(uint16_t * data)
         {
             if (control_word < 32767) //TODO: put in proper check here!
             {
-                Drv_PwrCtrl_Set_IloopReferenceTarget(control_word);
+                Dev_PwrCtrl_Set_IloopReferenceTarget(control_word);
             }
         }
         break;            

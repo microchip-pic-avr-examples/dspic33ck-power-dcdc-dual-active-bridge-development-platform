@@ -8,8 +8,8 @@
 #include "dev_temp.h"
 #include <stdlib.h>
 
-#include "app/fault/fault_common.h"
-#include "app/pwrctrl/drv_pwrctrl_api.h"
+#include "device/pwrctrl/dev_fault_common.h"
+#include "device/pwrctrl/dev_pwrctrl_api.h"
 
 /*********************************************************************************
  * @ingroup dev-temp-data-type
@@ -221,7 +221,7 @@ void Dev_Temp_Get_ADC_Sample(void)
     }
         
     // use API from power controller to read temperature
-    devTempData.AdcReading = Drv_PwrCtrl_GetAdc_Temperature();            
+    devTempData.AdcReading = Dev_PwrCtrl_GetAdc_Temperature();            
     devTempData.TempBuffer[devTempData.BufferIndex++] = devTempData.AdcReading;
     
 }

@@ -138,7 +138,7 @@ void ControlLoop_Interrupt(void)
         dab.Pwm.ControlPeriod = MIN_PWM_PERIOD;
     }
        
-    Drv_PwrCtrl_PWM_Update(&dab);
+    Dev_PwrCtrl_PWM_Update(&dab);
     
 #endif // #ifndef OPEN_LOOP_PBV
     

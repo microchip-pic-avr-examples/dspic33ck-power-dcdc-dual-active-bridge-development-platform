@@ -19,9 +19,9 @@
  * TERMS. 
  */
 #include <xc.h>
-#include "mcc_extension/drv_mcc_extension.h"
-#include "mcc_extension/drv_config_custom_pwm.h"
-#include "app/pwrctrl/app_pwrctrl.h"
+#include "driver/mcc_extension/drv_mcc_extension.h"
+#include "driver/mcc_extension/drv_config_custom_pwm.h"
+#include "device/pwrctrl/dev_pwrctrl.h"
 
 
 

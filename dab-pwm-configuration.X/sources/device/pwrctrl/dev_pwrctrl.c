@@ -25,13 +25,13 @@
 #include "pwm_hs/pwm.h"
 #include "dev_pwrctrl_typedef.h"
 #include "dev_pwrctrl_pwm.h"
-#include "app/fault/drv_pwrctrl_fault.h"
+#include "dev_fault.h"
 
 POWER_CONTROL_t dab;
 
-extern void Drv_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
+extern void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
 
-void App_PwrCtrl_Initialize(void)
+void Dev_PwrCtrl_Initialize(void)
 {
     // Initialize the PWM instance that the user initialize in MCC
     // for the power control driver
@@ -49,34 +49,34 @@ void App_PwrCtrl_Initialize(void)
 //    Drv_PwrCtrl_Icomp_Init();
     
     // set all PWM output pins to 0
-    Drv_PwrCtrl_PWM_Disable(&dab); 
+    Dev_PwrCtrl_PWM_Disable(&dab); 
     
     // Update the Period, Duty Cycle and Phases of the PWMs based on
     // the given Control period and Control Phase
-    Drv_PwrCtrl_PWM_Update(&dab);
+    Dev_PwrCtrl_PWM_Update(&dab);
     
 }
 
-void App_PwrCtrl_Enable(void)
+void Dev_PwrCtrl_Enable(void)
 {
     //Enable PWM peripheral
     PWM_Enable();
     
     //Enable PWM output
-    Drv_PwrCtrl_PWM_Enable(&dab);
+    Dev_PwrCtrl_PWM_Enable(&dab);
 }
 
 
-void App_PwrCtrl_Execute(void)
+void Dev_PwrCtrl_Execute(void)
 {
     // short circuit fault checks (primary and secondary over current via comparators)
     Drv_PwrCtrl_Fault_ShortCircuit(&dab);
     
-    Drv_PwrCtrl_StateMachine(&dab);
+    Dev_PwrCtrl_StateMachine(&dab);
 }
 
 
-void App_PwrCtrl_Suspend(void)
+void Dev_PwrCtrl_Suspend(void)
 {
     //Disable PWM peripheral
     PWM_Disable();

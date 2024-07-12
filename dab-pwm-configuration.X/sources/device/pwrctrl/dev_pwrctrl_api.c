@@ -33,7 +33,7 @@ extern POWER_CONTROL_t dab;
  * @details
  * API function
  **********************************************************************************/
-void Drv_PwrCtrl_SetReferenceTarget(uint16_t reference)
+void Dev_PwrCtrl_SetReferenceTarget(uint16_t reference)
 {    
     dab.Pwm.ControlTarget = reference;
 }
@@ -47,7 +47,7 @@ void Drv_PwrCtrl_SetReferenceTarget(uint16_t reference)
  * @details
  * API function
  **********************************************************************************/
-void Drv_PwrCtrl_SetEnable(bool enable)
+void Dev_PwrCtrl_SetEnable(bool enable)
 { 
   dab.enable = enable; 
 }
@@ -61,7 +61,7 @@ void Drv_PwrCtrl_SetEnable(bool enable)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_GetAdc_Vpri(void)
+uint16_t Dev_PwrCtrl_GetAdc_Vpri(void)
 {
     return(dab.Adc.vpri);
 }
@@ -75,7 +75,7 @@ uint16_t Drv_PwrCtrl_GetAdc_Vpri(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_GetAdc_Vsec(void)
+uint16_t Dev_PwrCtrl_GetAdc_Vsec(void)
 {
     return(dab.Adc.vsec);
 }
@@ -89,7 +89,7 @@ uint16_t Drv_PwrCtrl_GetAdc_Vsec(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_GetAdc_Ipri_ct(void)
+uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct(void)
 {
     return(dab.Adc.ipri_ct);
 }
@@ -103,7 +103,7 @@ uint16_t Drv_PwrCtrl_GetAdc_Ipri_ct(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_GetAdc_Isec_ct(void)
+uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void)
 {
     return(dab.Adc.isec_ct);
 }
@@ -117,7 +117,7 @@ uint16_t Drv_PwrCtrl_GetAdc_Isec_ct(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_GetAdc_Isec_avg(void)
+uint16_t Dev_PwrCtrl_GetAdc_Isec_avg(void)
 {
     return(dab.Adc.isec_avg);
 }
@@ -131,7 +131,7 @@ uint16_t Drv_PwrCtrl_GetAdc_Isec_avg(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_GetAdc_Temperature(void)
+uint16_t Dev_PwrCtrl_GetAdc_Temperature(void)
 {
     return(dab.Adc.temperature);
 }
@@ -145,7 +145,7 @@ uint16_t Drv_PwrCtrl_GetAdc_Temperature(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_GetAdc_Vrail_5V(void)
+uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V(void)
 {
     return(dab.Adc.vrail_5v);
 }
@@ -159,7 +159,7 @@ uint16_t Drv_PwrCtrl_GetAdc_Vrail_5V(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_Get_Pwmprd(void)
+uint16_t Dev_PwrCtrl_Get_Pwmprd(void)
 {
     return(dab.Pwm.ControlPeriod);
 }
@@ -173,7 +173,7 @@ uint16_t Drv_PwrCtrl_Get_Pwmprd(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_Get_State(void)
+uint16_t Dev_PwrCtrl_Get_State(void)
 {
     return(dab.State);
 }
@@ -187,7 +187,7 @@ uint16_t Drv_PwrCtrl_Get_State(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_Get_Status(void)
+uint16_t Dev_PwrCtrl_Get_Status(void)
 {
     return(dab.Status.value);
 }
@@ -201,7 +201,7 @@ uint16_t Drv_PwrCtrl_Get_Status(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_Get_FaultFlags(void)
+uint16_t Dev_PwrCtrl_Get_FaultFlags(void)
 {
     return(dab.Fault.Flags.value);
 }
@@ -216,7 +216,7 @@ uint16_t Drv_PwrCtrl_Get_FaultFlags(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_Get_FaultFlagsLatched(void)
+uint16_t Dev_PwrCtrl_Get_FaultFlagsLatched(void)
 {
     return(dab.Fault.FaultFlagsLatched.value);
 }
@@ -230,7 +230,7 @@ uint16_t Drv_PwrCtrl_Get_FaultFlagsLatched(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_Get_EnableFlag(void)
+uint16_t Dev_PwrCtrl_Get_EnableFlag(void)
 {
     return(dab.enable);
 }
@@ -245,7 +245,7 @@ uint16_t Drv_PwrCtrl_Get_EnableFlag(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_Get_PwmprdTarget(void)
+uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void)
 {
     return(dab.Pwm.ControlTarget);
 }
@@ -259,7 +259,7 @@ uint16_t Drv_PwrCtrl_Get_PwmprdTarget(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_Get_IloopReferenceTarget(void)
+uint16_t Dev_PwrCtrl_Get_IloopReferenceTarget(void)
 {
     return(dab.iloop.referenceTarget);
 }
@@ -273,7 +273,7 @@ uint16_t Drv_PwrCtrl_Get_IloopReferenceTarget(void)
  * @details
  * API function
  **********************************************************************************/
-void Drv_PwrCtrl_Set_IloopReferenceTarget(uint16_t referenceTarget)
+void Dev_PwrCtrl_Set_IloopReferenceTarget(uint16_t referenceTarget)
 {
     dab.iloop.referenceTarget = referenceTarget;
 }
@@ -287,7 +287,7 @@ void Drv_PwrCtrl_Set_IloopReferenceTarget(uint16_t referenceTarget)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_Get_IloopReference(void)
+uint16_t Dev_PwrCtrl_Get_IloopReference(void)
 {
     return(dab.iloop.reference);
 }
@@ -301,7 +301,7 @@ uint16_t Drv_PwrCtrl_Get_IloopReference(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_Get_IloopOutput(void)
+uint16_t Dev_PwrCtrl_Get_IloopOutput(void)
 {
     return(dab.iloop.output);
 }
@@ -315,7 +315,7 @@ uint16_t Drv_PwrCtrl_Get_IloopOutput(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_Get_IloopFeedback(void)
+uint16_t Dev_PwrCtrl_Get_IloopFeedback(void)
 {
     return(dab.iloop.feedback);
 }
@@ -329,7 +329,7 @@ uint16_t Drv_PwrCtrl_Get_IloopFeedback(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Drv_PwrCtrl_Get_CurrentSensorOffset(void)
+uint16_t Dev_PwrCtrl_Get_CurrentSensorOffset(void)
 {
     return(dab.Adc.isec_sensor_offset);
 }

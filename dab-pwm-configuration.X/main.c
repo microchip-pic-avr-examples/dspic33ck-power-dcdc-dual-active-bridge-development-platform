@@ -25,8 +25,7 @@
 
 #include "system/system.h"
 
-#include "mcc_extension/mcc_custom_config.h"
-#include "config/hal.h"
+#include "driver/mcc_extension/mcc_custom_config.h"
 #include "os/os.h"
 
 /*
