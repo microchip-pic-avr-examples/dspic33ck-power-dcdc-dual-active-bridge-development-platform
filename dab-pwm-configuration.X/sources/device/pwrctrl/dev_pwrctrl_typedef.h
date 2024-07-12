@@ -35,6 +35,7 @@ struct SWITCH_NODE_s
     uint16_t Secondary_1;           ///< Secondary switch-node configuration
     uint16_t Secondary_2;           ///< Secondary switch-node configuration
     uint16_t ControlPeriod;         ///< Control period value from control loop
+    uint16_t ControlTarget;         ///< Control target
     uint16_t ControlDutyCycle;      ///< Control Duty Cycle calculation based on Control Period
     uint16_t ControlPhase;          ///< Control phase value from control loop
 };

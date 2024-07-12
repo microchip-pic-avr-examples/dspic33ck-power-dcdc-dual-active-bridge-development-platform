@@ -67,63 +67,58 @@
       </logicalFolder>
       <logicalFolder name="sources" displayName="sources" projectFiles="true">
         <logicalFolder name="app" displayName="app" projectFiles="true">
-          <logicalFolder name="comms" displayName="comms" projectFiles="true">
-            <itemPath>sources/app/comms/app_PBV_CAN.h</itemPath>
-            <itemPath>sources/app/comms/app_PBV_cllc_frame_map.h</itemPath>
-            <itemPath>sources/app/comms/app_PBV_config.h</itemPath>
-            <itemPath>sources/app/comms/app_PBV_interface.h</itemPath>
-            <itemPath>sources/app/comms/app_PBV_UART.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="fan" displayName="fan" projectFiles="true">
-            <itemPath>sources/app/fan/dev_fan.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="fault" displayName="fault" projectFiles="true">
-            <itemPath>sources/app/fault/drv_pwrctrl_fault.h</itemPath>
-            <itemPath>sources/app/fault/fault_common.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="isensor" displayName="isensor" projectFiles="true">
-            <itemPath>sources/app/isensor/dev_current_sensor.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="led" displayName="led" projectFiles="true">
-            <itemPath>sources/app/led/dev_led.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="pwrctrl" displayName="pwrctrl" projectFiles="true">
-            <itemPath>sources/app/pwrctrl/app_pwrctrl.h</itemPath>
-            <itemPath>sources/app/pwrctrl/drv_pwrctrl_api.h</itemPath>
-            <itemPath>sources/app/pwrctrl/drv_pwrctrl_isr.h</itemPath>
-            <itemPath>sources/app/pwrctrl/drv_pwrctrl_pwm.h</itemPath>
-            <itemPath>sources/app/pwrctrl/drv_pwrctrl_typedef.h</itemPath>
-          </logicalFolder>
-          <logicalFolder name="temp" displayName="temp" projectFiles="true">
-            <itemPath>sources/app/temp/dev_temp.h</itemPath>
-          </logicalFolder>
+          <itemPath>sources/app/app_PBV_CAN.h</itemPath>
+          <itemPath>sources/app/app_PBV_cllc_frame_map.h</itemPath>
+          <itemPath>sources/app/app_PBV_config.h</itemPath>
+          <itemPath>sources/app/app_PBV_interface.h</itemPath>
+          <itemPath>sources/app/app_PBV_UART.h</itemPath>
         </logicalFolder>
         <logicalFolder name="config" displayName="config" projectFiles="true">
+          <itemPath>sources/config/apps.h</itemPath>
+          <itemPath>sources/config/comms_config.h</itemPath>
           <itemPath>sources/config/config.h</itemPath>
           <itemPath>sources/config/hal.h</itemPath>
-          <itemPath>sources/config/macros.h</itemPath>
-          <itemPath>sources/config/apps.h</itemPath>
           <itemPath>sources/config/hardware.h</itemPath>
-          <itemPath>sources/config/comms_config.h</itemPath>
+          <itemPath>sources/config/macros.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="device" displayName="device" projectFiles="true">
+          <logicalFolder name="fault" displayName="fault" projectFiles="true">
+            <itemPath>sources/device/fault/dev_pwrctrl_fault.h</itemPath>
+            <itemPath>sources/device/fault/dev_fault_common.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="pwrctrl" displayName="pwrctrl" projectFiles="true">
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl_utils.h</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl.h</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl_isr.h</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl_api.h</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl_pwm.h</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl_typedef.h</itemPath>
+          </logicalFolder>
+          <itemPath>sources/device/dev_current_sensor.h</itemPath>
+          <itemPath>sources/device/dev_fan.h</itemPath>
+          <itemPath>sources/device/dev_iso_voltage_sense.h</itemPath>
+          <itemPath>sources/device/dev_led.h</itemPath>
+          <itemPath>sources/device/dev_temp.h</itemPath>
         </logicalFolder>
         <logicalFolder name="driver" displayName="driver" projectFiles="true">
           <logicalFolder name="mcc_extension"
                          displayName="mcc_extension"
                          projectFiles="true">
-            <itemPath>sources/driver/mcc_extension/drv_mcc_extension.h</itemPath>
-            <itemPath>sources/driver/mcc_extension/drv_mcc_extension_pwm.h</itemPath>
-            <itemPath>sources/driver/mcc_extension/drv_mcc_extension_adc.h</itemPath>
             <itemPath>sources/driver/mcc_extension/drv_config_custom_pwm.h</itemPath>
+            <itemPath>sources/driver/mcc_extension/drv_mcc_extension.h</itemPath>
+            <itemPath>sources/driver/mcc_extension/drv_mcc_extension_adc.h</itemPath>
+            <itemPath>sources/driver/mcc_extension/drv_mcc_extension_pwm.h</itemPath>
+            <itemPath>sources/driver/mcc_extension/mcc_custom_config.h</itemPath>
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="os" displayName="os" projectFiles="true">
           <itemPath>sources/os/os.h</itemPath>
+          <itemPath>sources/os/os_config.h</itemPath>
           <itemPath>sources/os/os_reset.h</itemPath>
           <itemPath>sources/os/os_scheduler.h</itemPath>
           <itemPath>sources/os/os_sys_time.h</itemPath>
           <itemPath>sources/os/os_timer.h</itemPath>
           <itemPath>sources/os/os_watchdog.h</itemPath>
-          <itemPath>sources/os/os_config.h</itemPath>
         </logicalFolder>
         <logicalFolder name="x2cScope" displayName="x2cScope" projectFiles="true">
           <itemPath>sources/x2cScope/X2CScope.h</itemPath>
@@ -206,39 +201,37 @@
       </logicalFolder>
       <logicalFolder name="sources" displayName="sources" projectFiles="true">
         <logicalFolder name="app" displayName="app" projectFiles="true">
-          <logicalFolder name="comms" displayName="comms" projectFiles="true">
-            <itemPath>sources/app/comms/app_PBV_CAN.c</itemPath>
-            <itemPath>sources/app/comms/app_PBV_cllc_frame_map.c</itemPath>
-            <itemPath>sources/app/comms/app_PBV_config.c</itemPath>
-            <itemPath>sources/app/comms/app_PBV_interface.c</itemPath>
-            <itemPath>sources/app/comms/app_PBV_UART.c</itemPath>
-          </logicalFolder>
-          <logicalFolder name="fan" displayName="fan" projectFiles="true">
-            <itemPath>sources/app/fan/dev_fan.c</itemPath>
-          </logicalFolder>
+          <itemPath>sources/app/app_PBV_CAN.c</itemPath>
+          <itemPath>sources/app/app_PBV_cllc_frame_map.c</itemPath>
+          <itemPath>sources/app/app_PBV_config.c</itemPath>
+          <itemPath>sources/app/app_PBV_interface.c</itemPath>
+          <itemPath>sources/app/app_PBV_UART.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="device" displayName="device" projectFiles="true">
           <logicalFolder name="fault" displayName="fault" projectFiles="true">
-            <itemPath>sources/app/fault/app_fault.c</itemPath>
-            <itemPath>sources/app/fault/fault_common.c</itemPath>
-          </logicalFolder>
-          <logicalFolder name="isensor" displayName="isensor" projectFiles="true">
-            <itemPath>sources/app/isensor/dev_current_sensor.c</itemPath>
-          </logicalFolder>
-          <logicalFolder name="led" displayName="led" projectFiles="true">
-            <itemPath>sources/app/led/dev_led.c</itemPath>
+            <itemPath>sources/device/fault/dev_fault.c</itemPath>
+            <itemPath>sources/device/fault/dev_fault_common.c</itemPath>
           </logicalFolder>
           <logicalFolder name="pwrctrl" displayName="pwrctrl" projectFiles="true">
-            <itemPath>sources/app/pwrctrl/app_pwrctrl.c</itemPath>
-            <itemPath>sources/app/pwrctrl/dev_pwrctrl_sm.c</itemPath>
-            <itemPath>sources/app/pwrctrl/dev_pwrctrl_utils.c</itemPath>
-            <itemPath>sources/app/pwrctrl/drv_pwrctrl_api.c</itemPath>
-            <itemPath>sources/app/pwrctrl/drv_pwrctrl_pwm.c</itemPath>
-            <itemPath>sources/app/pwrctrl/app_pwrctrl_isr.c</itemPath>
+            <itemPath>sources/device/pwrctrl/app_pwrctrl_isr.c</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl_sm.c</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl_utils.c</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl.c</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl_api.c</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl_pwm.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="temp" displayName="temp" projectFiles="true">
-            <itemPath>sources/app/temp/dev_temp.c</itemPath>
-          </logicalFolder>
+          <itemPath>sources/device/dev_current_sensor.c</itemPath>
+          <itemPath>sources/device/dev_fan.c</itemPath>
+          <itemPath>sources/device/dev_iso_voltage_sense.c</itemPath>
+          <itemPath>sources/device/dev_led.c</itemPath>
+          <itemPath>sources/device/dev_temp.c</itemPath>
         </logicalFolder>
         <logicalFolder name="driver" displayName="driver" projectFiles="true">
+          <logicalFolder name="mcc_extension"
+                         displayName="mcc_extension"
+                         projectFiles="true">
+            <itemPath>sources/driver/mcc_extension/mcc_custom_config.c</itemPath>
+          </logicalFolder>
         </logicalFolder>
         <logicalFolder name="os" displayName="os" projectFiles="true">
           <itemPath>sources/os/os.c</itemPath>
@@ -269,7 +262,7 @@
         <targetDevice>dsPIC33CK256MP506</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>pk4hybrid</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XCDSC</languageToolchain>
         <languageToolchainVersion>3.10</languageToolchainVersion>
         <platform>3</platform>
@@ -421,8 +414,7 @@
       </C30-LD>
       <C30Global>
         <property key="combine-sourcefiles" value="false"/>
-        <property key="common-include-directories"
-                  value="sources;mcc_generated_files;sources/driver"/>
+        <property key="common-include-directories" value="sources;mcc_generated_files"/>
         <property key="dual-boot-partition" value="0"/>
         <property key="fast-math" value="false"/>
         <property key="generic-16-bit" value="false"/>
@@ -732,8 +724,6 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-2beff"/>
         <property key="poweroptions.powerenable" value="false"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dab-pwm-configuration.X/debug/default/dab-pwm-configuration_ptg"/>
         <property key="programmerToGoImageName" value="dab-pwm-configuration_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>

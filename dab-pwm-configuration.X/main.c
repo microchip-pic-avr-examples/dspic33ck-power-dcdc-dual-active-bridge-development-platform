@@ -25,7 +25,7 @@
 
 #include "system/system.h"
 
-//#include "app/app_pwrctrl.h"
+#include "mcc_extension/mcc_custom_config.h"
 #include "config/hal.h"
 #include "os/os.h"
 

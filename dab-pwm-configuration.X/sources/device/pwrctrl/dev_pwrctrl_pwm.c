@@ -22,7 +22,7 @@
 #include <xc.h> 
 #include <stdbool.h>
 #include "pwm_hs/pwm.h"
-#include "drv_pwrctrl_typedef.h"
+#include "dev_pwrctrl_typedef.h"
 
 /*********************************************************************************
  * @ingroup 
@@ -137,7 +137,7 @@ void Drv_PwrCtrl_PWM_Secondary_Enable(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 void Drv_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
 {   
-    // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
+     // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
     // (please refer to Section 4.1.3.3 in High Resolution PWM FRM)
     uint16_t PeriodMask = 0x7; 
     
@@ -147,13 +147,11 @@ void Drv_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
     
     // calculate Duty Cycle for 50%
     pcInstance->Pwm.ControlDutyCycle = (pcInstance->Pwm.ControlPeriod >> 1);
-    
-    //Todo: Move this to the app layer as this is not generic
+
     // Calculate the DAB Primary to Secondary Phase ((Frequency / 4) - (Control Phase /2))
     uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlDutyCycle >> 1) - 
             (pcInstance->Pwm.ControlPhase >> 1);
     
-    //Todo: Move this to the app layer as this is not generic
     // Calculate the bridge delay ((Frequency / 2) - Primary to Secondary Phase + Control Phase)
     // Note that in the cascaded PWM, the reference phase of the client PWM, is its trigger source
     uint16_t PrimaryPhaseDelay = (pcInstance->Pwm.ControlDutyCycle - PrimarySecondaryPhase) + 
@@ -171,13 +169,13 @@ void Drv_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
     PWM_DutyCycleSet(pcInstance->Pwm.Secondary_2, pcInstance->Pwm.ControlDutyCycle);
     
     // Set the PWM Frequency
-    PWM_PeriodSet(PWM_GENERATOR_1, pcInstance->Pwm.ControlPeriod);
-    PWM_PeriodSet(PWM_GENERATOR_2, pcInstance->Pwm.ControlPeriod);
-    PWM_PeriodSet(PWM_GENERATOR_3, pcInstance->Pwm.ControlPeriod);
-    PWM_PeriodSet(PWM_GENERATOR_4, pcInstance->Pwm.ControlPeriod);
+    PWM_PeriodSet(pcInstance->Pwm.Primary_1, pcInstance->Pwm.ControlPeriod);
+    PWM_PeriodSet(pcInstance->Pwm.Secondary_1, pcInstance->Pwm.ControlPeriod);
+    PWM_PeriodSet(pcInstance->Pwm.Primary_2, pcInstance->Pwm.ControlPeriod);
+    PWM_PeriodSet(pcInstance->Pwm.Secondary_2, pcInstance->Pwm.ControlPeriod);
 
     // Set the Update bit of the last PWM in the cascaded approach to broadcast
     // it to the other PWMs
-    PWM_SoftwareUpdateRequest(PWM_GENERATOR_4);
+    PWM_SoftwareUpdateRequest(pcInstance->Pwm.Secondary_2);
     
 }

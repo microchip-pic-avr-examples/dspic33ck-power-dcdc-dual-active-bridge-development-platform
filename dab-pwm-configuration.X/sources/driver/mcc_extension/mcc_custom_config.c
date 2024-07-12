@@ -19,30 +19,14 @@
  * TERMS. 
  */
 #include <xc.h>
-#include "device/fault_common.h"
-#include "driver/power_control/drv_pwrctrl_typedef.h"
-#include "config/macros.h"
-/*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_FaultInit(void)
- * @brief   initialize application specific fault objects
- * @param   None
- * @return  None 
- * @details
- * initialize fault objects
- * This is an API function
- **********************************************************************************/
+#include "mcc_extension/drv_mcc_extension.h"
+#include "mcc_extension/drv_config_custom_pwm.h"
+#include "app/pwrctrl/app_pwrctrl.h"
 
-extern POWER_CONTROL_t dab;
 
-void App_PwrCtrl_FaultInit(void)
-{
-    FAULT_Init(&dab.Fault.Object.ipri_oc, IPRI_OC_THRES_TRIG, IPRI_OC_THRES_CLEAR, IPRI_OC_T_BLANK_TRIG, IPRI_OC_T_BLANK_CLEAR); 
-    FAULT_Init(&dab.Fault.Object.isec_oc, ISEC_OC_THRES_TRIG, ISEC_OC_THRES_CLEAR, ISEC_OC_T_BLANK_TRIG, ISEC_OC_T_BLANK_CLEAR);  
-    FAULT_Init(&dab.Fault.Object.vpri_ov, VPRI_OV_THRES_TRIG, VPRI_OV_THRES_CLEAR, VPRI_OV_T_BLANK_TRIG, VPRI_OV_T_BLANK_CLEAR);   
-    FAULT_Init(&dab.Fault.Object.vsec_ov, VSEC_OV_THRES_TRIG, VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
-    FAULT_Init(&dab.Fault.Object.i_sc, 0,0,0,I_SC_T_BLANK_CLEAR);
+
+void MCC_Custom_User_Config (void){
+    
+    //Initialize PWM as retriggerable for the cascaded PWM scheme
+    DRV_Config_Custom_PWM(&dab);
 }
-
-
-

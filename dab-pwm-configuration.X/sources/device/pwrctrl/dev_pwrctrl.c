@@ -23,10 +23,13 @@
 #include "config/macros.h"
 #include "pwm_hs/pwm_hs_types.h"
 #include "pwm_hs/pwm.h"
-#include "driver/power_control/drv_pwrctrl_typedef.h"
-#include "driver/power_control/drv_pwrctrl_pwm.h"
+#include "dev_pwrctrl_typedef.h"
+#include "dev_pwrctrl_pwm.h"
+#include "app/fault/drv_pwrctrl_fault.h"
 
 POWER_CONTROL_t dab;
+
+extern void Drv_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
 
 void App_PwrCtrl_Initialize(void)
 {
@@ -41,6 +44,10 @@ void App_PwrCtrl_Initialize(void)
     dab.Pwm.ControlPeriod = MIN_PWM_PERIOD;
     dab.Pwm.ControlPhase = 0;
    
+    // initialize the current loop compensator
+    //ToDo: Add this later
+//    Drv_PwrCtrl_Icomp_Init();
+    
     // set all PWM output pins to 0
     Drv_PwrCtrl_PWM_Disable(&dab); 
     
@@ -62,34 +69,15 @@ void App_PwrCtrl_Enable(void)
 
 void App_PwrCtrl_Execute(void)
 {
+    // short circuit fault checks (primary and secondary over current via comparators)
+    Drv_PwrCtrl_Fault_ShortCircuit(&dab);
     
+    Drv_PwrCtrl_StateMachine(&dab);
 }
+
 
 void App_PwrCtrl_Suspend(void)
 {
-    
+    //Disable PWM peripheral
+    PWM_Disable();
 }
-
-/*********************************************************************************
- * @ingroup 
- * @fn     void Drv_PwrCtrl_Init(void)
- * @brief  umbrella initialization function for power controller 
- * @param   none
- * @return  none
- * @details
- **********************************************************************************/
-//void Drv_PwrCtrl_Init(void)
-//{
-//    // initialize the current loop compensator
-//    Drv_PwrCtrl_Icomp_Init();
-//    
-//           
-//    // initialize fault protection
-//    Drv_PwrCtrl_FaultInit();
-//#ifndef FAULT_SHORT_CCT_DISABLE
-//    // initialize short circuit fault protection with comparators
-//    Drv_PwrCtrl_Fault_EnableShortCircuitProtection();
-//#endif // #ifndef FAULT_SHORT_CCT_DISABLE
-//    // clear the fault PCI for each PWM
-//    Drv_PwrCtrl_Fault_ClearHardwareFaults();    
-//}

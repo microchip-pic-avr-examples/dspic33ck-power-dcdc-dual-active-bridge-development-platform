@@ -26,8 +26,8 @@
 #include "app_PBV_UART.h"
 // MCC header files
 
-#include "../../mcc_generated_files/uart/uart1.h"
-#include "../../mcc_generated_files/crc/crc.h"
+#include "uart/uart1.h"
+#include "crc/crc.h"
 
 /*********************************************************************************
  * @ingroup PBV_UART
