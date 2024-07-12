@@ -285,7 +285,7 @@ void PBV_CAN_Link_Data_TX(PBV_Datatype_TX_t * ptr){
 void PBV_CAN_Link_Data_RX(PBV_Datatype_RX_t * ptr){
     if (ptr->PBV_Message_State == 0){
         ptr->Data_Buffer = PBV_CAN_Object_RX.data;
-        ptr->PBV_Protcol_ID = PBV_CAN_Object_RX.msgId ;
+        ptr->PBV_Protcol_ID = PBV_CAN_Object_RX.msgId;
         switch (PBV_CAN_Object_RX.field.dlc)
         {
             case DLC_0:

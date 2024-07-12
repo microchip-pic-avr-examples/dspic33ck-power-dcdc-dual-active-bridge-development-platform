@@ -25,8 +25,8 @@
 
 
 
-void MCC_Custom_User_Config (void){
-    
+void MCC_Custom_User_Config (void)
+{
     //Initialize PWM as retriggerable for the cascaded PWM scheme
     DRV_Config_Custom_PWM(&dab);
 }

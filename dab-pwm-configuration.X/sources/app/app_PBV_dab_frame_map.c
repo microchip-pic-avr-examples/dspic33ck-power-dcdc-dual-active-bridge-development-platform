@@ -23,7 +23,7 @@
 // MCC header files
 
 // other header files
-#include "App_PBV_CLLC_frame_map.h"
+#include "App_PBV_DAB_frame_map.h"
 
 #include "system/pins.h"
 #include "device/dev_fan.h"
@@ -48,21 +48,21 @@
 
 // command IDs, first data word in received package
 // use this to decide what action to take when data is received
-#define PBV_CMD_ID_FREQ_CHANGE          0xBBBB           ///< change CLLC switching frequency
-#define PBV_CMD_ID_CLLC_ON_OFF          0xAAAA           ///< turn CLLC on or off
+#define PBV_CMD_ID_FREQ_CHANGE          0xBBBB           ///< change DAB switching frequency
+#define PBV_CMD_ID_DAB_ON_OFF           0xAAAA           ///< turn DAB on or off
 #define PBV_CMD_ID_FAN_SPEED            0xCCCC           ///< set fan speed 
 #define PBV_CMD_ID_ILOOP_REF_SET        0xDDDD           ///< set current loop reference
 /** @} */ // end of pbv-protocol-ids
 
 // static because these are private.
 
-static PBV_Datatype_TX_t App_PBV_CLLC_TX;          ///< Application TX object
-static PBV_Datatype_RX_t App_PBV_CLLC_RX;          ///< Application RX object
-static PBV_Datatype_TX_t App_PBV_CLLC_ASCII;       ///< Application TX object for ascii
+static PBV_Datatype_TX_t App_PBV_DAB_TX;          ///< Application TX object
+static PBV_Datatype_RX_t App_PBV_DAB_RX;          ///< Application RX object
+static PBV_Datatype_TX_t App_PBV_DAB_ASCII;       ///< Application TX object for ascii
 
-static PBV_Datatype_TX_t * App_PBV_CLLC_TX_Ptr = &App_PBV_CLLC_TX;        ///< Application TX object pointer
-static PBV_Datatype_RX_t * App_PBV_CLLC_RX_Ptr = &App_PBV_CLLC_RX;        ///< Application RX object pointer
-static PBV_Datatype_TX_t * App_PBV_CLLC_ASCII_Ptr = &App_PBV_CLLC_ASCII;  ///< Application TX object ascii pointer
+static PBV_Datatype_TX_t * App_PBV_DAB_TX_Ptr = &App_PBV_DAB_TX;        ///< Application TX object pointer
+static PBV_Datatype_RX_t * App_PBV_DAB_RX_Ptr = &App_PBV_DAB_RX;        ///< Application RX object pointer
+static PBV_Datatype_TX_t * App_PBV_DAB_ASCII_Ptr = &App_PBV_DAB_ASCII;  ///< Application TX object ascii pointer
 
 uint8_t buffer_eight_rx[64];
 uint16_t buffer_sixteen_rx[32];
@@ -80,16 +80,15 @@ static int16_t temperature = 0;
  * Private Functions Prototypes
  **********************************************************************************/
 
-void App_PBV_CLLC_Build_Frame(void);
-void App_PBV_CLLC_Process_Rx_Data(uint16_t * data);
-void App_PBV_CLLC_Frame_Parser(uint16_t protocol_ID, uint16_t length, uint8_t * data);
+void App_PBV_DAB_Build_Frame(void);
+void App_PBV_DAB_Process_Rx_Data(uint16_t * data);
+void App_PBV_DAB_Frame_Parser(uint16_t protocol_ID, uint16_t length, uint8_t * data);
 /***********************************************************************************
  * Public Functions Definitions
  **********************************************************************************/
 
 /***********************************************************************************
  * @ingroup app-pbv-public-function
- * @fn      App_PBV_CLLC_Init
  * @param   void
  * @return  nothing
  * @brief   this function initializes the local pbv objects. these objects are then
@@ -97,26 +96,25 @@ void App_PBV_CLLC_Frame_Parser(uint16_t protocol_ID, uint16_t length, uint8_t * 
  * @details
  *          RX object just needs state change. 
  **********************************************************************************/
-void App_PBV_CLLC_Init()
+void App_PBV_DAB_Init()
 {
-    App_PBV_CLLC_TX_Ptr->PBV_Protcol_ID        = PBV_TX_PROTOCOL_ID;
-    App_PBV_CLLC_TX_Ptr->PBV_Signal_Ascii      = PBV_SIGNAL_MODE;
-    App_PBV_CLLC_TX_Ptr->PBV_Message_State     = PBV_MESSAGE_INIT;
-    App_PBV_CLLC_TX_Ptr->Length                = 64;
+    App_PBV_DAB_TX_Ptr->PBV_Protcol_ID        = PBV_TX_PROTOCOL_ID;
+    App_PBV_DAB_TX_Ptr->PBV_Signal_Ascii      = PBV_SIGNAL_MODE;
+    App_PBV_DAB_TX_Ptr->PBV_Message_State     = PBV_MESSAGE_INIT;
+    App_PBV_DAB_TX_Ptr->Length                = 64;
 
-    App_PBV_CLLC_RX_Ptr->PBV_Message_State     = PBV_MESSAGE_READY_TO_RECEIVE;
+    App_PBV_DAB_RX_Ptr->PBV_Message_State     = PBV_MESSAGE_READY_TO_RECEIVE;
 
-    App_PBV_CLLC_ASCII_Ptr->PBV_Protcol_ID     = FIRMWARE_PROTOCOL_ID;
-    App_PBV_CLLC_ASCII_Ptr->PBV_Signal_Ascii   = PBV_ASCII_MODE;
-    App_PBV_CLLC_ASCII_Ptr->PBV_Message_State  = PBV_MESSAGE_INIT;
-    App_PBV_CLLC_ASCII_Ptr->Length             = 64;
+    App_PBV_DAB_ASCII_Ptr->PBV_Protcol_ID     = FIRMWARE_PROTOCOL_ID;
+    App_PBV_DAB_ASCII_Ptr->PBV_Signal_Ascii   = PBV_ASCII_MODE;
+    App_PBV_DAB_ASCII_Ptr->PBV_Message_State  = PBV_MESSAGE_INIT;
+    App_PBV_DAB_ASCII_Ptr->Length             = 64;
 
-    App_PBV_Init(App_PBV_CLLC_TX_Ptr, App_PBV_CLLC_ASCII_Ptr, App_PBV_CLLC_RX_Ptr);
+    App_PBV_Init(App_PBV_DAB_TX_Ptr, App_PBV_DAB_ASCII_Ptr, App_PBV_DAB_RX_Ptr);
 }
 
 /***********************************************************************************
  * @ingroup app-pbv-public-function
- * @fn      App_PBV_CLLC_Task_10ms
  * @param   void
  * @return  nothing
  * @brief   this is high frequency task to simulate sending of high frequency numeric data.
@@ -126,29 +124,28 @@ void App_PBV_CLLC_Init()
  *   
  **********************************************************************************/
 
-void App_PBV_CLLC_Task_10ms(void)
+void App_PBV_DAB_Task_10ms(void)
 {
     // RX handler
-    if (App_PBV_CLLC_RX_Ptr->PBV_Message_State == PBV_MESSAGE_RECEIVED)
+    if (App_PBV_DAB_RX_Ptr->PBV_Message_State == PBV_MESSAGE_RECEIVED)
     {        
-        App_Read_Received_From_PBV(App_PBV_CLLC_RX_Ptr);       
-        App_PBV_CLLC_Frame_Parser(App_PBV_CLLC_RX_Ptr->PBV_Protcol_ID, App_PBV_CLLC_RX_Ptr->Length, App_PBV_CLLC_RX_Ptr->Data_Buffer);
+        App_Read_Received_From_PBV(App_PBV_DAB_RX_Ptr);       
+        App_PBV_DAB_Frame_Parser(App_PBV_DAB_RX_Ptr->PBV_Protcol_ID, App_PBV_DAB_RX_Ptr->Length, App_PBV_DAB_RX_Ptr->Data_Buffer);
         
         // msg read. Read another
-        App_Receive_From_PBV(App_PBV_CLLC_RX_Ptr); 
+        App_Receive_From_PBV(App_PBV_DAB_RX_Ptr); 
     } 
     ///< 110ms sending 
     if (++tick_counter > 11)
     {
-        App_PBV_CLLC_Build_Frame();
-        App_Send_To_PBV(App_PBV_CLLC_TX_Ptr);  
+        App_PBV_DAB_Build_Frame();
+        App_Send_To_PBV(App_PBV_DAB_TX_Ptr);  
         tick_counter = 0;
     }    
 }
 
 /***********************************************************************************
  * @ingroup app-pbv-public-function
- * @fn      App_PBV_CLLC_Task_1s
  * @param   void
  * @return  nothing
  * @brief   this is a slow task simulating the low speed sending of ascii data
@@ -156,43 +153,42 @@ void App_PBV_CLLC_Task_10ms(void)
  * @details
  *   
  **********************************************************************************/
-void App_PBV_CLLC_Task_1s(void)
+void App_PBV_DAB_Task_1s(void)
 {
-    if (App_PBV_CLLC_ASCII_Ptr->PBV_Protcol_ID == FIRMWARE_PROTOCOL_ID)
+    if (App_PBV_DAB_ASCII_Ptr->PBV_Protcol_ID == FIRMWARE_PROTOCOL_ID)
     {
-        App_PBV_CLLC_ASCII_Ptr->Data_Buffer = (uint8_t *)"Firmware Version 1.0.0.0.......................................!";
-        App_Send_To_PBV(App_PBV_CLLC_ASCII_Ptr);
-        App_PBV_CLLC_ASCII_Ptr->PBV_Protcol_ID = PBV_LOG_ID;
+        App_PBV_DAB_ASCII_Ptr->Data_Buffer = (uint8_t *)"Firmware Version 1.0.0.0.......................................!";
+        App_Send_To_PBV(App_PBV_DAB_ASCII_Ptr);
+        App_PBV_DAB_ASCII_Ptr->PBV_Protcol_ID = PBV_LOG_ID;
         transmit_firmware_id = 1;
         return;
     }
-    if (App_PBV_CLLC_ASCII_Ptr->PBV_Protcol_ID == PBV_LOG_ID)
+    if (App_PBV_DAB_ASCII_Ptr->PBV_Protcol_ID == PBV_LOG_ID)
     {
-        if (transmit_firmware_id) App_PBV_Re_Init(App_PBV_CLLC_ASCII_Ptr);     ///< reinit to new id
+        if (transmit_firmware_id) App_PBV_Re_Init(App_PBV_DAB_ASCII_Ptr);     ///< reinit to new id
         transmit_firmware_id = 0; 
     }
-    App_PBV_CLLC_ASCII_Ptr->Data_Buffer = (uint8_t *)"Log Message From Protocol ID 0x300.............................\r";
-    App_Send_To_PBV(App_PBV_CLLC_ASCII_Ptr);
+    App_PBV_DAB_ASCII_Ptr->Data_Buffer = (uint8_t *)"Log Message From Protocol ID 0x300.............................\r";
+    App_Send_To_PBV(App_PBV_DAB_ASCII_Ptr);
    
     temperature = Dev_Temp_Get_Temperature_Celcius();
 }
 
 /***********************************************************************************
  * @ingroup app-pbv-public-function
- * @fn      App_PB_CLLC_Get_TX_ASCII_ptr
  * @param   void
  * @return  PBV_Datatype_TX_t *
  * @brief   this function can be used to send log messages from other files.
  * @details
  *   
  **********************************************************************************/
-PBV_Datatype_TX_t * App_PB_CLLC_Get_TX_ASCII_ptr(void)
+PBV_Datatype_TX_t * App_PB_DAB_Get_TX_ASCII_ptr(void)
 {
-    if (App_PBV_CLLC_ASCII_Ptr ->PBV_Message_State == PBV_MESSAGE_TRANSMITTING)
+    if (App_PBV_DAB_ASCII_Ptr ->PBV_Message_State == PBV_MESSAGE_TRANSMITTING)
     {
         return 0;
     }
-    return App_PBV_CLLC_ASCII_Ptr;
+    return App_PBV_DAB_ASCII_Ptr;
 }
 
 /***********************************************************************************
@@ -201,7 +197,6 @@ PBV_Datatype_TX_t * App_PB_CLLC_Get_TX_ASCII_ptr(void)
 
 /***********************************************************************************
  * @ingroup pbv-private-function
- * @fn      App_PBV_CLLC_Build_Frame
  * @param   void
  * @return  nothing
  * @brief   this builds frame
@@ -209,7 +204,7 @@ PBV_Datatype_TX_t * App_PB_CLLC_Get_TX_ASCII_ptr(void)
  * @note
  **********************************************************************************/
 
-void App_PBV_CLLC_Build_Frame()
+void App_PBV_DAB_Build_Frame()
 {        
     // Power Board Visualizer can only mask single bits
     // so create maskable word that can be parsed by GUI by sending the
@@ -231,8 +226,8 @@ void App_PBV_CLLC_Build_Frame()
     buffer_sixteen_tx[6] = Dev_PwrCtrl_GetAdc_Isec_avg();
     buffer_sixteen_tx[7] = Dev_PwrCtrl_GetAdc_Temperature();
     buffer_sixteen_tx[8] = Dev_PwrCtrl_GetAdc_Vrail_5V();    
-    buffer_sixteen_tx[9] = 0; //ToDo: bring back:: dev_fan_data_ptr->current_speed_raw;
-    buffer_sixteen_tx[10] = 0; //ToDo: bring back:: dev_fan_data_ptr->current_speed_percent;
+    buffer_sixteen_tx[9] =  devFanDataPtr->CurrentSpeedRaw;
+    buffer_sixteen_tx[10] = devFanDataPtr->CurrentSpeedPercent;
     buffer_sixteen_tx[11] = temperature;
     buffer_sixteen_tx[12] = Dev_PwrCtrl_Get_Pwmprd();
     buffer_sixteen_tx[13] = Dev_PwrCtrl_Get_PwmprdTarget();
@@ -243,29 +238,28 @@ void App_PBV_CLLC_Build_Frame()
     
     PBV_Change_from_Sixteen_to_Eight(buffer_sixteen_tx, buffer_eight_tx, 18);
     
-    App_PBV_CLLC_TX_Ptr->Data_Buffer = buffer_eight_tx;
-    App_PBV_CLLC_TX_Ptr->Length = 18 * 2 ;
+    App_PBV_DAB_TX_Ptr->Data_Buffer = buffer_eight_tx;
+    App_PBV_DAB_TX_Ptr->Length = 18 * 2 ;
 }
 
 
 /***********************************************************************************
  * @ingroup pbv-private-function
- * @fn      App_PBV_CLLC_Process_Rx_Data
  * @param   pointer to received data
  * @return  nothing
  * @brief   process received data
  * @details
  * @note
  **********************************************************************************/
-void App_PBV_CLLC_Process_Rx_Data(uint16_t * data) 
+void App_PBV_DAB_Process_Rx_Data(uint16_t * data) 
 {
     uint16_t cmd_id = data[0];
     uint16_t control_word = data[1];
     switch (cmd_id)
     {
-        case PBV_CMD_ID_CLLC_ON_OFF:
+        case PBV_CMD_ID_DAB_ON_OFF:
         {
-            // turn CLLC on or off
+            // turn DAB on or off
             if (control_word < 2) // should be 0 or 1
             {
                 bool enable = (bool)control_word;
@@ -306,17 +300,16 @@ void App_PBV_CLLC_Process_Rx_Data(uint16_t * data)
 
 /***********************************************************************************
  * @ingroup pbv-private-function
- * @fn      App_PBV_CLLC_Frame_Parser
  * @param   void
  * @return  nothing
  * @brief   default callback
  * @details
  * @note
  **********************************************************************************/
-void App_PBV_CLLC_Frame_Parser(uint16_t protocol_ID, uint16_t length, uint8_t * data)
+void App_PBV_DAB_Frame_Parser(uint16_t protocol_ID, uint16_t length, uint8_t * data)
 {
     PBV_Change_from_Eight_to_Sixteen(data, buffer_sixteen_rx, length);
-    App_PBV_CLLC_Process_Rx_Data(buffer_sixteen_rx);
+    App_PBV_DAB_Process_Rx_Data(buffer_sixteen_rx);
 }
 
 

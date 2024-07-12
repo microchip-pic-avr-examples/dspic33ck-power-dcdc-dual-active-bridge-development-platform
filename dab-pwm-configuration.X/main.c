@@ -25,6 +25,8 @@
 
 #include "system/system.h"
 
+#include "x2cScope/X2CScope.h"
+#include "app/app_PBV_DAB_frame_map.h"
 #include "driver/mcc_extension/mcc_custom_config.h"
 #include "os/os.h"
 
@@ -62,12 +64,12 @@ int main(void)
     
     OS_Init(); 
     
-//    App_PwrCtrl_Initialize();
-//    App_PwrCtrl_Enable();
-            
+    App_PBV_DAB_Init();
+
     OS_Scheduler_RunForever();
     
     while(1)
     {
+        
     }    
 }

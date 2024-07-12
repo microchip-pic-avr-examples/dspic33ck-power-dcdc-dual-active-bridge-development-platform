@@ -44,6 +44,9 @@
 #include "os/os_sys_time.h"
 #include "os/os_scheduler.h"
 
+#include "app/app_PBV_DAB_frame_map.h"
+#include "app/app_PBV_interface.h"
+#include "x2cScope/X2CScope.h"
 
 //=======================================================================================================
 //
@@ -98,6 +101,7 @@ void Tasks_Realtime_1ms(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_100us(void)
 {
+    App_PBV_Task_100us();
     
     // X2CScope Update will be executed every 100us when X2CDEBUG_ENABLED is enabled
     #if (X2CDEBUG_ENABLED == 1)
@@ -122,6 +126,8 @@ void Tasks_1ms(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_10ms(void)
 {
+    App_PBV_Task_10ms();
+    App_PBV_DAB_Task_10ms();
 
 }
 
@@ -141,7 +147,7 @@ void Tasks_100ms(void)
 //=======================================================================================================
 void Tasks_1s(void)
 {
-
+    App_PBV_DAB_Task_1s();
 }
 
 //=======================================================================================================
