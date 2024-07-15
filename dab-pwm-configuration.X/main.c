@@ -69,7 +69,9 @@ int main(void)
     OS_Init(); 
     
     App_PBV_DAB_Init();
-
+    Dev_PwrCtrl_Initialize();
+    
+    Dev_PwrCtrl_Enable();
     OS_Scheduler_RunForever();
     
     while(1)
