@@ -52,6 +52,7 @@
 #define PBV_CMD_ID_DAB_ON_OFF           0xAAAA           ///< turn DAB on or off
 #define PBV_CMD_ID_FAN_SPEED            0xCCCC           ///< set fan speed 
 #define PBV_CMD_ID_ILOOP_REF_SET        0xDDDD           ///< set current loop reference
+#define PBV_CMD_ID_PHASE_CHANGE         0xEEEE           ///< set control phase
 /** @} */ // end of pbv-protocol-ids
 
 // static because these are private.
@@ -215,7 +216,7 @@ void App_PBV_DAB_Build_Frame()
     uint16_t enabled = Dev_PwrCtrl_Get_EnableFlag();
     uint16_t fault_flags = Dev_PwrCtrl_Get_FaultFlagsLatched();
     uint16_t status_flags = Dev_PwrCtrl_Get_Status();
-    uint16_t current_sensor_cal_flag = 0; //ToDo: bring back:: Dev_CurrentSensor_Get_CalibrationStatus();
+    uint16_t current_sensor_cal_flag = Dev_CurrentSensor_Get_CalibrationStatus();
     uint16_t flag_word = enabled + ((status_flags & 0x0003)<<1) + (fault_flags<<3) + (current_sensor_cal_flag<<10);
     
     buffer_sixteen_tx[1] = flag_word;
@@ -271,9 +272,9 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         case PBV_CMD_ID_FREQ_CHANGE:
         {
             // change target frequency
-            if ((data[1] <= MAX_PWM_PERIOD) && (data[1] >= MIN_PWM_PERIOD))             
+            if ((control_word <= MAX_PWM_PERIOD) && (control_word >= MIN_PWM_PERIOD))             
             {
-                Dev_PwrCtrl_SetReferenceTarget(data[1]);
+                Dev_PwrCtrl_SetReferenceTarget(control_word);
             }            
             break;
         }
@@ -293,6 +294,18 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         }
         break;            
             
+        case PBV_CMD_ID_PHASE_CHANGE:
+        {
+            // change target phase
+            Nop();
+            Nop();
+            Nop();
+            control_word = (uint16_t)(((Dev_PwrCtrl_Get_DutyCycle()) >> 1) * (float)(control_word/180));
+            Dev_PwrCtrl_SetPhase(control_word);      
+                
+            break;
+        }
+        
         default:
             break;
     }

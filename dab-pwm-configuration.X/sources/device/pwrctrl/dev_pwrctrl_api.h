@@ -25,6 +25,7 @@
 
 // "set" APIs
 void Dev_PwrCtrl_SetReferenceTarget(uint16_t reference);
+void Dev_PwrCtrl_SetPhase(uint16_t reference);
 void Dev_PwrCtrl_SetEnable(bool enable);
 
 // "get" APIs
@@ -48,6 +49,6 @@ uint16_t Dev_PwrCtrl_Get_IloopReference(void);
 uint16_t Dev_PwrCtrl_Get_IloopOutput(void);
 uint16_t Dev_PwrCtrl_Get_IloopFeedback(void);
 uint16_t Dev_PwrCtrl_Get_CurrentSensorOffset(void);
-
+uint16_t Dev_PwrCtrl_Get_DutyCycle(void);
 #endif	/* DRV_PWRCTRL_API_H */
 

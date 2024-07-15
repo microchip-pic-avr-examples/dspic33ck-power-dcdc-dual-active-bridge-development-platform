@@ -169,6 +169,21 @@ uint16_t Dev_PwrCtrl_Get_Pwmprd(void)
     return(dab.Pwm.ControlPeriod);
 }
 
+
+/*********************************************************************************
+ * @ingroup 
+ * @fn      uint16_t Drv_PwrCtrl_Get_Pwmprd(void)
+ * @brief   API function to read the PWMPRD setting
+ * @param   none
+ * @return  PWMPER setting
+ * @details
+ * API function
+ **********************************************************************************/
+uint16_t Dev_PwrCtrl_Get_DutyCycle(void)
+{
+    return(dab.Pwm.ControlDutyCycle);
+}
+
 /*********************************************************************************
  * @ingroup 
  * @fn      uint16_t Drv_PwrCtrl_Get_State(void)

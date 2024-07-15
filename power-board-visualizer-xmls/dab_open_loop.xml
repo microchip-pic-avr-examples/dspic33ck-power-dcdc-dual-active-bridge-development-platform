@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Module xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://www.microchip.com/dsmps">
   <Version>2.2.0.0</Version>
-  <ProjectName>11kW CLLC</ProjectName>
+  <ProjectName>Dual Active Bridge</ProjectName>
   <Status>
     <SignalChannels>
       <SignalChannel>
@@ -148,6 +148,18 @@
         <ProtocolID>516</ProtocolID>
       </SignalChannel>
       <SignalChannel>
+        <Name>Phase</Name>
+        <Scaling>1</Scaling>
+        <Offset>0</Offset>
+        <Unit>degrees</Unit>
+        <Plot>false</Plot>
+        <PlotValMin>0</PlotValMin>
+        <PlotValMax>0</PlotValMax>
+        <SignalChannelIndex>11</SignalChannelIndex>
+        <PositionInMessage>0</PositionInMessage>
+        <ProtocolID>1</ProtocolID>
+      </SignalChannel>
+      <SignalChannel>
         <Name>Tsw</Name>
         <Scaling>0.00025</Scaling>
         <Offset>0.002</Offset>
@@ -218,11 +230,11 @@
     </TableView>
     <OutputValues>
       <OutputValue>
-        <Name>Period (us)</Name>
+        <Name>Control Period (us)</Name>
         <Unit>us</Unit>
         <Scaling>4000</Scaling>
         <Offset>-8</Offset>
-        <MinimumValue>7.7</MinimumValue>
+        <MinimumValue>4.34</MinimumValue>
         <MaximumValue>15.3</MaximumValue>
         <DefaultValue>10</DefaultValue>
         <Step>0.1</Step>
@@ -232,30 +244,18 @@
         <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
-        <Name>Phase Shift P S L1 L1</Name>
-        <Unit xsi:nil="true" />
+        <Name>Phase Shift</Name>
+        <Unit>degrees</Unit>
         <Scaling>1</Scaling>
         <Offset>0</Offset>
         <MinimumValue>0</MinimumValue>
-        <MaximumValue>180</MaximumValue>
+        <MaximumValue>90</MaximumValue>
         <DefaultValue>0</DefaultValue>
         <Step>1</Step>
         <ButtonText>Update</ButtonText>
-        <Data>0203 0004 00 bb [value]</Data>
+        <Data>0202 0004 EEEE [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
-      </OutputValue>
-      <OutputValue>
-        <Name>Phase Shift S S L1 L2</Name>
-        <Unit>°</Unit>
-        <Scaling>1</Scaling>
-        <Offset>0</Offset>
-        <MinimumValue>0</MinimumValue>
-        <MaximumValue>180</MaximumValue>
-        <DefaultValue>0</DefaultValue>
-        <Step>1</Step>
-        <ButtonText>Update</ButtonText>
-        <Data>02 03 00 04 00 cc [value]</Data>
-        <AutoSendAfterChange>false</AutoSendAfterChange>
+        <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
         <Name>Fan Speed (%)</Name>
