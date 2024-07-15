@@ -29,6 +29,7 @@
 #define ADC_REFERENCE           (float)3.3
 #define ADC_SCALER              (float)(1.0 / ADC_RESOLUTION)
 #define PHASE_DEGREES           360U
+#define PHASE_180_SCALER        (float)(1.0 / 180)
 
 #define PWM_CLOCK_PERIOD       (float)(1.0 / PWM_CLOCK_FREQUENCY) ///< PWM Clock Period in [sec]
 #define MAX_SWITCHING_PERIOD   (float)(1.0/MINIMUM_SWITCHING_FREQUENCY)   ///< Switching period in [sec]

@@ -20,6 +20,11 @@
     TERMS.
  */
 
+#include <xc.h> // include processor files - each processor file is guarded.  
+#include <stdint.h> // include standard integer data types
+#include <stdbool.h> // include standard boolean data types
+#include <stddef.h> // include standard definition data types
+
 // MCC header files
 
 // other header files
@@ -275,6 +280,9 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             if ((control_word <= MAX_PWM_PERIOD) && (control_word >= MIN_PWM_PERIOD))             
             {
                 Dev_PwrCtrl_SetReferenceTarget(control_word);
+                // when Frequency is changed, control phase will be 180 degrees 
+                uint16_t controlPhase = (Dev_PwrCtrl_Get_PwmprdTarget()) >> 1;
+                Dev_PwrCtrl_SetPhase(controlPhase);
             }            
             break;
         }
@@ -297,11 +305,8 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         case PBV_CMD_ID_PHASE_CHANGE:
         {
             // change target phase
-            Nop();
-            Nop();
-            Nop();
-            control_word = (uint16_t)(((Dev_PwrCtrl_Get_DutyCycle()) >> 1) * (float)(control_word/180));
-            Dev_PwrCtrl_SetPhase(control_word);      
+            uint16_t controlPhase = (uint16_t)(control_word * PHASE_180_SCALER * (Dev_PwrCtrl_Get_DutyCycle()));
+            Dev_PwrCtrl_SetPhase(controlPhase);      
                 
             break;
         }

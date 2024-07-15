@@ -42,7 +42,7 @@ void Dev_PwrCtrl_Initialize(void)
     
     // Initialize the Control Period and Control Phase during start-up
     dab.Pwm.ControlPeriod = MIN_PWM_PERIOD;
-    dab.Pwm.ControlPhase = 0;
+    dab.Pwm.ControlPhase = MIN_PWM_PERIOD >> 1;
    
     // initialize the current loop compensator
     //ToDo: Add this later

@@ -52,8 +52,8 @@ void INTERRUPT_Initialize(void)
     IPC0bits.T1IP = 1;
     
     // CCT1: CCP1 Timer Event
-    // Priority: 1
-    IPC1bits.CCT1IP = 1;
+    // Priority: 6
+    IPC1bits.CCT1IP = 6;
     
 }
 

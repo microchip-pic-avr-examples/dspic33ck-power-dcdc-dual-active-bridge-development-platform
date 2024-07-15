@@ -129,13 +129,23 @@ void ControlLoop_Interrupt(void)
 //    dab.Pwm.ControlPeriod = MIN_PWM_PERIOD + compOutScaled_16bit;
 //    
 
+    #if (true == DPDB_TEST_RUN)
+
+    uint16_t Pot1 = dab.Adc.isec_avg;
+    uint16_t Pot2 = dab.Adc.isec_ct; 
+    
+    // Calculate the Frequency based on the Potentiometer 1 voltage
+    dab.Pwm.ControlPeriod = (uint16_t)(MIN_PWM_PERIOD + (Pot1 * ADC_PERIOD_RANGE)); 
+    
+    // Change the control Phase with Potentiometer 2
+    dab.Pwm.ControlPhase = (uint16_t)(Pot2 * ADC_SCALER * (dab.Pwm.ControlPeriod >> 1));
+    
+    #endif
+    
+    #if (true == PBV_ENABLE)
     //ToDo: remove this Test PWM with PBV
     dab.Pwm.ControlPeriod = dab.Pwm.PBVPeriodTarget;
-            
-    if (dab.Pwm.ControlPeriod >= MAX_PWM_PERIOD)
-        dab.Pwm.ControlPeriod = MAX_PWM_PERIOD;
-    else if (dab.Pwm.ControlPeriod <= MIN_PWM_PERIOD)
-        dab.Pwm.ControlPeriod = MIN_PWM_PERIOD;
+    #endif        
        
     Dev_PwrCtrl_PWM_Update(&dab);
     

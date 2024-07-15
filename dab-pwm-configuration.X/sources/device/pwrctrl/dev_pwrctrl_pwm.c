@@ -148,6 +148,11 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
     // calculate Duty Cycle for 50%
     pcInstance->Pwm.ControlDutyCycle = (pcInstance->Pwm.ControlPeriod >> 1);
 
+    // Maximum Clamping for control phase
+    if(pcInstance->Pwm.ControlPhase > pcInstance->Pwm.ControlDutyCycle){
+        pcInstance->Pwm.ControlPhase = pcInstance->Pwm.ControlDutyCycle;
+    }
+    
     // Calculate the DAB Primary to Secondary Phase ((Frequency / 4) - (Control Phase /2))
     uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlDutyCycle >> 1) - 
             (pcInstance->Pwm.ControlPhase >> 1);
