@@ -46,7 +46,11 @@ void Dev_PwrCtrl_Initialize(void)
    
     // initialize the current loop compensator
     //ToDo: Add this later
+    // initialize the current loop compensator
 //    Drv_PwrCtrl_Icomp_Init();
+    
+    // initialize the voltage loop compensator
+//    Drv_PwrCtrl_Vcomp_Init();
     
     // set all PWM output pins to 0
     Dev_PwrCtrl_PWM_Disable(&dab); 
@@ -54,6 +58,16 @@ void Dev_PwrCtrl_Initialize(void)
     // Update the Period, Duty Cycle and Phases of the PWMs based on
     // the given Control period and Control Phase
     Dev_PwrCtrl_PWM_Update(&dab);
+    
+    //ToDo: Add this later
+    // initialize fault protection
+//    Drv_PwrCtrl_FaultInit();
+//#ifndef FAULT_SHORT_CCT_DISABLE
+//    // initialize short circuit fault protection with comparators
+//    Drv_PwrCtrl_Fault_EnableShortCircuitProtection();
+//#endif // #ifndef FAULT_SHORT_CCT_DISABLE
+//    // clear the fault PCI for each PWM
+//    Drv_PwrCtrl_Fault_ClearHardwareFaults();    
     
 }
 
