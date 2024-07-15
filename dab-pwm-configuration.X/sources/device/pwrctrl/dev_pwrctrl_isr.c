@@ -128,16 +128,15 @@ void ControlLoop_Interrupt(void)
 //    uint16_t compOutScaled_16bit = (uint16_t)(compOutScaled_32bit >> 15);
 //    dab.Pwm.ControlPeriod = MIN_PWM_PERIOD + compOutScaled_16bit;
 //    
-////TODO: maybe can remove this clamp check, shouldn't be necessary
-//    if (dab.Pwm.ControlPeriod >= MAX_PWM_PERIOD)
-//    {
-//        dab.Pwm.ControlPeriod = MAX_PWM_PERIOD;
-//    }
-//    else if (dab.Pwm.ControlPeriod <= MIN_PWM_PERIOD)
-//    {
-//        dab.Pwm.ControlPeriod = MIN_PWM_PERIOD;
-//    }
-//       
+
+    //ToDo: remove this Test PWM with PBV
+    dab.Pwm.ControlPeriod = dab.Pwm.PBVPeriodTarget;
+            
+    if (dab.Pwm.ControlPeriod >= MAX_PWM_PERIOD)
+        dab.Pwm.ControlPeriod = MAX_PWM_PERIOD;
+    else if (dab.Pwm.ControlPeriod <= MIN_PWM_PERIOD)
+        dab.Pwm.ControlPeriod = MIN_PWM_PERIOD;
+       
     Dev_PwrCtrl_PWM_Update(&dab);
     
 //#endif // #ifndef OPEN_LOOP_PBV

@@ -23,7 +23,7 @@
 #ifndef DRV_PWRCTRL_ISR_H
 #define	DRV_PWRCTRL_ISR_H
 
-//void Drv_PwrCtrl_ISR(void);
+extern void ControlLoop_Interrupt(void);
 
 #endif	/* DRV_PWRCTRL_ISR_H */
 

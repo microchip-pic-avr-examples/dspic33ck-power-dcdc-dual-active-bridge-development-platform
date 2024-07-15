@@ -24,11 +24,15 @@
 #include <stddef.h> // include standard definition data types
 
 #include "system/system.h"
+#include "mcc_generated_files/timer/sccp1.h"
 
+#include "os/os.h"
+
+#include "device/pwrctrl/dev_pwrctrl_isr.h"
+#include "device/pwrctrl/dev_pwrctrl.h"
 #include "x2cScope/X2CScope.h"
 #include "app/app_PBV_DAB_frame_map.h"
 #include "driver/mcc_extension/mcc_custom_config.h"
-#include "os/os.h"
 
 /*
     Main application
@@ -53,8 +57,8 @@
 int main(void)
 {
     SYSTEM_Initialize();
-    
     MCC_Custom_User_Config();
+    SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt);
     
     // X2CScope will be initialized when X2CDEBUG_ENABLED is enabled
     #if (X2CDEBUG_ENABLED == 1)
