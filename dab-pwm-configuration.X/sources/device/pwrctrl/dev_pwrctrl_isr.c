@@ -141,14 +141,8 @@ void ControlLoop_Interrupt(void)
     dab.Pwm.ControlPhase = (uint16_t)(Pot2 * ADC_SCALER * (dab.Pwm.ControlPeriod >> 1));
     
     #endif
-    
-    #if (true == PBV_ENABLE)
-    //ToDo: remove this Test PWM with PBV
-    dab.Pwm.ControlPeriod = dab.Pwm.PBVPeriodTarget;
-    #endif        
        
     Dev_PwrCtrl_PWM_Update(&dab);
     
-//#endif // #ifndef OPEN_LOOP_PBV
     
 }

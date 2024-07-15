@@ -14,8 +14,8 @@
 #include <stddef.h> // include standard definition data types
 
 
-#define DPDB_TEST_RUN   true    ///< test the code with Digital Power Development Board
-#define PBV_ENABLE      false   ///< use Power Board visualizer to change the parameters
+#define DPDB_TEST_RUN   false    ///< test the code with Digital Power Development Board
+#define PBV_ENABLE      true   ///< use Power Board visualizer to change the parameters
 
 #define PWM_CLOCK_HIGH_RESOLUTION       true 
 #define MAXIMUM_SWITCHING_FREQUENCY     (float)230.0e+3 ///< Maximum Switching frequency in [Hz]

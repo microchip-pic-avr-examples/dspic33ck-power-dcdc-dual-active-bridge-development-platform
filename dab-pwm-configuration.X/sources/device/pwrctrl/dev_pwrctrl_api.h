@@ -25,6 +25,7 @@
 
 // "set" APIs
 void Dev_PwrCtrl_SetReferenceTarget(uint16_t reference);
+void Dev_PwrCtrl_SetPeriod(uint16_t reference);
 void Dev_PwrCtrl_SetPhase(uint16_t reference);
 void Dev_PwrCtrl_SetEnable(bool enable);
 
@@ -36,7 +37,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void);
 uint16_t Dev_PwrCtrl_GetAdc_Isec_avg(void);
 uint16_t Dev_PwrCtrl_GetAdc_Temperature(void);
 uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V(void);
-uint16_t Dev_PwrCtrl_Get_Pwmprd(void);
+uint16_t Dev_PwrCtrl_Get_Period(void);
 uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void);
 uint16_t Dev_PwrCtrl_Get_State(void);
 uint16_t Dev_PwrCtrl_Get_Status(void);

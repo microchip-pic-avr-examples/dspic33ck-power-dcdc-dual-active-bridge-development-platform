@@ -38,6 +38,20 @@ void Dev_PwrCtrl_SetReferenceTarget(uint16_t reference)
     dab.Pwm.PBVPeriodTarget = reference;
 }
 
+/*********************************************************************************
+ * @ingroup 
+ * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
+ * @brief   API function to set the power controller reference
+ * @param   none
+ * @return  none
+ * @details
+ * API function
+ **********************************************************************************/
+void Dev_PwrCtrl_SetPeriod(uint16_t reference)
+{    
+    dab.Pwm.ControlPeriod = reference;
+}
+
 void Dev_PwrCtrl_SetPhase(uint16_t reference)
 {    
     dab.Pwm.ControlPhase = reference;
@@ -164,7 +178,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Dev_PwrCtrl_Get_Pwmprd(void)
+uint16_t Dev_PwrCtrl_Get_Period(void)
 {
     return(dab.Pwm.ControlPeriod);
 }

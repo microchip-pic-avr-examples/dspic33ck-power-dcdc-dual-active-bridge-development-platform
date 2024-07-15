@@ -57,8 +57,11 @@
 int main(void)
 {
     SYSTEM_Initialize();
+    
+    Dev_PwrCtrl_Initialize();
     MCC_Custom_User_Config();
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt);
+    
     
     // X2CScope will be initialized when X2CDEBUG_ENABLED is enabled
     #if (X2CDEBUG_ENABLED == 1)
@@ -67,9 +70,8 @@ int main(void)
     
     
     OS_Init(); 
-    
     App_PBV_DAB_Init();
-    Dev_PwrCtrl_Initialize();
+    
     
     Dev_PwrCtrl_Enable();
     OS_Scheduler_RunForever();

@@ -235,7 +235,7 @@ void App_PBV_DAB_Build_Frame()
     buffer_sixteen_tx[9] =  devFanDataPtr->CurrentSpeedRaw;
     buffer_sixteen_tx[10] = devFanDataPtr->CurrentSpeedPercent;
     buffer_sixteen_tx[11] = temperature;
-    buffer_sixteen_tx[12] = Dev_PwrCtrl_Get_Pwmprd();
+    buffer_sixteen_tx[12] = Dev_PwrCtrl_Get_Period();
     buffer_sixteen_tx[13] = Dev_PwrCtrl_Get_PwmprdTarget();
     buffer_sixteen_tx[14] = Dev_PwrCtrl_Get_IloopReferenceTarget();
     buffer_sixteen_tx[15] = Dev_PwrCtrl_Get_IloopReference();
@@ -279,9 +279,9 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             // change target frequency
             if ((control_word <= MAX_PWM_PERIOD) && (control_word >= MIN_PWM_PERIOD))             
             {
-                Dev_PwrCtrl_SetReferenceTarget(control_word);
-                // when Frequency is changed, control phase will be 180 degrees 
-                uint16_t controlPhase = (Dev_PwrCtrl_Get_PwmprdTarget()) >> 1;
+                Dev_PwrCtrl_SetPeriod(control_word);
+                // when Frequency is changed, control phase will be zero
+                uint16_t controlPhase = 0;
                 Dev_PwrCtrl_SetPhase(controlPhase);
             }            
             break;
@@ -305,7 +305,8 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         case PBV_CMD_ID_PHASE_CHANGE:
         {
             // change target phase
-            uint16_t controlPhase = (uint16_t)(control_word * PHASE_180_SCALER * (Dev_PwrCtrl_Get_DutyCycle()));
+            control_word = control_word - 180;
+            uint16_t controlPhase = (uint16_t)((control_word)* PHASE_180_SCALER * (Dev_PwrCtrl_Get_DutyCycle()));
             Dev_PwrCtrl_SetPhase(controlPhase);      
                 
             break;
