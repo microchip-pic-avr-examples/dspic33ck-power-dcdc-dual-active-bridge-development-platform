@@ -195,7 +195,7 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     // soft start the converter
 #ifdef OPEN_LOOP_PBV
     uint16_t* ptr_reference = (uint16_t*)&pcInstance->Pwm.ControlPeriod;
-    uint16_t* ptr_referenceTarget = (uint16_t*)&pcInstance->Pwm.ControlTarget;
+    uint16_t* ptr_referenceTarget = (uint16_t*)&pcInstance->Pwm.PBVPeriodTarget;
 #else
     uint16_t* ptr_reference = (uint16_t*)&pcInstance->iloop.reference;
     uint16_t* ptr_referenceTarget = (uint16_t*)&pcInstance->iloop.referenceTarget;
@@ -241,7 +241,7 @@ static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
         }
         
 #ifdef OPEN_LOOP_PBV
-        else if (pcInstance->Pwm.ControlPeriod != pcInstance->Pwm.ControlTarget)
+        else if (pcInstance->Pwm.ControlPeriod != pcInstance->Pwm.PBVPeriodTarget)
 #else
             
         else if (pcInstance->iloop.reference != pcInstance->iloop.referenceTarget)  

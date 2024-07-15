@@ -35,7 +35,12 @@ extern POWER_CONTROL_t dab;
  **********************************************************************************/
 void Dev_PwrCtrl_SetReferenceTarget(uint16_t reference)
 {    
-    dab.Pwm.ControlTarget = reference;
+    dab.Pwm.PBVPeriodTarget = reference;
+}
+
+void Dev_PwrCtrl_SetPhase(uint16_t reference)
+{    
+    dab.Pwm.ControlPhase = reference;
 }
 
 /*********************************************************************************
@@ -247,7 +252,7 @@ uint16_t Dev_PwrCtrl_Get_EnableFlag(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void)
 {
-    return(dab.Pwm.ControlTarget);
+    return(dab.Pwm.PBVPeriodTarget);
 }
 
 /*********************************************************************************
