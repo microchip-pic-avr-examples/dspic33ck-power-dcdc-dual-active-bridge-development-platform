@@ -97,6 +97,7 @@ void PINS_Initialize(void)
      ***************************************************************************/
      __builtin_write_RPCON(0x0000); // unlock PPS
 
+        RPINR45bits.CLCINAR = 0x0034; //RC4->CLC2:CLCINA;
         RPINR18bits.U1RXR = 0x0044; //RD4->UART1:U1RX;
         RPINR26bits.CAN1RXR = 0x0046; //RD6->CAN1:CAN1RX;
         RPOR12bits.RP56R = 0x0011;  //RC8->SCCP3:OCM3;

@@ -51,6 +51,7 @@ typedef struct SWITCH_NODE_s SWITCH_NODE_t;
  **********************************************************************************/
 struct FEEDBACK_SETTINGS_s
 {
+    uint16_t VInputVoltage; ///< Feedback Data for input voltage 
     uint16_t vsec; ///< secondary side voltage
     uint16_t ipri_ct; ///< primary current as measured with CT
     uint16_t vpri; ///< primary side voltage

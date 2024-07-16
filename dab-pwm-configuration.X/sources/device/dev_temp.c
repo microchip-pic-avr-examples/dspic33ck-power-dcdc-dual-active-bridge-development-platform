@@ -101,11 +101,11 @@ uint16_t Temp_Calculate_Average(uint16_t * buffer, uint16_t size);
  *   
  **********************************************************************************/
 void Dev_Temp_Init(void){
-    devTempData.OverTemperatureFlag = 0;            ///< Over temperature flag
-    devTempData.SensorLost = 0;                      ///< if Sensor is present  
-    devTempData.AdcReading = 0;                          ///< temperature raw
-    devTempData.AdcAverage = 0;                      ///< temperature raw
-    devTempData.TemperatureCelcius = 0;              ///< temperature celcius.
+    devTempData.OverTemperatureFlag = 0;        ///< Over temperature flag
+    devTempData.SensorLost = 0;                 ///< if Sensor is present  
+    devTempData.AdcReading = 0;                 ///< temperature raw
+    devTempData.AdcAverage = 0;                 ///< temperature raw
+    devTempData.TemperatureCelcius = 0;         ///< temperature celcius.
     
     FAULT_Init(
             &tempFaultMin,                             ///< fault object
