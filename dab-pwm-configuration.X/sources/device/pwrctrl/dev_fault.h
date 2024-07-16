@@ -29,6 +29,8 @@
 #include "cmp/cmp1.h"
 #include "cmp/cmp3.h"
 
+#include "dev_fault.h"
+#include "dev_pwrctrl_pwm.h"
 #include "dev_pwrctrl_typedef.h"
 #include "dev_pwrctrl_utils.h"
 #include "config/config.h"
@@ -37,7 +39,7 @@
 //------------------------------------------------------------------------------
 // functions with external linkage
 //------------------------------------------------------------------------------
-void Drv_PwrCtrl_FaultInit(void);
+void Dev_PwrCtrlFault_Initialize(void);
 void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void);
 void Drv_PwrCtrl_Fault_ClearHardwareFaults(void);
 
@@ -166,7 +168,7 @@ void __inline__ Drv_PwrCtrl_Fault_ShortCircuit(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 uint16_t __inline__ Drv_PwrCtrl_Fault_SC_Faults_Clear(POWER_CONTROL_t* pcInstance)
 {
-#ifndef FAULT_SHORT_CCT_DISABLE
+#ifndef FAULT_SHORT_CCT
     uint16_t sc_faults_clear;
     uint16_t isec_sc = CMP_ISEC_SC_StatusGet();
     uint16_t ipri_sc = CMP_IPRI_SC_StatusGet();

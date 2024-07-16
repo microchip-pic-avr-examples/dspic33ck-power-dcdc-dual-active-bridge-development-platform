@@ -34,6 +34,9 @@
 
 extern POWER_CONTROL_t dab;
 
+void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void);
+void Drv_PwrCtrl_Fault_ClearHardwareFaults(void);
+
 /*********************************************************************************
  * @ingroup 
  * @fn      void Drv_PwrCtrl_FaultInit(void)
@@ -44,13 +47,21 @@ extern POWER_CONTROL_t dab;
  * initialize fault objects
  * This is an API function
  **********************************************************************************/
-void Drv_PwrCtrl_FaultInit(void)
+void Dev_PwrCtrlFault_Initialize(void)
 {
     FAULT_Init(&dab.Fault.Object.ipri_oc, IPRI_OC_THRES_TRIG, IPRI_OC_THRES_CLEAR, IPRI_OC_T_BLANK_TRIG, IPRI_OC_T_BLANK_CLEAR); 
     FAULT_Init(&dab.Fault.Object.isec_oc, ISEC_OC_THRES_TRIG, ISEC_OC_THRES_CLEAR, ISEC_OC_T_BLANK_TRIG, ISEC_OC_T_BLANK_CLEAR);  
     FAULT_Init(&dab.Fault.Object.vpri_ov, VPRI_OV_THRES_TRIG, VPRI_OV_THRES_CLEAR, VPRI_OV_T_BLANK_TRIG, VPRI_OV_T_BLANK_CLEAR);   
     FAULT_Init(&dab.Fault.Object.vsec_ov, VSEC_OV_THRES_TRIG, VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
     FAULT_Init(&dab.Fault.Object.i_sc, 0,0,0,I_SC_T_BLANK_CLEAR);
+    
+    //#ifndef FAULT_SHORT_CCT_DISABLE
+//    // initialize short circuit fault protection with comparators
+    Drv_PwrCtrl_Fault_EnableShortCircuitProtection();
+//#endif // #ifndef FAULT_SHORT_CCT_DISABLE
+//    // clear the fault PCI for each PWM
+    Drv_PwrCtrl_Fault_ClearHardwareFaults();    
+    
 }
 
 /*********************************************************************************

@@ -27,6 +27,7 @@
 #include "adc/adc1.h"
 #include "config/macros.h"
 #include "dev_pwrctrl_pwm.h"
+#include "dev_fault.h"
 
 extern POWER_CONTROL_t dab;
 
@@ -57,27 +58,26 @@ void ControlLoop_Interrupt(void)
     dab.Adc.vrail_5v = ADC1_ConversionResultGet(VRAIL_5V);
     dab.Adc.temperature = ADC1_ConversionResultGet(TEMP);
     
-////    ToDo: relocated to fault task
-//    // secondary over current fault handler
-//#ifndef FAULT_ISEC_OC_DISABLE      
-//    Drv_PwrCtrl_Fault_Isec_OC();
-//#endif // #ifndef FAULT_ISEC_OC_DISABLE
-//    
-//    // secondary over voltage fault handler
-//#ifndef FAULT_VSEC_OV_DISABLE            
-//    Drv_PwrCtrl_Fault_Vsec_OV();
-//#endif // #ifndef FAULT_VSEC_OC_DISABLE   
-//    
-//    // primary over current fault handler
-//#ifndef FAULT_IPRI_OC_DISABLE
-//    Drv_PwrCtrl_Fault_Ipri_OC();
-//#endif // #ifndef FAULT_IPRI_OC_DISABLE
-//    
-//    // primary over voltage fault handler
-//#ifndef FAULT_VPRI_OV_DISABLE                
-//    Drv_PwrCtrl_Fault_Vpri_OV();
-//#endif   // #ifndef FAULT_VPRI_OV_DISABLE
-//    
+    // secondary over current fault handler
+    #if (FAULT_ISEC_OC)      
+    Drv_PwrCtrl_Fault_Isec_OC(&dab);
+    #endif 
+    
+    // secondary over voltage fault handler
+    #if (FAULT_VSEC_OV)            
+    Drv_PwrCtrl_Fault_Vsec_OV(&dab);
+    #endif    
+    
+    // primary over current fault handler
+    #if(FAULT_IPRI_OC)
+    Drv_PwrCtrl_Fault_Ipri_OC(&dab);
+    #endif 
+    
+    // primary over voltage fault handler
+    #if (FAULT_VPRI_OV)                
+    Drv_PwrCtrl_Fault_Vpri_OV();
+    #endif  
+    
 //#ifndef DISABLE_VOLTAGE_LOOP
 //    // voltage loop
 ////    static uint16_t runVoltageLoop = 0;

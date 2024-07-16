@@ -14,8 +14,18 @@
 #include <stddef.h> // include standard definition data types
 
 
-#define DPDB_TEST_RUN   false    ///< test the code with Digital Power Development Board
-#define PBV_ENABLE      true   ///< use Power Board visualizer to change the parameters
+#define DPDB_TEST_RUN   true    ///< test the code with Digital Power Development Board
+#define PBV_ENABLE      false    ///< use Power Board visualizer to change the parameters
+
+//------------------------------------------------------------------------------
+// fault disables (for debug only)
+//------------------------------------------------------------------------------
+#define FAULT_ISEC_OC   false
+#define FAULT_IPRI_OC   false
+#define FAULT_VSEC_OV   false
+#define FAULT_VPRI_OV   false
+#define FAULT_SHORT_CCT false
+
 
 #define PWM_CLOCK_HIGH_RESOLUTION       true 
 #define MAXIMUM_SWITCHING_FREQUENCY     (float)230.0e+3 ///< Maximum Switching frequency in [Hz]
@@ -103,14 +113,6 @@
 // Short circuit faults are ignored during this time
 #define I_SC_LEB_TIME         (300.0e-9)
 
-//------------------------------------------------------------------------------
-// fault disables (for debug only)
-//------------------------------------------------------------------------------
-//#define FAULT_ISEC_OC_DISABLE
-//#define FAULT_IPRI_OC_DISABLE
-//#define FAULT_VSEC_OV_DISABLE
-#define FAULT_VPRI_OV_DISABLE
-//#define FAULT_SHORT_CCT_DISABLE
 
 //------------------------------------------------------------------------------
 // control (for debug only)

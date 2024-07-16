@@ -30,6 +30,7 @@
 
 #include "device/pwrctrl/dev_pwrctrl_isr.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
+#include "device/pwrctrl/dev_fault.h"
 #include "x2cScope/X2CScope.h"
 #include "app/app_PBV_DAB_frame_map.h"
 #include "driver/mcc_extension/mcc_custom_config.h"
@@ -59,6 +60,7 @@ int main(void)
     SYSTEM_Initialize();
     
     Dev_PwrCtrl_Initialize();
+    Dev_PwrCtrlFault_Initialize();
     MCC_Custom_User_Config();
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt);
     
@@ -71,7 +73,6 @@ int main(void)
     
     OS_Init(); 
     App_PBV_DAB_Init();
-    
     
     Dev_PwrCtrl_Enable();
     OS_Scheduler_RunForever();

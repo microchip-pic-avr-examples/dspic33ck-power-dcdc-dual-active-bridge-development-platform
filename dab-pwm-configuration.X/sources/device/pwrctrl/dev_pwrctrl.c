@@ -55,27 +55,18 @@ void Dev_PwrCtrl_Initialize(void)
     // set all PWM output pins to 0
     Dev_PwrCtrl_PWM_Disable(&dab); 
     
+    //Enable PWM peripheral
+    PWM_Enable();
+    
     // Update the Period, Duty Cycle and Phases of the PWMs based on
     // the given Control period and Control Phase
     Dev_PwrCtrl_PWM_Update(&dab);
-    
-    //ToDo: Add this later
-    // initialize fault protection
-//    Drv_PwrCtrl_FaultInit();
-//#ifndef FAULT_SHORT_CCT_DISABLE
-//    // initialize short circuit fault protection with comparators
-//    Drv_PwrCtrl_Fault_EnableShortCircuitProtection();
-//#endif // #ifndef FAULT_SHORT_CCT_DISABLE
-//    // clear the fault PCI for each PWM
-//    Drv_PwrCtrl_Fault_ClearHardwareFaults();    
+
     
 }
 
 void Dev_PwrCtrl_Enable(void)
 {
-    //Enable PWM peripheral
-    PWM_Enable();
-    
     //Enable PWM output
     Dev_PwrCtrl_PWM_Enable(&dab);
 }
