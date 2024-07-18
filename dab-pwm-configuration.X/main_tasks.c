@@ -46,6 +46,10 @@
 
 #include "app/app_PBV_DAB_frame_map.h"
 #include "app/app_PBV_interface.h"
+#include "device/dev_fan.h"
+#include "device/dev_led.h"
+#include "device/dev_temp.h"
+
 #include "x2cScope/X2CScope.h"
 
 //=======================================================================================================
@@ -116,7 +120,7 @@ void Tasks_100us(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_1ms(void)
 {
-
+    
 }
 
 //=======================================================================================================
@@ -138,7 +142,9 @@ extern uint16_t os_resetCause;
 //=======================================================================================================
 void Tasks_100ms(void)
 {
-
+    Dev_LED_Task_100ms();
+    Dev_Fan_Task_100ms();
+    Dev_Temp_Task_100ms();
 }
 
 //=======================================================================================================
