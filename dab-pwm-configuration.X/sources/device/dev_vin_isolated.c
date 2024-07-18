@@ -23,8 +23,38 @@
 #include <xc.h>
 #include "input_capture/sccp2.h"
 #include "clc/clc2.h"
+#include "dma/dma.h"
+
+
+#include "pwrctrl/dev_pwrctrl_typedef.h"
+
+
+/*********************************************************************************
+ * @ingroup dev-temp-private-variables
+ * @var     FAULT_OBJ_T Temp_Fault_Min
+ * @brief   fault object for checking over temperature condition
+ * @details min as negative temperature coefficient
+ **********************************************************************************/
+FAULT_OBJ_T vinFault;
+
+extern POWER_CONTROL_t dab;
 
 void Dev_VinIsolated_Initialize(void)
 {
+    DMA_SourceAddressSet(DMA_CHANNEL_2, (uint16_t)&CCP2BUFL);
+    DMA_DestinationAddressSet(DMA_CHANNEL_2, (uint16_t)&dab.Adc.VInputVoltage);
     
+//    FAULT_Init(
+//            &vinFault,                                  ///< fault object
+//            MAX_TEMPERATURE_THRESHOLD_RAW,               ///< threshold against which raw values will be compared
+//            OVER_TEMP_UPPER_THRESHOLD_WITH_HYST,         ///< threshold plus hystersis
+//            FAULT_PERSISTENCE_COUNT_TEMP,                    ///< number of ISR counts for which the fault should clear
+//            FAULT_PERSISTENCE_COUNT_TEMP                     ///< number of ISR counts for which the fault should clear
+//            ) ; 
+    
+}
+
+void Dev_VinIsolated_Start(void)
+{
+    SCCP2_InputCapture_Start();
 }

@@ -8,16 +8,8 @@
 #ifndef DEV_VIN_ISOLATED_H
 #define	DEV_VIN_ISOLATED_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-
-
-
-#ifdef	__cplusplus
-}
-#endif
+extern void Dev_VinIsolated_Initialize(void);
+extern void Dev_VinIsolated_Start(void);
 
 #endif	/* DEV_VIN_ISOLATED_H */
 

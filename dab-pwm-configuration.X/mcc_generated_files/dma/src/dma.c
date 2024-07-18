@@ -71,10 +71,10 @@ void DMA_Initialize (void)
     // HADDR 28671; 
     DMAH= 0x6FFF;
 
-    // CHEN0 disabled; DAMODE0 Unchanged; TRMODE0 One-Shot; CHREQ0 disabled; RELOAD0 disabled; SIZE0 16 bit; NULLW0 disabled; SAMODE0 Unchanged; 
-    DMACH0 = (uint16_t)0x0 & (uint16_t)0xFFFE; //The channel is disabled, till other settings are configured.
-    // HALFIF disabled; LOWIF disabled; HALFEN disabled; DONEIF disabled; OVRUNIF disabled; CHSEL0 INT0; HIGHIF disabled; 
-    DMAINT0= 0x0;
+    // CHEN0 disabled; DAMODE0 Unchanged; TRMODE0 Repeated Continuous; CHREQ0 disabled; RELOAD0 disabled; SIZE0 16 bit; NULLW0 disabled; SAMODE0 Unchanged; 
+    DMACH0 = (uint16_t)0xC & (uint16_t)0xFFFE; //The channel is disabled, till other settings are configured.
+    // HALFIF disabled; LOWIF disabled; HALFEN disabled; DONEIF disabled; OVRUNIF disabled; CHSEL0 CLC2 Positive Edge Interrupt; HIGHIF disabled; 
+    DMAINT0= 0x4500;
     // SADDR0 0; 
     DMASRC0= 0x0;
     // DADDR0 0; 
@@ -97,8 +97,8 @@ void DMA_Initialize (void)
     // Clearing Channel 1 Interrupt Flag;
     IFS0bits.DMA1IF = 0;
 
-    // SAMODE2 Unchanged; CHEN2 disabled; SIZE2 16 bit; DAMODE2 Unchanged; CHREQ2 disabled; RELOAD2 enabled; NULLW2 disabled; TRMODE2 Repeated One-Shot; 
-    DMACH2 = (uint16_t)0x204 & (uint16_t)0xFFFE; //The channel is disabled, till other settings are configured.
+    // SAMODE2 Unchanged; CHEN2 enabled; SIZE2 16 bit; DAMODE2 Unchanged; CHREQ2 disabled; RELOAD2 enabled; NULLW2 disabled; TRMODE2 Repeated One-Shot; 
+    DMACH2 = (uint16_t)0x205 & (uint16_t)0xFFFE; //The channel is disabled, till other settings are configured.
     // HALFIF disabled; LOWIF disabled; HALFEN disabled; DONEIF disabled; OVRUNIF disabled; HIGHIF disabled; CHSEL2 SCCP2; 
     DMAINT2= 0xC00;
     // SADDR2 0; 
@@ -128,6 +128,8 @@ void DMA_Initialize (void)
     //Enable DMA
     DMACONbits.DMAEN = 1; 
     
+    //Enable DMA Channel 2
+    DMACH2bits.CHEN = 1;
 }
 
 void DMA_Deinitialize (void) 
