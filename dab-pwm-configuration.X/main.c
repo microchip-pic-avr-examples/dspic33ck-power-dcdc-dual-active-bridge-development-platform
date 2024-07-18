@@ -63,13 +63,14 @@ int main(void)
 {
     SYSTEM_Initialize();
     
-//    Dev_VinIsolated_Initialize();
+    Dev_VinIsolated_Initialize();
+    
     Dev_PwrCtrl_Initialize();
     Dev_PwrCtrlFault_Initialize();
     MCC_Custom_User_Config();
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt);
     
-//    Dev_VinIsolated_Start();
+    Dev_VinIsolated_Start();
     
     // X2CScope will be initialized when X2CDEBUG_ENABLED is enabled
     #if (X2CDEBUG_ENABLED == 1)

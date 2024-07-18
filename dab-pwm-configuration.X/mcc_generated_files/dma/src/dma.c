@@ -105,8 +105,8 @@ void DMA_Initialize (void)
     DMASRC2= 0x0;
     // DADDR2 0; 
     DMADST2= 0x0;
-    // CNT2 1; 
-    DMACNT2= 0x1;
+    // CNT2 0; 
+    DMACNT2= 0x0;
     // Clearing Channel 2 Interrupt Flag;
     IFS1bits.DMA2IF = 0;
 

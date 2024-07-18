@@ -70,10 +70,10 @@ void CLC2_Initialize(void)
     CLC2CONH = 0x0;
     // LCD2S CLCINB I/O pin; LCD1S CLCINA I/O pin; LCD4S CLCIND pin; LCD3S CLCINC I/O pin; 
     CLC2SELL = 0x5000;
-    // LCG1D1T enabled; LCG1D3T enabled; LCG2D2T enabled; LCG1D2T disabled; LCG2D1T enabled; LCG2D4T disabled; LCG1D4T disabled; LCG2D3T disabled; LCG1D1N disabled; LCG1D3N disabled; LCG2D2N disabled; LCG1D2N disabled; LCG2D1N disabled; LCG2D4N disabled; LCG1D4N disabled; LCG2D3N disabled; 
-    CLC2GLSL = 0xA22;
-    // LCG3D1T enabled; LCG3D2T disabled; LCG4D1T enabled; LCG3D3T enabled; LCG4D2T enabled; LCG3D4T disabled; LCG4D3T disabled; LCG4D4T disabled; LCG3D1N disabled; LCG3D2N disabled; LCG4D1N disabled; LCG3D3N disabled; LCG4D2N disabled; LCG3D4N disabled; LCG4D3N disabled; LCG4D4N disabled; 
-    CLC2GLSH = 0xA22;
+    // LCG1D1T enabled; LCG1D3T disabled; LCG2D2T enabled; LCG1D2T enabled; LCG2D1T enabled; LCG2D4T disabled; LCG1D4T disabled; LCG2D3T disabled; LCG1D1N disabled; LCG1D3N disabled; LCG2D2N disabled; LCG1D2N disabled; LCG2D1N disabled; LCG2D4N disabled; LCG1D4N disabled; LCG2D3N disabled; 
+    CLC2GLSL = 0xA0A;
+    // LCG3D1T enabled; LCG3D2T enabled; LCG4D1T enabled; LCG3D3T disabled; LCG4D2T enabled; LCG3D4T disabled; LCG4D3T disabled; LCG4D4T disabled; LCG3D1N disabled; LCG3D2N disabled; LCG4D1N disabled; LCG3D3N disabled; LCG4D2N disabled; LCG3D4N disabled; LCG4D3N disabled; LCG4D4N disabled; 
+    CLC2GLSH = 0xA0A;
     
     CLC2_PositiveEdgeCallbackRegister(&CLC2_PositiveEdgeCallback);
     CLC2_NegativeEdgeCallbackRegister(&CLC2_NegativeEdgeCallback);

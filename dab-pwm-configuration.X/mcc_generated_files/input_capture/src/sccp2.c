@@ -64,10 +64,10 @@ const struct INPUT_CAPTURE_INTERFACE FB_VDD_PWM = {
 
 void SCCP2_InputCapture_Initialize(void)
 {
-    // MOD Every rising edge; CCSEL enabled; TMR32 16 Bit; TMRPS 1:1; CLKSEL FOSC/2; TMRSYNC disabled; CCPSLP disabled; CCPSIDL disabled; CCPON disabled; 
-    CCP2CON1L = 0x11; //The module is disabled, till other settings are configured.
-    //SYNC CLC2; ALTSYNC disabled; ONESHOT disabled; TRIGEN disabled; IOPS Each Time Base Period Match; RTRGEN disabled; OPSRC Timer Interrupt Event; 
-    CCP2CON1H = 0x11;
+    // MOD Every falling edge; CCSEL enabled; TMR32 16 Bit; TMRPS 1:1; CLKSEL FOSC/2; TMRSYNC disabled; CCPSLP disabled; CCPSIDL disabled; CCPON disabled; 
+    CCP2CON1L = 0x12; //The module is disabled, till other settings are configured.
+    //SYNC CLC2; ALTSYNC disabled; ONESHOT disabled; TRIGEN enabled; IOPS Each Time Base Period Match; RTRGEN disabled; OPSRC Timer Interrupt Event; 
+    CCP2CON1H = 0x91;
     //ASDG 0x0; SSDG disabled; ASDGM disabled; PWMRSEN disabled; 
     CCP2CON2L = 0x0;
     //ICSEL None; AUXOUT Disabled; ICGSM Level-Sensitive mode; OCAEN disabled; OENSYNC disabled; 

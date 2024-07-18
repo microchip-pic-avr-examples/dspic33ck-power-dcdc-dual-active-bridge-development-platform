@@ -21,11 +21,13 @@
  */
 
 #include <xc.h>
+#include <p33CK256MP506.h>
 #include "input_capture/sccp2.h"
 #include "clc/clc2.h"
 #include "dma/dma.h"
 
-
+#include "dev_vin_isolated.h"
+#include "pwrctrl/dev_fault_common.h"
 #include "pwrctrl/dev_pwrctrl_typedef.h"
 
 
@@ -35,23 +37,31 @@
  * @brief   fault object for checking over temperature condition
  * @details min as negative temperature coefficient
  **********************************************************************************/
-FAULT_OBJ_T vinFault;
+FAULT_OBJ_T Vin_Fault_Min;
+FAULT_OBJ_T Vin_Fault_Max;
 
 extern POWER_CONTROL_t dab;
 
 void Dev_VinIsolated_Initialize(void)
 {
+    CCP2CON1Hbits.RTRGEN = 1;
     DMA_SourceAddressSet(DMA_CHANNEL_2, (uint16_t)&CCP2BUFL);
     DMA_DestinationAddressSet(DMA_CHANNEL_2, (uint16_t)&dab.Adc.VInputVoltage);
     
-//    FAULT_Init(
-//            &vinFault,                                  ///< fault object
-//            MAX_TEMPERATURE_THRESHOLD_RAW,               ///< threshold against which raw values will be compared
-//            OVER_TEMP_UPPER_THRESHOLD_WITH_HYST,         ///< threshold plus hystersis
-//            FAULT_PERSISTENCE_COUNT_TEMP,                    ///< number of ISR counts for which the fault should clear
-//            FAULT_PERSISTENCE_COUNT_TEMP                     ///< number of ISR counts for which the fault should clear
+//     FAULT_Init(
+//            &Vin_Fault_Min,                             ///< fault object
+//            UV_THRESHOLD_RAW,                           ///< threshold against which raw values will be compared
+//            UV_LOWER_THRESHOLD_WITH_HYST,               ///< threshold plus hystersis
+//            FAULT_PERSISTENCE_COUNT,                    ///< number of ISR counts for which the fault should clear
+//            FAULT_PERSISTENCE_COUNT                     ///< number of ISR counts for which the fault should clear
 //            ) ; 
-    
+//    
+//    FAULT_Init(
+//            &Vin_Fault_Max, 
+//            OV_THRESHOLD_RAW,               
+//            OV_UPPER_THRESHOLD_WITH_HYST,
+//            FAULT_PERSISTENCE_COUNT,
+//            FAULT_PERSISTENCE_COUNT ) ;
 }
 
 void Dev_VinIsolated_Start(void)
