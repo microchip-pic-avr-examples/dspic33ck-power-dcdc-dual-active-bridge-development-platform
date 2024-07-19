@@ -29,7 +29,7 @@
 #include "dev_pwrctrl_pwm.h"
 #include "dev_pwrctrl_utils.h"
 #include "device/dev_current_sensor.h"
-#include "dev_fault.h"
+#include "device/fault/dev_fault.h"
 
 static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance);
 static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance);

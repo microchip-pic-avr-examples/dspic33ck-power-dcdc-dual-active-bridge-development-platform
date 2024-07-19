@@ -48,7 +48,7 @@
 #include "app/app_PBV_interface.h"
 #include "device/dev_fan.h"
 #include "device/dev_led.h"
-#include "device/dev_temp.h"
+#include "device/fault/dev_temp.h"
 
 #include "x2cScope/X2CScope.h"
 

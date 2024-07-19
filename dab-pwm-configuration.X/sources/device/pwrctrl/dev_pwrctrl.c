@@ -25,7 +25,7 @@
 #include "pwm_hs/pwm.h"
 #include "dev_pwrctrl_typedef.h"
 #include "dev_pwrctrl_pwm.h"
-#include "dev_fault.h"
+#include "device/fault/dev_fault.h"
 
 POWER_CONTROL_t dab;
 

@@ -28,13 +28,13 @@
 
 #include "os/os.h"
 
-#include "device/dev_vin_isolated.h"
+#include "device/fault/dev_vin_isolated.h"
 #include "device/dev_fan.h"
 #include "device/dev_led.h"
-#include "device/dev_temp.h"
+#include "device/fault/dev_temp.h"
 #include "device/pwrctrl/dev_pwrctrl_isr.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
-#include "device/pwrctrl/dev_fault.h"
+#include "device/fault/dev_fault.h"
 #include "x2cScope/X2CScope.h"
 #include "app/app_PBV_DAB_frame_map.h"
 #include "driver/mcc_extension/mcc_custom_config.h"
@@ -62,15 +62,11 @@
 int main(void)
 {
     SYSTEM_Initialize();
-    
-    Dev_VinIsolated_Initialize();
-    
+        
     Dev_PwrCtrl_Initialize();
     Dev_PwrCtrlFault_Initialize();
     MCC_Custom_User_Config();
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt);
-    
-    Dev_VinIsolated_Start();
     
     // X2CScope will be initialized when X2CDEBUG_ENABLED is enabled
     #if (X2CDEBUG_ENABLED == 1)
@@ -82,8 +78,6 @@ int main(void)
     App_PBV_DAB_Init();
     Dev_LED_Init();
     Dev_Fan_Init();
-    Dev_Temp_Init();
-    
     
     Dev_PwrCtrl_Enable();
     OS_Scheduler_RunForever();

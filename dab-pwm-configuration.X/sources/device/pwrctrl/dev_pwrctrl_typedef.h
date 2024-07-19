@@ -8,7 +8,7 @@
 #ifndef DRV_PWRCTRL_TYPEDEF_H
 #define	DRV_PWRCTRL_TYPEDEF_H
 
-#include "dev_fault_common.h"
+#include "device/fault/dev_fault_common.h"
 
 /***********************************************************************************
  * @ingroup 

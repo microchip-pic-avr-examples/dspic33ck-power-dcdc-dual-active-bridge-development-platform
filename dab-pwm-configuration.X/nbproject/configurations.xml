@@ -96,6 +96,12 @@
           <itemPath>sources/config/useful_macros.h</itemPath>
         </logicalFolder>
         <logicalFolder name="device" displayName="device" projectFiles="true">
+          <logicalFolder name="fault" displayName="fault" projectFiles="true">
+            <itemPath>sources/device/fault/dev_fault.h</itemPath>
+            <itemPath>sources/device/fault/dev_fault_common.h</itemPath>
+            <itemPath>sources/device/fault/dev_temp.h</itemPath>
+            <itemPath>sources/device/fault/dev_vin_isolated.h</itemPath>
+          </logicalFolder>
           <logicalFolder name="pwrctrl" displayName="pwrctrl" projectFiles="true">
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_utils.h</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl.h</itemPath>
@@ -103,14 +109,10 @@
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_api.h</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_pwm.h</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_typedef.h</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_fault_common.h</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_fault.h</itemPath>
           </logicalFolder>
           <itemPath>sources/device/dev_current_sensor.h</itemPath>
           <itemPath>sources/device/dev_fan.h</itemPath>
           <itemPath>sources/device/dev_led.h</itemPath>
-          <itemPath>sources/device/dev_temp.h</itemPath>
-          <itemPath>sources/device/dev_vin_isolated.h</itemPath>
         </logicalFolder>
         <logicalFolder name="driver" displayName="driver" projectFiles="true">
           <logicalFolder name="mcc_extension"
@@ -237,21 +239,23 @@
           <itemPath>sources/app/app_PBV_dab_frame_map.c</itemPath>
         </logicalFolder>
         <logicalFolder name="device" displayName="device" projectFiles="true">
+          <logicalFolder name="fault" displayName="fault" projectFiles="true">
+            <itemPath>sources/device/fault/dev_fault.c</itemPath>
+            <itemPath>sources/device/fault/dev_fault_common.c</itemPath>
+            <itemPath>sources/device/fault/dev_temp.c</itemPath>
+            <itemPath>sources/device/fault/dev_vin_isolated.c</itemPath>
+          </logicalFolder>
           <logicalFolder name="pwrctrl" displayName="pwrctrl" projectFiles="true">
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_sm.c</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_utils.c</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_api.c</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_pwm.c</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_isr.c</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_fault_common.c</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_fault.c</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl.c</itemPath>
           </logicalFolder>
           <itemPath>sources/device/dev_current_sensor.c</itemPath>
           <itemPath>sources/device/dev_fan.c</itemPath>
           <itemPath>sources/device/dev_led.c</itemPath>
-          <itemPath>sources/device/dev_temp.c</itemPath>
-          <itemPath>sources/device/dev_vin_isolated.c</itemPath>
         </logicalFolder>
         <logicalFolder name="driver" displayName="driver" projectFiles="true">
           <logicalFolder name="mcc_extension"
@@ -289,7 +293,7 @@
         <targetDevice>dsPIC33CK256MP506</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>ICD5Tool</platformTool>
+        <platformTool>pk4hybrid</platformTool>
         <languageToolchain>XCDSC</languageToolchain>
         <languageToolchainVersion>3.10</languageToolchainVersion>
         <platform>3</platform>
@@ -329,7 +333,7 @@
         <property key="cast-align" value="false"/>
         <property key="code-model" value="default"/>
         <property key="const-model" value="default"/>
-        <property key="data-model" value="default"/>
+        <property key="data-model" value="small-data"/>
         <property key="disable-instruction-scheduling" value="false"/>
         <property key="enable-all-warnings" value="true"/>
         <property key="enable-ansi-std" value="false"/>

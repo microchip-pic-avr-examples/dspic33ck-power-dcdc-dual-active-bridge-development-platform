@@ -30,7 +30,9 @@
 
 #include "config/macros.h"
 #include "dev_fault_common.h"
-#include "dev_pwrctrl_typedef.h"
+#include "dev_vin_isolated.h"
+#include "dev_temp.h"
+#include "device/pwrctrl/dev_pwrctrl_typedef.h"
 
 extern POWER_CONTROL_t dab;
 
@@ -54,6 +56,10 @@ void Dev_PwrCtrlFault_Initialize(void)
     FAULT_Init(&dab.Fault.Object.vpri_ov, VPRI_OV_THRES_TRIG, VPRI_OV_THRES_CLEAR, VPRI_OV_T_BLANK_TRIG, VPRI_OV_T_BLANK_CLEAR);   
     FAULT_Init(&dab.Fault.Object.vsec_ov, VSEC_OV_THRES_TRIG, VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
     FAULT_Init(&dab.Fault.Object.i_sc, 0,0,0,I_SC_T_BLANK_CLEAR);
+    
+    Dev_VinIsolated_Initialize();
+    
+    Dev_Temp_Initialize();
     
     //#ifndef FAULT_SHORT_CCT_DISABLE
 //    // initialize short circuit fault protection with comparators

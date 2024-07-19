@@ -27,7 +27,7 @@
 #include "adc/adc1.h"
 #include "config/macros.h"
 #include "dev_pwrctrl_pwm.h"
-#include "dev_fault.h"
+#include "device/fault/dev_fault.h"
 
 extern POWER_CONTROL_t dab;
 
@@ -78,60 +78,10 @@ void ControlLoop_Interrupt(void)
     Drv_PwrCtrl_Fault_Vpri_OV();
     #endif  
     
-//#ifndef DISABLE_VOLTAGE_LOOP
-//    // voltage loop
-////    static uint16_t runVoltageLoop = 0;
-//    //ToDo: Add this later
-////    if (++runVoltageLoop > VLOOP_ILOOP_EXE_RATIO)  
-////    {
-////        dab.vloop.feedback = dab.Adc.vsec;
-////        SMPS_Controller2P2ZUpdate(&icomp_2p2z,
-////                                  &dab.vloop.feedback,
-////                                  dab.vloop.reference,
-////                                  &dab.vloop.output);
-////        runVoltageLoop = 0;
-////    }
-//#endif // #ifndef DISABLE_VOLTAGE_LOOP
-//    
-//    // current loop compensator
-//#ifndef OPEN_LOOP_PBV
-//    //TODO: clean this all up
-//    int16_t feedback = ((int16_t)dab.Adc.isec_avg - dab.Adc.isec_sensor_offset); 
-//    if (feedback < 0)
-//    {
-//        feedback = 0;
-//    }
-//    // scale input to compensator x16 to add some resolution
-//    // current sensor has low gain (31 ADC codes per amp)
-//    dab.iloop.feedback = feedback << 4;    // TODO: add symbolic reference and some explanation
-//    //ToDo: add this later
-////    SMPS_Controller2P2ZUpdate(&icomp_2p2z,
-////                              &dab.iloop.feedback,
-////                              dab.iloop.reference,
-////                              &dab.iloop.output);
-//    
-//    // compensator output must be scaled to match the range of PGxPER values
-//    // that corresponds to the min and max switching frequency
-//    // this only works if comp max = 32767 (see DCDT settings)
-//    // and if (PGxPER_MAX - PGxPER_MIN) exceeds 32767 
-//    
-//#ifdef OPEN_LOOP_POTI
-//    // use poti on ADC current sensor pin (stored in cllc.adc.isec_avg) to control frequency
-//    // this is only meant for running on the digital power development board
-//    // to map ADC reading (0 to 4095) to same range as compensator output (0 to 32767)
-//    // multiply ADC reading by 8
-//    dab.iloop.output = dab.Adc.isec_avg << 3;
-//#endif // #ifdef OPEN_LOOP_POTI
-//        
-//    uint16_t scalar = MAX_PWM_PERIOD - MIN_PWM_PERIOD;
-//    uint32_t compOutScaled_32bit = __builtin_muluu(dab.iloop.output, scalar);
-//    uint16_t compOutScaled_16bit = (uint16_t)(compOutScaled_32bit >> 15);
-//    dab.Pwm.ControlPeriod = MIN_PWM_PERIOD + compOutScaled_16bit;
-//    
-
     #if (true == DPDB_TEST_RUN)
 
-    uint16_t Pot1 = dab.Adc.isec_avg;
+    // Connect TP11 -> Pot1 & TP12 -> Pot2 in digital Power Development Board
+    uint16_t Pot1 = dab.Adc.isec_avg; 
     uint16_t Pot2 = dab.Adc.isec_ct; 
     
     // Calculate the Frequency based on the Potentiometer 1 voltage
@@ -142,7 +92,7 @@ void ControlLoop_Interrupt(void)
     
     #endif
        
+    // Update PWM Properties
     Dev_PwrCtrl_PWM_Update(&dab);
-    
     
 }

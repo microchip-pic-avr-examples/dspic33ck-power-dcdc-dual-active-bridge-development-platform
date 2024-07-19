@@ -8,7 +8,7 @@
 #include "dev_temp.h"
 #include <stdlib.h>
 
-#include "device/pwrctrl/dev_fault_common.h"
+#include "device/fault/dev_fault_common.h"
 #include "device/pwrctrl/dev_pwrctrl_api.h"
 
 /*********************************************************************************
@@ -100,7 +100,7 @@ uint16_t Temp_Calculate_Average(uint16_t * buffer, uint16_t size);
  * @details
  *   
  **********************************************************************************/
-void Dev_Temp_Init(void){
+void Dev_Temp_Initialize(void){
     devTempData.OverTemperatureFlag = 0;        ///< Over temperature flag
     devTempData.SensorLost = 0;                 ///< if Sensor is present  
     devTempData.AdcReading = 0;                 ///< temperature raw

@@ -27,8 +27,8 @@
 #include "dma/dma.h"
 
 #include "dev_vin_isolated.h"
-#include "pwrctrl/dev_fault_common.h"
-#include "pwrctrl/dev_pwrctrl_typedef.h"
+#include "dev_fault_common.h"
+#include "device/pwrctrl/dev_pwrctrl_typedef.h"
 
 
 /*********************************************************************************
@@ -48,23 +48,20 @@ void Dev_VinIsolated_Initialize(void)
     DMA_SourceAddressSet(DMA_CHANNEL_2, (uint16_t)&CCP2BUFL);
     DMA_DestinationAddressSet(DMA_CHANNEL_2, (uint16_t)&dab.Adc.VInputVoltage);
     
-//     FAULT_Init(
-//            &Vin_Fault_Min,                             ///< fault object
-//            UV_THRESHOLD_RAW,                           ///< threshold against which raw values will be compared
-//            UV_LOWER_THRESHOLD_WITH_HYST,               ///< threshold plus hystersis
-//            FAULT_PERSISTENCE_COUNT,                    ///< number of ISR counts for which the fault should clear
-//            FAULT_PERSISTENCE_COUNT                     ///< number of ISR counts for which the fault should clear
-//            ) ; 
-//    
-//    FAULT_Init(
-//            &Vin_Fault_Max, 
-//            OV_THRESHOLD_RAW,               
-//            OV_UPPER_THRESHOLD_WITH_HYST,
-//            FAULT_PERSISTENCE_COUNT,
-//            FAULT_PERSISTENCE_COUNT ) ;
-}
-
-void Dev_VinIsolated_Start(void)
-{
-    SCCP2_InputCapture_Start();
+    // ToDo: Check with Cormac the Fault_Persistence_Count
+    
+     FAULT_Init(
+            &Vin_Fault_Min,                             ///< fault object
+            UV_THRESHOLD_RAW,                           ///< threshold against which raw values will be compared
+            UV_LOWER_THRESHOLD_WITH_HYST,               ///< threshold plus hystersis
+            FAULT_PERSISTENCE_COUNT,                    ///< number of ISR counts for which the fault should clear
+            FAULT_PERSISTENCE_COUNT                     ///< number of ISR counts for which the fault should clear
+            ) ; 
+    
+    FAULT_Init(
+            &Vin_Fault_Max, 
+            OV_THRESHOLD_RAW,               
+            OV_UPPER_THRESHOLD_WITH_HYST,
+            FAULT_PERSISTENCE_COUNT,
+            FAULT_PERSISTENCE_COUNT ) ;
 }
