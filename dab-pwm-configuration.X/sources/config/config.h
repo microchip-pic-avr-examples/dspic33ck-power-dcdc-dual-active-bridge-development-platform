@@ -14,12 +14,13 @@
 #include <stddef.h> // include standard definition data types
 
 
-#define DPDB_TEST_RUN   true    ///< test the code with Digital Power Development Board
-#define PBV_ENABLE      false    ///< use Power Board visualizer to change the parameters
-
+#define DPDB_TEST_RUN   false    ///< test the code with Digital Power Development Board
+#define OPEN_LOOP_PBV   true    ///< use Power Board visualizer to change the parameters
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
 //------------------------------------------------------------------------------
+#define FAULT_VIN_UV    false
+#define FAULT_VIN_OV    false
 #define FAULT_ISEC_OC   false
 #define FAULT_IPRI_OC   false
 #define FAULT_VSEC_OV   false
@@ -122,5 +123,6 @@
 // this is meant for the digital power development board only!!
 // connect a poti to edge connector 11 and vary poti to control the frequency
 //#define OPEN_LOOP_POTI  
+
 #endif	/* CONFIG_H */
 

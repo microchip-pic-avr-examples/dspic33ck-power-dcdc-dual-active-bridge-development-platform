@@ -49,7 +49,7 @@ void Dev_VinIsolated_Initialize(void)
     DMA_DestinationAddressSet(DMA_CHANNEL_2, (uint16_t)&dab.Adc.VInputVoltage);
     
     // ToDo: Check with Cormac the Fault_Persistence_Count
-    
+    #if(FAULT_VIN_UV == true)
      FAULT_Init(
             &Vin_Fault_Min,                             ///< fault object
             UV_THRESHOLD_RAW,                           ///< threshold against which raw values will be compared
@@ -57,11 +57,15 @@ void Dev_VinIsolated_Initialize(void)
             FAULT_PERSISTENCE_COUNT,                    ///< number of ISR counts for which the fault should clear
             FAULT_PERSISTENCE_COUNT                     ///< number of ISR counts for which the fault should clear
             ) ; 
-    
+    #endif
+
+    #if(FAULT_VIN_OV == true)
     FAULT_Init(
             &Vin_Fault_Max, 
             OV_THRESHOLD_RAW,               
             OV_UPPER_THRESHOLD_WITH_HYST,
             FAULT_PERSISTENCE_COUNT,
-            FAULT_PERSISTENCE_COUNT ) ;
+            FAULT_PERSISTENCE_COUNT );
+    #endif
+    
 }
