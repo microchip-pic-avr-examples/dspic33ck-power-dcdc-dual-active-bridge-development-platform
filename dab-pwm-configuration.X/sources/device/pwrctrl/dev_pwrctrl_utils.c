@@ -44,7 +44,11 @@ bool Dev_PwrCtrl_RampReference(uint16_t* ptr_reference,
   if (++SoftstartCounter > delay)   
   {
     SoftstartCounter = 0;
-    if ((*ptr_reference + step) < *ptr_referenceTarget)
+    //ToDo: Discuss to Cormac floor in the code
+    if(*ptr_reference ==  *ptr_referenceTarget)
+        ramp_complete = true;
+    
+    else if ((*ptr_reference + step) < *ptr_referenceTarget)
     {
       *ptr_reference += step;
     }
