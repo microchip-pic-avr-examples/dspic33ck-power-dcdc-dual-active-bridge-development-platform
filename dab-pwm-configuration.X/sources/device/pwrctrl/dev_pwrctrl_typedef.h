@@ -35,9 +35,10 @@ struct SWITCH_NODE_s
     uint16_t Secondary_1;           ///< Secondary switch-node configuration
     uint16_t Secondary_2;           ///< Secondary switch-node configuration
     uint16_t ControlPeriod;         ///< Control period value from control loop
-    uint16_t PBVPeriodTarget;      ///< Control target
     uint16_t ControlDutyCycle;      ///< Control Duty Cycle calculation based on Control Period
     uint16_t ControlPhase;          ///< Control phase value from control loop
+    uint16_t PBVPeriodTarget;       ///< Power Board Visualizer Set Control target 
+    uint16_t PBVControlPhase;       ///< Power Board Visualizer Set Control phase
 };
 typedef struct SWITCH_NODE_s SWITCH_NODE_t;
 

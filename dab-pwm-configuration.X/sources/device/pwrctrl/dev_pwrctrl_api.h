@@ -26,7 +26,7 @@
 // "set" APIs
 void Dev_PwrCtrl_SetReferenceTarget(uint16_t reference);
 void Dev_PwrCtrl_SetPeriod(uint16_t reference);
-void Dev_PwrCtrl_SetPhase(uint16_t reference);
+void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference);
 void Dev_PwrCtrl_SetEnable(bool enable);
 
 // "get" APIs

@@ -279,10 +279,10 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             // change target frequency
             if ((control_word <= MAX_PWM_PERIOD) && (control_word >= MIN_PWM_PERIOD))             
             {
-                Dev_PwrCtrl_SetPeriod(control_word);
+                Dev_PwrCtrl_SetReferenceTarget(control_word);
                 // when Frequency is changed, control phase will be zero
                 uint16_t controlPhase = 0;
-                Dev_PwrCtrl_SetPhase(controlPhase);
+                Dev_PwrCtrl_SetPhaseTarget(controlPhase);
             }            
             break;
         }
@@ -307,7 +307,7 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             // change target phase
             control_word = control_word - 180;
             uint16_t controlPhase = (uint16_t)((control_word)* PHASE_180_SCALER * (Dev_PwrCtrl_Get_DutyCycle()));
-            Dev_PwrCtrl_SetPhase(controlPhase);      
+            Dev_PwrCtrl_SetPhaseTarget(controlPhase);      
                 
             break;
         }
