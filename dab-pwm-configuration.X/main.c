@@ -65,6 +65,7 @@ int main(void)
         
     Dev_PwrCtrl_Initialize();
     Dev_PwrCtrlFault_Initialize();
+    
     MCC_Custom_User_Config();
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt);
     
@@ -79,7 +80,6 @@ int main(void)
     Dev_LED_Init();
     Dev_Fan_Init();
     
-    Dev_PwrCtrl_Enable();
     OS_Scheduler_RunForever();
     
     while(1)

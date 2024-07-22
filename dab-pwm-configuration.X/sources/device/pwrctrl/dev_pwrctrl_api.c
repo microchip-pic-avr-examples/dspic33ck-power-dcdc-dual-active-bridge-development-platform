@@ -52,9 +52,9 @@ void Dev_PwrCtrl_SetPeriod(uint16_t reference)
     dab.Pwm.ControlPeriod = reference;
 }
 
-void Dev_PwrCtrl_SetPhase(uint16_t reference)
+void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference)
 {    
-    dab.Pwm.ControlPhase = reference;
+    dab.Pwm.PBVControlPhase = reference;
 }
 
 /*********************************************************************************

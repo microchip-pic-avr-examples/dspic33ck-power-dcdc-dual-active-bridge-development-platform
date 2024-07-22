@@ -88,11 +88,13 @@ void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
 {
-#ifndef OPEN_LOOP_POTI
+    //ToDo: Mention this to COrmac
+    //Change the if define to do emulation test
+    #if (CURRENT_CALIBRATION == true)
     // if OPEN_LOOP_POTI is defined, we are running on the digital power development board
     // so in this case ignore the current sensor calibration
     if (Dev_CurrentSensor_Get_CalibrationStatus())
-#endif // #ifndef OPEN_LOOP_POTI
+    #endif
     {
         // current sensor calibration is complete. Update the offset of the current sensor
         pcInstance->Adc.isec_sensor_offset = Dev_CurrentSensor_Get_Offset();
@@ -140,9 +142,10 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->Fault.Flags.value = 0;
         pcInstance->Fault.FaultFlagsLatched.value = 0;    
         
-#ifdef OPEN_LOOP_PBV
-        pcInstance->Pwm.ControlPeriod = PGxPER_INIT;   
-#endif 
+        // ToDo; Check with Cormac
+//#ifdef OPEN_LOOP_PBV
+//        pcInstance->Pwm.ControlPeriod = PGxPER_INIT;   
+//#endif 
         pcInstance->Status.bits.running = 1;
         
         // current loop reference init
@@ -158,8 +161,8 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         INTERRUPT_GlobalEnable();   
         
         Drv_PwrCtrl_Fault_ClearHardwareFaults();
-        Dev_PwrCtrl_PWM_Primary_Enable(pcInstance); // enable primary side PWMs only 
-        
+//        Dev_PwrCtrl_PWM_Primary_Enable(pcInstance); // enable primary side PWMs only 
+        Dev_PwrCtrl_PWM_Enable(pcInstance);
         pcInstance->State = PCS_SOFT_START;   // next state
     }
 }
@@ -191,22 +194,33 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
   else
   {    
       
-      
+    uint16_t step = 8;  // cannot be below 8 because of the masking in 
+    uint16_t delay = 0; // TODO: parameterize this into a soft-start time
+    bool rampComplete = false;
+    bool rampCompletePhase = false;
+    
     // soft start the converter
 #ifdef OPEN_LOOP_PBV
     uint16_t* ptr_reference = (uint16_t*)&pcInstance->Pwm.ControlPeriod;
     uint16_t* ptr_referenceTarget = (uint16_t*)&pcInstance->Pwm.PBVPeriodTarget;
+    uint16_t* ptrControlPhaseReference = (uint16_t*)&pcInstance->Pwm.ControlPhase;
+    uint16_t* ptrControlPhaseReferenceTarget = (uint16_t*)&pcInstance->Pwm.PBVControlPhase;
+    
+    rampCompletePhase =  Dev_PwrCtrl_RampReference(ptrControlPhaseReference, ptrControlPhaseReferenceTarget, 1, delay);
+    
+    if(rampCompletePhase == true)
 #else
     uint16_t* ptr_reference = (uint16_t*)&pcInstance->iloop.reference;
     uint16_t* ptr_referenceTarget = (uint16_t*)&pcInstance->iloop.referenceTarget;
 #endif // #ifdef OPEN_LOOP_PBV
-    uint16_t step = 1;
-    uint16_t delay = 12; // TODO: parameterize this into a soft-start time
-    bool rampComplete = false;
+    
     rampComplete = Dev_PwrCtrl_RampReference(ptr_reference, ptr_referenceTarget, step, delay);
-#ifdef OPEN_LOOP_PBV    
-    Dev_PwrCtrl_PWM_Update(&dab); // update PWM registers, which will in turn update frequency
-#endif  // #ifdef OPEN_LOOP_PBV 
+    
+    // ToDo: Check with Cormac, I think this is not needed as it is already called in the interrupt
+//#ifdef OPEN_LOOP_PBV    
+//    Dev_PwrCtrl_PWM_Update(&dab); // update PWM registers, which will in turn update frequency
+//#endif  // #ifdef OPEN_LOOP_PBV 
+    
     if (rampComplete)
     {
       pcInstance->State = PCS_UP_AND_RUNNING;  // next state
@@ -240,12 +254,12 @@ static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
             pcInstance->State = PCS_STANDBY;
         }
         
-#ifdef OPEN_LOOP_PBV
+    #ifdef OPEN_LOOP_PBV
         else if (pcInstance->Pwm.ControlPeriod != pcInstance->Pwm.PBVPeriodTarget)
-#else
+    #else
             
         else if (pcInstance->iloop.reference != pcInstance->iloop.referenceTarget)  
-#endif // #ifdef OPEN_LOOP_PBV
+    #endif // #ifdef OPEN_LOOP_PBV
         {
             pcInstance->State = PCS_SOFT_START;
         }
