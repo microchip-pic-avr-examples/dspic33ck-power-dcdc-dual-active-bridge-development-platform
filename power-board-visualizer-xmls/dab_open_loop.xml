@@ -150,11 +150,11 @@
       <SignalChannel>
         <Name>Phase</Name>
         <Scaling>1</Scaling>
-        <Offset>0</Offset>
+        <Offset>180</Offset>
         <Unit>degrees</Unit>
         <Plot>false</Plot>
-        <PlotValMin>0</PlotValMin>
-        <PlotValMax>0</PlotValMax>
+        <PlotValMin>180</PlotValMin>
+        <PlotValMax>360</PlotValMax>
         <SignalChannelIndex>11</SignalChannelIndex>
         <PositionInMessage>0</PositionInMessage>
         <ProtocolID>1</ProtocolID>
@@ -182,6 +182,19 @@
         <PlotValMax>0</PlotValMax>
         <SignalChannelIndex>13</SignalChannelIndex>
         <PositionInMessage>13</PositionInMessage>
+        <PageName>4kw</PageName>
+        <ProtocolID>516</ProtocolID>
+      </SignalChannel>
+      <SignalChannel>
+        <Name>OVP Test</Name>
+        <Scaling>0.003187</Scaling>
+        <Offset>0</Offset>
+        <Unit>Volts</Unit>
+        <Plot>false</Plot>
+        <PlotValMin>0</PlotValMin>
+        <PlotValMax>490</PlotValMax>
+        <SignalChannelIndex>14</SignalChannelIndex>
+        <PositionInMessage>0</PositionInMessage>
         <PageName>4kw</PageName>
         <ProtocolID>516</ProtocolID>
       </SignalChannel>
@@ -249,7 +262,21 @@
         <DefaultValue>180</DefaultValue>
         <Step>1</Step>
         <ButtonText>Update</ButtonText>
-        <Data>0202 0004 EEEE [value]</Data>
+        <Data>0202 0004 EE01 [value]</Data>
+        <AutoSendAfterChange>false</AutoSendAfterChange>
+        <PageName>4kw</PageName>
+      </OutputValue>
+      <OutputValue>
+        <Name>OVP Threshold</Name>
+        <Unit>Voltage</Unit>
+        <Scaling>3.947</Scaling>
+        <Offset>0</Offset>
+        <MinimumValue>0</MinimumValue>
+        <MaximumValue>490</MaximumValue>
+        <DefaultValue>490</DefaultValue>
+        <Step>1</Step>
+        <ButtonText>Update</ButtonText>
+        <Data>202 0004 EE 10 [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
         <PageName>4kw</PageName>
       </OutputValue>
