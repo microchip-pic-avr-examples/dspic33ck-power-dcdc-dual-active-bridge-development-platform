@@ -38,3 +38,13 @@ void Dev_Fault_SetOVPThreshold(uint16_t reference)
 {    
     dab.Fault.Object.vsec_ov.val1_Threshold = reference;
 }
+
+void Dev_Fault_SetIPrimaryThreshold(uint16_t reference)
+{    
+    dab.Fault.Object.ipri_oc.val1_Threshold = reference;
+}
+
+void Dev_Fault_SetISecondaryThreshold(uint16_t reference)
+{    
+    dab.Fault.Object.isec_oc.val1_Threshold = reference;
+}

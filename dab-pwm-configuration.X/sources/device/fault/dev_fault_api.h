@@ -24,6 +24,8 @@
 #define	DEV_FAULT_API_H
 
 extern void Dev_Fault_SetOVPThreshold(uint16_t reference);
+extern void Dev_Fault_SetIPrimaryThreshold(uint16_t reference);
+extern void Dev_Fault_SetISecondaryThreshold(uint16_t reference);
 
 
 #endif	/* DEV_FAULT_API_H */

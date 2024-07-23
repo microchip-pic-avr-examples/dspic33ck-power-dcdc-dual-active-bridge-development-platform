@@ -253,7 +253,7 @@
         <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
-        <Name>Bridge Phase Shift</Name>
+        <Name>Bridge Phase Shift (degrees)</Name>
         <Unit>degrees</Unit>
         <Scaling>1</Scaling>
         <Offset>0</Offset>
@@ -267,7 +267,7 @@
         <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
-        <Name>OVP Threshold</Name>
+        <Name>OVP Threshold (V)</Name>
         <Unit>Voltage</Unit>
         <Scaling>3.947</Scaling>
         <Offset>0</Offset>
@@ -276,7 +276,47 @@
         <DefaultValue>490</DefaultValue>
         <Step>1</Step>
         <ButtonText>Update</ButtonText>
-        <Data>202 0004 EE 10 [value]</Data>
+        <Data>0202 0004 EE 10 [value]</Data>
+        <AutoSendAfterChange>false</AutoSendAfterChange>
+        <PageName>4kw</PageName>
+      </OutputValue>
+      <OutputValue>
+        <Name>VIN Threshold (V)</Name>
+        <Unit xsi:nil="true" />
+        <Scaling>0</Scaling>
+        <Offset>0</Offset>
+        <MinimumValue>0</MinimumValue>
+        <MaximumValue>0</MaximumValue>
+        <DefaultValue>0</DefaultValue>
+        <Step>0</Step>
+        <ButtonText xsi:nil="true" />
+        <Data xsi:nil="true" />
+      </OutputValue>
+      <OutputValue>
+        <Name>Primary OCP (A)</Name>
+        <Unit>A</Unit>
+        <Scaling>102.375</Scaling>
+        <Offset>0</Offset>
+        <MinimumValue>0</MinimumValue>
+        <MaximumValue>27</MaximumValue>
+        <DefaultValue>27</DefaultValue>
+        <Step>0.1</Step>
+        <ButtonText>Update</ButtonText>
+        <Data>0202 0004 EE20 [value]</Data>
+        <AutoSendAfterChange>false</AutoSendAfterChange>
+        <PageName>4kw</PageName>
+      </OutputValue>
+      <OutputValue>
+        <Name>Secondary OCP (A)</Name>
+        <Unit>A</Unit>
+        <Scaling>81.9</Scaling>
+        <Offset>0</Offset>
+        <MinimumValue>0</MinimumValue>
+        <MaximumValue>27</MaximumValue>
+        <DefaultValue>27</DefaultValue>
+        <Step>0.1</Step>
+        <ButtonText>Update</ButtonText>
+        <Data>0202 0004 EE30 [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
         <PageName>4kw</PageName>
       </OutputValue>
@@ -292,7 +332,6 @@
         <ButtonText>Fan Speed</ButtonText>
         <Data>0203 0004 CC CC [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
-        <PageName>4kw</PageName>
       </OutputValue>
     </OutputValues>
     <StatusGroups>
