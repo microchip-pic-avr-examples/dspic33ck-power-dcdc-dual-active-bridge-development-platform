@@ -310,10 +310,9 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         case PBV_CMD_ID_PHASE_CHANGE:
         {
             // change target phase
-            control_word = control_word - 180;
-            uint16_t controlPhase = (uint16_t)((control_word)* PHASE_180_SCALER * (Dev_PwrCtrl_Get_DutyCycle()));
+            uint16_t controlPhase = (uint16_t)((control_word - 180)* PHASE_180_SCALER * (Dev_PwrCtrl_Get_DutyCycle()));
             Dev_PwrCtrl_SetPhaseTarget(controlPhase);      
-                
+            
             break;
         }
         

@@ -169,7 +169,7 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->Pwm.ControlPeriod = MIN_PWM_PERIOD;
         pcInstance->Pwm.ControlPhase = 0;
         pcInstance->Pwm.PBVPeriodTarget = MIN_PWM_PERIOD;
-        pcInstance->Pwm.PBVControlPhase = 0;
+        pcInstance->Pwm.PBVControlPhaseTarget = 0;
     
         pcInstance->State = PCS_SOFT_START;   // next state
     }
@@ -212,7 +212,7 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     uint16_t* ptr_reference = (uint16_t*)&pcInstance->Pwm.ControlPeriod;
     uint16_t* ptr_referenceTarget = (uint16_t*)&pcInstance->Pwm.PBVPeriodTarget;
     uint16_t* ptrControlPhaseReference = (uint16_t*)&pcInstance->Pwm.ControlPhase;
-    uint16_t* ptrControlPhaseReferenceTarget = (uint16_t*)&pcInstance->Pwm.PBVControlPhase;
+    uint16_t* ptrControlPhaseReferenceTarget = (uint16_t*)&pcInstance->Pwm.PBVControlPhaseTarget;
     
     rampCompletePhase =  Dev_PwrCtrl_RampReference(ptrControlPhaseReference, ptrControlPhaseReferenceTarget, 1, delay);
     
@@ -263,7 +263,8 @@ static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
         }
         
     #ifdef OPEN_LOOP_PBV
-        else if (pcInstance->Pwm.ControlPeriod != pcInstance->Pwm.PBVPeriodTarget)
+        else if ((pcInstance->Pwm.ControlPeriod != pcInstance->Pwm.PBVPeriodTarget) || 
+                (pcInstance->Pwm.ControlPhase != pcInstance->Pwm.PBVControlPhaseTarget))
     #else
             
         else if (pcInstance->iloop.reference != pcInstance->iloop.referenceTarget)  
