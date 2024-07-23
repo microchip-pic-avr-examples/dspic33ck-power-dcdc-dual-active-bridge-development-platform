@@ -19,10 +19,6 @@ static __inline__ void DRV_Config_Custom_PWM(POWER_CONTROL_t* pcInstance)
     PWM_Trigger_Mode(pcInstance->Pwm.Secondary_1, PWM_TRIG_MODE_RETRIGGERABLE);
     PWM_Trigger_Mode(pcInstance->Pwm.Secondary_2, PWM_TRIG_MODE_RETRIGGERABLE);
     
-    Nop();
-    Nop();
-    Nop();
-    
     // PWM Swap output based on the hardware
     PWM_Swap_PWMxL_and_PWMxH(pcInstance->Pwm.Primary_2, true);
     PWM_Swap_PWMxL_and_PWMxH(pcInstance->Pwm.Secondary_2, true);

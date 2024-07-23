@@ -38,6 +38,8 @@
 #include "../pins.h"
 #include "../../adc/adc1.h"
 #include "../../can/can1.h"
+#include "../../clc/clc1.h"
+#include "../../clc/clc2.h"
 #include "../../cmp/cmp1.h"
 #include "../../cmp/cmp2.h"
 #include "../../cmp/cmp3.h"
@@ -57,6 +59,8 @@ void SYSTEM_Initialize(void)
     PINS_Initialize();
     ADC1_Initialize();
     CAN1_Initialize();
+    CLC1_Initialize();
+    CLC2_Initialize();
     CMP1_Initialize();
     CMP2_Initialize();
     CMP3_Initialize();
