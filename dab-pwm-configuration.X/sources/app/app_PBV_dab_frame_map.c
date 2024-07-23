@@ -34,6 +34,7 @@
 #include "device/dev_fan.h"
 #include "device/fault/dev_temp.h"
 #include "device/pwrctrl/dev_pwrctrl_api.h"
+#include "device/fault/dev_fault_api.h"
 #include "config/macros.h"
 
 /*********************************************************************************
@@ -57,7 +58,9 @@
 #define PBV_CMD_ID_DAB_ON_OFF           0xAAAA           ///< turn DAB on or off
 #define PBV_CMD_ID_FAN_SPEED            0xCCCC           ///< set fan speed 
 #define PBV_CMD_ID_ILOOP_REF_SET        0xDDDD           ///< set current loop reference
-#define PBV_CMD_ID_PHASE_CHANGE         0xEEEE           ///< set control phase
+#define PBV_CMD_ID_PHASE_CHANGE         0xEE01           ///< set control phase
+
+#define PBV_CMD_ID_OVP_TEST             0xEE10           ///< set control phase
 /** @} */ // end of pbv-protocol-ids
 
 // static because these are private.
@@ -287,12 +290,6 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             break;
         }
         
-        case PBV_CMD_ID_FAN_SPEED:
-        {            
-            Dev_Fan_Set_Speed(control_word);
-        }
-        break;
-        
         case PBV_CMD_ID_ILOOP_REF_SET:
         {
             if (control_word < 32767) //TODO: put in proper check here!
@@ -302,6 +299,14 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         }
         break;            
             
+        case PBV_CMD_ID_OVP_TEST:
+        {
+            // change target phase
+            Dev_Fault_SetOVPThreshold(control_word);
+                
+            break;
+        }
+        
         case PBV_CMD_ID_PHASE_CHANGE:
         {
             // change target phase
@@ -311,6 +316,12 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
                 
             break;
         }
+        
+        case PBV_CMD_ID_FAN_SPEED:
+        {            
+            Dev_Fan_Set_Speed(control_word);
+        }
+        break;
         
         default:
             break;
