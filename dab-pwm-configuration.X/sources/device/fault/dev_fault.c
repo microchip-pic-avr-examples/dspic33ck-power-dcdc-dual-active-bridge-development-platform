@@ -57,8 +57,6 @@ void Dev_PwrCtrlFault_Initialize(void)
     FAULT_Init(&dab.Fault.Object.vsec_ov, VSEC_OV_THRES_TRIG, VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
     FAULT_Init(&dab.Fault.Object.i_sc, 0,0,0,I_SC_T_BLANK_CLEAR);
     
-    Dev_VinIsolated_Initialize();
-    
     Dev_Temp_Initialize();
     
     //#ifndef FAULT_SHORT_CCT_DISABLE

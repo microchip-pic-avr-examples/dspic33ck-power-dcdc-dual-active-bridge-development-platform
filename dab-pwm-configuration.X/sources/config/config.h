@@ -19,8 +19,6 @@
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
 //------------------------------------------------------------------------------
-#define FAULT_VIN_UV    false
-#define FAULT_VIN_OV    false
 #define FAULT_ISEC_OC   false
 #define FAULT_IPRI_OC   false
 #define FAULT_VSEC_OV   false
