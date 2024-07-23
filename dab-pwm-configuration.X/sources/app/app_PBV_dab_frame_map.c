@@ -302,6 +302,11 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         case PBV_CMD_ID_OVP_TEST:
         {
             // change target phase
+            
+            Nop();
+            Nop();
+            Nop();
+            
             Dev_Fault_SetOVPThreshold(control_word);
                 
             break;
