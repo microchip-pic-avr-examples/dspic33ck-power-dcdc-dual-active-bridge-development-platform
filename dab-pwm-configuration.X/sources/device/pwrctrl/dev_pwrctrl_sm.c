@@ -25,6 +25,7 @@
                                
 #include "system/interrupt.h"
 
+#include "config/macros.h"
 #include "dev_pwrctrl_typedef.h"
 #include "dev_pwrctrl_pwm.h"
 #include "dev_pwrctrl_utils.h"
@@ -163,6 +164,13 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         Drv_PwrCtrl_Fault_ClearHardwareFaults();
 //        Dev_PwrCtrl_PWM_Primary_Enable(pcInstance); // enable primary side PWMs only 
         Dev_PwrCtrl_PWM_Enable(pcInstance);
+        
+        // reset the PWM settings in Standby mode
+        pcInstance->Pwm.ControlPeriod = MIN_PWM_PERIOD;
+        pcInstance->Pwm.ControlPhase = 0;
+        pcInstance->Pwm.PBVPeriodTarget = MIN_PWM_PERIOD;
+        pcInstance->Pwm.PBVControlPhase = 0;
+    
         pcInstance->State = PCS_SOFT_START;   // next state
     }
 }
