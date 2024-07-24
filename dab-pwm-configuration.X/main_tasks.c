@@ -143,9 +143,6 @@ extern uint16_t os_resetCause;
 //=======================================================================================================
 void Tasks_100ms(void)
 {
-    //ToDo: Remove this for debugging only
-    GPIO_1_Toggle();
-    
     Dev_LED_Task_100ms();
     Dev_Fan_Task_100ms();
     Dev_Temp_Task_100ms();

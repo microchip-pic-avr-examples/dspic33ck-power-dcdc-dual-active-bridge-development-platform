@@ -170,7 +170,7 @@ void App_PBV_DAB_Task_1s(void)
 {
     if (App_PBV_DAB_ASCII_Ptr->PBV_Protcol_ID == FIRMWARE_PROTOCOL_ID)
     {
-        App_PBV_DAB_ASCII_Ptr->Data_Buffer = (uint8_t *)"Firmware Version 1.0.0.0.......................................!";
+        App_PBV_DAB_ASCII_Ptr->Data_Buffer = (uint8_t *)FIRMWARE_VERSION_STRING;
         App_Send_To_PBV(App_PBV_DAB_ASCII_Ptr);
         App_PBV_DAB_ASCII_Ptr->PBV_Protcol_ID = PBV_LOG_ID;
         transmit_firmware_id = 1;
@@ -181,7 +181,8 @@ void App_PBV_DAB_Task_1s(void)
         if (transmit_firmware_id) App_PBV_Re_Init(App_PBV_DAB_ASCII_Ptr);     ///< reinit to new id
         transmit_firmware_id = 0; 
     }
-    App_PBV_DAB_ASCII_Ptr->Data_Buffer = (uint8_t *)"Log Message From Protocol ID 0x300.............................\r";
+    //ToDo: Check with Cormac
+    App_PBV_DAB_ASCII_Ptr->Data_Buffer = (uint8_t *)"                 Log Message From Protocol ID 0x300";
     App_Send_To_PBV(App_PBV_DAB_ASCII_Ptr);
    
     temperature = Dev_Temp_Get_Temperature_Celcius();
@@ -248,7 +249,6 @@ void App_PBV_DAB_Build_Frame()
     buffer_sixteen_tx[15] = Dev_PwrCtrl_Get_IloopReference();
     buffer_sixteen_tx[16] = Dev_PwrCtrl_Get_IloopOutput();
     buffer_sixteen_tx[17] = Dev_PwrCtrl_Get_IloopFeedback(); 
-    buffer_sixteen_tx[18] = FIRMWARE_VERSION; 
     
     PBV_Change_from_Sixteen_to_Eight(buffer_sixteen_tx, buffer_eight_tx, 18);
     
