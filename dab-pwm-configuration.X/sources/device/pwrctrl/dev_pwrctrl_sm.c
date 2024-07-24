@@ -99,9 +99,16 @@ static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
     {
         // current sensor calibration is complete. Update the offset of the current sensor
         pcInstance->Adc.isec_sensor_offset = Dev_CurrentSensor_Get_Offset();
-        Dev_Fault_ClearFlags();
-        pcInstance->State = PCS_WAIT_IF_FAULT_ACTIVE;
     }
+    
+        Dev_PwrCtrl_PWM_Disable(pcInstance);
+    
+        Dev_Fault_ClearFlags();
+        pcInstance->Status.value = 0;
+        
+        
+        pcInstance->State = PCS_WAIT_IF_FAULT_ACTIVE;
+        
 }
 
 /*********************************************************************************
