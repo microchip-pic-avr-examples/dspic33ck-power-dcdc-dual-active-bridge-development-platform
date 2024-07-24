@@ -149,11 +149,11 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
     pcInstance->Pwm.ControlDutyCycle = (pcInstance->Pwm.ControlPeriod >> 1);
 
     // Maximum Clamping for control phase
-    if(pcInstance->Pwm.ControlPhase > pcInstance->Pwm.ControlDutyCycle){
-        pcInstance->Pwm.ControlPhase = pcInstance->Pwm.ControlDutyCycle;
+    if(pcInstance->Pwm.ControlPhase > pcInstance->Pwm.ControlPeriod){
+        pcInstance->Pwm.ControlPhase = pcInstance->Pwm.ControlPeriod;
     }
     
-    // Calculate the DAB Primary to Secondary Phase ((Frequency / 4) - (Control Phase /2))
+    // Calculate the DAB Primary to Secondary Phase ((Control Phase /2))
     uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlPhase >> 1);
     
     // Calculate the bridge delay ((Frequency / 2) - Primary to Secondary Phase + Control Phase)
