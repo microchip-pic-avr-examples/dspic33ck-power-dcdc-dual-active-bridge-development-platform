@@ -42,7 +42,7 @@
 void Dev_PwrCtrlFault_Initialize(void);
 void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void);
 void Drv_PwrCtrl_Fault_ClearHardwareFaults(void);
-
+void Dev_Fault_ClearFlags(void);
 //------------------------------------------------------------------------------
 // inline functions calls below, but keep in a separate header file
 // for tidiness and for execution time efficiency

@@ -111,3 +111,14 @@ void Drv_PwrCtrl_Fault_ClearHardwareFaults(void)
     PWM_GeneratorEventStatusClear(pwmIndex, PWM_GENERATOR_INTERRUPT_FAULT);
   }
 }
+
+void Dev_Fault_ClearFlags(void)
+{
+    dab.Fault.Flags.value = 0;
+    dab.Fault.FaultFlagsLatched.value = 0;
+    dab.Fault.Object.i_sc.faultActive = 0;
+    dab.Fault.Object.ipri_oc.faultActive = 0;
+    dab.Fault.Object.isec_oc.faultActive = 0;
+    dab.Fault.Object.vpri_ov.faultActive = 0;
+    dab.Fault.Object.vsec_ov.faultActive = 0;
+}
