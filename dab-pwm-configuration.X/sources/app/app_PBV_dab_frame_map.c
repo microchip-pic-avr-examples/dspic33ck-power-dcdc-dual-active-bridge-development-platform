@@ -36,6 +36,7 @@
 #include "device/pwrctrl/dev_pwrctrl_api.h"
 #include "device/fault/dev_fault_api.h"
 #include "config/macros.h"
+#include "config/version.h"
 
 /*********************************************************************************
  * @ingroup pbv-protocol-ids
@@ -247,6 +248,7 @@ void App_PBV_DAB_Build_Frame()
     buffer_sixteen_tx[15] = Dev_PwrCtrl_Get_IloopReference();
     buffer_sixteen_tx[16] = Dev_PwrCtrl_Get_IloopOutput();
     buffer_sixteen_tx[17] = Dev_PwrCtrl_Get_IloopFeedback(); 
+    buffer_sixteen_tx[18] = FIRMWARE_VERSION; 
     
     PBV_Change_from_Sixteen_to_Eight(buffer_sixteen_tx, buffer_eight_tx, 18);
     

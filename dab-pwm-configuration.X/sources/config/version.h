@@ -34,7 +34,7 @@
  *  select code sections depending on the availability of firmware version-specific
  *  features or limitations.
  **********************************************************************************/
-#define FIRMWARE_VERSION (uint32_t) 000001u ///< from right to left: digits 0-2: Revision, digits 3-4: Minor, digits 5-n: Major
+#define FIRMWARE_VERSION (uint32_t) 001000u ///< from right to left: digits 0-2: Revision, digits 3-4: Minor, digits 5-n: Major
 
 /*********************************************************************************
  * @ingroup apps-layer-properties-public-defines
@@ -47,7 +47,7 @@
  *  number REV.
  *  This string may be used to be displayed in terminal windows or LC displays.
  **********************************************************************************/
-#define FIRMWARE_VERSION_STRING "000.00.001" ///< Clear text version number
+#define FIRMWARE_VERSION_STRING "000.01.000" ///< Clear text version number
 
 /*********************************************************************************
  * @ingroup apps-layer-properties-public-defines
