@@ -24,6 +24,7 @@
 #define	DRV_PWRCTRL_API_H
 
 // "set" APIs
+void Dev_PwrCtrl_SetState(uint16_t reference);
 void Dev_PwrCtrl_SetReferenceTarget(uint16_t reference);
 void Dev_PwrCtrl_SetPeriod(uint16_t reference);
 void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference);

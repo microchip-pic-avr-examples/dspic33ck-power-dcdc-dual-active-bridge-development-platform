@@ -33,6 +33,21 @@ extern POWER_CONTROL_t dab;
  * @details
  * API function
  **********************************************************************************/
+void Dev_PwrCtrl_SetState(uint16_t reference)
+{    
+    dab.State = reference;
+}
+
+
+/*********************************************************************************
+ * @ingroup 
+ * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
+ * @brief   API function to set the power controller reference
+ * @param   none
+ * @return  none
+ * @details
+ * API function
+ **********************************************************************************/
 void Dev_PwrCtrl_SetReferenceTarget(uint16_t reference)
 {    
     dab.Pwm.PBVPeriodTarget = reference;

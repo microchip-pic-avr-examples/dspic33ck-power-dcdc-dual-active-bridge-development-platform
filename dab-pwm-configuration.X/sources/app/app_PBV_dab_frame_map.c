@@ -57,6 +57,7 @@
 // use this to decide what action to take when data is received
 #define PBV_CMD_ID_FREQ_CHANGE          0xBBBB           ///< change DAB switching frequency
 #define PBV_CMD_ID_DAB_ON_OFF           0xAAAA           ///< turn DAB on or off
+#define PBV_CMD_ID_DAB_RESET            0xAAAB           ///< DAB operation is resetted
 #define PBV_CMD_ID_FAN_SPEED            0xCCCC           ///< set fan speed 
 #define PBV_CMD_ID_ILOOP_REF_SET        0xDDDD           ///< set current loop reference
 #define PBV_CMD_ID_PHASE_CHANGE         0xEE01           ///< set control phase
@@ -282,6 +283,11 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             break;
         }
             
+        case PBV_CMD_ID_DAB_RESET:
+        {
+            Dev_PwrCtrl_SetState(control_word);
+            break;
+        }
         case PBV_CMD_ID_FREQ_CHANGE:
         {
             // change target frequency
