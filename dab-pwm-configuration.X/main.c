@@ -58,6 +58,11 @@
  * TP42_H/40_L - PWM2 
  * TP37_L/41_H - PWM3 (output swap)
  * TP43_L/44_H - PWM4 (output swap)
+ * TP11-Pot1 /Isec_AVG
+ * TP12-Pot2 /Isec_CT
+ * TP6 -Isec
+ * 
+ * 
  */
 int main(void)
 {
