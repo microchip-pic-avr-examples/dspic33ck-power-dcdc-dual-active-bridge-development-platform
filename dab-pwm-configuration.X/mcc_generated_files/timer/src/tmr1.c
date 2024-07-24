@@ -70,12 +70,12 @@ const struct TIMER_INTERFACE Timer1 = {
 
 void TMR1_Initialize (void)
 {
-    //TCS FOSC/2; TSYNC disabled; TCKPS 1:8; TGATE disabled; TECS FOSC/2; PRWIP Write complete; TMWIP Write complete; TMWDIS disabled; TSIDL disabled; TON disabled; 
-    T1CON = 0x10;
+    //TCS FOSC/2; TSYNC disabled; TCKPS 1:1; TGATE disabled; TECS FOSC/2; PRWIP Write complete; TMWIP Write complete; TMWDIS disabled; TSIDL disabled; TON disabled; 
+    T1CON = 0x0;
     //TMR 0x0; 
     TMR1 = 0x0;
-    //Period 1 ms; Frequency 100,000,000 Hz; PR 12499; 
-    PR1 = 0x30D3;
+    //Period 0.1 ms; Frequency 100,000,000 Hz; PR 9999; 
+    PR1 = 0x270F;
     
     TMR1_TimeoutCallbackRegister(&TMR1_TimeoutCallback);
 

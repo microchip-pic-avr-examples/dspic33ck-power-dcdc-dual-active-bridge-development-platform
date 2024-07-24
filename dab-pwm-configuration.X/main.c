@@ -38,6 +38,7 @@
 #include "x2cScope/X2CScope.h"
 #include "app/app_PBV_DAB_frame_map.h"
 #include "driver/mcc_extension/mcc_custom_config.h"
+#include "system/pins.h"
 
 /*
     Main application
@@ -73,6 +74,9 @@ int main(void)
     
     MCC_Custom_User_Config();
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt);
+    
+    //ToDo; Remove after debugging
+    GPIO_1_SetDigitalOutput();
     
     // X2CScope will be initialized when X2CDEBUG_ENABLED is enabled
     #if (X2CDEBUG_ENABLED == 1)
