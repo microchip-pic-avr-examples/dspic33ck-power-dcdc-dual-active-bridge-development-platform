@@ -51,11 +51,11 @@ void Drv_PwrCtrl_Fault_ClearHardwareFaults(void);
  **********************************************************************************/
 void Dev_PwrCtrlFault_Initialize(void)
 {
-    FAULT_Init(&dab.Fault.Object.ipri_oc, IPRI_OC_THRES_TRIG, IPRI_OC_THRES_CLEAR, IPRI_OC_T_BLANK_TRIG, IPRI_OC_T_BLANK_CLEAR); 
-    FAULT_Init(&dab.Fault.Object.isec_oc, ISEC_OC_THRES_TRIG, ISEC_OC_THRES_CLEAR, ISEC_OC_T_BLANK_TRIG, ISEC_OC_T_BLANK_CLEAR);  
-    FAULT_Init(&dab.Fault.Object.vpri_ov, VPRI_OV_THRES_TRIG, VPRI_OV_THRES_CLEAR, VPRI_OV_T_BLANK_TRIG, VPRI_OV_T_BLANK_CLEAR);   
-    FAULT_Init(&dab.Fault.Object.vsec_ov, VSEC_OV_THRES_TRIG, VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
-    FAULT_Init(&dab.Fault.Object.i_sc, 0,0,0,I_SC_T_BLANK_CLEAR);
+    FAULT_Init(&dab.Fault.Object.IPrimaryOCP, IPRI_OC_THRES_TRIG, IPRI_OC_THRES_CLEAR, IPRI_OC_T_BLANK_TRIG, IPRI_OC_T_BLANK_CLEAR); 
+    FAULT_Init(&dab.Fault.Object.ISecondaryOCP, ISEC_OC_THRES_TRIG, ISEC_OC_THRES_CLEAR, ISEC_OC_T_BLANK_TRIG, ISEC_OC_T_BLANK_CLEAR);  
+    FAULT_Init(&dab.Fault.Object.VPrimaryOVP, VPRI_OV_THRES_TRIG, VPRI_OV_THRES_CLEAR, VPRI_OV_T_BLANK_TRIG, VPRI_OV_T_BLANK_CLEAR);   
+    FAULT_Init(&dab.Fault.Object.VSecondaryOVP, VSEC_OV_THRES_TRIG, VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
+    FAULT_Init(&dab.Fault.Object.ISenseSCP, 0,0,0,I_SC_T_BLANK_CLEAR);
     
     Dev_Temp_Initialize();
     
@@ -116,9 +116,9 @@ void Dev_Fault_ClearFlags(void)
 {
     dab.Fault.Flags.value = 0;
     dab.Fault.FaultFlagsLatched.value = 0;
-    dab.Fault.Object.i_sc.faultActive = 0;
-    dab.Fault.Object.ipri_oc.faultActive = 0;
-    dab.Fault.Object.isec_oc.faultActive = 0;
-    dab.Fault.Object.vpri_ov.faultActive = 0;
-    dab.Fault.Object.vsec_ov.faultActive = 0;
+    dab.Fault.Object.ISenseSCP.faultActive = 0;
+    dab.Fault.Object.IPrimaryOCP.faultActive = 0;
+    dab.Fault.Object.ISecondaryOCP.faultActive = 0;
+    dab.Fault.Object.VPrimaryOVP.faultActive = 0;
+    dab.Fault.Object.VSecondaryOVP.faultActive = 0;
 }

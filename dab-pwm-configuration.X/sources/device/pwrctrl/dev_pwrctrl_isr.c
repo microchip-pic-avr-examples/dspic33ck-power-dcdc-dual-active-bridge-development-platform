@@ -45,18 +45,18 @@ extern POWER_CONTROL_t dab;
 void ControlLoop_Interrupt(void)
 {          
     // read dedicated core ADC results, these are triggered via PWM1 trigger 1
-    dab.Adc.isec_avg = ADC1_ConversionResultGet(ISEC_AVG); // used for control
-    dab.Adc.isec_ct = ADC1_ConversionResultGet(ISEC_CT); // used for protection
+    dab.Adc.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); // used for control
+    dab.Adc.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); // used for protection
     
     // read shared ADC core results
     // these are all triggered by PWM1 trigger 1
-    dab.Adc.vsec = ADC1_ConversionResultGet(VSEC);
-    dab.Adc.ipri_ct = ADC1_ConversionResultGet(IPRI_CT);   
+    dab.Adc.VLowVoltage = ADC1_ConversionResultGet(VSEC);
+    dab.Adc.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
     dab.Adc.vpri = ADC1_ConversionResultGet(VPRI);
     
     // TODO: move the handler for these 2 signals to a lower frequency process
-    dab.Adc.vrail_5v = ADC1_ConversionResultGet(VRAIL_5V);
-    dab.Adc.temperature = ADC1_ConversionResultGet(TEMP);
+    dab.Adc.V5vRail = ADC1_ConversionResultGet(VRAIL_5V);
+    dab.Adc.Temperature = ADC1_ConversionResultGet(TEMP);
     
     // secondary over current fault handler
     #if (FAULT_ISEC_OC)      
@@ -81,8 +81,8 @@ void ControlLoop_Interrupt(void)
     #if (true == DPDB_TEST_RUN)
 
     // Connect TP11 -> Pot1 & TP12 -> Pot2 in digital Power Development Board
-    uint16_t Pot1 = dab.Adc.isec_avg; 
-    uint16_t Pot2 = dab.Adc.isec_ct; 
+    uint16_t Pot1 = dab.Adc.ISecAverage; 
+    uint16_t Pot2 = dab.Adc.ISenseSecondary; 
     
     // Calculate the Frequency based on the Potentiometer 1 voltage
     dab.Pwm.ControlPeriod = (uint16_t)(MIN_PWM_PERIOD + (Pot1 * ADC_PERIOD_RANGE)); 

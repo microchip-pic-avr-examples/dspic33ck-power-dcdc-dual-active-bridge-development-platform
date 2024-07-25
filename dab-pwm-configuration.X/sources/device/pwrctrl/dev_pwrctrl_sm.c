@@ -52,28 +52,28 @@ void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
 { 
     switch (pcInstance->State)
     {
-        case PCS_INIT:
+        case PWR_CNTRL_STATE_INITIALIZE:
             PCS_INIT_handler(pcInstance);
             break;    
 
-        case PCS_WAIT_IF_FAULT_ACTIVE:
+        case PWR_CNTRL_STATE_FAULT_DETECTION:
             PCS_WAIT_IF_FAULT_ACTIVE_handler(pcInstance);
             break;
 
-        case PCS_STANDBY:
+        case PWR_CNTRL_STATE_STANDBY:
             PCS_STANDBY_handler(pcInstance);
             break;
 
-        case PCS_SOFT_START:
+        case PWR_CNTRL_STATE_SOFT_START:
             PCS_SOFT_START_handler(pcInstance);
             break;
 
-        case PCS_UP_AND_RUNNING:
+        case PWR_CNTRL_STATE_ONLINE:
             PCS_UP_AND_RUNNING_handler(pcInstance);
             break;
 
         default:
-            pcInstance->State = PCS_INIT;
+            pcInstance->State = PWR_CNTRL_STATE_INITIALIZE;
             break;      
     }
 }
@@ -107,7 +107,7 @@ static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->Status.value = 0;
         
         
-        pcInstance->State = PCS_WAIT_IF_FAULT_ACTIVE;
+        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
         
 }
 
@@ -124,8 +124,8 @@ static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInsta
 {
     if ((pcInstance->Fault.Flags.value == 0) && (Drv_PwrCtrl_Fault_SC_Faults_Clear(pcInstance)))
     {
-        pcInstance->Status.bits.fault = 0;
-        pcInstance->State = PCS_STANDBY; // next state
+        pcInstance->Status.bits.FaultActive = 0;
+        pcInstance->State = PWR_CNTRL_STATE_STANDBY; // next state
     }
 }
 
@@ -144,7 +144,7 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
     if (pcInstance->Fault.Flags.value)
     {
         pcInstance->enable = 0; // for now, user has to manually re-start converter after a fault
-        pcInstance->State = PCS_WAIT_IF_FAULT_ACTIVE; // next state
+        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; // next state
     }
     else if (pcInstance->enable) // this flag is generally set externally (via PBV GUI for example)
     {
@@ -155,10 +155,10 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 //#ifdef OPEN_LOOP_PBV
 //        pcInstance->Pwm.ControlPeriod = PGxPER_INIT;   
 //#endif 
-        pcInstance->Status.bits.running = 1;
+        pcInstance->Status.bits.Running = 1;
         
         // current loop reference init
-        pcInstance->iloop.reference = 0;
+        pcInstance->ILoop.reference = 0;
         
         // interrupts temporarily disabled to avoid a conflict with
         // with the compensator update function SMPS_Controller2P2ZUpdate() 
@@ -179,7 +179,7 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->Pwm.PBVPeriodTarget = MIN_PWM_PERIOD;
         pcInstance->Pwm.PBVControlPhaseTarget = 0;
     
-        pcInstance->State = PCS_SOFT_START;   // next state
+        pcInstance->State = PWR_CNTRL_STATE_SOFT_START;   // next state
     }
 }
 
@@ -198,14 +198,14 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
   if (pcInstance->Fault.Flags.value)
   {
       pcInstance->enable = false;  // for now, user has to manually re-start converter after a fault
-      pcInstance->State = PCS_WAIT_IF_FAULT_ACTIVE; 
+      pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; 
   }
   
   else if (!pcInstance->enable) 
   {
     Dev_PwrCtrl_PWM_Disable(pcInstance);
-    pcInstance->Status.bits.running = 0;
-    pcInstance->State = PCS_STANDBY; 
+    pcInstance->Status.bits.Running = 0;
+    pcInstance->State = PWR_CNTRL_STATE_STANDBY; 
   }
   else
   {    
@@ -226,8 +226,8 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     
     if(rampCompletePhase == true)
 #else
-    uint16_t* ptr_reference = (uint16_t*)&pcInstance->iloop.reference;
-    uint16_t* ptr_referenceTarget = (uint16_t*)&pcInstance->iloop.referenceTarget;
+    uint16_t* ptr_reference = (uint16_t*)&pcInstance->ILoop.reference;
+    uint16_t* ptr_referenceTarget = (uint16_t*)&pcInstance->ILoop.referenceTarget;
 #endif // #ifdef OPEN_LOOP_PBV
     
     rampComplete = Dev_PwrCtrl_RampReference(ptr_reference, ptr_referenceTarget, step, delay);
@@ -239,7 +239,7 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     
     if (rampComplete)
     {
-      pcInstance->State = PCS_UP_AND_RUNNING;  // next state
+      pcInstance->State = PWR_CNTRL_STATE_ONLINE;  // next state
     }
   }
 }
@@ -259,15 +259,15 @@ static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
     if (pcInstance->Fault.Flags.value)
     {
         pcInstance->enable = false;  // for now, user has to manually re-start converter after a fault
-        pcInstance->State = PCS_WAIT_IF_FAULT_ACTIVE; 
+        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; 
     }
     else
     {
         if (!pcInstance->enable )
         {
             Dev_PwrCtrl_PWM_Disable(pcInstance);
-            pcInstance->Status.bits.running = 0;            
-            pcInstance->State = PCS_STANDBY;
+            pcInstance->Status.bits.Running = 0;            
+            pcInstance->State = PWR_CNTRL_STATE_STANDBY;
         }
         
     #ifdef OPEN_LOOP_PBV
@@ -275,10 +275,10 @@ static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
                 (pcInstance->Pwm.ControlPhase != pcInstance->Pwm.PBVControlPhaseTarget))
     #else
             
-        else if (pcInstance->iloop.reference != pcInstance->iloop.referenceTarget)  
+        else if (pcInstance->ILoop.reference != pcInstance->ILoop.referenceTarget)  
     #endif // #ifdef OPEN_LOOP_PBV
         {
-            pcInstance->State = PCS_SOFT_START;
+            pcInstance->State = PWR_CNTRL_STATE_SOFT_START;
         }
     }
 } 

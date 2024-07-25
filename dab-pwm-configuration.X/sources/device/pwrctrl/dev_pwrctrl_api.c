@@ -111,7 +111,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Vpri(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Vsec(void)
 {
-    return(dab.Adc.vsec);
+    return(dab.Adc.VLowVoltage);
 }
 
 /*********************************************************************************
@@ -125,7 +125,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Vsec(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct(void)
 {
-    return(dab.Adc.ipri_ct);
+    return(dab.Adc.ISensePrimary);
 }
 
 /*********************************************************************************
@@ -139,7 +139,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void)
 {
-    return(dab.Adc.isec_ct);
+    return(dab.Adc.ISenseSecondary);
 }
 
 /*********************************************************************************
@@ -153,7 +153,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Isec_avg(void)
 {
-    return(dab.Adc.isec_avg);
+    return(dab.Adc.ISecAverage);
 }
 
 /*********************************************************************************
@@ -167,7 +167,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Isec_avg(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Temperature(void)
 {
-    return(dab.Adc.temperature);
+    return(dab.Adc.Temperature);
 }
 
 /*********************************************************************************
@@ -181,7 +181,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Temperature(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V(void)
 {
-    return(dab.Adc.vrail_5v);
+    return(dab.Adc.V5vRail);
 }
 
 /*********************************************************************************
@@ -325,7 +325,7 @@ uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_IloopReferenceTarget(void)
 {
-    return(dab.iloop.referenceTarget);
+    return(dab.ILoop.referenceTarget);
 }
 
 /*********************************************************************************
@@ -339,7 +339,7 @@ uint16_t Dev_PwrCtrl_Get_IloopReferenceTarget(void)
  **********************************************************************************/
 void Dev_PwrCtrl_Set_IloopReferenceTarget(uint16_t referenceTarget)
 {
-    dab.iloop.referenceTarget = referenceTarget;
+    dab.ILoop.referenceTarget = referenceTarget;
 }
 
 /*********************************************************************************
@@ -353,7 +353,7 @@ void Dev_PwrCtrl_Set_IloopReferenceTarget(uint16_t referenceTarget)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_IloopReference(void)
 {
-    return(dab.iloop.reference);
+    return(dab.ILoop.reference);
 }
 
 /*********************************************************************************
@@ -367,7 +367,7 @@ uint16_t Dev_PwrCtrl_Get_IloopReference(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_IloopOutput(void)
 {
-    return(dab.iloop.output);
+    return(dab.ILoop.output);
 }
 
 /*********************************************************************************
@@ -381,7 +381,7 @@ uint16_t Dev_PwrCtrl_Get_IloopOutput(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_IloopFeedback(void)
 {
-    return(dab.iloop.feedback);
+    return(dab.ILoop.feedback);
 }
 
 /*********************************************************************************

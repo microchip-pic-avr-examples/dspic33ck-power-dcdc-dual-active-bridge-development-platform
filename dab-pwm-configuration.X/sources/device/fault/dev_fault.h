@@ -63,8 +63,8 @@ void __inline__ Drv_PwrCtrl_Fault_Action(POWER_CONTROL_t* pcInstance)
     // the state machine can be reset
     // stop converter, set flags
     Dev_PwrCtrl_PWM_Disable(pcInstance);
-    pcInstance->Status.bits.fault = 1;
-    pcInstance->Status.bits.running = 0;
+    pcInstance->Status.bits.FaultActive = 1;
+    pcInstance->Status.bits.Running = 0;
     pcInstance->Fault.FaultFlagsLatched.value = pcInstance->Fault.Flags.value;    
 }
 
@@ -78,7 +78,7 @@ void __inline__ Drv_PwrCtrl_Fault_Action(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 void __inline__ Drv_PwrCtrl_Fault_Vsec_OV(POWER_CONTROL_t* pcInstance)
 {
-  pcInstance->Fault.Flags.bits.vSec_ov = FAULT_CheckMax(&pcInstance->Fault.Object.vsec_ov, pcInstance->Adc.vsec, NULL);
+  pcInstance->Fault.Flags.bits.vSec_ov = FAULT_CheckMax(&pcInstance->Fault.Object.VSecondaryOVP, pcInstance->Adc.VLowVoltage, NULL);
   if (pcInstance->Fault.Flags.bits.vSec_ov)
   {
     Drv_PwrCtrl_Fault_Action(pcInstance);  
@@ -95,7 +95,7 @@ void __inline__ Drv_PwrCtrl_Fault_Vsec_OV(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 void __inline__ Drv_PwrCtrl_Fault_Vpri_OV(POWER_CONTROL_t* pcInstance)
 {
-  pcInstance->Fault.Flags.bits.vPri_ov = FAULT_CheckMax(&pcInstance->Fault.Object.vpri_ov, pcInstance->Adc.vpri, NULL);
+  pcInstance->Fault.Flags.bits.vPri_ov = FAULT_CheckMax(&pcInstance->Fault.Object.VPrimaryOVP, pcInstance->Adc.vpri, NULL);
   if (pcInstance->Fault.Flags.bits.vPri_ov)
   {
       Drv_PwrCtrl_Fault_Action(pcInstance);  
@@ -112,7 +112,7 @@ void __inline__ Drv_PwrCtrl_Fault_Vpri_OV(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 void __inline__ Drv_PwrCtrl_Fault_Isec_OC(POWER_CONTROL_t* pcInstance)
 {
-  pcInstance->Fault.Flags.bits.iSec_oc = FAULT_CheckMax(&pcInstance->Fault.Object.isec_oc, pcInstance->Adc.isec_ct, NULL);
+  pcInstance->Fault.Flags.bits.iSec_oc = FAULT_CheckMax(&pcInstance->Fault.Object.ISecondaryOCP, pcInstance->Adc.ISenseSecondary, NULL);
   if (pcInstance->Fault.Flags.bits.iSec_oc)
   {
       Drv_PwrCtrl_Fault_Action(pcInstance);  
@@ -129,7 +129,7 @@ void __inline__ Drv_PwrCtrl_Fault_Isec_OC(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 void __inline__ Drv_PwrCtrl_Fault_Ipri_OC(POWER_CONTROL_t* pcInstance)
 {
-  pcInstance->Fault.Flags.bits.iPri_oc = FAULT_CheckMax(&pcInstance->Fault.Object.ipri_oc, pcInstance->Adc.ipri_ct, NULL);
+  pcInstance->Fault.Flags.bits.iPri_oc = FAULT_CheckMax(&pcInstance->Fault.Object.IPrimaryOCP, pcInstance->Adc.ISensePrimary, NULL);
   if (pcInstance->Fault.Flags.bits.iPri_oc)
   {
       Drv_PwrCtrl_Fault_Action(pcInstance);  
@@ -147,7 +147,7 @@ void __inline__ Drv_PwrCtrl_Fault_Ipri_OC(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 void __inline__ Drv_PwrCtrl_Fault_ShortCircuit(POWER_CONTROL_t* pcInstance)
 {
-    pcInstance->Fault.Flags.bits.i_sc = FAULT_CheckBit(&pcInstance->Fault.Object.i_sc, PG1STATbits.FLTEVT, NULL);
+    pcInstance->Fault.Flags.bits.i_sc = FAULT_CheckBit(&pcInstance->Fault.Object.ISenseSCP, PG1STATbits.FLTEVT, NULL);
     if (pcInstance->Fault.Flags.bits.i_sc)
     {
       Drv_PwrCtrl_Fault_Action(pcInstance);   
