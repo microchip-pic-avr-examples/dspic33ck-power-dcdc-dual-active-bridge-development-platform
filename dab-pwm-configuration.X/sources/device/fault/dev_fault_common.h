@@ -24,11 +24,11 @@ typedef struct
    uint32_t  CounterReset;      // Number of consecutive events when input outside hysteresis limit in order to remove fault, set to 0 to disable Hys 
    uint16_t  fltCounter;        // Internal counter for activating/removing fault 
    uint16_t  fltCode;           // Code that can be used to display fault (1st fault occurred) to global variable
-   uint8_t   faultActive;       // Set/Cleared inside flt check loop        
+   uint8_t   FaultActive;       // Set/Cleared inside flt check loop        
+   uint8_t   FaultLatch;       // Flag indicating if FAULT has been tripped
 }FAULT_OBJ_T;   
 
-typedef void(*FAULT_CALLBACK)(FAULT_OBJ_T* faultInput);
-
+typedef void(*FAULT_CALLBACK)(void);
 
 /*******************************************************************************
  * @ingroup  Fault_Handler_API
