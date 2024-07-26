@@ -14,7 +14,7 @@ void FAULT_Init(FAULT_OBJ_T *faultInput,
   faultInput->CounterSet = thresholdCnt;
   faultInput->CounterReset = hysCnt;
   faultInput->fltCode = 0U;
-  faultInput->faultActive = 0;
+  faultInput->FaultActive = 0;
 }
 
 
@@ -30,7 +30,8 @@ void FAULT_InitRange(FAULT_OBJ_T *faultInput,
   faultInput->CounterSet = thresholdCnt;
   faultInput->CounterReset = hysCnt;
   faultInput->fltCode = 0U;
-  faultInput->faultActive = 0;
+  faultInput->FaultActive = 0;
+  faultInput->FaultLatch = 0;
 }
 
 
@@ -51,28 +52,30 @@ void FAULT_SetThresholds(FAULT_OBJ_T *faultInput, int16_t fltThreshold, int16_t 
 bool FAULT_CheckMax(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK callback)
 {
 
-  if ((faultSource >= faultInput->val1_Threshold) && (faultInput->faultActive == false))
+  if ((faultSource >= faultInput->val1_Threshold) && (faultInput->FaultActive == false))
   {
     faultInput->fltCounter++;
 
     if (faultInput->fltCounter > faultInput->CounterSet)
     {
+      faultInput->FaultLatch = true;
+      
       if (callback != NULL)
       {
-        callback(faultInput); // Call Back function used to quickly shutdown system if needed when fault detected
+        callback(); // Call Back function used to quickly shutdown system if needed when fault detected
       }
 
-      faultInput->faultActive = true;
+      faultInput->FaultActive = true;
       faultInput->fltCounter = 0U;
     }
   } 
-  else if ((faultSource < (faultInput->val1_Hysteresis)) && (faultInput->faultActive == true))
+  else if ((faultSource < (faultInput->val1_Hysteresis)) && (faultInput->FaultActive == true))
   {
     faultInput->fltCounter++;
     if (faultInput->fltCounter > faultInput->CounterReset)
     {
       faultInput->fltCounter = 0U;
-      faultInput->faultActive = false;
+      faultInput->FaultActive = false;
     }
   }
   else
@@ -80,7 +83,7 @@ bool FAULT_CheckMax(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK
     faultInput->fltCounter = 0U;
   }
 
-  return (faultInput->faultActive);
+  return (faultInput->FaultActive);
 
 }
 
@@ -88,27 +91,29 @@ bool FAULT_CheckMax(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK
 bool FAULT_CheckMin(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK callback)
 {
 
-  if ((faultSource <= faultInput->val1_Threshold) && (faultInput->faultActive == false))
+  if ((faultSource <= faultInput->val1_Threshold) && (faultInput->FaultActive == false))
   {
     faultInput->fltCounter++;
     if (faultInput->fltCounter > faultInput->CounterSet)
     {
+       faultInput->FaultLatch = true;
+        
       if (callback != NULL)
       {
-        callback(faultInput); // Call Back function used to quickly shutdown system if needed when fault detected
+        callback(); // Call Back function used to quickly shutdown system if needed when fault detected
       }
 
-      faultInput->faultActive = true;
+      faultInput->FaultActive = true;
       faultInput->fltCounter = 0U;
     }
   }
-  else if ((faultSource > (faultInput->val1_Hysteresis)) && (faultInput->faultActive == true))
+  else if ((faultSource > (faultInput->val1_Hysteresis)) && (faultInput->FaultActive == true))
   {
     faultInput->fltCounter++;
     if (faultInput->fltCounter > faultInput->CounterReset)
     {
       faultInput->fltCounter = 0U;
-      faultInput->faultActive = false;
+      faultInput->FaultActive = false;
     }
   }
   else
@@ -116,58 +121,62 @@ bool FAULT_CheckMin(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK
     faultInput->fltCounter = 0U;
   }
 
-  return (faultInput->faultActive);
+  return (faultInput->FaultActive);
 
 }
 
 bool FAULT_CheckBit(FAULT_OBJ_T *faultInput, bool faultBit, FAULT_CALLBACK callback)
 {
-  if ((faultBit) && (faultInput->faultActive == false))
+  if ((faultBit) && (faultInput->FaultActive == false))
   {
     faultInput->fltCounter++;
 
     if (faultInput->fltCounter > faultInput->CounterSet)
     {
+      faultInput->FaultLatch = true;
+      
       if (callback != NULL)
       {
-        callback(faultInput); // Call Back function used to quickly shutdown system if needed when fault detected
+        callback(); // Call Back function used to quickly shutdown system if needed when fault detected
       }
 
-      faultInput->faultActive = true;
+      faultInput->FaultActive = true;
       faultInput->fltCounter = 0U;
     }
   }
-  else if ((!faultBit) && (faultInput->faultActive == true))
+  else if ((!faultBit) && (faultInput->FaultActive == true))
   {
     faultInput->fltCounter++;
     if (faultInput->fltCounter > faultInput->CounterReset)
     {
       faultInput->fltCounter = 0U;
-      faultInput->faultActive = false;
+      faultInput->FaultActive = false;
     }
   } else
   {
     faultInput->fltCounter = 0U;
   }
 
-  return (faultInput->faultActive);
+  return (faultInput->FaultActive);
 }
 
 
 bool FAULT_CheckRange(FAULT_OBJ_T *faultInput, int16_t inputValue, FAULT_CALLBACK callback)
 {
-    if (faultInput->faultActive == false)
+    if (faultInput->FaultActive == false)
     {
         if ((inputValue <= faultInput->val1_Threshold) ||
             (inputValue >= faultInput->val2_Threshold))
         {
             if (++faultInput->fltCounter >= faultInput->CounterSet)
             {
+                faultInput->FaultLatch = true;
+                
                 if (callback != NULL)
                 {
-                    callback(faultInput); // Call Back function used to quickly shutdown system if needed when fault detected
+                    callback(); // Call Back function used to quickly shutdown system if needed when fault detected
                 }
-                faultInput->faultActive = true;
+                faultInput->FaultActive = true;
                 faultInput->fltCounter = 0U;
             }
         }
@@ -184,7 +193,7 @@ bool FAULT_CheckRange(FAULT_OBJ_T *faultInput, int16_t inputValue, FAULT_CALLBAC
             if (++faultInput->fltCounter > faultInput->CounterReset)
             {
                 faultInput->fltCounter = 0U;
-                faultInput->faultActive = false;
+                faultInput->FaultActive = false;
             }
         }
         else
@@ -192,5 +201,5 @@ bool FAULT_CheckRange(FAULT_OBJ_T *faultInput, int16_t inputValue, FAULT_CALLBAC
             faultInput->fltCounter = 0U;
         }    
     }
-    return (faultInput->faultActive);
+    return (faultInput->FaultActive);
 }
