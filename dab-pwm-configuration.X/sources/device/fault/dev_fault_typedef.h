@@ -10,30 +10,6 @@
 
 #include "dev_fault_common.h"
 
-/***********************************************************************************
- * @ingroup dev-fault-type-definitions-data-types
- * @brief 
- * @details
- **********************************************************************************/
-struct FAULT_FLAGS_s
-{
-    union
-    {
-        struct
-        {
-            unsigned vPri_ov      : 1;  ///< bit  0
-            unsigned vPri_uv      : 1;  ///< bit  1
-            unsigned vSec_ov      : 1;  ///< bit  2
-            unsigned vSec_uv      : 1;  ///< bit  3
-            unsigned iPri_oc      : 1;  ///< bit  4
-            unsigned iSec_oc      : 1;  ///< bit  5 
-            unsigned i_sc         : 1;  ///< bit  6, primary or secondary short circuit fault
-            unsigned notUsed      : 9;  ///< bits 7 to 15
-        } __attribute__((packed)) bits; 
-        uint16_t value;
-    };
-};
-typedef struct FAULT_FLAGS_s FAULT_FLAGS_t;
 
 /***********************************************************************************
  * @ingroup dev-fault-type-definitions-data-types
@@ -50,11 +26,15 @@ struct FAULT_s
 };
 typedef struct FAULT_s FAULT_t;
 
+/***********************************************************************************
+ * @ingroup dev-fault-type-definitions-data-types
+ * @brief 
+ * @details
+ **********************************************************************************/
 struct FAULT_SETTINGS_s
 {
+    uint16_t FaultDetected; 
     FAULT_t Object;                     ///< Fault Objects
-//    FAULT_FLAGS_t Flags;                ///< Fault Flags
-    FAULT_FLAGS_t FaultFlagsLatched;    ///< Latch faults in here so can be read by PBV GUI
 };
 typedef struct FAULT_SETTINGS_s FAULT_SETTINGS_t;
 

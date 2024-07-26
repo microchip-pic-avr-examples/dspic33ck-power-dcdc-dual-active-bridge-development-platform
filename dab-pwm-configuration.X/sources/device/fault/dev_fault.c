@@ -31,13 +31,20 @@
 #include "config/macros.h"
 #include "dev_fault_common.h"
 #include "dev_vin_isolated.h"
-#include "dev_temp.h"
+#include "dev_fault_temp.h"
 #include "device/pwrctrl/dev_pwrctrl_typedef.h"
+#include "dev_fault.h"
 
 extern POWER_CONTROL_t dab;
 
-void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void);
-void Drv_PwrCtrl_Fault_ClearHardwareFaults(void);
+
+static void Dev_Fault_Handler(void)
+{
+    Dev_PwrCtrl_PWM_Disable(&dab);
+    dab.Status.bits.FaultActive = 1;
+    dab.Status.bits.Running = 0;
+}
+
 
 /*********************************************************************************
  * @ingroup 
@@ -49,7 +56,7 @@ void Drv_PwrCtrl_Fault_ClearHardwareFaults(void);
  * initialize fault objects
  * This is an API function
  **********************************************************************************/
-void Dev_PwrCtrlFault_Initialize(void)
+void Dev_Fault_Initialize(void)
 {
     FAULT_Init(&dab.Fault.Object.IPrimaryOCP, IPRI_OC_THRES_TRIG, IPRI_OC_THRES_CLEAR, IPRI_OC_T_BLANK_TRIG, IPRI_OC_T_BLANK_CLEAR); 
     FAULT_Init(&dab.Fault.Object.ISecondaryOCP, ISEC_OC_THRES_TRIG, ISEC_OC_THRES_CLEAR, ISEC_OC_T_BLANK_TRIG, ISEC_OC_T_BLANK_CLEAR);  
@@ -64,9 +71,62 @@ void Dev_PwrCtrlFault_Initialize(void)
     Drv_PwrCtrl_Fault_EnableShortCircuitProtection();
 //#endif // #ifndef FAULT_SHORT_CCT_DISABLE
 //    // clear the fault PCI for each PWM
-    Drv_PwrCtrl_Fault_ClearHardwareFaults();    
+    Dev_Fault_ClearHardwareFaults();    
     
 }
+
+void Dev_Fault_Execute(void)
+{
+    // secondary over current fault handler
+    #if (FAULT_ISEC_OC)      
+    FAULT_CheckMax(&dab.Fault.Object.ISecondaryOCP, dab.Adc.ISenseSecondary, &Dev_Fault_Handler);
+    #endif 
+    
+    // secondary over voltage fault handler
+    #if (FAULT_VSEC_OV)            
+    FAULT_CheckMax(&dab.Fault.Object.VSecondaryOVP, dab.Adc.ISenseSecondary, &Dev_Fault_Handler);
+    #endif    
+    
+    // primary over current fault handler
+    #if(FAULT_IPRI_OC)
+    FAULT_CheckMax(&dab.Fault.Object.IPrimaryOCP, dab.Adc.ISenseSecondary, &Dev_Fault_Handler);
+    #endif 
+    
+    // primary over voltage fault handler
+    #if (FAULT_VPRI_OV)                
+    FAULT_CheckMax(&dab.Fault.Object.VPrimaryOVP, dab.Adc.ISenseSecondary, &Dev_Fault_Handler);
+    #endif  
+
+    // Identify the fault that trips
+    dab.Fault.FaultDetected = Dev_Fault_GetFlags();
+}
+
+
+
+void Dev_Fault_ResetFlags(void)
+{
+    dab.Fault.Object.ISenseSCP.FaultActive = 0;
+    dab.Fault.Object.IPrimaryOCP.FaultActive = 0;
+    dab.Fault.Object.ISecondaryOCP.FaultActive = 0;
+    dab.Fault.Object.VPrimaryOVP.FaultActive = 0;
+    dab.Fault.Object.VSecondaryOVP.FaultActive = 0;
+    
+    dab.Fault.Object.ISenseSCP.FaultLatch = 0;
+    dab.Fault.Object.IPrimaryOCP.FaultLatch = 0;
+    dab.Fault.Object.ISecondaryOCP.FaultLatch = 0;
+    dab.Fault.Object.VPrimaryOVP.FaultLatch = 0;
+    dab.Fault.Object.VSecondaryOVP.FaultLatch = 0;
+}
+
+
+
+
+
+
+
+
+
+
 
 /*********************************************************************************
  * @ingroup 
@@ -102,7 +162,7 @@ void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void)
  * @details
  * This is an API function
  **********************************************************************************/
-void Drv_PwrCtrl_Fault_ClearHardwareFaults(void)
+void Dev_Fault_ClearHardwareFaults(void)
 {
   uint16_t pwmIndex;
   for (pwmIndex = 1; pwmIndex <= 4; pwmIndex++)
@@ -112,13 +172,3 @@ void Drv_PwrCtrl_Fault_ClearHardwareFaults(void)
   }
 }
 
-void Dev_Fault_ClearFlags(void)
-{
-    dab.Fault.Flags.value = 0;
-    dab.Fault.FaultFlagsLatched.value = 0;
-    dab.Fault.Object.ISenseSCP.faultActive = 0;
-    dab.Fault.Object.IPrimaryOCP.faultActive = 0;
-    dab.Fault.Object.ISecondaryOCP.faultActive = 0;
-    dab.Fault.Object.VPrimaryOVP.faultActive = 0;
-    dab.Fault.Object.VSecondaryOVP.faultActive = 0;
-}
