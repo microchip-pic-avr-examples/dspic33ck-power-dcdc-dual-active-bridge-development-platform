@@ -58,25 +58,8 @@ void ControlLoop_Interrupt(void)
     dab.Adc.V5vRail = ADC1_ConversionResultGet(VRAIL_5V);
     dab.Adc.Temperature = ADC1_ConversionResultGet(TEMP);
     
-    // secondary over current fault handler
-    #if (FAULT_ISEC_OC)      
-    Drv_PwrCtrl_Fault_Isec_OC(&dab);
-    #endif 
+    Dev_Fault_Execute();
     
-    // secondary over voltage fault handler
-    #if (FAULT_VSEC_OV)            
-    Drv_PwrCtrl_Fault_Vsec_OV(&dab);
-    #endif    
-    
-    // primary over current fault handler
-    #if(FAULT_IPRI_OC)
-    Drv_PwrCtrl_Fault_Ipri_OC(&dab);
-    #endif 
-    
-    // primary over voltage fault handler
-    #if (FAULT_VPRI_OV)                
-    Drv_PwrCtrl_Fault_Vpri_OV();
-    #endif  
     
     #if (true == DPDB_TEST_RUN)
 
