@@ -75,8 +75,9 @@ void Dev_PwrCtrl_Enable(void)
 
 void Dev_PwrCtrl_Execute(void)
 {
+    //ToDo: review this later
     // short circuit fault checks (primary and secondary over current via comparators)
-    Drv_PwrCtrl_Fault_ShortCircuit(&dab);
+//    Drv_PwrCtrl_Fault_ShortCircuit(&dab);
     
     Dev_PwrCtrl_StateMachine(&dab);
 }

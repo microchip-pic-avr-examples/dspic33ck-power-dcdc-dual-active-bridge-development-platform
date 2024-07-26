@@ -29,6 +29,7 @@ void Dev_PwrCtrl_SetReferenceTarget(uint16_t reference);
 void Dev_PwrCtrl_SetPeriod(uint16_t reference);
 void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference);
 void Dev_PwrCtrl_SetEnable(bool enable);
+void Dev_PwrCtrl_Set_IloopReferenceTarget(uint16_t referenceTarget);
 
 // "get" APIs
 uint16_t Dev_PwrCtrl_GetAdc_Vpri(void);
@@ -42,10 +43,7 @@ uint16_t Dev_PwrCtrl_Get_Period(void);
 uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void);
 uint16_t Dev_PwrCtrl_Get_State(void);
 uint16_t Dev_PwrCtrl_Get_Status(void);
-uint16_t Dev_PwrCtrl_Get_FaultFlags(void);
-uint16_t Dev_PwrCtrl_Get_FaultFlagsLatched(void);
 uint16_t Dev_PwrCtrl_Get_EnableFlag(void);
-void Dev_PwrCtrl_Set_IloopReferenceTarget(uint16_t referenceTarget);
 uint16_t Dev_PwrCtrl_Get_IloopReferenceTarget(void);
 uint16_t Dev_PwrCtrl_Get_IloopReference(void);
 uint16_t Dev_PwrCtrl_Get_IloopOutput(void);

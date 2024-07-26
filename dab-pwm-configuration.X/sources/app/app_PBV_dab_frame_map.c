@@ -32,7 +32,7 @@
 
 #include "system/pins.h"
 #include "device/dev_fan.h"
-#include "device/fault/dev_temp.h"
+#include "device/fault/dev_fault_temp.h"
 #include "device/pwrctrl/dev_pwrctrl_api.h"
 #include "device/fault/dev_fault_api.h"
 #include "config/macros.h"
@@ -228,10 +228,10 @@ void App_PBV_DAB_Build_Frame()
     
     // send back one "flag word" which combines fault and status and enable control flag
     uint16_t enabled = Dev_PwrCtrl_Get_EnableFlag();
-    uint16_t fault_flags = Dev_PwrCtrl_Get_FaultFlagsLatched();
+    uint16_t fault_flags = Dev_Fault_GetFlags();
     uint16_t status_flags = Dev_PwrCtrl_Get_Status();
     uint16_t current_sensor_cal_flag = Dev_CurrentSensor_Get_CalibrationStatus();
-    uint16_t flag_word = enabled + ((status_flags & 0x0003)<<1) + (fault_flags<<3) + (current_sensor_cal_flag<<10);
+    uint16_t flag_word = enabled + ((status_flags & 0x0003)<<1) + (fault_flags<<3);
     
     buffer_sixteen_tx[1] = flag_word;
     buffer_sixteen_tx[2] = Dev_PwrCtrl_GetAdc_Vpri();

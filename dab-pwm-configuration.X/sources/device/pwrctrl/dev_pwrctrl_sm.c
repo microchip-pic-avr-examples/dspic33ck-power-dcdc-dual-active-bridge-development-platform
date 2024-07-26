@@ -102,10 +102,10 @@ static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
     }
     
         Dev_PwrCtrl_PWM_Disable(pcInstance);
-    
-        Dev_Fault_ClearFlags();
-        pcInstance->Status.value = 0;
-        
+        Dev_Fault_ResetFlags();
+        pcInstance->Status.bits.FaultActive = 0;
+        pcInstance->Status.bits.Running = 0;
+        pcInstance->enable = 0;
         
         pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
         
@@ -122,7 +122,7 @@ static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance)
 {
-    if ((pcInstance->Fault.Flags.value == 0) && (Drv_PwrCtrl_Fault_SC_Faults_Clear(pcInstance)))
+    if ((pcInstance->Fault.FaultDetected == 0) && (Drv_PwrCtrl_Fault_SC_Faults_Clear(pcInstance)))
     {
         pcInstance->Status.bits.FaultActive = 0;
         pcInstance->State = PWR_CNTRL_STATE_STANDBY; // next state
@@ -141,20 +141,23 @@ static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInsta
  **********************************************************************************/
 static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 {
-    if (pcInstance->Fault.Flags.value)
+    if (pcInstance->Fault.FaultDetected)
     {
         pcInstance->enable = 0; // for now, user has to manually re-start converter after a fault
         pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; // next state
     }
     else if (pcInstance->enable) // this flag is generally set externally (via PBV GUI for example)
     {
-        pcInstance->Fault.Flags.value = 0;
-        pcInstance->Fault.FaultFlagsLatched.value = 0;    
-        
-        // ToDo; Check with Cormac
-//#ifdef OPEN_LOOP_PBV
-//        pcInstance->Pwm.ControlPeriod = PGxPER_INIT;   
-//#endif 
+        Dev_Fault_ResetFlags();
+
+    #ifdef OPEN_LOOP_PBV
+        // reset the PWM settings in Standby mode
+        pcInstance->Pwm.ControlPeriod = MIN_PWM_PERIOD;
+        pcInstance->Pwm.ControlPhase = 0;
+        pcInstance->Pwm.PBVPeriodTarget = MIN_PWM_PERIOD;
+        pcInstance->Pwm.PBVControlPhaseTarget = 0;
+    #endif 
+
         pcInstance->Status.bits.Running = 1;
         
         // current loop reference init
@@ -169,15 +172,9 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 //        SMPS_Controller2P2ZInitialize(&icomp_2p2z); 
         INTERRUPT_GlobalEnable();   
         
-        Drv_PwrCtrl_Fault_ClearHardwareFaults();
-//        Dev_PwrCtrl_PWM_Primary_Enable(pcInstance); // enable primary side PWMs only 
+        Dev_Fault_ClearHardwareFaults();
+
         Dev_PwrCtrl_PWM_Enable(pcInstance);
-        
-        // reset the PWM settings in Standby mode
-        pcInstance->Pwm.ControlPeriod = MIN_PWM_PERIOD;
-        pcInstance->Pwm.ControlPhase = 0;
-        pcInstance->Pwm.PBVPeriodTarget = MIN_PWM_PERIOD;
-        pcInstance->Pwm.PBVControlPhaseTarget = 0;
     
         pcInstance->State = PWR_CNTRL_STATE_SOFT_START;   // next state
     }
@@ -195,7 +192,7 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
 {
-  if (pcInstance->Fault.Flags.value)
+  if (pcInstance->Fault.FaultDetected)
   {
       pcInstance->enable = false;  // for now, user has to manually re-start converter after a fault
       pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; 
@@ -256,14 +253,14 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
  **********************************************************************************/
 static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
 {
-    if (pcInstance->Fault.Flags.value)
+    if (pcInstance->Fault.FaultDetected)
     {
         pcInstance->enable = false;  // for now, user has to manually re-start converter after a fault
         pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; 
     }
     else
     {
-        if (!pcInstance->enable )
+        if (!pcInstance->enable)
         {
             Dev_PwrCtrl_PWM_Disable(pcInstance);
             pcInstance->Status.bits.Running = 0;            

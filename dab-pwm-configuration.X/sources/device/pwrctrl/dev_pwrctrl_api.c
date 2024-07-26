@@ -258,35 +258,6 @@ uint16_t Dev_PwrCtrl_Get_Status(void)
 
 /*********************************************************************************
  * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_FaultFlags(void)
- * @brief   API function to read the fault flags
- * @param   none
- * @return  fault flags
- * @details
- * API function
- **********************************************************************************/
-uint16_t Dev_PwrCtrl_Get_FaultFlags(void)
-{
-    return(dab.Fault.Flags.value);
-}
-
-
-/*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_FaultFlagsLatched(void)
- * @brief   API function to read the latched version of the fault flags
- * @param   none
- * @return  latched fault flags
- * @details
- * API function
- **********************************************************************************/
-uint16_t Dev_PwrCtrl_Get_FaultFlagsLatched(void)
-{
-    return(dab.Fault.FaultFlagsLatched.value);
-}
-
-/*********************************************************************************
- * @ingroup 
  * @fn      uint16_t Drv_PwrCtrl_Get_EnableFlag(void)
  * @brief   API function to read enable control bit
  * @param   none

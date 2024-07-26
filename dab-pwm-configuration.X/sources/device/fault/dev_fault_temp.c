@@ -5,7 +5,7 @@
  * Created on Jan 17, 2024, 13:30 PM
  */
 
-#include "dev_temp.h"
+#include "dev_fault_temp.h"
 #include <stdlib.h>
 
 #include "device/fault/dev_fault_common.h"
