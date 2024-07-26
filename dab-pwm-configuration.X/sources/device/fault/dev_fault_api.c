@@ -25,6 +25,19 @@
 
 extern POWER_CONTROL_t dab;
 
+enum FAULTLOG_FLAGS_e {
+    FLT_VPRI_OVP,
+    FLT_VPRI_UVP,
+    FLT_VSEC_OVP,
+    FLT_VSEC_UVP,
+    FLT_IPRI_OCP,
+    FLT_ISEC_OCP,
+    FLT_ISNS_SCP,
+    FLT_FAULT_NUMBER
+};
+typedef enum FAULTLOG_FLAGS_e FAULTLOG_FLAGS_t;
+
+
 /*********************************************************************************
  * @ingroup 
  * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
@@ -47,4 +60,18 @@ void Dev_Fault_SetIPrimaryThreshold(uint16_t reference)
 void Dev_Fault_SetISecondaryThreshold(uint16_t reference)
 {    
     dab.Fault.Object.ISecondaryOCP.val1_Threshold = reference;
+}
+
+uint16_t Dev_Fault_GetFlags(void)
+{
+    uint16_t fault = 0;
+    
+    // Concatenate the Fault status in one for PBV 
+    fault = (dab.Fault.Object.IPrimaryOCP.FaultLatch << FLT_IPRI_OCP) +
+            (dab.Fault.Object.ISecondaryOCP.FaultLatch << FLT_ISEC_OCP) +
+            (dab.Fault.Object.ISenseSCP.FaultLatch << FLT_ISNS_SCP) +
+            (dab.Fault.Object.VPrimaryOVP.FaultLatch << FLT_VPRI_OVP) +
+            (dab.Fault.Object.VSecondaryOVP.FaultLatch << FLT_VSEC_OVP);
+            
+    return(fault);        
 }

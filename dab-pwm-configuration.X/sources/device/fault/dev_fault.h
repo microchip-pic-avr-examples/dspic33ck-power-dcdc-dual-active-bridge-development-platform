@@ -39,124 +39,13 @@
 //------------------------------------------------------------------------------
 // functions with external linkage
 //------------------------------------------------------------------------------
-void Dev_PwrCtrlFault_Initialize(void);
+void Dev_Fault_Initialize(void);
+void Dev_Fault_Execute(void);
+
 void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void);
-void Drv_PwrCtrl_Fault_ClearHardwareFaults(void);
-void Dev_Fault_ClearFlags(void);
-//------------------------------------------------------------------------------
-// inline functions calls below, but keep in a separate header file
-// for tidiness and for execution time efficiency
-//------------------------------------------------------------------------------
+void Dev_Fault_ClearHardwareFaults(void);
+void Dev_Fault_ResetFlags(void);
 
-/*********************************************************************************
- * @ingroup 
- * @fn      void __inline__ Drv_PwrCtrl_Fault_Action(void)
- * @brief   common action to take when a fault occurs
- * @param   none
- * @return  none
- * @details
- **********************************************************************************/
-void __inline__ Drv_PwrCtrl_Fault_Action(POWER_CONTROL_t* pcInstance)
-{
-    // PWMs will have already stopped that this point
-    // purpose here is to log the fault and set flags so that 
-    // the state machine can be reset
-    // stop converter, set flags
-    Dev_PwrCtrl_PWM_Disable(pcInstance);
-    pcInstance->Status.bits.FaultActive = 1;
-    pcInstance->Status.bits.Running = 0;
-    pcInstance->Fault.FaultFlagsLatched.value = pcInstance->Fault.Flags.value;    
-}
-
-/*********************************************************************************
- * @ingroup 
- * @fn      void __inline__ Fault_Vsec_OV_Test(void)
- * @brief   check that Vsec is within limits
- * @param   none
- * @return  none
- * @details
- **********************************************************************************/
-void __inline__ Drv_PwrCtrl_Fault_Vsec_OV(POWER_CONTROL_t* pcInstance)
-{
-  pcInstance->Fault.Flags.bits.vSec_ov = FAULT_CheckMax(&pcInstance->Fault.Object.VSecondaryOVP, pcInstance->Adc.VLowVoltage, NULL);
-  if (pcInstance->Fault.Flags.bits.vSec_ov)
-  {
-    Drv_PwrCtrl_Fault_Action(pcInstance);  
-  }
-}
-
-/*********************************************************************************
- * @ingroup 
- * @fn      void __inline__ Fault_Vpri_OV_Test(void)
- * @brief   check that Vpri is within limits
- * @param   none
- * @return  none
- * @details
- **********************************************************************************/
-void __inline__ Drv_PwrCtrl_Fault_Vpri_OV(POWER_CONTROL_t* pcInstance)
-{
-  pcInstance->Fault.Flags.bits.vPri_ov = FAULT_CheckMax(&pcInstance->Fault.Object.VPrimaryOVP, pcInstance->Adc.vpri, NULL);
-  if (pcInstance->Fault.Flags.bits.vPri_ov)
-  {
-      Drv_PwrCtrl_Fault_Action(pcInstance);  
-  }
-}
-
-/*********************************************************************************
- * @ingroup 
- * @fn      void __inline__ Drv_PwrCtrl_Fault_Isec_OC(void)
- * @brief   Isec over current fault handler
- * @param   none
- * @return  none
- * @details
- **********************************************************************************/
-void __inline__ Drv_PwrCtrl_Fault_Isec_OC(POWER_CONTROL_t* pcInstance)
-{
-  pcInstance->Fault.Flags.bits.iSec_oc = FAULT_CheckMax(&pcInstance->Fault.Object.ISecondaryOCP, pcInstance->Adc.ISenseSecondary, NULL);
-  if (pcInstance->Fault.Flags.bits.iSec_oc)
-  {
-      Drv_PwrCtrl_Fault_Action(pcInstance);  
-  }
-}
-
-/*********************************************************************************
- * @ingroup 
- * @fn      void __inline__ Drv_PwrCtrl_Fault_Ipri_OC(void)
- * @brief   Ipri over current fault handler
- * @param   none
- * @return  none
- * @details
- **********************************************************************************/
-void __inline__ Drv_PwrCtrl_Fault_Ipri_OC(POWER_CONTROL_t* pcInstance)
-{
-  pcInstance->Fault.Flags.bits.iPri_oc = FAULT_CheckMax(&pcInstance->Fault.Object.IPrimaryOCP, pcInstance->Adc.ISensePrimary, NULL);
-  if (pcInstance->Fault.Flags.bits.iPri_oc)
-  {
-      Drv_PwrCtrl_Fault_Action(pcInstance);  
-  }
-}
-
-/*********************************************************************************
- * @ingroup 
- * @fn      void __inline__ Drv_PwrCtrl_Fault_ShortCircuit(void)
- * @brief   primary or secondary short circuit fault
- * @param   none
- * @return  none
- * @details
- * This is implemented with comparators -> CLC -> PWM PCI fault inputs
- **********************************************************************************/
-void __inline__ Drv_PwrCtrl_Fault_ShortCircuit(POWER_CONTROL_t* pcInstance)
-{
-    pcInstance->Fault.Flags.bits.i_sc = FAULT_CheckBit(&pcInstance->Fault.Object.ISenseSCP, PG1STATbits.FLTEVT, NULL);
-    if (pcInstance->Fault.Flags.bits.i_sc)
-    {
-      Drv_PwrCtrl_Fault_Action(pcInstance);   
-      
-      // clear fault bits in PWM peripherals
-      // to allow PWM to re-start when fault is no longer present
-      Drv_PwrCtrl_Fault_ClearHardwareFaults();      
-    }
-}
 
 /*********************************************************************************
  * @ingroup 

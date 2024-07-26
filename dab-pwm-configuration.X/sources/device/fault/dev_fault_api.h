@@ -27,6 +27,7 @@ extern void Dev_Fault_SetOVPThreshold(uint16_t reference);
 extern void Dev_Fault_SetIPrimaryThreshold(uint16_t reference);
 extern void Dev_Fault_SetISecondaryThreshold(uint16_t reference);
 
+extern uint16_t Dev_Fault_GetFlags(void);
 
 #endif	/* DEV_FAULT_API_H */
 
