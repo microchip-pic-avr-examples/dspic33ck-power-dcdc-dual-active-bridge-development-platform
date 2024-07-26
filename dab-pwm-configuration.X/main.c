@@ -31,7 +31,7 @@
 #include "device/fault/dev_vin_isolated.h"
 #include "device/dev_fan.h"
 #include "device/dev_led.h"
-#include "device/fault/dev_temp.h"
+#include "device/fault/dev_fault_temp.h"
 #include "device/pwrctrl/dev_pwrctrl_isr.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
 #include "device/fault/dev_fault.h"
@@ -70,7 +70,7 @@ int main(void)
     SYSTEM_Initialize();
         
     Dev_PwrCtrl_Initialize();
-    Dev_PwrCtrlFault_Initialize();
+    Dev_Fault_Initialize();
     
     MCC_Custom_User_Config();
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt);
