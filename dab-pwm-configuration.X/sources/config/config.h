@@ -24,6 +24,8 @@
 #define FAULT_VSEC_OV   false
 #define FAULT_VPRI_OV   false
 #define FAULT_SHORT_CCT false
+#define FAULT_VRAIL_5V  true
+
 
 
 #define PWM_CLOCK_HIGH_RESOLUTION       true 
@@ -86,6 +88,12 @@
 #define VPRI_OV_T_BLANK_TRIG_SEC            (0.0)
 #define VPRI_OV_T_BLANK_CLEAR_SEC           (0.0)
 #define VPRI_OV_TICK_SEC                    (T_ADC_SAMPLE_SECS*3.0)
+
+#define VRAIL_5V_UV_THRES_TRIG_VOLTS        (3.5)
+#define VRAIL_5V_UV_THRES_CLEAR_VOLTS       (3.8)
+#define VRAIL_5V_UV_T_BLANK_TRIG_SEC        (50.0e-6)
+#define VRAIL_5V_UV_T_BLANK_CLEAR_SEC       (0.0)
+#define VRAIL_5V_UV_TICK_SEC                (T_ADC_SAMPLE_SECS*3.0)
 
 // short-circuit protection. Implemented with comparators and CLC, using PWM fault mechanism
 // so works independently of firmware. 

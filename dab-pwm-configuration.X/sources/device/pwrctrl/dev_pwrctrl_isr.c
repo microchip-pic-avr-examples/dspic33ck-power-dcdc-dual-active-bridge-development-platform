@@ -53,7 +53,7 @@ void ControlLoop_Interrupt(void)
     dab.Adc.vpri = ADC1_ConversionResultGet(VPRI);
     
     // TODO: move the handler for these 2 signals to a lower frequency process
-    dab.Adc.V5vRail = ADC1_ConversionResultGet(VRAIL_5V);
+    dab.Adc.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
     dab.Adc.Temperature = ADC1_ConversionResultGet(TEMP);
     
     Dev_Fault_Execute();

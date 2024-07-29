@@ -198,7 +198,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Temperature(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V(void)
 {
-    return(dab.Adc.V5vRail);
+    return(dab.Adc.VRail_5V);
 }
 
 /*********************************************************************************

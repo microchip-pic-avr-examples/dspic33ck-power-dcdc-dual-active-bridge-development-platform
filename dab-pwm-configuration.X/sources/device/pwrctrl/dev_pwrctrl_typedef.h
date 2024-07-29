@@ -79,7 +79,7 @@ struct FEEDBACK_SETTINGS_s
     uint16_t ISenseSecondary;   ///< Data value for secondary current as measured with CT
     uint16_t ISecAverage;       ///< Data value for average secondary current as measured with isolated current sensor
     uint16_t Temperature;       ///< Data value for temperature
-    uint16_t V5vRail;           ///< Data value for 5V auxiliary rail
+    uint16_t VRail_5V;           ///< Data value for 5V auxiliary rail
     
     uint16_t vpri;          ///< primary side voltage    //ToDo: Check with Cormac
     uint16_t isec_sensor_offset; ///< ADC code corresponding to the offset of the secondary current sensor
