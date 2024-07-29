@@ -21,15 +21,13 @@
  */
 
 
-#include "dev_pwrctrl_typedef.h"
+#include "dev_pwrctrl.h"
 #include "timer/sccp1.h"
 #include "adc/adc_types.h"
 #include "adc/adc1.h"
 #include "config/macros.h"
 #include "dev_pwrctrl_pwm.h"
 #include "device/fault/dev_fault.h"
-
-extern POWER_CONTROL_t dab;
 
 /*********************************************************************************
  * @ingroup 

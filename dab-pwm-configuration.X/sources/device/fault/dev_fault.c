@@ -32,14 +32,13 @@
 #include "dev_fault_common.h"
 #include "dev_vin_isolated.h"
 #include "dev_fault_temp.h"
-#include "device/pwrctrl/dev_pwrctrl_typedef.h"
+#include "device/pwrctrl/dev_pwrctrl.h"
 #include "dev_fault.h"
 #include "system/pins.h"
+#include "dev_fault_api.h"
 
-extern POWER_CONTROL_t dab;
 
-
-static void Dev_Fault_Handler(void)
+void Dev_Fault_Handler(void)
 {
     // Drive the fault pin to Low when Fault trips
     FAULT_SetLow();

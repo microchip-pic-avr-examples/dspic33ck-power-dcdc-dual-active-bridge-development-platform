@@ -23,8 +23,6 @@
 #include "driver/mcc_extension/drv_config_custom_pwm.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
 
-extern POWER_CONTROL_t dab;
-
 void MCC_Custom_User_Config (void)
 {
     //Initialize PWM as retriggerable for the cascaded PWM scheme

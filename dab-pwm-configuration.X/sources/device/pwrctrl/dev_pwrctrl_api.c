@@ -20,9 +20,7 @@
     TERMS.
  */
 
-#include "dev_pwrctrl_typedef.h"
-
-extern POWER_CONTROL_t dab;
+#include "dev_pwrctrl.h"
 
 /*********************************************************************************
  * @ingroup 

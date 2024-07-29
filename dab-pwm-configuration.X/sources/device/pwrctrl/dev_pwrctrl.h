@@ -10,6 +10,8 @@
 
 #include "device/pwrctrl/dev_pwrctrl_typedef.h"
 
+extern POWER_CONTROL_t dab;
+
 extern void Dev_PwrCtrl_Initialize(void);
 extern void Dev_PwrCtrl_Enable(void);
 extern void Dev_PwrCtrl_Execute(void);
