@@ -62,7 +62,7 @@ void Dev_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance)
  * note that this is an API function
  **********************************************************************************/
 void Dev_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance)
-{
+{   
     // turn on all PWM pin output overrides, this sets PWM pin to 0
     // even if PWM peripheral is enabled and running in the background
     PWM_OverrideHighEnable(pcInstance->Pwm.Primary_1); 

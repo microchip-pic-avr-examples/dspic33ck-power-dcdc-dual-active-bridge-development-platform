@@ -334,8 +334,7 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             Dev_PwrCtrl_SetDeadTimeLow(control_word);
             break; 
         }
-            
-        
+                 
         default:
             break;
     }

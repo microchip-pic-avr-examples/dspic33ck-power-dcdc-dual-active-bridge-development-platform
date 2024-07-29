@@ -34,13 +34,19 @@
 #include "dev_fault_temp.h"
 #include "device/pwrctrl/dev_pwrctrl_typedef.h"
 #include "dev_fault.h"
+#include "system/pins.h"
 
 extern POWER_CONTROL_t dab;
 
 
 static void Dev_Fault_Handler(void)
 {
+    // Drive the fault pin to Low when Fault trips
+    FAULT_SetLow();
+    
+    // Turn off PWM output
     Dev_PwrCtrl_PWM_Disable(&dab);
+    
     dab.Status.bits.FaultActive = 1;
     dab.Status.bits.Running = 0;
 }
@@ -71,7 +77,7 @@ void Dev_Fault_Initialize(void)
     Drv_PwrCtrl_Fault_EnableShortCircuitProtection();
 //#endif // #ifndef FAULT_SHORT_CCT_DISABLE
 //    // clear the fault PCI for each PWM
-    Dev_Fault_ClearHardwareFaults();    
+    Dev_Fault_ClearHardwareFaults(); 
     
 }
 
@@ -103,14 +109,19 @@ void Dev_Fault_Execute(void)
 
 
 
-void Dev_Fault_ResetFlags(void)
+void Dev_Fault_Reset(void)
 {
+    // Drive the fault pin to high to allow PWM signal drive
+    FAULT_SetHigh();
+    
+    // Clear fault Objects FaultActive bit
     dab.Fault.Object.ISenseSCP.FaultActive = 0;
     dab.Fault.Object.IPrimaryOCP.FaultActive = 0;
     dab.Fault.Object.ISecondaryOCP.FaultActive = 0;
     dab.Fault.Object.VPrimaryOVP.FaultActive = 0;
     dab.Fault.Object.VSecondaryOVP.FaultActive = 0;
     
+    // Clear fault Objects FaultLatch bit
     dab.Fault.Object.ISenseSCP.FaultLatch = 0;
     dab.Fault.Object.IPrimaryOCP.FaultLatch = 0;
     dab.Fault.Object.ISecondaryOCP.FaultLatch = 0;

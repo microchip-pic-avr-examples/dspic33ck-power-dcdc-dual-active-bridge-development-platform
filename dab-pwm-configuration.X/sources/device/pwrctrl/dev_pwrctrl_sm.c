@@ -102,7 +102,7 @@ static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
     }
     
         Dev_PwrCtrl_PWM_Disable(pcInstance);
-        Dev_Fault_ResetFlags();
+        Dev_Fault_Reset();
         pcInstance->Status.bits.FaultActive = 0;
         pcInstance->Status.bits.Running = 0;
         pcInstance->enable = 0;
@@ -148,7 +148,7 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
     }
     else if (pcInstance->enable) // this flag is generally set externally (via PBV GUI for example)
     {
-        Dev_Fault_ResetFlags();
+        Dev_Fault_Reset();
 
     #ifdef OPEN_LOOP_PBV
         // reset the PWM settings in Standby mode
