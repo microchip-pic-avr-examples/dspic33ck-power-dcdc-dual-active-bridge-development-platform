@@ -23,6 +23,7 @@ struct FAULT_s
     FAULT_OBJ_T VPrimaryOVP;        ///< Fault object for Primary over voltage protection
     FAULT_OBJ_T VSecondaryOVP;      ///< Fault object for Secondary over voltage protection
     FAULT_OBJ_T ISenseSCP;          ///< Fault object for Short circuit protection
+    FAULT_OBJ_T PowerSupplyOTP;     ///< Fault object for Power Supply Temperature
 };
 typedef struct FAULT_s FAULT_t;
 

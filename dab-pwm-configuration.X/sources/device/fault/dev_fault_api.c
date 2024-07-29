@@ -21,9 +21,7 @@
  */
 
 #include "dev_fault_common.h"
-#include "device/pwrctrl/dev_pwrctrl_typedef.h"
-
-extern POWER_CONTROL_t dab;
+#include "device/pwrctrl/dev_pwrctrl.h"
 
 enum FAULTLOG_FLAGS_e {
     FLT_VPRI_OVP,
@@ -33,6 +31,7 @@ enum FAULTLOG_FLAGS_e {
     FLT_IPRI_OCP,
     FLT_ISEC_OCP,
     FLT_ISNS_SCP,
+    FLT_DAB_TEMP,
     FLT_FAULT_NUMBER
 };
 typedef enum FAULTLOG_FLAGS_e FAULTLOG_FLAGS_t;

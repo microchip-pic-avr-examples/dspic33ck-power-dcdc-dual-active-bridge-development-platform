@@ -10,6 +10,8 @@
 
 #include "device/fault/dev_fault_common.h"
 #include "device/pwrctrl/dev_pwrctrl_api.h"
+#include "dev_fault.h"
+#include "device/pwrctrl/dev_pwrctrl.h"
 
 /*********************************************************************************
  * @ingroup dev-temp-data-type
@@ -77,7 +79,7 @@ TEMP_SETTINGS_t* devTempDataPtr = &devTempData;
  * @brief   fault object for checking over temperature condition
  * @details min as negative temperature coefficient
  **********************************************************************************/
-FAULT_OBJ_T tempFaultMin;
+//FAULT_OBJ_T tempFaultMin;
 
 /***********************************************************************************
  * Private Function Call Prototypes
@@ -108,11 +110,11 @@ void Dev_Temp_Initialize(void){
     devTempData.TemperatureCelcius = 0;         ///< temperature celcius.
     
     FAULT_Init(
-            &tempFaultMin,                             ///< fault object
-            MAX_TEMPERATURE_THRESHOLD_RAW,               ///< threshold against which raw values will be compared
-            OVER_TEMP_UPPER_THRESHOLD_WITH_HYST,         ///< threshold plus hystersis
-            FAULT_PERSISTENCE_COUNT_TEMP,                    ///< number of ISR counts for which the fault should clear
-            FAULT_PERSISTENCE_COUNT_TEMP                     ///< number of ISR counts for which the fault should clear
+            &dab.Fault.Object.PowerSupplyOTP,       ///< fault object
+            MAX_TEMPERATURE_THRESHOLD_RAW,          ///< threshold against which raw values will be compared
+            OVER_TEMP_UPPER_THRESHOLD_WITH_HYST,    ///< threshold plus hystersis
+            FAULT_PERSISTENCE_COUNT_TEMP,           ///< number of ISR counts for which the fault should clear
+            FAULT_PERSISTENCE_COUNT_TEMP            ///< number of ISR counts for which the fault should clear
             ) ; 
 }
 
@@ -132,7 +134,7 @@ void Dev_Temp_Initialize(void){
 void Dev_Temp_Task_100ms(void) 
 {
     Dev_Temp_Get_ADC_Sample();
-    if(FAULT_CheckMin(&tempFaultMin, devTempData.AdcReading, NULL ))
+    if(FAULT_CheckMin(&dab.Fault.Object.PowerSupplyOTP, devTempData.AdcReading, &Dev_Fault_Handler))
     {
        devTempData.OverTemperatureFlag = 1; //for over temperature
     }
