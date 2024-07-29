@@ -74,6 +74,25 @@ void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference)
 
 /*********************************************************************************
  * @ingroup 
+ * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
+ * @brief   API function to set the power controller reference
+ * @param   none
+ * @return  none
+ * @details
+ * API function
+ **********************************************************************************/
+void Dev_PwrCtrl_SetDeadTimeHigh(uint16_t reference)
+{    
+    dab.Pwm.DeadTimeHigh = reference;
+}
+
+void Dev_PwrCtrl_SetDeadTimeLow(uint16_t reference)
+{    
+    dab.Pwm.DeadTimeLow = reference;
+}
+
+/*********************************************************************************
+ * @ingroup 
  * @fn      void Drv_PwrCtrl_SetEnable(bool enable)
  * @brief   API function to set or clear the enable control bit
  * @param   none

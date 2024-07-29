@@ -55,9 +55,11 @@
 
 // command IDs, first data word in received package
 // use this to decide what action to take when data is received
-#define PBV_CMD_ID_FREQ_CHANGE          0xBBBB           ///< change DAB switching frequency
 #define PBV_CMD_ID_DAB_ON_OFF           0xAAAA           ///< turn DAB on or off
 #define PBV_CMD_ID_DAB_RESET            0xAAAB           ///< DAB operation is resetted
+#define PBV_CMD_ID_FREQ_CHANGE          0xBBBB           ///< change DAB switching frequency
+#define PBV_CMD_ID_PWM_DTH              0xBBBC           ///< change DAB PWM DeadTime High
+#define PBV_CMD_ID_PWM_DTL              0xBBBD           ///< change DAB PWM DeadTime Low
 #define PBV_CMD_ID_FAN_SPEED            0xCCCC           ///< set fan speed 
 #define PBV_CMD_ID_ILOOP_REF_SET        0xDDDD           ///< set current loop reference
 #define PBV_CMD_ID_PHASE_CHANGE         0xEE01           ///< set control phase
@@ -272,82 +274,67 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
     uint16_t control_word = data[1];
     switch (cmd_id)
     {
-        case PBV_CMD_ID_DAB_ON_OFF:
-        {
+        case PBV_CMD_ID_DAB_ON_OFF: {
             // turn DAB on or off
-            if (control_word < 2) // should be 0 or 1
-            {
+            if (control_word < 2) {// should be 0 or 1
+            
                 bool enable = (bool)control_word;
                 Dev_PwrCtrl_SetEnable(enable);
             }
-            break;
-        }
-            
-        case PBV_CMD_ID_DAB_RESET:
-        {
+            break; 
+        }    
+        case PBV_CMD_ID_DAB_RESET: {
             Dev_PwrCtrl_SetState(control_word);
-            break;
+            break; 
         }
-        case PBV_CMD_ID_FREQ_CHANGE:
-        {
+        case PBV_CMD_ID_FREQ_CHANGE: {
             // change target frequency
-            if ((control_word <= MAX_PWM_PERIOD) && (control_word >= MIN_PWM_PERIOD))             
-            {
+            if ((control_word <= MAX_PWM_PERIOD) && (control_word >= MIN_PWM_PERIOD)) {
                 Dev_PwrCtrl_SetReferenceTarget(control_word);
                 // when Frequency is changed, control phase will be zero
                 uint16_t controlPhase = 0;
                 Dev_PwrCtrl_SetPhaseTarget(controlPhase);
             }            
-            break;
+            break; 
         }
-        
-        case PBV_CMD_ID_ILOOP_REF_SET:
-        {
+        case PBV_CMD_ID_ILOOP_REF_SET: {
             if (control_word < 32767) //TODO: put in proper check here!
             {
                 Dev_PwrCtrl_Set_IloopReferenceTarget(control_word);
             }
-        }
-        break;            
-        
-        case PBV_CMD_ID_PHASE_CHANGE:
-        {
+            break; 
+        }        
+        case PBV_CMD_ID_PHASE_CHANGE: {
             // change target phase
             uint16_t controlPhase = (uint16_t)((control_word)* PHASE_180_SCALER * (Dev_PwrCtrl_Get_DutyCycle()));
             Dev_PwrCtrl_SetPhaseTarget(controlPhase);      
-            
-            break;
+            break; 
         }
-        
-        case PBV_CMD_ID_FAN_SPEED:
-        {            
+        case PBV_CMD_ID_FAN_SPEED: {            
             Dev_Fan_Set_Speed(control_word);
+            break; 
         }
-        break;
-        
-        case PBV_CMD_ID_OVP_TEST:
-        {
-            
-            Dev_Fault_SetOVPThreshold(control_word);
-                
-            break;
+        case PBV_CMD_ID_OVP_TEST: {
+            Dev_Fault_SetOVPThreshold(control_word); 
+            break; 
         }
-        
-        case PBV_CMD_ID_IPRI_TEST:
-        {
-            
+        case PBV_CMD_ID_IPRI_TEST: {
             Dev_Fault_SetIPrimaryThreshold(control_word);
-                
+             break; 
+        }
+        case PBV_CMD_ID_ISEC_TEST:{
+            Dev_Fault_SetISecondaryThreshold(control_word);    
             break;
         }
-        
-        case PBV_CMD_ID_ISEC_TEST:
-        {
+        case PBV_CMD_ID_PWM_DTH:{
+            Dev_PwrCtrl_SetDeadTimeHigh(control_word);
+            break; 
+        }
+        case PBV_CMD_ID_PWM_DTL:{
+            Dev_PwrCtrl_SetDeadTimeLow(control_word);
+            break; 
+        }
             
-            Dev_Fault_SetISecondaryThreshold(control_word);
-                
-            break;
-        }
         
         default:
             break;

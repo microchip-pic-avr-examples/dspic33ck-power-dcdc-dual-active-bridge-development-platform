@@ -178,6 +178,19 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
     PWM_PeriodSet(pcInstance->Pwm.Primary_2, pcInstance->Pwm.ControlPeriod);
     PWM_PeriodSet(pcInstance->Pwm.Secondary_2, pcInstance->Pwm.ControlPeriod);
 
+    // Set the PWM High and Low DeadTime
+    // DeadTime parameter added for testing
+    PWM_DeadTimeLowSet(pcInstance->Pwm.Primary_1, pcInstance->Pwm.DeadTimeLow);
+    PWM_DeadTimeLowSet(pcInstance->Pwm.Secondary_1, pcInstance->Pwm.DeadTimeLow);
+    PWM_DeadTimeLowSet(pcInstance->Pwm.Primary_2, pcInstance->Pwm.DeadTimeLow);
+    PWM_DeadTimeLowSet(pcInstance->Pwm.Secondary_2, pcInstance->Pwm.DeadTimeLow);
+    
+    // DeadTime parameter added for testing
+    PWM_DeadTimeHighSet(pcInstance->Pwm.Primary_1, pcInstance->Pwm.DeadTimeHigh);
+    PWM_DeadTimeHighSet(pcInstance->Pwm.Secondary_1, pcInstance->Pwm.DeadTimeHigh);
+    PWM_DeadTimeHighSet(pcInstance->Pwm.Primary_2, pcInstance->Pwm.DeadTimeHigh);
+    PWM_DeadTimeHighSet(pcInstance->Pwm.Secondary_2, pcInstance->Pwm.DeadTimeHigh);
+    
     // Set the Update bit of the last PWM in the cascaded approach to broadcast
     // it to the other PWMs
     PWM_SoftwareUpdateRequest(pcInstance->Pwm.Secondary_2);

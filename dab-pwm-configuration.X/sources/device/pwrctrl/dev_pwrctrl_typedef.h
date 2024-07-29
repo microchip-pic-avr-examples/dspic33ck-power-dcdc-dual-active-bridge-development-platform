@@ -57,6 +57,8 @@ struct SWITCH_NODE_s
     uint16_t ControlPeriod;         ///< Control period value from control loop
     uint16_t ControlDutyCycle;      ///< Control Duty Cycle calculation based on Control Period
     uint16_t ControlPhase;          ///< Control phase value from control loop
+    uint16_t DeadTimeHigh;          ///< Deadtime High settings for PWM
+    uint16_t DeadTimeLow;          ///< Deadtime High settings for PWM
     uint16_t PBVPeriodTarget;       ///< Power Board Visualizer Set Control target 
     uint16_t PBVControlPhaseTarget; ///< Power Board Visualizer Set Control phase
 };

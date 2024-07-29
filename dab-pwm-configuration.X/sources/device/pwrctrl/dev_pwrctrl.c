@@ -43,8 +43,11 @@ void Dev_PwrCtrl_Initialize(void)
     // Initialize the Control Period and Control Phase during start-up
     dab.Pwm.ControlPeriod = MIN_PWM_PERIOD;
     dab.Pwm.ControlPhase = 0;
+    dab.Pwm.DeadTimeHigh = PG1DTH; // ToDo: remove the register dependency
+    dab.Pwm.DeadTimeHigh = PG1DTL; // ToDo: remove the register dependency
     dab.Pwm.PBVPeriodTarget = MIN_PWM_PERIOD;
     dab.Pwm.PBVControlPhaseTarget = 0;
+    
     // initialize the current loop compensator
     //ToDo: Add this later
     // initialize the current loop compensator
