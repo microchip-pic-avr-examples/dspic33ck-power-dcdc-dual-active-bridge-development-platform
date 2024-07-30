@@ -28,8 +28,8 @@
 // hardware constants (voltage & current sense, gains and offsets)
 //------------------------------------------------------------------------------
 // VPRI_SNS_GAIN: VPRI_SNS = VPRI * VPRI_SNS_GAIN + VPRI_SNS_OFS
-#define VPRI_SNS_GAIN               (4.431e-3)   // V/V     
-#define VPRI_SNS_OFS                (16.113e-3)   // V
+#define VPRI_SNS_GAIN               (float)(-2.500e-3)   // V/V     
+#define VPRI_SNS_OFS                (0.00e-3)   // V
 
 // VSEC_SNS = VSEC * VSEC_SNS_GAIN
 #define VSEC_SNS_GAIN               (3.18e-3)   // V/V

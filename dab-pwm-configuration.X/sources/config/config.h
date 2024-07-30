@@ -19,13 +19,15 @@
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
 //------------------------------------------------------------------------------
-#define FAULT_ISEC_OC   true
+#define FAULT_ISEC_OC   false
 #define FAULT_IPRI_OC   false
 #define FAULT_VSEC_OV   false
-#define FAULT_VPRI_OV   false
 #define FAULT_SHORT_CCT false
-#define FAULT_VRAIL_5V  true
+#define FAULT_PS_OTP    false
+#define FAULT_VRAIL_5V  false
 
+#define FAULT_VPRI_OV   true
+#define VPRI_OPTOCOUPLER_POLARITY  false // false if not inverted; true if inverted 
 
 
 #define PWM_CLOCK_HIGH_RESOLUTION       true 
@@ -83,8 +85,8 @@
 #define VSEC_UV_T_BLANK_CLEAR_SEC           (0.0)
 #define VSEC_UV_TICK_SEC                    (T_ADC_SAMPLE_SECS*3.0)
 
-#define VPRI_OV_THRES_TRIG_VOLTS            (700.0)
-#define VPRI_OV_THRES_CLEAR_VOLTS           (600.0)
+#define VPRI_OV_THRES_TRIG_VOLTS            (100.0)
+#define VPRI_OV_THRES_CLEAR_VOLTS           (80.0)
 #define VPRI_OV_T_BLANK_TRIG_SEC            (0.0)
 #define VPRI_OV_T_BLANK_CLEAR_SEC           (0.0)
 #define VPRI_OV_TICK_SEC                    (T_ADC_SAMPLE_SECS*3.0)

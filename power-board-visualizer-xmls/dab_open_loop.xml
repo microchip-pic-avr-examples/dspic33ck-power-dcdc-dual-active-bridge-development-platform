@@ -242,7 +242,7 @@
         <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
-        <Name>OVP Threshold (V)</Name>
+        <Name>Sec OVP Threshold (V)</Name>
         <Unit>Voltage</Unit>
         <Scaling>3.947</Scaling>
         <Offset>0</Offset>
@@ -256,16 +256,18 @@
         <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
-        <Name>VIN Threshold (V)</Name>
-        <Unit xsi:nil="true" />
-        <Scaling>0</Scaling>
+        <Name>Pri OVP Threshold (V)</Name>
+        <Unit>V</Unit>
+        <Scaling>3.1</Scaling>
         <Offset>0</Offset>
-        <MinimumValue>0</MinimumValue>
-        <MaximumValue>0</MaximumValue>
-        <DefaultValue>0</DefaultValue>
-        <Step>0</Step>
-        <ButtonText xsi:nil="true" />
-        <Data xsi:nil="true" />
+        <MinimumValue>40</MinimumValue>
+        <MaximumValue>150</MaximumValue>
+        <DefaultValue>60</DefaultValue>
+        <Step>1</Step>
+        <ButtonText>Update</ButtonText>
+        <Data>0202 0004 EE 11 [value]</Data>
+        <AutoSendAfterChange>false</AutoSendAfterChange>
+        <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
         <Name>Primary OCP (A)</Name>
@@ -392,6 +394,16 @@
           <StatusBit>
             <Name>Fault: Short Circuit</Name>
             <BitIndex>9</BitIndex>
+            <ControlType>radio</ControlType>
+          </StatusBit>
+          <StatusBit>
+            <Name>Fault: Over Temperature</Name>
+            <BitIndex>10</BitIndex>
+            <ControlType>radio</ControlType>
+          </StatusBit>
+          <StatusBit>
+            <Name>Fault: 5V Rail</Name>
+            <BitIndex>11</BitIndex>
             <ControlType>radio</ControlType>
           </StatusBit>
         </StatusBits>

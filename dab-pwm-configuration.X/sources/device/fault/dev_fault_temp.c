@@ -134,6 +134,8 @@ void Dev_Temp_Initialize(void){
 void Dev_Temp_Task_100ms(void) 
 {
     Dev_Temp_Get_ADC_Sample();
+    
+    #if(FAULT_PS_OTP)
     if(FAULT_CheckMin(&dab.Fault.Object.PowerSupplyOTP, devTempData.AdcReading, &Dev_Fault_Handler))
     {
        devTempData.OverTemperatureFlag = 1; //for over temperature
@@ -142,6 +144,7 @@ void Dev_Temp_Task_100ms(void)
     {
         devTempData.OverTemperatureFlag = 0; //for over temperature
     }
+    #endif
 }
 
 /***********************************************************************************

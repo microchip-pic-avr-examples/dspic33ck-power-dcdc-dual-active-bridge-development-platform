@@ -45,7 +45,7 @@ void Dev_Fault_Handler(void)
     
     // Turn off PWM output
     Dev_PwrCtrl_PWM_Disable(&dab);
-    
+     
     dab.Status.bits.FaultActive = 1;
     dab.Status.bits.Running = 0;
 }
@@ -63,12 +63,17 @@ void Dev_Fault_Handler(void)
  **********************************************************************************/
 void Dev_Fault_Initialize(void)
 {
-    FAULT_Init(&dab.Fault.Object.IPrimaryOCP, IPRI_OC_THRES_TRIG, IPRI_OC_THRES_CLEAR, IPRI_OC_T_BLANK_TRIG, IPRI_OC_T_BLANK_CLEAR); 
-    FAULT_Init(&dab.Fault.Object.ISecondaryOCP, ISEC_OC_THRES_TRIG, ISEC_OC_THRES_CLEAR, ISEC_OC_T_BLANK_TRIG, ISEC_OC_T_BLANK_CLEAR);  
-    FAULT_Init(&dab.Fault.Object.VPrimaryOVP, VPRI_OV_THRES_TRIG, VPRI_OV_THRES_CLEAR, VPRI_OV_T_BLANK_TRIG, VPRI_OV_T_BLANK_CLEAR);   
-    FAULT_Init(&dab.Fault.Object.VSecondaryOVP, VSEC_OV_THRES_TRIG, VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
+    FAULT_Init(&dab.Fault.Object.IPrimaryOCP, IPRI_OC_THRES_TRIG, 
+            IPRI_OC_THRES_CLEAR, IPRI_OC_T_BLANK_TRIG, IPRI_OC_T_BLANK_CLEAR); 
+    FAULT_Init(&dab.Fault.Object.ISecondaryOCP, ISEC_OC_THRES_TRIG, 
+            ISEC_OC_THRES_CLEAR, ISEC_OC_T_BLANK_TRIG, ISEC_OC_T_BLANK_CLEAR);  
+    FAULT_Init(&dab.Fault.Object.VPrimaryOVP, VPRI_OV_THRES_TRIG, 
+            VPRI_OV_THRES_CLEAR, VPRI_OV_T_BLANK_TRIG, VPRI_OV_T_BLANK_CLEAR);   
+    FAULT_Init(&dab.Fault.Object.VSecondaryOVP, VSEC_OV_THRES_TRIG, 
+            VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
     FAULT_Init(&dab.Fault.Object.ISenseSCP, 0,0,0,I_SC_T_BLANK_CLEAR);
-    FAULT_Init(&dab.Fault.Object.VRail_5V, VRAIL_5V_UV_THRES_TRIG, VRAIL_5V_UV_THRES_CLEAR, VRAIL_5V_UV_T_BLANK_TRIG, VRAIL_5V_UV_T_BLANK_CLEAR);
+    FAULT_Init(&dab.Fault.Object.VRail_5V, VRAIL_5V_UV_THRES_TRIG, 
+            VRAIL_5V_UV_THRES_CLEAR, VRAIL_5V_UV_T_BLANK_TRIG, VRAIL_5V_UV_T_BLANK_CLEAR);
     
     Dev_Temp_Initialize();
     
@@ -90,17 +95,17 @@ void Dev_Fault_Execute(void)
     
     // secondary over voltage fault handler
     #if (FAULT_VSEC_OV)            
-    FAULT_CheckMax(&dab.Fault.Object.VSecondaryOVP, dab.Adc.ISenseSecondary, &Dev_Fault_Handler);
+    FAULT_CheckMax(&dab.Fault.Object.VSecondaryOVP, dab.Adc.VSecVoltage, &Dev_Fault_Handler);
     #endif    
     
     // primary over current fault handler
     #if(FAULT_IPRI_OC)
-    FAULT_CheckMax(&dab.Fault.Object.IPrimaryOCP, dab.Adc.ISenseSecondary, &Dev_Fault_Handler);
+    FAULT_CheckMax(&dab.Fault.Object.IPrimaryOCP, dab.Adc.ISensePrimary, &Dev_Fault_Handler);
     #endif 
     
     // primary over voltage fault handler
-    #if (FAULT_VPRI_OV)                
-    FAULT_CheckMax(&dab.Fault.Object.VPrimaryOVP, dab.Adc.ISenseSecondary, &Dev_Fault_Handler);
+    #if (FAULT_VPRI_OV)      
+    FAULT_CheckMax(&dab.Fault.Object.VPrimaryOVP, dab.Adc.VPriVoltage, &Dev_Fault_Handler);
     #endif  
 
     // primary over voltage fault handler
@@ -133,16 +138,6 @@ void Dev_Fault_Reset(void)
     dab.Fault.Object.VPrimaryOVP.FaultLatch = 0;
     dab.Fault.Object.VSecondaryOVP.FaultLatch = 0;
 }
-
-
-
-
-
-
-
-
-
-
 
 /*********************************************************************************
  * @ingroup 

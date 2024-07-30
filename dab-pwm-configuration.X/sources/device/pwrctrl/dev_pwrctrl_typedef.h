@@ -73,15 +73,13 @@ typedef struct SWITCH_NODE_s SWITCH_NODE_t;
  ***********************************************************************************/
 struct FEEDBACK_SETTINGS_s
 {
-    uint16_t VHighVoltage;      ///< Data value for input voltage 
-    uint16_t VLowVoltage;       ///< Data value for output voltage
+    uint16_t VPriVoltage;       ///< Data value for input voltage 
+    uint16_t VSecVoltage;       ///< Data value for output voltage
     uint16_t ISensePrimary;     ///< Data value for primary current as measured with CT
     uint16_t ISenseSecondary;   ///< Data value for secondary current as measured with CT
     uint16_t ISecAverage;       ///< Data value for average secondary current as measured with isolated current sensor
     uint16_t Temperature;       ///< Data value for temperature
     uint16_t VRail_5V;           ///< Data value for 5V auxiliary rail
-    
-    uint16_t vpri;          ///< primary side voltage    //ToDo: Check with Cormac
     uint16_t isec_sensor_offset; ///< ADC code corresponding to the offset of the secondary current sensor
 };
 typedef struct FEEDBACK_SETTINGS_s FEEDBACK_SETTINGS_t;

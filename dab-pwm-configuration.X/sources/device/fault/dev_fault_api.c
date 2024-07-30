@@ -47,8 +47,8 @@ uint16_t Dev_Fault_GetFlags(void)
             (dab.Fault.Object.ISenseSCP.FaultLatch << FLT_ISNS_SCP) +
             (dab.Fault.Object.VPrimaryOVP.FaultLatch << FLT_VPRI_OVP) +
             (dab.Fault.Object.VSecondaryOVP.FaultLatch << FLT_VSEC_OVP) +
-            (dab.Fault.Object.VSecondaryOVP.FaultLatch << FLT_DAB_TEMP) +
-            (dab.Fault.Object.VSecondaryOVP.FaultLatch << FLT_RAIL_5V);
+            (dab.Fault.Object.PowerSupplyOTP.FaultLatch << FLT_DAB_TEMP) +
+            (dab.Fault.Object.VRail_5V.FaultLatch << FLT_RAIL_5V);
             
     return(fault);        
 }
@@ -62,9 +62,22 @@ uint16_t Dev_Fault_GetFlags(void)
  * @details
  * API function
  **********************************************************************************/
-void Dev_Fault_SetOVPThreshold(uint16_t reference)
+void Dev_Fault_SetSecOVPThreshold(uint16_t reference)
 {    
     dab.Fault.Object.VSecondaryOVP.val1_Threshold = reference;
+}
+/*********************************************************************************
+ * @ingroup 
+ * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
+ * @brief   API function to set the power controller reference
+ * @param   none
+ * @return  none
+ * @details
+ * API function
+ **********************************************************************************/
+void Dev_Fault_SetPriOVPThreshold(uint16_t reference)
+{    
+    dab.Fault.Object.VPrimaryOVP.val1_Threshold = reference;
 }
 
 void Dev_Fault_SetIPrimaryThreshold(uint16_t reference)

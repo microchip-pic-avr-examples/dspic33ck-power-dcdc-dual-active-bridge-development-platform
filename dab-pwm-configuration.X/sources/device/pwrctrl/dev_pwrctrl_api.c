@@ -114,7 +114,7 @@ void Dev_PwrCtrl_SetEnable(bool enable)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Vpri(void)
 {
-    return(dab.Adc.vpri);
+    return(dab.Adc.VPriVoltage);
 }
 
 /*********************************************************************************
@@ -128,7 +128,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Vpri(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Vsec(void)
 {
-    return(dab.Adc.VLowVoltage);
+    return(dab.Adc.VSecVoltage);
 }
 
 /*********************************************************************************

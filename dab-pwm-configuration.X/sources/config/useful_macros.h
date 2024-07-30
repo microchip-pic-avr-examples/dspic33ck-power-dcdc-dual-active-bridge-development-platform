@@ -81,10 +81,10 @@
 // converter dead times in seconds to integer that can be loaded into PGxDTy register
 #define PWM_HR_PGxDTy(dead_time)                ((uint16_t)(_rnd_int32_t(8.0*500.0e+6*dead_time)))
 
-// convert a threshold in enginnering units (volts,amps etc,) or amps to ADC threshold
+// convert a threshold in engineering units (volts,amps etc,) or amps to ADC threshold
 // formula is:
 // integer threshold = (volts or amps threshold)*gain + offset
-#define UNITS_FROM_ENG_TO_ADC(threshold, gain, offset)       (_rnd((((float)threshold*(float)gain) + (float)offset)/3.3*4096.0))
+#define UNITS_FROM_ENG_TO_ADC(threshold, gain, offset)       (_rnd((((float)threshold*(float)gain) + (float)offset)/3.3*4095.0))
 
 #endif	/* USEFUL_MACROS_H */
 

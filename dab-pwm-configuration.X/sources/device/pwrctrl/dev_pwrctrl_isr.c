@@ -48,11 +48,15 @@ void ControlLoop_Interrupt(void)
     
     // read shared ADC core results
     // these are all triggered by PWM1 trigger 1
-    dab.Adc.VLowVoltage = ADC1_ConversionResultGet(VSEC);
+    dab.Adc.VSecVoltage = ADC1_ConversionResultGet(VSEC);
     dab.Adc.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
-    dab.Adc.vpri = ADC1_ConversionResultGet(VPRI);
     
-    // TODO: move the handler for these 2 signals to a lower frequency process
+    #if (VPRI_OPTOCOUPLER_POLARITY)
+        dab.Adc.VPriVoltage = ADC_RESOLUTION - ADC1_ConversionResultGet(VPRI);
+    #else
+        dab.Adc.VPriVoltage = ADC_RESOLUTION - ADC1_ConversionResultGet(VPRI);
+    #endif
+
     dab.Adc.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
     dab.Adc.Temperature = ADC1_ConversionResultGet(TEMP);
     

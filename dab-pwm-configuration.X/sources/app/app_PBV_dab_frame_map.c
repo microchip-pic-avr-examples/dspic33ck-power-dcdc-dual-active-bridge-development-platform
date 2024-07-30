@@ -64,7 +64,8 @@
 #define PBV_CMD_ID_ILOOP_REF_SET        0xDDDD           ///< set current loop reference
 #define PBV_CMD_ID_PHASE_CHANGE         0xEE01           ///< set control phase
 
-#define PBV_CMD_ID_OVP_TEST             0xEE10           ///< set over voltage protection threshold
+#define PBV_CMD_ID_PRI_OVP_TEST         0xEE11           ///< set over voltage protection threshold
+#define PBV_CMD_ID_SEC_OVP_TEST         0xEE10           ///< set over voltage protection threshold
 #define PBV_CMD_ID_IPRI_TEST            0xEE20           ///< set primary current protection threshold
 #define PBV_CMD_ID_ISEC_TEST            0xEE30           ///< set secondary current protection threshold
 
@@ -314,8 +315,16 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             Dev_Fan_Set_Speed(control_word);
             break; 
         }
-        case PBV_CMD_ID_OVP_TEST: {
-            Dev_Fault_SetOVPThreshold(control_word); 
+        case PBV_CMD_ID_PRI_OVP_TEST: {
+            Nop();
+            Nop();
+            Nop();
+            control_word = ADC_RESOLUTION - control_word;
+            Dev_Fault_SetPriOVPThreshold(control_word);
+            break;
+        }
+        case PBV_CMD_ID_SEC_OVP_TEST: {
+            Dev_Fault_SetSecOVPThreshold(control_word); 
             break; 
         }
         case PBV_CMD_ID_IPRI_TEST: {
