@@ -27,15 +27,12 @@
 #define FAULT_VRAIL_5V  false
 
 #define FAULT_VPRI_OV   true
-#define VPRI_OPTOCOUPLER_POLARITY  false // false if not inverted; true if inverted 
+#define VPRI_OPTOCOUPLER_POLARITY  true // false if not inverted; true if inverted 
 
 
 #define PWM_CLOCK_HIGH_RESOLUTION       true 
 #define MAXIMUM_SWITCHING_FREQUENCY     (float)230.0e+3 ///< Maximum Switching frequency in [Hz]
 #define MINIMUM_SWITCHING_FREQUENCY     (float) 65.0e+3 ///< Minimum Switching frequency in [Hz]
-
-#define MAXIMUM_CONTROL_PHASE           180 ///< Maximum control phase in degrees phase
-
 
 // T_ADC_SAMPLE_SECS: smallest period between ADC samples
 #define T_ADC_SAMPLE_SECS       (16.5e-6) // ADC sampling rate

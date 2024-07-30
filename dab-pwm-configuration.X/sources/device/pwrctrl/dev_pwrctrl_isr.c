@@ -51,11 +51,7 @@ void ControlLoop_Interrupt(void)
     dab.Adc.VSecVoltage = ADC1_ConversionResultGet(VSEC);
     dab.Adc.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
     
-    #if (VPRI_OPTOCOUPLER_POLARITY)
-        dab.Adc.VPriVoltage = ADC_RESOLUTION - ADC1_ConversionResultGet(VPRI);
-    #else
-        dab.Adc.VPriVoltage = ADC_RESOLUTION - ADC1_ConversionResultGet(VPRI);
-    #endif
+    dab.Adc.VPriVoltage = ADC1_ConversionResultGet(VPRI);
 
     dab.Adc.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
     dab.Adc.Temperature = ADC1_ConversionResultGet(TEMP);

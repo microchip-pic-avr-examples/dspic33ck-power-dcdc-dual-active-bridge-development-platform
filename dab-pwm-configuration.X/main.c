@@ -86,6 +86,11 @@ int main(void)
     Dev_LED_Init();
     Dev_Fan_Init();
     
+    Nop();
+    Nop();
+    Nop();
+    
+    
     OS_Scheduler_RunForever();
     
     while(1)

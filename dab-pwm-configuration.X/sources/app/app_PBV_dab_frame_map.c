@@ -319,7 +319,6 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             Nop();
             Nop();
             Nop();
-            control_word = ADC_RESOLUTION - control_word;
             Dev_Fault_SetPriOVPThreshold(control_word);
             break;
         }
