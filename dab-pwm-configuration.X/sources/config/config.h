@@ -15,7 +15,7 @@
 
 
 #define DPDB_TEST_RUN   false    ///< test the code with Digital Power Development Board
-#define OPEN_LOOP_PBV   true    ///< use Power Board visualizer to change the parameters
+#define OPEN_LOOP_PBV   false    ///< use Power Board visualizer to change the parameters
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
 //------------------------------------------------------------------------------
@@ -40,6 +40,9 @@
 
 // 5V rail sample taken every T_ADC_5V_SAMPLE_DIVIDER samples
 #define T_ADC_5V_SAMPLE_DIVIDER         (100)
+
+// VSEC_SETPOINT_DEFAULT_VOLTS: default secondary voltage setpoint
+#define VSEC_SETPOINT_DEFAULT_VOLTS     (50.0)
 
 //------------------------------------------------------------------------------
 // fault related parameters

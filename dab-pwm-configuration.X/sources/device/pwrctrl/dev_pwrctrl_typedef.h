@@ -116,12 +116,27 @@ typedef struct STATUS_FLAGS_s STATUS_FLAGS_t;
  **********************************************************************************/
 struct CONTROLLER_s
 {
-  int16_t reference;        ///< actual reference
-  int16_t referenceTarget;  ///< target reference, can be changed via GUI
-  uint16_t feedback;        ///< coming 
-  uint16_t output;          ///< controller output
+  int16_t Reference;        ///< actual reference
+  int16_t ReferenceTarget;  ///< target reference, can be changed via GUI
+  uint16_t Feedback;        ///< coming 
+  uint16_t Output;          ///< controller output
+  int16_t AgcFactor;        ///< Adoptive gain control
 };
 typedef struct CONTROLLER_s CONTROLLER_t;
+
+/***********************************************************************************
+ * @ingroup dev-pwrctrl-type-definitions-data-types
+ * @brief   Enumeration of power controller charging state
+ * @details
+ * These are all of the states for the power controller state machine
+ ***********************************************************************************/
+enum  PWR_CTRL_CHARGE_STATE_e
+{
+    PWR_CTRL_CHARGING,      ///< power converter is in charging mode
+    PWR_CTRL_DISCHARGING    ///< power converter is in discharging mode
+};
+typedef enum PWR_CTRL_CHARGE_STATE_e PWR_CTRL_CHARGE_STATE_t;
+
 
 struct POWER_CONTROL_s
 {
@@ -132,7 +147,8 @@ struct POWER_CONTROL_s
     FAULT_SETTINGS_t    Fault;  ///< Fault flags and settings 
     CONTROLLER_t        ILoop;  ///< structure for current controller data
     CONTROLLER_t        VLoop;  ///< structure for voltage controller data
-    bool enable;                ///< control flag, set to 1 to run the power supply
+    PWR_CTRL_CHARGE_STATE_t    PowerDirection;  ///< defines if the power converter is in charging or discharging mode   
+    bool    Enable;             ///< control flag, set to 1 to run the power supply
 };
 typedef struct POWER_CONTROL_s POWER_CONTROL_t;
 

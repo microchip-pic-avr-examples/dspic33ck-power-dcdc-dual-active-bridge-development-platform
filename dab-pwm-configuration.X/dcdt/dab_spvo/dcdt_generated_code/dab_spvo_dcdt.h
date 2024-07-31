@@ -99,7 +99,6 @@
 
 **/
 
-
 // Compensator Coefficient Defines
 #define DAB_SPVO_COMP_2P2Z_COEFF_A1      0x0513
 #define DAB_SPVO_COMP_2P2Z_COEFF_A2      0x00A6

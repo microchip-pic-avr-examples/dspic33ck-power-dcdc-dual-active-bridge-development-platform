@@ -62,6 +62,7 @@
 #define PBV_CMD_ID_PWM_DTL              0xBBBD           ///< change DAB PWM DeadTime Low
 #define PBV_CMD_ID_FAN_SPEED            0xCCCC           ///< set fan speed 
 #define PBV_CMD_ID_ILOOP_REF_SET        0xDDDD           ///< set current loop reference
+#define PBV_CMD_ID_VLOOP_REF_SET        0xDDDE           ///< set voltage loop reference
 #define PBV_CMD_ID_PHASE_CHANGE         0xEE01           ///< set control phase
 
 #define PBV_CMD_ID_PRI_OVP_TEST         0xEE11           ///< set over voltage protection threshold
@@ -291,7 +292,7 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         case PBV_CMD_ID_FREQ_CHANGE: {
             // change target frequency
             if ((control_word <= MAX_PWM_PERIOD) && (control_word >= MIN_PWM_PERIOD)) {
-                Dev_PwrCtrl_SetReferenceTarget(control_word);
+                Dev_PwrCtrl_SetPeriodTarget(control_word);
                 // when Frequency is changed, control phase will be zero
                 uint16_t controlPhase = 0;
                 Dev_PwrCtrl_SetPhaseTarget(controlPhase);
@@ -301,10 +302,17 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         case PBV_CMD_ID_ILOOP_REF_SET: {
             if (control_word < 32767) //TODO: put in proper check here!
             {
-                Dev_PwrCtrl_Set_IloopReferenceTarget(control_word);
+                Dev_PwrCtrl_SetILoopReferenceTarget(control_word);
             }
             break; 
         }        
+        case PBV_CMD_ID_VLOOP_REF_SET: {
+            if (control_word < 32767) //TODO: put in proper check here!
+            {
+                Dev_PwrCtrl_SetVLoopReferenceTarget(control_word);
+            }
+            break; 
+        }  
         case PBV_CMD_ID_PHASE_CHANGE: {
             // change target phase
             uint16_t controlPhase = (uint16_t)((control_word)* PHASE_180_SCALER * (Dev_PwrCtrl_Get_DutyCycle()));

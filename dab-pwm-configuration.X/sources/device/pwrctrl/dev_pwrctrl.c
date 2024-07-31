@@ -29,8 +29,17 @@
 
 POWER_CONTROL_t dab;
 
+static void Dev_PwrCtrl_ControlLoopInitialize(void);
 extern void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
 
+/*******************************************************************************
+ * @ingroup 
+ * @brief  
+ * @return 
+ * 
+ * @details 
+ * 
+ *********************************************************************************/
 void Dev_PwrCtrl_Initialize(void)
 {
     // Initialize the PWM instance that the user initialize in MCC
@@ -48,15 +57,13 @@ void Dev_PwrCtrl_Initialize(void)
     dab.Pwm.PBVPeriodTarget = MIN_PWM_PERIOD;
     dab.Pwm.PBVControlPhaseTarget = 0;
     
-    // initialize the current loop compensator
-    //ToDo: Add this later
-    // initialize the current loop compensator
-//    Drv_PwrCtrl_Icomp_Init();
+    //Initialize the DAB to charging state
+    dab.PowerDirection =  PWR_CTRL_CHARGING;
     
-    // initialize the voltage loop compensator
-//    Drv_PwrCtrl_Vcomp_Init();
+    //Initialize Power Control Loop
+    Dev_PwrCtrl_ControlLoopInitialize();
     
-    // set all PWM output pins to 0
+    // Disable PWM output by setting the PWM override bits to High
     Dev_PwrCtrl_PWM_Disable(&dab); 
     
     //Enable PWM peripheral
@@ -65,17 +72,16 @@ void Dev_PwrCtrl_Initialize(void)
     // Update the Period, Duty Cycle and Phases of the PWMs based on
     // the given Control period and Control Phase
     Dev_PwrCtrl_PWM_Update(&dab);
-
-    
 }
 
-void Dev_PwrCtrl_Enable(void)
-{
-    //Enable PWM output
-    Dev_PwrCtrl_PWM_Enable(&dab);
-}
-
-
+/*******************************************************************************
+ * @ingroup 
+ * @brief  
+ * @return 
+ * 
+ * @details 
+ * 
+ *********************************************************************************/
 void Dev_PwrCtrl_Execute(void)
 {
     //ToDo: review this later
@@ -85,9 +91,37 @@ void Dev_PwrCtrl_Execute(void)
     Dev_PwrCtrl_StateMachine(&dab);
 }
 
-
+/*******************************************************************************
+ * @ingroup 
+ * @brief  
+ * @return 
+ * 
+ * @details 
+ * 
+ *********************************************************************************/
 void Dev_PwrCtrl_Suspend(void)
 {
     //Disable PWM peripheral
     PWM_Disable();
+}
+
+void Dev_PwrCtrl_ControlLoopInitialize(void)
+{
+    // Initialize voltage loop compensator
+    Dev_PwrCtrl_VComp_Initialize();
+    
+    // Initialize current loop compensator
+    Dev_PwrCtrl_IComp_Initialize();
+    
+    dab.VLoop.AgcFactor = 0x7FFF;
+    dab.VLoop.Feedback = 0;
+    dab.VLoop.Output = 0;
+    dab.VLoop.Reference = 0;
+    dab.VLoop.ReferenceTarget = 0;
+    
+    dab.ILoop.AgcFactor = 0x7FFF;
+    dab.ILoop.Feedback = 0;
+    dab.ILoop.Output = 0;
+    dab.ILoop.Reference = 0;
+    dab.ILoop.ReferenceTarget = 0;
 }

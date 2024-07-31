@@ -28,6 +28,9 @@
 #include "config/macros.h"
 #include "dev_pwrctrl_pwm.h"
 #include "device/fault/dev_fault.h"
+#include "dcdt/dev_pwrctrl_dcdt.h"
+
+void Dev_PwrCtrl_UpdateConverterData(void);
 
 /*********************************************************************************
  * @ingroup 
@@ -42,21 +45,39 @@
  **********************************************************************************/
 void ControlLoop_Interrupt(void)
 {          
-    // read dedicated core ADC results, these are triggered via PWM1 trigger 1
-    dab.Adc.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); // used for control
-    dab.Adc.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); // used for protection
+    // Update the ADC data member
+    Dev_PwrCtrl_UpdateConverterData();
     
-    // read shared ADC core results
-    // these are all triggered by PWM1 trigger 1
-    dab.Adc.VSecVoltage = ADC1_ConversionResultGet(VSEC);
-    dab.Adc.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
-    
-    dab.Adc.VPriVoltage = ADC1_ConversionResultGet(VPRI);
-
-    dab.Adc.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
-    dab.Adc.Temperature = ADC1_ConversionResultGet(TEMP);
-    
+    // Execute the fault detection
     Dev_Fault_Execute();
+        
+    // Execute the Voltage Loop Control
+    //ToDo: Check with Lorant if the time execution of Vloop
+    if(dab.PowerDirection == PWR_CTRL_CHARGING)
+    { 
+        VMC_2p2z.KfactorCoeffsB = 0x7FFF;
+        VMC_2p2z.maxOutput =  0x7FFF;
+        
+        dab.VLoop.Feedback = dab.Adc.VSecVoltage << 4;
+        dab.VLoop.Reference = dab.VLoop.Reference << 4;
+        
+        XFT_SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
+                dab.VLoop.Reference, dab.VLoop.Output);
+    }
+    
+    // Execute the Current Loop Control
+    dab.ILoop.Feedback = dab.Adc.ISenseSecondary << 3;
+    //adaptive gain factor
+    IMC_2p2z.KfactorCoeffsB = dab.ILoop.AgcFactor;
+    //refresh limits
+    IMC_2p2z.maxOutput =  0x7FFF;
+    
+    //mixing stage from voltage loop 10khz
+    uint32_t RefBuf = (uint32_t)dab.ILoop.Reference * (uint32_t)(dab.VLoop.Output & 0x7FFF);
+    dab.ILoop.Reference = (uint16_t)(RefBuf>>12) ; //15-3
+    
+    XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 
+            dab.ILoop.Reference, &dab.ILoop.Output);    
     
     
     #if (true == DPDB_TEST_RUN)
@@ -75,5 +96,24 @@ void ControlLoop_Interrupt(void)
        
     // Update PWM Properties
     Dev_PwrCtrl_PWM_Update(&dab);
+}
+
+
+
+
+void Dev_PwrCtrl_UpdateConverterData (void)
+{
+    // read dedicated core ADC results, these are triggered via PWM1 trigger 1
+    dab.Adc.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); // used for control
+    dab.Adc.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); // used for protection
     
+    // read shared ADC core results
+    // these are all triggered by PWM1 trigger 1
+    dab.Adc.VSecVoltage = ADC1_ConversionResultGet(VSEC);
+    dab.Adc.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
+    
+    dab.Adc.VPriVoltage = ADC1_ConversionResultGet(VPRI);
+
+    dab.Adc.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
+    dab.Adc.Temperature = ADC1_ConversionResultGet(TEMP);
 }

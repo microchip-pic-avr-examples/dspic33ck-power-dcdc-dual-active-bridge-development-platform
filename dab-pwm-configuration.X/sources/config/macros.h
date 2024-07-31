@@ -44,6 +44,12 @@
 #define MAX_PER_CONTROL_PHASE  (uint16_t)(float)(MAX_PWM_PERIOD / CONTROL_PHASE_RAD)
 
 
+#define ADC_5V_SAMPLE_DIV   ((uint16_t)(_rnd(T_ADC_5V_SAMPLE_DIVIDER/3)))
+
+#define ADC_TEMP_SAMPLE_DIV     ((uint16_t)(_rnd(T_ADC_TEMP_SAMPLE_DIVIDER/ADC_5V_SAMPLE_DIV)))
+
+#define VSEC_SETPOINT_DEFAULT   (UNITS_FROM_ENG_TO_ADC(VSEC_SETPOINT_DEFAULT_VOLTS,VSEC_SNS_GAIN,0.0))
+
 //------------------------------------------------------------------------------
 // fault related
 //------------------------------------------------------------------------------

@@ -105,7 +105,7 @@ static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
         Dev_Fault_Reset();
         pcInstance->Status.bits.FaultActive = 0;
         pcInstance->Status.bits.Running = 0;
-        pcInstance->enable = 0;
+        pcInstance->Enable = 0;
         
         pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
         
@@ -143,10 +143,10 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 {
     if (pcInstance->Fault.FaultDetected)
     {
-        pcInstance->enable = 0; // for now, user has to manually re-start converter after a fault
+        pcInstance->Enable = 0; // for now, user has to manually re-start converter after a fault
         pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; // next state
     }
-    else if (pcInstance->enable) // this flag is generally set externally (via PBV GUI for example)
+    else if (pcInstance->Enable) // this flag is generally set externally (via PBV GUI for example)
     {
         Dev_Fault_Reset();
 
@@ -160,22 +160,24 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 
         pcInstance->Status.bits.Running = 1;
         
-        // current loop reference init
-        pcInstance->ILoop.reference = 0;
-        
+        //ToDo: Check with Cormac
         // interrupts temporarily disabled to avoid a conflict with
         // with the compensator update function SMPS_Controller2P2ZUpdate() 
         // called from a higher priority interrupt
         INTERRUPT_GlobalDisable();            
         
-        //ToDo: add this later
-//        SMPS_Controller2P2ZInitialize(&icomp_2p2z); 
         INTERRUPT_GlobalEnable();   
         
         Dev_Fault_ClearHardwareFaults();
 
         Dev_PwrCtrl_PWM_Enable(pcInstance);
     
+        // current loop reference initialize
+        pcInstance->ILoop.Reference = 0;
+        
+        // initialize voltage loop reference to current secondary voltage
+        pcInstance->VLoop.Reference = pcInstance->Adc.VSecVoltage;
+        
         pcInstance->State = PWR_CNTRL_STATE_SOFT_START;   // next state
     }
 }
@@ -194,11 +196,11 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
 {
   if (pcInstance->Fault.FaultDetected)
   {
-      pcInstance->enable = false;  // for now, user has to manually re-start converter after a fault
+      pcInstance->Enable = false;  // for now, user has to manually re-start converter after a fault
       pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; 
   }
   
-  else if (!pcInstance->enable) 
+  else if (!pcInstance->Enable) 
   {
     Dev_PwrCtrl_PWM_Disable(pcInstance);
     pcInstance->Status.bits.Running = 0;
@@ -207,13 +209,12 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
   else
   {    
       
-    uint16_t step = 8;  // cannot be below 8 because of the masking in 
-    uint16_t delay = 0; // TODO: parameterize this into a soft-start time
+    // Soft start the converter
+#if (OPEN_LOOP_PBV)
     bool rampComplete = false;
     bool rampCompletePhase = false;
-    
-    // soft start the converter
-#ifdef OPEN_LOOP_PBV
+    uint16_t step = 8;  // cannot be below 8 because of the masking
+    uint16_t delay = 0; // TODO: parameterize this into a soft-start time
     uint16_t* ptr_reference = (uint16_t*)&pcInstance->Pwm.ControlPeriod;
     uint16_t* ptr_referenceTarget = (uint16_t*)&pcInstance->Pwm.PBVPeriodTarget;
     uint16_t* ptrControlPhaseReference = (uint16_t*)&pcInstance->Pwm.ControlPhase;
@@ -222,22 +223,26 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     rampCompletePhase =  Dev_PwrCtrl_RampReference(ptrControlPhaseReference, ptrControlPhaseReferenceTarget, 1, delay);
     
     if(rampCompletePhase == true)
+        rampComplete = Dev_PwrCtrl_RampReference(ptr_reference, ptr_referenceTarget, step, delay);
+    
 #else
-    uint16_t* ptr_reference = (uint16_t*)&pcInstance->ILoop.reference;
-    uint16_t* ptr_referenceTarget = (uint16_t*)&pcInstance->ILoop.referenceTarget;
-#endif // #ifdef OPEN_LOOP_PBV
+    uint16_t step = 1;  
+    uint16_t delay = 0;
+    bool rampIComplete = 0;
+    bool rampVComplete = 0;
+    uint16_t* ptrIreference = (uint16_t*)&pcInstance->ILoop.Reference;
+    uint16_t* ptrIreferenceTarget = (uint16_t*)&pcInstance->ILoop.ReferenceTarget;
+    uint16_t* ptrVreference = (uint16_t*)&pcInstance->VLoop.Reference;
+    uint16_t* ptrVreferenceTarget = (uint16_t*)&pcInstance->VLoop.ReferenceTarget;
     
-    rampComplete = Dev_PwrCtrl_RampReference(ptr_reference, ptr_referenceTarget, step, delay);
+    rampVComplete = Dev_PwrCtrl_RampReference(ptrVreference, ptrVreferenceTarget, step, delay);
+    rampIComplete = Dev_PwrCtrl_RampReference(ptrIreference, ptrIreferenceTarget, step, delay);
     
-    // ToDo: Check with Cormac, I think this is not needed as it is already called in the interrupt
-//#ifdef OPEN_LOOP_PBV    
-//    Dev_PwrCtrl_PWM_Update(&dab); // update PWM registers, which will in turn update frequency
-//#endif  // #ifdef OPEN_LOOP_PBV 
-    
-    if (rampComplete)
-    {
-      pcInstance->State = PWR_CNTRL_STATE_ONLINE;  // next state
-    }
+#endif 
+     
+    if (rampIComplete && rampVComplete)
+        pcInstance->State = PWR_CNTRL_STATE_ONLINE;  // next state
+
   }
 }
 
@@ -255,12 +260,12 @@ static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
 {
     if (pcInstance->Fault.FaultDetected)
     {
-        pcInstance->enable = false;  // for now, user has to manually re-start converter after a fault
+        pcInstance->Enable = false;  // for now, user has to manually re-start converter after a fault
         pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; 
     }
     else
     {
-        if (!pcInstance->enable)
+        if (!pcInstance->Enable)
         {
             Dev_PwrCtrl_PWM_Disable(pcInstance);
             pcInstance->Status.bits.Running = 0;            
@@ -272,7 +277,7 @@ static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
                 (pcInstance->Pwm.ControlPhase != pcInstance->Pwm.PBVControlPhaseTarget))
     #else
             
-        else if (pcInstance->ILoop.reference != pcInstance->ILoop.referenceTarget)  
+        else if (pcInstance->ILoop.Reference != pcInstance->ILoop.ReferenceTarget)  
     #endif // #ifdef OPEN_LOOP_PBV
         {
             pcInstance->State = PWR_CNTRL_STATE_SOFT_START;

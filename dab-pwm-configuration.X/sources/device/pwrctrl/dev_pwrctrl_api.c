@@ -36,6 +36,19 @@ void Dev_PwrCtrl_SetState(uint16_t reference)
     dab.State = reference;
 }
 
+/*********************************************************************************
+ * @ingroup 
+ * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
+ * @brief   API function to set the power controller reference
+ * @param   none
+ * @return  none
+ * @details
+ * API function
+ **********************************************************************************/
+void Dev_PwrCtrl_SetILoopReferenceTarget(uint16_t reference)
+{    
+    dab.ILoop.ReferenceTarget = reference;
+}
 
 /*********************************************************************************
  * @ingroup 
@@ -46,7 +59,21 @@ void Dev_PwrCtrl_SetState(uint16_t reference)
  * @details
  * API function
  **********************************************************************************/
-void Dev_PwrCtrl_SetReferenceTarget(uint16_t reference)
+void Dev_PwrCtrl_SetVLoopReferenceTarget(uint16_t reference)
+{    
+    dab.VLoop.ReferenceTarget = reference;
+}
+
+/*********************************************************************************
+ * @ingroup 
+ * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
+ * @brief   API function to set the power controller reference
+ * @param   none
+ * @return  none
+ * @details
+ * API function
+ **********************************************************************************/
+void Dev_PwrCtrl_SetPeriodTarget(uint16_t reference)
 {    
     dab.Pwm.PBVPeriodTarget = reference;
 }
@@ -100,7 +127,7 @@ void Dev_PwrCtrl_SetDeadTimeLow(uint16_t reference)
  **********************************************************************************/
 void Dev_PwrCtrl_SetEnable(bool enable)
 { 
-  dab.enable = enable; 
+  dab.Enable = enable; 
 }
 
 /*********************************************************************************
@@ -284,7 +311,7 @@ uint16_t Dev_PwrCtrl_Get_Status(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_EnableFlag(void)
 {
-    return(dab.enable);
+    return(dab.Enable);
 }
 
 
@@ -313,21 +340,7 @@ uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_IloopReferenceTarget(void)
 {
-    return(dab.ILoop.referenceTarget);
-}
-
-/*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_Set_IloopReferenceTarget(uint16_t)
- * @brief   API function to set the current loop reference
- * @param   current compensator reference
- * @return  none
- * @details
- * API function
- **********************************************************************************/
-void Dev_PwrCtrl_Set_IloopReferenceTarget(uint16_t referenceTarget)
-{
-    dab.ILoop.referenceTarget = referenceTarget;
+    return(dab.ILoop.ReferenceTarget);
 }
 
 /*********************************************************************************
@@ -341,7 +354,7 @@ void Dev_PwrCtrl_Set_IloopReferenceTarget(uint16_t referenceTarget)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_IloopReference(void)
 {
-    return(dab.ILoop.reference);
+    return(dab.ILoop.Reference);
 }
 
 /*********************************************************************************
@@ -355,7 +368,7 @@ uint16_t Dev_PwrCtrl_Get_IloopReference(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_IloopOutput(void)
 {
-    return(dab.ILoop.output);
+    return(dab.ILoop.Output);
 }
 
 /*********************************************************************************
@@ -369,7 +382,7 @@ uint16_t Dev_PwrCtrl_Get_IloopOutput(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_IloopFeedback(void)
 {
-    return(dab.ILoop.feedback);
+    return(dab.ILoop.Feedback);
 }
 
 /*********************************************************************************
