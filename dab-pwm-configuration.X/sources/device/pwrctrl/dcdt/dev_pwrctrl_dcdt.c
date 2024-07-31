@@ -48,7 +48,7 @@
 
 #include <xc.h>
 
-#include "drv_controller_DAB_DCDC.h"
+#include "dev_pwrctrl_dcdt.h"
 #include "../../../mcc_generated_files/peripheral/pwm.h"
 
 //dab_sp   sec to prim, discharger
