@@ -47,17 +47,11 @@
 #include <xc.h>
 #include <stdint.h>
 #include "smps_control.h"
-//#include "../../../dcdt/icomp1hv/dcdt_generated_code/icomp1hv_dcdt.h"
-#include "../../../dcdt/dab_psio/dcdt_generated_code/dab_psio_dcdt.h"
-//#include "../../../dcdt/dab_psvo/dcdt_generated_code/dab_psvo_dcdt.h"
-#include "../../../dcdt/dab_pspo/dcdt_generated_code/dab_pspo_dcdt.h"
 
-//#include "../../../dcdt/dab_spio/dcdt_generated_code/dab_spio_dcdt.h"
-#include "../../../dcdt/dab_spvo/dcdt_generated_code/dab_spvo_dcdt.h"
-//#include "../../../dcdt/dab_sppo/dcdt_generated_code/dab_sppo_dcdt.h"
-
-#include "../../../dcdt/dab_psio/dcdt_generated_code/dab_fm_dcdt.h"
-
+#include "dab_psio/dcdt_generated_code/dab_psio_dcdt.h"
+#include "dab_pspo/dcdt_generated_code/dab_pspo_dcdt.h"
+#include "dab_spvo/dcdt_generated_code/dab_spvo_dcdt.h"
+#include "dab_psio/dcdt_generated_code/dab_fm_dcdt.h"
 #include "../power_controller/../application/canfd/app_can.h"
 
 #define PRIMTOSEC_TARGET (882)
@@ -313,7 +307,7 @@ void CurrentCtrl_Compensator_Handler(void);
 void FreqCtrl_Compensator_Handler(void);
 void PowCtrl_Compensator_Handler(void);
 void CurrentCtrl_DAB_Init(void);
-void VoltageCtrl_DAB_Init(void);
+void Dev_PwrCtrl_Vcomp_Initialize(void);
 void FreqCtrl_DAB_Init(void);
 void PowCtrl_DAB_Init(void);
 void Init_pwr_ctrl (void);

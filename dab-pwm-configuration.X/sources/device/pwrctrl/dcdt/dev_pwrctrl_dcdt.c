@@ -49,7 +49,7 @@
 #include <xc.h>
 
 #include "dev_pwrctrl_dcdt.h"
-#include "../../../mcc_generated_files/peripheral/pwm.h"
+#include "peripheral/pwm.h"
 
 //dab_sp   sec to prim, discharger
 //dab_ps   prim to sec, charger
@@ -69,17 +69,6 @@ SMPS_2P2Z_T VMD_2p2z;//Voltage mode Discharger
 SMPS_2P2Z_T IMD_2p2z;
 SMPS_2P2Z_T FMD_2p2z;//nrnd
 SMPS_2P2Z_T PMD_2p2z; 
-////======================================================================================================================
-////@brief SMPS_2P2Z_T VMC_2p2z //typedef from smps_control.h to var
-////======================================================================================================================
-//
-//int16_t   VMCTP_2p2zACoefficients[2]__attribute__((space(xmemory)));
-//int16_t   VMCTP_2p2zBCoefficients[3] __attribute__((space(xmemory)));
-//int16_t   VMCTP_2p2zControlHistory[2] __attribute__((space(ymemory), far));
-//int16_t   VMCTP_2p2zErrorHistory[3] __attribute__((space(ymemory), far));
-//uint16_t  VMCTP_2p2zReferenceSet;
-
-
 
 //charger
 //======================================================================================================================
@@ -158,124 +147,124 @@ int16_t   PMD_2p2zControlHistory[2] __attribute__((space(ymemory), far));
 int16_t   PMD_2p2zErrorHistory[3] __attribute__((space(ymemory), far));
 uint16_t  PMD_2p2zReferenceSet;
 
-
-DAB_CONTROLLER_t DAB;
-CAN_x603_FRAME_s CAN_x603_FRAME;//DAB board specific GUI
-CAN_x603_FRAME_s *pCAN_x603_FRAME = &CAN_x603_FRAME;
-
-
-inline void VoltageCtrl_Compensator_Handler(void)
-{
-    VMC_2p2z.KfactorCoeffsB = 0x7FFF;//DAB.Adaptive_Gain_Factor; 
-    VMC_2p2z.maxOutput =  0x7FFF;//DAB.PWM_DutyCycle;
-    
-    if(DAB.PowerDirection == DAB_CHARGER)
-    { 
-        VMC_2p2z.KfactorCoeffsB = 0x7FFF;//DAB.Adaptive_Gain_Factor; 
-        VMC_2p2z.maxOutput =  0x7FFF;//DAB.PWM_DutyCycle;
-        XFT_SMPS_Controller2P2ZUpdate(&VMC_2p2z, 
-                                  &DAB.VMControllerInputRegister, 
-                                   DAB.VMreference2p2z,
-                                  &DAB.VMControllerOutputRegister);
-    }
-    
-    if(DAB.PowerDirection == DAB_DISCHARGER)
-    { 
-        VMD_2p2z.KfactorCoeffsB = 0x7FFF;//DAB.Adaptive_Gain_Factor; 
-        VMD_2p2z.maxOutput =  0x7FFF;//DAB.PWM_DutyCycle;
-        XFT_SMPS_Controller2P2ZUpdate(&VMD_2p2z, 
-                                  &DAB.VMControllerInputRegister, 
-                                   DAB.VMreference2p2z,
-                                  &DAB.VMControllerOutputRegister);
-    }
-}
-
-inline void CurrentCtrl_Compensator_Handler(void)
-{
-    uint32_t RefBuf;//used for some intermediate steps only. to be redefined later
-    
-    //DAB_PSIO
-    // 16000 = 0.5 fract; 3276 = 0.1 fract 
-    // Gain should be within 0.1 and 0.5
-    // compensator calculated with Gain of 10
-    //IMC_2p2z.KfactorCoeffsB = 0x7FFF;//DAB.Adaptive_Gain_Factor; //Adaptive_Gain_Factor = 3276;  //factor = 0.1
-    
-    
-    
-    //adaptive gain parameter refresh
-    IMC_2p2z.KfactorCoeffsB = DAB.Adaptive_Gain_Factor;
-    //refresh limits
-    IMC_2p2z.maxOutput =  0x7FFF;//DAB.PWM_DutyCycle; 
-    
-    
-    //mixing stage from voltage loop 10khz
-    RefBuf = (uint32_t)DAB.IMreference * (uint32_t)(DAB.VMControllerOutputRegister & 0x7FFF);
-    DAB.IMreference2p2z = (uint16_t)(RefBuf>>12) ; //15-3
-            
-    //DAB.IMreference2p2z = DAB.IMreference<<3;
-    
-    //mixing stage from power loop 10khz. Future reserved!
-    RefBuf =  (uint32_t)DAB.IMreference2p2z * (uint32_t)(DAB.PMControllerOutputRegister & 0x7FFF);  
-    DAB.IMreference2p2z = (int16_t)(RefBuf>>15 );        
-            
-    
-    //hard clipping tests DEMO only
-    //redundant Voltage Clipping if other params go out of range during tests. Avoid Caps exploding
-    //Voltage 2p2z loop parameters may not be final
-//    if(DAB.PowerDirection == DAB_DISCHARGER)
-//    {    
-//      if(DAB.PrimaryVoltage >= 50) DAB.IMreference2p2z = 2;
-//    }
+//ToDo: Comment this for now
+//DAB_CONTROLLER_t DAB;
+//CAN_x603_FRAME_s CAN_x603_FRAME;//DAB board specific GUI
+//CAN_x603_FRAME_s *pCAN_x603_FRAME = &CAN_x603_FRAME;
+//
+//
+//inline void VoltageCtrl_Compensator_Handler(void)
+//{
+//    VMC_2p2z.KfactorCoeffsB = 0x7FFF;//DAB.Adaptive_Gain_Factor; 
+//    VMC_2p2z.maxOutput =  0x7FFF;//DAB.PWM_DutyCycle;
+//    
 //    if(DAB.PowerDirection == DAB_CHARGER)
-//    {    
-//      if(DAB.SecondaryVoltage >= 52) DAB.IMreference2p2z = 1;
+//    { 
+//        VMC_2p2z.KfactorCoeffsB = 0x7FFF;//DAB.Adaptive_Gain_Factor; 
+//        VMC_2p2z.maxOutput =  0x7FFF;//DAB.PWM_DutyCycle;
+//        XFT_SMPS_Controller2P2ZUpdate(&VMC_2p2z, 
+//                                  &DAB.VMControllerInputRegister, 
+//                                   DAB.VMreference2p2z,
+//                                  &DAB.VMControllerOutputRegister);
 //    }
-    
-    
-     //update compensator        
-    XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, //same compensator for charge/discharge directions
-                              &DAB.IMControllerInputRegister, 
-                               DAB.IMreference2p2z,
-                              &DAB.IMControllerOutputRegister);
-    
-}
+//    
+//    if(DAB.PowerDirection == DAB_DISCHARGER)
+//    { 
+//        VMD_2p2z.KfactorCoeffsB = 0x7FFF;//DAB.Adaptive_Gain_Factor; 
+//        VMD_2p2z.maxOutput =  0x7FFF;//DAB.PWM_DutyCycle;
+//        XFT_SMPS_Controller2P2ZUpdate(&VMD_2p2z, 
+//                                  &DAB.VMControllerInputRegister, 
+//                                   DAB.VMreference2p2z,
+//                                  &DAB.VMControllerOutputRegister);
+//    }
+//}
+//
+//inline void CurrentCtrl_Compensator_Handler(void)
+//{
+//    uint32_t RefBuf;//used for some intermediate steps only. to be redefined later
+//    
+//    //DAB_PSIO
+//    // 16000 = 0.5 fract; 3276 = 0.1 fract 
+//    // Gain should be within 0.1 and 0.5
+//    // compensator calculated with Gain of 10
+//    //IMC_2p2z.KfactorCoeffsB = 0x7FFF;//DAB.Adaptive_Gain_Factor; //Adaptive_Gain_Factor = 3276;  //factor = 0.1
+//    
+//    
+//    
+//    //adaptive gain parameter refresh
+//    IMC_2p2z.KfactorCoeffsB = DAB.Adaptive_Gain_Factor;
+//    //refresh limits
+//    IMC_2p2z.maxOutput =  0x7FFF;//DAB.PWM_DutyCycle; 
+//    
+//    
+//    //mixing stage from voltage loop 10khz
+//    RefBuf = (uint32_t)DAB.IMreference * (uint32_t)(DAB.VMControllerOutputRegister & 0x7FFF);
+//    DAB.IMreference2p2z = (uint16_t)(RefBuf>>12) ; //15-3
+//            
+//    //DAB.IMreference2p2z = DAB.IMreference<<3;
+//    
+//    //mixing stage from power loop 10khz. Future reserved!
+//    RefBuf =  (uint32_t)DAB.IMreference2p2z * (uint32_t)(DAB.PMControllerOutputRegister & 0x7FFF);  
+//    DAB.IMreference2p2z = (int16_t)(RefBuf>>15 );        
+//            
+//    
+//    //hard clipping tests DEMO only
+//    //redundant Voltage Clipping if other params go out of range during tests. Avoid Caps exploding
+//    //Voltage 2p2z loop parameters may not be final
+////    if(DAB.PowerDirection == DAB_DISCHARGER)
+////    {    
+////      if(DAB.PrimaryVoltage >= 50) DAB.IMreference2p2z = 2;
+////    }
+////    if(DAB.PowerDirection == DAB_CHARGER)
+////    {    
+////      if(DAB.SecondaryVoltage >= 52) DAB.IMreference2p2z = 1;
+////    }
+//    
+//    
+//     //update compensator        
+//    XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, //same compensator for charge/discharge directions
+//                              &DAB.IMControllerInputRegister, 
+//                               DAB.IMreference2p2z,
+//                              &DAB.IMControllerOutputRegister);
+//    
+//}
+//
+//
+//inline void FreqCtrl_Compensator_Handler(void)//not used
+//{
+////    FMC_2p2z.minOutput = 0;
+//    //FMC_2p2z.maxOutput = 0xEF00 - 0x2800; //C700
+//    
+//    SMPS_Controller2P2ZUpdate(&FMC_2p2z, 
+//                             &DAB.FMControllerInputRegister,
+//                              DAB.FMreference,
+//                             &DAB.FMControllerOutputRegister);
+//
+//}
+//
+//inline void PowCtrl_Compensator_Handler(void)
+//{
+////    FMC_2p2z.minOutput = 0;
+//    //FMC_2p2z.maxOutput = 0xEF00 - 0x2800; //C700
+//    if(DAB.PowerDirection == DAB_CHARGER)
+//    { 
+//        SMPS_Controller2P2ZUpdate(&PMC_2p2z, //charger
+//                                  &DAB.PMControllerInputRegister,
+//                                   DAB.PMreference2p2z,
+//                                  &DAB.PMControllerOutputRegister);
+//    }
+//    if(DAB.PowerDirection == DAB_DISCHARGER)
+//    { 
+//        SMPS_Controller2P2ZUpdate(&PMD_2p2z,  //discharger 
+//                                  &DAB.PMControllerInputRegister,
+//                                   DAB.PMreference2p2z,
+//                                  &DAB.PMControllerOutputRegister);
+//    }
+//}
 
 
-inline void FreqCtrl_Compensator_Handler(void)//not used
-{
-//    FMC_2p2z.minOutput = 0;
-    //FMC_2p2z.maxOutput = 0xEF00 - 0x2800; //C700
-    
-    SMPS_Controller2P2ZUpdate(&FMC_2p2z, 
-                             &DAB.FMControllerInputRegister,
-                              DAB.FMreference,
-                             &DAB.FMControllerOutputRegister);
 
-}
-
-inline void PowCtrl_Compensator_Handler(void)
-{
-//    FMC_2p2z.minOutput = 0;
-    //FMC_2p2z.maxOutput = 0xEF00 - 0x2800; //C700
-    if(DAB.PowerDirection == DAB_CHARGER)
-    { 
-        SMPS_Controller2P2ZUpdate(&PMC_2p2z, //charger
-                                  &DAB.PMControllerInputRegister,
-                                   DAB.PMreference2p2z,
-                                  &DAB.PMControllerOutputRegister);
-    }
-    if(DAB.PowerDirection == DAB_DISCHARGER)
-    { 
-        SMPS_Controller2P2ZUpdate(&PMD_2p2z,  //discharger 
-                                  &DAB.PMControllerInputRegister,
-                                   DAB.PMreference2p2z,
-                                  &DAB.PMControllerOutputRegister);
-    }
-}
-
-
-
-void VoltageCtrl_DAB_Init(void)
+void Dev_PwrCtrl_Vcomp_Initialize(void)
 {
     
   //charger direction  
