@@ -80,8 +80,8 @@
 #define VSEC_UV_T_BLANK_CLEAR_SEC           (0.0)
 #define VSEC_UV_TICK_SEC                    (T_ADC_SAMPLE_SECS*3.0)
 
-#define VPRI_OV_THRES_TRIG_VOLTS            (100.0)
-#define VPRI_OV_THRES_CLEAR_VOLTS           (80.0)
+#define VPRI_OV_THRES_TRIG_VOLTS            (700.0)
+#define VPRI_OV_THRES_CLEAR_VOLTS           (600.0)
 #define VPRI_OV_T_BLANK_TRIG_SEC            (0.0)
 #define VPRI_OV_T_BLANK_CLEAR_SEC           (0.0)
 #define VPRI_OV_TICK_SEC                    (T_ADC_SAMPLE_SECS*3.0)
