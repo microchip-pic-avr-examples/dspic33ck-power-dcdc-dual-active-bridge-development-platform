@@ -25,9 +25,8 @@
 #define FAULT_SHORT_CCT false
 #define FAULT_PS_OTP    false
 #define FAULT_VRAIL_5V  false
-
 #define FAULT_VPRI_OV   true
-#define VPRI_OPTOCOUPLER_POLARITY       false // false if not inverted; true if inverted 
+#define VPRI_OPTOCOUPLER_POLARITY       false ///< false if not inverted; true if inverted 
 
 #define PWM_CLOCK_HIGH_RESOLUTION       true 
 #define MAXIMUM_SWITCHING_FREQUENCY     (float)230.0e+3 ///< Maximum Switching frequency in [Hz]

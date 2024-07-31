@@ -338,11 +338,11 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             Nop();
             Nop();
             Nop();
-            Dev_PwrCtrl_SetDeadTimeHigh(control_word);
+//            Dev_PwrCtrl_SetDeadTimeHigh(control_word);
             break; 
         }
         case PBV_CMD_ID_PWM_DTL:{
-            Dev_PwrCtrl_SetDeadTimeLow(control_word);
+//            Dev_PwrCtrl_SetDeadTimeLow(control_word);
             break; 
         }
                  
