@@ -47,7 +47,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void);
  * ADC fault protection
  **********************************************************************************/
 void ControlLoop_Interrupt(void)
-{          
+{      
     GPIO_1_SetHigh();
             
     // Update the ADC data member
@@ -55,11 +55,11 @@ void ControlLoop_Interrupt(void)
     
     // Execute the fault detection
     Dev_Fault_Execute();
-        
+    
     #if(OPEN_LOOP_PBV == false)
     Dev_PwrCtrl_ControlLoopExecute();
     #endif
-    
+
     #if (true == DPDB_TEST_RUN)
 
     // Connect TP11 -> Pot1 & TP12 -> Pot2 in digital Power Development Board
@@ -76,13 +76,10 @@ void ControlLoop_Interrupt(void)
        
     // Update PWM Properties
     Dev_PwrCtrl_PWM_Update(&dab);
-    
     GPIO_1_SetLow();
     
 }
-
-
-
+    
 /*******************************************************************************
  * @ingroup 
  * @brief  
@@ -94,17 +91,14 @@ void ControlLoop_Interrupt(void)
 void Dev_PwrCtrl_UpdateConverterData (void)
 {
     
-    // read dedicated core ADC results, these are triggered via PWM1 trigger 1
-    dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); // used for control
-    dab.Data.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); // used for protection
+    dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); 
+    dab.Data.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); 
     
-    // read shared ADC core results
-    // these are all triggered by PWM1 trigger 1
     dab.Data.VSecVoltage = ADC1_ConversionResultGet(VSEC);
     dab.Data.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
     
     dab.Data.VPriVoltage = ADC1_ConversionResultGet(VPRI);
-
+    
     dab.Data.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
     dab.Data.Temperature = ADC1_ConversionResultGet(TEMP);
     
@@ -140,7 +134,6 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     
     if((dab.VLoop.Enable == true) && (VLoopExec == true))
     {
-//        GPIO_1_SetHigh();
         
         VLoopExec = false;
         
@@ -157,33 +150,28 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
             dab.VLoop.Reference = dab.VLoop.Reference << 4;
 
             SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
-                    dab.VLoop.Reference, dab.VLoop.Output);
+                    dab.VLoop.Reference, &dab.VLoop.Output);
         
         }
-            
-//        GPIO_1_SetLow();
     }
 
     if((dab.PLoop.Enable == true) && (VLoopExec == false))
     {
-//        GPIO_1_SetHigh();
-        
         VLoopExec = true;
         
-        dab.Data.SecPower = (uint16_t)(UNITS_FROM_ADC_TO_ENG(dab.Data.ISecAverage, ISEC_CT_SNS_GAIN)
-            * UNITS_FROM_ADC_TO_ENG(dab.Data.VSecVoltage, VSEC_SNS_GAIN));
-        
+        uint32_t isec = dab.Data.ISecAverage >> 2;
+        uint32_t vsec = (dab.Data.VSecVoltage * 3) >> 8;
+
+        dab.Data.SecPower = isec * vsec;
+            
         // Execute the Power Loop Control
         //ToDo: check with Lorant the meaning of 100 in this code
         //100 is a power offset
-        
         dab.PLoop.Feedback = 100 + (dab.Data.SecPower);
         dab.PLoop.Reference = 100 + dab.Properties.PwrReference;
         
         SMPS_Controller2P2ZUpdate(&PMC_2p2z, &dab.PLoop.Feedback,
                 dab.PLoop.Reference, &dab.PLoop.Output);
-        
-//        GPIO_1_SetLow();
     }
     
     if(dab.ILoop.Enable == true)
@@ -197,12 +185,12 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         IMC_2p2z.maxOutput =  0x7FFF;
 
         //mixing stage from voltage loop 10KHz
-        uint32_t RefBuf = (uint32_t)dab.ILoop.Reference * (uint32_t)(dab.VLoop.Output & 0x7FFF);
+        uint32_t RefBuf = (uint32_t)dab.Properties.IReference * (uint32_t)(dab.VLoop.Output & 0x7FFF);
         uint16_t ILoopReference = (uint16_t)(RefBuf>>12) ; //15-3
 
         //mixing stage from power loop 10KHz
         RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  
-        ILoopReference = (int16_t)(RefBuf>>15 );    
+        ILoopReference = (int16_t)(RefBuf >> 15 );    
 
         XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 
                 ILoopReference, &dab.ILoop.Output);    
