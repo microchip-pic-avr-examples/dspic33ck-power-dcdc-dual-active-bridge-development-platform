@@ -153,9 +153,13 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
         pcInstance->Pwm.ControlPhase = pcInstance->Pwm.ControlPeriod;
     }
     
+    #if(OPEN_LOOP_PBV == true)
     // Calculate the DAB Primary to Secondary Phase ((Control Phase /2))
     uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlPhase >> 1);
-    
+    #else
+    uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlPhase);
+    #endif
+
     // Calculate the bridge delay ((Frequency / 2) - Primary to Secondary Phase + Control Phase)
     // Note that in the cascaded PWM, the reference phase of the client PWM, is its trigger source
     uint16_t PrimaryPhaseDelay = (pcInstance->Pwm.ControlDutyCycle - PrimarySecondaryPhase) + 
