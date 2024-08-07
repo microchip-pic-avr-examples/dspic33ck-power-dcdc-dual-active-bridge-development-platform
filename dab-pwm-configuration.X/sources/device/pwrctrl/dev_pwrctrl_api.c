@@ -59,9 +59,14 @@ void Dev_PwrCtrl_SetIReference(uint16_t reference)
  * @details
  * API function
  **********************************************************************************/
-void Dev_PwrCtrl_SetVSeciReference(uint16_t reference)
+void Dev_PwrCtrl_SetVSecReference(uint16_t reference)
 {    
     dab.Properties.VSecReference = reference;
+}
+
+void Dev_PwrCtrl_SetPwrReference(uint16_t reference)
+{    
+    dab.Properties.PwrReference = reference;
 }
 
 /*********************************************************************************
