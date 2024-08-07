@@ -118,8 +118,8 @@ void ADC1_Initialize (void)
     ADCON1H = 0x60;
     // SHRADCS 2; SHREISEL Early interrupt is generated 1 TADCORE clock prior to data being ready; PTGEN disabled; EIEN disabled; REFERCIE disabled; REFCIE disabled; 
     ADCON2L = 0x0;
-    // SHRSAMC 48; 
-    ADCON2H = 0x30;
+    // SHRSAMC 148; 
+    ADCON2H = 0x94;
     // CNVCHSEL AN0; SWCTRG disabled; SWLCTRG disabled; SHRSAMP disabled; SUSPCIE disabled; SUSPEND disabled; REFSEL disabled; 
     ADCON3L = 0x0;
     // C0EN enabled; C1EN enabled; SHREN enabled; CLKDIV 1; CLKSEL FOSC/2; 
@@ -204,10 +204,10 @@ void ADC1_Initialize (void)
     ADLVLTRGL = 0x0;
     // LVLEN16 disabled; LVLEN17 disabled; LVLEN18 disabled; LVLEN19 disabled; LVLEN24 disabled; LVLEN25 disabled; 
     ADLVLTRGH = 0x0;
-    // SAMC 0; 
-    ADCORE0L = 0x0;
-    // SAMC 48; 
-    ADCORE1L = 0x30;
+    // SAMC 148; 
+    ADCORE0L = 0x94;
+    // SAMC 148; 
+    ADCORE1L = 0x94;
     // ADCS 2; RES 12-bit resolution; EISEL Early interrupt is generated 1 TADCORE clock prior to data being ready; 
     ADCORE0H = 0x300;
     // ADCS 2; RES 12-bit resolution; EISEL Early interrupt is generated 1 TADCORE clock prior to data being ready; 
