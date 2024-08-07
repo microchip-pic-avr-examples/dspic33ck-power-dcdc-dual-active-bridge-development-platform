@@ -93,7 +93,6 @@ void ControlLoop_Interrupt(void)
  *********************************************************************************/
 void Dev_PwrCtrl_UpdateConverterData (void)
 {
-    static uint16_t ctr = 0;
     
     // read dedicated core ADC results, these are triggered via PWM1 trigger 1
     dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); // used for control
@@ -109,13 +108,6 @@ void Dev_PwrCtrl_UpdateConverterData (void)
     dab.Data.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
     dab.Data.Temperature = ADC1_ConversionResultGet(TEMP);
     
-    if(ctr == 10)
-    {
-    dab.Data.SecPower = (uint16_t)(UNITS_FROM_ADC_TO_ENG(dab.Data.ISecAverage, ISEC_CT_SNS_GAIN)
-            * UNITS_FROM_ADC_TO_ENG(dab.Data.VSecVoltage, VSEC_SNS_GAIN));
-    
-    ctr = 0;
-    }
 }
 
 /*******************************************************************************
@@ -177,6 +169,9 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
 //        GPIO_1_SetHigh();
         
         VLoopExec = true;
+        
+        dab.Data.SecPower = (uint16_t)(UNITS_FROM_ADC_TO_ENG(dab.Data.ISecAverage, ISEC_CT_SNS_GAIN)
+            * UNITS_FROM_ADC_TO_ENG(dab.Data.VSecVoltage, VSEC_SNS_GAIN));
         
         // Execute the Power Loop Control
         //ToDo: check with Lorant the meaning of 100 in this code
