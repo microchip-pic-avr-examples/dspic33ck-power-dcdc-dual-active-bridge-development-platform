@@ -57,7 +57,7 @@ void Dev_Fault_Handler(void);
  **********************************************************************************/
 uint16_t __inline__ Drv_PwrCtrl_Fault_SC_Faults_Clear(POWER_CONTROL_t* pcInstance)
 {
-#ifndef FAULT_SHORT_CCT
+#if (FAULT_SHORT_CCT)
     uint16_t sc_faults_clear;
     uint16_t isec_sc = CMP_ISEC_SC_StatusGet();
     uint16_t ipri_sc = CMP_IPRI_SC_StatusGet();
@@ -74,7 +74,7 @@ uint16_t __inline__ Drv_PwrCtrl_Fault_SC_Faults_Clear(POWER_CONTROL_t* pcInstanc
     
 #else 
     return (1);
-#endif // #ifndef FAULT_SHORT_CCT_DISABLE
+#endif 
 }
 
 

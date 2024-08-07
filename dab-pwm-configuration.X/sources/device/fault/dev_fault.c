@@ -161,6 +161,7 @@ void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void)
   // turn on comparator DACs 
   CMP_ISEC_SC_DACEnable();
   CMP_ISEC_SC_DACEnable();
+  
 }
 
 
