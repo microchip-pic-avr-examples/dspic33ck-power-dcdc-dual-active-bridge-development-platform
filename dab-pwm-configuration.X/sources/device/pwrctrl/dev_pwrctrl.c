@@ -26,6 +26,7 @@
 #include "dev_pwrctrl_typedef.h"
 #include "dev_pwrctrl_pwm.h"
 #include "device/fault/dev_fault.h"
+#include "dcdt/dev_pwrctrl_dcdt.h"
 
 POWER_CONTROL_t dab;
 
@@ -42,6 +43,11 @@ extern void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
  *********************************************************************************/
 void Dev_PwrCtrl_Initialize(void)
 {
+    dab.Properties.VPriReference = 0;
+    dab.Properties.VSecReference = 0;
+    dab.Properties.IReference = 0;
+    dab.Properties.PwrReference = 0;
+    
     // Initialize the PWM instance that the user initialize in MCC
     // for the power control driver
     dab.Pwm.Primary_1 = PWM_GENERATOR_1;
@@ -50,15 +56,15 @@ void Dev_PwrCtrl_Initialize(void)
     dab.Pwm.Secondary_2 = PWM_GENERATOR_4;
     
     // Initialize the Control Period and Control Phase during start-up
-    dab.Pwm.ControlPeriod = MIN_PWM_PERIOD;
+    dab.Pwm.ControlPeriod = MAX_PWM_PERIOD;
     dab.Pwm.ControlPhase = 0;
     dab.Pwm.DeadTimeHigh = PG1DTH; // ToDo: remove the register dependency
     dab.Pwm.DeadTimeHigh = PG1DTL; // ToDo: remove the register dependency
-    dab.Pwm.PBVPeriodTarget = MIN_PWM_PERIOD;
+    dab.Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
     dab.Pwm.PBVControlPhaseTarget = 0;
     
     //Initialize the DAB to charging state
-    dab.PowerDirection =  PWR_CTRL_CHARGING;
+    dab.PowerDirection = PWR_CTRL_CHARGING;
     
     //Initialize Power Control Loop
     Dev_PwrCtrl_ControlLoopInitialize();
@@ -103,8 +109,22 @@ void Dev_PwrCtrl_Suspend(void)
 {
     //Disable PWM peripheral
     PWM_Disable();
+    
+    // set the control loop reference to default value
+    dab.VLoop.Reference = 0;
+    dab.ILoop.Reference = 0;
+    dab.PLoop.Reference = 0;
+    
 }
 
+/*******************************************************************************
+ * @ingroup 
+ * @brief  
+ * @return 
+ * 
+ * @details 
+ * 
+ *********************************************************************************/
 void Dev_PwrCtrl_ControlLoopInitialize(void)
 {
     // Initialize voltage loop compensator
@@ -113,15 +133,24 @@ void Dev_PwrCtrl_ControlLoopInitialize(void)
     // Initialize current loop compensator
     Dev_PwrCtrl_IComp_Initialize();
     
+    // Initialize power loop compensator
+    Dev_PwrCtrl_PComp_Initialize();
+    
+    dab.VLoop.Enable = false;
     dab.VLoop.AgcFactor = 0x7FFF;
     dab.VLoop.Feedback = 0;
     dab.VLoop.Output = 0;
     dab.VLoop.Reference = 0;
-    dab.VLoop.ReferenceTarget = 0;
-    
+
+    dab.ILoop.Enable = true;
     dab.ILoop.AgcFactor = 0x7FFF;
     dab.ILoop.Feedback = 0;
     dab.ILoop.Output = 0;
     dab.ILoop.Reference = 0;
-    dab.ILoop.ReferenceTarget = 0;
+    
+    dab.PLoop.Enable = false;
+    dab.PLoop.AgcFactor = 0x7FFF;
+    dab.PLoop.Feedback = 0;
+    dab.PLoop.Output = 0;
+    dab.PLoop.Reference = 0;
 }
