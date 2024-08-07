@@ -86,5 +86,7 @@
 // integer threshold = (volts or amps threshold)*gain + offset
 #define UNITS_FROM_ENG_TO_ADC(threshold, gain, offset)       (_rnd((((float)threshold*(float)gain) + (float)offset)/3.3*4095.0))
 
+#define UNITS_FROM_ADC_TO_ENG(AdcValue, Gain)       (_rnd((((float)AdcValue /(float)Gain))/4095.0 * 3.3))
+
 #endif	/* USEFUL_MACROS_H */
 
