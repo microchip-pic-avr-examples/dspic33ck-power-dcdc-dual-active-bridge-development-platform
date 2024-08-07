@@ -31,8 +31,8 @@ void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference);
 void Dev_PwrCtrl_SetEnable(bool enable);
 void Dev_PwrCtrl_SetDeadTimeHigh(uint16_t reference);
 void Dev_PwrCtrl_SetDeadTimeLow(uint16_t reference);
-void Dev_PwrCtrl_SetVLoopReferenceTarget(uint16_t reference);
-void Dev_PwrCtrl_SetILoopReferenceTarget(uint16_t reference);
+void Dev_PwrCtrl_SetVSeciReference(uint16_t reference);
+void Dev_PwrCtrl_SetIReference(uint16_t reference);
 
 // "get" APIs
 uint16_t Dev_PwrCtrl_GetAdc_Vpri(void);
@@ -47,7 +47,7 @@ uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void);
 uint16_t Dev_PwrCtrl_Get_State(void);
 uint16_t Dev_PwrCtrl_Get_Status(void);
 uint16_t Dev_PwrCtrl_Get_EnableFlag(void);
-uint16_t Dev_PwrCtrl_Get_IloopReferenceTarget(void);
+uint16_t Dev_PwrCtrl_Get_IReference(void);
 uint16_t Dev_PwrCtrl_Get_IloopReference(void);
 uint16_t Dev_PwrCtrl_Get_IloopOutput(void);
 uint16_t Dev_PwrCtrl_Get_IloopFeedback(void);

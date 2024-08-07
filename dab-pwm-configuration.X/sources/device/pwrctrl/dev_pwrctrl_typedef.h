@@ -78,8 +78,9 @@ struct FEEDBACK_SETTINGS_s
     uint16_t ISensePrimary;     ///< Data value for primary current as measured with CT
     uint16_t ISenseSecondary;   ///< Data value for secondary current as measured with CT
     uint16_t ISecAverage;       ///< Data value for average secondary current as measured with isolated current sensor
+    int16_t  SecPower;          ///< Data value for Secondary power (Watt)
     uint16_t Temperature;       ///< Data value for temperature
-    uint16_t VRail_5V;           ///< Data value for 5V auxiliary rail
+    uint16_t VRail_5V;          ///< Data value for 5V auxiliary rail
     uint16_t isec_sensor_offset; ///< ADC code corresponding to the offset of the secondary current sensor
 };
 typedef struct FEEDBACK_SETTINGS_s FEEDBACK_SETTINGS_t;
@@ -117,10 +118,10 @@ typedef struct STATUS_FLAGS_s STATUS_FLAGS_t;
 struct CONTROLLER_s
 {
   int16_t Reference;        ///< actual reference
-  int16_t ReferenceTarget;  ///< target reference, can be changed via GUI
   uint16_t Feedback;        ///< coming 
   uint16_t Output;          ///< controller output
   int16_t AgcFactor;        ///< Adoptive gain control
+  bool Enable;              ///< Enable control loop
 };
 typedef struct CONTROLLER_s CONTROLLER_t;
 
@@ -137,18 +138,31 @@ enum  PWR_CTRL_CHARGE_STATE_e
 };
 typedef enum PWR_CTRL_CHARGE_STATE_e PWR_CTRL_CHARGE_STATE_t;
 
+struct PWR_CTRL_PROPERTIES_s 
+{
+    uint16_t VSecReference;    ///< User low-voltage port reference setting used to control the power converter output voltage in buck mode
+    uint16_t VPriReference;    ///< User low-voltage port reference setting used to control the power converter output voltage in boost mode
+    int16_t  IReference;       ///< User current reference setting used to control the power converter controller
+    uint16_t PwrReference;
+    
+    bool ChargingState;        ///< Control Flag: When set, enables PWM output while keeping control loop disabled; Skips closed loop ramp up states and directly jumps to state Online 
+    bool Enable;               ///< Control Flag: When set, enables the converter triggering a startup sequence; When cleared, forces teh power supply to reset and turn off
+
+};  
+typedef struct PWR_CTRL_PROPERTIES_s PWR_CTRL_PROPERTIES_t;  
 
 struct POWER_CONTROL_s
 {
     STATUS_FLAGS_t      Status; ///< Power Supply status flags
     PWR_CTRL_STATE_t    State;  ///< Power Control State ID
+    PWR_CTRL_PROPERTIES_t    Properties;    ///< Power Control properties    
     SWITCH_NODE_t       Pwm;    ///< Switch node settings
-    FEEDBACK_SETTINGS_t Adc;    ///< ADC feedback channel settings
+    FEEDBACK_SETTINGS_t Data;    ///< ADC feedback channel settings
     FAULT_SETTINGS_t    Fault;  ///< Fault flags and settings 
     CONTROLLER_t        ILoop;  ///< structure for current controller data
     CONTROLLER_t        VLoop;  ///< structure for voltage controller data
+    CONTROLLER_t        PLoop;  ///< structure for power controller data
     PWR_CTRL_CHARGE_STATE_t    PowerDirection;  ///< defines if the power converter is in charging or discharging mode   
-    bool    Enable;             ///< control flag, set to 1 to run the power supply
 };
 typedef struct POWER_CONTROL_s POWER_CONTROL_t;
 

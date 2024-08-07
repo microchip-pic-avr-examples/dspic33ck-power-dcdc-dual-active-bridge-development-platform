@@ -90,27 +90,27 @@ void Dev_Fault_Execute(void)
 {
     // secondary over current fault handler
     #if (FAULT_ISEC_OC)      
-    FAULT_CheckMax(&dab.Fault.Object.ISecondaryOCP, dab.Adc.ISenseSecondary, &Dev_Fault_Handler);
+    FAULT_CheckMax(&dab.Fault.Object.ISecondaryOCP, dab.Data.ISenseSecondary, &Dev_Fault_Handler);
     #endif 
     
     // secondary over voltage fault handler
     #if (FAULT_VSEC_OV)            
-    FAULT_CheckMax(&dab.Fault.Object.VSecondaryOVP, dab.Adc.VSecVoltage, &Dev_Fault_Handler);
+    FAULT_CheckMax(&dab.Fault.Object.VSecondaryOVP, dab.Data.VSecVoltage, &Dev_Fault_Handler);
     #endif    
     
     // primary over current fault handler
     #if(FAULT_IPRI_OC)
-    FAULT_CheckMax(&dab.Fault.Object.IPrimaryOCP, dab.Adc.ISensePrimary, &Dev_Fault_Handler);
+    FAULT_CheckMax(&dab.Fault.Object.IPrimaryOCP, dab.Data.ISensePrimary, &Dev_Fault_Handler);
     #endif 
     
     // primary over voltage fault handler
     #if (FAULT_VPRI_OV)      
-    FAULT_CheckMax(&dab.Fault.Object.VPrimaryOVP, dab.Adc.VPriVoltage, &Dev_Fault_Handler);
+    FAULT_CheckMax(&dab.Fault.Object.VPrimaryOVP, dab.Data.VPriVoltage, &Dev_Fault_Handler);
     #endif  
 
     // primary over voltage fault handler
     #if (FAULT_VRAIL_5V)                
-    FAULT_CheckMax(&dab.Fault.Object.VRail_5V, dab.Adc.VRail_5V, &Dev_Fault_Handler);
+    FAULT_CheckMax(&dab.Fault.Object.VRail_5V, dab.Data.VRail_5V, &Dev_Fault_Handler);
     #endif  
 
     // Identify the fault that trips

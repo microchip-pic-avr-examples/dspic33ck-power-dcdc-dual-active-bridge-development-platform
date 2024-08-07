@@ -98,14 +98,14 @@ static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
     #endif
     {
         // current sensor calibration is complete. Update the offset of the current sensor
-        pcInstance->Adc.isec_sensor_offset = Dev_CurrentSensor_Get_Offset();
+        pcInstance->Data.isec_sensor_offset = Dev_CurrentSensor_Get_Offset();
     }
     
         Dev_PwrCtrl_PWM_Disable(pcInstance);
         Dev_Fault_Reset();
         pcInstance->Status.bits.FaultActive = 0;
         pcInstance->Status.bits.Running = 0;
-        pcInstance->Enable = 0;
+        pcInstance->Properties.Enable = 0;
         
         pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
         
@@ -143,10 +143,10 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 {
     if (pcInstance->Fault.FaultDetected)
     {
-        pcInstance->Enable = 0; // for now, user has to manually re-start converter after a fault
+        pcInstance->Properties.Enable = 0; // for now, user has to manually re-start converter after a fault
         pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; // next state
     }
-    else if (pcInstance->Enable) // this flag is generally set externally (via PBV GUI for example)
+    else if (pcInstance->Properties.Enable) // this flag is generally set externally (via PBV GUI for example)
     {
         Dev_Fault_Reset();
 
@@ -176,7 +176,7 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->ILoop.Reference = 0;
         
         // initialize voltage loop reference to current secondary voltage
-        pcInstance->VLoop.Reference = pcInstance->Adc.VSecVoltage;
+        pcInstance->VLoop.Reference = pcInstance->Data.VSecVoltage;
         
         pcInstance->State = PWR_CNTRL_STATE_SOFT_START;   // next state
     }
@@ -196,11 +196,11 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
 {
   if (pcInstance->Fault.FaultDetected)
   {
-      pcInstance->Enable = false;  // for now, user has to manually re-start converter after a fault
+      pcInstance->Properties.Enable = false;  // for now, user has to manually re-start converter after a fault
       pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; 
   }
   
-  else if (!pcInstance->Enable) 
+  else if (!pcInstance->Properties.Enable) 
   {
     Dev_PwrCtrl_PWM_Disable(pcInstance);
     pcInstance->Status.bits.Running = 0;
@@ -231,9 +231,9 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     bool rampIComplete = 0;
     bool rampVComplete = 0;
     uint16_t* ptrIreference = (uint16_t*)&pcInstance->ILoop.Reference;
-    uint16_t* ptrIreferenceTarget = (uint16_t*)&pcInstance->ILoop.ReferenceTarget;
+    uint16_t* ptrIreferenceTarget = (uint16_t*)&pcInstance->Properties.IReference;
     uint16_t* ptrVreference = (uint16_t*)&pcInstance->VLoop.Reference;
-    uint16_t* ptrVreferenceTarget = (uint16_t*)&pcInstance->VLoop.ReferenceTarget;
+    uint16_t* ptrVreferenceTarget = (uint16_t*)&pcInstance->Properties.VSecReference;
     
     rampVComplete = Dev_PwrCtrl_RampReference(ptrVreference, ptrVreferenceTarget, step, delay);
     rampIComplete = Dev_PwrCtrl_RampReference(ptrIreference, ptrIreferenceTarget, step, delay);
@@ -260,12 +260,12 @@ static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
 {
     if (pcInstance->Fault.FaultDetected)
     {
-        pcInstance->Enable = false;  // for now, user has to manually re-start converter after a fault
+        pcInstance->Properties.Enable = false;  // for now, user has to manually re-start converter after a fault
         pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; 
     }
     else
     {
-        if (!pcInstance->Enable)
+        if (!pcInstance->Properties.Enable)
         {
             Dev_PwrCtrl_PWM_Disable(pcInstance);
             pcInstance->Status.bits.Running = 0;            
@@ -277,7 +277,7 @@ static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
                 (pcInstance->Pwm.ControlPhase != pcInstance->Pwm.PBVControlPhaseTarget))
     #else
             
-        else if (pcInstance->ILoop.Reference != pcInstance->ILoop.ReferenceTarget)  
+        else if (pcInstance->ILoop.Reference != pcInstance->Properties.IReference)  
     #endif // #ifdef OPEN_LOOP_PBV
         {
             pcInstance->State = PWR_CNTRL_STATE_SOFT_START;

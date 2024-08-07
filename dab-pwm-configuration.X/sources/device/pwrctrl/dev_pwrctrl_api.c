@@ -45,9 +45,9 @@ void Dev_PwrCtrl_SetState(uint16_t reference)
  * @details
  * API function
  **********************************************************************************/
-void Dev_PwrCtrl_SetILoopReferenceTarget(uint16_t reference)
+void Dev_PwrCtrl_SetIReference(uint16_t reference)
 {    
-    dab.ILoop.ReferenceTarget = reference;
+    dab.Properties.IReference = reference;
 }
 
 /*********************************************************************************
@@ -59,9 +59,9 @@ void Dev_PwrCtrl_SetILoopReferenceTarget(uint16_t reference)
  * @details
  * API function
  **********************************************************************************/
-void Dev_PwrCtrl_SetVLoopReferenceTarget(uint16_t reference)
+void Dev_PwrCtrl_SetVSeciReference(uint16_t reference)
 {    
-    dab.VLoop.ReferenceTarget = reference;
+    dab.Properties.VSecReference = reference;
 }
 
 /*********************************************************************************
@@ -127,7 +127,7 @@ void Dev_PwrCtrl_SetDeadTimeLow(uint16_t reference)
  **********************************************************************************/
 void Dev_PwrCtrl_SetEnable(bool enable)
 { 
-  dab.Enable = enable; 
+  dab.Properties.Enable = enable; 
 }
 
 /*********************************************************************************
@@ -141,7 +141,7 @@ void Dev_PwrCtrl_SetEnable(bool enable)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Vpri(void)
 {
-    return(dab.Adc.VPriVoltage);
+    return(dab.Data.VPriVoltage);
 }
 
 /*********************************************************************************
@@ -155,7 +155,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Vpri(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Vsec(void)
 {
-    return(dab.Adc.VSecVoltage);
+    return(dab.Data.VSecVoltage);
 }
 
 /*********************************************************************************
@@ -169,7 +169,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Vsec(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct(void)
 {
-    return(dab.Adc.ISensePrimary);
+    return(dab.Data.ISensePrimary);
 }
 
 /*********************************************************************************
@@ -183,7 +183,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void)
 {
-    return(dab.Adc.ISenseSecondary);
+    return(dab.Data.ISenseSecondary);
 }
 
 /*********************************************************************************
@@ -197,7 +197,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Isec_avg(void)
 {
-    return(dab.Adc.ISecAverage);
+    return(dab.Data.ISecAverage);
 }
 
 /*********************************************************************************
@@ -211,7 +211,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Isec_avg(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Temperature(void)
 {
-    return(dab.Adc.Temperature);
+    return(dab.Data.Temperature);
 }
 
 /*********************************************************************************
@@ -225,7 +225,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Temperature(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V(void)
 {
-    return(dab.Adc.VRail_5V);
+    return(dab.Data.VRail_5V);
 }
 
 /*********************************************************************************
@@ -311,7 +311,7 @@ uint16_t Dev_PwrCtrl_Get_Status(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_EnableFlag(void)
 {
-    return(dab.Enable);
+    return(dab.Properties.Enable);
 }
 
 
@@ -338,9 +338,9 @@ uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void)
  * @details
  * API function
  **********************************************************************************/
-uint16_t Dev_PwrCtrl_Get_IloopReferenceTarget(void)
+uint16_t Dev_PwrCtrl_Get_IReference(void)
 {
-    return(dab.ILoop.ReferenceTarget);
+    return(dab.Properties.IReference);
 }
 
 /*********************************************************************************
@@ -396,5 +396,5 @@ uint16_t Dev_PwrCtrl_Get_IloopFeedback(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_CurrentSensorOffset(void)
 {
-    return(dab.Adc.isec_sensor_offset);
+    return(dab.Data.isec_sensor_offset);
 }

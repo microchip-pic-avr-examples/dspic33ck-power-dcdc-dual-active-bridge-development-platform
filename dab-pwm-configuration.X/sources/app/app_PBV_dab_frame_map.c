@@ -250,7 +250,7 @@ void App_PBV_DAB_Build_Frame()
     buffer_sixteen_tx[11] = temperature;
     buffer_sixteen_tx[12] = Dev_PwrCtrl_Get_Period();
     buffer_sixteen_tx[13] = Dev_PwrCtrl_Get_PwmprdTarget();
-    buffer_sixteen_tx[14] = Dev_PwrCtrl_Get_IloopReferenceTarget();
+    buffer_sixteen_tx[14] = Dev_PwrCtrl_Get_IReference();
     buffer_sixteen_tx[15] = Dev_PwrCtrl_Get_IloopReference();
     buffer_sixteen_tx[16] = Dev_PwrCtrl_Get_IloopOutput();
     buffer_sixteen_tx[17] = Dev_PwrCtrl_Get_IloopFeedback(); 
@@ -302,14 +302,14 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         case PBV_CMD_ID_ILOOP_REF_SET: {
             if (control_word < 32767) //TODO: put in proper check here!
             {
-                Dev_PwrCtrl_SetILoopReferenceTarget(control_word);
+                Dev_PwrCtrl_SetIReference(control_word);
             }
             break; 
         }        
         case PBV_CMD_ID_VLOOP_REF_SET: {
             if (control_word < 32767) //TODO: put in proper check here!
             {
-                Dev_PwrCtrl_SetVLoopReferenceTarget(control_word);
+                Dev_PwrCtrl_SetVSeciReference(control_word);
             }
             break; 
         }  
@@ -324,9 +324,6 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             break; 
         }
         case PBV_CMD_ID_PRI_OVP_TEST: {
-            Nop();
-            Nop();
-            Nop();
             Dev_Fault_SetPriOVPThreshold(control_word);
             break;
         }
