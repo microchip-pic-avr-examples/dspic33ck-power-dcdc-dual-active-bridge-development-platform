@@ -56,73 +56,73 @@
  *           This allows defining a structure with application specific name using 
  *           the 'Custom Name' field. Application specific name allows the API Portability.
 */
-extern const struct TIMER_INTERFACE Timer1_ILOOP_EXE;
+extern const struct TIMER_INTERFACE Timer1_CTRLLOOP_EXE;
 
 /**
  * @ingroup  timerdriver
  * @brief    This macro defines the Custom Name for \ref SCCP1_Timer_Initialize API
  */
-#define Timer1_ILOOP_EXE_Initialize SCCP1_Timer_Initialize
+#define Timer1_CTRLLOOP_EXE_Initialize SCCP1_Timer_Initialize
 /**
  * @ingroup  timerdriver
  * @brief    This macro defines the Custom Name for \ref SCCP1_Timer_Deinitialize API
  */
-#define Timer1_ILOOP_EXE_Deinitialize SCCP1_Timer_Deinitialize
+#define Timer1_CTRLLOOP_EXE_Deinitialize SCCP1_Timer_Deinitialize
 /**
  * @ingroup  timerdriver
  * @brief    This macro defines the Custom Name for \ref SCCP1_Timer_Tasks API
  */
-#define Timer1_ILOOP_EXE_Tasks SCCP1_Timer_Tasks
+#define Timer1_CTRLLOOP_EXE_Tasks SCCP1_Timer_Tasks
 /**
  * @ingroup  timerdriver
  * @brief    This macro defines the Custom Name for \ref SCCP1_Timer_Start API
  */
-#define Timer1_ILOOP_EXE_Start SCCP1_Timer_Start
+#define Timer1_CTRLLOOP_EXE_Start SCCP1_Timer_Start
 /**
  * @ingroup  timerdriver
  * @brief    This macro defines the Custom Name for \ref SCCP1_Timer_Stop API
  */
-#define Timer1_ILOOP_EXE_Stop SCCP1_Timer_Stop
+#define Timer1_CTRLLOOP_EXE_Stop SCCP1_Timer_Stop
 
 #if TIMER_PERIODCOUNTSET_API_SUPPORT
 /**
  * @ingroup  timerdriver
  * @brief    This macro defines the Custom Name for \ref SCCP1_Timer_PeriodCountSet API
  */
-#define Timer1_ILOOP_EXE_PeriodCountSet SCCP1_Timer_PeriodCountSet
+#define Timer1_CTRLLOOP_EXE_PeriodCountSet SCCP1_Timer_PeriodCountSet
 #endif
 
 /**
  * @ingroup  timerdriver
  * @brief    This macro defines the Custom Name for \ref SCCP1_Timer_PeriodSet API
  */
-#define Timer1_ILOOP_EXE_PeriodSet SCCP1_Timer_PeriodSet
+#define Timer1_CTRLLOOP_EXE_PeriodSet SCCP1_Timer_PeriodSet
 /**
  * @ingroup  timerdriver
  * @brief    This macro defines the Custom Name for \ref SCCP1_Timer_PeriodGet API
  */
-#define Timer1_ILOOP_EXE_PeriodGet SCCP1_Timer_PeriodGet
+#define Timer1_CTRLLOOP_EXE_PeriodGet SCCP1_Timer_PeriodGet
 /**
  * @ingroup  timerdriver
  * @brief    This macro defines the Custom Name for \ref SCCP1_Timer_CounterGet API
  */
-#define Timer1_ILOOP_EXE_CounterGet SCCP1_Timer_CounterGet
+#define Timer1_CTRLLOOP_EXE_CounterGet SCCP1_Timer_CounterGet
 /**
  * @ingroup  timerdriver
  * @brief    This macro defines the Custom Name for \ref SCCP1_Timer_Counter16BitGet API
  */
-#define Timer1_ILOOP_EXE_Counter16BitGet SCCP1_Timer_Counter16BitGet
+#define Timer1_CTRLLOOP_EXE_Counter16BitGet SCCP1_Timer_Counter16BitGet
 /**
  * @ingroup  timerdriver
  * @brief    This macro defines the Custom Name for \ref SCCP1_Timer_InterruptPrioritySet API
  */
-#define Timer1_ILOOP_EXE_InterruptPrioritySet SCCP1_Timer_InterruptPrioritySet
+#define Timer1_CTRLLOOP_EXE_InterruptPrioritySet SCCP1_Timer_InterruptPrioritySet
 
 /**
  * @ingroup  timerdriver
  * @brief    This macro defines the Custom Name for \ref SCCP1_Timer_TimeoutCallbackRegister API
  */
-#define Timer1_ILOOP_EXE_TimeoutCallbackRegister SCCP1_Timer_TimeoutCallbackRegister
+#define Timer1_CTRLLOOP_EXE_TimeoutCallbackRegister SCCP1_Timer_TimeoutCallbackRegister
 
 // Section: Driver Interface Functions
 

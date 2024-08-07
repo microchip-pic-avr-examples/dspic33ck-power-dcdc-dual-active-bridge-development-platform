@@ -54,7 +54,7 @@ static void (*SCCP1_TimeoutHandler)(void) = NULL;
 
 // Defines an object for TIMER_INTERFACE
 
-const struct TIMER_INTERFACE Timer1_ILOOP_EXE = {
+const struct TIMER_INTERFACE Timer1_CTRLLOOP_EXE = {
     .Initialize     = &SCCP1_Timer_Initialize,
     .Deinitialize   = &SCCP1_Timer_Deinitialize,
     .Start          = &SCCP1_Timer_Start,
@@ -90,8 +90,8 @@ void SCCP1_Timer_Initialize(void)
     CCP1TMRL = 0x0;
     //TMRH 0x0000; 
     CCP1TMRH = 0x0;
-    //PRL 1999; 
-    CCP1PRL = 0x7CF;
+    //PRL 999; 
+    CCP1PRL = 0x3E7;
     //PRH 0; 
     CCP1PRH = 0x0;
     //CMPA 0; 
