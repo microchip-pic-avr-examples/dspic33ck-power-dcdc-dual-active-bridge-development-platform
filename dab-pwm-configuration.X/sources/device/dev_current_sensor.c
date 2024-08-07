@@ -94,11 +94,11 @@ static void __inline__ Dev_SensorOffsetCal(SENSOR_OFFSET_CAL_t* sensor, uint16_t
  * @details
  * API function
  **********************************************************************************/
-void Dev_CurrentSensorOffsetCal(uint16_t adcReading)
+void Dev_CurrentSensorOffsetCal(void)
 {
     if (!isecAvgCurrentSensor.CalibrationComplete)
     {
-        Dev_SensorOffsetCal(&isecAvgCurrentSensor, adcReading);
+        Dev_SensorOffsetCal(&isecAvgCurrentSensor, ADC1_ConversionResultGet(ISEC_AVG));
     }
 }
 

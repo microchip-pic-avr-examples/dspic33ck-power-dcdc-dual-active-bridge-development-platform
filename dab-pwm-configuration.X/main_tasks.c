@@ -49,6 +49,8 @@
 #include "device/dev_fan.h"
 #include "device/dev_led.h"
 #include "device/fault/dev_fault_temp.h"
+#include "device/dev_current_sensor.h"
+#include "device/pwrctrl/dev_pwrctrl.h"
 
 #include "x2cScope/X2CScope.h"
 #include "system/pins.h"
@@ -95,7 +97,7 @@ void Tasks_Realtime_100us(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_Realtime_1ms(void)
 {
-
+    Dev_CurrentSensorOffsetCal();
 }
 
 #if OS_USE_SCHEDULER_100us == 1
