@@ -73,23 +73,17 @@ int main(void)
     Dev_Fault_Initialize();
     
     MCC_Custom_User_Config();
-    SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt);
+    SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt); // Check the naming convension
     
     // X2CScope will be initialized when X2CDEBUG_ENABLED is enabled
     #if (X2CDEBUG_ENABLED == 1)
     X2CScope_Init();
     #endif
     
-    
     OS_Init(); 
     App_PBV_DAB_Init();
     Dev_LED_Init();
     Dev_Fan_Init();
-    
-    Nop();
-    Nop();
-    Nop();
-    
     
     OS_Scheduler_RunForever();
     
