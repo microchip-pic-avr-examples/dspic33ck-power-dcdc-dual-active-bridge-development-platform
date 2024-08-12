@@ -15,7 +15,7 @@
 
 
 #define DPDB_TEST_RUN   false    ///< test the code with Digital Power Development Board
-#define OPEN_LOOP_PBV   true    ///< use Power Board visualizer to change the parameters
+#define OPEN_LOOP_PBV   false    ///< use Power Board visualizer to change the parameters
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
 //------------------------------------------------------------------------------

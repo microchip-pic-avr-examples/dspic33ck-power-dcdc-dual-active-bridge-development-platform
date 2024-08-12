@@ -20,6 +20,8 @@
     TERMS.
  */
 
+#include <xc.h>
+#include <math.h>
 #include <stdbool.h>
 
 #include "dev_pwrctrl.h"
@@ -196,16 +198,9 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 
                 ILoopReference, &dab.ILoop.Output);    
 
-        Nop();
-        Nop();
-        Nop();
-        
         //control loop output copied to control phase
-        dab.Pwm.ControlPhase = (((dab.Pwm.ControlDutyCycle >> 1) * dab.ILoop.Output) >> 15);
+        dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle >> 1) * (uint32_t)dab.ILoop.Output) >> 15);
         
-        Nop();
-        Nop();
-        Nop();
         
     }
 }
