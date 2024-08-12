@@ -29,6 +29,8 @@
 #define FAULT_SHORT_CCT false
 #define FAULT_VRAIL_5V  false
 
+#define CURRENT_CALIBRATION false
+
 #define VPRI_OPTOCOUPLER_POLARITY       false ///< false if not inverted; true if inverted 
 
 #define PWM_CLOCK_HIGH_RESOLUTION       true 

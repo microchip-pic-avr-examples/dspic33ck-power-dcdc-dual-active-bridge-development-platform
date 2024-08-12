@@ -98,7 +98,7 @@ static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
     #endif
     {
         // current sensor calibration is complete. Update the offset of the current sensor
-        pcInstance->Data.isec_sensor_offset = Dev_CurrentSensor_Get_Offset();
+        pcInstance->Data.ISecSensorOffset = Dev_CurrentSensor_Get_Offset();
     }
     
         Dev_PwrCtrl_PWM_Disable(pcInstance);
