@@ -77,10 +77,10 @@ void Dev_Fault_Initialize(void)
     
     Dev_Temp_Initialize();
     
-    //#ifndef FAULT_SHORT_CCT_DISABLE
-//    // initialize short circuit fault protection with comparators
+#if (FAULT_SHORT_CCT == true)
+       // initialize short circuit fault protection with comparators
     Drv_PwrCtrl_Fault_EnableShortCircuitProtection();
-//#endif // #ifndef FAULT_SHORT_CCT_DISABLE
+#endif 
 //    // clear the fault PCI for each PWM
     Dev_Fault_ClearHardwareFaults(); 
     

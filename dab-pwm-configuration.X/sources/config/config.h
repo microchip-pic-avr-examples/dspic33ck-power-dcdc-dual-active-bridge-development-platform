@@ -24,9 +24,8 @@
 #define FAULT_IPRI_OC   false
 #define FAULT_VSEC_OV   false
 #define FAULT_PS_OTP    false
-
-// not implemented yet
 #define FAULT_SHORT_CCT false
+// not implemented yet
 #define FAULT_VRAIL_5V  false
 
 #define CURRENT_CALIBRATION     true
