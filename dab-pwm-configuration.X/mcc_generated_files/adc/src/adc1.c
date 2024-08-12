@@ -283,26 +283,26 @@ void ADC1_Initialize (void)
     // Enabling Power for the Shared Core
     ADC1_SharedCorePowerEnable();
 
-    //TRGSRC0 PWM1 Trigger2; TRGSRC1 PWM1 Trigger2; 
-    ADTRIG0L = 0x505;
-    //TRGSRC2 PWM1 Trigger1; TRGSRC3 None; 
-    ADTRIG0H = 0x4;
+    //TRGSRC0 Common Software Trigger; TRGSRC1 Common Software Trigger; 
+    ADTRIG0L = 0x101;
+    //TRGSRC2 Common Software Trigger; TRGSRC3 None; 
+    ADTRIG0H = 0x1;
     //TRGSRC4 None; TRGSRC5 None; 
     ADTRIG1L = 0x0;
-    //TRGSRC6 None; TRGSRC7 PWM1 Trigger1; 
-    ADTRIG1H = 0x400;
+    //TRGSRC6 None; TRGSRC7 Common Software Trigger; 
+    ADTRIG1H = 0x100;
     //TRGSRC8 None; TRGSRC9 None; 
     ADTRIG2L = 0x0;
-    //TRGSRC10 PWM1 Trigger1; TRGSRC11 None; 
-    ADTRIG2H = 0x4;
+    //TRGSRC10 Common Software Trigger; TRGSRC11 None; 
+    ADTRIG2H = 0x1;
     //TRGSRC12 None; TRGSRC13 None; 
     ADTRIG3L = 0x0;
-    //TRGSRC14 PWM1 Trigger1; TRGSRC15 None; 
-    ADTRIG3H = 0x4;
+    //TRGSRC14 Common Software Trigger; TRGSRC15 None; 
+    ADTRIG3H = 0x1;
     //TRGSRC16 None; TRGSRC17 None; 
     ADTRIG4L = 0x0;
-    //TRGSRC18 None; TRGSRC19 PWM1 Trigger1; 
-    ADTRIG4H = 0x400;
+    //TRGSRC18 None; TRGSRC19 Common Software Trigger; 
+    ADTRIG4H = 0x100;
     //TRGSRC24 None; TRGSRC25 None; 
     ADTRIG6L = 0x0;
 }

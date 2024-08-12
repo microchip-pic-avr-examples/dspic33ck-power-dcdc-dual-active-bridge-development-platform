@@ -90,13 +90,14 @@ void ControlLoop_Interrupt_CallBack(void)
  *********************************************************************************/
 void Dev_PwrCtrl_UpdateConverterData (void)
 {
+    ADC1_SoftwareTriggerEnable();
     
     dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); 
     dab.Data.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); 
     
     dab.Data.VSecVoltage = ADC1_ConversionResultGet(VSEC);
     dab.Data.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
-    
+
     dab.Data.VPriVoltage = ADC1_ConversionResultGet(VPRI);
     
     dab.Data.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
