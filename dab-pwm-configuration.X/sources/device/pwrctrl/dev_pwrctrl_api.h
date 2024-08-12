@@ -55,6 +55,7 @@ uint16_t Dev_PwrCtrl_Get_IloopFeedback(void);
 uint16_t Dev_PwrCtrl_Get_CurrentSensorOffset(void);
 uint16_t Dev_PwrCtrl_Get_DutyCycle(void);
 uint16_t Dev_PwrCtrl_Get_Phase(void);
+uint16_t Dev_PwrCtrl_Get_SecPower(void);
 
 #endif	/* DRV_PWRCTRL_API_H */
 

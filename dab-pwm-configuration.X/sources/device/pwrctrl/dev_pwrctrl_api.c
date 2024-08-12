@@ -401,5 +401,19 @@ uint16_t Dev_PwrCtrl_Get_IloopFeedback(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_CurrentSensorOffset(void)
 {
-    return(dab.Data.isec_sensor_offset);
+    return(dab.Data.ISecSensorOffset);
+}
+
+/*********************************************************************************
+ * @ingroup 
+ * @fn      uint16_t Drv_PwrCtrl_Get_CurrentSensorOffset(void)
+ * @brief   API function to get the current sensor offset
+ * @param   none
+ * @return  current sensor offset
+ * @details
+ * API function
+ **********************************************************************************/
+uint16_t Dev_PwrCtrl_Get_SecPower(void)
+{
+    return(dab.Data.SecPower);
 }
