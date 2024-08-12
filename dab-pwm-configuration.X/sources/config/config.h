@@ -22,7 +22,7 @@
 #define FAULT_VPRI_OV   false
 #define FAULT_ISEC_OC   false
 #define FAULT_IPRI_OC   false
-#define FAULT_VSEC_OV   false
+#define FAULT_VSEC_OV   true
 #define FAULT_PS_OTP    false
 
 // not implemented yet
