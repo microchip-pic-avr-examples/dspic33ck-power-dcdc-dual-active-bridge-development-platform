@@ -150,7 +150,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
             //ToDo: check with Lorant if tested with at 700V, if yes, 4 shift bit 
             //exceeds the int value of 35535.
             dab.VLoop.Feedback = dab.Data.VSecVoltage << 4;  
-            dab.VLoop.Reference = dab.VLoop.Reference << 4;
+            dab.VLoop.Reference = dab.Properties.VSecReference << 4;
 
             SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
                     dab.VLoop.Reference, &dab.VLoop.Output);
@@ -198,6 +198,10 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 
                 ILoopReference, &dab.ILoop.Output);    
 
+        Nop();
+        Nop();
+        Nop();
+        
         //control loop output copied to control phase
         dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle >> 1) * (uint32_t)dab.ILoop.Output) >> 15);
         
