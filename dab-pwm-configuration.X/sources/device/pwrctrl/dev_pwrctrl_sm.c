@@ -150,13 +150,11 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
     {
         Dev_Fault_Reset();
 
-    #ifdef OPEN_LOOP_PBV
         // reset the PWM settings in Standby mode
-        pcInstance->Pwm.ControlPeriod = MIN_PWM_PERIOD;
+        pcInstance->Pwm.ControlPeriod = MAX_PWM_PERIOD;
         pcInstance->Pwm.ControlPhase = 0;
-        pcInstance->Pwm.PBVPeriodTarget = MIN_PWM_PERIOD;
+        pcInstance->Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
         pcInstance->Pwm.PBVControlPhaseTarget = 0;
-    #endif 
 
         pcInstance->Status.bits.Running = 1;
         
