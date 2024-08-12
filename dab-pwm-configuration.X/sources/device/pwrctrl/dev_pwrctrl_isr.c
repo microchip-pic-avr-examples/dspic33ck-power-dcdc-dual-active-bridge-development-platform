@@ -160,7 +160,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     {      
         VLoopExec = true;
         
-        uint32_t isec = dab.Data.ISenseSecondary >> 3;
+        uint32_t isec = (dab.Data.ISecAverage - dab.Data.ISecSensorOffset) >> 3;
         uint32_t vsec = (dab.Data.VSecVoltage * 3) >> 8;
 
         dab.Data.SecPower = isec * vsec;

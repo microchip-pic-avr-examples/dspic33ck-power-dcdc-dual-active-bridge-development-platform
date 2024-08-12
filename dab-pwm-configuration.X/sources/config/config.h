@@ -29,7 +29,7 @@
 #define FAULT_SHORT_CCT false
 #define FAULT_VRAIL_5V  false
 
-#define CURRENT_CALIBRATION false
+#define CURRENT_CALIBRATION     true
 
 #define VPRI_OPTOCOUPLER_POLARITY       false ///< false if not inverted; true if inverted 
 
