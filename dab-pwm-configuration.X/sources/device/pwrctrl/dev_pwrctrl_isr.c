@@ -159,11 +159,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     if((dab.PLoop.Enable == true) && (VLoopExec == false))
     {      
         VLoopExec = true;
-        
-        Nop();
-        Nop();
-        Nop();
-        
+
         uint32_t isec = (dab.Data.ISecAverage - dab.Data.ISecSensorOffset) >> 2;
         uint32_t vsec = (dab.Data.VSecVoltage * 3) >> 8;
 
@@ -200,7 +196,16 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 
                 ILoopReference, &dab.ILoop.Output);    
 
+        Nop();
+        Nop();
+        Nop();
+        
         //control loop output copied to control phase
         dab.Pwm.ControlPhase = (((dab.Pwm.ControlDutyCycle >> 1) * dab.ILoop.Output) >> 15);
+        
+        Nop();
+        Nop();
+        Nop();
+        
     }
 }

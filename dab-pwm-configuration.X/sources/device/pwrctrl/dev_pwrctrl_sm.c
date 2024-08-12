@@ -236,9 +236,10 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     rampVComplete = Dev_PwrCtrl_RampReference(ptrVreference, ptrVreferenceTarget, step, delay);
     rampIComplete = Dev_PwrCtrl_RampReference(ptrIreference, ptrIreferenceTarget, step, delay);
     
+    if (rampIComplete && rampVComplete)
+        
 #endif 
      
-    if (rampIComplete && rampVComplete)
         pcInstance->State = PWR_CNTRL_STATE_ONLINE;  // next state
 
   }

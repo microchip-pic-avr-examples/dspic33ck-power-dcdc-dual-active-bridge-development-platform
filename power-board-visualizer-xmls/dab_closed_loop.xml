@@ -173,6 +173,19 @@
         <PageName>4kw</PageName>
         <ProtocolID>516</ProtocolID>
       </SignalChannel>
+      <SignalChannel>
+        <Name>Power</Name>
+        <Scaling>1</Scaling>
+        <Offset>0</Offset>
+        <Unit>W</Unit>
+        <Plot>false</Plot>
+        <PlotValMin>0</PlotValMin>
+        <PlotValMax>0</PlotValMax>
+        <SignalChannelIndex>14</SignalChannelIndex>
+        <PositionInMessage>0</PositionInMessage>
+        <PageName>4kw</PageName>
+        <ProtocolID>1</ProtocolID>
+      </SignalChannel>
     </SignalChannels>
     <TableView>
       <TableViewItem>
@@ -211,6 +224,10 @@
         <SignalChannelIndex>4</SignalChannelIndex>
         <PageName>4kw</PageName>
       </TableViewItem>
+      <TableViewItem>
+        <SignalChannelIndex>14</SignalChannelIndex>
+        <PageName>4kw</PageName>
+      </TableViewItem>
     </TableView>
     <OutputValues>
       <OutputValue>
@@ -244,7 +261,7 @@
       <OutputValue>
         <Name>PREF</Name>
         <Unit>W</Unit>
-        <Scaling>0</Scaling>
+        <Scaling>1</Scaling>
         <Offset>0</Offset>
         <MinimumValue>0</MinimumValue>
         <MaximumValue>11000</MaximumValue>
@@ -281,6 +298,7 @@
         <ButtonText>Update</ButtonText>
         <Data>0202 0004 EE01 [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
+        <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
         <Name>DeadTime High (ns)</Name>
