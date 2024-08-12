@@ -159,7 +159,7 @@ void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void)
   CMP_IPRI_SC_DACDataWrite(IPRI_SC_THRES_TRIG);   
   
   // turn on comparator DACs 
-  CMP_ISEC_SC_DACEnable();
+  CMP_IPRI_SC_DACEnable();
   CMP_ISEC_SC_DACEnable();
   
 }

@@ -43,6 +43,14 @@
 
 void INTERRUPT_Initialize(void)
 {
+    // CMP3: Comparator 3 
+    // Priority: 5
+    IPC19bits.CMP3IP = 5;
+    
+    // CMP1: Comparator 1 
+    // Priority: 5
+    IPC19bits.CMP1IP = 5;
+    
     // DMT: Dead Man Timer
     // Priority: 1
     IPC11bits.DMTIP = 1;
@@ -60,6 +68,8 @@ void INTERRUPT_Initialize(void)
 void INTERRUPT_Deinitialize(void)
 {
     //POR default value of priority
+    IPC19bits.CMP3IP = 4;
+    IPC19bits.CMP1IP = 4;
     IPC11bits.DMTIP = 4;
     IPC0bits.T1IP = 4;
     IPC1bits.CCT1IP = 4;

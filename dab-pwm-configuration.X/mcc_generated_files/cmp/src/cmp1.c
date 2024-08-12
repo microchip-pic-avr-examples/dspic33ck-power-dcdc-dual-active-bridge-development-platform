@@ -60,7 +60,7 @@ const struct CMP_INTERFACE CMP_ISEC_SC = {
     .StatusGet = &CMP1_StatusGet,
     
     .EventCallbackRegister = &CMP1_EventCallbackRegister,
-    .Tasks = &CMP1_Tasks,
+    .Tasks = NULL,
     .cmp_dac_dc_interface = &dac1_dc_interface
 };
 
@@ -73,7 +73,7 @@ void CMP1_Initialize(void)
     DACCTRL2H = 0x8A; //SSTIME 138; 
     DACCTRL2L = 0x55; //TMODTIME 85; 
     DAC1CONH = 0x0; //TMCB 0; 
-    DAC1CONL = 0x8009; //HYSSEL 15mV; HYSPOL Rising Edge; INSEL CMP1B; CMPPOL Non Inverted; FLTREN disabled; DACOEN disabled; CBE disabled; IRQM Interrupts are disabled; DACEN enabled; 
+    DAC1CONL = 0xA008; //HYSSEL None; HYSPOL Rising Edge; INSEL CMP1B; CMPPOL Non Inverted; FLTREN disabled; DACOEN disabled; CBE disabled; IRQM Rising edge detect; DACEN enabled; 
 
     //Slope Settings
     DAC1DATH = 0xF32; //DACDATH 3890; 
@@ -84,6 +84,10 @@ void CMP1_Initialize(void)
     
     CMP1_EventCallbackRegister(&CMP1_EventCallback);
     
+    // Clearing IF flag before enabling the interrupt.
+    IFS4bits.CMP1IF = 0;
+    // Enabling CMP1 interrupt.
+    IEC4bits.CMP1IE = 1;
     
     DACCTRL1Lbits.DACON = 1;
 }
@@ -92,6 +96,8 @@ void CMP1_Deinitialize(void)
 { 
     DACCTRL1Lbits.DACON = 0;
     
+    IFS4bits.CMP1IF = 0;
+    IEC4bits.CMP1IE = 0;
     
     // Comparator Register settings
     DACCTRL1L = 0x0;
@@ -151,19 +157,16 @@ void __attribute__ ((weak)) CMP1_EventCallback(void)
    
 } 
 
-void CMP1_Tasks(void)
+void __attribute__ ( ( interrupt, no_auto_psv ) ) _CMP1Interrupt(void)
 {
-    if(IFS4bits.CMP1IF == 1)
+    // CMP1 callback function 
+    if(NULL != CMP1_EventHandler)
     {
-        // CMP1 callback function 
-        if(NULL != CMP1_EventHandler)
-        {
-            (*CMP1_EventHandler)();
-        }
-    
-        // clear the CMP1 interrupt flag
-        IFS4bits.CMP1IF = 0;
+        (*CMP1_EventHandler)();
     }
+    
+    // clear the CMP1 interrupt flag
+    IFS4bits.CMP1IF = 0;
 }
 
 /**

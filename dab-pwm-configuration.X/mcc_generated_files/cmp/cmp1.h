@@ -108,11 +108,6 @@ extern const struct CMP_INTERFACE CMP_ISEC_SC;
  * @brief    This macro defines the Custom Name for \ref CMP1_EventCallbackRegister API
  */
 #define CMP_ISEC_SC_EventCallbackRegister CMP1_EventCallbackRegister
-/**
- * @ingroup  cmpdriver
- * @brief    This macro defines the Custom Name for \ref CMP1_Tasks API
- */
-#define CMP_ISEC_SC_Tasks CMP1_Tasks
 
 // Section: CMP1 Module APIs
 
@@ -202,15 +197,6 @@ void CMP1_EventCallbackRegister(void (*handler)(void));
  */
 void CMP1_EventCallback(void);
 
-/**
- * @ingroup  cmpdriver
- * @brief    The Task function can be called in the main application using the High Speed
- *           Comparator, when interrupts are not used.  This would thus introduce the 
- *           polling mode feature of the Analog Comparator.
- * @param    none
- * @return   none  
- */
-void CMP1_Tasks(void);
 
 #endif //CMP1_H
 

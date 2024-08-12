@@ -74,6 +74,8 @@ int main(void)
     
     MCC_Custom_User_Config();
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt_CallBack); // Check the naming convention
+    CMP1_EventCallbackRegister(&Dev_Fault_Handler);
+    CMP3_EventCallbackRegister(&Dev_Fault_Handler);
     
     // X2CScope will be initialized when X2CDEBUG_ENABLED is enabled
     #if (X2CDEBUG_ENABLED == 1)
