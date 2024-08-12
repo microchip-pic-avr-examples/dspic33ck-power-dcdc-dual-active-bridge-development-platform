@@ -157,7 +157,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     }
 
     if((dab.PLoop.Enable == true) && (VLoopExec == false))
-    {
+    {      
         VLoopExec = true;
         
         uint32_t isec = dab.Data.ISecAverage >> 2;
