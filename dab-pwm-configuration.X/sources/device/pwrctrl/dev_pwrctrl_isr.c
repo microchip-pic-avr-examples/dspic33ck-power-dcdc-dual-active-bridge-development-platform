@@ -46,7 +46,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void);
  * manage shared ADC core
  * ADC fault protection
  **********************************************************************************/
-void ControlLoop_Interrupt(void)
+void ControlLoop_Interrupt_CallBack(void)
 {      
     GPIO_1_SetHigh();
             
