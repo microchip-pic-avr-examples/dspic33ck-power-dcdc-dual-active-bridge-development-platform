@@ -191,7 +191,12 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     {
         // Execute the Current Loop Control
         //Bit-shift value used to perform input value normalization
-        dab.ILoop.Feedback = dab.Data.ISenseSecondary << 3;
+        Nop();
+        Nop();
+        Nop();
+        
+        uint16_t isec = dab.Data.ISecAverage - dab.Data.ISecSensorOffset;
+        dab.ILoop.Feedback = isec << 3;
         //adaptive gain factor
         IMC_2p2z.KfactorCoeffsB = dab.ILoop.AgcFactor;
         //refresh limits

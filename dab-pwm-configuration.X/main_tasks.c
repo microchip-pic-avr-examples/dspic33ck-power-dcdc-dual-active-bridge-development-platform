@@ -97,7 +97,7 @@ void Tasks_Realtime_100us(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_Realtime_1ms(void)
 {
-    Dev_CurrentSensorOffsetCal();
+    
 }
 
 #if OS_USE_SCHEDULER_100us == 1
