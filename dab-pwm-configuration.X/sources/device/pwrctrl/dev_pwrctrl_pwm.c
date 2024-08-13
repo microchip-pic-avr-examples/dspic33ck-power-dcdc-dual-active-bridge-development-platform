@@ -23,7 +23,7 @@
 #include <stdbool.h>
 #include "pwm_hs/pwm.h"
 #include "dev_pwrctrl_typedef.h"
-#include "../../config/config.h"
+
 /*********************************************************************************
  * @ingroup 
  * @fn     void Drv_PwrCtrl_PWM_Enable(void)
@@ -152,14 +152,6 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
     if(pcInstance->Pwm.ControlPhase > pcInstance->Pwm.ControlPeriod){
         pcInstance->Pwm.ControlPhase = pcInstance->Pwm.ControlPeriod;
     }
-    
-//    #if(OPEN_LOOP_PBV == true)
-//    // Calculate the DAB Primary to Secondary Phase ((Control Phase /2))
-//    
-//    #else
-//    uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlPhase);
-//    #endif
-
     
     uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlPhase >> 1);
     

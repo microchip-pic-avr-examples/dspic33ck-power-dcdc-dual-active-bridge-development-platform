@@ -194,17 +194,8 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     {
         // Execute the Current Loop Control
         //Bit-shift value used to perform input value normalization
-<<<<<<< HEAD
-        uint16_t isec = (dab.Data.ISecAverage - 2018);//dab.Data.ISecSensorOffset);
-//        dab.ILoop.Feedback = dab.Data.ISenseSecondary << 3;isec
-=======
-        Nop();
-        Nop();
-        Nop();
-        
         uint16_t isec = dab.Data.ISecAverage - dab.Data.ISecSensorOffset;
         
->>>>>>> feature/closeloop-test
         dab.ILoop.Feedback = isec << 3;
         //adaptive gain factor
         IMC_2p2z.KfactorCoeffsB = 0x7FFF;//dab.ILoop.AgcFactor;
@@ -224,14 +215,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
          
         XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z,    &dab.ILoop.Feedback,   ILoopReference, &dab.ILoop.Output);    
 
-        Nop();
-        Nop();
-        Nop();
-        
         //control loop output copied to control phase
-//        dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle >> 1) * (uint32_t)dab.ILoop.Output) >> 15);
         dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle) * (uint32_t)dab.ILoop.Output) >> 15); //range 0..180
-        
-        
     }
 }
