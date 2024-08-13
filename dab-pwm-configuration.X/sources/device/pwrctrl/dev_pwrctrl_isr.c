@@ -155,6 +155,8 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
             SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
                     dab.VLoop.Reference, &dab.VLoop.Output);
         
+            // reset the Vloop reference to its original scaling
+            dab.VLoop.Reference = dab.VLoop.Reference >> 4;
         }
     }
 
@@ -175,6 +177,9 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         
         SMPS_Controller2P2ZUpdate(&PMC_2p2z, &dab.PLoop.Feedback,
                 dab.PLoop.Reference, &dab.PLoop.Output);
+        
+        // reset the Vloop reference to its original scaling and offset
+        dab.PLoop.Reference = dab.PLoop.Reference - 100;
     }
     
     if(dab.ILoop.Enable == true)
