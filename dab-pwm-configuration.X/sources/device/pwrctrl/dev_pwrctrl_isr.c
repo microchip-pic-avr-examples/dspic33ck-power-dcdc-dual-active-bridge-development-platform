@@ -150,7 +150,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
             //ToDo: check with Lorant if tested with at 700V, if yes, 4 shift bit 
             //exceeds the int value of 35535.
             dab.VLoop.Feedback = dab.Data.VSecVoltage << 4;  
-            dab.VLoop.Reference = dab.Properties.VSecReference << 4;
+            dab.VLoop.Reference = dab.VLoop.Reference << 4;
 
             SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
                     dab.VLoop.Reference, &dab.VLoop.Output);
@@ -171,7 +171,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         //ToDo: check with Lorant the meaning of 100 in this code
         //100 is a power offset
         dab.PLoop.Feedback = 100 + (dab.Data.SecPower);
-        dab.PLoop.Reference = 100 + dab.Properties.PwrReference;
+        dab.PLoop.Reference = 100 + dab.PLoop.Reference;
         
         SMPS_Controller2P2ZUpdate(&PMC_2p2z, &dab.PLoop.Feedback,
                 dab.PLoop.Reference, &dab.PLoop.Output);
@@ -188,7 +188,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         IMC_2p2z.maxOutput =  0x7FFF;
 
         //mixing stage from voltage loop 10KHz
-        uint32_t RefBuf = (uint32_t)dab.Properties.IReference * (uint32_t)(dab.VLoop.Output & 0x7FFF);
+        uint32_t RefBuf = (uint32_t)dab.ILoop.Reference * (uint32_t)(dab.VLoop.Output & 0x7FFF);
         uint16_t ILoopReference = (uint16_t)(RefBuf>>12) ; //15-3
 
         //mixing stage from power loop 10KHz

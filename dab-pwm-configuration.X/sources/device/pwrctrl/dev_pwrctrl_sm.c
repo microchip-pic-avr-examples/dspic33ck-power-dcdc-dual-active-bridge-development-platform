@@ -236,6 +236,10 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     uint16_t* ptrPreference = (uint16_t*)&pcInstance->PLoop.Reference;
     uint16_t* ptrPreferenceTarget = (uint16_t*)&pcInstance->Properties.PwrReference;
     
+    Nop();
+    Nop();
+    Nop();
+    
     rampVComplete = Dev_PwrCtrl_RampReference(ptrVreference, ptrVreferenceTarget, step, delay);
     rampIComplete = Dev_PwrCtrl_RampReference(ptrIreference, ptrIreferenceTarget, step, delay);
     rampPComplete = Dev_PwrCtrl_RampReference(ptrPreference, ptrPreferenceTarget, step, delay);
@@ -275,13 +279,15 @@ static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
             pcInstance->State = PWR_CNTRL_STATE_STANDBY;
         }
         
-    #ifdef OPEN_LOOP_PBV
+    #if (OPEN_LOOP_PBV == true)
         else if ((pcInstance->Pwm.ControlPeriod != pcInstance->Pwm.PBVPeriodTarget) || 
                 (pcInstance->Pwm.ControlPhase != pcInstance->Pwm.PBVControlPhaseTarget))
     #else
             
-        else if (pcInstance->ILoop.Reference != pcInstance->Properties.IReference)  
-    #endif // #ifdef OPEN_LOOP_PBV
+        else if ((pcInstance->ILoop.Reference != pcInstance->Properties.IReference) ||
+                (pcInstance->VLoop.Reference != pcInstance->Properties.VSecReference) ||
+                (pcInstance->PLoop.Reference != pcInstance->Properties.PwrReference))
+    #endif 
         {
             pcInstance->State = PWR_CNTRL_STATE_SOFT_START;
         }
