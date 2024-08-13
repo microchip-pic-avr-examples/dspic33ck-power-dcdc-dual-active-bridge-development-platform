@@ -76,11 +76,6 @@ void ControlLoop_Interrupt_CallBack(void)
     
     #endif
 
-    #if (DAC_DEBUG== true)
-//    CMP2_DACDataWrite(dab.VLoop.Reference);
-//    CMP2_DACDataWrite(dab.PLoop.Reference >> 2);
-    CMP2_DACDataWrite(dab.ILoop.Reference);
-    #endif  
     // Update PWM Properties
     Dev_PwrCtrl_PWM_Update(&dab);
     GPIO_1_SetLow();
@@ -100,7 +95,7 @@ void Dev_PwrCtrl_UpdateConverterData (void)
     ADC1_SoftwareTriggerEnable();
     
     dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); 
-    dab.Data.ISecAverageRectified = abs(dab.Data.ISecAverage - dab.Data.ISecSensorOffset) ;
+    dab.Data.ISecAverageRectified = abs(dab.Data.ISecAverage - dab.Data.ISecSensorOffset);
     
     dab.Data.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); 
     

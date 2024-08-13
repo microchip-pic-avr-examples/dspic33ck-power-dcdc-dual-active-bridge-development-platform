@@ -162,14 +162,6 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 
         pcInstance->Status.bits.Running = 1;
         
-        //ToDo: Check with Cormac
-        // interrupts temporarily disabled to avoid a conflict with
-        // with the compensator update function SMPS_Controller2P2ZUpdate() 
-        // called from a higher priority interrupt
-        INTERRUPT_GlobalDisable();            
-        
-        INTERRUPT_GlobalEnable();   
-        
         Dev_Fault_ClearHardwareFaults();
 
         Dev_PwrCtrl_PWM_Enable(pcInstance);
