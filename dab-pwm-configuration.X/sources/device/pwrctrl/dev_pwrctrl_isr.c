@@ -75,7 +75,12 @@ void ControlLoop_Interrupt_CallBack(void)
     dab.Pwm.ControlPhase = (uint16_t)(Pot2 * ADC_SCALER * (dab.Pwm.ControlPeriod >> 1));
     
     #endif
-       
+
+    #if (DAC_DEBUG== true)
+//    CMP2_DACDataWrite(dab.VLoop.Reference);
+//    CMP2_DACDataWrite(dab.PLoop.Reference >> 2);
+    CMP2_DACDataWrite(dab.ILoop.Reference);
+    #endif  
     // Update PWM Properties
     Dev_PwrCtrl_PWM_Update(&dab);
     GPIO_1_SetLow();
