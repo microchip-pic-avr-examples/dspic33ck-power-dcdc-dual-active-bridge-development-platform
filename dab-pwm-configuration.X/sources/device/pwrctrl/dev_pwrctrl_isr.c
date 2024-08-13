@@ -187,33 +187,41 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         dab.PLoop.Reference = dab.PLoop.Reference - 100;
     }
     
+    
+    
+    
     if(dab.ILoop.Enable == true)
     {
         // Execute the Current Loop Control
         //Bit-shift value used to perform input value normalization
-        dab.ILoop.Feedback = dab.Data.ISenseSecondary << 3;
+        uint16_t isec = (dab.Data.ISecAverage - 2018);//dab.Data.ISecSensorOffset);
+//        dab.ILoop.Feedback = dab.Data.ISenseSecondary << 3;isec
+        dab.ILoop.Feedback = isec << 3;
         //adaptive gain factor
-        IMC_2p2z.KfactorCoeffsB = dab.ILoop.AgcFactor;
+        IMC_2p2z.KfactorCoeffsB = 0x7FFF;//dab.ILoop.AgcFactor;
         //refresh limits
         IMC_2p2z.maxOutput =  0x7FFF;
 
-        //mixing stage from voltage loop 10KHz
-        uint32_t RefBuf = (uint32_t)dab.ILoop.Reference * (uint32_t)(dab.VLoop.Output & 0x7FFF);
-        uint16_t ILoopReference = (uint16_t)(RefBuf>>12) ; //15-3
+//        //mixing stage from voltage loop 10KHz
+//        uint32_t RefBuf = (uint32_t)dab.ILoop.Reference * (uint32_t)(dab.VLoop.Output & 0x7FFF);
+//        uint16_t ILoopReference = (uint16_t)(RefBuf>>12) ; //15-3
+//
+//        //mixing stage from power loop 10KHz
+//        RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  
+//        ILoopReference = (int16_t)(RefBuf >> 15 );    
 
-        //mixing stage from power loop 10KHz
-        RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  
-        ILoopReference = (int16_t)(RefBuf >> 15 );    
-
-        XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 
-                ILoopReference, &dab.ILoop.Output);    
+        
+         uint16_t ILoopReference = dab.ILoop.Reference<<3;
+         
+        XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z,    &dab.ILoop.Feedback,   ILoopReference, &dab.ILoop.Output);    
 
         Nop();
         Nop();
         Nop();
         
         //control loop output copied to control phase
-        dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle >> 1) * (uint32_t)dab.ILoop.Output) >> 15);
+//        dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle >> 1) * (uint32_t)dab.ILoop.Output) >> 15);
+        dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle) * (uint32_t)dab.ILoop.Output) >> 15); //range 0..180
         
         
     }

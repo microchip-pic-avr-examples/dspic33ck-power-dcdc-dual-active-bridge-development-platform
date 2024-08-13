@@ -23,7 +23,7 @@
 #include <stdbool.h>
 #include "pwm_hs/pwm.h"
 #include "dev_pwrctrl_typedef.h"
-
+#include "../../config/config.h"
 /*********************************************************************************
  * @ingroup 
  * @fn     void Drv_PwrCtrl_PWM_Enable(void)
@@ -153,13 +153,16 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
         pcInstance->Pwm.ControlPhase = pcInstance->Pwm.ControlPeriod;
     }
     
-    #if(OPEN_LOOP_PBV == true)
-    // Calculate the DAB Primary to Secondary Phase ((Control Phase /2))
-    uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlPhase >> 1);
-    #else
-    uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlPhase);
-    #endif
+//    #if(OPEN_LOOP_PBV == true)
+//    // Calculate the DAB Primary to Secondary Phase ((Control Phase /2))
+//    
+//    #else
+//    uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlPhase);
+//    #endif
 
+    
+    uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlPhase >> 1);
+    
     // Calculate the bridge delay ((Frequency / 2) - Primary to Secondary Phase + Control Phase)
     // Note that in the cascaded PWM, the reference phase of the client PWM, is its trigger source
     uint16_t PrimaryPhaseDelay = (pcInstance->Pwm.ControlDutyCycle - PrimarySecondaryPhase) + 
