@@ -109,6 +109,8 @@ static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->Status.bits.Running = 0;
         pcInstance->Properties.Enable = 0;
         
+        pcInstance->ILoop.Enable = true;
+        
         pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
     }   
 }

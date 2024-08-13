@@ -196,6 +196,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         Nop();
         
         uint16_t isec = dab.Data.ISecAverage - dab.Data.ISecSensorOffset;
+        
         dab.ILoop.Feedback = isec << 3;
         //adaptive gain factor
         IMC_2p2z.KfactorCoeffsB = dab.ILoop.AgcFactor;
