@@ -94,21 +94,25 @@ static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
     #if (CURRENT_CALIBRATION == true)
     // if OPEN_LOOP_POTI is defined, we are running on the digital power development board
     // so in this case ignore the current sensor calibration
+    
+    Dev_CurrentSensorOffsetCal();
+    
     if (Dev_CurrentSensor_Get_CalibrationStatus())
     #endif
     {
         // current sensor calibration is complete. Update the offset of the current sensor
         pcInstance->Data.ISecSensorOffset = Dev_CurrentSensor_Get_Offset();
-    }
-    
+        
         Dev_PwrCtrl_PWM_Disable(pcInstance);
         Dev_Fault_Reset();
         pcInstance->Status.bits.FaultActive = 0;
         pcInstance->Status.bits.Running = 0;
         pcInstance->Properties.Enable = 0;
         
-        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
+        pcInstance->ILoop.Enable = true;
         
+        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
+    }   
 }
 
 /*********************************************************************************
@@ -121,7 +125,7 @@ static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
  *
  **********************************************************************************/
 static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance)
-{
+{   
     if ((pcInstance->Fault.FaultDetected == 0) && (Drv_PwrCtrl_Fault_SC_Faults_Clear(pcInstance)))
     {
         pcInstance->Status.bits.FaultActive = 0;
@@ -235,10 +239,6 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     uint16_t* ptrVreferenceTarget = (uint16_t*)&pcInstance->Properties.VSecReference;
     uint16_t* ptrPreference = (uint16_t*)&pcInstance->PLoop.Reference;
     uint16_t* ptrPreferenceTarget = (uint16_t*)&pcInstance->Properties.PwrReference;
-    
-    Nop();
-    Nop();
-    Nop();
     
     rampVComplete = Dev_PwrCtrl_RampReference(ptrVreference, ptrVreferenceTarget, step, delay);
     rampIComplete = Dev_PwrCtrl_RampReference(ptrIreference, ptrIreferenceTarget, step, delay);

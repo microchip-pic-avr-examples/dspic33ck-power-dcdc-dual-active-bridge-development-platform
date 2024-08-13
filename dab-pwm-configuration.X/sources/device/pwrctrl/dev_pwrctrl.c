@@ -142,7 +142,7 @@ void Dev_PwrCtrl_ControlLoopInitialize(void)
     dab.VLoop.Output = 0;
     dab.VLoop.Reference = 0;
 
-    dab.ILoop.Enable = true;
+    dab.ILoop.Enable = false;
     dab.ILoop.AgcFactor = 0x7FFF;
     dab.ILoop.Feedback = 0;
     dab.ILoop.Output = 0;
@@ -153,4 +153,5 @@ void Dev_PwrCtrl_ControlLoopInitialize(void)
     dab.PLoop.Feedback = 0;
     dab.PLoop.Output = 0;
     dab.PLoop.Reference = 0;
+
 }
