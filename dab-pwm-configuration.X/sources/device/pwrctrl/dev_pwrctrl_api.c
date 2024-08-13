@@ -202,7 +202,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Isec_avg(void)
 {
-    uint16_t isec = (dab.Data.ISecAverage - 2018);//dab.Data.ISecSensorOffset);// >> 2;
+    uint16_t isec = (dab.Data.ISecAverage - dab.Data.ISecSensorOffset);
     return(isec);
 }
 
