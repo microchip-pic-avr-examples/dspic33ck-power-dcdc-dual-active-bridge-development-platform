@@ -228,15 +228,19 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     uint16_t delay = 0;
     bool rampIComplete = 0;
     bool rampVComplete = 0;
+    bool rampPComplete = 0;
     uint16_t* ptrIreference = (uint16_t*)&pcInstance->ILoop.Reference;
     uint16_t* ptrIreferenceTarget = (uint16_t*)&pcInstance->Properties.IReference;
     uint16_t* ptrVreference = (uint16_t*)&pcInstance->VLoop.Reference;
     uint16_t* ptrVreferenceTarget = (uint16_t*)&pcInstance->Properties.VSecReference;
+    uint16_t* ptrPreference = (uint16_t*)&pcInstance->PLoop.Reference;
+    uint16_t* ptrPreferenceTarget = (uint16_t*)&pcInstance->Properties.PwrReference;
     
     rampVComplete = Dev_PwrCtrl_RampReference(ptrVreference, ptrVreferenceTarget, step, delay);
     rampIComplete = Dev_PwrCtrl_RampReference(ptrIreference, ptrIreferenceTarget, step, delay);
+    rampPComplete = Dev_PwrCtrl_RampReference(ptrPreference, ptrPreferenceTarget, step, delay);
     
-    if (rampIComplete && rampVComplete)
+    if (rampIComplete && rampVComplete && rampPComplete)
         
 #endif 
      
