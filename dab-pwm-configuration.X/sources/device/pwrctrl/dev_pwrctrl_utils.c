@@ -21,7 +21,21 @@
 #include <xc.h>
 #include <stdint.h> // include standard integer data types
 #include <stdbool.h> // include standard boolean data types
-#include <stddef.h> // include standard definition data types
+#include <stddef.h>
+
+#include "dev_pwrctrl_typedef.h"
+#include "dev_pwrctrl_utils.h" // include standard definition data types
+
+uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t adcReading)
+{
+    data->Accumulator += adcReading;
+    if(++data->Counter >= data->AveragingCount){    
+        data->AverageValue = (uint16_t)(__builtin_divud(data->Accumulator, data->Counter));
+        data->Accumulator = 0;
+        data->Counter = 0;
+    }
+    return(data->AverageValue);
+}
 
 /*********************************************************************************
  * @ingroup 
@@ -66,5 +80,4 @@ bool Dev_PwrCtrl_RampReference(uint16_t* ptr_reference,
   
   return (ramp_complete);
 }
-
 

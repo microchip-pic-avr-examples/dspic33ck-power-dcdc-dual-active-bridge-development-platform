@@ -8,9 +8,12 @@
 #ifndef APP_PWRCTRL_H
 #define	APP_PWRCTRL_H
 
-#include "device/pwrctrl/dev_pwrctrl_typedef.h"
+#include "dev_pwrctrl_typedef.h"
+#include "dev_pwrctrl_utils.h"
 
 extern POWER_CONTROL_t dab;
+extern AVERAGING_t VsecAveraging;
+extern AVERAGING_t IsecAveraging;
 
 extern void Dev_PwrCtrl_Initialize(void);
 extern void Dev_PwrCtrl_Execute(void);

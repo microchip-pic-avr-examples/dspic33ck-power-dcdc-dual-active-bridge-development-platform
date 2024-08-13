@@ -21,6 +21,7 @@
  */
 
 #include "dev_pwrctrl.h"
+#include "dev_pwrctrl_utils.h"
 
 /*********************************************************************************
  * @ingroup 
@@ -416,4 +417,14 @@ uint16_t Dev_PwrCtrl_Get_CurrentSensorOffset(void)
 uint16_t Dev_PwrCtrl_Get_SecPower(void)
 {
     return(dab.Data.SecPower);
+}
+
+uint16_t Dev_PwrCtrl_GetAveraging_Vsec(void)
+{
+    return(VsecAveraging.AverageValue);
+}
+
+uint16_t Dev_PwrCtrl_GetAveraging_Isec(void)
+{
+    return(IsecAveraging.AverageValue);
 }

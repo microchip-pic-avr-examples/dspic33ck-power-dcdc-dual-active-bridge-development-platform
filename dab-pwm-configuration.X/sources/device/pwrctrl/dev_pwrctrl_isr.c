@@ -33,9 +33,13 @@
 #include "device/fault/dev_fault.h"
 #include "dcdt/dev_pwrctrl_dcdt.h"
 #include "system/pins.h"
+#include "dev_pwrctrl_utils.h"
 
 void Dev_PwrCtrl_UpdateConverterData(void);
 void Dev_PwrCtrl_ControlLoopExecute(void);
+
+AVERAGING_t VsecAveraging;
+AVERAGING_t IsecAveraging;
 
 /*********************************************************************************
  * @ingroup 
@@ -97,9 +101,14 @@ void Dev_PwrCtrl_UpdateConverterData (void)
     dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); 
     dab.Data.ISecAverageRectified = abs(dab.Data.ISecAverage - dab.Data.ISecSensorOffset);
     
-    dab.Data.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); 
+    IsecAveraging.Accumulator += dab.Data.ISecAverageRectified;
+    IsecAveraging.Counter = IsecAveraging.Counter + 1;
     
     dab.Data.VSecVoltage = ADC1_ConversionResultGet(VSEC);
+    VsecAveraging.Accumulator += dab.Data.VSecVoltage;
+    VsecAveraging.Counter = VsecAveraging.Counter + 1; 
+    
+    dab.Data.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); 
     dab.Data.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
 
     dab.Data.VPriVoltage = ADC1_ConversionResultGet(VPRI);
@@ -125,6 +134,11 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     //Interleave the execution of the control loop
     if(++cnt == 5)
     {
+        
+        VsecAveraging.AverageValue = (uint16_t)(__builtin_divud(VsecAveraging.Accumulator, VsecAveraging.Counter));
+        VsecAveraging.Accumulator = 0;
+        VsecAveraging.Counter = 0;
+            
         if((dab.VLoop.Enable == false) && (VLoopExec == true)){
             dab.VLoop.Enable = true;
             dab.PLoop.Enable = false;
@@ -133,6 +147,10 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         else if((dab.PLoop.Enable == false) && (VLoopExec == false)){
             dab.VLoop.Enable = false;
             dab.PLoop.Enable = true;
+        
+            IsecAveraging.AverageValue = (uint16_t)(__builtin_divud(IsecAveraging.Accumulator, IsecAveraging.Counter));
+            IsecAveraging.Accumulator = 0;
+            IsecAveraging.Counter = 0;
         }
         cnt = 0;
     }
@@ -143,15 +161,15 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         VLoopExec = false;
         
         // Execute the Voltage Loop Control
-        if(dab.PowerDirection == PWR_CTRL_CHARGING)
-        { 
+//        if(dab.PowerDirection == PWR_CTRL_CHARGING)
+//        { 
             VMC_2p2z.KfactorCoeffsB = 0x7FFF;
             VMC_2p2z.maxOutput =  0x7FFF;
 
             //Bit-shift value used to perform input value normalization
             //ToDo: check with Lorant if tested with at 700V, if yes, 4 shift bit 
             //exceeds the int value of 35535.
-            dab.VLoop.Feedback = dab.Data.VSecVoltage << 4;  
+            dab.VLoop.Feedback = VsecAveraging.AverageValue << 4;  
             dab.VLoop.Reference = dab.VLoop.Reference << 4;
 
             SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
@@ -159,16 +177,17 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         
             // reset the Vloop reference to its original scaling
             dab.VLoop.Reference = dab.VLoop.Reference >> 4;
-        }
+//        }
     }
 
     if((dab.PLoop.Enable == true) && (VLoopExec == false))
     {      
         VLoopExec = true;
 
-        uint32_t isec = dab.Data.ISecAverageRectified  >> 2;
-        uint32_t vsec = (dab.Data.VSecVoltage * 3) >> 8;
+        uint16_t isec = (uint16_t)(IsecAveraging.AverageValue  >> 2);
+        uint16_t vsec = (uint16_t)((uint32_t)(VsecAveraging.AverageValue * 3) >> 8);
 
+        
         dab.Data.SecPower = isec * vsec;
             
         // Execute the Power Loop Control

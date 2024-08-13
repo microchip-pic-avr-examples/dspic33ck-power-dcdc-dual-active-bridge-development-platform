@@ -56,6 +56,8 @@ uint16_t Dev_PwrCtrl_Get_CurrentSensorOffset(void);
 uint16_t Dev_PwrCtrl_Get_DutyCycle(void);
 uint16_t Dev_PwrCtrl_Get_Phase(void);
 uint16_t Dev_PwrCtrl_Get_SecPower(void);
-
+uint16_t Dev_PwrCtrl_GetAveraging_Vsec(void);
+uint16_t Dev_PwrCtrl_GetAveraging_Isec(void);
+        
 #endif	/* DRV_PWRCTRL_API_H */
 
