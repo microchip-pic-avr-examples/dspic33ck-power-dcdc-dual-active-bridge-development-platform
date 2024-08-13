@@ -78,6 +78,7 @@ struct FEEDBACK_SETTINGS_s
     uint16_t ISensePrimary;     ///< Data value for primary current as measured with CT
     uint16_t ISenseSecondary;   ///< Data value for secondary current as measured with CT
     uint16_t ISecAverage;       ///< Data value for average secondary current as measured with isolated current sensor
+    uint16_t ISecAverageRectified;///< Data value for average secondary current rectified
     int16_t  SecPower;          ///< Data value for Secondary power (Watt)
     uint16_t Temperature;       ///< Data value for temperature
     uint16_t VRail_5V;          ///< Data value for 5V auxiliary rail

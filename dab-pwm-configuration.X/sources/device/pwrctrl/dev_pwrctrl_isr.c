@@ -23,7 +23,7 @@
 #include <xc.h>
 #include <math.h>
 #include <stdbool.h>
-
+#include <stdlib.h>
 #include "dev_pwrctrl.h"
 #include "timer/sccp1.h"
 #include "adc/adc_types.h"
@@ -100,6 +100,8 @@ void Dev_PwrCtrl_UpdateConverterData (void)
     ADC1_SoftwareTriggerEnable();
     
     dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); 
+    dab.Data.ISecAverageRectified = abs(dab.Data.ISecAverage - dab.Data.ISecSensorOffset) ;
+    
     dab.Data.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); 
     
     dab.Data.VSecVoltage = ADC1_ConversionResultGet(VSEC);
@@ -169,7 +171,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     {      
         VLoopExec = true;
 
-        uint32_t isec = (dab.Data.ISecAverage - dab.Data.ISecSensorOffset) >> 2;
+        uint32_t isec = dab.Data.ISecAverageRectified  >> 2;
         uint32_t vsec = (dab.Data.VSecVoltage * 3) >> 8;
 
         dab.Data.SecPower = isec * vsec;
@@ -194,9 +196,8 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     {
         // Execute the Current Loop Control
         //Bit-shift value used to perform input value normalization
-        uint16_t isec = dab.Data.ISecAverage - dab.Data.ISecSensorOffset;
         
-        dab.ILoop.Feedback = isec << 3;
+        dab.ILoop.Feedback = dab.Data.ISecAverageRectified << 3;
         //adaptive gain factor
         IMC_2p2z.KfactorCoeffsB = 0x7FFF;//dab.ILoop.AgcFactor;
         //refresh limits
