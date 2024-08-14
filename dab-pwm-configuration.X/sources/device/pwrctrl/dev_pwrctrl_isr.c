@@ -177,6 +177,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         
             // reset the Vloop reference to its original scaling
             dab.VLoop.Reference = dab.VLoop.Reference >> 4;
+
 //        }
     }
 
@@ -184,12 +185,18 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     {      
         VLoopExec = true;
 
-        uint16_t isec = (uint16_t)(IsecAveraging.AverageValue  >> 2);
-        uint16_t vsec = (uint16_t)((uint32_t)(VsecAveraging.AverageValue * 3) >> 8);
-
+//        uint16_t isec = (uint16_t)(IsecAveraging.AverageValue  >> 2);
+//        uint16_t vsec = (uint16_t)((uint32_t)(VsecAveraging.AverageValue * 3) >> 8);
+//                dab.Data.SecPower = isec * vsec;
         
-        dab.Data.SecPower = isec * vsec;
-            
+        
+        uint32_t buf=0;
+        buf = (uint32_t)IsecAveraging.AverageValue * (uint32_t)VsecAveraging.AverageValue  * 131; //131; 131;  //0.0079*10000 ==  131 / 16384
+        buf >>=14;
+        
+        dab.Data.SecPower =buf;
+         
+         
         // Execute the Power Loop Control
         //ToDo: check with Lorant the meaning of 100 in this code
         //100 is a power offset
@@ -222,8 +229,8 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         uint16_t ILoopReference = (uint16_t)(RefBuf>>12) ; //15-3
 //
 //        //mixing stage from power loop 10KHz
-//        RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  
-//        ILoopReference = (int16_t)(RefBuf >> 15 );    
+        RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  
+        ILoopReference = (int16_t)(RefBuf >> 15 );    
 
         
 //         uint16_t ILoopReference = dab.ILoop.Reference<<3;
