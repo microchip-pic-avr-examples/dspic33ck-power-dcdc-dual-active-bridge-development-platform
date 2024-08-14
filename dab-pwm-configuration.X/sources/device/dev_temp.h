@@ -92,6 +92,7 @@ typedef struct TEMP_SETTINGS_s TEMP_SETTINGS_t;
  **********************************************************************************/
 struct TEMP_NTC_LUT_s {
     uint16_t temperature;
+    int8_t temperatureCelsius;
     uint16_t ADC_Val;
 };
 typedef struct TEMP_NTC_LUT_s TEMP_NTC_LUT_t;
@@ -112,6 +113,8 @@ extern TEMP_SETTINGS_t* devTempDataPtr;
  **********************************************************************************/
 void Dev_Temp_Initialize(void);
 uint16_t Dev_Temp_Get_Temperature_Celcius();
+void Dev_Temp_Task_100ms(void);
+int8_t Dev_Temp_Get_Temperature_Celcius();
 uint16_t Dev_Temp_Get_Temperature_Raw();
 uint8_t Dev_Temp_Is_Over_Temperature();
 #endif	/* DEV_TEMP_H */

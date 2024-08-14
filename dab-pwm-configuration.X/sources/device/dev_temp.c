@@ -140,7 +140,7 @@ void Dev_Temp_Initialize(void){
  *         The temperature value is offset by 40 degrees to avoid working with negative 
  *          value
  **********************************************************************************/
-uint16_t Dev_Temp_Get_Temperature_Celcius(void){
+int8_t Dev_Temp_Get_Temperature_Celcius(void){
     
     uint8_t index = 0;
     
@@ -162,8 +162,8 @@ uint16_t Dev_Temp_Get_Temperature_Celcius(void){
             break;
         } 
     }
-    
-    return point0.temperature;
+    point0.temperatureCelsius=point0.temperature-40;
+    return point0.temperatureCelsius;
 }
 
 /***********************************************************************************
