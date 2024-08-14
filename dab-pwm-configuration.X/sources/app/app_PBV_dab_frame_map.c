@@ -194,7 +194,7 @@ void App_PBV_DAB_Task_1s(void)
     App_PBV_DAB_ASCII_Ptr->Data_Buffer = (uint8_t *)"                 Log Message From Protocol ID 0x300";
     App_Send_To_PBV(App_PBV_DAB_ASCII_Ptr);
    
-    temperature = Dev_Temp_Get_Temperature_Celcius();
+    temperature = (int16_t)Dev_Temp_Get_Temperature_Celcius();
 }
 
 /***********************************************************************************
@@ -247,7 +247,7 @@ void App_PBV_DAB_Build_Frame()
     buffer_sixteen_tx[4] = Dev_PwrCtrl_GetAdc_Ipri_ct();
     buffer_sixteen_tx[5] = Dev_PwrCtrl_GetAdc_Isec_ct();
     buffer_sixteen_tx[6] = Dev_PwrCtrl_GetAveraging_Isec();//Dev_PwrCtrl_GetAdc_Isec_avg();
-    buffer_sixteen_tx[7] = temperature;//Dev_PwrCtrl_GetAdc_Temperature();
+    buffer_sixteen_tx[7] = temperature + 40;//Dev_PwrCtrl_GetAdc_Temperature();
     buffer_sixteen_tx[8] = Dev_PwrCtrl_GetAdc_Vrail_5V();    
     buffer_sixteen_tx[9] =  devFanDataPtr->CurrentSpeedRaw;
     buffer_sixteen_tx[10] = devFanDataPtr->CurrentSpeedPercent;
