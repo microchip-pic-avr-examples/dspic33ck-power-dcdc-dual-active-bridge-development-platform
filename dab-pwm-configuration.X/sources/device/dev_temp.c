@@ -1,3 +1,4 @@
+
 /*
  * File:   dev_Temp.c
  * Author: M70027
@@ -5,12 +6,11 @@
  * Created on Jan 17, 2024, 13:30 PM
  */
 
-#include "dev_fault_temp.h"
+#include "dev_temp.h"
 #include <stdlib.h>
 
 #include "device/fault/dev_fault_common.h"
 #include "device/pwrctrl/dev_pwrctrl_api.h"
-#include "dev_fault.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
 
 /*********************************************************************************
@@ -108,14 +108,6 @@ void Dev_Temp_Initialize(void){
     devTempData.AdcReading = 0;                 ///< temperature raw
     devTempData.AdcAverage = 0;                 ///< temperature raw
     devTempData.TemperatureCelcius = 0;         ///< temperature celcius.
-    
-    FAULT_Init(
-            &dab.Fault.Object.PowerSupplyOTP,       ///< fault object
-            MAX_TEMPERATURE_THRESHOLD_RAW,          ///< threshold against which raw values will be compared
-            OVER_TEMP_UPPER_THRESHOLD_WITH_HYST,    ///< threshold plus hystersis
-            FAULT_PERSISTENCE_COUNT_TEMP,           ///< number of ISR counts for which the fault should clear
-            FAULT_PERSISTENCE_COUNT_TEMP            ///< number of ISR counts for which the fault should clear
-            ) ; 
 }
 
 /***********************************************************************************
@@ -131,21 +123,6 @@ void Dev_Temp_Initialize(void){
  * @note
  *    this is called in a rather slow 100ms object
  **********************************************************************************/
-void Dev_Temp_Task_100ms(void) 
-{
-    Dev_Temp_Get_ADC_Sample();
-    
-    #if(FAULT_PS_OTP)
-    if(FAULT_CheckMin(&dab.Fault.Object.PowerSupplyOTP, devTempData.AdcReading, &Dev_Fault_Handler))
-    {
-       devTempData.OverTemperatureFlag = 1; //for over temperature
-    }
-    else
-    {
-        devTempData.OverTemperatureFlag = 0; //for over temperature
-    }
-    #endif
-}
 
 /***********************************************************************************
  * @ingroup dev-temp-public-functions

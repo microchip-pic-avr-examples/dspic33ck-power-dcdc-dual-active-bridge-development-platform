@@ -46,6 +46,7 @@ void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void);
 void Dev_Fault_ClearHardwareFaults(void);
 void Dev_Fault_Reset(void);
 void Dev_Fault_Handler(void);
+void Dev_Fault_Temp_100ms(void); 
 
 /*********************************************************************************
  * @ingroup 

@@ -31,7 +31,7 @@
 #include "config/macros.h"
 #include "dev_fault_common.h"
 #include "dev_vin_isolated.h"
-#include "dev_fault_temp.h"
+#include "device/dev_temp.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
 #include "dev_fault.h"
 #include "system/pins.h"
@@ -74,8 +74,8 @@ void Dev_Fault_Initialize(void)
     FAULT_Init(&dab.Fault.Object.ISenseSCP, 0,0,0,I_SC_T_BLANK_CLEAR);
     FAULT_Init(&dab.Fault.Object.VRail_5V, VRAIL_5V_UV_THRES_TRIG, 
             VRAIL_5V_UV_THRES_CLEAR, VRAIL_5V_UV_T_BLANK_TRIG, VRAIL_5V_UV_T_BLANK_CLEAR);
-    
-    Dev_Temp_Initialize();
+    FAULT_Init(&dab.Fault.Object.PowerSupplyOTP, MAX_TEMPERATURE_THRESHOLD_RAW,         
+            OVER_TEMP_UPPER_THRESHOLD_WITH_HYST,FAULT_PERSISTENCE_COUNT_TEMP, FAULT_PERSISTENCE_COUNT_TEMP); 
     
 #if (FAULT_SHORT_CCT == true)
        // initialize short circuit fault protection with comparators
@@ -184,3 +184,18 @@ void Dev_Fault_ClearHardwareFaults(void)
   }
 }
 
+void Dev_Fault_Temp_100ms(void) 
+{
+    Dev_Temp_Get_ADC_Sample();
+    
+    #if(FAULT_PS_OTP)
+    if(FAULT_CheckMin(&dab.Fault.Object.PowerSupplyOTP, devTempData.AdcReading, &Dev_Fault_Handler))
+    {
+       devTempData.OverTemperatureFlag = 1; //for over temperature
+    }
+    else
+    {
+        devTempData.OverTemperatureFlag = 0; //for over temperature
+    }
+    #endif
+}

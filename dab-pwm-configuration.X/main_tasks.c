@@ -48,7 +48,7 @@
 #include "app/app_PBV_interface.h"
 #include "device/dev_fan.h"
 #include "device/dev_led.h"
-#include "device/fault/dev_fault_temp.h"
+#include "device/dev_temp.h"
 #include "device/dev_current_sensor.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
 
@@ -147,7 +147,7 @@ void Tasks_100ms(void)
 {
     Dev_LED_Task_100ms();
     Dev_Fan_Task_100ms();
-    Dev_Temp_Task_100ms();
+    Dev_Fault_Temp_100ms();
 }
 
 //=======================================================================================================
