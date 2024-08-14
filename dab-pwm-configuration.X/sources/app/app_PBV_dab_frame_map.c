@@ -283,6 +283,12 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             
                 bool enable = (bool)control_word;
                 Dev_PwrCtrl_SetEnable(enable);
+                if(enable==false)
+                {    
+                    Dev_PwrCtrl_SetIReference(0);
+                    Dev_PwrCtrl_SetVSecReference(0);
+                    Dev_PwrCtrl_SetPwrReference(0);
+                }
             }
             break; 
         }    
