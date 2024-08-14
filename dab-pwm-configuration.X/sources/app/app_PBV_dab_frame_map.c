@@ -32,7 +32,7 @@
 
 #include "system/pins.h"
 #include "device/dev_fan.h"
-#include "device/fault/dev_fault_temp.h"
+#include "device/dev_temp.h"
 #include "device/pwrctrl/dev_pwrctrl_api.h"
 #include "device/fault/dev_fault_api.h"
 #include "config/macros.h"

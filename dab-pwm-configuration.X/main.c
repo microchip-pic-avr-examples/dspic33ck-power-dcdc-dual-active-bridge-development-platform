@@ -31,7 +31,7 @@
 #include "device/fault/dev_vin_isolated.h"
 #include "device/dev_fan.h"
 #include "device/dev_led.h"
-#include "device/fault/dev_fault_temp.h"
+#include "device/dev_temp.h"
 #include "device/pwrctrl/dev_pwrctrl_isr.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
 #include "device/fault/dev_fault.h"
@@ -86,7 +86,7 @@ int main(void)
     App_PBV_DAB_Init();
     Dev_LED_Init();
     Dev_Fan_Init();
-    
+    Dev_Temp_Initialize();
     OS_Scheduler_RunForever();
     
     while(1)
