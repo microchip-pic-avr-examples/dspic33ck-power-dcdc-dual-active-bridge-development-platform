@@ -112,7 +112,6 @@ extern TEMP_SETTINGS_t* devTempDataPtr;
  * Public Function Call Prototypes
  **********************************************************************************/
 void Dev_Temp_Initialize(void);
-uint16_t Dev_Temp_Get_Temperature_Celcius();
 void Dev_Temp_Task_100ms(void);
 int8_t Dev_Temp_Get_Temperature_Celcius();
 uint16_t Dev_Temp_Get_Temperature_Raw();
