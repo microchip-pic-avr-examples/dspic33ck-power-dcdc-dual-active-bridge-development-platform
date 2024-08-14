@@ -184,7 +184,7 @@ void Dev_Fault_ClearHardwareFaults(void)
   }
 }
 
-void Dev_Temp_Task_100ms(void) 
+void Dev_Fault_Temp_100ms(void) 
 {
     Dev_Temp_Get_ADC_Sample();
     
