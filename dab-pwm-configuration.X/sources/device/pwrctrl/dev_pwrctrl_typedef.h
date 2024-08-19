@@ -119,8 +119,8 @@ struct START_UP_RAMP_s
     uint16_t Counter;          ///< Soft-Start Execution Counter. This setting is set/cleared by the device driver and is 'read only'.
     uint16_t Delay;           ///< Soft-Start Period (POD, RAMP PERIOD, PGD, etc.)
     uint16_t StepSize;         ///< Size/value of one reference increment/decrement or this period
-    uint16_t ptrReference;     ///< pointer the reference variable
-    uint16_t ptrReferenceTarget;///< pointer to the ramp-up reference target
+    uint16_t* ptrReference;     ///< pointer the reference variable
+    uint16_t* ptrReferenceTarget;///< pointer to the ramp-up reference target
     bool RampComplete;          ///< indicates when ramp-up is complete
     
 }; // Power converter soft-start auxiliary variables

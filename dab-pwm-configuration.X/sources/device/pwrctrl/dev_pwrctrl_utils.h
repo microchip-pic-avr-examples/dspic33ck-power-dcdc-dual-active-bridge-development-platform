@@ -19,10 +19,7 @@ typedef struct AVERAGING_s AVERAGING_t;
 
 extern uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t adcReading);
 
-extern bool Dev_PwrCtrl_RampReference(uint16_t* ptr_reference, 
-                               uint16_t* ptr_referenceTarget, 
-                               uint16_t step, 
-                               uint16_t delay);
+extern bool Dev_PwrCtrl_RampReference(START_UP_RAMP_t* rampUp);
 
 #endif	/* DEV_PWRCTRL_UTILS_H */
 

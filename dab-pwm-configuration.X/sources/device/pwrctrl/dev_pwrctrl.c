@@ -31,6 +31,8 @@
 POWER_CONTROL_t dab;
 
 static void Dev_PwrCtrl_ControlLoopInitialize(void);
+static void Dev_PwrCtrl_StartUpInitialize(void);
+
 extern void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
 
 /*******************************************************************************
@@ -59,13 +61,16 @@ void Dev_PwrCtrl_Initialize(void)
     dab.Pwm.ControlPeriod = MAX_PWM_PERIOD;
     dab.Pwm.ControlPhase = 0;
     dab.Pwm.DeadTimeHigh = PG1DTH; // ToDo: remove the register dependency
-    dab.Pwm.DeadTimeHigh = PG1DTL; // ToDo: remove the register dependency
+    dab.Pwm.DeadTimeLow = PG1DTL; // ToDo: remove the register dependency
     dab.Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
     dab.Pwm.PBVControlPhaseTarget = 0;
     
     // Initialize the DAB to charging state
     dab.PowerDirection = PWR_CTRL_CHARGING;
     
+    // Initialize Start-Up ramp settings
+    Dev_PwrCtrl_StartUpInitialize();
+            
     // Initialize Power Control Loop
     Dev_PwrCtrl_ControlLoopInitialize();
     
@@ -95,26 +100,6 @@ void Dev_PwrCtrl_Execute(void)
 //    Drv_PwrCtrl_Fault_ShortCircuit(&dab);
     
     Dev_PwrCtrl_StateMachine(&dab);
-}
-
-/*******************************************************************************
- * @ingroup 
- * @brief  
- * @return 
- * 
- * @details 
- * 
- *********************************************************************************/
-void Dev_PwrCtrl_Suspend(void)
-{
-    //Disable PWM peripheral
-    PWM_Disable();
-    
-    // set the control loop reference to default value
-    dab.VLoop.Reference = 0;
-    dab.ILoop.Reference = 0;
-    dab.PLoop.Reference = 0;
-    
 }
 
 /*******************************************************************************
@@ -165,27 +150,39 @@ void Dev_PwrCtrl_ControlLoopInitialize(void)
  * @details 
  * 
  *********************************************************************************/
-void Dev_PwrCtrl_StartUpInitialize(void)
+static void Dev_PwrCtrl_StartUpInitialize(void)
 {
     // Initialize Voltage ramp-up settings
-    dab.VRamp.ptrReference = dab.VLoop.Reference;
-    dab.VRamp.ptrReferenceTarget = dab.Properties.VSecReference;
+    dab.VRamp.ptrReference = &dab.VLoop.Reference;
+    dab.VRamp.ptrReferenceTarget = &dab.Properties.VSecReference;
     dab.VRamp.StepSize = 1;
+    dab.VRamp.Delay = 0;
     dab.VRamp.Counter = 0;
     dab.VRamp.RampComplete = 0;
     
     //Initialize Current ramp-up settings
-    dab.IRamp.ptrReference = dab.VLoop.Reference;
-    dab.IRamp.ptrReferenceTarget = dab.Properties.VSecReference;
+    dab.IRamp.ptrReference = &dab.ILoop.Reference;
+    dab.IRamp.ptrReferenceTarget = &dab.Properties.IReference;
     dab.IRamp.StepSize = 1;
+    dab.IRamp.Delay = 0;
     dab.IRamp.Counter = 0;
     dab.IRamp.RampComplete = 0;
     
     //Initialize Power ramp-up settings
-    dab.PRamp.ptrReference = dab.VLoop.Reference;
-    dab.PRamp.ptrReferenceTarget = dab.Properties.VSecReference;
+    dab.PRamp.ptrReference = &dab.PLoop.Reference;
+    dab.PRamp.ptrReferenceTarget = &dab.Properties.PwrReference;
     dab.PRamp.StepSize = 1;
+    dab.PRamp.Delay = 0;
     dab.PRamp.Counter = 0;
     dab.PRamp.RampComplete = 0;
     
+#if (OPEN_LOOP_PBV)
+    // Initialize Voltage ramp-up settings for Period control
+    dab.VRamp.ptrReference = &dab.Pwm.ControlPeriod;
+    dab.VRamp.ptrReferenceTarget = &dab.Pwm.PBVPeriodTarget;
+    
+    //Initialize Current ramp-up settings for Phase control
+    dab.IRamp.ptrReference = &dab.Pwm.ControlPhase;
+    dab.IRamp.ptrReferenceTarget = &dab.Pwm.PBVControlPhaseTarget;
+#endif
 }

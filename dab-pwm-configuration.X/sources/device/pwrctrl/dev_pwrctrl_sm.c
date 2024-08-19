@@ -202,44 +202,12 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
   }
   else
   {    
-      
-    // Soft start the converter
-#if (OPEN_LOOP_PBV)
-    bool rampComplete = false;
-    bool rampCompletePhase = false;
-    uint16_t step = 8;  // cannot be below 8 because of the masking
-    uint16_t delay = 0; // TODO: parameterize this into a soft-start time
-    uint16_t* ptr_reference = (uint16_t*)&pcInstance->Pwm.ControlPeriod;
-    uint16_t* ptr_referenceTarget = (uint16_t*)&pcInstance->Pwm.PBVPeriodTarget;
-    uint16_t* ptrControlPhaseReference = (uint16_t*)&pcInstance->Pwm.ControlPhase;
-    uint16_t* ptrControlPhaseReferenceTarget = (uint16_t*)&pcInstance->Pwm.PBVControlPhaseTarget;
+    Dev_PwrCtrl_RampReference(&pcInstance->VRamp);
+    Dev_PwrCtrl_RampReference(&pcInstance->IRamp);
+    Dev_PwrCtrl_RampReference(&pcInstance->PRamp);
     
-    rampCompletePhase =  Dev_PwrCtrl_RampReference(ptrControlPhaseReference, ptrControlPhaseReferenceTarget, 1, delay);
-    
-    if(rampCompletePhase == true)
-        rampComplete = Dev_PwrCtrl_RampReference(ptr_reference, ptr_referenceTarget, step, delay);
-    
-#else
-    uint16_t step = 1;  
-    uint16_t delay = 0;
-    bool rampIComplete = 0;
-    bool rampVComplete = 0;
-    bool rampPComplete = 0;
-    uint16_t* ptrIreference = (uint16_t*)&pcInstance->ILoop.Reference;
-    uint16_t* ptrIreferenceTarget = (uint16_t*)&pcInstance->Properties.IReference;
-    uint16_t* ptrVreference = (uint16_t*)&pcInstance->VLoop.Reference;
-    uint16_t* ptrVreferenceTarget = (uint16_t*)&pcInstance->Properties.VSecReference;
-    uint16_t* ptrPreference = (uint16_t*)&pcInstance->PLoop.Reference;
-    uint16_t* ptrPreferenceTarget = (uint16_t*)&pcInstance->Properties.PwrReference;
-    
-    rampVComplete = Dev_PwrCtrl_RampReference(ptrVreference, ptrVreferenceTarget, step, delay);
-    rampIComplete = Dev_PwrCtrl_RampReference(ptrIreference, ptrIreferenceTarget, step, delay);
-    rampPComplete = Dev_PwrCtrl_RampReference(ptrPreference, ptrPreferenceTarget, step, delay);
-    
-    if (rampIComplete && rampVComplete && rampPComplete)
-        
-#endif 
-     
+    if ((pcInstance->VRamp.RampComplete) && (pcInstance->IRamp.RampComplete)
+            && (pcInstance->PRamp.RampComplete))
         pcInstance->State = PWR_CNTRL_STATE_ONLINE;  // next state
 
   }

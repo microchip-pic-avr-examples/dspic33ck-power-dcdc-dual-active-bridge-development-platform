@@ -47,37 +47,31 @@ uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t adcReading)
  * ramp compensator reference linearly
  *
  **********************************************************************************/
-bool Dev_PwrCtrl_RampReference(uint16_t* ptr_reference, 
-                               uint16_t* ptr_referenceTarget, 
-                               uint16_t step, 
-                               uint16_t delay)
-{
-  static uint16_t SoftstartCounter = 0; 
-  bool ramp_complete = false;
-  
-  if (++SoftstartCounter > delay)   
+bool Dev_PwrCtrl_RampReference(START_UP_RAMP_t* rampUp)
+{ 
+  if (++rampUp->Counter > rampUp->Delay)   
   {
-    SoftstartCounter = 0;
-    //ToDo: Discuss to Cormac floor in the code
-    if(*ptr_reference ==  *ptr_referenceTarget)
-        ramp_complete = true;
+    rampUp->Counter = 0;
     
-    else if ((*ptr_reference + step) < *ptr_referenceTarget)
+    if(*rampUp->ptrReference ==  *rampUp->ptrReferenceTarget)
     {
-      *ptr_reference += step;
+        rampUp->RampComplete = true;
     }
-    else if ((*ptr_reference - step) > *ptr_referenceTarget)
+    else if ((*rampUp->ptrReference + rampUp->StepSize) < *rampUp->ptrReferenceTarget)
     {
-      *ptr_reference -= step;
+      *rampUp->ptrReference += rampUp->StepSize;
+    }
+    else if ((*rampUp->ptrReference - rampUp->StepSize) > *rampUp->ptrReferenceTarget)
+    {
+      *rampUp->ptrReference -= rampUp->StepSize;
     }
     else
     {
-      // reference close enough to target, move on
-      *ptr_reference = *ptr_referenceTarget;
-      ramp_complete = true; // reference is at target already
+      *rampUp->ptrReference =  *rampUp->ptrReferenceTarget;
+      rampUp->RampComplete = true;
     }
   }
   
-  return (ramp_complete);
+  return (rampUp->RampComplete);
 }
 
