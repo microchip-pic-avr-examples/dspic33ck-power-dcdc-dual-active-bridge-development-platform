@@ -48,6 +48,8 @@
 // VSEC_SETPOINT_DEFAULT_VOLTS: default secondary voltage setpoint
 #define VSEC_SETPOINT_DEFAULT_VOLTS     (50.0)
 
+#define POWER_OFFSET                    (100)
+
 //------------------------------------------------------------------------------
 // fault related parameters
 //------------------------------------------------------------------------------

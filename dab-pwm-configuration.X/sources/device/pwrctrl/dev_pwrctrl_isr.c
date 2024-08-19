@@ -161,8 +161,8 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         VLoopExec = false;
         
         // Execute the Voltage Loop Control
-//        if(dab.PowerDirection == PWR_CTRL_CHARGING)
-//        { 
+        if(dab.PowerDirection == PWR_CTRL_CHARGING)
+        { 
             VMC_2p2z.KfactorCoeffsB = 0x7FFF;
             VMC_2p2z.maxOutput =  0x7FFF;
 
@@ -177,42 +177,31 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         
             // reset the Vloop reference to its original scaling
             dab.VLoop.Reference = dab.VLoop.Reference >> 4;
-
-//        }
+        }
     }
 
     if((dab.PLoop.Enable == true) && (VLoopExec == false))
     {      
         VLoopExec = true;
 
-//        uint16_t isec = (uint16_t)(IsecAveraging.AverageValue  >> 2);
-//        uint16_t vsec = (uint16_t)((uint32_t)(VsecAveraging.AverageValue * 3) >> 8);
-//                dab.Data.SecPower = isec * vsec;
-        
-        
-        uint32_t buf=0;
-        buf = (uint32_t)IsecAveraging.AverageValue * (uint32_t)VsecAveraging.AverageValue  * 131; //131; 131;  //0.0079*10000 ==  131 / 16384
+        uint32_t buf = (uint32_t)IsecAveraging.AverageValue * 
+                (uint32_t)VsecAveraging.AverageValue  * 131; //131; 131;  //0.0079*10000 ==  131 / 16384
         buf >>=14;
         
         dab.Data.SecPower =buf;
          
          
         // Execute the Power Loop Control
-        //ToDo: check with Lorant the meaning of 100 in this code
-        //100 is a power offset
-        dab.PLoop.Feedback = 100 + (dab.Data.SecPower);
-        dab.PLoop.Reference = 100 + dab.PLoop.Reference;
+        dab.PLoop.Feedback = dab.Data.PowerOffset + (dab.Data.SecPower);
+        dab.PLoop.Reference = dab.Data.PowerOffset + dab.PLoop.Reference;
         
         SMPS_Controller2P2ZUpdate(&PMC_2p2z, &dab.PLoop.Feedback,
                 dab.PLoop.Reference, &dab.PLoop.Output);
         
         // reset the Vloop reference to its original scaling and offset
-        dab.PLoop.Reference = dab.PLoop.Reference - 100;
+        dab.PLoop.Reference = dab.PLoop.Reference - dab.Data.PowerOffset;
     }
-    
-    
-    
-    
+
     if(dab.ILoop.Enable == true)
     {
         // Execute the Current Loop Control
@@ -224,20 +213,20 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         //refresh limits
         IMC_2p2z.maxOutput =  0x7FFF;
 
-//        //mixing stage from voltage loop 10KHz
-        uint32_t RefBuf = (uint32_t)(dab.ILoop.Reference) * (uint32_t)(dab.VLoop.Output & 0x7FFF);
+        //mixing stage from voltage loop 10KHz
+        uint32_t RefBuf = (uint32_t)(dab.ILoop.Reference) * 
+                (uint32_t)(dab.VLoop.Output & 0x7FFF);
         uint16_t ILoopReference = (uint16_t)(RefBuf>>12) ; //15-3
-//
-//        //mixing stage from power loop 10KHz
-        RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  
-        ILoopReference = (int16_t)(RefBuf >> 15 );    
 
-        
-//         uint16_t ILoopReference = dab.ILoop.Reference<<3;
+        //mixing stage from power loop 10KHz
+        RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  
+        ILoopReference = (int16_t)(RefBuf >> 15);    
          
-        XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z,    &dab.ILoop.Feedback,   ILoopReference, &dab.ILoop.Output);    
+        XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback,   
+                ILoopReference, &dab.ILoop.Output);    
 
         //control loop output copied to control phase
-        dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle) * (uint32_t)dab.ILoop.Output) >> 15); //range 0..180
+        dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle) * 
+                (uint32_t)dab.ILoop.Output) >> 15); //range 0..180
     }
 }
