@@ -37,7 +37,16 @@
 #include "system/pins.h"
 #include "dev_fault_api.h"
 
-
+/*********************************************************************************
+ * @ingroup 
+ * @fn      void Drv_PwrCtrl_FaultInit(void)
+ * @brief   initialize application specific fault objects
+ * @param   None
+ * @return  None 
+ * @details
+ * initialize fault objects
+ * This is an API function
+ **********************************************************************************/
 void Dev_Fault_Handler(void)
 {
     // Drive the fault pin to Low when Fault trips
@@ -63,25 +72,39 @@ void Dev_Fault_Handler(void)
  **********************************************************************************/
 void Dev_Fault_Initialize(void)
 {
+    // Initialize Primary Over Current Protection
     FAULT_Init(&dab.Fault.Object.IPrimaryOCP, IPRI_OC_THRES_TRIG, 
             IPRI_OC_THRES_CLEAR, IPRI_OC_T_BLANK_TRIG, IPRI_OC_T_BLANK_CLEAR); 
+    
+    // Initialize Secondary Over Current Protection
     FAULT_Init(&dab.Fault.Object.ISecondaryOCP, ISEC_OC_THRES_TRIG, 
             ISEC_OC_THRES_CLEAR, ISEC_OC_T_BLANK_TRIG, ISEC_OC_T_BLANK_CLEAR);  
+    
+    // Initialize Primary Over Voltage Protection
     FAULT_Init(&dab.Fault.Object.VPrimaryOVP, VPRI_OV_THRES_TRIG, 
             VPRI_OV_THRES_CLEAR, VPRI_OV_T_BLANK_TRIG, VPRI_OV_T_BLANK_CLEAR);   
+    
+    // Initialize Secondary Over Voltage Protection
     FAULT_Init(&dab.Fault.Object.VSecondaryOVP, VSEC_OV_THRES_TRIG, 
             VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
+    
+    // Initialize Short Circuit Protection
     FAULT_Init(&dab.Fault.Object.ISenseSCP, 0,0,0,I_SC_T_BLANK_CLEAR);
+    
+    // Initialize 5V Rail instability Protection
     FAULT_Init(&dab.Fault.Object.VRail_5V, VRAIL_5V_UV_THRES_TRIG, 
             VRAIL_5V_UV_THRES_CLEAR, VRAIL_5V_UV_T_BLANK_TRIG, VRAIL_5V_UV_T_BLANK_CLEAR);
+    
+    // Initialize Over Temperature Protection
     FAULT_Init(&dab.Fault.Object.PowerSupplyOTP, MAX_TEMPERATURE_THRESHOLD_RAW,         
             OVER_TEMP_UPPER_THRESHOLD_WITH_HYST,FAULT_PERSISTENCE_COUNT_TEMP, FAULT_PERSISTENCE_COUNT_TEMP); 
     
+    //ToDo: need to check this
 #if (FAULT_SHORT_CCT == true)
        // initialize short circuit fault protection with comparators
     Drv_PwrCtrl_Fault_EnableShortCircuitProtection();
 #endif 
-//    // clear the fault PCI for each PWM
+    // clear the fault PCI for each PWM
     Dev_Fault_ClearHardwareFaults(); 
     
 }
