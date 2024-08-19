@@ -73,7 +73,7 @@ int main(void)
     Dev_Fault_Initialize();
     
     MCC_Custom_User_Config();
-    SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt_CallBack); // Check the naming convention
+    SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt_CallBack); 
     CMP1_EventCallbackRegister(&Dev_Fault_Handler);
     CMP3_EventCallbackRegister(&Dev_Fault_Handler);
     

@@ -63,16 +63,16 @@ void Dev_PwrCtrl_Initialize(void)
     dab.Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
     dab.Pwm.PBVControlPhaseTarget = 0;
     
-    //Initialize the DAB to charging state
+    // Initialize the DAB to charging state
     dab.PowerDirection = PWR_CTRL_CHARGING;
     
-    //Initialize Power Control Loop
+    // Initialize Power Control Loop
     Dev_PwrCtrl_ControlLoopInitialize();
     
     // Disable PWM output by setting the PWM override bits to High
     Dev_PwrCtrl_PWM_Disable(&dab); 
     
-    //Enable PWM peripheral
+    // Enable PWM peripheral
     PWM_Enable();
     
     // Update the Period, Duty Cycle and Phases of the PWMs based on
@@ -153,5 +153,39 @@ void Dev_PwrCtrl_ControlLoopInitialize(void)
     dab.PLoop.Feedback = 0;
     dab.PLoop.Output = 0;
     dab.PLoop.Reference = 0;
+    
+    dab.Data.PowerOffset = POWER_OFFSET;
+}
 
+/*******************************************************************************
+ * @ingroup 
+ * @brief  
+ * @return 
+ * 
+ * @details 
+ * 
+ *********************************************************************************/
+void Dev_PwrCtrl_StartUpInitialize(void)
+{
+    // Initialize Voltage ramp-up settings
+    dab.VRamp.ptrReference = dab.VLoop.Reference;
+    dab.VRamp.ptrReferenceTarget = dab.Properties.VSecReference;
+    dab.VRamp.StepSize = 1;
+    dab.VRamp.Counter = 0;
+    dab.VRamp.RampComplete = 0;
+    
+    //Initialize Current ramp-up settings
+    dab.IRamp.ptrReference = dab.VLoop.Reference;
+    dab.IRamp.ptrReferenceTarget = dab.Properties.VSecReference;
+    dab.IRamp.StepSize = 1;
+    dab.IRamp.Counter = 0;
+    dab.IRamp.RampComplete = 0;
+    
+    //Initialize Power ramp-up settings
+    dab.PRamp.ptrReference = dab.VLoop.Reference;
+    dab.PRamp.ptrReferenceTarget = dab.Properties.VSecReference;
+    dab.PRamp.StepSize = 1;
+    dab.PRamp.Counter = 0;
+    dab.PRamp.RampComplete = 0;
+    
 }

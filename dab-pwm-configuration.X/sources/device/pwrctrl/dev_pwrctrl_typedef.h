@@ -82,7 +82,8 @@ struct FEEDBACK_SETTINGS_s
     int16_t  SecPower;          ///< Data value for Secondary power (Watt)
     uint16_t Temperature;       ///< Data value for temperature
     uint16_t VRail_5V;          ///< Data value for 5V auxiliary rail
-    uint16_t ISecSensorOffset; ///< ADC code corresponding to the offset of the secondary current sensor
+    uint16_t ISecSensorOffset;  ///< Offset of the secondary current sensor
+    uint16_t PowerOffset;       ///< Offset of Power
 };
 typedef struct FEEDBACK_SETTINGS_s FEEDBACK_SETTINGS_t;
 
@@ -104,6 +105,27 @@ struct STATUS_FLAGS_s {
     };
 };
 typedef struct STATUS_FLAGS_s STATUS_FLAGS_t;
+
+/***********************************************************************************
+ * @ingroup 
+ * @extends 
+ * @brief stores data related to controller
+ * @details
+ * "reference" is the actual reference currently being used
+ * "targetReference" can be different that reference during soft-start etc.
+ **********************************************************************************/
+struct START_UP_RAMP_s 
+{
+    uint16_t Counter;          ///< Soft-Start Execution Counter. This setting is set/cleared by the device driver and is 'read only'.
+    uint16_t Delay;           ///< Soft-Start Period (POD, RAMP PERIOD, PGD, etc.)
+    uint16_t StepSize;         ///< Size/value of one reference increment/decrement or this period
+    uint16_t ptrReference;     ///< pointer the reference variable
+    uint16_t ptrReferenceTarget;///< pointer to the ramp-up reference target
+    bool RampComplete;          ///< indicates when ramp-up is complete
+    
+}; // Power converter soft-start auxiliary variables
+typedef struct START_UP_RAMP_s START_UP_RAMP_t; ///< Power converter soft-start auxiliary variables data types
+
 
 
 /***********************************************************************************
@@ -141,10 +163,10 @@ typedef enum PWR_CTRL_CHARGE_STATE_e PWR_CTRL_CHARGE_STATE_t;
 
 struct PWR_CTRL_PROPERTIES_s 
 {
-    uint16_t VSecReference;    ///< User low-voltage port reference setting used to control the power converter output voltage in buck mode
-    uint16_t VPriReference;    ///< User low-voltage port reference setting used to control the power converter output voltage in boost mode
-    int16_t  IReference;       ///< User current reference setting used to control the power converter controller
-    uint16_t PwrReference;
+    uint16_t VSecReference;    ///< User secondary-voltage port reference setting used to control the power converter output voltage in buck mode
+    uint16_t VPriReference;    ///< User primary-voltage port reference setting used to control the power converter output voltage in boost mode
+    int16_t  IReference;       ///< User current reference setting used to control the converter controller
+    uint16_t PwrReference;     ///< User power reference setting used to control the  converter controller
     
     bool ChargingState;        ///< Control Flag: When set, enables PWM output while keeping control loop disabled; Skips closed loop ramp up states and directly jumps to state Online 
     bool Enable;               ///< Control Flag: When set, enables the converter triggering a startup sequence; When cleared, forces teh power supply to reset and turn off
@@ -156,10 +178,13 @@ struct POWER_CONTROL_s
 {
     STATUS_FLAGS_t      Status; ///< Power Supply status flags
     PWR_CTRL_STATE_t    State;  ///< Power Control State ID
-    PWR_CTRL_PROPERTIES_t    Properties;    ///< Power Control properties    
+    PWR_CTRL_PROPERTIES_t Properties;    ///< Power Control properties    
     SWITCH_NODE_t       Pwm;    ///< Switch node settings
-    FEEDBACK_SETTINGS_t Data;    ///< ADC feedback channel settings
+    FEEDBACK_SETTINGS_t Data;   ///< Feedback channel settings
     FAULT_SETTINGS_t    Fault;  ///< Fault flags and settings 
+    START_UP_RAMP_t     VRamp;  ///< Voltage ramp-up settings
+    START_UP_RAMP_t     IRamp;  ///< Current ramp-up settings
+    START_UP_RAMP_t     PRamp;  ///< Power ramp-up settings
     CONTROLLER_t        ILoop;  ///< structure for current controller data
     CONTROLLER_t        VLoop;  ///< structure for voltage controller data
     CONTROLLER_t        PLoop;  ///< structure for power controller data
