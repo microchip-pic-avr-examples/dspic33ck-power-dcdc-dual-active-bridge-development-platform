@@ -66,6 +66,12 @@ void ControlLoop_Interrupt_CallBack(void)
     Dev_PwrCtrl_ControlLoopExecute();
     #endif
 
+    #if(DAC_DEBUG == true)
+//    CMP2_DACDataWrite(dab.VLoop.Reference);
+//    CMP2_DACDataWrite(dab.ILoop.Reference << 2);
+    CMP2_DACDataWrite(dab.PLoop.Reference >> 2);
+    #endif
+
     #if (true == DPDB_TEST_RUN)
 
     // Connect TP11 -> Pot1 & TP12 -> Pot2 in digital Power Development Board
