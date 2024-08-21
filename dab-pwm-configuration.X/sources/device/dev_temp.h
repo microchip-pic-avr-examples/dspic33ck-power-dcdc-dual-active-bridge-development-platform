@@ -106,7 +106,7 @@ typedef struct TEMP_NTC_LUT_s TEMP_NTC_LUT_t;
  *          then the pointer can be used to access the dev_temp_data_type members.
  **********************************************************************************/
 extern TEMP_SETTINGS_t* devTempDataPtr;
-
+extern TEMP_SETTINGS_t devTempData;
 
 /***********************************************************************************
  * Public Function Call Prototypes
@@ -116,5 +116,6 @@ void Dev_Temp_Task_100ms(void);
 int8_t Dev_Temp_Get_Temperature_Celcius();
 uint16_t Dev_Temp_Get_Temperature_Raw();
 uint8_t Dev_Temp_Is_Over_Temperature();
+extern void Dev_Temp_Get_ADC_Sample(void); 
 #endif	/* DEV_TEMP_H */
 
