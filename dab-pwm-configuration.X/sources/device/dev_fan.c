@@ -69,7 +69,7 @@ void Update_Speed(void);
  * @details
  *   This function initalizes the LED to normal blink interval
  **********************************************************************************/
-void Dev_Fan_Init()
+void Dev_Fan_Initialize(void)
 {
     devFanData.CurrentSpeedPercent = 0 ;
     devFanData.TargetSpeedPercent = INIT_SPEED_PERCENT ;
@@ -97,7 +97,7 @@ void Dev_Fan_Init()
  *    this is called in a rather slow 100ms object, as the speed modulation is not so critical.
  **********************************************************************************/
 
-void Dev_Fan_Task_100ms() 
+void Dev_Fan_Task_100ms(void) 
 {
     if (devFanData.OverrideFlag == 1) 
     {
@@ -115,7 +115,7 @@ void Dev_Fan_Task_100ms()
 }
 
 // not to be inlined, but this should be part of api.
-void Dev_Fan_Set_Override () 
+void Dev_Fan_Set_Override(void) 
 {
     devFanData.OverrideFlag = 1;
     Override_Speed();
@@ -144,7 +144,7 @@ uint16_t Convert_From_Percentage(uint8_t percentage_value)
  * @details 
  *  Changes the target value to max, and the update frequency to max update speed
  **********************************************************************************/
-void Override_Speed() 
+void Override_Speed(void) 
 {
     devFanData.TargetSpeedPercent = MAX_SPEED_PERCENT;
     devFanData.Tick = MIN_TICK;
@@ -159,7 +159,7 @@ void Override_Speed()
  * @details 
  *  changes the target as per step size
  **********************************************************************************/
-void Calculate_Speed () 
+void Calculate_Speed(void) 
 {
     devFanData.TargetSpeedPercent -= (devFanData.TargetSpeedPercent % devFanData.StepSizePercent);
     
@@ -191,7 +191,7 @@ void Calculate_Speed ()
  * @details 
  *  changes the target as per step size
  **********************************************************************************/
-void Update_Speed() 
+void Update_Speed(void) 
 {
     if (ChangeSpeed != NO_CHANGE)
     {

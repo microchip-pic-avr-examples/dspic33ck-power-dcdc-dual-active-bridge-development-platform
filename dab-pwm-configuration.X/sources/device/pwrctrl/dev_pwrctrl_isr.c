@@ -35,8 +35,8 @@
 #include "system/pins.h"
 #include "dev_pwrctrl_utils.h"
 
-void Dev_PwrCtrl_UpdateConverterData(void);
-void Dev_PwrCtrl_ControlLoopExecute(void);
+static void Dev_PwrCtrl_UpdateConverterData(void);
+static void Dev_PwrCtrl_ControlLoopExecute(void);
 
 AVERAGING_t VsecAveraging;
 AVERAGING_t IsecAveraging;
@@ -100,7 +100,7 @@ void ControlLoop_Interrupt_CallBack(void)
  * @details 
  * 
  *********************************************************************************/
-void Dev_PwrCtrl_UpdateConverterData (void)
+static void Dev_PwrCtrl_UpdateConverterData (void)
 {
     ADC1_SoftwareTriggerEnable();
     
@@ -132,7 +132,7 @@ void Dev_PwrCtrl_UpdateConverterData (void)
  * @details 
  * 
  *********************************************************************************/
-void Dev_PwrCtrl_ControlLoopExecute(void)
+static void Dev_PwrCtrl_ControlLoopExecute(void)
 {
     static uint16_t cnt = 0;
     static bool VLoopExec = true;
@@ -172,16 +172,14 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
             VMC_2p2z.KfactorCoeffsB = 0x7FFF;
             VMC_2p2z.maxOutput =  0x7FFF;
 
-            //Bit-shift value used to perform input value normalization
-            //ToDo: check with Lorant if tested with at 700V, if yes, 4 shift bit 
-            //exceeds the int value of 35535.
+            // Bit-shift value used to perform input value normalization
             dab.VLoop.Feedback = VsecAveraging.AverageValue << 4;  
             dab.VLoop.Reference = dab.VLoop.Reference << 4;
 
             SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
                     dab.VLoop.Reference, &dab.VLoop.Output);
         
-            // reset the Vloop reference to its original scaling
+            // Reset the Vloop reference to its original scaling
             dab.VLoop.Reference = dab.VLoop.Reference >> 4;
         }
     }
@@ -190,11 +188,12 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     {      
         VLoopExec = true;
 
+        //Bit-shift value used to perform input value normalization
         uint32_t buf = (uint32_t)IsecAveraging.AverageValue * 
                 (uint32_t)VsecAveraging.AverageValue  * 131; //131; 131;  //0.0079*10000 ==  131 / 16384
         buf >>=14;
         
-        dab.Data.SecPower =buf;
+        dab.Data.SecPower = buf;
          
          
         // Execute the Power Loop Control
@@ -204,7 +203,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         SMPS_Controller2P2ZUpdate(&PMC_2p2z, &dab.PLoop.Feedback,
                 dab.PLoop.Reference, &dab.PLoop.Output);
         
-        // reset the Vloop reference to its original scaling and offset
+        // Reset the Ploop reference to its original scaling and offset
         dab.PLoop.Reference = dab.PLoop.Reference - dab.Data.PowerOffset;
     }
 
@@ -219,19 +218,19 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         //refresh limits
         IMC_2p2z.maxOutput =  0x7FFF;
 
-        //mixing stage from voltage loop 10KHz
+        // Mixing stage from voltage loop 10KHz
         uint32_t RefBuf = (uint32_t)(dab.ILoop.Reference) * 
                 (uint32_t)(dab.VLoop.Output & 0x7FFF);
         uint16_t ILoopReference = (uint16_t)(RefBuf>>12) ; //15-3
 
-        //mixing stage from power loop 10KHz
+        // Mixing stage from power loop 10KHz
         RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  
         ILoopReference = (int16_t)(RefBuf >> 15);    
          
         XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback,   
                 ILoopReference, &dab.ILoop.Output);    
 
-        //control loop output copied to control phase
+        // Control loop output copied to control phase
         dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle) * 
                 (uint32_t)dab.ILoop.Output) >> 15); //range 0..180
     }

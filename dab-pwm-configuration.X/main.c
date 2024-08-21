@@ -82,10 +82,10 @@ int main(void)
     X2CScope_Init();
     #endif
     
-    OS_Init(); 
+    OS_Init();
     App_PBV_DAB_Init();
-    Dev_LED_Init();
-    Dev_Fan_Init();
+    Dev_LED_Initialize();
+    Dev_Fan_Initialize();
     Dev_Temp_Initialize();
     OS_Scheduler_RunForever();
     

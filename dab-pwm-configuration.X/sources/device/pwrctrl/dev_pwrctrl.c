@@ -36,11 +36,12 @@ static void Dev_PwrCtrl_StartUpInitialize(void);
 extern void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
 
 /*******************************************************************************
- * @ingroup 
- * @brief  
- * @return 
+ * @ingroup dev-pwrctrl-methods-public
+ * @brief  Initlialize the power control parameters
+ * @return void
  * 
- * @details 
+ * @details This function initialize the power control PWM instances, settings, 
+ * start-up configuration and control loop configuration. 
  * 
  *********************************************************************************/
 void Dev_PwrCtrl_Initialize(void)
@@ -86,11 +87,13 @@ void Dev_PwrCtrl_Initialize(void)
 }
 
 /*******************************************************************************
- * @ingroup 
- * @brief  
- * @return 
+ * @ingroup dev-pwrctrl-methods-public
+ * @brief  Executes the power control state machine
+ * @return void
  * 
- * @details 
+ * @details After initialization this function has to be called on a deterministic, 
+ *  constant time base. Each execution step, this function will call the power control
+ *  state machine.
  * 
  *********************************************************************************/
 void Dev_PwrCtrl_Execute(void)
@@ -103,14 +106,15 @@ void Dev_PwrCtrl_Execute(void)
 }
 
 /*******************************************************************************
- * @ingroup 
- * @brief  
- * @return 
+ * @ingroup dev-pwrctrl-methods-private
+ * @brief  Initializes the control loop
+ * @return void
  * 
- * @details 
+ * @details This function initializes the control loop necessary to run the close loop
+ * operation of the converter 
  * 
  *********************************************************************************/
-void Dev_PwrCtrl_ControlLoopInitialize(void)
+static void Dev_PwrCtrl_ControlLoopInitialize(void)
 {
     // Initialize voltage loop compensator
     Dev_PwrCtrl_VComp_Initialize();
@@ -143,11 +147,15 @@ void Dev_PwrCtrl_ControlLoopInitialize(void)
 }
 
 /*******************************************************************************
- * @ingroup 
- * @brief  
- * @return 
+ * @ingroup dev-pwrctrl-methods-private
+ * @brief  Initialize the StartUp Ramp configuration
+ * @return void
  * 
- * @details 
+ * @details This function initializes the Ramp Up configuration for voltage, current
+ * and power. For each parameters that would be ramped up, pointer to the reference,
+ * reference target pointer, increment/decrement step size, delay for each increment/decremnt
+ * counter for each execution need to be defined. When the reference becomes equal to 
+ * the reference targe, the rampComplete data member will be set. 
  * 
  *********************************************************************************/
 static void Dev_PwrCtrl_StartUpInitialize(void)

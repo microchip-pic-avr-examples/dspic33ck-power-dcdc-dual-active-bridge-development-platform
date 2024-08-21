@@ -168,7 +168,7 @@ void Tasks_1s(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_Background(void)
 {
-    // X2CScope_Communicate will be executed ina a free running mode when X2CDEBUG_ENABLED is enabled
+    // X2CScope_Communicate will be executed in a free running mode when X2CDEBUG_ENABLED is enabled
     #if (X2CDEBUG_ENABLED == 1)
     X2CScope_Communicate();    
     #endif

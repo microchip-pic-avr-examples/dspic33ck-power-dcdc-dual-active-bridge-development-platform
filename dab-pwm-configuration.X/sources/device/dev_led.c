@@ -48,7 +48,7 @@ uint8_t LEDIterationsCounter[NUM_OF_LEDS];
  * @note
  *   not really needed to be called at startup, but its nice be consistent
  **********************************************************************************/
-void Dev_LED_Init(void)
+void Dev_LED_Initialize(void)
 {
     //Peripherals are initialized by MCC
     Dev_LED_Blink(LED_PIM_RED);

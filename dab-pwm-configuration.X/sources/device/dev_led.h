@@ -89,7 +89,7 @@
  * Public Function Call Prototypes
  **********************************************************************************/
 
-void Dev_LED_Init(void);
+void Dev_LED_Initialize(void);
 void Dev_LED_On(uint8_t led_id);
 void Dev_LED_Off(uint8_t led_id);
 void Dev_LED_Toggle(uint8_t led_id);

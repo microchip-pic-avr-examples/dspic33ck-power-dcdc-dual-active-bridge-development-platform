@@ -24,13 +24,9 @@
 #include "dev_pwrctrl_utils.h"
 
 /*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
- * @brief   API function to set the power controller reference
- * @param   none
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to set the power control State
  * @return  none
- * @details
- * API function
  **********************************************************************************/
 void Dev_PwrCtrl_SetState(uint16_t reference)
 {    
@@ -38,13 +34,9 @@ void Dev_PwrCtrl_SetState(uint16_t reference)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
- * @brief   API function to set the power controller reference
- * @param   none
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to set the current controller reference
  * @return  none
- * @details
- * API function
  **********************************************************************************/
 void Dev_PwrCtrl_SetIReference(uint16_t reference)
 {    
@@ -52,32 +44,29 @@ void Dev_PwrCtrl_SetIReference(uint16_t reference)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
- * @brief   API function to set the power controller reference
- * @param   none
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to set the secondary voltage controller reference
  * @return  none
- * @details
- * API function
  **********************************************************************************/
 void Dev_PwrCtrl_SetVSecReference(uint16_t reference)
 {    
     dab.Properties.VSecReference = reference;
 }
 
+/*********************************************************************************
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to set the power controller reference
+ * @return  none
+ **********************************************************************************/
 void Dev_PwrCtrl_SetPwrReference(uint16_t reference)
 {    
     dab.Properties.PwrReference = reference;
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
- * @brief   API function to set the power controller reference
- * @param   none
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to set the target period
  * @return  none
- * @details
- * API function
  **********************************************************************************/
 void Dev_PwrCtrl_SetPeriodTarget(uint16_t reference)
 {    
@@ -85,51 +74,49 @@ void Dev_PwrCtrl_SetPeriodTarget(uint16_t reference)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
- * @brief   API function to set the power controller reference
- * @param   none
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to set the control period
  * @return  none
- * @details
- * API function
  **********************************************************************************/
 void Dev_PwrCtrl_SetPeriod(uint16_t reference)
 {    
     dab.Pwm.ControlPeriod = reference;
 }
 
+/*********************************************************************************
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to set the target PWM phase
+ * @return  none
+ **********************************************************************************/
 void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference)
 {    
     dab.Pwm.PBVControlPhaseTarget = reference;
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_SetReference(uint16_t reference)
- * @brief   API function to set the power controller reference
- * @param   none
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to set the dead time high
  * @return  none
- * @details
- * API function
  **********************************************************************************/
 void Dev_PwrCtrl_SetDeadTimeHigh(uint16_t reference)
 {    
     dab.Pwm.DeadTimeHigh = reference;
 }
 
+/*********************************************************************************
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to set the dead time low
+ * @return  none
+ **********************************************************************************/
 void Dev_PwrCtrl_SetDeadTimeLow(uint16_t reference)
 {    
     dab.Pwm.DeadTimeLow = reference;
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_SetEnable(bool enable)
- * @brief   API function to set or clear the enable control bit
- * @param   none
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to set the power control enable bit
  * @return  none
- * @details
- * API function
  **********************************************************************************/
 void Dev_PwrCtrl_SetEnable(bool enable)
 { 
@@ -137,13 +124,9 @@ void Dev_PwrCtrl_SetEnable(bool enable)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_GetAdc_Vpri(void)
- * @brief   API function to read the ADC measurement of primary voltage
- * @param   none
- * @return  ADC reading of primary voltage
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the raw ADC value for primary voltage
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Vpri(void)
 {
@@ -151,13 +134,9 @@ uint16_t Dev_PwrCtrl_GetAdc_Vpri(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_GetAdc_Vsec(void)
- * @brief   API function to read the ADC measurement of secondary voltage
- * @param   none
- * @return  ADC reading of secondary voltage
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the raw ADC value for secondary voltage
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Vsec(void)
 {
@@ -165,13 +144,9 @@ uint16_t Dev_PwrCtrl_GetAdc_Vsec(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_GetAdc_Ipri_ct(void)
- * @brief   API function to read the ADC measurement of primary current (as measured by CT)
- * @param   none
- * @return  ADC reading of primary current
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the raw ADC value for primary current transformer current
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct(void)
 {
@@ -179,13 +154,9 @@ uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_GetAdc_Isec_ct(void)
- * @brief   API function to read the read ADC measurement of secondary current (as measured by CT)
- * @param   none
- * @return  ADC reading of secondary current
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the raw ADC value for secondary current transformer current
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void)
 {
@@ -193,13 +164,9 @@ uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_GetAdc_Isec_avg(void)
- * @brief   API function to read the ADC measurement of secondary current (as measured by Acienna sensor)
- * @param   none
- * @return  ADC reading of average secondary current (as measured by Acienna current sensor)
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the raw ADC value for secondary average current
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Isec_avg(void)
 {
@@ -207,13 +174,9 @@ uint16_t Dev_PwrCtrl_GetAdc_Isec_avg(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_GetAdc_Temperature(void)
- * @brief   API function to read the ADC measurement of temperature
- * @param   none
- * @return  ADC reading of temperature
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the raw ADC value for temperature
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Temperature(void)
 {
@@ -221,13 +184,9 @@ uint16_t Dev_PwrCtrl_GetAdc_Temperature(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_GetAdc_Vrail_5V(void)
- * @brief   API function to read the ADC measurement of 5V rail
- * @param   none
- * @return  ADC reading of 5V rail
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the raw ADC value for 5V rail
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V(void)
 {
@@ -235,43 +194,29 @@ uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_Pwmprd(void)
- * @brief   API function to read the PWMPRD setting
- * @param   none
- * @return  PWMPER setting
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the PWM period
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_Period(void)
 {
     return(dab.Pwm.ControlPeriod);
 }
 
-
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_Pwmprd(void)
- * @brief   API function to read the PWMPRD setting
- * @param   none
- * @return  PWMPER setting
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the PWM duty cycle
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_DutyCycle(void)
 {
     return(dab.Pwm.ControlDutyCycle);
 }
 
-
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_Pwmprd(void)
- * @brief   API function to read the PWMPRD setting
- * @param   none
- * @return  PWMPER setting
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the PWM control phase
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_Phase(void)
 {
@@ -279,13 +224,9 @@ uint16_t Dev_PwrCtrl_Get_Phase(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_State(void)
- * @brief   API function to read the state of the power controller 
- * @param   none
- * @return  state
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the current state of the state machine
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_State(void)
 {
@@ -293,13 +234,9 @@ uint16_t Dev_PwrCtrl_Get_State(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_Status(void)
- * @brief   API function to read the power controller status flags
- * @param   none
- * @return  status flags
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the power control status
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_Status(void)
 {
@@ -307,28 +244,19 @@ uint16_t Dev_PwrCtrl_Get_Status(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_EnableFlag(void)
- * @brief   API function to read enable control bit
- * @param   none
- * @return  enable control bit
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the state of the power control enable bit
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_EnableFlag(void)
 {
     return(dab.Properties.Enable);
 }
 
-
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_PwmprdTarget(void)
- * @brief   API function to read the PWMPRD target setting
- * @param   none
- * @return  PWMPER target setting
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the PWM period target
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void)
 {
@@ -336,13 +264,9 @@ uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_IloopReferenceTarget(void)
- * @brief   API function to get the current loop reference target
- * @param   none
- * @return  current compensator reference target
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the current reference
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_IReference(void)
 {
@@ -350,13 +274,9 @@ uint16_t Dev_PwrCtrl_Get_IReference(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_IloopReference(void)
- * @brief   API function to get the current loop reference 
- * @param   none
- * @return  current compensator reference
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the current loop control reference
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_IloopReference(void)
 {
@@ -364,13 +284,9 @@ uint16_t Dev_PwrCtrl_Get_IloopReference(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_IloopOutput(void)
- * @brief   API function to get the current loop output 
- * @param   none
- * @return  current compensator output
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the current loop control output
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_IloopOutput(void)
 {
@@ -378,13 +294,9 @@ uint16_t Dev_PwrCtrl_Get_IloopOutput(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_IloopFeedback(void)
- * @brief   API function to get the current loop feedback value 
- * @param   none
- * @return  current compensator feedback 
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the current loop control feedback
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_IloopFeedback(void)
 {
@@ -392,13 +304,9 @@ uint16_t Dev_PwrCtrl_Get_IloopFeedback(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_CurrentSensorOffset(void)
+ * @ingroup dev-pwrctrl-api-public
  * @brief   API function to get the current sensor offset
- * @param   none
- * @return  current sensor offset
- * @details
- * API function
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_CurrentSensorOffset(void)
 {
@@ -406,24 +314,30 @@ uint16_t Dev_PwrCtrl_Get_CurrentSensorOffset(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Drv_PwrCtrl_Get_CurrentSensorOffset(void)
- * @brief   API function to get the current sensor offset
- * @param   none
- * @return  current sensor offset
- * @details
- * API function
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the secondary power
+ * @return  none
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_SecPower(void)
 {
     return(dab.Data.SecPower);
 }
 
+/*********************************************************************************
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the average value of the sampled ADC for secondary voltage
+ * @return  none
+ **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAveraging_Vsec(void)
 {
     return(VsecAveraging.AverageValue);
 }
 
+/*********************************************************************************
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the average value of the sampled ADC for secondary current
+ * @return  none
+ **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAveraging_Isec(void)
 {
     return(IsecAveraging.AverageValue);

@@ -91,11 +91,10 @@ extern FAN_DATA_t* devFanDataPtr;
 /***********************************************************************************
  * Public Function Call Prototypes
  **********************************************************************************/
-void Dev_Fan_Init(void);
+void Dev_Fan_Initialize(void);
 void Dev_Fan_Task_100ms(void);
 
-//void Dev_Fan_Set_Speed (uint8_t target_speed_percent);       //TODO: INLINE 
-void Dev_Fan_Set_Override();           
+void Dev_Fan_Set_Override(void);           
 void Dev_Fan_Set_Speed(uint8_t TargetSpeedPercent);
 
 
