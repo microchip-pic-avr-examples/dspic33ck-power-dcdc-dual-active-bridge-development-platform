@@ -24,117 +24,16 @@
 #include "pwm_hs/pwm.h"
 #include "dev_pwrctrl_typedef.h"
 
-/*********************************************************************************
- * @ingroup 
- * @fn     void Drv_PwrCtrl_PWM_Enable(void)
- * @brief  enable PWM outputs for all full bridges
- * @param   none
- * @return  none
- * @details
- * turn on all potentially active PWMs
- * note that this is an API function
- **********************************************************************************/
-void Dev_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance)
-{
-        
-    // turn on PWM outputs by disabling the output override on each high and low PWM output
-    PWM_OverrideHighDisable(pcInstance->Pwm.Primary_1);
-    PWM_OverrideHighDisable(pcInstance->Pwm.Primary_2);
-    PWM_OverrideHighDisable(pcInstance->Pwm.Secondary_1);
-    PWM_OverrideHighDisable(pcInstance->Pwm.Secondary_2);
-           
-    PWM_OverrideLowDisable(pcInstance->Pwm.Primary_1);
-    PWM_OverrideLowDisable(pcInstance->Pwm.Primary_2);
-    PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_1);
-    PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_2); 
-    
-}
-
-
-/*********************************************************************************
- * @ingroup 
- * @fn     void Drv_PwrCtrl_PWM_Disable(void)
- * @brief  disable PWM outputs for all full bridges
- * @param   none
- * @return  none
- * @details
- * turn off active all potentially active PWMs
- * note that this is an API function
- **********************************************************************************/
-void Dev_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance)
-{   
-    // turn on all PWM pin output overrides, this sets PWM pin to 0
-    // even if PWM peripheral is enabled and running in the background
-    PWM_OverrideHighEnable(pcInstance->Pwm.Primary_1); 
-    PWM_OverrideLowEnable(pcInstance->Pwm.Primary_1); 
-
-    PWM_OverrideHighEnable(pcInstance->Pwm.Primary_2); 
-    PWM_OverrideLowEnable(pcInstance->Pwm.Primary_2); 
-
-    PWM_OverrideHighEnable(pcInstance->Pwm.Secondary_1); 
-    PWM_OverrideLowEnable(pcInstance->Pwm.Secondary_1); 
-
-    PWM_OverrideHighEnable(pcInstance->Pwm.Secondary_2); 
-    PWM_OverrideLowEnable(pcInstance->Pwm.Secondary_2);   
-    
-    // set update request of the last PWM in the cascade to update all pwm registers
-    PWM_SoftwareUpdateRequest(pcInstance->Pwm.Secondary_2);
-    
-}
-
-/*********************************************************************************
- * @ingroup 
- * @fn     void Drv_PwrCtrl_PWM_Primary_Enable(void)
- * @brief  enable PWM outputs for primary full bridge
- * @param   none
- * @return  none
- * @details
- * turn on all primary side PWMs
- * note that this is an API function
- **********************************************************************************/
-void Dev_PwrCtrl_PWM_Primary_Enable(POWER_CONTROL_t* pcInstance)
-{
- 
-    // turn on primary side PWM outputs by disabling the output overrides
-    PWM_OverrideHighDisable(pcInstance->Pwm.Primary_1);
-    PWM_OverrideLowDisable(pcInstance->Pwm.Primary_1);
-    PWM_OverrideHighDisable(pcInstance->Pwm.Primary_2);
-    PWM_OverrideLowDisable(pcInstance->Pwm.Primary_2);
-    
-    // turn off secondary PWM outputs by enabling the output overrides
-    PWM_OverrideHighEnable(pcInstance->Pwm.Secondary_1);
-    PWM_OverrideLowEnable(pcInstance->Pwm.Secondary_1);
-    PWM_OverrideHighEnable(pcInstance->Pwm.Secondary_2);
-    PWM_OverrideLowEnable(pcInstance->Pwm.Secondary_2);
-}
-
-/*********************************************************************************
- * @fn     void Drv_PwrCtrl_PWM_Secondary_Enable(void)
- * @brief  enable PWM output pins for secondary full bridge
- * @param   none
- * @return  none
- * @details
- * turn on all secondary side PWMs pins
- * note that this is an API function
- **********************************************************************************/
-void Dev_PwrCtrl_PWM_Secondary_Enable(POWER_CONTROL_t* pcInstance)
-{
-    // turn on secondary side PWM outputs by disabling the PWM pin override
-    PWM_OverrideHighDisable(pcInstance->Pwm.Secondary_1);
-    PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_1);
-    PWM_OverrideHighDisable(pcInstance->Pwm.Secondary_2);
-    PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_2);  
-}
-
-
-/*********************************************************************************
- * @fn     void Drv_PwrCtrl_PWM_Update(void)
- * @brief  update PWM registers
- * @param   none
- * @return  none
- * @details
- * update period, duty cycle and phase registers for primary and secondary side PWMs
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-pwm-methods-public
+ * @brief  PWM distribution for DAB converter
+ * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
+ * @return void
+ * 
+ * @details This function distributes the calculated control phase for the 
+ *  half bridges of the DAB converter. PWM1 and PWM3 drives the primary half 
+ *  bridges and PWM2 and PWM4 drives the secondary half bridges.
+ *********************************************************************************/
 void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
 {   
      // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
@@ -152,7 +51,8 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
     if(pcInstance->Pwm.ControlPhase > pcInstance->Pwm.ControlPeriod){
         pcInstance->Pwm.ControlPhase = pcInstance->Pwm.ControlPeriod;
     }
-    
+
+    // Calculate primary to secondary phase as half of the control phase
     uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlPhase >> 1);
     
     // Calculate the bridge delay ((Frequency / 2) - Primary to Secondary Phase + Control Phase)
@@ -192,6 +92,66 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
     
     // Set the Update bit of the last PWM in the cascaded approach to broadcast
     // it to the other PWMs
+    PWM_SoftwareUpdateRequest(pcInstance->Pwm.Secondary_2);
+    
+}
+
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-pwm-methods-public
+ * @brief  Enable the PWM output
+ * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t 
+ * @return void
+ * 
+ * @details This function turn on the physical PWM outputs by clearing the
+ *  output override of the PWM module. 
+ *********************************************************************************/
+void Dev_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance)
+{
+        
+    // Turn-On PWM outputs by disabling the output override 
+    // on each high and low PWM output
+    PWM_OverrideHighDisable(pcInstance->Pwm.Primary_1);
+    PWM_OverrideHighDisable(pcInstance->Pwm.Primary_2);
+    PWM_OverrideHighDisable(pcInstance->Pwm.Secondary_1);
+    PWM_OverrideHighDisable(pcInstance->Pwm.Secondary_2);
+           
+    PWM_OverrideLowDisable(pcInstance->Pwm.Primary_1);
+    PWM_OverrideLowDisable(pcInstance->Pwm.Primary_2);
+    PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_1);
+    PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_2); 
+
+    // Set update request of the last PWM in the cascade 
+    // to update all pwm registers
+    PWM_SoftwareUpdateRequest(pcInstance->Pwm.Secondary_2);
+
+}
+
+
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-pwm-methods-public
+ * @brief  Disable the PWM output
+ * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
+ * @return void
+ * 
+ * @details This function disable the physical PWM output by setting the override
+ *  bits of the PWM module.
+ *********************************************************************************/
+void Dev_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance)
+{   
+    // Turn-Off PWM outputs by enabling the output override 
+    // on each high and low PWM output
+    PWM_OverrideHighEnable(pcInstance->Pwm.Primary_1);
+    PWM_OverrideHighEnable(pcInstance->Pwm.Primary_2);
+    PWM_OverrideHighEnable(pcInstance->Pwm.Secondary_1);
+    PWM_OverrideHighEnable(pcInstance->Pwm.Secondary_2);
+           
+    PWM_OverrideLowEnable(pcInstance->Pwm.Primary_1);
+    PWM_OverrideLowEnable(pcInstance->Pwm.Primary_2);
+    PWM_OverrideLowEnable(pcInstance->Pwm.Secondary_1);
+    PWM_OverrideLowEnable(pcInstance->Pwm.Secondary_2); 
+    
+    // Set update request of the last PWM in the cascade 
+    // to update all pwm registers
     PWM_SoftwareUpdateRequest(pcInstance->Pwm.Secondary_2);
     
 }

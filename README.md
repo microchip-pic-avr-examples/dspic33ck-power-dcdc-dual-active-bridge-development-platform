@@ -3,7 +3,7 @@
 ![image](images/microchip.png) 
 
 --- 
-## dspic33ck Power DC-DC Dual Active Bridge Development Platform
+# dspic33ck Power DC-DC Dual Active Bridge Development Platform
 
 <p><center><a target="_blank" rel="nofollow">
 <p>

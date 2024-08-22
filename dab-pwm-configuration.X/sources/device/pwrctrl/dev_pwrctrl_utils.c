@@ -26,6 +26,15 @@
 #include "dev_pwrctrl_typedef.h"
 #include "dev_pwrctrl_utils.h" // include standard definition data types
 
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-methods-public
+ * @brief  
+ * @param
+ * @return 
+ * 
+ * @details 
+ * 
+ *********************************************************************************/
 uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t adcReading)
 {
     data->Accumulator += adcReading;
@@ -37,16 +46,15 @@ uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t adcReading)
     return(data->AverageValue);
 }
 
-/*********************************************************************************
- * @ingroup 
- * @fn      bool Drv_PwrCtrl_RampReference(uint16_t* reference, uint16_t* referenceTarget, uint16_t step, uint16_t delay)
- * @brief   ramp reference
- * @param   none
- * @return  none
- * @details
- * ramp compensator reference linearly
- *
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-methods-public
+ * @brief  
+ * @param
+ * @return 
+ * 
+ * @details 
+ * 
+ *********************************************************************************/
 bool Dev_PwrCtrl_RampReference(START_UP_RAMP_t* rampUp)
 { 
   if (++rampUp->Counter > rampUp->Delay)   

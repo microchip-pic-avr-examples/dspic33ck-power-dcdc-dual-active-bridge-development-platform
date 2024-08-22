@@ -28,8 +28,16 @@
 #include "device/fault/dev_fault.h"
 #include "dcdt/dev_pwrctrl_dcdt.h"
 
+/******************************************************************************
+ * @ingroup dev-pwrctrl-properties-public
+ * @brief Global data object for a DAB Converter
+ * 
+ * @details The 'dab' data object holds all status, control and monitoring values 
+ * of the POWER_CONTROL_t power controller. 
+ ******************************************************************************/
 POWER_CONTROL_t dab;
 
+// PRIVATE FUNCTIONS
 static void Dev_PwrCtrl_ControlLoopInitialize(void);
 static void Dev_PwrCtrl_StartUpInitialize(void);
 
@@ -37,12 +45,11 @@ extern void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl-methods-public
- * @brief  Initlialize the power control parameters
+ * @brief  Initialize the power control parameters
  * @return void
  * 
  * @details This function initialize the power control PWM instances, settings, 
  * start-up configuration and control loop configuration. 
- * 
  *********************************************************************************/
 void Dev_PwrCtrl_Initialize(void)
 {
@@ -94,7 +101,6 @@ void Dev_PwrCtrl_Initialize(void)
  * @details After initialization this function has to be called on a deterministic, 
  *  constant time base. Each execution step, this function will call the power control
  *  state machine.
- * 
  *********************************************************************************/
 void Dev_PwrCtrl_Execute(void)
 {
@@ -111,8 +117,7 @@ void Dev_PwrCtrl_Execute(void)
  * @return void
  * 
  * @details This function initializes the control loop necessary to run the close loop
- * operation of the converter 
- * 
+ * operation of the converter. 
  *********************************************************************************/
 static void Dev_PwrCtrl_ControlLoopInitialize(void)
 {
@@ -156,7 +161,6 @@ static void Dev_PwrCtrl_ControlLoopInitialize(void)
  * reference target pointer, increment/decrement step size, delay for each increment/decremnt
  * counter for each execution need to be defined. When the reference becomes equal to 
  * the reference targe, the rampComplete data member will be set. 
- * 
  *********************************************************************************/
 static void Dev_PwrCtrl_StartUpInitialize(void)
 {

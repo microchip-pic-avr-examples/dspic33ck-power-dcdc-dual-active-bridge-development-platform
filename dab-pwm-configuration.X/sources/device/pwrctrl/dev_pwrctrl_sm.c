@@ -32,22 +32,29 @@
 #include "device/dev_current_sensor.h"
 #include "device/fault/dev_fault.h"
 
-static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance);
-static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance);
-static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance);
-static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance);
-static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance);
+//Private Functions
+static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance);
+static void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance);
+static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance);
+static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance);
+static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance);
 
 
-/*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_StateMachine(void)
- * @brief   power controller state machine
- * @param   none
- * @return  none 
- * @details
- *
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-sm-methods-public
+ * @brief  Manages the power control state machine
+ * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
+ * @return void
+ * 
+ * @details This function manages the state machine of the converter. There are
+ *  five states in this function as follows:
+ *      - STATE_INITIALIZE
+ *      - STATE_FAULT_DETECTION
+ *      - STATE_STANDBY
+ *      - STATE_SOFT_START
+ *      - STATE_ONLINE 
+ * 
+ *********************************************************************************/
 void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
 { 
     switch (pcInstance->State)
@@ -78,52 +85,60 @@ void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
     }
 }
 
-/*********************************************************************************
- * @ingroup 
- * @fn      static __inline__ void PCS_INIT_handler(void)
- * @brief   initialize state handler
- * @param   none
- * @return  none
- * @details
- *
- **********************************************************************************/
-static __inline__ void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-sm-methods-public
+ * @brief  Executes function for initialze state machine
+ * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
+ * @return void
+ * 
+ * @details This function resets the conditional flag bits, ensures PWM output is
+ *  disabled and run the initial current calibration offset. After this, the 
+ *  state machine moves to checking the fault handler.
+ *********************************************************************************/
+static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
 {
-    //ToDo: Mention this to COrmac
-    //Change the if define to do emulation test
-    #if (CURRENT_CALIBRATION == true)
-    // if OPEN_LOOP_POTI is defined, we are running on the digital power development board
-    // so in this case ignore the current sensor calibration
-    
+    #if (CURRENT_CALIBRATION == true)    
+    // Execute current sensor offset calibration
     Dev_CurrentSensorOffsetCal();
     
+    // Checks if the calibration is complete
     if (Dev_CurrentSensor_Get_CalibrationStatus())
     #endif
     {
-        // current sensor calibration is complete. Update the offset of the current sensor
+        // Current sensor calibration is complete. Update the offset of the current sensor
         pcInstance->Data.ISecSensorOffset = Dev_CurrentSensor_Get_Offset();
         
+        // Ensure PWM output is disabled
         Dev_PwrCtrl_PWM_Disable(pcInstance);
+        
+        // Reset fault objects status bits
         Dev_Fault_Reset();
+        
+        // Clear power control fault active bit
         pcInstance->Status.bits.FaultActive = 0;
+        // Clear power control running bit
         pcInstance->Status.bits.Running = 0;
+        // Clear power control enable bit
         pcInstance->Properties.Enable = 0;
         
+        //Enable current loop control
         pcInstance->ILoop.Enable = true;
         
+        // Next State assigned to STATE_FAULT_DETECTION
         pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
     }   
 }
 
-/*********************************************************************************
- * @ingroup 
- * @fn      static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(void)
- * @brief   wait here until no faults are present
- * @param   none
- * @return  none
- * @details
- *
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-sm-methods-public
+ * @brief  Executes the fault handler state machine
+ * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
+ * @return void
+ * 
+ * @details This function checks if there is fault event that occurred. When
+ *  there is no fault event, the state machine moves to StandBy state. 
+ * 
+ *********************************************************************************/
 static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance)
 {   
     if ((pcInstance->Fault.FaultDetected == 0) && (Drv_PwrCtrl_Fault_SC_Faults_Clear(pcInstance)))
@@ -133,25 +148,38 @@ static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInsta
     }
 }
 
-/*********************************************************************************
- * @ingroup 
- * @fn      static __inline__ void PCS_STANDBY_handler(void)
- * @brief   standby state handler
- * @param   none
- * @return  none
- * @details
- * if CLLC has been instructed to run via run flag, then proceed
- *
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-sm-methods-public
+ * @brief  Executes Standby State machine
+ * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
+ * @return void
+ * 
+ * @details This function waits until there is no fault event that has occurred 
+ *  and when the power control enable bit is set. When Enable bit is set,  
+ *  reset the fault objects status bits, reset PWM control settings, enable
+ *  the power control running bit, enable PWM physical output, initialize 
+ *  control loop references and then move to the next state STATE_SOFT_START. 
+ * 
+ * @note    In this application the power control enable bit is controlled 
+ *  externally by Power Board Visualizer.  
+ * 
+ *********************************************************************************/
 static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 {
+    // Check for fault event 
     if (pcInstance->Fault.FaultDetected)
     {
-        pcInstance->Properties.Enable = 0; // for now, user has to manually re-start converter after a fault
-        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; // next state
+        // Clear power control enable bit
+        pcInstance->Properties.Enable = 0;
+        
+        // State back to STATE_FAULT_DETECTION
+        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
     }
-    else if (pcInstance->Properties.Enable) // this flag is generally set externally (via PBV GUI for example)
+    
+    // NOTE: Power control enable is controlled externally 
+    else if (pcInstance->Properties.Enable)
     {
+        // Reset fault objects status bits
         Dev_Fault_Reset();
 
         // reset the PWM settings in Standby mode
@@ -160,97 +188,132 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
         pcInstance->Pwm.PBVControlPhaseTarget = 0;
 
+        // Enable power control running bit
         pcInstance->Status.bits.Running = 1;
         
+        // ToDo: Not yet applied; check this again
         Dev_Fault_ClearHardwareFaults();
 
+        // Enable PWM physical output
         Dev_PwrCtrl_PWM_Enable(pcInstance);
     
-        // current loop reference initialize
+        // Initialize current loop reference to 0, to be controlled externally
         pcInstance->ILoop.Reference = 0;
         
-        // initialize voltage loop reference to current secondary voltage
+        // Initialize power loop reference to 0, to be controlled externally
+        pcInstance->PLoop.Reference = 0;
+        
+        // Initialize voltage loop reference to current secondary voltage
         pcInstance->VLoop.Reference = pcInstance->Data.VSecVoltage;
         
-        pcInstance->State = PWR_CNTRL_STATE_SOFT_START;   // next state
+        // Next State assigned to STATE_SOFT_START
+        pcInstance->State = PWR_CNTRL_STATE_SOFT_START;
     }
 }
 
-/*********************************************************************************
- * @ingroup 
- * @fn      static __inline__ void PCS_SOFT_START_handler(void)
- * @brief   soft-start handler
- * @param   none
- * @return  none
- * @details
- * manage the soft-start of the controller
- *
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-sm-methods-public
+ * @brief  Executes the power control soft start state machine
+ * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
+ * @return void
+ * 
+ * @details This function gradually ramps up the references of the power control.
+ *  The control loop references are gradually incremented until in reached the 
+ *  desired power control reference. When this is achieved, the next state will  
+ *  be assigned to STATE_ONLINE. 
+ * 
+ *********************************************************************************/
 static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
 {
-  if (pcInstance->Fault.FaultDetected)
-  {
-      pcInstance->Properties.Enable = false;  // for now, user has to manually re-start converter after a fault
-      pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; 
-  }
-  
-  else if (!pcInstance->Properties.Enable) 
-  {
-    Dev_PwrCtrl_PWM_Disable(pcInstance);
-    pcInstance->Status.bits.Running = 0;
-    pcInstance->State = PWR_CNTRL_STATE_STANDBY; 
-  }
-  else
-  {    
-    Dev_PwrCtrl_RampReference(&pcInstance->VRamp);
-    Dev_PwrCtrl_RampReference(&pcInstance->IRamp);
-    Dev_PwrCtrl_RampReference(&pcInstance->PRamp);
-    
-    if ((pcInstance->VRamp.RampComplete) && (pcInstance->IRamp.RampComplete)
-            && (pcInstance->PRamp.RampComplete))
-        pcInstance->State = PWR_CNTRL_STATE_ONLINE;  // next state
-
-  }
-}
-
-/*********************************************************************************
- * @ingroup 
- * @fn      static __inline__ void PCS_UP_AND_RUNNING_handler(void)
- * @brief   handler for when converter is online
- * @param   none
- * @return  none
- * @details
- * manages the converter when it is online
- *
- **********************************************************************************/
-static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
-{
+    // Check for fault event 
     if (pcInstance->Fault.FaultDetected)
     {
-        pcInstance->Properties.Enable = false;  // for now, user has to manually re-start converter after a fault
-        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION; 
+        // Clear power control enable bit
+        pcInstance->Properties.Enable = 0;
+        
+        // State back to STATE_FAULT_DETECTION
+        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
     }
+  
+    // Check if Enable bit has been cleared
+    else if (!pcInstance->Properties.Enable) 
+    {
+        // Disable PWM physical output
+        Dev_PwrCtrl_PWM_Disable(pcInstance);
+        
+        // Clear power control running bit
+        pcInstance->Status.bits.Running = 0;
+        
+        // State back to STATE_STANDBY
+        pcInstance->State = PWR_CNTRL_STATE_STANDBY; 
+    }
+    
+    else
+    {   
+        // Ramp Up the Voltage, Current and Power reference
+        Dev_PwrCtrl_RampReference(&pcInstance->VRamp);
+        Dev_PwrCtrl_RampReference(&pcInstance->IRamp);
+        Dev_PwrCtrl_RampReference(&pcInstance->PRamp);
+
+        // Check if ramp up is complete
+        if ((pcInstance->VRamp.RampComplete) && (pcInstance->IRamp.RampComplete)
+              && (pcInstance->PRamp.RampComplete))
+            // Next State assigned to STATE_ONLINE
+            pcInstance->State = PWR_CNTRL_STATE_ONLINE; 
+
+    }
+}
+
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-sm-methods-public
+ * @brief  Executes the Online state
+ * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
+ * @return void
+ * 
+ * @details This function keeps checks if there is fault event that occurred,
+ *  if power control Enable has been disabled and if there is changes in the 
+ *  power control references. 
+ *********************************************************************************/
+static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
+{
+    // Check for fault event 
+    if (pcInstance->Fault.FaultDetected)
+    {
+        // Clear power control enable bit
+        pcInstance->Properties.Enable = 0;
+        
+        // State back to STATE_FAULT_DETECTION
+        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
+    }
+    
     else
     {
-        if (!pcInstance->Properties.Enable)
+        // Check if Enable bit has been cleared
+        if (!pcInstance->Properties.Enable) 
         {
+            // Disable PWM physical output
             Dev_PwrCtrl_PWM_Disable(pcInstance);
-            pcInstance->Status.bits.Running = 0;            
-            pcInstance->State = PWR_CNTRL_STATE_STANDBY;
+
+            // Clear power control running bit
+            pcInstance->Status.bits.Running = 0;
+
+            // State back to STATE_STANDBY
+            pcInstance->State = PWR_CNTRL_STATE_STANDBY; 
         }
         
     #if (OPEN_LOOP_PBV == true)
         else if ((pcInstance->Pwm.ControlPeriod != pcInstance->Pwm.PBVPeriodTarget) || 
                 (pcInstance->Pwm.ControlPhase != pcInstance->Pwm.PBVControlPhaseTarget))
-    #else
+            pcInstance->State = PWR_CNTRL_STATE_SOFT_START;
+    #endif
             
+        // Check if there is change in power control references    
         else if ((pcInstance->ILoop.Reference != pcInstance->Properties.IReference) ||
                 (pcInstance->VLoop.Reference != pcInstance->Properties.VSecReference) ||
                 (pcInstance->PLoop.Reference != pcInstance->Properties.PwrReference))
-    #endif 
-        {
+            
+            // State back to STATE_SOFT_START
             pcInstance->State = PWR_CNTRL_STATE_SOFT_START;
-        }
     }
 } 
 

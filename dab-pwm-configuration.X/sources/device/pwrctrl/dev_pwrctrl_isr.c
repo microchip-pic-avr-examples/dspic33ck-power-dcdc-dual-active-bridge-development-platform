@@ -35,23 +35,40 @@
 #include "system/pins.h"
 #include "dev_pwrctrl_utils.h"
 
+// PRIVATE FUNCTIONS
 static void Dev_PwrCtrl_UpdateConverterData(void);
 static void Dev_PwrCtrl_ControlLoopExecute(void);
 
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-properties-public
+ * @brief Data Object of secondary voltage averaging
+ * 
+ * @details The 'VsecAveraging' data object holds the averaging parameter of the 
+ *  Secondary Voltage.
+ *******************************************************************************/
 AVERAGING_t VsecAveraging;
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-properties-public
+ * @brief Data Object of secondary current averaging
+ * 
+ * @details The 'IsecAveraging' data object holds the averaging parameter of the 
+ *  Secondary Current.
+ *******************************************************************************/
 AVERAGING_t IsecAveraging;
 
-/*********************************************************************************
- * @ingroup 
- * @fn      void SCCP1_TimeoutCallback(void)
- * @brief   ISR in which the control loop is executed. 
- * @param   none
- * @return  none
- * @details
- * execute control loop
- * manage shared ADC core
- * ADC fault protection
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-isr-methods-public
+ * @brief  Executes the power conveter's control loop
+ * @return void
+ * 
+ * @details This interrupt function is a timing interrupt executed every 100KHz
+ *   and calls an ADC function that updates the DAB data member with ADC raw values. 
+ *   The fault check is also called in this function to detect any fault events.
+ *   It is followed by the control loop execution for Voltage, Current and Power
+ *   Loop Controllers. The end result of the control loop is handed over to the 
+ *   PWM distribution. 
+ *********************************************************************************/
+
 void ControlLoop_Interrupt_CallBack(void)
 {      
     GPIO_1_SetHigh();
@@ -63,10 +80,12 @@ void ControlLoop_Interrupt_CallBack(void)
     Dev_Fault_Execute();
     
     #if(OPEN_LOOP_PBV == false)
+    // Execute Power Converter Control Loop
     Dev_PwrCtrl_ControlLoopExecute();
     #endif
 
     #if(DAC_DEBUG == true)
+    // This is for DAC debugging purposes
 //    CMP2_DACDataWrite(dab.VLoop.Reference);
 //    CMP2_DACDataWrite(dab.ILoop.Reference << 2);
     CMP2_DACDataWrite(dab.PLoop.Reference >> 2);
@@ -88,17 +107,19 @@ void ControlLoop_Interrupt_CallBack(void)
 
     // Update PWM Properties
     Dev_PwrCtrl_PWM_Update(&dab);
+    
     GPIO_1_SetLow();
     
 }
     
 /*******************************************************************************
- * @ingroup 
- * @brief  
- * @return 
+ * @ingroup dev-pwrctrl-methods-public
+ * @brief  This function updates the DAB data members with ADC raw values
+ * @return void
  * 
- * @details 
- * 
+ * @details This function is called every 100KHz and triggers the ADC module. This
+ *  also handles the updating of DAB data members with its latest ADC raw values
+ *  and collection of data for averaging.
  *********************************************************************************/
 static void Dev_PwrCtrl_UpdateConverterData (void)
 {
@@ -125,26 +146,30 @@ static void Dev_PwrCtrl_UpdateConverterData (void)
 }
 
 /*******************************************************************************
- * @ingroup 
- * @brief  
- * @return 
+ * @ingroup dev-pwrctrl-methods-public
+ * @brief Executes the power converter control loop 
+ * @return void
  * 
- * @details 
- * 
+ * @details This function is called to execute the control loop of the power
+ *  converter. It comprise of Voltage Loop control (VLoop), Power Loop control (PLoop) 
+ *  and Current Loop Control (ILoop). Vloop and PLoop is ten times slower than
+ *  the current loop with interleaved execution while Iloop is executed everytime 
+ *  this function is called.  
  *********************************************************************************/
 static void Dev_PwrCtrl_ControlLoopExecute(void)
 {
     static uint16_t cnt = 0;
     static bool VLoopExec = true;
 
-    //Interleave the execution of the control loop
-    if(++cnt == 5)
+    //Interleave the execution of VLoop and PLoop control for 10KHz execution
+    if(++cnt == 5) 
     {
-        
+        // Averaging of Secondary Voltage
         VsecAveraging.AverageValue = (uint16_t)(__builtin_divud(VsecAveraging.Accumulator, VsecAveraging.Counter));
         VsecAveraging.Accumulator = 0;
         VsecAveraging.Counter = 0;
             
+        //Condition for control loop execution controlling the loop enable bit
         if((dab.VLoop.Enable == false) && (VLoopExec == true)){
             dab.VLoop.Enable = true;
             dab.PLoop.Enable = false;
@@ -154,6 +179,7 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
             dab.VLoop.Enable = false;
             dab.PLoop.Enable = true;
         
+            // Averaging of Secondary Current
             IsecAveraging.AverageValue = (uint16_t)(__builtin_divud(IsecAveraging.Accumulator, IsecAveraging.Counter));
             IsecAveraging.Accumulator = 0;
             IsecAveraging.Counter = 0;
@@ -161,12 +187,12 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
         cnt = 0;
     }
     
+    // Execute the Voltage Loop Control
     if((dab.VLoop.Enable == true) && (VLoopExec == true))
     {
         
         VLoopExec = false;
         
-        // Execute the Voltage Loop Control
         if(dab.PowerDirection == PWR_CTRL_CHARGING)
         { 
             VMC_2p2z.KfactorCoeffsB = 0x7FFF;
@@ -176,6 +202,7 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
             dab.VLoop.Feedback = VsecAveraging.AverageValue << 4;  
             dab.VLoop.Reference = dab.VLoop.Reference << 4;
 
+            // Execute the Voltage Loop Control
             SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
                     dab.VLoop.Reference, &dab.VLoop.Output);
         
@@ -184,6 +211,7 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
         }
     }
 
+    // Execute the Power Loop Control
     if((dab.PLoop.Enable == true) && (VLoopExec == false))
     {      
         VLoopExec = true;
@@ -195,11 +223,10 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
         
         dab.Data.SecPower = buf;
          
-         
-        // Execute the Power Loop Control
         dab.PLoop.Feedback = dab.Data.PowerOffset + (dab.Data.SecPower);
         dab.PLoop.Reference = dab.Data.PowerOffset + dab.PLoop.Reference;
         
+        // Execute the Power Loop Control
         SMPS_Controller2P2ZUpdate(&PMC_2p2z, &dab.PLoop.Feedback,
                 dab.PLoop.Reference, &dab.PLoop.Output);
         
@@ -207,11 +234,10 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
         dab.PLoop.Reference = dab.PLoop.Reference - dab.Data.PowerOffset;
     }
 
+    // Execute the Current Loop Control
     if(dab.ILoop.Enable == true)
     {
-        // Execute the Current Loop Control
         //Bit-shift value used to perform input value normalization
-        
         dab.ILoop.Feedback = dab.Data.ISecAverageRectified << 3;
         //adaptive gain factor
         IMC_2p2z.KfactorCoeffsB = 0x7FFF;//dab.ILoop.AgcFactor;

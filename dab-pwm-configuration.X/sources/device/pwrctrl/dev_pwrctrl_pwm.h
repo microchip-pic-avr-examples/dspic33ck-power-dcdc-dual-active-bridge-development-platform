@@ -12,8 +12,6 @@
 
 extern void Dev_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance);
 extern void Dev_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance);
-extern void Dev_PwrCtrl_PWM_Primary_Enable(POWER_CONTROL_t* pcInstance);
-extern void Dev_PwrCtrl_PWM_Secondary_Enable(POWER_CONTROL_t* pcInstance);
 extern void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance);
 
 
