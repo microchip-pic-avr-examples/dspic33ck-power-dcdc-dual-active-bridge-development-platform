@@ -25,7 +25,7 @@
 #include "dev_pwrctrl_typedef.h"
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-pwm-methods-public
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  PWM distribution for DAB converter
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -97,7 +97,7 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-pwm-methods-public
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Enable the PWM output
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t 
  * @return void
@@ -128,7 +128,7 @@ void Dev_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance)
 
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-pwm-methods-public
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Disable the PWM output
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void

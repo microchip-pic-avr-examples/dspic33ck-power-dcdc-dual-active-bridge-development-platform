@@ -41,18 +41,24 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance);
 
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm-methods-public
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Manages the power control state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
  * 
  * @details This function manages the state machine of the converter. There are
  *  five states in this function as follows:
- *      - STATE_INITIALIZE
- *      - STATE_FAULT_DETECTION
- *      - STATE_STANDBY
- *      - STATE_SOFT_START
- *      - STATE_ONLINE 
+ *      - STATE_INITIALIZE - This state resets the conditional flag bits, 
+ *  ensures PWM output is disabled and run the initial current calibration offset.
+ *      - STATE_FAULT_DETECTION -  This state checks if there is fault event that occurred.
+ *      - STATE_STANDBY This state waits until there is no fault event that has occurred 
+ *  and when the power control enable bit is set.
+ *      - STATE_SOFT_START - This state gradually ramps up the references of the power control.
+ *  The control loop references are gradually incremented until in reached the 
+ *  desired power control reference.
+ *      - STATE_ONLINE -  This state keeps checks if there is fault event that occurred,
+ *  if power control Enable has been disabled and if there is changes in the 
+ *  power control references.
  * 
  *********************************************************************************/
 void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
@@ -86,7 +92,7 @@ void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm-methods-public
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Executes function for initialze state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -130,7 +136,7 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm-methods-public
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Executes the fault handler state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -139,7 +145,7 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
  *  there is no fault event, the state machine moves to StandBy state. 
  * 
  *********************************************************************************/
-static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance)
+static void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance)
 {   
     if ((pcInstance->Fault.FaultDetected == 0) && (Drv_PwrCtrl_Fault_SC_Faults_Clear(pcInstance)))
     {
@@ -149,7 +155,7 @@ static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInsta
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm-methods-public
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Executes Standby State machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -164,7 +170,7 @@ static __inline__ void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInsta
  *  externally by Power Board Visualizer.  
  * 
  *********************************************************************************/
-static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
+static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 {
     // Check for fault event 
     if (pcInstance->Fault.FaultDetected)
@@ -212,7 +218,7 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm-methods-public
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Executes the power control soft start state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -223,7 +229,7 @@ static __inline__ void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
  *  be assigned to STATE_ONLINE. 
  * 
  *********************************************************************************/
-static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
+static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
 {
     // Check for fault event 
     if (pcInstance->Fault.FaultDetected)
@@ -265,7 +271,7 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm-methods-public
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Executes the Online state
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -274,7 +280,7 @@ static __inline__ void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
  *  if power control Enable has been disabled and if there is changes in the 
  *  power control references. 
  *********************************************************************************/
-static __inline__ void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
+static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
 {
     // Check for fault event 
     if (pcInstance->Fault.FaultDetected)

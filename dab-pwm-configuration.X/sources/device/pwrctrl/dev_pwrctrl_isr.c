@@ -247,7 +247,7 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
         // Mixing stage from voltage loop 10KHz
         uint32_t RefBuf = (uint32_t)(dab.ILoop.Reference) * 
                 (uint32_t)(dab.VLoop.Output & 0x7FFF);
-        uint16_t ILoopReference = (uint16_t)(RefBuf>>12) ; //15-3
+        uint16_t ILoopReference = (uint16_t)(RefBuf>>12); //15-3
 
         // Mixing stage from power loop 10KHz
         RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  
