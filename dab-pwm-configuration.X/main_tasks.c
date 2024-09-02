@@ -51,6 +51,7 @@
 #include "device/dev_temp.h"
 #include "device/dev_current_sensor.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
+#include "device/fault/dev_fault.h"
 
 #include "x2cScope/X2CScope.h"
 #include "system/pins.h"

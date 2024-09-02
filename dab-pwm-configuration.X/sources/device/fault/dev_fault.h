@@ -42,7 +42,6 @@
 void Dev_Fault_Initialize(void);
 void Dev_Fault_Execute(void);
 
-void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void);
 void Dev_Fault_ClearHardwareFaults(void);
 void Dev_Fault_Reset(void);
 void Dev_Fault_Handler(void);

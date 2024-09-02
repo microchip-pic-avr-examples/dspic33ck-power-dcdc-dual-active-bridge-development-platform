@@ -37,16 +37,20 @@
 #include "system/pins.h"
 #include "dev_fault_api.h"
 
-/*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_FaultInit(void)
- * @brief   initialize application specific fault objects
- * @param   None
- * @return  None 
- * @details
- * initialize fault objects
- * This is an API function
- **********************************************************************************/
+// PRIVATE FUNCTIONS
+static void Drv_Fault_EnableShortCircuitProtection(void);
+
+/*******************************************************************************
+ * @ingroup dev-fault-methods-public
+ * @brief  Handles the fault trip by turning off the power control switching
+ * @return void
+ * 
+ * @details This function handles the occurence of fault when one of the fault
+ *  condition trips. It shuts down the operation of the power control, set the 
+ *  FaultActive bit and clear the Running bit indicating that power converter
+ *  has been turned-off. A fault pin is also set to low to blocked the PWM signal
+ *  as a hardware protection.  
+ *********************************************************************************/
 void Dev_Fault_Handler(void)
 {
     // Drive the fault pin to Low when Fault trips
@@ -55,21 +59,22 @@ void Dev_Fault_Handler(void)
     // Turn off PWM output
     Dev_PwrCtrl_PWM_Disable(&dab);
      
+    // set the fault active bit
     dab.Status.bits.FaultActive = 1;
+    
+    // clear the running bit
     dab.Status.bits.Running = 0;
 }
 
 
-/*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_FaultInit(void)
- * @brief   initialize application specific fault objects
- * @param   None
- * @return  None 
- * @details
- * initialize fault objects
- * This is an API function
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-fault-methods-public
+ * @brief   Initialize the fault objects
+ * @return void
+ * 
+ * @details This function initializes the fault objects following each respective
+ *  fault thresholds. 
+ *********************************************************************************/
 void Dev_Fault_Initialize(void)
 {
     // Initialize Primary Over Current Protection
@@ -89,7 +94,7 @@ void Dev_Fault_Initialize(void)
             VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
     
     // Initialize Short Circuit Protection
-    FAULT_Init(&dab.Fault.Object.ISenseSCP, 0,0,0,I_SC_T_BLANK_CLEAR);
+    FAULT_Init(&dab.Fault.Object.ISenseSCP, 0, 0, 0, I_SC_T_BLANK_CLEAR);
     
     // Initialize 5V Rail instability Protection
     FAULT_Init(&dab.Fault.Object.VRail_5V, VRAIL_5V_UV_THRES_TRIG, 
@@ -102,13 +107,22 @@ void Dev_Fault_Initialize(void)
     //ToDo: need to check this
 #if (FAULT_SHORT_CCT == true)
        // initialize short circuit fault protection with comparators
-    Drv_PwrCtrl_Fault_EnableShortCircuitProtection();
+    Drv_Fault_EnableShortCircuitProtection();
 #endif 
     // clear the fault PCI for each PWM
     Dev_Fault_ClearHardwareFaults(); 
     
 }
 
+/*******************************************************************************
+ * @ingroup dev-fault-methods-public
+ * @brief   Executes the fault handlers
+ * @return void
+ * 
+ * @details This function evaluates if any of the fault objects has been tripped. 
+ *  When fault detection occurs, the power converter will shutdown thus turn-off
+ *  the power converter. 
+ *********************************************************************************/
 void Dev_Fault_Execute(void)
 {
     // secondary over current fault handler
@@ -141,7 +155,14 @@ void Dev_Fault_Execute(void)
 }
 
 
-
+/*******************************************************************************
+ * @ingroup dev-fault-methods-public
+ * @brief   Clears the fault object flag bits
+ * @return void
+ * 
+ * @details This function clears the fault status bits for Fault Active and 
+ *  Fault Latched. A fault pin is also drive to high to allow PWM signal drive. 
+ *********************************************************************************/
 void Dev_Fault_Reset(void)
 {
     // Drive the fault pin to high to allow PWM signal drive
@@ -162,16 +183,16 @@ void Dev_Fault_Reset(void)
     dab.Fault.Object.VSecondaryOVP.FaultLatch = 0;
 }
 
-/*********************************************************************************
- * @ingroup 
- * @fn      void Drv_Fault_EnableShortCircuitProtection(void)
- * @brief   set short circuit protection thresholds, enable comparators
- * @param   none
- * @return  none 
- * @details
- * This is an API function
- **********************************************************************************/
-void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void)
+/*******************************************************************************
+ * @ingroup dev-fault-methods-public
+ * @brief   Enable Short circuit hardware protection
+ * @return void
+ * 
+ * @details This function setup the short circuit protection threshold and
+ *  turns on the DAC (Digital-to-Analog) module. This hardware protection use
+ *  Comparator DACs to detect short circuit.   
+ *********************************************************************************/
+static void Drv_Fault_EnableShortCircuitProtection(void)
 {
   // on dsPIC33CK DP-PIM:
   // CMP1B used for short circuit protection on the secondary side 
@@ -187,16 +208,14 @@ void Drv_PwrCtrl_Fault_EnableShortCircuitProtection(void)
   
 }
 
-
-/*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_Fault_ClearHardwareFaults(void)
- * @brief   clear hardware faults
- * @param   none
- * @return  none 
- * @details
- * This is an API function
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-fault-methods-public
+ * @brief   Clear hardware faults 
+ * @return void
+ * 
+ * @details This function clears the hardware faults handled by PCI(PWM Control Input)
+ *  block. 
+ *********************************************************************************/
 void Dev_Fault_ClearHardwareFaults(void)
 {
   uint16_t pwmIndex;
@@ -207,6 +226,15 @@ void Dev_Fault_ClearHardwareFaults(void)
   }
 }
 
+/*******************************************************************************
+ * @ingroup dev-fault-methods-public
+ * @brief   Fault evaluation for Temperature
+ * @return void
+ * 
+ * @details This function checks if the board temperature is within the nominal
+ *  temperature range. When temperature exceeds the limit, the power control
+ *  can trip or perform temperature derating. 
+ *********************************************************************************/
 void Dev_Fault_Temp_100ms(void) 
 {
     Dev_Temp_Get_ADC_Sample();

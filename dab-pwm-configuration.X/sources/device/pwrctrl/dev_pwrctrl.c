@@ -148,7 +148,6 @@ static void Dev_PwrCtrl_ControlLoopInitialize(void)
     dab.PLoop.Output = 0;
     dab.PLoop.Reference = 0;
     
-    dab.Data.PowerOffset = POWER_OFFSET;
 }
 
 /*******************************************************************************
@@ -165,7 +164,7 @@ static void Dev_PwrCtrl_ControlLoopInitialize(void)
 static void Dev_PwrCtrl_StartUpInitialize(void)
 {
     // Initialize Voltage ramp-up settings
-    dab.VRamp.ptrReference = &dab.VLoop.Reference;
+    dab.VRamp.ptrReference = (uint16_t*)&dab.VLoop.Reference;
     dab.VRamp.ptrReferenceTarget = &dab.Properties.VSecReference;
     dab.VRamp.StepSize = 1;
     dab.VRamp.Delay = 0;
@@ -173,15 +172,15 @@ static void Dev_PwrCtrl_StartUpInitialize(void)
     dab.VRamp.RampComplete = 0;
     
     //Initialize Current ramp-up settings
-    dab.IRamp.ptrReference = &dab.ILoop.Reference;
-    dab.IRamp.ptrReferenceTarget = &dab.Properties.IReference;
+    dab.IRamp.ptrReference = (uint16_t*)&dab.ILoop.Reference;
+    dab.IRamp.ptrReferenceTarget = (uint16_t*)&dab.Properties.IReference;
     dab.IRamp.StepSize = 1;
     dab.IRamp.Delay = 0;
     dab.IRamp.Counter = 0;
     dab.IRamp.RampComplete = 0;
     
     //Initialize Power ramp-up settings
-    dab.PRamp.ptrReference = &dab.PLoop.Reference;
+    dab.PRamp.ptrReference = (uint16_t*)&dab.PLoop.Reference;
     dab.PRamp.ptrReferenceTarget = &dab.Properties.PwrReference;
     dab.PRamp.StepSize = 1;
     dab.PRamp.Delay = 0;

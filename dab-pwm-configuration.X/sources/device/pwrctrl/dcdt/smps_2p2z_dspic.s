@@ -213,64 +213,46 @@ _SMPS_Controller2P2ZUpdate:
 
        ; Initialize A coefficients and control history arrays
 
-		mov 	[w0 + #offsetACoefficients],  w8	; w8  = Base Address of _ACoefficients array  (A1, A2, A3)
-		mov 	[w0 + #offsetControlHistory], w10	; w10 = Base Address of _ControlHistory array (y[n-1], y[n-2], y[n-3])
+	mov 	[w0 + #offsetACoefficients],  w8	; w8  = Base Address of _ACoefficients array  (A1, A2, A3)
+	mov 	[w0 + #offsetControlHistory], w10	; w10 = Base Address of _ControlHistory array (y[n-1], y[n-2], y[n-3])
 
         ; Calculate second section of 2P2Z controller - Controller History
 
-		movsac	a, [w8]+=2, w4, [w10]+=2, w5		; w4  = A1, w5 = y[n-1]
-		mac     w4*w5, a, [w8], w4, [w10], w5		; ACCA = A1 * y[n-1] + B0 * e[n] + B1 * e[n-1] + B2 * e[n-2]
+	movsac	a, [w8]+=2, w4, [w10]+=2, w5		; w4  = A1, w5 = y[n-1]
+	mac     w4*w5, a, [w8], w4, [w10], w5		; ACCA = A1 * y[n-1] + B0 * e[n] + B1 * e[n-1] + B2 * e[n-2]
 								; w4   = A2, w5 = y[n-2]
-		mac     w4*w5, a				; ACCA = A1 * y[n-1] + A2 * y[n-2] + B0 * e[n] + B1 * e[n-1] + B2 * e[n-2]
+	mac     w4*w5, a				; ACCA = A1 * y[n-1] + A2 * y[n-2] + B0 * e[n] + B1 * e[n-1] + B2 * e[n-2]
 
         ; Initialize Scale-factor and multiply
-		sac.r   a, w4					; w4 = Sat(Rnd(ACCAH))
-		mov 	[w0 + #offsetPostScaler],  w5		; w5 = postScaler
-		mpy	w4*w5, a				; Multiply control output and scale-factor
+	sac.r   a, w4					; w4 = Sat(Rnd(ACCAH))
+	mov 	[w0 + #offsetPostScaler],  w5		; w5 = postScaler
+	mpy	w4*w5, a				; Multiply control output and scale-factor
                               	
 
 	; Backwards normalization & write back
-		mov	[w0 + #offsetPostShift], w5		; w5 = Normalization Shift to compensate coefficient scaling
-		sftac	a, w5					; Backward normalization to compensate coefficient scaling
-		sac.r   a, w4                                   ; w4 = Sat(Rnd(ACCAH))	
-		
-	
+	mov	[w0 + #offsetPostShift], w5		; w5 = Normalization Shift to compensate coefficient scaling
+	sftac	a, w5					; Backward normalization to compensate coefficient scaling
+	sac.r   a, w4                                   ; w4 = Sat(Rnd(ACCAH))	
 		
 		
-		
-		
-		; Clamp controller output to min/max values if needed
+	; Clamp controller output to min/max values if needed
         mov 	[w0 + #offsetMinOutput], w5
 	cpsgt	w4, w5
         mov.w   w5, w4
         mov 	[w0 + #offsetMaxOutput], w5
 	cpslt	w4, w5
         mov.w   w5, w4
-
-
 	
 	
-	
-	
-	
-		; Update the controller output history on the delay line
-
+	; Update the controller output history on the delay line
 	mov     [w10 + #-2], w5					; W5 = ControlHistory[n-1]
         mov     w5, [w10]			                ; ControlHistory[n-2] = W5
         mov     w4, [w10 + #-2]			                ; ControlHistory[n]   = w2
 
-;		; Clamp controller output to min/max values if needed
-;        mov 	[w0 + #offsetMinOutput], w5
-;	cpsgt	w4, w5
-;        mov.w   w5, w4
-;        mov 	[w0 + #offsetMaxOutput], w5
-;	cpslt	w4, w5
-;        mov.w   w5, w4
-
-		; Controller write back into target register
+	; Controller write back into target register
 	mov w4, [w3]						; write result into target register
 
-		; restore registers
+	; restore registers
 
         pop     CORCON						; restore CORCON.
         pop     w10						; restore working register W10

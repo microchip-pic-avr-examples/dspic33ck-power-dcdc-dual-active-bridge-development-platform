@@ -114,7 +114,7 @@ void Dev_PwrCtrl_VComp_Initialize(void)
   VMC_2p2z.controlHistory = &VMC_2p2zControlHistory[0]; // Set up pointer to controller history
   VMC_2p2z.errorHistory =   &VMC_2p2zErrorHistory[0]; // Set up pointer to error history
 
-  VMC_2p2z.preShift =   DAB_SPVO_COMP_2P2Z_PRESHIFT;  //to be fixed later into SPVO version. historical evolving reasons 
+  VMC_2p2z.preShift =   DAB_SPVO_COMP_2P2Z_PRESHIFT;  
   VMC_2p2z.postScaler = DAB_SPVO_COMP_2P2Z_POSTSCALER;
   VMC_2p2z.postShift =  DAB_SPVO_COMP_2P2Z_POSTSHIFT;
   VMC_2p2z.minOutput =  DAB_SPVO_COMP_2P2Z_MIN_CLAMP;

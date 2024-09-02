@@ -64,7 +64,7 @@ uint16_t Dev_Fault_GetFlags(void)
  **********************************************************************************/
 void Dev_Fault_SetSecOVPThreshold(uint16_t reference)
 {    
-    dab.Fault.Object.VSecondaryOVP.val1_Threshold = reference;
+    dab.Fault.Object.VSecondaryOVP.Val1_Threshold = reference;
 }
 /*********************************************************************************
  * @ingroup 
@@ -77,16 +77,16 @@ void Dev_Fault_SetSecOVPThreshold(uint16_t reference)
  **********************************************************************************/
 void Dev_Fault_SetPriOVPThreshold(uint16_t reference)
 {    
-    dab.Fault.Object.VPrimaryOVP.val1_Threshold = reference;
+    dab.Fault.Object.VPrimaryOVP.Val1_Threshold = reference;
 }
 
 void Dev_Fault_SetIPrimaryThreshold(uint16_t reference)
 {    
-    dab.Fault.Object.IPrimaryOCP.val1_Threshold = reference;
+    dab.Fault.Object.IPrimaryOCP.Val1_Threshold = reference;
 }
 
 void Dev_Fault_SetISecondaryThreshold(uint16_t reference)
 {    
-    dab.Fault.Object.ISecondaryOCP.val1_Threshold = reference;
+    dab.Fault.Object.ISecondaryOCP.Val1_Threshold = reference;
 }
 

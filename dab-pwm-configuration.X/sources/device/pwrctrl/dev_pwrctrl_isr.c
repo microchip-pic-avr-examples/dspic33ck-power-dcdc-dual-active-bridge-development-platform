@@ -29,6 +29,7 @@
 #include "adc/adc_types.h"
 #include "adc/adc1.h"
 #include "config/macros.h"
+#include "config/config.h"
 #include "dev_pwrctrl_pwm.h"
 #include "device/fault/dev_fault.h"
 #include "dcdt/dev_pwrctrl_dcdt.h"
@@ -47,6 +48,7 @@ static void Dev_PwrCtrl_ControlLoopExecute(void);
  *  Secondary Voltage.
  *******************************************************************************/
 AVERAGING_t VsecAveraging;
+
 /*******************************************************************************
  * @ingroup dev-pwrctrl-properties-public
  * @brief Data Object of secondary current averaging
@@ -72,7 +74,7 @@ AVERAGING_t IsecAveraging;
 void ControlLoop_Interrupt_CallBack(void)
 {      
     GPIO_1_SetHigh();
-            
+    
     // Update the ADC data member
     Dev_PwrCtrl_UpdateConverterData();
     
@@ -113,7 +115,7 @@ void ControlLoop_Interrupt_CallBack(void)
 }
     
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-methods-private
  * @brief  This function updates the DAB data members with ADC raw values
  * @return void
  * 
@@ -146,7 +148,7 @@ static void Dev_PwrCtrl_UpdateConverterData (void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-methods-private
  * @brief Executes the power converter control loop 
  * @return void
  * 
@@ -216,22 +218,23 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
     {      
         VLoopExec = true;
 
-        //Bit-shift value used to perform input value normalization
+        // Bit-shift value used to perform input value normalization
+        // Scaled the feedback to Power (Watts in units)
         uint32_t buf = (uint32_t)IsecAveraging.AverageValue * 
-                (uint32_t)VsecAveraging.AverageValue  * 131; //131; 131;  //0.0079*10000 ==  131 / 16384
+                (uint32_t)VsecAveraging.AverageValue  * POWER_RESOLUTION; 
+        // scale back the 14 bit from the POWER_RESOLUTION calculation 
+        // to get the Watts value for Power Loop
         buf >>=14;
         
         dab.Data.SecPower = buf;
          
-        dab.PLoop.Feedback = dab.Data.PowerOffset + (dab.Data.SecPower);
-        dab.PLoop.Reference = dab.Data.PowerOffset + dab.PLoop.Reference;
+        dab.PLoop.Feedback = dab.Data.SecPower;
+        dab.PLoop.Reference = dab.PLoop.Reference;
         
         // Execute the Power Loop Control
         SMPS_Controller2P2ZUpdate(&PMC_2p2z, &dab.PLoop.Feedback,
                 dab.PLoop.Reference, &dab.PLoop.Output);
         
-        // Reset the Ploop reference to its original scaling and offset
-        dab.PLoop.Reference = dab.PLoop.Reference - dab.Data.PowerOffset;
     }
 
     // Execute the Current Loop Control
@@ -247,7 +250,7 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
         // Mixing stage from voltage loop 10KHz
         uint32_t RefBuf = (uint32_t)(dab.ILoop.Reference) * 
                 (uint32_t)(dab.VLoop.Output & 0x7FFF);
-        uint16_t ILoopReference = (uint16_t)(RefBuf>>12); //15-3
+        uint16_t ILoopReference = (uint16_t)(RefBuf>>12); 
 
         // Mixing stage from power loop 10KHz
         RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  

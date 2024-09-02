@@ -28,16 +28,16 @@
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl-methods-public
- * @brief  
- * @param
- * @return 
+ * @brief  Average the raw data over number of samples
+ * @param  data     Pointer to averaging data object of type AVERAGING_t
+ * @param  sample   data that will be averaged 
+ * @return AverageValue     Returns the average value
  * 
- * @details 
- * 
+ * @details This function averages the data over number of samples.
  *********************************************************************************/
-uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t adcReading)
+uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t sample)
 {
-    data->Accumulator += adcReading;
+    data->Accumulator += sample;
     if(++data->Counter >= data->AveragingCount){    
         data->AverageValue = (uint16_t)(__builtin_divud(data->Accumulator, data->Counter));
         data->Accumulator = 0;
@@ -48,12 +48,13 @@ uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t adcReading)
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl-methods-public
- * @brief  
- * @param
- * @return 
+ * @brief   Softly increment / decrement to the set reference target
+ * @param   rampUp     Pointer to start-up ramp data object of type START_UP_RAMP_t
+ * @return  RampComplete Indicates if the ramp-up/down is done
  * 
- * @details 
- * 
+ * @details This function increments or decrements the reference with its defined 
+ *  step size to meet the reference target. Once the value reached the reference 
+ *  target, the RampComplete will be set. 
  *********************************************************************************/
 bool Dev_PwrCtrl_RampReference(START_UP_RAMP_t* rampUp)
 { 

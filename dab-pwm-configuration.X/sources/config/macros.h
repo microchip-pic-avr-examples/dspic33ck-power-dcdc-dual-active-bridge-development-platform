@@ -25,7 +25,7 @@
 #define PWM_CLOCK_FREQUENCY     (float)500.0e+6 ///< PWM Clock Frequency in [Hz]
 #endif
 
-#define ADC_RESOLUTION          4095U ///< ADC number of ticks for 12-bit ADC resolution
+#define ADC_RESOLUTION          4095 ///< ADC number of ticks for 12-bit ADC resolution
 #define ADC_REFERENCE           (float)3.3
 #define ADC_SCALER              (float)(1.0 / ADC_RESOLUTION)
 #define PHASE_DEGREES           360U
@@ -49,6 +49,8 @@
 #define ADC_TEMP_SAMPLE_DIV     ((uint16_t)(_rnd(T_ADC_TEMP_SAMPLE_DIVIDER/ADC_5V_SAMPLE_DIV)))
 
 #define VSEC_SETPOINT_DEFAULT   (UNITS_FROM_ENG_TO_ADC(VSEC_SETPOINT_DEFAULT_VOLTS,VSEC_SNS_GAIN,0.0))
+
+#define POWER_RESOLUTION             (((ADC_REFERENCE * ADC_REFERENCE * 16384)) / ((ADC_RESOLUTION * VSEC_SNS_GAIN) * (ADC_RESOLUTION * ISEC_AVG_SNS_GAIN))) 
 
 // convert I_SC_LEB_TIME (seconds) into an integer that can be loaded into PGxDC register (assume PWM is in High resolution mode so resolution is 250ps)
 #define I_SC_LEB_TIME_PGxDC                   ((uint16_t)(_rnd(I_SC_LEB_TIME / 250.0e-12)))

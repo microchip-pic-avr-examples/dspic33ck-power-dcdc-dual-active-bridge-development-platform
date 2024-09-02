@@ -44,7 +44,7 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
     // PWM scheme reliable (please refer to Section 4.1.3.3 in High Resolution PWM FRM)
     pcInstance->Pwm.ControlPeriod = pcInstance->Pwm.ControlPeriod & ~(PeriodMask);
     
-    // calculate Duty Cycle for 50%
+    // Calculate Duty Cycle for 50%
     pcInstance->Pwm.ControlDutyCycle = (pcInstance->Pwm.ControlPeriod >> 1);
 
     // Maximum Clamping for control phase
@@ -55,7 +55,7 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
     // Calculate primary to secondary phase as half of the control phase
     uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlPhase >> 1);
     
-    // Calculate the bridge delay ((Frequency / 2) - Primary to Secondary Phase + Control Phase)
+    // Calculate the Bridge Delay ((Frequency / 2) - Primary to Secondary Phase + Control Phase)
     // Note that in the cascaded PWM, the reference phase of the client PWM, is its trigger source
     uint16_t PrimaryPhaseDelay = (pcInstance->Pwm.ControlDutyCycle - PrimarySecondaryPhase) + 
             pcInstance->Pwm.ControlPhase;
@@ -121,7 +121,7 @@ void Dev_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance)
     PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_2); 
 
     // Set update request of the last PWM in the cascade 
-    // to update all pwm registers
+    // to update all PWM registers
     PWM_SoftwareUpdateRequest(pcInstance->Pwm.Secondary_2);
 
 }

@@ -83,7 +83,6 @@ struct FEEDBACK_SETTINGS_s
     uint16_t Temperature;       ///< Data value for temperature
     uint16_t VRail_5V;          ///< Data value for 5V auxiliary rail
     uint16_t ISecSensorOffset;  ///< Offset of the secondary current sensor
-    uint16_t PowerOffset;       ///< Offset of Power
 };
 typedef struct FEEDBACK_SETTINGS_s FEEDBACK_SETTINGS_t;
 

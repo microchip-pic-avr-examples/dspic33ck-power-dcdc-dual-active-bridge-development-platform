@@ -92,7 +92,7 @@ void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-methods-private
  * @brief  Executes function for initialze state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -136,7 +136,7 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-methods-private
  * @brief  Executes the fault handler state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -155,7 +155,7 @@ static void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-methods-private
  * @brief  Executes Standby State machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -218,7 +218,7 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-methods-private
  * @brief  Executes the power control soft start state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -271,7 +271,7 @@ static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-methods-private
  * @brief  Executes the Online state
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
