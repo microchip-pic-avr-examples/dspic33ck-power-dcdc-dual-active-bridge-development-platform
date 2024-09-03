@@ -115,8 +115,8 @@ void PWM_Initialize (void)
     PG3CONL = 0x88;
     // MODSEL Independent Edge; TRGCNT 1; CLKSEL Master clock; ON disabled; HREN enabled; 
     PG4CONL = 0x88;
-    // HREN enabled; MODSEL Independent Edge; TRGCNT 1; CLKSEL Master clock; ON disabled; 
-    PG6CONL = 0x88;
+    // HREN disabled; MODSEL Independent Edge; TRGCNT 1; CLKSEL Master clock; ON disabled; 
+    PG6CONL = 0x8;
     // 
     PG1CAP = 0x0;
     // PCIGT disabled; TQPS Not inverted; SWPCI Drives '0'; BPEN disabled; TQSS None; SWPCIM PCI acceptance logic; BPSEL PWM Generator 1; ACP Level-sensitive; 
@@ -331,10 +331,10 @@ void PWM_Initialize (void)
     PG6CLPCIH = 0x0;
     // PSS Tied to 0; PPS Not inverted; SWTERM disabled; PSYNC disabled; TERM Manual Terminate; AQPS Not inverted; AQSS None; TSYNCDIS PWM EOC; 
     PG6CLPCIL = 0x0;
-    // MSTEN disabled; TRIGMOD Single trigger mode; SOCS TRIG bit or PCI Sync function; UPDMOD Client SOC; MPHSEL disabled; MPERSEL disabled; MDCSEL disabled; 
-    PG6CONH = 0x20F;
-    // DC6 1600; 
-    PG6DC = 0x640;
+    // MSTEN enabled; TRIGMOD Single trigger mode; SOCS Self-trigger; UPDMOD SOC; MPHSEL disabled; MPERSEL disabled; MDCSEL disabled; 
+    PG6CONH = 0x800;
+    // DC6 50; 
+    PG6DC = 0x32;
     // DCA6 0x0; 
     PG6DCA = 0x0;
     // DTH6 0; 
@@ -343,8 +343,8 @@ void PWM_Initialize (void)
     PG6DTL = 0x0;
     // ADTR2EN1 disabled; IEVTSEL EOC; SIEN disabled; FFIEN disabled; ADTR1OFS None; CLIEN disabled; FLTIEN disabled; ADTR2EN2 disabled; ADTR2EN3 disabled; 
     PG6EVTH = 0x0;
-    // UPDTRG ; ADTR1PS 1:1; PGTRGSEL EOC event; ADTR1EN3 disabled; ADTR1EN1 disabled; ADTR1EN2 disabled; 
-    PG6EVTL = 0x0;
+    // UPDTRG Duty Cycle; ADTR1PS 1:1; PGTRGSEL EOC event; ADTR1EN3 disabled; ADTR1EN1 disabled; ADTR1EN2 disabled; 
+    PG6EVTL = 0x8;
     // PCIGT disabled; TQPS Not inverted; SWPCI Drives '0'; BPEN disabled; TQSS None; SWPCIM PCI acceptance logic; BPSEL PWM Generator 1; ACP Level-sensitive; 
     PG6FFPCIH = 0x0;
     // PSS Tied to 0; PPS Not inverted; SWTERM disabled; PSYNC disabled; TERM Manual Terminate; AQPS Not inverted; AQSS None; TSYNCDIS PWM EOC; 
@@ -361,8 +361,8 @@ void PWM_Initialize (void)
     PG6LEBH = 0x0;
     // LEB 0x0; 
     PG6LEBL = 0x0;
-    // PER6 7992; 
-    PG6PER = 0x1F38;
+    // PER6 49999; 
+    PG6PER = 0xC34F;
     // PHASE6 0; 
     PG6PHASE = 0x0;
     // PCIGT disabled; TQPS Not inverted; SWPCI Drives '0'; BPEN disabled; TQSS None; SWPCIM PCI acceptance logic; BPSEL PWM Generator 1; ACP Level-sensitive; 
