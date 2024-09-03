@@ -64,16 +64,16 @@ void CLC1_Initialize(void)
 {
     // Set the CLC1 to the options selected in the User Interface
 
-    // LCEN enabled; LCINTN disabled; LCPOL non_inverted; LCOUT Low; LCINTP disabled; LCMODE OR-XOR; LCOE enabled; 
-    CLC1CONL = 0x8081;
+    // LCEN enabled; LCINTN disabled; LCPOL non_inverted; LCOUT Low; LCINTP disabled; LCMODE AND-OR; LCOE enabled; 
+    CLC1CONL = 0x8080;
     // LCG1POL non_inverted; LCG2POL non_inverted; LCG3POL non_inverted; LCG4POL non_inverted; 
     CLC1CONH = 0x0;
     // LCD2S CMP1 output; LCD1S CLCINA I/O pin; LCD4S CMP3 output; LCD3S CLCINC I/O pin; 
     CLC1SELL = 0x2020;
-    // LCG1D1T disabled; LCG1D3T disabled; LCG2D2T enabled; LCG1D2T disabled; LCG2D1T disabled; LCG2D4T disabled; LCG1D4T disabled; LCG2D3T disabled; LCG1D1N disabled; LCG1D3N disabled; LCG2D2N disabled; LCG1D2N disabled; LCG2D1N disabled; LCG2D4N disabled; LCG1D4N disabled; LCG2D3N disabled; 
-    CLC1GLSL = 0x800;
-    // LCG3D1T disabled; LCG3D2T disabled; LCG4D1T disabled; LCG3D3T disabled; LCG4D2T disabled; LCG3D4T disabled; LCG4D3T disabled; LCG4D4T enabled; LCG3D1N disabled; LCG3D2N disabled; LCG4D1N disabled; LCG3D3N disabled; LCG4D2N disabled; LCG3D4N disabled; LCG4D3N disabled; LCG4D4N disabled; 
-    CLC1GLSH = 0x8000;
+    // LCG1D1T disabled; LCG1D3T disabled; LCG2D2T enabled; LCG1D2T enabled; LCG2D1T disabled; LCG2D4T disabled; LCG1D4T disabled; LCG2D3T disabled; LCG1D1N disabled; LCG1D3N disabled; LCG2D2N disabled; LCG1D2N disabled; LCG2D1N disabled; LCG2D4N disabled; LCG1D4N disabled; LCG2D3N disabled; 
+    CLC1GLSL = 0x808;
+    // LCG3D1T disabled; LCG3D2T disabled; LCG4D1T disabled; LCG3D3T disabled; LCG4D2T disabled; LCG3D4T enabled; LCG4D3T disabled; LCG4D4T enabled; LCG3D1N disabled; LCG3D2N disabled; LCG4D1N disabled; LCG3D3N disabled; LCG4D2N disabled; LCG3D4N disabled; LCG4D3N disabled; LCG4D4N disabled; 
+    CLC1GLSH = 0x8080;
     
     CLC1_PositiveEdgeCallbackRegister(&CLC1_PositiveEdgeCallback);
     CLC1_NegativeEdgeCallbackRegister(&CLC1_NegativeEdgeCallback);
