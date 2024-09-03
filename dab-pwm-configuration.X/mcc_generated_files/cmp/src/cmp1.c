@@ -69,11 +69,11 @@ const struct CMP_INTERFACE CMP_ISEC_SC = {
 void CMP1_Initialize(void)
 {           
     // Comparator Register settings
-    DACCTRL1L = 0x40; //FCLKDIV 1:1; CLKDIV 1:1; CLKSEL FVCO/2; DACSIDL disabled; DACON disabled; 
+    DACCTRL1L = 0x77; //FCLKDIV 1:8; CLKDIV 1:4; CLKSEL FVCO/2; DACSIDL disabled; DACON disabled; 
     DACCTRL2H = 0x8A; //SSTIME 138; 
     DACCTRL2L = 0x55; //TMODTIME 85; 
     DAC1CONH = 0x0; //TMCB 0; 
-    DAC1CONL = 0xA008; //HYSSEL None; HYSPOL Rising Edge; INSEL CMP1B; CMPPOL Non Inverted; FLTREN disabled; DACOEN disabled; CBE disabled; IRQM Rising edge detect; DACEN enabled; 
+    DAC1CONL = 0xA108; //HYSSEL None; HYSPOL Rising Edge; INSEL CMP1B; CMPPOL Non Inverted; FLTREN enabled; DACOEN disabled; CBE disabled; IRQM Rising edge detect; DACEN enabled; 
 
     //Slope Settings
     DAC1DATH = 0xF32; //DACDATH 3890; 
