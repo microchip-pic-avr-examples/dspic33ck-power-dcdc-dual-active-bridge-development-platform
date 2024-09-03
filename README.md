@@ -3,7 +3,7 @@
 ![image](images/microchip.png) 
 
 --- 
-# dspic33ck Power DC-DC Dual Active Bridge Development Platform
+# dsPIC33CK Power DC-DC Dual Active Bridge Development Platform
 
 <p><center><a target="_blank" rel="nofollow">
 <p>
@@ -22,83 +22,76 @@ dsPIC33C DAB Development Board
 </center>
 </p>
 
+<span id="start-doc"><a name="start-doc"></a></span>
 
 ---
+<span id="summary"><a name="summary"> </a></span>
 
 ## Summary
 
-The 11kW Dual Active Bridge (DAB) Application Demonstration, based on Microchip's dsPIC33C family and Silicon Carbide (SiC) devices, supports rapid prototyping and code development. 
-The primary target application is automotive On-board charger (OBC), but it can be used for any other industrial or telecom application demanding high power, high voltage dynamic bidirectional power supplies.
+This solution demonstrates the implementation of a Dual Active Bridge (DAB) Application Demonstration based on Microchip's dsPIC33C device with its primary target application as an automotive On-Board Charger.
+
+The DC-DC Dual Active Bridge Development Platform is a generic development board with well organized building blocks that include an input filter, power stage, auxiliary supply, mating socket for Microchip's newest Digital Power Plug-In Modules (DP PIMs), Human Machine Interface (HMI) and test points. 
+The electrical characteristics are prepared to allow safe voltage levels of up to <b>__ VDC</b> in and up to <b>__ VDC</b> out. 
+A mating socket for dsPIC33 plug-in modules allows the system to be evaluated with different controllers. The pinout is compatible for EP, CK and CH dsPIC® DSC DP PIMs. A Human-Machine-Interface (HMI) and test points allow for easy evaluation and debugging. 
+
+[[back to top](#start-doc)]
 
 ---
 
-## Description
-This code example demonstrates the operation of a Dual Active Bridge with three loop controls comprised of outer voltage loop, inner current loop and power loop. 
-The loop implementation also includes the required state machine managing board status analysis, start-up control, operation monitoring, and fault handling.
+<span id="highlights"><a name="highlights"> </a></span>
+
+## Highlights
+ - 
+
+ [[back to top](#start-doc)]
 
 ---
 
 ## Related Documentation
 
-### Firmware Documentation
+__Firmware documentation__
 
 - [Online Firmware Documentation of this Code Example]()
 
-### Hardware and Target Device Documentation
+__Hardware Documentation__
+
+__Target Device Documentation__
 
 - [dsPIC33CK256MP508 Family Data Sheet](https://www.microchip.com/70005349)
 - [dsPIC33CK256MP508 Family Silicon Errata and Data Sheet Clarification](https://www.microchip.com/80000796)
 
-### Product websites
+__Please always check for the latest data sheets on the respective product websites:__
 
 - [dsPIC33CK256MP508 Family](https://www.microchip.com/dsPIC33CK256MP508)
 - [dsPIC33CH512MP508 Family](https://www.microchip.com/dsPIC33CH512MP508)
  
+ [[back to top](#start-doc)]
+
 ---
+
+<span id="software-tools-used"><a name="software-tools-used"> </a></span>
 
 ## Software Used
 
-- [MPLAB&reg; X IDE v6.20](https://www.microchip.com/mplabx)
-- [MPLAB&reg; XC-DSC Compiler v3.00](https://www.microchip.com/xc-dsc)
+- [Power Board Visualizer GUI](https://www.microchip.com/en-us/software-library/power_board_visualizer)
+- [MPLAB&reg; X IDE v5.50](https://www.microchip.com/mplabx-ide-windows-installer)
+- [MPLAB&reg; XC16 Compiler v1.70](https://www.microchip.com/mplabxc16windows)
+- [Microchip Code Configurator v5.0.3](https://www.microchip.com/mplab/mplab-code-configurator)
+- [Digital Compensator Design Tool](https://www.microchip.com/developmenttools/ProductDetails/DCDT)
+- [MPLAB&reg; Mindi™ Simulator](https://www.microchip.com/en-us/development-tools-tools-and-software/embedded-software-center/mplab-mindi-analog-simulator)
+
+[[back to top](#start-doc)]
 
 ---
+
+<span id="hardware-used"><a name="hardware-used"> </a></span>
 
 ## Hardware Used
 
 - [dsPIC33C DAB Development Board]()
 
----
-
-## Supported Target Devices
-
-### Focus Microchip Technology Devices
-
-- [64-pin Digital Signal Controller, dsPIC33CK256MP506](https://www.microchip.com/dsPIC33CK256MP506)
-
-### Further Microchip Technology Devices used in this Design
-
-*a) Power Supply Circuit*
-
-- [MCP6V91T-E/OT]()
-- [PIC16F1764-E/ML]()
-- [MIC2176-3YMM]()
-- [MCP1801/3.3V]()
-- [Active Thermistor Temperature Sensor, MCP9700](https://www.microchip.com/MCP9700)
-
-
-
-*b) Protection Circuit*
-Add here for DAB
-- [P-Channel Enhancement-Mode MOSFET, TP2104](https://www.microchip.com/TP2104)
-- [36V Open-Collector Comparator, MIC6270YM5](https://www.microchip.com/MIC6270)
-- [Windowed Comparator with Adjustable Hysteresis, MIC841H](https://www.microchip.com/MIC841)
-- [50V/5A Schottky-Diode, HSM560JE3](https://www.microsemi.com/existing-parts/parts/48587)
-
-*c) Communication, Programming/Debugging and Housekeeping*
-Add here for DAB
-- [2-Port USB 2.0 HUB Controller, USB2422](https://www.microchip.com/USB2422)
-- [USB 2.0 to I2C/UART Protocol Converter, MCP2221A](https://www.microchip.com/MCP2221A)
-- [44-pin MCU PIC24FJ64GA004](https://www.microchip.com/PIC24FJ64GA004)
+[[back to top](#start-doc)]
 
 ---
 
