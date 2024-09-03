@@ -47,38 +47,5 @@ void Dev_Fault_Reset(void);
 void Dev_Fault_Handler(void);
 void Dev_Fault_Temp_100ms(void); 
 
-/*********************************************************************************
- * @ingroup 
- * @fn      uint16_t __inline__ Drv_PwrCtrl_Fault_SC_Faults_Clear(void)
- * @brief   check if short circuit faults are clear before re-starting the converter
- * @param   none
- * @return  1 if both comparators are 0, 0 otherwise
- * @details
- **********************************************************************************/
-uint16_t __inline__ Drv_PwrCtrl_Fault_SC_Faults_Clear(POWER_CONTROL_t* pcInstance)
-{
-#if (FAULT_SHORT_CCT)
-    uint16_t sc_faults_clear;
-    uint16_t isec_sc = CMP_ISEC_SC_StatusGet();
-    uint16_t ipri_sc = CMP_IPRI_SC_StatusGet();
- 
-    if (!isec_sc && !ipri_sc)
-    {
-        sc_faults_clear = 1;
-    }
-    else
-    {
-        sc_faults_clear = 0;
-    }
-    return (sc_faults_clear);
-    
-#else 
-    return (1);
-#endif 
-}
-
-
-
-
 #endif	/* DRV_PWRCTL_FAULT_H */
 

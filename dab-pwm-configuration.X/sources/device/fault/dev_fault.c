@@ -38,7 +38,7 @@
 #include "dev_fault_api.h"
 
 // PRIVATE FUNCTIONS
-static void Drv_Fault_EnableShortCircuitProtection(void);
+static void Dev_Fault_EnableShortCircuitProtection(void);
 
 /*******************************************************************************
  * @ingroup dev-fault-methods-public
@@ -63,7 +63,8 @@ void Dev_Fault_Handler(void)
     dab.Status.bits.FaultActive = 1;
     
     // clear the running bit
-    dab.Status.bits.Running = 0;
+    dab.Status.bits.Running = 0;    
+    
 }
 
 
@@ -93,9 +94,6 @@ void Dev_Fault_Initialize(void)
     FAULT_Init(&dab.Fault.Object.VSecondaryOVP, VSEC_OV_THRES_TRIG, 
             VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
     
-    // Initialize Short Circuit Protection
-    FAULT_Init(&dab.Fault.Object.ISenseSCP, 0, 0, 0, I_SC_T_BLANK_CLEAR);
-    
     // Initialize 5V Rail instability Protection
     FAULT_Init(&dab.Fault.Object.VRail_5V, VRAIL_5V_UV_THRES_TRIG, 
             VRAIL_5V_UV_THRES_CLEAR, VRAIL_5V_UV_T_BLANK_TRIG, VRAIL_5V_UV_T_BLANK_CLEAR);
@@ -106,10 +104,10 @@ void Dev_Fault_Initialize(void)
     
     //ToDo: need to check this
 #if (FAULT_SHORT_CCT == true)
-       // initialize short circuit fault protection with comparators
-    Drv_Fault_EnableShortCircuitProtection();
+    // Initialize short circuit fault protection with comparators
+    Dev_Fault_EnableShortCircuitProtection();
 #endif 
-    // clear the fault PCI for each PWM
+    // Clear the fault PCI for each PWM
     Dev_Fault_ClearHardwareFaults(); 
     
 }
@@ -149,7 +147,13 @@ void Dev_Fault_Execute(void)
     #if (FAULT_VRAIL_5V)                
     FAULT_CheckMax(&dab.Fault.Object.VRail_5V, dab.Data.VRail_5V, &Dev_Fault_Handler);
     #endif  
-
+    
+    // Hardware short circuit
+    if(CMP1_StatusGet() || CMP3_StatusGet()){
+        dab.Fault.Object.ISenseSCP.FaultActive = 1;
+        dab.Fault.Object.ISenseSCP.FaultLatch = 1;
+    }
+    
     // Identify the fault that trips
     dab.Fault.FaultDetected = Dev_Fault_GetFlags();
 }
@@ -174,6 +178,7 @@ void Dev_Fault_Reset(void)
     dab.Fault.Object.ISecondaryOCP.FaultActive = 0;
     dab.Fault.Object.VPrimaryOVP.FaultActive = 0;
     dab.Fault.Object.VSecondaryOVP.FaultActive = 0;
+    dab.Fault.Object.ISenseSCP.FaultActive = 0;
     
     // Clear fault Objects FaultLatch bit
     dab.Fault.Object.ISenseSCP.FaultLatch = 0;
@@ -181,6 +186,15 @@ void Dev_Fault_Reset(void)
     dab.Fault.Object.ISecondaryOCP.FaultLatch = 0;
     dab.Fault.Object.VPrimaryOVP.FaultLatch = 0;
     dab.Fault.Object.VSecondaryOVP.FaultLatch = 0;
+    dab.Fault.Object.ISenseSCP.FaultLatch = 0;
+    
+    //ToDo: remove this after testing LEB
+    // initialize thresholds of comparators used for short circuit protection
+  CMP_ISEC_SC_DACDataWrite(ISEC_SC_THRES_TRIG);   
+  CMP_IPRI_SC_DACDataWrite(IPRI_SC_THRES_TRIG);  
+    
+    // Clear the fault PCI for each PWM
+    Dev_Fault_ClearHardwareFaults(); 
 }
 
 /*******************************************************************************
@@ -192,7 +206,7 @@ void Dev_Fault_Reset(void)
  *  turns on the DAC (Digital-to-Analog) module. This hardware protection use
  *  Comparator DACs to detect short circuit.   
  *********************************************************************************/
-static void Drv_Fault_EnableShortCircuitProtection(void)
+static void Dev_Fault_EnableShortCircuitProtection(void)
 {
   // on dsPIC33CK DP-PIM:
   // CMP1B used for short circuit protection on the secondary side 

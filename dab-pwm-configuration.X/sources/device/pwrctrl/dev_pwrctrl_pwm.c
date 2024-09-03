@@ -119,7 +119,7 @@ void Dev_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance)
     PWM_OverrideLowDisable(pcInstance->Pwm.Primary_2);
     PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_1);
     PWM_OverrideLowDisable(pcInstance->Pwm.Secondary_2); 
-
+    
     // Set update request of the last PWM in the cascade 
     // to update all PWM registers
     PWM_SoftwareUpdateRequest(pcInstance->Pwm.Secondary_2);

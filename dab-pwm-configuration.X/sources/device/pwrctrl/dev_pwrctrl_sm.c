@@ -147,7 +147,7 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
  *********************************************************************************/
 static void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance)
 {   
-    if ((pcInstance->Fault.FaultDetected == 0) && (Drv_PwrCtrl_Fault_SC_Faults_Clear(pcInstance)))
+    if (pcInstance->Fault.FaultDetected == 0)
     {
         pcInstance->Status.bits.FaultActive = 0;
         pcInstance->State = PWR_CNTRL_STATE_STANDBY; // next state
@@ -282,6 +282,12 @@ static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
  *********************************************************************************/
 static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
 {
+//    // Remove after testing LEB
+//    PG6IOCONLbits.OVRENH = 0;
+//    PG6IOCONLbits.OVRENL = 0;
+//    DAC1DATH = 0x7FF;
+//    DAC3DATH = 0x7FF;
+//    
     // Check for fault event 
     if (pcInstance->Fault.FaultDetected)
     {
