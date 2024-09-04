@@ -249,7 +249,7 @@ void App_PBV_DAB_Build_Frame()
     buffer_sixteen_tx[6] = Dev_PwrCtrl_GetAveraging_Isec();//Dev_PwrCtrl_GetAdc_Isec_avg();
     buffer_sixteen_tx[7] = temperature + 40;//Dev_PwrCtrl_GetAdc_Temperature();
     buffer_sixteen_tx[8] = Dev_PwrCtrl_GetAdc_Vrail_5V();    
-    buffer_sixteen_tx[9] =  devFanDataPtr->CurrentSpeedRaw;
+    buffer_sixteen_tx[9] =  Dev_PwrCtrl_GetPhase_P2SDegree();//devFanDataPtr->CurrentSpeedRaw;
     buffer_sixteen_tx[10] = devFanDataPtr->CurrentSpeedPercent;
     buffer_sixteen_tx[11] = temperature;
     buffer_sixteen_tx[12] = Dev_PwrCtrl_Get_Period();
@@ -361,14 +361,14 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             Nop();
             Nop();
             Nop();
-            Dev_PwrCtrl_SetDeadTimeHigh(control_word);
+            //Dev_PwrCtrl_SetDeadTimeHigh(control_word);
             break; 
         }
         case PBV_CMD_ID_PWM_DTL:{
             if (control_word < 600) //TODO: put in proper check here!
                 control_word = 600;
             
-            Dev_PwrCtrl_SetDeadTimeLow(control_word);
+            //Dev_PwrCtrl_SetDeadTimeLow(control_word);
             break; 
         }
                  

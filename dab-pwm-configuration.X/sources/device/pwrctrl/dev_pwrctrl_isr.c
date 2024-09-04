@@ -37,7 +37,9 @@
 #include "dev_pwrctrl_utils.h"
 
 // PRIVATE FUNCTIONS
-static void Dev_PwrCtrl_UpdateConverterData(void);
+static void Dev_PwrCtrl_PrimToSecPHDegree(void);
+static void Dev_PwrCtrl_DeadTimeAdjust(void);
+static void Dev_PwrCtrl_UpdateADConverterData(void);
 static void Dev_PwrCtrl_ControlLoopExecute(void);
 
 /*******************************************************************************
@@ -76,14 +78,21 @@ void ControlLoop_Interrupt_CallBack(void)
     GPIO_1_SetHigh();
     
     // Update the ADC data member
-    Dev_PwrCtrl_UpdateConverterData();
+    Dev_PwrCtrl_UpdateADConverterData();
     
     // Execute the fault detection
     Dev_Fault_Execute();
     
+    
+    
     #if(OPEN_LOOP_PBV == false)
+
+    Dev_PwrCtrl_PrimToSecPHDegree(); 
+     
     // Execute Power Converter Control Loop
     Dev_PwrCtrl_ControlLoopExecute();
+
+    Dev_PwrCtrl_DeadTimeAdjust();
     #endif
 
     #if(DAC_DEBUG == true)
@@ -116,6 +125,57 @@ void ControlLoop_Interrupt_CallBack(void)
     
 /*******************************************************************************
  * @ingroup dev-pwrctrl-methods-private
+ * @brief  This function updates the DAB data members with phase values normalized in degree
+ * @return void
+ * 
+ * @details 
+ *********************************************************************************/
+static void Dev_PwrCtrl_PrimToSecPHDegree(void)//normalize phase to 0..90.  feed this value to steer period modulation
+{
+    static unsigned long buff;
+    static unsigned int buf;
+    
+    //instead of floating point operations:
+    buff = ((unsigned long)dab.Pwm.ControlPhase)<<10;//*1024
+    buf = __builtin_divud( buff ,dab.Pwm.ControlDutyCycle);
+    buff = (unsigned long)buf*90;
+    buf = __builtin_divud( buff ,102);//divide by 102.4. Accept  the small rounding error
+    dab.Pwm.ControlPhase_P2S_Degreex10 = buf;
+    if(dab.Pwm.ControlPhase_P2S_Degreex10 >= 900)
+    { 
+       dab.Pwm.ControlPhase_P2S_Degreex10 = 899;//rounding errors hard clip   roughly 10 bit resolution
+    }
+}
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-methods-private
+ * @brief  This function updates the DAB data members dead time based on load. experimental values.
+ * @return void
+ * 
+ * @details 
+ *********************************************************************************/
+static void Dev_PwrCtrl_DeadTimeAdjust(void)
+{
+        uint16_t NewDT=0;   
+        //deadtime values adjusted on rough phase range. experimentally measured values.
+        if  (dab.Pwm.ControlPhase_P2S_Degreex10 < 290)                                           {NewDT =500*4;}//based on experiments
+        if ((dab.Pwm.ControlPhase_P2S_Degreex10 > 330)&&(dab.Pwm.ControlPhase_P2S_Degreex10 < 800)) {NewDT =500*3;}
+
+        if ((dab.Pwm.ControlPhase_P2S_Degreex10 > 805)&&(dab.Pwm.ControlPhase_P2S_Degreex10 < 875)) {NewDT =700;}
+        if  (dab.Pwm.ControlPhase_P2S_Degreex10 > 880)                                           {NewDT =600;}//500
+
+        if(NewDT)
+        {
+            if (NewDT < 600) //TODO: put in proper check here!
+                NewDT = 600;
+            Dev_PwrCtrl_SetDeadTimeLow(NewDT);
+            Dev_PwrCtrl_SetDeadTimeHigh(NewDT);
+            NewDT=0;//consume value, update only once
+        }
+}
+
+
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-methods-private
  * @brief  This function updates the DAB data members with ADC raw values
  * @return void
  * 
@@ -123,7 +183,7 @@ void ControlLoop_Interrupt_CallBack(void)
  *  also handles the updating of DAB data members with its latest ADC raw values
  *  and collection of data for averaging.
  *********************************************************************************/
-static void Dev_PwrCtrl_UpdateConverterData (void)
+static void Dev_PwrCtrl_UpdateADConverterData (void)
 {
     ADC1_SoftwareTriggerEnable();
     

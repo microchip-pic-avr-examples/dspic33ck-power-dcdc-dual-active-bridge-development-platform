@@ -28,6 +28,15 @@
  * @brief   API function to set the power control State
  * @return  none
  **********************************************************************************/
+uint16_t Dev_PwrCtrl_GetPhase_P2SDegree(void)
+{
+    return(dab.Pwm.ControlPhase_P2S_Degreex10);
+}
+/*********************************************************************************
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to set the power control State
+ * @return  none
+ **********************************************************************************/
 void Dev_PwrCtrl_SetState(uint16_t reference)
 {    
     dab.State = reference;

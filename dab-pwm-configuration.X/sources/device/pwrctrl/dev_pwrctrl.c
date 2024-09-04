@@ -167,7 +167,7 @@ static void Dev_PwrCtrl_StartUpInitialize(void)
     dab.VRamp.ptrReference = (uint16_t*)&dab.VLoop.Reference;
     dab.VRamp.ptrReferenceTarget = &dab.Properties.VSecReference;
     dab.VRamp.StepSize = 1;
-    dab.VRamp.Delay = 0;
+    dab.VRamp.Delay = 160;
     dab.VRamp.Counter = 0;
     dab.VRamp.RampComplete = 0;
     
@@ -175,7 +175,7 @@ static void Dev_PwrCtrl_StartUpInitialize(void)
     dab.IRamp.ptrReference = (uint16_t*)&dab.ILoop.Reference;
     dab.IRamp.ptrReferenceTarget = (uint16_t*)&dab.Properties.IReference;
     dab.IRamp.StepSize = 1;
-    dab.IRamp.Delay = 0;
+    dab.IRamp.Delay = 100;
     dab.IRamp.Counter = 0;
     dab.IRamp.RampComplete = 0;
     
@@ -183,7 +183,7 @@ static void Dev_PwrCtrl_StartUpInitialize(void)
     dab.PRamp.ptrReference = (uint16_t*)&dab.PLoop.Reference;
     dab.PRamp.ptrReferenceTarget = &dab.Properties.PwrReference;
     dab.PRamp.StepSize = 1;
-    dab.PRamp.Delay = 0;
+    dab.PRamp.Delay = 4;
     dab.PRamp.Counter = 0;
     dab.PRamp.RampComplete = 0;
     
