@@ -16,6 +16,7 @@
 #define DAC_DEBUG       false    ///< test values with PIM DAC output
 #define DPDB_TEST_RUN   false    ///< test the code with Digital Power Development Board
 #define OPEN_LOOP_PBV   false    ///< use Power Board visualizer to change the parameters
+#define PERIOD_MODULATION_DEMO   true 
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
 //------------------------------------------------------------------------------

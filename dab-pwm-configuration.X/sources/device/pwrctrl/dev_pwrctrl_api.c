@@ -101,7 +101,15 @@ void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference)
 {    
     dab.Pwm.PBVControlPhaseTarget = reference;
 }
-
+/*********************************************************************************
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to set the target prim to sec phase which will steer other modulation
+ * @return  none
+ **********************************************************************************/
+void Dev_PwrCtrl_SetP2SPhaseTarget(uint16_t reference)
+{    
+    dab.Pwm.ControlPhase_P2S_Target = reference;
+}
 /*********************************************************************************
  * @ingroup dev-pwrctrl-api-public
  * @brief   API function to set the dead time high

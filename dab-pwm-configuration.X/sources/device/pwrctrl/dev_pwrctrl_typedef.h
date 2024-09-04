@@ -58,10 +58,12 @@ struct SWITCH_NODE_s
     uint16_t ControlDutyCycle;      ///< Control Duty Cycle calculation based on Control Period
     uint16_t ControlPhase;          ///< Control phase value from control loop
     uint16_t ControlPhase_P2S_Degreex10; ///< Control phase value from control loop in 10 x degree, integer
+    uint16_t ControlPhase_P2S_Target;     //
     uint16_t DeadTimeHigh;          ///< Deadtime High settings for PWM
     uint16_t DeadTimeLow;          ///< Deadtime High settings for PWM
     uint16_t PBVPeriodTarget;       ///< Power Board Visualizer Set Control target 
     uint16_t PBVControlPhaseTarget; ///< Power Board Visualizer Set Control phase
+    uint16_t LowPowerSlowMode;       //future development
 };
 typedef struct SWITCH_NODE_s SWITCH_NODE_t;
 

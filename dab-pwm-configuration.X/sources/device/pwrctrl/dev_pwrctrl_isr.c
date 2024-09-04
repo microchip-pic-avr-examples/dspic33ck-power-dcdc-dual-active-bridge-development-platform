@@ -39,6 +39,7 @@
 // PRIVATE FUNCTIONS
 static void Dev_PwrCtrl_PrimToSecPHDegree(void);
 static void Dev_PwrCtrl_DeadTimeAdjust(void);
+static void Dev_PwrCtrl_PeriodModulator(void);
 static void Dev_PwrCtrl_UpdateADConverterData(void);
 static void Dev_PwrCtrl_ControlLoopExecute(void);
 
@@ -87,12 +88,17 @@ void ControlLoop_Interrupt_CallBack(void)
     
     #if(OPEN_LOOP_PBV == false)
 
-    Dev_PwrCtrl_PrimToSecPHDegree(); 
-     
     // Execute Power Converter Control Loop
     Dev_PwrCtrl_ControlLoopExecute();
 
+    Dev_PwrCtrl_PrimToSecPHDegree(); 
+    
     Dev_PwrCtrl_DeadTimeAdjust();
+    
+    #if(PERIOD_MODULATION_DEMO == true)
+    Dev_PwrCtrl_PeriodModulator();
+    #endif   
+    
     #endif
 
     #if(DAC_DEBUG == true)
@@ -172,8 +178,80 @@ static void Dev_PwrCtrl_DeadTimeAdjust(void)
             NewDT=0;//consume value, update only once
         }
 }
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-methods-private
+ * @brief  This function updates the DAB data members and modulates PWM period
+ * @return void
+ * 
+ * @details 
+ *********************************************************************************/
+#define PRIMTOSEC_TARGET (830)
+#define PERIODSTEP (2<<3) //(1<<3)//(40<<3) //1<<3  least significant 3 bits are allways 0 in PWM HW, so says documentation 
+#define PHASETIMESTEP (1<<3) // 1<<3
+#define PERIODMIN (20000)//(0x4000)//(0x2600)//0x4000//0x3400
+#define PERIODMAX (65000)//(0xFFFE)//(64000)//(0xFE00)
+static void  Dev_PwrCtrl_PeriodModulator(void)
+{
+    
+    static uint16_t decimPM;
+    decimPM++;
+    
+    if(dab.Pwm.ControlPhase_P2S_Target > PRIMTOSEC_TARGET) dab.Pwm.ControlPhase_P2S_Target = PRIMTOSEC_TARGET;//clamp cutoff while modulating period
+    if(dab.Pwm.ControlPhase_P2S_Target == 0) dab.Pwm.ControlPhase_P2S_Target = PRIMTOSEC_TARGET;
+
+        
+    if(decimPM>=8) 
+    {
+        if (dab.Pwm.ControlPhase_P2S_Degreex10 < dab.Pwm.ControlPhase_P2S_Target-5)
+        {
+            if((dab.Pwm.ControlPeriod > PERIODMIN) && (dab.Pwm.LowPowerSlowMode == 0))
+            {  
+                dab.Pwm.ControlPeriod-= PERIODSTEP;
+    //            UpdatePWMTimings();
+            }
+            else
+            {
+                if (dab.Pwm.ControlPhase_P2S_Degreex10 < 680 )
+                {
+                   dab.Pwm.LowPowerSlowMode =1;
+                }
+            }
+        }
 
 
+        if (dab.Pwm.ControlPhase_P2S_Degreex10 > dab.Pwm.ControlPhase_P2S_Target+5)
+        {  
+            if((dab.Pwm.ControlPeriod < PERIODMAX) && (dab.Pwm.ControlPhase_P2S_Degreex10  > 20))
+            {    
+                dab.Pwm.ControlPeriod+= PERIODSTEP;
+    //            UpdatePWMTimings();
+            }
+        }
+
+
+        if(dab.Pwm.LowPowerSlowMode == 1)
+        {    
+            if (dab.Pwm.ControlPhase_P2S_Degreex10 > 600 )
+            {    
+                dab.Pwm.LowPowerSlowMode = 0;
+            }
+            else
+            {    
+                if(dab.Pwm.ControlPeriod < PERIODMAX)
+                {  
+                    dab.Pwm.ControlPeriod+= PERIODSTEP;
+    //                UpdatePWMTimings();
+                }
+                else
+                if (dab.Pwm.ControlPhase_P2S_Degreex10 > 330 )//snap out
+                {
+                    dab.Pwm.LowPowerSlowMode = 0;
+                }
+            }
+        }
+        decimPM=0;
+    }
+}
 /*******************************************************************************
  * @ingroup dev-pwrctrl-methods-private
  * @brief  This function updates the DAB data members with ADC raw values

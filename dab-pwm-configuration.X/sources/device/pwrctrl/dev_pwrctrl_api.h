@@ -28,6 +28,7 @@ void Dev_PwrCtrl_SetState(uint16_t reference);
 void Dev_PwrCtrl_SetPeriodTarget(uint16_t reference);
 void Dev_PwrCtrl_SetPeriod(uint16_t reference);
 void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference);
+void Dev_PwrCtrl_SetP2SPhaseTarget(uint16_t reference);
 void Dev_PwrCtrl_SetEnable(bool enable);
 void Dev_PwrCtrl_SetDeadTimeHigh(uint16_t reference);
 void Dev_PwrCtrl_SetDeadTimeLow(uint16_t reference);

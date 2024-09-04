@@ -67,6 +67,7 @@
 #define PBV_CMD_ID_PLOOP_REF_SET        0xDDDF           ///< set voltage loop reference
 
 #define PBV_CMD_ID_PHASE_CHANGE         0xEE01           ///< set control phase
+#define PBV_CMD_ID_P2S_PHASE_TARGET     0xEE02           ///< set control phase
 
 #define PBV_CMD_ID_PRI_OVP_TEST         0xEE11           ///< set over voltage protection threshold
 #define PBV_CMD_ID_SEC_OVP_TEST         0xEE10           ///< set over voltage protection threshold
@@ -328,11 +329,22 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             }
             break; 
         }  
-        
+       
+        case  PBV_CMD_ID_P2S_PHASE_TARGET: {
+            // change target phase
+            #if(OPEN_LOOP_PBV == false)
+            uint16_t controlPhase = (uint16_t)(control_word);
+            Dev_PwrCtrl_SetP2SPhaseTarget(controlPhase);
+            #endif
+            break; 
+        }
+                
         case PBV_CMD_ID_PHASE_CHANGE: {
             // change target phase
+            #if(OPEN_LOOP_PBV == true)
             uint16_t controlPhase = (uint16_t)((control_word)* PHASE_180_SCALER * (Dev_PwrCtrl_Get_DutyCycle()));
-            Dev_PwrCtrl_SetPhaseTarget(controlPhase);      
+            Dev_PwrCtrl_SetPhaseTarget(controlPhase); 
+            #endif
             break; 
         }
         case PBV_CMD_ID_FAN_SPEED: {            
