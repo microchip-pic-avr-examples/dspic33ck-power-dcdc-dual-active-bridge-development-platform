@@ -7,34 +7,31 @@
 # Firmware Overview
 
 An overview of the firmware is shown below.
-The power controller state machine and fault handler are executed every 100us by the scheduler. So also are the GUI handler (every 1ms), and the HMI driver (every 100ms).
+The power controller state machine and fault handler are executed every 100us by the scheduler. So also are the GUI handler (every 10ms), and the LED and Fan execution and temperature checking (every 100ms).
 
-There are 5 interrupt sources.
+There is one interrupt source.
 
-- ISRADCCAN0: executed every 6th phase A PWM cycle. Measure phase A secondary current and Vout every pass, then cycle through sampling other ADC channels on the shared ADC core. Voltage loop is executed here, as well as SR state machine.
-- ISRADCCAN1: executed every 6th phase B PWM cycle. Measure phase B secondary current.
-- ISRSCCP1: triggered every 4th input capture event (SCCP peripheral), used to measure Vdd via a PWM signal from primary side whose duty cycle is proportional to the Vdd level.
-- ISRCMP1: triggered if comparator 1 trips, which happens if there is a large output over current event on phase A.
-- ISRCMP3: triggered if comparator 3 trips, which happens if there is a large output over current event on phase B.
-
+- ControlLoop_Interrupt_CallBack: executed every 10us. Voltages and currents in teh DAB board is being measured by ADC and feed to the control loops. There are three control loops in this implementation where Voltage loop and Power loop are executed every 10KHz, interleaved, while Current Loop is executed every 100KHz.
 <p>
   <center>
-    <img src="images/illc-34.png" alt="firmware-0" width="1000">
+    <img src="images/tasks-diagram.png" alt="firmware-0" width="1000">
     <br>
     Firmware overview.
   </center>
 </p>
 
-Microchip Code Configurator (MCC) is used to configure the peripherals. They are configured at run-time at the start of _main()_, before the background loop is initiated.
+Microchip Code Configurator (MCC) is used to configure the peripherals. They are configured at run-time at the start of _main()_ function, before the background loop is initiated.
 
 The main files are as follows:
 
-- _driver/drv_adc.c_: this contains the 5 interrupt service routines.
-- _power_controller/drv_pwrctrl_ILLC.c_: power controller state machine that is executed every 100us.
-- _power_controller/drv_pwrctrl_ILLC_fault.c_: fault handlers.
-- _power_controller/drv_pwrctrl_ILLC_ILPH_SRandControl.c_: power supply voltage loop and SR state machine and driver functions when running in interleaved mode.
-- _power_controller/drv_pwrctrl_ILLC_PHA_SRandControl.c_: contains power supply voltage loop and SR state machine and driver functions when running phase A only.
-- _misc/fault_common.c_: generic fault functions.
+- _power_control/dev_pwrctrl_.c_: Contains power control initialization including control loop initialization and start-up initialization, and the power control execution. 
+- _power_control/dev_pwrctrl_isr.c_: Contains Control loop interrupt Callback that acquires the ADC raw data and process it in the control loop, and use the control output for the PWM distribution for this converter
+- _power_control/dev_pwrctrl_pwm.c_: Contains DAB control phase calculation between primary and secondary, and the PWM distribution.
+- _power_control/dev_pwrctrl_sm.c_: Contains power control state machine that is executed every 100us.
+- _power_control/dev_pwrctrl_utils.c_: Contains generic functions that handles power control ramp Up/Down and, the averaging generic fucntion.
+- _fault/dev_fault.c_: Contains the fault initialization, execution and fault handling. 
+- _fault/dev_fault_common.c_: Contains generic fault functions for handling fault events.
+
 
 <p>
   <center>

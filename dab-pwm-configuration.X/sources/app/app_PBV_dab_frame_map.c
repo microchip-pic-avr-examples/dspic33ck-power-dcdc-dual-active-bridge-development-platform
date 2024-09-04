@@ -190,7 +190,7 @@ void App_PBV_DAB_Task_1s(void)
         if (transmit_firmware_id) App_PBV_Re_Init(App_PBV_DAB_ASCII_Ptr);     ///< reinit to new id
         transmit_firmware_id = 0; 
     }
-    //ToDo: Check with Cormac
+    
     App_PBV_DAB_ASCII_Ptr->Data_Buffer = (uint8_t *)"                 Log Message From Protocol ID 0x300";
     App_Send_To_PBV(App_PBV_DAB_ASCII_Ptr);
    

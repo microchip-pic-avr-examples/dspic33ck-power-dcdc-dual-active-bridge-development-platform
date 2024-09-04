@@ -108,7 +108,11 @@ Unattended operating power supplies are always a potential safety risk as short 
 
 ## Setup
 
-Ask Lorant for the test Set-up
+In this section we describe how to bring up the board both in open loop and closed loop modes, and with and without using the Power Board Visualizer GUI.
+
+### Human Machine Interface
+
+The interleaved LLC board has a simple Human-Machine-Interface (HMI) with LEDs showing status, and a push button for RESET. This is shown below.
 
 <p><center><a target="_blank" rel="nofollow">
 <p>
