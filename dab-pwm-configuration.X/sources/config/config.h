@@ -16,7 +16,7 @@
 #define DAC_DEBUG       false    ///< test values with PIM DAC output
 #define DPDB_TEST_RUN   false    ///< test the code with Digital Power Development Board
 #define OPEN_LOOP_PBV   false    ///< use Power Board visualizer to change the parameters
-#define PERIOD_MODULATION_DEMO   true 
+#define PERIOD_MODULATION_DEMO   false
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
 //------------------------------------------------------------------------------
@@ -64,13 +64,13 @@
 //      then clear fault
 // ISEC_OC_TICK_SEC is the rate at which the fault handler is invoked
 // it is required for the firmware to measure trigger and clear blanking times
-#define ISEC_OC_THRES_TRIG_AMPS             (27.0)
+#define ISEC_OC_THRES_TRIG_AMPS             (49.0)//(27.0)  //CT current waveform has high peak.  
 #define ISEC_OC_THRES_CLEAR_AMPS            (2.0)
 #define ISEC_OC_T_BLANK_TRIG_SEC            (50.0e-6)
 #define ISEC_OC_T_BLANK_CLEAR_SEC           (0.0)
 #define ISEC_OC_TICK_SEC                    (T_ADC_SAMPLE_SECS) 
 
-#define IPRI_OC_THRES_TRIG_AMPS             (27.0)
+#define IPRI_OC_THRES_TRIG_AMPS             (39.0)//(27.0)
 #define IPRI_OC_THRES_CLEAR_AMPS            (2.0)
 #define IPRI_OC_T_BLANK_TRIG_SEC            (50.0e-6)
 #define IPRI_OC_T_BLANK_CLEAR_SEC           (0.0)
@@ -110,8 +110,8 @@
 // hence the fault handler and fault blanking time for both faults is combined
 // thresholds can be different for both primary and secondary side short-circuit faults, as 
 // use different comparators
-#define IPRI_SC_THRES_TRIG_AMPS          (35.0)
-#define ISEC_SC_THRES_TRIG_AMPS          (35.0)
+#define IPRI_SC_THRES_TRIG_AMPS          (39.0)//(35.0)
+#define ISEC_SC_THRES_TRIG_AMPS          (49.0)  //(35.0)
 #define I_SC_T_BLANK_CLEAR_SEC           (2.0)
 #define I_SC_TICK_SEC                    (100.0e-6)
 

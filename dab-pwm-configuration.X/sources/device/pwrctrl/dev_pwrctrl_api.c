@@ -22,7 +22,7 @@
 
 #include "dev_pwrctrl.h"
 #include "dev_pwrctrl_utils.h"
-
+#include "../../config/macros.h"
 /*********************************************************************************
  * @ingroup dev-pwrctrl-api-public
  * @brief   API function to set the power control State
@@ -32,6 +32,21 @@ uint16_t Dev_PwrCtrl_GetPhase_P2SDegree(void)
 {
     return(dab.Pwm.ControlPhase_P2S_Degreex10);
 }
+
+/*********************************************************************************
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get some unit test debug purpose value. Do not use otherwise
+ * @return  none
+ **********************************************************************************/
+uint16_t Dev_PwrCtrl_Get_DbgValue(void)
+{
+    //dab.dbg=(dab.ILoop.AgcFactor);
+    dab.dbg=dab.Fault.FaultDetected;
+//    dab.dbg=IPRI_OC_THRES_TRIG;
+//    dab.dbg=ISEC_SC_THRES_TRIG;
+    return(dab.dbg);
+}
+
 /*********************************************************************************
  * @ingroup dev-pwrctrl-api-public
  * @brief   API function to set the power control State
@@ -339,7 +354,15 @@ uint16_t Dev_PwrCtrl_Get_SecPower(void)
 {
     return(dab.Data.SecPower);
 }
-
+/*********************************************************************************
+ * @ingroup dev-pwrctrl-api-public
+ * @brief   API function to get the average value of the sampled ADC for primary voltage
+ * @return  none
+ **********************************************************************************/
+uint16_t Dev_PwrCtrl_GetAveraging_Vprim(void)
+{
+    return(VprimAveraging.AverageValue);
+}
 /*********************************************************************************
  * @ingroup dev-pwrctrl-api-public
  * @brief   API function to get the average value of the sampled ADC for secondary voltage

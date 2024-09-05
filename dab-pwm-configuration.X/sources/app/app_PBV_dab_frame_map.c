@@ -243,7 +243,7 @@ void App_PBV_DAB_Build_Frame()
     uint16_t flag_word = enabled + ((status_flags & 0x0003)<<1) + (fault_flags<<3);
     
     buffer_sixteen_tx[1] = flag_word;
-    buffer_sixteen_tx[2] = Dev_PwrCtrl_GetAdc_Vpri();
+    buffer_sixteen_tx[2] = Dev_PwrCtrl_GetAveraging_Vprim(); //Dev_PwrCtrl_GetAdc_Vpri();
     buffer_sixteen_tx[3] = Dev_PwrCtrl_GetAveraging_Vsec();//Dev_PwrCtrl_GetAdc_Vsec();
     buffer_sixteen_tx[4] = Dev_PwrCtrl_GetAdc_Ipri_ct();
     buffer_sixteen_tx[5] = Dev_PwrCtrl_GetAdc_Isec_ct();
@@ -251,7 +251,7 @@ void App_PBV_DAB_Build_Frame()
     buffer_sixteen_tx[7] = temperature + 40;//Dev_PwrCtrl_GetAdc_Temperature();
     buffer_sixteen_tx[8] = Dev_PwrCtrl_GetAdc_Vrail_5V();    
     buffer_sixteen_tx[9] =  Dev_PwrCtrl_GetPhase_P2SDegree();//devFanDataPtr->CurrentSpeedRaw;
-    buffer_sixteen_tx[10] = devFanDataPtr->CurrentSpeedPercent;
+    buffer_sixteen_tx[10] = Dev_PwrCtrl_Get_DbgValue();//devFanDataPtr->CurrentSpeedPercent;
     buffer_sixteen_tx[11] = temperature;
     buffer_sixteen_tx[12] = Dev_PwrCtrl_Get_Period();
     buffer_sixteen_tx[13] = Dev_PwrCtrl_Get_PwmprdTarget();

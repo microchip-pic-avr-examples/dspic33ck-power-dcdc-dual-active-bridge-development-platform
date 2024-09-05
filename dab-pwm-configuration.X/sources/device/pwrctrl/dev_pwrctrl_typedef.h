@@ -145,7 +145,7 @@ struct CONTROLLER_s
   int16_t Reference;        ///< actual reference
   uint16_t Feedback;        ///< coming 
   uint16_t Output;          ///< controller output
-  int16_t AgcFactor;        ///< Adoptive gain control
+  int16_t AgcFactor;        ///< Adaptive gain control
   bool Enable;              ///< Enable control loop
 };
 typedef struct CONTROLLER_s CONTROLLER_t;
@@ -191,6 +191,7 @@ struct POWER_CONTROL_s
     CONTROLLER_t        VLoop;  ///< structure for voltage controller data
     CONTROLLER_t        PLoop;  ///< structure for power controller data
     PWR_CTRL_CHARGE_STATE_t    PowerDirection;  ///< defines if the power converter is in charging or discharging mode   
+    uint16_t dbg;
 };
 typedef struct POWER_CONTROL_s POWER_CONTROL_t;
 

@@ -42,7 +42,15 @@ static void Dev_PwrCtrl_DeadTimeAdjust(void);
 static void Dev_PwrCtrl_PeriodModulator(void);
 static void Dev_PwrCtrl_UpdateADConverterData(void);
 static void Dev_PwrCtrl_ControlLoopExecute(void);
-
+static void Dev_PwrCtrl_AdaptiveGainUpdate(void);
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-properties-public
+ * @brief Data Object of primary voltage averaging
+ * 
+ * @details The 'VprimAveraging' data object holds the averaging parameter of the 
+ *  Primary Voltage.
+ *******************************************************************************/
+AVERAGING_t VprimAveraging;
 /*******************************************************************************
  * @ingroup dev-pwrctrl-properties-public
  * @brief Data Object of secondary voltage averaging
@@ -83,8 +91,6 @@ void ControlLoop_Interrupt_CallBack(void)
     
     // Execute the fault detection
     Dev_Fault_Execute();
-    
-    
     
     #if(OPEN_LOOP_PBV == false)
 
@@ -171,11 +177,11 @@ static void Dev_PwrCtrl_DeadTimeAdjust(void)
 
         if(NewDT)
         {
-            if (NewDT < 600) //TODO: put in proper check here!
+            if (NewDT < 600) //minimum DT for safe operation.
                 NewDT = 600;
             Dev_PwrCtrl_SetDeadTimeLow(NewDT);
             Dev_PwrCtrl_SetDeadTimeHigh(NewDT);
-            NewDT=0;//consume value, update only once
+            NewDT=0;// update once
         }
 }
 /*******************************************************************************
@@ -188,17 +194,15 @@ static void Dev_PwrCtrl_DeadTimeAdjust(void)
 #define PRIMTOSEC_TARGET (830)
 #define PERIODSTEP (2<<3) //(1<<3)//(40<<3) //1<<3  least significant 3 bits are allways 0 in PWM HW, so says documentation 
 #define PHASETIMESTEP (1<<3) // 1<<3
-#define PERIODMIN (20000)//(0x4000)//(0x2600)//0x4000//0x3400
+#define PERIODMIN (24000)//(20000) (0x4000)//(0x2600)//0x4000//0x3400
 #define PERIODMAX (65000)//(0xFFFE)//(64000)//(0xFE00)
 static void  Dev_PwrCtrl_PeriodModulator(void)
 {
-    
     static uint16_t decimPM;
     decimPM++;
     
     if(dab.Pwm.ControlPhase_P2S_Target > PRIMTOSEC_TARGET) dab.Pwm.ControlPhase_P2S_Target = PRIMTOSEC_TARGET;//clamp cutoff while modulating period
     if(dab.Pwm.ControlPhase_P2S_Target == 0) dab.Pwm.ControlPhase_P2S_Target = PRIMTOSEC_TARGET;
-
         
     if(decimPM>=8) 
     {
@@ -207,7 +211,6 @@ static void  Dev_PwrCtrl_PeriodModulator(void)
             if((dab.Pwm.ControlPeriod > PERIODMIN) && (dab.Pwm.LowPowerSlowMode == 0))
             {  
                 dab.Pwm.ControlPeriod-= PERIODSTEP;
-    //            UpdatePWMTimings();
             }
             else
             {
@@ -218,16 +221,13 @@ static void  Dev_PwrCtrl_PeriodModulator(void)
             }
         }
 
-
         if (dab.Pwm.ControlPhase_P2S_Degreex10 > dab.Pwm.ControlPhase_P2S_Target+5)
         {  
             if((dab.Pwm.ControlPeriod < PERIODMAX) && (dab.Pwm.ControlPhase_P2S_Degreex10  > 20))
             {    
                 dab.Pwm.ControlPeriod+= PERIODSTEP;
-    //            UpdatePWMTimings();
             }
         }
-
 
         if(dab.Pwm.LowPowerSlowMode == 1)
         {    
@@ -240,7 +240,6 @@ static void  Dev_PwrCtrl_PeriodModulator(void)
                 if(dab.Pwm.ControlPeriod < PERIODMAX)
                 {  
                     dab.Pwm.ControlPeriod+= PERIODSTEP;
-    //                UpdatePWMTimings();
                 }
                 else
                 if (dab.Pwm.ControlPhase_P2S_Degreex10 > 330 )//snap out
@@ -267,7 +266,6 @@ static void Dev_PwrCtrl_UpdateADConverterData (void)
     
     dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); 
     dab.Data.ISecAverageRectified = abs(dab.Data.ISecAverage - dab.Data.ISecSensorOffset);
-    
     IsecAveraging.Accumulator += dab.Data.ISecAverageRectified;
     IsecAveraging.Counter = IsecAveraging.Counter + 1;
     
@@ -279,7 +277,9 @@ static void Dev_PwrCtrl_UpdateADConverterData (void)
     dab.Data.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
 
     dab.Data.VPriVoltage = ADC1_ConversionResultGet(VPRI);
-    
+    VprimAveraging.Accumulator += dab.Data.VPriVoltage;
+    VprimAveraging.Counter = VprimAveraging.Counter + 1;         
+            
     dab.Data.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
     dab.Data.Temperature = ADC1_ConversionResultGet(TEMP);
     
@@ -309,6 +309,11 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
         VsecAveraging.Accumulator = 0;
         VsecAveraging.Counter = 0;
             
+        // Averaging of Primary Voltage
+        VprimAveraging.AverageValue = (uint16_t)(__builtin_divud(VprimAveraging.Accumulator, VprimAveraging.Counter));
+        VprimAveraging.Accumulator = 0;
+        VprimAveraging.Counter = 0;
+        
         //Condition for control loop execution controlling the loop enable bit
         if((dab.VLoop.Enable == false) && (VLoopExec == true)){
             dab.VLoop.Enable = true;
@@ -325,6 +330,7 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
             IsecAveraging.Counter = 0;
         }
         cnt = 0;
+        Dev_PwrCtrl_AdaptiveGainUpdate();
     }
     
     // Execute the Voltage Loop Control
@@ -339,15 +345,15 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
             VMC_2p2z.maxOutput =  0x7FFF;
 
             // Bit-shift value used to perform input value normalization
-            dab.VLoop.Feedback = VsecAveraging.AverageValue << 4;  
-            dab.VLoop.Reference = dab.VLoop.Reference << 4;
+            dab.VLoop.Feedback = VsecAveraging.AverageValue << 3;  
+            dab.VLoop.Reference = dab.VLoop.Reference << 3;
 
             // Execute the Voltage Loop Control
             SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
                     dab.VLoop.Reference, &dab.VLoop.Output);
         
             // Reset the Vloop reference to its original scaling
-            dab.VLoop.Reference = dab.VLoop.Reference >> 4;
+            dab.VLoop.Reference = dab.VLoop.Reference >> 3;
         }
     }
 
@@ -381,7 +387,7 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
         //Bit-shift value used to perform input value normalization
         dab.ILoop.Feedback = dab.Data.ISecAverageRectified << 3;
         //adaptive gain factor
-        IMC_2p2z.KfactorCoeffsB = 0x7FFF;//dab.ILoop.AgcFactor;
+        IMC_2p2z.KfactorCoeffsB = dab.ILoop.AgcFactor;
         //refresh limits
         IMC_2p2z.maxOutput =  0x7FFF;
 
@@ -401,4 +407,43 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
         dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle) * 
                 (uint32_t)dab.ILoop.Output) >> 15); //range 0..180
     }
+}
+
+
+    /*******************************************************************************
+ * @ingroup dev-pwrctrl-methods-private
+ * @brief Updates the Adaptive gain for the power converter control loop 
+ * @return void
+ * 
+ * @details tbd
+ *********************************************************************************/
+static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
+{
+    uint32_t interm = 0; 
+    uint16_t DAB_PrimaryVoltage;//convert to actual voltage. 
+    
+
+    interm = (uint32_t)((VprimAveraging.AverageValue)* 10);
+    DAB_PrimaryVoltage = __builtin_divud( interm, 44);// 55);//scaling formula
+    
+    if(dab.PowerDirection == PWR_CTRL_CHARGING)
+    { 
+        if(DAB_PrimaryVoltage > 160 )
+        { 
+//            dab.ILoop.AgcFactor = (int16_t) (0x7FFF & __builtin_divud(0x280000, DAB_PrimaryVoltage));//160V<<14 I gain is direct proportion to V prim increase
+            dab.ILoop.AgcFactor = (int16_t) (0x7FFF & __builtin_divud(0x500000, DAB_PrimaryVoltage));
+        }
+        else
+        {
+            dab.ILoop.AgcFactor = 0x7FFF;
+        }  
+    }
+    
+    //reserved for future dev.
+    if(dab.PowerDirection == PWR_CTRL_DISCHARGING)
+    { 
+    }
+    
+    dab.dbg=dab.ILoop.AgcFactor;
+//    dab.dbg=DAB_PrimaryVoltage;
 }

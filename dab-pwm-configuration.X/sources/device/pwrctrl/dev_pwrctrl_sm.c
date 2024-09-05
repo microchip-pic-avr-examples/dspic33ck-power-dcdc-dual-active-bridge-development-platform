@@ -24,7 +24,7 @@
 #include <stddef.h> // include standard definition data types
                                
 #include "system/interrupt.h"
-
+#include "dev_pwrctrl.h"
 #include "config/macros.h"
 #include "dev_pwrctrl_typedef.h"
 #include "dev_pwrctrl_pwm.h"
@@ -199,10 +199,13 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         
         // ToDo: Not yet applied; check this again
         Dev_Fault_ClearHardwareFaults();
-
+        Dev_PwrCtrl_ControlLoopInitialize();
         // Enable PWM physical output
         Dev_PwrCtrl_PWM_Enable(pcInstance);
     
+        dab.ILoop.Enable = true;
+        dab.ILoop.AgcFactor = dab.ILoop.AgcFactor;
+        
         // Initialize current loop reference to 0, to be controlled externally
         pcInstance->ILoop.Reference = 0;
         
