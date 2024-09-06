@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/pwrctrl/dev_pwrctrl_utils.h Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/pwrctrl/dev_pwrctrl_utils.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,44 +136,96 @@ $(document).ready(function(){initNavTree('a00440_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">dev_pwrctrl_utils.h</div></div>
+  <div class="headertitle"><div class="title">dev_pwrctrl_utils.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* </span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * File:   dev_pwrctrl_utils.h</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Author: M15690</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Created on July 11, 2024, 9:20 PM</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DEV_PWRCTRL_UTILS_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DEV_PWRCTRL_UTILS_H</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="a00733.html">   11</a></span><span class="keyword">struct </span><a class="code hl_struct" href="a00733.html">AVERAGING_s</a></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{  </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="a00733.html#a1bf80696497119c4e36460f57de7f667">   13</a></span>  uint32_t  <a class="code hl_variable" href="a00733.html#a1bf80696497119c4e36460f57de7f667">Accumulator</a>; </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="a00733.html#ac73dde33a2be13416f717c1ab8954227">   14</a></span>  uint16_t  <a class="code hl_variable" href="a00733.html#ac73dde33a2be13416f717c1ab8954227">Counter</a>; </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="a00733.html#a5c501c087c00d88f54766fff1bed2839">   15</a></span>  uint16_t  <a class="code hl_variable" href="a00733.html#a5c501c087c00d88f54766fff1bed2839">AveragingCount</a>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="a00733.html#ababc9b3b062bdea79c71035d651fbe79">   16</a></span>  uint16_t  <a class="code hl_variable" href="a00733.html#ababc9b3b062bdea79c71035d651fbe79">AverageValue</a>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
-</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00733.html">AVERAGING_s</a> <a class="code hl_struct" href="a00733.html">AVERAGING_t</a>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">extern</span> uint16_t <a class="code hl_function" href="a00518.html#ga17c0ec6d113fa9e6e157ad628ad66f74">Dev_PwrCtrl_UpdateAverage</a>(<a class="code hl_struct" href="a00733.html">AVERAGING_t</a>* data, uint16_t adcReading);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="a00518.html#gae958b8e13bf04622c6c67ea391639f41">Dev_PwrCtrl_RampReference</a>(<a class="code hl_struct" href="a00717.html">START_UP_RAMP_t</a>* rampUp);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_PWRCTRL_UTILS_H */</span><span class="preprocessor"></span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* Microchip Technology Inc. and its subsidiaries.  You may use this software </span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * and any derivatives exclusively with Microchip products. </span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * THIS SOFTWARE IS SUPPLIED BY MICROCHIP &quot;AS IS&quot;.  NO WARRANTIES, WHETHER </span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED </span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A </span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION </span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION. </span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, </span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND </span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS </span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE.  TO THE </span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP&#39;S TOTAL LIABILITY ON ALL CLAIMS </span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF </span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE </span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * TERMS. </span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;stdint.h&gt;</span> <span class="comment">// include standard integer data types</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span> <span class="comment">// include standard boolean data types</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="ttc" id="aa00518_html_ga17c0ec6d113fa9e6e157ad628ad66f74"><div class="ttname"><a href="a00518.html#ga17c0ec6d113fa9e6e157ad628ad66f74">Dev_PwrCtrl_UpdateAverage</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t *data, uint16_t adcReading)</div><div class="ttdoc">Average the raw data over number of samples.</div><div class="ttdef"><b>Definition</b> <a href="a00437_source.html#l00038">dev_pwrctrl_utils.c:38</a></div></div>
-<div class="ttc" id="aa00518_html_gae958b8e13bf04622c6c67ea391639f41"><div class="ttname"><a href="a00518.html#gae958b8e13bf04622c6c67ea391639f41">Dev_PwrCtrl_RampReference</a></div><div class="ttdeci">bool Dev_PwrCtrl_RampReference(START_UP_RAMP_t *rampUp)</div><div class="ttdoc">Softly increment / decrement to the set reference target.</div><div class="ttdef"><b>Definition</b> <a href="a00437_source.html#l00059">dev_pwrctrl_utils.c:59</a></div></div>
-<div class="ttc" id="aa00717_html"><div class="ttname"><a href="a00717.html">START_UP_RAMP_s</a></div><div class="ttdoc">stores data related to controller</div><div class="ttdef"><b>Definition</b> <a href="a00434_source.html#l00116">dev_pwrctrl_typedef.h:117</a></div></div>
-<div class="ttc" id="aa00733_html"><div class="ttname"><a href="a00733.html">AVERAGING_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00011">dev_pwrctrl_utils.h:12</a></div></div>
-<div class="ttc" id="aa00733_html_a1bf80696497119c4e36460f57de7f667"><div class="ttname"><a href="a00733.html#a1bf80696497119c4e36460f57de7f667">AVERAGING_s::Accumulator</a></div><div class="ttdeci">uint32_t Accumulator</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00013">dev_pwrctrl_utils.h:13</a></div></div>
-<div class="ttc" id="aa00733_html_a5c501c087c00d88f54766fff1bed2839"><div class="ttname"><a href="a00733.html#a5c501c087c00d88f54766fff1bed2839">AVERAGING_s::AveragingCount</a></div><div class="ttdeci">uint16_t AveragingCount</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00015">dev_pwrctrl_utils.h:15</a></div></div>
-<div class="ttc" id="aa00733_html_ababc9b3b062bdea79c71035d651fbe79"><div class="ttname"><a href="a00733.html#ababc9b3b062bdea79c71035d651fbe79">AVERAGING_s::AverageValue</a></div><div class="ttdeci">uint16_t AverageValue</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00016">dev_pwrctrl_utils.h:16</a></div></div>
-<div class="ttc" id="aa00733_html_ac73dde33a2be13416f717c1ab8954227"><div class="ttname"><a href="a00733.html#ac73dde33a2be13416f717c1ab8954227">AVERAGING_s::Counter</a></div><div class="ttdeci">uint16_t Counter</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00014">dev_pwrctrl_utils.h:14</a></div></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;dev_pwrctrl_typedef.h&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;dev_pwrctrl_utils.h&quot;</span> <span class="comment">// include standard definition data types</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="a00521.html#ga17c0ec6d113fa9e6e157ad628ad66f74">   38</a></span>uint16_t <a class="code hl_function" href="a00521.html#ga17c0ec6d113fa9e6e157ad628ad66f74">Dev_PwrCtrl_UpdateAverage</a>(<a class="code hl_struct" href="a00736.html">AVERAGING_t</a>* data, uint16_t sample)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    data-&gt;<a class="code hl_variable" href="a00736.html#a1bf80696497119c4e36460f57de7f667">Accumulator</a> += sample;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">if</span>(++data-&gt;<a class="code hl_variable" href="a00736.html#ac73dde33a2be13416f717c1ab8954227">Counter</a> &gt;= data-&gt;<a class="code hl_variable" href="a00736.html#a5c501c087c00d88f54766fff1bed2839">AveragingCount</a>){    </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        data-&gt;<a class="code hl_variable" href="a00736.html#ababc9b3b062bdea79c71035d651fbe79">AverageValue</a> = (uint16_t)(__builtin_divud(data-&gt;<a class="code hl_variable" href="a00736.html#a1bf80696497119c4e36460f57de7f667">Accumulator</a>, data-&gt;<a class="code hl_variable" href="a00736.html#ac73dde33a2be13416f717c1ab8954227">Counter</a>));</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        data-&gt;<a class="code hl_variable" href="a00736.html#a1bf80696497119c4e36460f57de7f667">Accumulator</a> = 0;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        data-&gt;<a class="code hl_variable" href="a00736.html#ac73dde33a2be13416f717c1ab8954227">Counter</a> = 0;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">return</span>(data-&gt;<a class="code hl_variable" href="a00736.html#ababc9b3b062bdea79c71035d651fbe79">AverageValue</a>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="a00521.html#gae958b8e13bf04622c6c67ea391639f41">   59</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="a00521.html#gae958b8e13bf04622c6c67ea391639f41">Dev_PwrCtrl_RampReference</a>(<a class="code hl_struct" href="a00720.html">START_UP_RAMP_t</a>* rampUp)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{ </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keywordflow">if</span> (++rampUp-&gt;<a class="code hl_variable" href="a00720.html#ac73dde33a2be13416f717c1ab8954227">Counter</a> &gt; rampUp-&gt;<a class="code hl_variable" href="a00720.html#a16a366f1914db6923e6f49ba15572ea2">Delay</a>)   </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    rampUp-&gt;<a class="code hl_variable" href="a00720.html#ac73dde33a2be13416f717c1ab8954227">Counter</a> = 0;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordflow">if</span>(*rampUp-&gt;<a class="code hl_variable" href="a00720.html#a910c9c759d95750a76fb660bf8325e6c">ptrReference</a> ==  *rampUp-&gt;<a class="code hl_variable" href="a00720.html#a7738d75eba1234a8928245eae64a01a7">ptrReferenceTarget</a>)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        rampUp-&gt;<a class="code hl_variable" href="a00720.html#a13025badec30c52baf766e745d4c699f">RampComplete</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((*rampUp-&gt;<a class="code hl_variable" href="a00720.html#a910c9c759d95750a76fb660bf8325e6c">ptrReference</a> + rampUp-&gt;<a class="code hl_variable" href="a00720.html#accf24954a61bfc0ab7ca1768da52625a">StepSize</a>) &lt; *rampUp-&gt;<a class="code hl_variable" href="a00720.html#a7738d75eba1234a8928245eae64a01a7">ptrReferenceTarget</a>)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>      *rampUp-&gt;<a class="code hl_variable" href="a00720.html#a910c9c759d95750a76fb660bf8325e6c">ptrReference</a> += rampUp-&gt;<a class="code hl_variable" href="a00720.html#accf24954a61bfc0ab7ca1768da52625a">StepSize</a>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> ((*rampUp-&gt;<a class="code hl_variable" href="a00720.html#a910c9c759d95750a76fb660bf8325e6c">ptrReference</a> - rampUp-&gt;<a class="code hl_variable" href="a00720.html#accf24954a61bfc0ab7ca1768da52625a">StepSize</a>) &gt; *rampUp-&gt;<a class="code hl_variable" href="a00720.html#a7738d75eba1234a8928245eae64a01a7">ptrReferenceTarget</a>)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>      *rampUp-&gt;<a class="code hl_variable" href="a00720.html#a910c9c759d95750a76fb660bf8325e6c">ptrReference</a> -= rampUp-&gt;<a class="code hl_variable" href="a00720.html#accf24954a61bfc0ab7ca1768da52625a">StepSize</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      *rampUp-&gt;<a class="code hl_variable" href="a00720.html#a910c9c759d95750a76fb660bf8325e6c">ptrReference</a> =  *rampUp-&gt;<a class="code hl_variable" href="a00720.html#a7738d75eba1234a8928245eae64a01a7">ptrReferenceTarget</a>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      rampUp-&gt;<a class="code hl_variable" href="a00720.html#a13025badec30c52baf766e745d4c699f">RampComplete</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    }</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <span class="keywordflow">return</span> (rampUp-&gt;<a class="code hl_variable" href="a00720.html#a13025badec30c52baf766e745d4c699f">RampComplete</a>);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="ttc" id="aa00521_html_ga17c0ec6d113fa9e6e157ad628ad66f74"><div class="ttname"><a href="a00521.html#ga17c0ec6d113fa9e6e157ad628ad66f74">Dev_PwrCtrl_UpdateAverage</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t *data, uint16_t sample)</div><div class="ttdoc">Average the raw data over number of samples.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00038">dev_pwrctrl_utils.c:38</a></div></div>
+<div class="ttc" id="aa00521_html_gae958b8e13bf04622c6c67ea391639f41"><div class="ttname"><a href="a00521.html#gae958b8e13bf04622c6c67ea391639f41">Dev_PwrCtrl_RampReference</a></div><div class="ttdeci">bool Dev_PwrCtrl_RampReference(START_UP_RAMP_t *rampUp)</div><div class="ttdoc">Softly increment / decrement to the set reference target.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00059">dev_pwrctrl_utils.c:59</a></div></div>
+<div class="ttc" id="aa00720_html"><div class="ttname"><a href="a00720.html">START_UP_RAMP_s</a></div><div class="ttdoc">stores data related to controller</div><div class="ttdef"><b>Definition</b> <a href="a00437_source.html#l00116">dev_pwrctrl_typedef.h:117</a></div></div>
+<div class="ttc" id="aa00720_html_a13025badec30c52baf766e745d4c699f"><div class="ttname"><a href="a00720.html#a13025badec30c52baf766e745d4c699f">START_UP_RAMP_s::RampComplete</a></div><div class="ttdeci">bool RampComplete</div><div class="ttdoc">indicates when ramp-up is complete</div><div class="ttdef"><b>Definition</b> <a href="a00437_source.html#l00123">dev_pwrctrl_typedef.h:123</a></div></div>
+<div class="ttc" id="aa00720_html_a16a366f1914db6923e6f49ba15572ea2"><div class="ttname"><a href="a00720.html#a16a366f1914db6923e6f49ba15572ea2">START_UP_RAMP_s::Delay</a></div><div class="ttdeci">uint16_t Delay</div><div class="ttdoc">Soft-Start Period (POD, RAMP PERIOD, PGD, etc.)</div><div class="ttdef"><b>Definition</b> <a href="a00437_source.html#l00119">dev_pwrctrl_typedef.h:119</a></div></div>
+<div class="ttc" id="aa00720_html_a7738d75eba1234a8928245eae64a01a7"><div class="ttname"><a href="a00720.html#a7738d75eba1234a8928245eae64a01a7">START_UP_RAMP_s::ptrReferenceTarget</a></div><div class="ttdeci">uint16_t * ptrReferenceTarget</div><div class="ttdoc">pointer to the ramp-up reference target</div><div class="ttdef"><b>Definition</b> <a href="a00437_source.html#l00122">dev_pwrctrl_typedef.h:122</a></div></div>
+<div class="ttc" id="aa00720_html_a910c9c759d95750a76fb660bf8325e6c"><div class="ttname"><a href="a00720.html#a910c9c759d95750a76fb660bf8325e6c">START_UP_RAMP_s::ptrReference</a></div><div class="ttdeci">uint16_t * ptrReference</div><div class="ttdoc">pointer the reference variable</div><div class="ttdef"><b>Definition</b> <a href="a00437_source.html#l00121">dev_pwrctrl_typedef.h:121</a></div></div>
+<div class="ttc" id="aa00720_html_ac73dde33a2be13416f717c1ab8954227"><div class="ttname"><a href="a00720.html#ac73dde33a2be13416f717c1ab8954227">START_UP_RAMP_s::Counter</a></div><div class="ttdeci">uint16_t Counter</div><div class="ttdoc">Soft-Start Execution Counter. This setting is set/cleared by the device driver and is 'read only'.</div><div class="ttdef"><b>Definition</b> <a href="a00437_source.html#l00118">dev_pwrctrl_typedef.h:118</a></div></div>
+<div class="ttc" id="aa00720_html_accf24954a61bfc0ab7ca1768da52625a"><div class="ttname"><a href="a00720.html#accf24954a61bfc0ab7ca1768da52625a">START_UP_RAMP_s::StepSize</a></div><div class="ttdeci">uint16_t StepSize</div><div class="ttdoc">Size/value of one reference increment/decrement or this period.</div><div class="ttdef"><b>Definition</b> <a href="a00437_source.html#l00120">dev_pwrctrl_typedef.h:120</a></div></div>
+<div class="ttc" id="aa00736_html"><div class="ttname"><a href="a00736.html">AVERAGING_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00011">dev_pwrctrl_utils.h:12</a></div></div>
+<div class="ttc" id="aa00736_html_a1bf80696497119c4e36460f57de7f667"><div class="ttname"><a href="a00736.html#a1bf80696497119c4e36460f57de7f667">AVERAGING_s::Accumulator</a></div><div class="ttdeci">uint32_t Accumulator</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00013">dev_pwrctrl_utils.h:13</a></div></div>
+<div class="ttc" id="aa00736_html_a5c501c087c00d88f54766fff1bed2839"><div class="ttname"><a href="a00736.html#a5c501c087c00d88f54766fff1bed2839">AVERAGING_s::AveragingCount</a></div><div class="ttdeci">uint16_t AveragingCount</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00015">dev_pwrctrl_utils.h:15</a></div></div>
+<div class="ttc" id="aa00736_html_ababc9b3b062bdea79c71035d651fbe79"><div class="ttname"><a href="a00736.html#ababc9b3b062bdea79c71035d651fbe79">AVERAGING_s::AverageValue</a></div><div class="ttdeci">uint16_t AverageValue</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00016">dev_pwrctrl_utils.h:16</a></div></div>
+<div class="ttc" id="aa00736_html_ac73dde33a2be13416f717c1ab8954227"><div class="ttname"><a href="a00736.html#ac73dde33a2be13416f717c1ab8954227">AVERAGING_s::Counter</a></div><div class="ttdeci">uint16_t Counter</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00014">dev_pwrctrl_utils.h:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

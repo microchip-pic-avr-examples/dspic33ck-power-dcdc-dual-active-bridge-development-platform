@@ -1,15 +1,7 @@
 var a00540 =
 [
-    [ "reset_types.h", "a00212.html", null ],
-    [ "reset.c", "a00233.html", null ],
-    [ "RESET_CauseClear", "a00540.html#ga0174a76fda8d92f242395a797470b7b1", null ],
-    [ "RESET_CauseClearAll", "a00540.html#gab767709d3fa8a3900d01d4bd65158049", null ],
-    [ "RESET_CauseFromConfigurationMismatch", "a00540.html#gad6caf79bbee9b33bf903c186fd824059", null ],
-    [ "RESET_CauseFromExternal", "a00540.html#ga32b316332402fc7d3660d63a7fff528f", null ],
-    [ "RESET_CauseFromIllegalOpcode", "a00540.html#gae9bed7f7c62488a1a1e1aa053665a46d", null ],
-    [ "RESET_CauseFromSoftware", "a00540.html#ga7f962e95fa6bd2864091df4cf882eee7", null ],
-    [ "RESET_CauseFromTrap", "a00540.html#ga36c739c4dcee0f773bc467be47c87722", null ],
-    [ "RESET_CauseFromWatchdogTimer", "a00540.html#ga6283f56ec3cae6da1145799ddcc9b44a", null ],
-    [ "RESET_CauseGet", "a00540.html#gaa218141dacf762880dc162a2f499657c", null ],
-    [ "RESET_CauseHandler", "a00540.html#ga40e7771ae89212f587dfacec87076438", null ]
+    [ "WATCHDOG_CLR_KEY", "a00540.html#ga9fe59f55f06cfb2df71dcf9f0b64cd3c", null ],
+    [ "WATCHDOG_TimerClear", "a00540.html#ga0709c01950447ea286ea4538174a7a82", null ],
+    [ "WATCHDOG_TimerSoftwareDisable", "a00540.html#ga74fb697367e441a6ac0a56e33794ebc4", null ],
+    [ "WATCHDOG_TimerSoftwareEnable", "a00540.html#gaf945fced45ce9cc9a9922d8f31e09e67", null ]
 ];

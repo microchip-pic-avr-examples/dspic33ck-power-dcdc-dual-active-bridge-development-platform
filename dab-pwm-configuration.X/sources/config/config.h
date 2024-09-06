@@ -15,20 +15,20 @@
 
 #define DAC_DEBUG       false    ///< test values with PIM DAC output
 #define DPDB_TEST_RUN   false    ///< test the code with Digital Power Development Board
-#define OPEN_LOOP_PBV   false    ///< use Power Board visualizer to change the parameters
+#define OPEN_LOOP_PBV   true    ///< use Power Board visualizer to change the parameters
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
 //------------------------------------------------------------------------------
-#define FAULT_VPRI_OV   true
-#define FAULT_ISEC_OC   true
-#define FAULT_IPRI_OC   true
-#define FAULT_VSEC_OV   true
-#define FAULT_PS_OTP    true
+#define FAULT_VPRI_OV   false
+#define FAULT_ISEC_OC   false
+#define FAULT_IPRI_OC   false
+#define FAULT_VSEC_OV   false
+#define FAULT_PS_OTP    false
 #define FAULT_SHORT_CCT true
 // not implemented yet
 #define FAULT_VRAIL_5V  false
 
-#define CURRENT_CALIBRATION     true
+#define CURRENT_CALIBRATION     false
 
 #define VPRI_OPTOCOUPLER_POLARITY       false ///< false if not inverted; true if inverted 
 

@@ -36,7 +36,7 @@ typedef struct FAULT_s FAULT_t;
  **********************************************************************************/
 struct FAULT_SETTINGS_s
 {
-    uint16_t FaultDetected; 
+    uint16_t FaultDetected;             ///< 
     FAULT_t Object;                     ///< Fault Objects
 };
 typedef struct FAULT_SETTINGS_s FAULT_SETTINGS_t;

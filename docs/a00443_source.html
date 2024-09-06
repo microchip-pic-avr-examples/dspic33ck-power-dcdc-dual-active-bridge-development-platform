@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/driver/mcc_extension/drv_config_custom_pwm.h Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/pwrctrl/dev_pwrctrl_utils.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,147 +136,44 @@ $(document).ready(function(){initNavTree('a00443_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">drv_config_custom_pwm.h</div></div>
+  <div class="headertitle"><div class="title">dev_pwrctrl_utils.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* </span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * File:   drv_mcc_config_pwm.h</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * File:   dev_pwrctrl_utils.h</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Author: M15690</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Created on 10 July 2024, 14:50</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Created on July 11, 2024, 9:20 PM</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DRV_CONFIG_CUSTOM_PWM_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DRV_CONFIG_CUSTOM_PWM_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DEV_PWRCTRL_UTILS_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DEV_PWRCTRL_UTILS_H</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;device/pwrctrl/dev_pwrctrl_typedef.h&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;drv_mcc_extension_pwm.h&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;config/macros.h&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="a00179.html">pwm_hs/pwm.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> DRV_Config_Custom_PWM(<a class="code hl_struct" href="a00729.html">POWER_CONTROL_t</a>* pcInstance)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">//PWMs needs to be re-triggerable for cascaded PWM scheme</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    PWM_Trigger_Mode(pcInstance-&gt;<a class="code hl_variable" href="a00729.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00697.html#af9d2af7f610682893eb33514d81a4261">Primary_1</a>, PWM_TRIG_MODE_RETRIGGERABLE);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    PWM_Trigger_Mode(pcInstance-&gt;<a class="code hl_variable" href="a00729.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00697.html#a871cecd8a212a0b12a96677284902566">Primary_2</a>, PWM_TRIG_MODE_RETRIGGERABLE);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    PWM_Trigger_Mode(pcInstance-&gt;<a class="code hl_variable" href="a00729.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00697.html#a0ad1a33ac1a95c7415e2717eb7142813">Secondary_1</a>, PWM_TRIG_MODE_RETRIGGERABLE);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    PWM_Trigger_Mode(pcInstance-&gt;<a class="code hl_variable" href="a00729.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00697.html#a573abd55c880349729d9d46fbc6b9937">Secondary_2</a>, PWM_TRIG_MODE_RETRIGGERABLE);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">// PWM Swap output based on the hardware</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    PWM_Swap_PWMxL_and_PWMxH(pcInstance-&gt;<a class="code hl_variable" href="a00729.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00697.html#a871cecd8a212a0b12a96677284902566">Primary_2</a>, <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    PWM_Swap_PWMxL_and_PWMxH(pcInstance-&gt;<a class="code hl_variable" href="a00729.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00697.html#a573abd55c880349729d9d46fbc6b9937">Secondary_2</a>, <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">//    // fault configuration not covered by Melody  </span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">//    // PWM6 &quot;phantom&quot; PMM which is triggered when PWM1H changes state</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">//    // is used as LEB signal for PWM1, PWM2, PWM3 and PWM4</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">//    // the FAULT PCI input for these 4 PWMs needs to have &quot;latched&quot;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">//    // as the acceptance criteria. If its &quot;latched rising edge&quot; and the</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">//    // edge occurs in the LEB period but the comparator stays high</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">//    // the fault is ignored (as no rising edge to latch it)</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">//    // want level and edge sensitive acceptance</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">//    PWM_PCI_Fault_AcceptanceCriteria(pcInstance-&gt;Pwm.Primary_1, PWM_PCI_ACCEPT_LATCHED);     </span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">//    PWM_PCI_Fault_AcceptanceCriteria(pcInstance-&gt;Pwm.Secondary_1, PWM_PCI_ACCEPT_LATCHED);    </span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">//    PWM_PCI_Fault_AcceptanceCriteria(pcInstance-&gt;Pwm.Primary_2, PWM_PCI_ACCEPT_LATCHED);     </span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">//    PWM_PCI_Fault_AcceptanceCriteria(pcInstance-&gt;Pwm.Secondary_2, PWM_PCI_ACCEPT_LATCHED);     </span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">//    </span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">//    // configure for LEB - PCI source should be PWM6 (phantom PWM used for LEB)</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">//    // this signal is routed to the acceptance qualifier for the PCI fault input for</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">//    // these four PWMs</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">//    PWM_PCI_Source1(pcInstance-&gt;Pwm.Primary_1, PWM_PCI_SOURCE_PWM6);</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">//    PWM_PCI_Source1(pcInstance-&gt;Pwm.Primary_2, PWM_PCI_SOURCE_PWM6);</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">//    PWM_PCI_Source1(pcInstance-&gt;Pwm.Secondary_1, PWM_PCI_SOURCE_PWM6);</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">//    PWM_PCI_Source1(pcInstance-&gt;Pwm.Secondary_2, PWM_PCI_SOURCE_PWM6);</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">//    </span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">//#ifndef I_SC_LEB_DISABLED    </span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">//    // below is needed for LEB invert output of &quot;LEB&quot; signal from PWM6 as we want to accept faults outside the </span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">//    // LEB high time only</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">//    PWM_PCI_Fault_AcceptanceQualiferInvert(pcInstance-&gt;Pwm.Primary_1, true);</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">//    PWM_PCI_Fault_AcceptanceQualiferInvert(pcInstance-&gt;Pwm.Secondary_1, true);</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">//    PWM_PCI_Fault_AcceptanceQualiferInvert(pcInstance-&gt;Pwm.Primary_2, true);</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">//    PWM_PCI_Fault_AcceptanceQualiferInvert(pcInstance-&gt;Pwm.Secondary_2, true);</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">//        </span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">//    // PWMPCI mux has been set to PWM_PCI_SOURCE_PWM6 above</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">//    PWM_PCI_Fault_AcceptanceQualifierSource(pcInstance-&gt;Pwm.Primary_1, PWM_PCI_ACCEPTANCE_QUALIFER_PCI_PWMPCI);</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">//    PWM_PCI_Fault_AcceptanceQualifierSource(pcInstance-&gt;Pwm.Secondary_1, PWM_PCI_ACCEPTANCE_QUALIFER_PCI_PWMPCI);</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">//    PWM_PCI_Fault_AcceptanceQualifierSource(pcInstance-&gt;Pwm.Primary_2, PWM_PCI_ACCEPTANCE_QUALIFER_PCI_PWMPCI);</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">//    PWM_PCI_Fault_AcceptanceQualifierSource(pcInstance-&gt;Pwm.Secondary_2, PWM_PCI_ACCEPTANCE_QUALIFER_PCI_PWMPCI);  </span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">//#endif // #ifndef I_SC_LEB_DISABLED</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">//     </span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">//    // stop PWMs straight away upon detection of a fault</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">//    PWM_PCI_Fault_TimetoTerminateAfterEvent(pcInstance-&gt;Pwm.Primary_1, PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE);</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">//    PWM_PCI_Fault_TimetoTerminateAfterEvent(pcInstance-&gt;Pwm.Secondary_1, PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE);</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">//    PWM_PCI_Fault_TimetoTerminateAfterEvent(pcInstance-&gt;Pwm.Primary_2, PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE);</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">//    PWM_PCI_Fault_TimetoTerminateAfterEvent(pcInstance-&gt;Pwm.Secondary_2, PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE);</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">//           </span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">//    // set all PWMs to be in re-triggerable mode</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">//    PWM_Trigger_Mode(pcInstance-&gt;Pwm.Primary_1, PWM_TRIG_MODE_RETRIGGERABLE);</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">//    PWM_Trigger_Mode(pcInstance-&gt;Pwm.Secondary_1, PWM_TRIG_MODE_RETRIGGERABLE);</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">//    PWM_Trigger_Mode(pcInstance-&gt;Pwm.Secondary_2, PWM_TRIG_MODE_RETRIGGERABLE);</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">//    PWM_Trigger_Mode(pcInstance-&gt;Pwm.Primary_2, PWM_TRIG_MODE_RETRIGGERABLE);</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">//</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">//    //TODO: move this configuration else-where!!</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">//    //</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">//    // settings for PWM6 which is the &quot;phantom PWM&quot; used for LEB on all PWMs </span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">//    // on the rising and falling edges of PWM1H</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">//    //</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">//    // we want LEB on the rising and falling edges of PWM1H</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">//    // cannot use LEB feature in the dsPIC33C as it is, because LEB triggering</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">//    // is tied to that PWM only (for example, cannot route LEB signal from PWM1 to PWM2)</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">//    // one solution is to use a &quot;phantom PWM&quot; (PWM6 in our case)</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">//    // use duty of this PWM as the LEB signal</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">//    // this PWM can be routed as a Acceptance Qualifier to the PCI fault inputs of other PWMs</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">//    // trigger this PWM from either PWM1H rising or falling edge using the PCI sync input</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">//    // create this trigger by XORing PWM1H and PWM1L via CLC2</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">//    // PCI sync source select doesn&#39;t have CLC2 as an option (only CLC1 which we use for PCI fault already)</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">//    // use CLC2 to xor PWM1H and PWM1L</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">//    // tie CLC2 output to a virtual pin RP176</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">//    // tie RP176 to PCI input 9</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">//    // then use PCI input 9 as trigger for PWM6 (the phantom PWM)</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">//    // this means that PWM6 will run every time PWM1H changes state</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">//    // during the duty cycle of PWM6, comparator faults on all PWMs are ignored, as PWM6 is used as </span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">//    // the PCI fault acceptance qualifier for all PWMs</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">//    </span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">//    // set LEB blanking time via PG6DC register</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">//    // when phantom PWM is on = comparators faults are blanked</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">//    PWM_DutyCycleSet(PWM_LEB, I_SC_LEB_TIME_PGxDC);</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">//    </span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">//    // PG6 is &quot;phantom PWM&quot; used for LEB of PWM1H rising and falling edges</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">//    // re-triggerable mode is needed as SOC is coming from </span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">//    // CLC2</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">//    PWM_Trigger_Mode(PWM_LEB, PWM_TRIG_MODE_RETRIGGERABLE);</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">//    </span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">//    // trigger for phantom PWM</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">//    // CLC to xor PWM1H and PWM1L: rising edge on CLC2 output whenever PWM1H changes state</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">//    // use this rising edge to trigger phantom PWM</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">//    // tie CLC2 to RP176 (virtual pin)</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">//    // use RP176 as PCI sync input to trigger phantom PWM start of cycle</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">//    RPnR_VirtualPin_Source(RPnR_VIRTUAL_PIN_RP176, RPnR_SOURCE_CLC2OUT);</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">//    </span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">//    // map PCI input 9 to virtual pin RP176</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">//    PWM_PCI_INPUT_MaptoPin(PWM_PCI_INPUT9, RPx_INPUT_RP176); </span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">//    </span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">//    // set PCI Sync source select of PWM6 to PCI input 9 - so CLC2 set to PCI sync source select</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">//    PWM_PCI_Sync_Source_Select(PWM_LEB, PWM_PCI_SOURCE_SELECT_PCI9R);</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">//    </span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment">//    // terminate immediately after event (don&#39;t wait until EOC)</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">//    PWM_PCI_Sync_TimetoTerminateAfterEvent(PWM_LEB, PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE);</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment">//    </span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">//    PWM_PCI_Sync_TerminationEventSelect(PWM_LEB, PWM_PCI_TERM_AUTO);</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">//    </span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">//    // rising edge on CLC2 output triggers a start of cycle on phantom PWM</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">//    PWM_PCI_Sync_AcceptanceCriteria(PWM_LEB, PWM_PCI_ACCEPT_RISING_EDGE);</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#endif  </span><span class="comment">/* DRV_MCC_CONFIG_PWM_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="ttc" id="aa00179_html"><div class="ttname"><a href="a00179.html">pwm.h</a></div><div class="ttdoc">This is the generated driver header file for the PWM driver.</div></div>
-<div class="ttc" id="aa00697_html_a0ad1a33ac1a95c7415e2717eb7142813"><div class="ttname"><a href="a00697.html#a0ad1a33ac1a95c7415e2717eb7142813">SWITCH_NODE_s::Secondary_1</a></div><div class="ttdeci">uint16_t Secondary_1</div><div class="ttdoc">Secondary switch-node configuration.</div><div class="ttdef"><b>Definition</b> <a href="a00434_source.html#l00055">dev_pwrctrl_typedef.h:55</a></div></div>
-<div class="ttc" id="aa00697_html_a573abd55c880349729d9d46fbc6b9937"><div class="ttname"><a href="a00697.html#a573abd55c880349729d9d46fbc6b9937">SWITCH_NODE_s::Secondary_2</a></div><div class="ttdeci">uint16_t Secondary_2</div><div class="ttdoc">Secondary switch-node configuration.</div><div class="ttdef"><b>Definition</b> <a href="a00434_source.html#l00056">dev_pwrctrl_typedef.h:56</a></div></div>
-<div class="ttc" id="aa00697_html_a871cecd8a212a0b12a96677284902566"><div class="ttname"><a href="a00697.html#a871cecd8a212a0b12a96677284902566">SWITCH_NODE_s::Primary_2</a></div><div class="ttdeci">uint16_t Primary_2</div><div class="ttdoc">Primary switch-node configuration.</div><div class="ttdef"><b>Definition</b> <a href="a00434_source.html#l00054">dev_pwrctrl_typedef.h:54</a></div></div>
-<div class="ttc" id="aa00697_html_af9d2af7f610682893eb33514d81a4261"><div class="ttname"><a href="a00697.html#af9d2af7f610682893eb33514d81a4261">SWITCH_NODE_s::Primary_1</a></div><div class="ttdeci">uint16_t Primary_1</div><div class="ttdoc">Primary switch-node configuration.</div><div class="ttdef"><b>Definition</b> <a href="a00434_source.html#l00053">dev_pwrctrl_typedef.h:53</a></div></div>
-<div class="ttc" id="aa00729_html"><div class="ttname"><a href="a00729.html">POWER_CONTROL_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00434_source.html#l00176">dev_pwrctrl_typedef.h:177</a></div></div>
-<div class="ttc" id="aa00729_html_a133fe9da595a11547aacc8e4f1ae3b8a"><div class="ttname"><a href="a00729.html#a133fe9da595a11547aacc8e4f1ae3b8a">POWER_CONTROL_s::Pwm</a></div><div class="ttdeci">SWITCH_NODE_t Pwm</div><div class="ttdoc">Switch node settings.</div><div class="ttdef"><b>Definition</b> <a href="a00434_source.html#l00181">dev_pwrctrl_typedef.h:181</a></div></div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="a00736.html">   11</a></span><span class="keyword">struct </span><a class="code hl_struct" href="a00736.html">AVERAGING_s</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{  </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="a00736.html#a1bf80696497119c4e36460f57de7f667">   13</a></span>  uint32_t  <a class="code hl_variable" href="a00736.html#a1bf80696497119c4e36460f57de7f667">Accumulator</a>; </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="a00736.html#ac73dde33a2be13416f717c1ab8954227">   14</a></span>  uint16_t  <a class="code hl_variable" href="a00736.html#ac73dde33a2be13416f717c1ab8954227">Counter</a>; </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="a00736.html#a5c501c087c00d88f54766fff1bed2839">   15</a></span>  uint16_t  <a class="code hl_variable" href="a00736.html#a5c501c087c00d88f54766fff1bed2839">AveragingCount</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="a00736.html#ababc9b3b062bdea79c71035d651fbe79">   16</a></span>  uint16_t  <a class="code hl_variable" href="a00736.html#ababc9b3b062bdea79c71035d651fbe79">AverageValue</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
+</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00736.html">AVERAGING_s</a> <a class="code hl_struct" href="a00736.html">AVERAGING_t</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">extern</span> uint16_t <a class="code hl_function" href="a00521.html#ga17c0ec6d113fa9e6e157ad628ad66f74">Dev_PwrCtrl_UpdateAverage</a>(<a class="code hl_struct" href="a00736.html">AVERAGING_t</a>* data, uint16_t adcReading);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="a00521.html#gae958b8e13bf04622c6c67ea391639f41">Dev_PwrCtrl_RampReference</a>(<a class="code hl_struct" href="a00720.html">START_UP_RAMP_t</a>* rampUp);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_PWRCTRL_UTILS_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="ttc" id="aa00521_html_ga17c0ec6d113fa9e6e157ad628ad66f74"><div class="ttname"><a href="a00521.html#ga17c0ec6d113fa9e6e157ad628ad66f74">Dev_PwrCtrl_UpdateAverage</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t *data, uint16_t adcReading)</div><div class="ttdoc">Average the raw data over number of samples.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00038">dev_pwrctrl_utils.c:38</a></div></div>
+<div class="ttc" id="aa00521_html_gae958b8e13bf04622c6c67ea391639f41"><div class="ttname"><a href="a00521.html#gae958b8e13bf04622c6c67ea391639f41">Dev_PwrCtrl_RampReference</a></div><div class="ttdeci">bool Dev_PwrCtrl_RampReference(START_UP_RAMP_t *rampUp)</div><div class="ttdoc">Softly increment / decrement to the set reference target.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00059">dev_pwrctrl_utils.c:59</a></div></div>
+<div class="ttc" id="aa00720_html"><div class="ttname"><a href="a00720.html">START_UP_RAMP_s</a></div><div class="ttdoc">stores data related to controller</div><div class="ttdef"><b>Definition</b> <a href="a00437_source.html#l00116">dev_pwrctrl_typedef.h:117</a></div></div>
+<div class="ttc" id="aa00736_html"><div class="ttname"><a href="a00736.html">AVERAGING_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00011">dev_pwrctrl_utils.h:12</a></div></div>
+<div class="ttc" id="aa00736_html_a1bf80696497119c4e36460f57de7f667"><div class="ttname"><a href="a00736.html#a1bf80696497119c4e36460f57de7f667">AVERAGING_s::Accumulator</a></div><div class="ttdeci">uint32_t Accumulator</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00013">dev_pwrctrl_utils.h:13</a></div></div>
+<div class="ttc" id="aa00736_html_a5c501c087c00d88f54766fff1bed2839"><div class="ttname"><a href="a00736.html#a5c501c087c00d88f54766fff1bed2839">AVERAGING_s::AveragingCount</a></div><div class="ttdeci">uint16_t AveragingCount</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00015">dev_pwrctrl_utils.h:15</a></div></div>
+<div class="ttc" id="aa00736_html_ababc9b3b062bdea79c71035d651fbe79"><div class="ttname"><a href="a00736.html#ababc9b3b062bdea79c71035d651fbe79">AVERAGING_s::AverageValue</a></div><div class="ttdeci">uint16_t AverageValue</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00016">dev_pwrctrl_utils.h:16</a></div></div>
+<div class="ttc" id="aa00736_html_ac73dde33a2be13416f717c1ab8954227"><div class="ttname"><a href="a00736.html#ac73dde33a2be13416f717c1ab8954227">AVERAGING_s::Counter</a></div><div class="ttdeci">uint16_t Counter</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00014">dev_pwrctrl_utils.h:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
