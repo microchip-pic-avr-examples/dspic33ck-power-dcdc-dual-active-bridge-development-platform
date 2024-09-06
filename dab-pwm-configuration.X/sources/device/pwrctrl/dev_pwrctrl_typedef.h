@@ -32,11 +32,11 @@
  ***********************************************************************************/
 enum  PWR_CTRL_STATES_e
 {
-  PWR_CNTRL_STATE_INITIALIZE,           ///< power converter control state #0:  initializes object properties and clears status bits
-  PWR_CNTRL_STATE_FAULT_DETECTION,      ///< power converter control state #1:  checks if a fault occurs
-  PWR_CNTRL_STATE_STANDBY,              ///< power converter control state #2:  waiting for status bits allowing power supply to run
-  PWR_CNTRL_STATE_SOFT_START,           ///< power converter control state #3: performs soft-start sequence 
-  PWR_CNTRL_STATE_ONLINE                ///< power converter control state #4: output is in regulation and power is OK (normal continuous operation)
+  PWRCTRL_STATE_INITIALIZE,           ///< power converter control state #0:  initializes object properties and clears status bits
+  PWRCTRL_STATE_FAULT_DETECTION,      ///< power converter control state #1:  checks if a fault occurs
+  PWRCTRL_STATE_STANDBY,              ///< power converter control state #2:  waiting for status bits allowing power supply to run
+  PWRCTRL_STATE_SOFT_START,           ///< power converter control state #3: performs soft-start sequence 
+  PWRCTRL_STATE_ONLINE                ///< power converter control state #4: output is in regulation and power is OK (normal continuous operation)
 };
 typedef enum PWR_CTRL_STATES_e PWR_CTRL_STATE_t;
 

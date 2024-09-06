@@ -38,7 +38,6 @@
 POWER_CONTROL_t dab;
 
 // PRIVATE FUNCTIONS
-static void Dev_PwrCtrl_ControlLoopInitialize(void);
 static void Dev_PwrCtrl_StartUpInitialize(void);
 
 extern void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
@@ -119,7 +118,7 @@ void Dev_PwrCtrl_Execute(void)
  * @details This function initializes the control loop necessary to run the close loop
  * operation of the converter. 
  *********************************************************************************/
-static void Dev_PwrCtrl_ControlLoopInitialize(void)
+void Dev_PwrCtrl_ControlLoopInitialize(void)
 {
     // Initialize voltage loop compensator
     Dev_PwrCtrl_VComp_Initialize();

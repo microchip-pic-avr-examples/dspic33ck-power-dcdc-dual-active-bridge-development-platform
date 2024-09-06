@@ -11,7 +11,7 @@ The power controller state machine and fault handler are executed every 100us by
 
 There is one interrupt source.
 
-- ControlLoop_Interrupt_CallBack: executed every 10us. Voltages and currents in teh DAB board is being measured by ADC and feed to the control loops. There are three control loops in this implementation where Voltage loop and Power loop are executed every 10KHz, interleaved, while Current Loop is executed every 100KHz.
+- <b>ControlLoop_Interrupt_CallBack</b>: executed every 10us. Voltages and currents in teh DAB board is being measured by ADC and feed to the control loops. There are three control loops in this implementation where Voltage loop and Power loop are executed every 10KHz, interleaved, while Current Loop is executed every 100KHz.
 <p>
   <center>
     <img src="images/tasks-diagram.png" alt="firmware-0" width="1000">
@@ -22,32 +22,33 @@ There is one interrupt source.
 
 Microchip Code Configurator (MCC) is used to configure the peripherals. They are configured at run-time at the start of _main()_ function, before the background loop is initiated.
 
-The main files are as follows:
-
-- _power_control/dev_pwrctrl_.c_: Contains power control initialization including control loop initialization and start-up initialization, and the power control execution. 
-- _power_control/dev_pwrctrl_isr.c_: Contains Control loop interrupt Callback that acquires the ADC raw data and process it in the control loop, and use the control output for the PWM distribution for this converter
-- _power_control/dev_pwrctrl_pwm.c_: Contains DAB control phase calculation between primary and secondary, and the PWM distribution.
-- _power_control/dev_pwrctrl_sm.c_: Contains power control state machine that is executed every 100us.
-- _power_control/dev_pwrctrl_utils.c_: Contains generic functions that handles power control ramp Up/Down and, the averaging generic fucntion.
-- _fault/dev_fault.c_: Contains the fault initialization, execution and fault handling. 
-- _fault/dev_fault_common.c_: Contains generic fault functions for handling fault events.
+The task files are as follows:
+- _app/app_PBV_CAN.c_ : Contains the objects and functions for CAN communication.
+- _app/app_PBV_config.c_ : Configures the list of functions that needs to be executed when Power Board Visualizer (PBV) use CAN communication or Uart communication.
+- _app/app_PBV_dab_frame_map.c_ : User configuration for data that will be transmitted and received to/from Power Board Visualizer.
+- _app/app_PBV_interface.c_ : Contains generic communicationfunctions for Power board Visualizer.
+- _app/app_PBV_UART.c_ :  Contains the objects and functions for CAN communication.
+- _device/dev_current_sensor.c_ : Contains function that measures the current sensor offset.
+- _device/dev_fan.c_ : Contains functions that initialize and changes the speed of the fan.
+- _device/dev_led.c_ : Contains LED functions that gives the user an indication of the current state of the power converter. 
+- _device/dev_temp.c_ : Contains the temperature indication and calculation for the actual board temperature.
+- _fault/dev_fault.c_ : Contains the fault initialization, execution and fault handling. 
+- _fault/dev_fault_common.c_ : Contains generic fault functions for handling fault events.
+- _power_control/dev_pwrctrl_.c_ : Contains power control initialization including control loop initialization and start-up initialization, and the power control execution. 
+- _power_control/dev_pwrctrl_isr.c_ : Contains Control loop interrupt Callback that acquires the ADC raw data and process it in the control loop, and use the control output for the PWM distribution for this converter
+- _power_control/dev_pwrctrl_pwm.c_ : Contains DAB control phase calculation between primary and secondary, and the PWM distribution.
+- _power_control/dev_pwrctrl_sm.c_ : Contains power control state machine that is executed every 100us.
+- _power_control/dev_pwrctrl_utils.c_ : Contains generic functions that handles power control ramp Up/Down and, the averaging generic fucntion.
 
 
 <p>
   <center>
-    <img src="images/illc-36.png" alt="firmware-0" width="1000">
+    <img src="images/dab-block-diagram.jpg" alt="firmware-0" width="1000">
     <br>
     Firmware block diagram.
   </center>
 </p>
 
-<p>
-  <center>
-    <img src="images/illc-35.png" alt="firmware-0" width="1000">
-    <br>
-    Firmware block details.
-  </center>
-</p>
 
 We now will go into more detail on certain parts of the firmware project that we deemed important and/or difficult to understand.
 
@@ -55,139 +56,31 @@ We now will go into more detail on certain parts of the firmware project that we
 
 - - -
 
-<span id="llc-modes-of-operation-single-phase-or-interleaved"><a name="llc-modes-of-operation-single-phase-or-interleaved"> </a></span>
-
-# LLC Modes of Operation: Single Phase or Interleaved
-
-The LLC power board contains two phases, phase A and phase B. The firmware can be configured to run just a single phase (phase A), or run in interleaved mode (phase A and phase B both running).
-
-To configure the mode of operation, open the header file "project_settings.h".
-
-<p>
-  <center>
-    <img src="images/illc-37.png" alt="project-settings" width="400">
-    <br>
-    Location of project_settings.h.
-  </center>
-</p>
-
-Scroll down to line 58 (see below).
-
-To run in interleaved mode, POWER_STAGE_CONFIG_INTERLEAVED needs to be defined and POWER_STAGE_CONFIG_PHASE_A_ONLY should not be defined.
-
-To run in phase A only, POWER_STAGE_CONFIG_PHASE_A_ONLY needs to be defined and POWER_STAGE_CONFIG_INTERLEAVED  should not be defined.
-
-If neither or both are defined, you will get a compile error.
-
-<p>
-  <center>
-    <img src="images/illc-38.png" alt="project-settings" width="900">
-    <br>
-    Configuration #defines.
-  </center>
-</p>
-
-[[back to top](#start-doc)]
-- - -
-
 <span id="converter-state-machine"><a name="converter-state-machine"> </a></span>
 
 # Converter State Machine
 
-The main power controller state machine is illustrated below. It is executed every 100us. The code is located in _power_controller/drv_pwrctrl_ILLC.c_, see the function_Drv_PwrCtrl_ILLC_Task_100us()_. Most of the states are pretty standard for a digital DC/DC converter state machine (see state diagram below). Perhaps the only states worth describing in detail are the soft-start states, as these differ somewhat from other DC/DC converter state machines. Hence these are described in some detail below.
+The main power controller state machine is illustrated below. It is executed every 100us. 
+The code is located in _pwrctrl/dev_pwrctrl_sm.c_, see the function Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance). 
+During execution, the state machine goes through the following steps in chronological order.
+
+#### Operating States
+- _PWRCTRL_STATE_INITIALIZE_ : This state resets the conditional flag bits, ensures PWM output is disabled and run the initial current calibration offset. After this, the 
+state machine moves to checking the fault handler.
+- _PWRCTRL_STATE_FAULT_DETECTION_ : This state checks if there is fault event that occurred. When  there is no fault event, the state machine moves to StandBy state. 
+- _PWRCTRL_STATE_STANDBY_ : This state waits until there is no fault event that has occurred and when the power control enable bit is set. When Enable bit is set, then this state reset the fault objects status bits, reset PWM control settings, enable the power control running bit, enable PWM physical output, initialize control loop references and then move to the soft start state.
+- _PWRCTRL_STATE_SOFT_START_ : This state gradually ramps up/down the references of the power control. The control loop references are gradually incremented/decremented until in reached the desired control reference. When this is achieved, the next state will be assigned to state online. 
+- _PWRCTRL_STATE_ONLINE_ : Once the start procedure has been completed successfully, the converter state machine drops into constant regulation mode, where it will remain until the converter is shut-down or suspended. During constant regulation the control reference is monitored. If the value of the control reference is changed, the state machine will tune into the new reference by generating a defined transition ramp using the ramp slope specified in the startup ramp timing.
 
 <p>
   <center>
-    <img src="images/illc-19.png" alt="state-machine" width="500">
+    <img src="images/dab-state-machine.jpg" alt="state-machine" width="500">
     <br>
     Power supply state machine.
   </center>
 </p>
 
 <span id="soft-starting-the-converter"><a name="soft-starting-the-converter"> </a></span>
-
-[[back to top](#start-doc)]
-- - -
-
-## Soft-Starting the Converter
-
-The soft-start ramp is split in 2 parts
-
-(1) Run primary drive PWMs open-loop, at a fixed frequency of 1MHz (max frequency for our design)
-- start at the minimum duty cycle (Ton = 50ns).
-- ramp the duty cycle linearly in steps of 2.5ns every 100us until the duty reaches 45%.
-
-(2) Run primary-drive PWMs closed-loop
-- fixed duty cycle of 45%.
-- compensator sets PWM frequency.
-- ramp compensator reference linearly from pre-bias output voltage to target output voltage set-point.
-
-Part 1 of the soft-start ramp is to prevent massive inrush current: if the duty cycle was set immediately to 50% the inrush current required to charge the output capacitor would trip the hardware over current protection. Thus part 1 is a duty cycle soft-start.
-
-Note that the SRs drives (PWM2 for phase A and PWM4 for phase B) are switched off during soft-start, so any output current conduction is through the body diodes of the SRs during this time.
-
-Also note that if we are running in interleaved mode, PG3 setup is identical to PG1, but PG3 lags PG1 by 90 degrees.
-
-[[back to top](#start-doc)]
-- - -
-
-<span id="state-pcs_soft_start_pre1"><a name="state-pcs_soft_start_pre1"> </a></span>
-
-### State PCS_SOFT_START_PRE1
-
-In this state, the PWMs are running in open-loop mode (that is, they are not driven by the compensator).
-The frequency is fixed at 1MHz. The on-time of the primary side half-bridge drive signals is set to 50ns.
-Then every 100us, the on-time (and hence duty cycle) is increase by 2.5ns.
-This continues until the duty cycle is 45% (as we allow for a dead-time of 50ns).
-
-<p>
-  <center>
-    <img src="images/illc-20.png" alt="ss-pre1-00" width="1000">
-    <br>
-    Half bridge high and low switching signals at power-on.
-  </center>
-</p>
-
-<p>
-  <center>
-    <img src="images/illc-21.png" alt="ss-pre1-01" width="1000">
-    <br>
-    Half bridge high and low switching signals during open-loop duty cycle ramp, with fixed Fsw = 1MHz.
-  </center>
-
-</p>
-
-Once we reach the target primary drive on-time (equivalent to 45% duty cycle), we move to the state PCS_SOFT_START_PRE2.
-
-[[back to top](#start-doc)]
-- - -
-
-<span id="state-pcs_soft_start_pre2"><a name="state-pcs_soft_start_pre2"> </a></span>
-
-### State PCS_SOFT_START_PRE2
-
-In this state, we enable frequency modulation of the PWM outputs by the voltage mode compensator (closed-loop mode of operation). The on-time of the primary side PWM drive signals is fixed at (PG1PER/2 - 50ns). The voltage loop reference is initialized based on the measured output voltage at this point. Once we complete this initialization, we move to the state PCS_SOFT_START_.
-
-[[back to top](#start-doc)]
-- - -
-
-<span id="state-pcs_soft_start"><a name="state-pcs_soft_start"> </a></span>
-
-### State PCS_SOFT_START
-
-In this state, the reference to the voltage loop compensator is ramped linearly to the target set-point. The compensator controls the frequency of the primary side LLC half-bridge signals. The duty cycle is always set to (PG1PER/2 - 50ns).
-
-Note that in this state the SRs are enabled.
-
-A oscilloscope screenshot of the entire start up phase is shown below. The different parts are described also.
-
-<p>
-  <center>
-    <img src="images/illc-22.png" alt="ss-00" width="1300">
-    <br>
-    Soft-start with different stages highlighted and described.
-  </center>
-</p>
 
 [[back to top](#start-doc)]
 
@@ -197,14 +90,14 @@ A oscilloscope screenshot of the entire start up phase is shown below. The diffe
 
 # Fault Protection
 
-The fault protection code is executed every 100us at the start of the converter state machine in the function _Drv_PwrCtrl_ILLC_Fault_Check()_. The body of the fault code is located in the files _power_controller/drv_pwr_ctrl_ILLC_fault.c_and_misc/fault_common.c_.
+The fault protection code is executed every 10us in theinterrupt service routine in the function _Dev_Fault_Execute()_. The body of the fault code is located in the files _device/fault/dev_fault.c_.
 
 There are two types of protection:
 
 1. Firmware fault protection
 2. Hardware fault protection
 
-The firmware fault protection is implemented on the dsPIC on the DP-PIM. The hardware fault protection is implemented on the LLC power board. It's purpose is to prevent catastrophic board damage, particularly due to input and output over current events.
+The firmware fault protection is implemented on the dsPIC on the DP-PIM. The hardware fault protection is implemented on the DAB power board. It's purpose is to prevent catastrophic board damage, particularly due to input and output over current events.
 
 [[back to top](#start-doc)]
 - - -
@@ -225,7 +118,7 @@ When the fault is active, if the fault source stays below the fault clear thresh
 
 <p>
   <center>
-    <img src="images/illc-29.png" alt="fault-protection" width="1000">
+    <img src="images/fault.png" alt="fault-protection" width="1000">
     <br>
     Firmware Fault protection.
   </center>
@@ -235,19 +128,19 @@ This is shown in more detail in a flowchart below. When "fault active == true", 
 
 <p>
   <center>
-    <img src="images/illc-30.png" alt="fault-protection" width="1000">
+    <img src="images/fault-diagram.png" alt="fault-protection" width="1000">
     <br>
     Flowchart illustrating the firmware fault protection.
   </center>
 </p>
 
-All faults shown in the table below have firmware protection like this. In our firmware, this fault protection is run every 100us.
+All faults shown in the table below have firmware protection like this. In our firmware, this fault protection is run every 10us.
 
 <p>
   <center>
-    <img src="images/illc-31.png" alt="fault-protection" width="900">
+    <img src="images/dab-fault-threshold.jpg" alt="fault-protection" width="900">
     <br>
-    ILLC faults with firmware protection.
+    DAB faults with firmware protection.
   </center>
 </p>
 
@@ -308,332 +201,50 @@ Most of the PWM setup is done by calling initialization functions generated by M
 
 ## PWM Routing
 
-The two simplified schematics below show the routing of the PWM signals for phase A and phase B. PWM1 and PWM3 output are used for the primary drives for phase A and phase B respectively, while PWM2 and PWM4 are used for the SR drives.
+In this application, the DAB's primary bridge is drive by PWM1 (for P1 and P2) and PWM3 (for P3 and P4) while the secondary bridge where drive by PWM2 (for S1 and S2) and PWM4 (for S3 and S4).
+Each PWMs run in complementary mode, with PWM2 and PWM4 with swapped output. 
 
-The dsPIC is on the secondary side, so PWM1H, PWM1L, PWM3H and PWM3L have to pass through the isolation barrier. FET drivers are not shown here, please see the full schematic in the users guide for more detail.
+PWMs are also configured in a cascaded way where the first PWM triggers the next PWM successively. This approach broadcasts a single PWM update, thus ensuring that the PWMs are updated in the same cycle. 
+PWM1 is a master PWM while PWM2, PWM3, and PWM4 are the secondary PWMs that follows the PWM1. The PWM4 which is the last PWM in the cascaded sequence broadcast the Update bit to all PWMs. 
 
+<p><center><a target="_blank" rel="nofollow">
 <p>
-  <center>
-    <img src="images/illc-07.png" alt="PWM phase A" width="700">
-    <br>
-    PWM routing for phase A.
-  </center>
+<img src="images/dab-schematic.jpg" width="400"></p>
+&nbsp; 
+<img src="images/pwm-signal.jpg" width="400"></p>
+</a>
+</center>
 </p>
 
 <p>
-  <center>
-    <img src="images/illc-08.png" alt="PWM phase B" width="700">
-    <br>
-    PWM routing for phase B.
-  </center>
+<center>
+<a target="_blank" rel="nofollow">
+Dual active Bridge simplified schematic and PWM signals
+</a>
+</center>
 </p>
 
-The switching frequency range of our LLC solution is from 800kHz and 1MHz. To achieve robust operation in this frequency range with a PWM resolution of 250ps, we needed some special PWM module configuration, which will be describe in the following sections.
 
-[[back to top](#start-doc)]
-- - -
+Theoretically, DAB is controlled by changing the phase of the bridges, often reffered as the <b>Control Phase</b>. In primary bridge, the phase shift between two half bridges is referred as <b>Primary Phase</b>, while in secondary bridge, the phase shift between two bridges is reffered as <b>Secondary Phase</b>.
+The <b>Primary To Secondary Phase</b> is the phase shift between the primary bridge and secondary bridge.
 
-<span id="phase-a-pwm-setup"><a name="phase-a-pwm-setup"> </a></span>
+The following equations for PWM phases where used to control the DAB converter. It is the PWM trigger that defines the control phase of the DAB converter.
 
-## Phase A PWM Setup
-
-For a single phase, the LLC primary drive signals should have a fixed duty cycle (50% minus some dead time) and variable frequency, as shown below. The voltage loop compensator output modulates the switching frequency of the converter. The drive signals to the high side and low side of the primary side half-bridge (before the resonant tank) need to be complementary, with a dead time between the falling edge on the high side drive and the rising edge of the low side drive, and visa-versa.
-
-In our example firmware, the frequency can cary from 800kHz (max output voltage) to 1MHz (min output voltage).
-
-To get this type of waveform from the PWM module, we configured the PWM peripherals in "Independent Edge, dual output mode".
-
-In this mode of operation, each PWM edge is set independently via a register. Specifically,
-
-- PWM1H rising edge occurs when PWM1 counter = PG1PHASE.
-- PWM1H falling edge occurs when PWM1 counter = PG1DC.
-- PW1L rising edge occurs when PWM1 counter = PG1TRIGA.
-- PWM1L falling edge occurs when PWM1 counter = PG1TRIGB.
-
-The primary drive signals for phase A (from PWM1 peripheral) are shown below.
+		Primary Phase = Control Phase
+		Secondary Phase = Control Phase
+		Primary To Secondary Phase = 90 degrees - (Control Phase / 2)
 
 <p>
   <center>
-    <img src="images/illc-09.png" alt="PWM1 setup" width="1100">
-    <br>
-    PWM1 setup.
-  </center>
-</p>
-
-<p>
-  <center>
-    <img src="images/illc-10.png" alt="PWM1 config" width="600">
-    <br>
-    PWM mode: independent edge, dual output.
-  </center>
-</p>
-
-The SR drive signals for phase A come from the PWM2 module. PWM2H drives the SR on the high side of the half-bridge on the secondary side, and PWM2L drives the SR on the low-side. PWM2 is also configured in "independent edge, dual output" mode, but the SWAP bit is set, so that PWM2H and PWM2L are swapped.
-The PWM2H and PWM2L setup is illustrated below.
-
-<p>
-  <center>
-    <img src="images/illc-11.png" alt="PWM2 setup" width="1100">
-    <br>
-    PWM2 setup.
-  </center>
-</p>
-
-[[back to top](#start-doc)]
-- - -
-
-<span id="phase-b-pwm-setup"><a name="phase-b-pwm-setup"> </a></span>
-
-## Phase B PWM Setup
-
-Phase B setup as follows:
-
-- PWM3H drives primary side half-bridge, high side
-- PWM3L drives primary side half-bridge, low side
-- PWM4H drives secondary side (SR) half-bridge, high side
-- PWM4L drives secondary side (SR) half-bridge, low side
-
-Phase A and phase B run 90 degrees out of phase.
-The synchronization scheme works as follows:
-
-- PWM2 is synchronized to the EOC (End of Cycle) trigger of PWM1, so they run in phase.
-- PWM3 is synchronized to PG2TRIGC via the PWM2 peripheral's PCI input and the PWM event A output. PG2TRIGC is set to (PG1PER / 4 ), so the PWM3 cycle starts 1/4 of a period after PWM1 and PWM2 cycle start.
-- PWM4 is synchronized to the EOC (End of Cycle) trigger of PWM3, so PWM3 and PWM4 run in phase.
-  
-<p>
-  <center>
-    <img src="images/illc-15.png" alt="PWM2 setup" width="1100">
-    <br>
-    phase A and phase B sync.
-  </center>
-</p>
-
-The ADC trigger for PWM1 is set to occur every 6th PWM1 period. It is set using PG1TRIGC (as PG1TRIGA and PG1TRIGB are already in use), and in the running firmware is set to be at the middle of the PG1H on-time so as to sample the average current.
-
-The ADC trigger for PWM3 is set to occur every 6th PWM3 period. It is set using PG3TRIGC, and in the running firmware is set to be at the middle of the PG3H on-time so as to sample the average current.
-
-The "easy setup" view for all 4 PWM modules is shown below.
-
-<p>
-  <center>
-    <img src="images/illc-12.png" alt="PWM config MCC" width="1500">
+    <img src="images/pwm-configuration.jpg" alt="PWM config MCC" width="2000">
     <br>
     PWM configuration in MCC (easy setup).
   </center>
 </p>
 
-Some registers in the "registers" view also need to be modified. The fields that need to be modified for phase A (related to PWM1 and PWM2) are highlighted below.
-
-<p>
-  <center>
-    <img src="images/illc-13.png" alt="phase A config MCC" width="1500">
-    <br>
-    Phase A configuration in MCC (additional register settings).
-  </center>
-</p>
-
-The fields that need to be modified for phase B (related to PWM3 and PWM4) are highlighted below.
-
-<p>
-  <center>
-    <img src="images/illc-14.png" alt="phase B config MCC" width="1500">
-    <br>
-    Phase B configuration in MCC (additional register settings).
-  </center>
-</p>
 
 [[back to top](#start-doc)]
 
-- - -
-
-<span id="regulating-the-output-voltage"><a name="regulating-the-output-voltage"> </a></span>
-
-# Regulating the Output Voltage
-
-In this section we describe  how to measure the open loop gain and phase of the plant, and show some results that we took from the LLC board.
-We then discuss the compensator used to regulate the output voltage and show some open loop gain measurements of the closed loop system at different operating points.
-
-- - -
-
-<span id="plant-measurements"><a name="plant-measurements"> </a></span>
-
-## Plant Measurements
-
-It can be useful to measure the open loop frequency response of the plant, to allow the compensator to be designed appropriately.
-In this section we describe a way to do this on this LLC demo board.
-
-First please read section 1.4 of [[MA330048]](https://www.microchip.com/MA330048).
-This describes how to measure the loop-gain of the plant using the dsPIC33CK256MP506 Digital Power Plug-In Module (DP-PIM) and a vector network analyzer such as the Bode 100 from Omnicron.
-
-In this instance, we made some small modifications to the procedure described in the DP-PIM user's guide.
-
-<p>
-  <center>
-    <img src="images/illc-43.png" alt="plant-04" width="600">
-    <br>
-    Plant measurement setup using DP-PIM.
-  </center>
-</p>
-
-In the diagram above, circuitry inside the dsPIC is designated by an orange colour. Blue blocks are measurement circuitry (from the Bode 100 in our case). The plant is shown in green. The operational amplifier circuitry is on the DP-PIM. The Bode 100 generator output (which creates a small AC sinusoid that is swept over frequency as part of the open loop frequency response measurement) is connected across TP1 and TP2 of the DP-PIM. This signal then passes through an operational amplifier circuit on the DP-PIM.
-The purpose of the operational amplifier circuit is to add an offset of 1.65V to the AC signal, as the ADC on the dsPIC can only digitize positive voltages and the output of the Bode 100 is AC.
-
-This AC signal with a 1.65V DC offset is then digitized by the ADC on pin AN18 of the dsPIC. The ADC code equivalent to the 1.65V DC offset is subtracted in the firmware, and the result (which is a digitized AC signal) is added to the control input. Thus the control input is "disturbed" by this digitized AC sinusoid. For an LLC, the control input modulates the switching frequency. So as the control input moves up and down, so will the switching frequency.
-
-The plant frequency response measurement includes the digital modulator and so is calculated as "control to output".
-
-<p>
-  <center>
-    <img src="images/illc-45.png" alt="plant-06" width="300">
-    <br>
-    Plant "Control to Output".
-  </center>
-</p>
-
-This is a measure of how much Vout varies in gain and phase as the control input is disturbed. Each measurement point corresponds to a frequency, this is the frequency of the AC signal disturbing the control input. The frequency of the AC disturbance is swept from almost DC to (usually) the ADC sampling frequency / 2.
-
-This means that channel 1 of the Bode 100 should be connected as close as possible to where the control input is disturbed. Channel 2 of the Bode 100 should be connected to the output of the converter.
-
-Channel 1 could be connected directly to the AN18 pin. In this case, the plant gain measurement would be accurate, but the measurement of the phase response would not be accurate at higher frequencies because of the ADC sampling delay (as the disturbance and Vout are sampled at a frequency of Fsw/6).  Hence, we take the ADC measurement on AN18 and convert it back to the analog domain by loading the digital value into a DAC on the dsPIC. This leads to a more accurate phase measurements at higher frequencies.
-
-[[back to top](#start-doc)]
-- - -
-
-<span id="firmware-modifications"><a name="firmware-modifications"> </a></span>
-
-### Firmware Modifications
-
-Setup the firmware so that the converter is running in open loop mode, you can even remove the compensator from the code if you wish.
-
-Configure the firmware to run in interleaved mode.
-
-To setup the dsPIC to measure the disturbance on the AN18 pin, MCC can be used as shown below. For our measurement, we used the shared ADC core to measure both the output voltage and the disturbance.
-
-<p>
-  <center>
-    <img src="images/illc-40.png" alt="plant-01" width="900">
-    <br>
-    Adding measurement of disturbance on AN18 with ADC using MCC.
-  </center>
-</p>
-
-We use the shared ADC core to measure both the disturbance and Vout. Firstly, we measure Vout with the shared ADC core. Then the shared ADC core conversion channel is changed manually to measure the voltage on the AN18 pin. For example, the firmware below can be added to the function _ADCAN0Interrupt()_ in the file _driver/drv_adc.c_. It can be added just after the two secondary phase currents are sampled with the ADC.
-
-<p>
-  <center>
-    <img src="images/illc-41.png" alt="plant-02" width="900">
-    <br>
-    Firmware added to ADCCAN0 interrupt for measuring both Vout and the disturbance signal.
-  </center>
-</p>
-
-The measurement of the voltage on AN18 (with the 1.65V DC bias removed) is stored in _pwr_ctrl_adc_data.drv_adc_val_AN18_. Note that since the DC bias has been removed, this result can be negative or positive. This is correct as we want to control input to move in both directions.
-
-We need to apply this disturbance to the control input.
-In the function _Drv_PwrCtrl_ILLC_ILPHVoltageLoop()_, we added the following code for this purpose.  
-
-<p>
-  <center>
-    <img src="images/illc-42.png" alt="plant-03" width="900">
-    <br>
-    Adding the disturbance to the control input.
-  </center>
-</p>
-
-In the line highlighted above, the disturbance is added to the control input. Note that the disturbance at this point has been digitized and the DC bias has been removed, so this line adds the (digitized) small signal AC disturbance to the control input. It can cause the control input to both increase or decrease.
-
-In the final line of the code snippet above, the control input is converted to a period for the PWM peripherals, as the switching period is modulated for the LLC topology.
-
-Finally, we take the ADC measurement of the voltage on AN18 (that is, the disturbance input from bode measurement instrument) and load this digital value into DAC2 (which is connected to pin 17, and also to the test point on the top of the DP-PIM). To this end, this line should be added after the control input is updated. The output of DAC2 is measured with channel 1 of the Bode 100.
-
-<p>
-  <center>
-    <img src="images/illc-44.png" alt="plant-05" width="600">
-    <br>
-    Routing the disturbance back out of the dsPIC on a DAC.  
-  </center>
-</p>
-
-[[back to top](#start-doc)]
-- - -
-
-<span id="results"><a name="results"> </a></span>
-
-### Results
-
-Here we show the results at multiple operating points, running in interleaved mode. We use the potentiometer to change the switching frequency in open loop mode for these measurements. A resistive load is used.
-
-Note that the gain and phase response moves quite a bit depending on the switching frequency and load. For an LLC converter, the plant is "dynamic" and thus pole and zero positions will move depending on the operating conditions.
-
-For example, at 1A load, the SRs on the secondary side are disabled, this adds dynamic resistance in the conduction path and changes the measured plant frequency response. At 2A load, the SRs are enabled, meaning less dynamic resistance. This can be seen in the plots below.
-
-Thus it is important to run these measurement at many different operating points to ensure that the compensator is designed for worst case conditions.
-
-<p>
-  <center>
-    <img src="images/illc-47.png" alt="plant-00" width="900">
-    <br>
-    Plant measurement: Vin = 39V, Fs = 810kHz, Iload = 1A.
-  </center>
-</p>
-
-<p>
-  <center>
-    <img src="images/illc-48.png" alt="plant-01" width="900">
-    <br>
-    Plant measurement: Vin = 39V, Fs = 810kHz, Iload = 2A.
-  </center>
-</p>
-
-<p>
-  <center>
-    <img src="images/illc-49.png" alt="plant-02" width="900">
-    <br>
-    Plant measurement: Vin = 39V, Fs = 840kHz, Iload = 1A.
-  </center>
-</p>
-
-<p>
-  <center>
-    <img src="images/illc-50.png" alt="plant-03" width="900">
-    <br>
-    Plant measurement: Vin = 39V, Fs = 840kHz, Iload = 2A.
-  </center>
-</p>
-
-<p>
-  <center>
-    <img src="images/illc-51.png" alt="plant-04" width="900">
-    <br>
-    Plant measurement: Vin = 39V, Fs = 900kHz, Iload = 1A.
-  </center>
-</p>
-
-<p>
-  <center>
-    <img src="images/illc-52.png" alt="plant-05" width="900">
-    <br>
-    Plant measurement: Vin = 39V, Fs = 900kHz, Iload = 2A.
-  </center>
-</p>
-
-<p>
-  <center>
-    <img src="images/illc-53.png" alt="plant-06" width="900">
-    <br>
-    Plant measurement: Vin = 39V, Fs = 970kHz, Iload = 1A.
-  </center>
-</p>
-
-<p>
-  <center>
-    <img src="images/illc-54.png" alt="plant-07" width="900">
-    <br>
-    Plant measurement: Vin = 39V, Fs = 970kHz, Iload = 2A.
-  </center>
-</p>
-
-[[back to top](#start-doc)]
 - - -
 
 <span id="compensator-settings"><a name="compensator-settings"> </a></span>

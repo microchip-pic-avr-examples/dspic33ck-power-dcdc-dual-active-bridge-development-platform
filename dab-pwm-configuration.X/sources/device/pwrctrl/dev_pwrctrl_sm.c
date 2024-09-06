@@ -31,6 +31,7 @@
 #include "dev_pwrctrl_utils.h"
 #include "device/dev_current_sensor.h"
 #include "device/fault/dev_fault.h"
+#include "dev_pwrctrl.h"
 
 //Private Functions
 static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance);
@@ -65,34 +66,34 @@ void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
 { 
     switch (pcInstance->State)
     {
-        case PWR_CNTRL_STATE_INITIALIZE:
+        case PWRCTRL_STATE_INITIALIZE:
             PCS_INIT_handler(pcInstance);
             break;    
 
-        case PWR_CNTRL_STATE_FAULT_DETECTION:
+        case PWRCTRL_STATE_FAULT_DETECTION:
             PCS_WAIT_IF_FAULT_ACTIVE_handler(pcInstance);
             break;
 
-        case PWR_CNTRL_STATE_STANDBY:
+        case PWRCTRL_STATE_STANDBY:
             PCS_STANDBY_handler(pcInstance);
             break;
 
-        case PWR_CNTRL_STATE_SOFT_START:
+        case PWRCTRL_STATE_SOFT_START:
             PCS_SOFT_START_handler(pcInstance);
             break;
 
-        case PWR_CNTRL_STATE_ONLINE:
+        case PWRCTRL_STATE_ONLINE:
             PCS_UP_AND_RUNNING_handler(pcInstance);
             break;
 
         default:
-            pcInstance->State = PWR_CNTRL_STATE_INITIALIZE;
+            pcInstance->State = PWRCTRL_STATE_INITIALIZE;
             break;      
     }
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Executes function for initialze state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -127,16 +128,13 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
         // Clear power control enable bit
         pcInstance->Properties.Enable = 0;
         
-        //Enable current loop control
-        pcInstance->ILoop.Enable = true;
-        
         // Next State assigned to STATE_FAULT_DETECTION
-        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
+        pcInstance->State = PWRCTRL_STATE_FAULT_DETECTION;
     }   
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Executes the fault handler state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -150,12 +148,12 @@ static void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance)
     if (pcInstance->Fault.FaultDetected == 0)
     {
         pcInstance->Status.bits.FaultActive = 0;
-        pcInstance->State = PWR_CNTRL_STATE_STANDBY; // next state
+        pcInstance->State = PWRCTRL_STATE_STANDBY; // next state
     }
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Executes Standby State machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -179,7 +177,7 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->Properties.Enable = 0;
         
         // State back to STATE_FAULT_DETECTION
-        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
+        pcInstance->State = PWRCTRL_STATE_FAULT_DETECTION;
     }
     
     // NOTE: Power control enable is controlled externally 
@@ -200,9 +198,15 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         // ToDo: Not yet applied; check this again
         Dev_Fault_ClearHardwareFaults();
 
+        //
+        Dev_PwrCtrl_ControlLoopInitialize();
+        
         // Enable PWM physical output
         Dev_PwrCtrl_PWM_Enable(pcInstance);
     
+        //Enable current loop control
+        pcInstance->ILoop.Enable = true;
+        
         // Initialize current loop reference to 0, to be controlled externally
         pcInstance->ILoop.Reference = 0;
         
@@ -213,12 +217,12 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->VLoop.Reference = pcInstance->Data.VSecVoltage;
         
         // Next State assigned to STATE_SOFT_START
-        pcInstance->State = PWR_CNTRL_STATE_SOFT_START;
+        pcInstance->State = PWRCTRL_STATE_SOFT_START;
     }
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Executes the power control soft start state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -238,7 +242,7 @@ static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->Properties.Enable = 0;
         
         // State back to STATE_FAULT_DETECTION
-        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
+        pcInstance->State = PWRCTRL_STATE_FAULT_DETECTION;
     }
   
     // Check if Enable bit has been cleared
@@ -251,7 +255,7 @@ static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->Status.bits.Running = 0;
         
         // State back to STATE_STANDBY
-        pcInstance->State = PWR_CNTRL_STATE_STANDBY; 
+        pcInstance->State = PWRCTRL_STATE_STANDBY; 
     }
     
     else
@@ -265,13 +269,13 @@ static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
         if ((pcInstance->VRamp.RampComplete) && (pcInstance->IRamp.RampComplete)
               && (pcInstance->PRamp.RampComplete))
             // Next State assigned to STATE_ONLINE
-            pcInstance->State = PWR_CNTRL_STATE_ONLINE; 
+            pcInstance->State = PWRCTRL_STATE_ONLINE; 
 
     }
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-methods-public
  * @brief  Executes the Online state
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -295,7 +299,7 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->Properties.Enable = 0;
         
         // State back to STATE_FAULT_DETECTION
-        pcInstance->State = PWR_CNTRL_STATE_FAULT_DETECTION;
+        pcInstance->State = PWRCTRL_STATE_FAULT_DETECTION;
     }
     
     else
@@ -310,13 +314,13 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
             pcInstance->Status.bits.Running = 0;
 
             // State back to STATE_STANDBY
-            pcInstance->State = PWR_CNTRL_STATE_STANDBY; 
+            pcInstance->State = PWRCTRL_STATE_STANDBY; 
         }
         
     #if (OPEN_LOOP_PBV == true)
         else if ((pcInstance->Pwm.ControlPeriod != pcInstance->Pwm.PBVPeriodTarget) || 
                 (pcInstance->Pwm.ControlPhase != pcInstance->Pwm.PBVControlPhaseTarget))
-            pcInstance->State = PWR_CNTRL_STATE_SOFT_START;
+            pcInstance->State = PWRCTRL_STATE_SOFT_START;
     #endif
             
         // Check if there is change in power control references    
@@ -325,7 +329,7 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
                 (pcInstance->PLoop.Reference != pcInstance->Properties.PwrReference))
             
             // State back to STATE_SOFT_START
-            pcInstance->State = PWR_CNTRL_STATE_SOFT_START;
+            pcInstance->State = PWRCTRL_STATE_SOFT_START;
     }
 } 
 

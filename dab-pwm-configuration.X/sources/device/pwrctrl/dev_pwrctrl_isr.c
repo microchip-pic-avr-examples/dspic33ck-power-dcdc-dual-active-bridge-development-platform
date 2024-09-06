@@ -78,6 +78,9 @@ void ControlLoop_Interrupt_CallBack(void)
     // Update the ADC data member
     Dev_PwrCtrl_UpdateConverterData();
     
+    // Execute the fault detection
+    Dev_Fault_Execute();
+    
     #if(OPEN_LOOP_PBV == false)
     // Execute Power Converter Control Loop
     Dev_PwrCtrl_ControlLoopExecute();
