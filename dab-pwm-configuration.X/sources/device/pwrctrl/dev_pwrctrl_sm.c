@@ -187,36 +187,51 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
     {
         // Reset fault objects status bits
         Dev_Fault_Reset();
-
-        // reset the PWM settings in Standby mode
-        pcInstance->Pwm.ControlPeriod = MAX_PWM_PERIOD;
-        pcInstance->Pwm.ControlPhase = 0;
-        pcInstance->Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
-        pcInstance->Pwm.PBVControlPhaseTarget = 0;
-
-        // Enable power control running bit
-        pcInstance->Status.bits.Running = 1;
-        
-        // ToDo: Not yet applied; check this again
+            // ToDo: Not yet applied; check this again
         Dev_Fault_ClearHardwareFaults();
-        Dev_PwrCtrl_ControlLoopInitialize();
-        // Enable PWM physical output
-        Dev_PwrCtrl_PWM_Enable(pcInstance);
-    
-        dab.ILoop.Enable = true;
-        dab.ILoop.AgcFactor = dab.ILoop.AgcFactor;
-        
-        // Initialize current loop reference to 0, to be controlled externally
-        pcInstance->ILoop.Reference = 0;
-        
-        // Initialize power loop reference to 0, to be controlled externally
-        pcInstance->PLoop.Reference = 0;
-        
-        // Initialize voltage loop reference to current secondary voltage
-        pcInstance->VLoop.Reference = pcInstance->Data.VSecVoltage;
-        
-        // Next State assigned to STATE_SOFT_START
-        pcInstance->State = PWR_CNTRL_STATE_SOFT_START;
+            
+        // reset the PWM settings in Standby mode
+        Dev_CurrentSensor_Clr_Offset();
+        // Execute current sensor offset calibration
+        Dev_CurrentSensorOffsetCal();
+        // Checks if the calibration is complete
+        if (Dev_CurrentSensor_Get_CalibrationStatus())
+        {    
+            pcInstance->Data.ISecSensorOffset = Dev_CurrentSensor_Get_Offset();
+            // Next State assigned to STATE_SOFT_START
+            pcInstance->State = PWR_CNTRL_STATE_SOFT_START;
+
+            pcInstance->Pwm.ControlPeriod = MAX_PWM_PERIOD;
+            pcInstance->Pwm.ControlPhase = dab.Pwm.DeadTimeLow;
+            pcInstance->Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
+            pcInstance->Pwm.PBVControlPhaseTarget = dab.Pwm.DeadTimeLow;
+
+            // Enable power control running bit
+            pcInstance->Status.bits.Running = 1;
+
+            // ToDo: Not yet applied; check this again
+            Dev_Fault_ClearHardwareFaults();
+            
+            Dev_PwrCtrl_ControlLoopInitialize();
+            
+            pcInstance->ILoop.Enable = true;
+            pcInstance->ILoop.AgcFactor = dab.ILoop.AgcFactor;
+
+            pcInstance->Properties.VPriReference = 0;
+            pcInstance->Properties.VSecReference = 0;
+            pcInstance->Properties.IReference = 0;
+            pcInstance->Properties.PwrReference = 0;
+
+            // Initialize current loop reference to 0, to be controlled externally
+            pcInstance->ILoop.Reference = 0;
+            // Initialize power loop reference to 0, to be controlled externally
+            pcInstance->PLoop.Reference = 0;
+            // Initialize voltage loop reference to current secondary voltage
+            pcInstance->VLoop.Reference = 0;//pcInstance->Data.VSecVoltage;
+            // Enable PWM physical output
+            Dev_PwrCtrl_PWM_Enable(pcInstance);
+            Dev_PwrCtrl_PWM_Update(pcInstance);
+        }
     }
 }
 

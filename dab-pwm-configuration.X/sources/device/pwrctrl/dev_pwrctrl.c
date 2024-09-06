@@ -66,11 +66,11 @@ void Dev_PwrCtrl_Initialize(void)
     
     // Initialize the Control Period and Control Phase during start-up
     dab.Pwm.ControlPeriod = MAX_PWM_PERIOD;
-    dab.Pwm.ControlPhase = 0;
+    dab.Pwm.ControlPhase = 32;
     dab.Pwm.DeadTimeHigh = PG1DTH; // ToDo: remove the register dependency
     dab.Pwm.DeadTimeLow = PG1DTL; // ToDo: remove the register dependency
     dab.Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
-    dab.Pwm.PBVControlPhaseTarget = 0;
+    dab.Pwm.PBVControlPhaseTarget = 32;
     
     // Initialize the DAB to charging state
     dab.PowerDirection = PWR_CTRL_CHARGING;

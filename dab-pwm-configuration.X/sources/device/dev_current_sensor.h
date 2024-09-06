@@ -12,6 +12,6 @@
 extern void Dev_CurrentSensorOffsetCal(void);
 extern uint16_t Dev_CurrentSensor_Get_CalibrationStatus(void);
 extern uint16_t Dev_CurrentSensor_Get_Offset(void);
-
+extern void Dev_CurrentSensor_Clr_Offset(void);
 #endif	/* DEV_CURRENT_SENSOR_H */
 

@@ -129,3 +129,16 @@ uint16_t Dev_CurrentSensor_Get_Offset(void)
 {
     return(isecAvgCurrentSensor.Offset); 
 }
+/*********************************************************************************
+ * @ingroup 
+ * @fn      uint16_t Dev_CurrentSensor_Clr_Offset()
+ * @brief   API function to clear the current sensor offset calibration flag
+ * @param   none
+ * @return  none
+ * @details
+ * API function
+ **********************************************************************************/ 
+void Dev_CurrentSensor_Clr_Offset(void)
+{
+    isecAvgCurrentSensor.CalibrationComplete=false; 
+}

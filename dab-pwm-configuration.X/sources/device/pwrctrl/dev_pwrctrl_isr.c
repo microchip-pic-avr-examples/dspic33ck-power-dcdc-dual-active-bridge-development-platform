@@ -406,6 +406,13 @@ static void Dev_PwrCtrl_ControlLoopExecute(void)
         // Control loop output copied to control phase
         dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle) * 
                 (uint32_t)dab.ILoop.Output) >> 15); //range 0..180
+        
+         dab.Pwm.ControlPhase += dab.Pwm.DeadTimeLow;
+         
+        if(dab.Pwm.ControlPhase >      (dab.Pwm.ControlDutyCycle-1024) )
+        dab.Pwm.ControlPhase = dab.Pwm.ControlDutyCycle-1024;
+        
+        if(dab.Pwm.ControlPhase < dab.Pwm.DeadTimeLow) dab.Pwm.ControlPhase = dab.Pwm.DeadTimeLow;  
     }
 }
 
@@ -443,7 +450,7 @@ static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
     if(dab.PowerDirection == PWR_CTRL_DISCHARGING)
     { 
     }
-    
-    dab.dbg=dab.ILoop.AgcFactor;
-//    dab.dbg=DAB_PrimaryVoltage;
+//    
+//    dab.dbg=dab.ILoop.AgcFactor;
+////    dab.dbg=DAB_PrimaryVoltage;
 }
