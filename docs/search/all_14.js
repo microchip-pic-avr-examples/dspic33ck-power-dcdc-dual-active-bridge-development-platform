@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['val1_5fhysteresis_0',['Val1_Hysteresis',['../a00665.html#a2a3b491ddd84f3397021f935033f3aa2',1,'FAULT_OBJ_T']]],
+  ['val1_5fthreshold_1',['Val1_Threshold',['../a00665.html#a5edf921fa44db4fc0b59e47bb5fd0dfd',1,'FAULT_OBJ_T']]],
+  ['val2_5fhysteresis_2',['Val2_Hysteresis',['../a00665.html#a8e9aca4cd2e220497c2dc9aee4278e12',1,'FAULT_OBJ_T']]],
+  ['val2_5fthreshold_3',['Val2_Threshold',['../a00665.html#ad968f59d734c469b74fb82587f59e07a',1,'FAULT_OBJ_T']]],
+  ['value_4',['value',['../a00705.html#a900b69af7d674b8db3bceae754b4955a',1,'STATUS_FLAGS_s']]],
+  ['vloop_5',['VLoop',['../a00729.html#a74800143138c6a887f2edec0e47008a8',1,'POWER_CONTROL_s']]],
+  ['voltage_5faveraged_6',['voltage_averaged',['../a00653.html#aee01ff86eaaebfe6ac63e12f76bad45f',1,'iso_voltage']]],
+  ['voltage_5fbuffer_7',['voltage_buffer',['../a00653.html#a9d28ef607da9d827b7a84a53762ddc5b',1,'iso_voltage']]],
+  ['voltage_5fbuffer_5fidx_8',['voltage_buffer_idx',['../a00653.html#a47bba42074e93108d4dcbfee607716ce',1,'iso_voltage']]],
+  ['voltage_5fraw_9',['voltage_raw',['../a00653.html#afd19992b906019d496441160a589d8e6',1,'iso_voltage']]],
+  ['vpri_10',['VPRI',['../a00098.html#aecdfe48b0bc36d2dd1f99274613a6c92a869a853587cbeddb0cb77f82659fde81',1,'adc_types.h']]],
+  ['vprimaryovp_11',['VPrimaryOVP',['../a00669.html#a67a6d7934156a505fe648c5a895795ed',1,'FAULT_s']]],
+  ['vprireference_12',['VPriReference',['../a00725.html#aa7c7be85fbd243019a3d4117936a5eb6',1,'PWR_CTRL_PROPERTIES_s']]],
+  ['vprivoltage_13',['VPriVoltage',['../a00701.html#a05578776f684221691f412d73de487ea',1,'FEEDBACK_SETTINGS_s']]],
+  ['vrail_5f5v_14',['vrail_5v',['../a00669.html#a0c6c9adf47adaed77dbc76be05305b1d',1,'FAULT_s::VRail_5V'],['../a00701.html#acc72d884c453d1343c8e836369311454',1,'FEEDBACK_SETTINGS_s::VRail_5V'],['../a00098.html#aecdfe48b0bc36d2dd1f99274613a6c92afdfe61ef0b11c9919acf5279ff54e31b',1,'VRAIL_5V:&#160;adc_types.h']]],
+  ['vramp_15',['VRamp',['../a00729.html#afd1d9d28f344713441a2330e010de959',1,'POWER_CONTROL_s']]],
+  ['vsec_16',['VSEC',['../a00098.html#aecdfe48b0bc36d2dd1f99274613a6c92a52ab3a6e7116f5e6a75594c5e6228415',1,'adc_types.h']]],
+  ['vsecaveraging_17',['vsecaveraging',['../a00521.html#gab32442553cb7f7f3a3cd4a022e2a02ab',1,'VsecAveraging:&#160;dev_pwrctrl_isr.c'],['../a00521.html#gab32442553cb7f7f3a3cd4a022e2a02ab',1,'VsecAveraging:&#160;dev_pwrctrl_isr.c']]],
+  ['vsecondaryovp_18',['VSecondaryOVP',['../a00669.html#a4a4096da1c84272a28022842417dc638',1,'FAULT_s']]],
+  ['vsecreference_19',['VSecReference',['../a00725.html#aa9713a077db135ad061aae799db7be2c',1,'PWR_CTRL_PROPERTIES_s']]],
+  ['vsecvoltage_20',['VSecVoltage',['../a00701.html#a4e6e0db2e515990bc32d13435a75b50e',1,'FEEDBACK_SETTINGS_s']]]
+];
