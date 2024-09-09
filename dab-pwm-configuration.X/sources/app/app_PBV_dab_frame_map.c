@@ -58,8 +58,6 @@
 #define PBV_CMD_ID_DAB_ON_OFF           0xAAAA           ///< turn DAB on or off
 #define PBV_CMD_ID_DAB_RESET            0xAAAB           ///< DAB operation is resetted
 #define PBV_CMD_ID_FREQ_CHANGE          0xBBBB           ///< change DAB switching frequency
-#define PBV_CMD_ID_PWM_DTH              0xBBBC           ///< change DAB PWM DeadTime High
-#define PBV_CMD_ID_PWM_DTL              0xBBBD           ///< change DAB PWM DeadTime Low
 #define PBV_CMD_ID_FAN_SPEED            0xCCCC           ///< set fan speed 
 
 #define PBV_CMD_ID_ILOOP_REF_SET        0xDDDD           ///< set current loop reference
@@ -366,22 +364,6 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         case PBV_CMD_ID_ISEC_TEST:{
             Dev_Fault_SetISecondaryThreshold(control_word);    
             break;
-        }
-        case PBV_CMD_ID_PWM_DTH:{
-            if (control_word < 600) //TODO: put in proper check here!
-                control_word = 600;
-            Nop();
-            Nop();
-            Nop();
-            //Dev_PwrCtrl_SetDeadTimeHigh(control_word);
-            break; 
-        }
-        case PBV_CMD_ID_PWM_DTL:{
-            if (control_word < 600) //TODO: put in proper check here!
-                control_word = 600;
-            
-            //Dev_PwrCtrl_SetDeadTimeLow(control_word);
-            break; 
         }
                  
         default:
