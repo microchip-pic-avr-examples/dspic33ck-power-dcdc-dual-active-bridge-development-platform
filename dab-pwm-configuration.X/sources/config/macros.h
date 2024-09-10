@@ -53,7 +53,7 @@
 
 #define VSEC_SETPOINT_DEFAULT   (UNITS_FROM_ENG_TO_ADC(VSEC_SETPOINT_DEFAULT_VOLTS,VSEC_SNS_GAIN,0.0))
 
-#define POWER_RESOLUTION             (uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * 16384)) / ((ADC_RESOLUTION * VSEC_SNS_GAIN) * (ADC_RESOLUTION * ISEC_AVG_SNS_GAIN))) 
+#define POWER_RESOLUTION        (uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, 14))) / ((ADC_RESOLUTION * VSEC_SNS_GAIN) * (ADC_RESOLUTION * ISEC_AVG_SNS_GAIN))) 
 
 // convert I_SC_LEB_TIME (seconds) into an integer that can be loaded into PGxDC register (assume PWM is in High resolution mode so resolution is 250ps)
 #define I_SC_LEB_TIME_PGxDC                   ((uint16_t)(_rnd(I_SC_LEB_TIME / 250.0e-12)))
