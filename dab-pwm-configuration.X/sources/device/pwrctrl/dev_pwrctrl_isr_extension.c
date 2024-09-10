@@ -321,33 +321,29 @@ void Dev_PwrCtrl_DeadTimeAdjust(void)
  * 
  * @details 
  *********************************************************************************/
-#define PRIMTOSEC_TARGET (830)
-#define PERIODSTEP (2<<3) //(1<<3)//(40<<3) //1<<3  least significant 3 bits are allways 0 in PWM HW, so says documentation 
-#define PHASETIMESTEP (1<<3) // 1<<3
-#define PERIODMIN (24000)
-#define PERIODMAX (65000)
-
 void  Dev_PwrCtrl_PeriodModulator(void)
 {
     static uint16_t decimPM;
     decimPM++;
     
-    if(dab.Pwm.ControlPhase_P2S_Target > PRIMTOSEC_TARGET) 
-        dab.Pwm.ControlPhase_P2S_Target = PRIMTOSEC_TARGET;//clamp cutoff while modulating period
+    if(dab.Pwm.ControlPhase_P2S_Target > PRI_TO_SEC_PHASE_TARGET) 
+        dab.Pwm.ControlPhase_P2S_Target = PRI_TO_SEC_PHASE_TARGET;//clamp cutoff while modulating period
     if(dab.Pwm.ControlPhase_P2S_Target == 0) 
-        dab.Pwm.ControlPhase_P2S_Target = PRIMTOSEC_TARGET;
+        dab.Pwm.ControlPhase_P2S_Target = PRI_TO_SEC_PHASE_TARGET;
         
     if(decimPM>=8) 
     {
         if (dab.Pwm.ControlPhase_P2S_Degreex10 < dab.Pwm.ControlPhase_P2S_Target-5)
         {
-            if((dab.Pwm.ControlPeriod > PERIODMIN) && (dab.Pwm.LowPowerSlowMode == 0))
+            if((dab.Pwm.ControlPeriod > MIN_PWM_PERIOD) && (dab.Pwm.LowPowerSlowMode == 0))
             {  
                 dab.Pwm.ControlPeriod-= PERIODSTEP;
             }
             else
             {
-                if (dab.Pwm.ControlPhase_P2S_Degreex10 < 680 )
+                // When phase shift between primary to secondary is 68 degrees,
+                // DAB runs in low power mode
+                if (dab.Pwm.ControlPhase_P2S_Degreex10 < 680)
                 {
                    dab.Pwm.LowPowerSlowMode =1;
                 }
@@ -356,7 +352,7 @@ void  Dev_PwrCtrl_PeriodModulator(void)
 
         if (dab.Pwm.ControlPhase_P2S_Degreex10 > dab.Pwm.ControlPhase_P2S_Target+5)
         {  
-            if((dab.Pwm.ControlPeriod < PERIODMAX) && (dab.Pwm.ControlPhase_P2S_Degreex10  > 20))
+            if((dab.Pwm.ControlPeriod < MAX_PWM_PERIOD) && (dab.Pwm.ControlPhase_P2S_Degreex10  > 20))
             {    
                 dab.Pwm.ControlPeriod+= PERIODSTEP;
             }
@@ -364,13 +360,13 @@ void  Dev_PwrCtrl_PeriodModulator(void)
 
         if(dab.Pwm.LowPowerSlowMode == 1)
         {    
-            if (dab.Pwm.ControlPhase_P2S_Degreex10 > 600 )
+            if (dab.Pwm.ControlPhase_P2S_Degreex10 > 600)
             {    
                 dab.Pwm.LowPowerSlowMode = 0;
             }
             else
             {    
-                if(dab.Pwm.ControlPeriod < PERIODMAX)
+                if(dab.Pwm.ControlPeriod < MIN_PWM_PERIOD)
                 {  
                     dab.Pwm.ControlPeriod += PERIODSTEP;
                 }

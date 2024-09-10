@@ -46,17 +46,9 @@
 
 #define AGC_MINIMUM_VIN_THRESHOLD       160u ///< Minimum VIN threshold to activate AGC in [V]  
 
-// T_ADC_SAMPLE_SECS: smallest period between ADC samples
-#define T_ADC_SAMPLE_SECS       (16.5e-6) // ADC sampling rate
-
-// temperature sample taken every T_ADC_TEMP_SAMPLE_DIVIDER samples 
-#define T_ADC_TEMP_SAMPLE_DIVIDER       (1000)
-
-// 5V rail sample taken every T_ADC_5V_SAMPLE_DIVIDER samples
-#define T_ADC_5V_SAMPLE_DIVIDER         (100)
-
-// VSEC_SETPOINT_DEFAULT_VOLTS: default secondary voltage setpoint
-#define VSEC_SETPOINT_DEFAULT_VOLTS     (50.0)
+#define PRI_TO_SEC_PHASE_TARGET         830u ///< Primary to Secondary phase target before switching to period modulation
+#define PERIODSTEP (2<<3) //(1<<3)//(40<<3) //1<<3  least significant 3 bits are allways 0 in PWM HW, so says documentation 
+#define PHASETIMESTEP (1<<3) // 1<<3
 
 //------------------------------------------------------------------------------
 // fault related parameters
@@ -73,6 +65,10 @@
 //      then clear fault
 // ISEC_OC_TICK_SEC is the rate at which the fault handler is invoked
 // it is required for the firmware to measure trigger and clear blanking times
+
+// T_ADC_SAMPLE_SECS: smallest period between ADC samples
+#define T_ADC_SAMPLE_SECS                   (16.5e-6) // ADC sampling rate
+
 #define ISEC_OC_THRES_TRIG_AMPS             (49.0)//(27.0)  //CT current waveform has high peak.  
 #define ISEC_OC_THRES_CLEAR_AMPS            (2.0)
 #define ISEC_OC_T_BLANK_TRIG_SEC            (50.0e-6)

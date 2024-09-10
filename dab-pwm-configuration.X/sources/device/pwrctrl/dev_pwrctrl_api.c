@@ -40,10 +40,7 @@ uint16_t Dev_PwrCtrl_GetPhase_P2SDegree(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_DbgValue(void)
 {
-    //dab.dbg=(dab.ILoop.AgcFactor);
     dab.dbg=dab.Fault.FaultDetected;
-//    dab.dbg=IPRI_OC_THRES_TRIG;
-//    dab.dbg=ISEC_SC_THRES_TRIG;
     return(dab.dbg);
 }
 

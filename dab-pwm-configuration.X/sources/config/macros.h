@@ -47,12 +47,6 @@
 #define MIN_PWM_DEAD_TIME   (uint16_t)(MINIMUM_DEADTIME / (float)PWM_CLOCK_PERIOD) ///< Minimum dead time [tick = 250ps]
 #define MAX_PWM_DEAD_TIME   (uint16_t)(MAXIMUM_DEADTIME / (float)PWM_CLOCK_PERIOD) ///< Maximum dead time [tick = 250ps]
 
-#define ADC_5V_SAMPLE_DIV   ((uint16_t)(_rnd(T_ADC_5V_SAMPLE_DIVIDER/3)))
-
-#define ADC_TEMP_SAMPLE_DIV     ((uint16_t)(_rnd(T_ADC_TEMP_SAMPLE_DIVIDER/ADC_5V_SAMPLE_DIV)))
-
-#define VSEC_SETPOINT_DEFAULT   (UNITS_FROM_ENG_TO_ADC(VSEC_SETPOINT_DEFAULT_VOLTS,VSEC_SNS_GAIN,0.0))
-
 #define POWER_RESOLUTION        (uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, 14))) / ((ADC_RESOLUTION * VSEC_SNS_GAIN) * (ADC_RESOLUTION * ISEC_AVG_SNS_GAIN))) 
 
 // convert I_SC_LEB_TIME (seconds) into an integer that can be loaded into PGxDC register (assume PWM is in High resolution mode so resolution is 250ps)
