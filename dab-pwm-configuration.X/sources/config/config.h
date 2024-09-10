@@ -37,6 +37,9 @@
 #define MAXIMUM_SWITCHING_FREQUENCY     (float)230.0e+3 ///< Maximum Switching frequency in [Hz]
 #define MINIMUM_SWITCHING_FREQUENCY     (float) 65.0e+3 ///< Minimum Switching frequency in [Hz]
 
+#define MINIMUM_DEADTIME                (float)150e-9 ///< Minimum Deadtime in seconds
+#define MAXIMUM_DEADTIME                (float)500e-9 ///< Maximum Deadtime in seconds
+
 // T_ADC_SAMPLE_SECS: smallest period between ADC samples
 #define T_ADC_SAMPLE_SECS       (16.5e-6) // ADC sampling rate
 
