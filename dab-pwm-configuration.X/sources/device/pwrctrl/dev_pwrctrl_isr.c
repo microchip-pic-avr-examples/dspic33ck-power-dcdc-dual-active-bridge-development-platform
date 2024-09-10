@@ -56,7 +56,6 @@ void Dev_PwrCtrl_ControlLoopExecute(void);
  *   Loop Controllers. The end result of the control loop is handed over to the 
  *   PWM distribution. 
  *********************************************************************************/
-
 void ControlLoop_Interrupt_CallBack(void)
 {      
     GPIO_1_SetHigh();
@@ -86,9 +85,7 @@ void ControlLoop_Interrupt_CallBack(void)
 
     #if(DAC_DEBUG == true)
     // This is for DAC debugging purposes
-//    CMP2_DACDataWrite(dab.VLoop.Reference);
-//    CMP2_DACDataWrite(dab.ILoop.Reference << 2);
-    CMP2_DACDataWrite(dab.PLoop.Reference >> 2);
+//    CMP2_DACDataWrite(variable_to_test_here);
     #endif
 
     #if (true == DPDB_TEST_RUN)
@@ -105,12 +102,8 @@ void ControlLoop_Interrupt_CallBack(void)
     
     #endif
 
-    DPD_TP31_SetHigh();
     // Update PWM Properties
     Dev_PwrCtrl_PWM_Update(&dab);
-    
-    DPD_TP31_SetLow();
-    
+
     GPIO_1_SetLow();
-    
 }
