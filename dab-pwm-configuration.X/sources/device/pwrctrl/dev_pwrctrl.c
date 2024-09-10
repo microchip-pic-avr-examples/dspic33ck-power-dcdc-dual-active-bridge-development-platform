@@ -39,6 +39,7 @@ POWER_CONTROL_t dab;
 
 // PRIVATE FUNCTIONS
 static void Dev_PwrCtrl_StartUpInitialize(void);
+static void Dev_PwrCtrl_ControlLoopInitialize(void);
 
 extern void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
 
@@ -66,11 +67,9 @@ void Dev_PwrCtrl_Initialize(void)
     
     // Initialize the Control Period and Control Phase during start-up
     dab.Pwm.ControlPeriod = MAX_PWM_PERIOD;
-    dab.Pwm.ControlPhase = 32;
-    dab.Pwm.DeadTimeHigh = PG1DTH; // ToDo: remove the register dependency
-    dab.Pwm.DeadTimeLow = PG1DTL; // ToDo: remove the register dependency
+    dab.Pwm.DeadTimeHigh = MINIMUM_DEADTIME; 
+    dab.Pwm.DeadTimeLow = MINIMUM_DEADTIME; 
     dab.Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
-    dab.Pwm.PBVControlPhaseTarget = 32;
     
     // Initialize the DAB to charging state
     dab.PowerDirection = PWR_CTRL_CHARGING;
@@ -103,9 +102,6 @@ void Dev_PwrCtrl_Initialize(void)
  *********************************************************************************/
 void Dev_PwrCtrl_Execute(void)
 {
-    //ToDo: review this later
-    // short circuit fault checks (primary and secondary over current via comparators)
-//    Drv_PwrCtrl_Fault_ShortCircuit(&dab);
     
     Dev_PwrCtrl_StateMachine(&dab);
 }
@@ -118,7 +114,7 @@ void Dev_PwrCtrl_Execute(void)
  * @details This function initializes the control loop necessary to run the close loop
  * operation of the converter. 
  *********************************************************************************/
-void Dev_PwrCtrl_ControlLoopInitialize(void)
+static void Dev_PwrCtrl_ControlLoopInitialize(void)
 {
     // Initialize voltage loop compensator
     Dev_PwrCtrl_VComp_Initialize();
