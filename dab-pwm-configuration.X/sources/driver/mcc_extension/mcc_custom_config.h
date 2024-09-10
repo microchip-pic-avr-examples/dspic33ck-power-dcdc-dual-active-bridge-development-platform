@@ -8,7 +8,7 @@
 #ifndef APP_MCC_CUSTOM_CONFIG_H
 #define	APP_MCC_CUSTOM_CONFIG_H
 
-extern void MCC_Custom_User_Config (void);
+void MCC_Custom_User_Config (void);
 
 #endif	/* APP_MCC_CUSTOM_CONFIG_H */
 

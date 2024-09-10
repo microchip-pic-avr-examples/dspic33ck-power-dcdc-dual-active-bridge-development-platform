@@ -10,11 +10,9 @@
 
 #include "dev_pwrctrl_typedef.h"
 
-extern void Dev_PwrCtrl_PWM_Enable(POWER_CONTROL_t* pcInstance);
-extern void Dev_PwrCtrl_PWM_Disable(POWER_CONTROL_t* pcInstance);
-extern void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance);
-
-
+void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance);
+void Dev_PwrCtrl_PWM_Enable(void);
+void Dev_PwrCtrl_PWM_Disable(void);
 
 #endif	/* DRV_PWRCTRL_PWM_H */
 

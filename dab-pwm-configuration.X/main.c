@@ -68,11 +68,11 @@
 int main(void)
 {
     SYSTEM_Initialize();
-        
+    MCC_Custom_User_Config();
+    
     Dev_PwrCtrl_Initialize();
     Dev_Fault_Initialize();
     
-    MCC_Custom_User_Config();
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt_CallBack); 
     CMP1_EventCallbackRegister(&Dev_Fault_Handler);
     CMP3_EventCallbackRegister(&Dev_Fault_Handler);

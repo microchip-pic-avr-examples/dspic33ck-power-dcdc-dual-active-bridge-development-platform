@@ -57,7 +57,7 @@ void Dev_Fault_Handler(void)
     FAULT_SetLow();
     
     // Turn off PWM output
-    Dev_PwrCtrl_PWM_Disable(&dab);
+    Dev_PwrCtrl_PWM_Disable();
      
     // set the fault active bit
     dab.Status.bits.FaultActive = 1;

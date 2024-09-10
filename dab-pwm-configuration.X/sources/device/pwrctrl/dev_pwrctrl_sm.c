@@ -115,7 +115,7 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->Data.ISecSensorOffset = Dev_CurrentSensor_Get_Offset();
         
         // Ensure PWM output is disabled
-        Dev_PwrCtrl_PWM_Disable(pcInstance);
+        Dev_PwrCtrl_PWM_Disable();
         
         // Reset fault objects status bits
         Dev_Fault_Reset();
@@ -263,7 +263,7 @@ static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     else if (!pcInstance->Properties.Enable) 
     {
         // Disable PWM physical output
-        Dev_PwrCtrl_PWM_Disable(pcInstance);
+        Dev_PwrCtrl_PWM_Disable();
         
         // Clear power control running bit
         pcInstance->Status.bits.Running = 0;
@@ -322,7 +322,7 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
         if (!pcInstance->Properties.Enable) 
         {
             // Disable PWM physical output
-            Dev_PwrCtrl_PWM_Disable(pcInstance);
+            Dev_PwrCtrl_PWM_Disable();
 
             // Clear power control running bit
             pcInstance->Status.bits.Running = 0;
