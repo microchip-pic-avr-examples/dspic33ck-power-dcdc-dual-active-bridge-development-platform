@@ -20,7 +20,7 @@
  */
 #include <xc.h>
 #include "driver/mcc_extension/drv_mcc_extension.h"
-#include "driver/mcc_extension/drv_config_custom_pwm.h"
+#include "driver/mcc_extension/drv_custom_config_pwm.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
 
 void MCC_Custom_User_Config (void)
