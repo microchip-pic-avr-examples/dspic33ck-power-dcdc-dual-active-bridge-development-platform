@@ -15,8 +15,8 @@
 
 #define DAC_DEBUG       false    ///< test values with PIM DAC output
 #define DPDB_TEST_RUN   false    ///< test the code with Digital Power Development Board
-#define OPEN_LOOP_PBV   false    ///< use Power Board visualizer to change the parameters
-#define PERIOD_MODULATION_DEMO   false
+#define OPEN_LOOP_PBV   false    ///< use Power Board visualizer to change the parameters in Open loop operation
+#define PERIOD_MODULATION_DEMO   false  ///< modulates the period; for further development
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
 //------------------------------------------------------------------------------
@@ -39,6 +39,12 @@
 
 #define MINIMUM_DEADTIME                (float)150e-9 ///< Minimum Deadtime in seconds
 #define MAXIMUM_DEADTIME                (float)500e-9 ///< Maximum Deadtime in seconds
+
+#define ILOOP_EXECUTE                   (float)100e+3 ///< Current Loop control in [Hz]
+#define VLOOP_EXECUTE                   (float)10e+3  ///< Voltage Loop control in [Hz]
+#define PLOOP_EXECUTE                   (float)10e+3  ///< Power Loop control in [Hz]
+
+#define AGC_MINIMUM_VIN_THRESHOLD       160u ///< Minimum VIN threshold to activate AGC in [V]  
 
 // T_ADC_SAMPLE_SECS: smallest period between ADC samples
 #define T_ADC_SAMPLE_SECS       (16.5e-6) // ADC sampling rate
