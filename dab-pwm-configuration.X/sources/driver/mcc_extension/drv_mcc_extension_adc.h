@@ -19,116 +19,193 @@
  * TERMS. 
  */
 
-#ifndef DRV_MC_EXTENSION_ADC_H
-#define	DRV_MC_EXTENSION_ADC_H
+#ifndef DRV_MCC_EXTENSION_ADC_H
+#define	DRV_MCC_EXTENSION_ADC_H
 
 #include <xc.h>
 #include <stdint.h> // include standard integer data types
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h> // include standard definition data types
 
-#define ADC_ANINPUT_COUNT   (20)
-
-/*********************************************************************************
- * @ingroup 
- * @def     DRV_ADC_SetChannel
- * @brief   Set ADC conversion channel
- * @details
- * Peripheral Change ADC input channel
-// **********************************************************************************/
-#define DRV_ADC_SetChannel(channel)           (ADCON3Lbits.CNVCHSEL = channel)
-//
-///*********************************************************************************
-// * @ingroup GROUP_NAME
-// * @def     MACRO_NAME
-// * @brief   ADD_SHORT_DESCRIPTION
-// * @details
-// *  ADD_DESCRIPTION_HERE
-// **********************************************************************************/
-#define DRV_ADC_TriggerSoftwareConversion()   (ADCON3Lbits.CNVRTCH = 1) 
-
-
 /*********************************************************************************
  * @ingroup GROUP_NAME
- * @def     MACRO_NAME
- * @brief   ADD_SHORT_DESCRIPTION
+ * @def     ADC_FILTER_MODE_e
+ * @brief   ADC Filter Modes of operation
  * @details
  *  ADD_DESCRIPTION_HERE
  **********************************************************************************/
-enum ADTRIG_TRGSRC_e {
-
-    ADTRIGx_TRGSRC_ADTRG31    = 0b11111, // ADC Trigger #31 (PPS input)
-    ADTRIGx_TRGSRC_LSWTRG     = 0b00010, // Level software trigger
-    ADTRIGx_TRGSRC_CSWTRG     = 0b00001, // Common Software Trigger
-    ADTRIGx_TRGSRC_PTG        = 0b11110, // AD trigger source: PTG
-    ADTRIGx_TRGSRC_CLC2       = 0b11101, // AD trigger source: CLC2
-    ADTRIGx_TRGSRC_CLC1       = 0b11100, // AD trigger source: CLC1
-    ADTRIGx_TRGSRC_MCCP9      = 0b11011, // AD trigger source: MCCP9
-    ADTRIGx_TRGSRC_SCCP7      = 0b11010, // AD trigger source: SCCP7
-    ADTRIGx_TRGSRC_SCCP6      = 0b11001, // AD trigger source: SCCP6
-    ADTRIGx_TRGSRC_SCCP5      = 0b11000, // AD trigger source: SCCP5
-    ADTRIGx_TRGSRC_SCCP4      = 0b10111, // AD trigger source: SCCP4
-    ADTRIGx_TRGSRC_SCCP3      = 0b10110, // AD trigger source: SCCP3
-    ADTRIGx_TRGSRC_SCCP2      = 0b10101, // AD trigger source: SCCP2
-    ADTRIGx_TRGSRC_SCCP1      = 0b10100, // AD trigger source: SCCP1
-    ADTRIGx_TRGSRC_PWM8_TRIG2 = 0b10011, // AD trigger source: PWM8 Trigger 2
-    ADTRIGx_TRGSRC_PWM8_TRIG1 = 0b10010, // AD trigger source: PWM8 Trigger 1
-    ADTRIGx_TRGSRC_PWM7_TRIG2 = 0b10001, // AD trigger source: PWM7 Trigger 2
-    ADTRIGx_TRGSRC_PWM7_TRIG1 = 0b10000, // AD trigger source: PWM7 Trigger 1
-    ADTRIGx_TRGSRC_PWM6_TRIG2 = 0b01111, // AD trigger source: PWM6 Trigger 2
-    ADTRIGx_TRGSRC_PWM6_TRIG1 = 0b01110, // AD trigger source: PWM6 Trigger 1
-    ADTRIGx_TRGSRC_PWM5_TRIG2 = 0b01101, // AD trigger source: PWM5 Trigger 2
-    ADTRIGx_TRGSRC_PWM5_TRIG1 = 0b01100, // AD trigger source: PWM5 Trigger 1
-    ADTRIGx_TRGSRC_PWM4_TRIG2 = 0b01011, // AD trigger source: PWM4 Trigger 2
-    ADTRIGx_TRGSRC_PWM4_TRIG1 = 0b01010, // AD trigger source: PWM4 Trigger 1
-    ADTRIGx_TRGSRC_PWM3_TRIG2 = 0b01001, // AD trigger source: PWM3 Trigger 2
-    ADTRIGx_TRGSRC_PWM3_TRIG1 = 0b01000, // AD trigger source: PWM3 Trigger 1
-    ADTRIGx_TRGSRC_PWM2_TRIG2 = 0b00111, // AD trigger source: PWM2 Trigger 2
-    ADTRIGx_TRGSRC_PWM2_TRIG1 = 0b00110, // AD trigger source: PWM2 Trigger 1
-    ADTRIGx_TRGSRC_PWM1_TRIG2 = 0b00101, // AD trigger source: PWM1 Trigger 2
-    ADTRIGx_TRGSRC_PWM1_TRIG1 = 0b00100, // AD trigger source: PWM1 Trigger 1
-    ADTRIGx_TRGSRC_NONE       = 0b00000 // No trigger is selected
-        
-};
-typedef enum ADTRIG_TRGSRC_e ADTRIG_TRGSRC_t;
-
-/*
- * ************************************************************************************************
- * Summary:
- * Configures interrupt trigger source setting of an individual analog input
- *
- * Parameters:
- *     - inputIndex: index of channel (0 for AN0, 1 for AN1, etc)
- *     - triggerSource: trigger source
- *
- * Returns: 
- *      0: failure
- *      1: success
- * 
- * Description:
- * This function configures the trigger source selection for corresponding analog inputs by
- * extracting the user setting from the function parameter "triggerSource" 
- * 
- * ***********************************************************************************************/
-static __inline__ uint16_t ADC_ADInput_SetTriggerSource(uint16_t inputIndex, ADTRIG_TRGSRC_t triggerSource)
+enum ADC_FILTER_MODE_e
 {
-    uint16_t fres = 1;
-    uint8_t *regptr;
-    
-    // Check if given ADC input index is within available range
-    if (inputIndex >= ADC_ANINPUT_COUNT) return(0);
+    ADC_FILTER_MODE_OVERSAMPLING = 0,
+    ADC_FILTER_MODE_AVERAGING = 3
+};
 
-    // Determine register set offset
-    regptr = (uint8_t *)&ADTRIG0L; // get register block base address
-    regptr += (uint8_t)inputIndex;   // add offset
-    *regptr = (uint8_t)triggerSource;
-    
-    // Check if WRITE operation was successful
-    fres &= (bool)((*regptr == (uint8_t)triggerSource));  
+typedef enum ADC_FILTER_MODE_e ADC_FILTER_MODE_t;
 
-    return(1);
+/*********************************************************************************
+ * @ingroup GROUP_NAME
+ * @def     ADC_FILTER_OVRSAM_AVG_e
+ * @brief   ADC Filter Oversampling Ratio when in averaging mode
+ * @details
+ *  ADD_DESCRIPTION_HERE
+ **********************************************************************************/
+enum ADC_FILTER_OVRSAM_AVG_e
+{
+    ADC_FILTER_OVRSAM_AVG_2x = 0,
+    ADC_FILTER_OVRSAM_AVG_4x = 1,
+    ADC_FILTER_OVRSAM_AVG_8x = 2,
+    ADC_FILTER_OVRSAM_AVG_16x = 3,
+    ADC_FILTER_OVRSAM_AVG_32x = 4,
+    ADC_FILTER_OVRSAM_AVG_64x = 5,
+    ADC_FILTER_OVRSAM_AVG_128x = 6,
+    ADC_FILTER_OVRSAM_AVG_256x = 7,
+};
+
+typedef enum ADC_FILTER_OVRSAM_AVG_e ADC_FILTER_OVRSAM_AVG_t;
+
+/*********************************************************************************
+ * @ingroup GROUP_NAME
+ * @def    inline static void ADC_Filter_Enable(uint16_t filterIndex, bool enable)
+ * @brief  divide ADC trigger 1 frequency by an integer, from 1 to 32
+ * @details 
+ **********************************************************************************/
+inline static void ADC_Filter_Enable(uint16_t filterIndex, bool enable)
+{
+    switch (filterIndex)
+    {
+        case 0:
+            ADFL0CONbits.FLEN = (uint16_t)enable;
+            break;
+        case 1:
+            ADFL1CONbits.FLEN = (uint16_t)enable;
+            break;
+        case 2:
+            ADFL2CONbits.FLEN = (uint16_t)enable;
+            break;
+        case 3:
+            ADFL3CONbits.FLEN = (uint16_t)enable;
+            break;
+        default:
+            // index out of range, do nothing
+            break;
+    }
 }
 
+/*********************************************************************************
+ * @ingroup GROUP_NAME
+ * @def    ADC_Filter_Mode(uint16_t filterIndex, ADC_FILTER_MODE_t mode)
+ * @brief  set the filter mode (averaging or oversampling)
+ * @details 
+ **********************************************************************************/
+inline static void ADC_Filter_Mode(uint16_t filterIndex, ADC_FILTER_MODE_t mode)
+{
+    switch (filterIndex)
+    {
+        case 0:
+            ADFL0CONbits.MODE = (uint16_t)mode;
+            break;
+        case 1:
+            ADFL1CONbits.MODE = (uint16_t)mode;
+            break;
+        case 2:
+            ADFL2CONbits.MODE = (uint16_t)mode;
+            break;
+        case 3:
+            ADFL3CONbits.MODE = (uint16_t)mode;
+            break;            
+        default:
+            // do nothing
+            break;
+    }
+}
+
+/*********************************************************************************
+ * @ingroup GROUP_NAME
+ * @def    ADC_Filter_Averaging(uint16_t filterIndex, ADC_FILTER_OVRSAM_AVG_t averagingRatio)
+ * @brief  set the amount of filter averaging when in averaging mode
+ * @details 
+ **********************************************************************************/
+inline static void ADC_Filter_Averaging(uint16_t filterIndex, ADC_FILTER_OVRSAM_AVG_t averagingRatio)
+{
+    switch (filterIndex)
+    {
+        case 0:
+            ADFL0CONbits.OVRSAM = (uint16_t)averagingRatio;
+            break;
+        case 1:
+            ADFL1CONbits.OVRSAM = (uint16_t)averagingRatio;
+            break;
+        case 2:
+            ADFL2CONbits.OVRSAM = (uint16_t)averagingRatio;
+            break;
+        case 3:
+            ADFL3CONbits.OVRSAM = (uint16_t)averagingRatio;
+            break;            
+        default:
+            // do nothing
+            break;        
+    }
+}
+
+/*********************************************************************************
+ * @ingroup GROUP_NAME
+ * @def    ADC_Filter_Averaging(uint16_t filterIndex, ADC_FILTER_OVRSAM_AVG_e averagingRatio)
+ * @brief  set the amount of filter averaging when in averaging mode
+ * @details 
+ **********************************************************************************/
+inline static void ADC_Filter_Input(uint16_t filterIndex, uint16_t channelIndex)
+{
+    if (channelIndex <= 25)
+    {
+        switch (filterIndex)
+        {
+            case 0:
+                ADFL0CONbits.FLCHSEL = channelIndex;
+                break;
+            case 1:
+                ADFL1CONbits.FLCHSEL = channelIndex;
+                break;
+            case 2:
+                ADFL2CONbits.FLCHSEL = channelIndex;
+                break;
+            case 3:
+                ADFL3CONbits.FLCHSEL = channelIndex;
+                break;            
+            default:
+                // do nothing
+                break;        
+        }        
+    }
+}
+
+/*********************************************************************************
+ * @ingroup GROUP_NAME
+ * @def    ADC_Filter_GetResult(uint16_t filterIndex)
+ * @brief  Read the Filter Result
+ * @details 
+ **********************************************************************************/
+inline static uint16_t ADC_Filter_GetResult(uint16_t filterIndex)
+{
+    uint16_t filterResult = 0;
+    switch (filterIndex)
+    {
+        case 0:  
+            filterResult = ADFL0DAT;
+            break;
+        case 1:  
+            filterResult = ADFL1DAT;
+            break;
+        case 2:  
+            filterResult = ADFL2DAT;
+            break;
+        case 3:  
+            filterResult = ADFL3DAT;
+            break;
+        default:
+            break;            
+    } 
+    return (filterResult);
+}
 
 #endif	/* DRV_MC_EXTENSION_ADC_H */
 
