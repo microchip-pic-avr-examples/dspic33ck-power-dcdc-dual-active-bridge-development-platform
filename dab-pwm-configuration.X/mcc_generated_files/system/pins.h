@@ -147,6 +147,57 @@
 
 /**
  * @ingroup  pinsdriver
+ * @brief    Sets the RC14 GPIO Pin which has a custom name of DPD_TP31 to High
+ * @pre      The RC14 must be set as Output Pin             
+ * @param    none
+ * @return   none  
+ */
+#define DPD_TP31_SetHigh()          (_LATC14 = 1)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Sets the RC14 GPIO Pin which has a custom name of DPD_TP31 to Low
+ * @pre      The RC14 must be set as Output Pin
+ * @param    none
+ * @return   none  
+ */
+#define DPD_TP31_SetLow()           (_LATC14 = 0)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Toggles the RC14 GPIO Pin which has a custom name of DPD_TP31
+ * @pre      The RC14 must be set as Output Pin
+ * @param    none
+ * @return   none  
+ */
+#define DPD_TP31_Toggle()           (_LATC14 ^= 1)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Reads the value of the RC14 GPIO Pin which has a custom name of DPD_TP31
+ * @param    none
+ * @return   none  
+ */
+#define DPD_TP31_GetValue()         _RC14
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Configures the RC14 GPIO Pin which has a custom name of DPD_TP31 as Input
+ * @param    none
+ * @return   none  
+ */
+#define DPD_TP31_SetDigitalInput()  (_TRISC14 = 1)
+
+/**
+ * @ingroup  pinsdriver
+ * @brief    Configures the RC14 GPIO Pin which has a custom name of DPD_TP31 as Output
+ * @param    none
+ * @return   none  
+ */
+#define DPD_TP31_SetDigitalOutput() (_TRISC14 = 0)
+
+/**
+ * @ingroup  pinsdriver
  * @brief    Sets the RD2 GPIO Pin which has a custom name of IO_RD2 to High
  * @pre      The RD2 must be set as Output Pin             
  * @param    none
