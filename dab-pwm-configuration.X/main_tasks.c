@@ -86,7 +86,9 @@
 /* LDRA_EXCLUDE 65 D */
 void Tasks_Realtime_100us(void)
 {    
+    // Execute the power control state machine
     Dev_PwrCtrl_Execute();
+    
 }
 #endif /* OS_USE_SCHEDULER_100us */
 //=======================================================================================================

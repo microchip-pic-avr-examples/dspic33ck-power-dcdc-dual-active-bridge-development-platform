@@ -35,7 +35,7 @@
  * @details The 'dab' data object holds all status, control and monitoring values 
  * of the POWER_CONTROL_t power controller. 
  ******************************************************************************/
-POWER_CONTROL_t dab;
+POWER_CONTROL_t dab;    // Declare DAB converter data structure
 
 // PRIVATE FUNCTIONS
 static void Dev_PwrCtrl_StartUpInitialize(void);
@@ -107,7 +107,7 @@ void Dev_PwrCtrl_Execute(void)
  * @details This function initializes the control loop necessary to run the close loop
  * operation of the converter. 
  *********************************************************************************/
-static void Dev_PwrCtrl_ControlLoopInitialize(void)
+void Dev_PwrCtrl_ControlLoopInitialize(void)
 {
     // Initialize voltage loop compensator
     Dev_PwrCtrl_VComp_Initialize();
