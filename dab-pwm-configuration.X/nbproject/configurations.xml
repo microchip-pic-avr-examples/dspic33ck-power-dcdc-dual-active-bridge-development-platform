@@ -124,11 +124,12 @@
           <logicalFolder name="mcc_extension"
                          displayName="mcc_extension"
                          projectFiles="true">
-            <itemPath>sources/driver/mcc_extension/drv_config_custom_pwm.h</itemPath>
             <itemPath>sources/driver/mcc_extension/drv_mcc_extension.h</itemPath>
             <itemPath>sources/driver/mcc_extension/drv_mcc_extension_adc.h</itemPath>
             <itemPath>sources/driver/mcc_extension/drv_mcc_extension_pwm.h</itemPath>
             <itemPath>sources/driver/mcc_extension/mcc_custom_config.h</itemPath>
+            <itemPath>sources/driver/mcc_extension/drv_custom_config_adc.h</itemPath>
+            <itemPath>sources/driver/mcc_extension/drv_custom_config_pwm.h</itemPath>
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="os" displayName="os" projectFiles="true">
@@ -251,6 +252,8 @@
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_pwm.c</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl_isr.c</itemPath>
             <itemPath>sources/device/pwrctrl/dev_pwrctrl.c</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl_adc.c</itemPath>
+            <itemPath>sources/device/pwrctrl/dev_pwrctrl_isr_extension.c</itemPath>
           </logicalFolder>
           <itemPath>sources/device/dev_current_sensor.c</itemPath>
           <itemPath>sources/device/dev_fan.c</itemPath>
@@ -293,7 +296,7 @@
         <targetDevice>dsPIC33CK256MP506</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>ri4hybrid</platformTool>
+        <platformTool>ICD5Tool</platformTool>
         <languageToolchain>XCDSC</languageToolchain>
         <languageToolchainVersion>3.10</languageToolchainVersion>
         <platform>3</platform>
@@ -373,6 +376,25 @@
       <C30-AR>
         <property key="additional-options-chop-files" value="false"/>
       </C30-AR>
+      <C30-AS>
+        <property key="assembler-symbols" value=""/>
+        <property key="expand-macros" value="false"/>
+        <property key="extra-include-directories-for-assembler" value=""/>
+        <property key="extra-include-directories-for-preprocessor" value=""/>
+        <property key="false-conditionals" value="false"/>
+        <property key="keep-locals" value="false"/>
+        <property key="list-assembly" value="false"/>
+        <property key="list-section-info" value="false"/>
+        <property key="list-source" value="false"/>
+        <property key="list-symbols" value="false"/>
+        <property key="oXC16asm-extra-opts" value=""/>
+        <property key="oXC16asm-list-to-file" value="false"/>
+        <property key="omit-debug-dirs" value="false"/>
+        <property key="omit-forms" value="false"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="relax" value="false"/>
+        <property key="warning-level" value="emit-warnings"/>
+      </C30-AS>
       <C30-CO>
         <property key="coverage-enable" value=""/>
         <property key="stack-guidance" value="false"/>
@@ -518,7 +540,7 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-2beff"/>
-        <property key="poweroptions.powerenable" value="true"/>
+        <property key="poweroptions.powerenable" value="false"/>
         <property key="programmerToGoFilePath"
                   value="C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dab-pwm-configuration.X/debug/default/dab-pwm-configuration_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
