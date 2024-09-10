@@ -19,6 +19,6 @@ extern AVERAGING_t IsecAveraging;
 extern void Dev_PwrCtrl_Initialize(void);
 extern void Dev_PwrCtrl_Execute(void);
 extern void Dev_PwrCtrl_Suspend(void);
-extern void Dev_PwrCtrl_ControlLoopInitialize(void);
+
 #endif	/* APP_PWRCTRL_H */
 

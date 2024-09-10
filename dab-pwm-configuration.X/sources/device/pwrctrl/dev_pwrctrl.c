@@ -58,13 +58,6 @@ void Dev_PwrCtrl_Initialize(void)
     dab.Properties.IReference = 0;
     dab.Properties.PwrReference = 0;
     
-    // Initialize the PWM instance that the user initialize in MCC
-    // for the power control driver
-    dab.Pwm.Primary_1 = PWM_GENERATOR_1;
-    dab.Pwm.Primary_2 = PWM_GENERATOR_3;
-    dab.Pwm.Secondary_1 = PWM_GENERATOR_2;
-    dab.Pwm.Secondary_2 = PWM_GENERATOR_4;
-    
     // Initialize the Control Period and Control Phase during start-up
     dab.Pwm.ControlPeriod = MAX_PWM_PERIOD;
     dab.Pwm.DeadTimeHigh = MINIMUM_DEADTIME; 
@@ -81,7 +74,7 @@ void Dev_PwrCtrl_Initialize(void)
     Dev_PwrCtrl_ControlLoopInitialize();
     
     // Disable PWM output by setting the PWM override bits to High
-    Dev_PwrCtrl_PWM_Disable(&dab); 
+    Dev_PwrCtrl_PWM_Disable(); 
     
     // Enable PWM peripheral
     PWM_Enable();

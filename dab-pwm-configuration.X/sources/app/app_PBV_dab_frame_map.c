@@ -237,7 +237,6 @@ void App_PBV_DAB_Build_Frame()
     uint16_t enabled = Dev_PwrCtrl_Get_EnableFlag();
     uint16_t fault_flags = Dev_Fault_GetFlags();
     uint16_t status_flags = Dev_PwrCtrl_Get_Status();
-    uint16_t current_sensor_cal_flag = Dev_CurrentSensor_Get_CalibrationStatus();
     uint16_t flag_word = enabled + ((status_flags & 0x0003)<<1) + (fault_flags<<3);
     
     buffer_sixteen_tx[1] = flag_word;
