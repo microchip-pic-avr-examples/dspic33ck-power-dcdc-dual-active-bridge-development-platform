@@ -12,6 +12,7 @@
 #include <stdint.h> // include standard integer data types
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h> // include standard definition data types
+#include <math.h> // include standard math functions library
 
 #include "useful_macros.h"
 #include "config.h"
@@ -97,6 +98,9 @@
 #define ISEC_SC_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(ISEC_SC_THRES_TRIG_AMPS,ISEC_CT_SNS_GAIN,ISEC_CT_SNS_OFS))     
 #define IPRI_SC_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(IPRI_SC_THRES_TRIG_AMPS,IPRI_CT_SNS_GAIN,IPRI_CT_SNS_OFS))
 #define I_SC_T_BLANK_CLEAR                  ((uint16_t)(_rnd(I_SC_T_BLANK_CLEAR_SEC / I_SC_TICK_SEC)))
+
+#define AGC_DAB_FACTOR                      (uint32_t)(AGC_MINIMUM_VIN_THRESHOLD * pow(2.0, 15))
+#define AGC_VIN_THRESHOLD                   (uint16_t)(UNITS_FROM_ADC_TO_ENG(AGC_MINIMUM_VIN_THRESHOLD, VPRI_SNS_GAIN))
 
 // convert I_SC_LEB_TIME (seconds) into an integer that can be loaded into PGxDC register (assume PWM is in High resolution mode so resolution is 250ps)
 #define I_SC_LEB_TIME_PGxDC                   ((uint16_t)(_rnd(I_SC_LEB_TIME / 250.0e-12)))

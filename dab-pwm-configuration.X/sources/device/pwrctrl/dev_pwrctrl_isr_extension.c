@@ -237,22 +237,19 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
 static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
 {
     uint32_t interm = 0; 
-    uint16_t DAB_PrimaryVoltage;//convert to actual voltage. 
+    uint16_t DAB_PrimaryVoltage; // Convert to actual voltage 
     
-
     interm = (uint32_t)((VprimAveraging.AverageValue)* 10);
-    DAB_PrimaryVoltage = __builtin_divud( interm, 44);// 55);//scaling formula
+    DAB_PrimaryVoltage = __builtin_divud( interm, 44); //scaling formula
     
     if(dab.PowerDirection == PWR_CTRL_CHARGING)
     { 
-        if(DAB_PrimaryVoltage > 160 )
-        { 
-            dab.ILoop.AgcFactor = (int16_t) (0x7FFF & __builtin_divud(0x500000, DAB_PrimaryVoltage));
-        }
+        if(DAB_PrimaryVoltage > AGC_VIN_THRESHOLD)
+            dab.ILoop.AgcFactor = (int16_t) (0x7FFF & 
+                    __builtin_divud(AGC_DAB_FACTOR, DAB_PrimaryVoltage));
+        
         else
-        {
             dab.ILoop.AgcFactor = 0x7FFF;
-        }  
     }
     
     // Reserved for future Development
