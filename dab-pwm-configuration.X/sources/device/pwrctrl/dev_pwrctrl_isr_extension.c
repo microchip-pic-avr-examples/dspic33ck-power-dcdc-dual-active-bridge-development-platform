@@ -63,40 +63,6 @@ static void Dev_PwrCtrl_AdaptiveGainUpdate(void);
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl-methods-private
- * @brief  This function updates the DAB data members with ADC raw values
- * @return void
- * 
- * @details This function is called every 100KHz and triggers the ADC module. This
- *  also handles the updating of DAB data members with its latest ADC raw values
- *  and collection of data for averaging.
- *********************************************************************************/
-void Dev_PwrCtrl_UpdateADConverterData (void)
-{
-    ADC1_SoftwareTriggerEnable();
-    
-    dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); 
-    dab.Data.ISecAverageRectified = abs(dab.Data.ISecAverage - dab.Data.ISecSensorOffset);
-    IsecAveraging.Accumulator += dab.Data.ISecAverageRectified;
-    IsecAveraging.Counter = IsecAveraging.Counter + 1;
-    
-    dab.Data.VSecVoltage = ADC1_ConversionResultGet(VSEC);
-    VsecAveraging.Accumulator += dab.Data.VSecVoltage;
-    VsecAveraging.Counter = VsecAveraging.Counter + 1; 
-    
-    dab.Data.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); 
-    dab.Data.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
-
-    dab.Data.VPriVoltage = ADC1_ConversionResultGet(VPRI);
-    VprimAveraging.Accumulator += dab.Data.VPriVoltage;
-    VprimAveraging.Counter = VprimAveraging.Counter + 1;         
-            
-    dab.Data.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
-    dab.Data.Temperature = ADC1_ConversionResultGet(TEMP);
-    
-}
-
-/*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
  * @brief Executes the power converter control loop 
  * @return void
  * 
@@ -118,18 +84,20 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         VsecAveraging.AverageValue = (uint16_t)(__builtin_divud(VsecAveraging.Accumulator, VsecAveraging.Counter));
         VsecAveraging.Accumulator = 0;
         VsecAveraging.Counter = 0;
-            
-        // Averaging of Primary Voltage
-        VprimAveraging.AverageValue = (uint16_t)(__builtin_divud(VprimAveraging.Accumulator, VprimAveraging.Counter));
-        VprimAveraging.Accumulator = 0;
-        VprimAveraging.Counter = 0;
         
         //Condition for control loop execution controlling the loop enable bit
         if((dab.VLoop.Enable == false) && (VLoopExec == true)){
             dab.VLoop.Enable = true;
             dab.PLoop.Enable = false;
             
+            // Averaging of Primary Voltage
+            VprimAveraging.AverageValue = (uint16_t)(__builtin_divud(VprimAveraging.Accumulator, VprimAveraging.Counter));
+            VprimAveraging.Accumulator = 0;
+            VprimAveraging.Counter = 0;
+            
+            Dev_PwrCtrl_AdaptiveGainUpdate();
         }
+        
         else if((dab.PLoop.Enable == false) && (VLoopExec == false)){
             dab.VLoop.Enable = false;
             dab.PLoop.Enable = true;
@@ -140,8 +108,6 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
             IsecAveraging.Counter = 0;
         }
         cnt = 0;
-        
-        Dev_PwrCtrl_AdaptiveGainUpdate();
     }
     
     // Execute the Voltage Loop Control
@@ -175,7 +141,8 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         // Bit-shift value used to perform input value normalization
         // Scaled the feedback to Power (Watts in units)
         uint32_t buf = (uint32_t)IsecAveraging.AverageValue * 
-                (uint32_t)VsecAveraging.AverageValue  * POWER_RESOLUTION; 
+                (uint32_t)VsecAveraging.AverageValue * POWER_RESOLUTION; 
+
         // scale back the 14 bit from the POWER_RESOLUTION calculation 
         // to get the Watts value for Power Loop
         buf >>=14;
@@ -204,7 +171,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         // Mixing stage from voltage loop 10KHz
         uint32_t RefBuf = (uint32_t)(dab.ILoop.Reference) * 
                 (uint32_t)(dab.VLoop.Output & 0x7FFF);
-        uint16_t ILoopReference = (uint16_t)(RefBuf>>12); 
+        uint16_t ILoopReference = (uint16_t)(RefBuf >> 12); 
 
         // Mixing stage from power loop 10KHz
         RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  
@@ -226,6 +193,39 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     }
 }
 
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-methods-private
+ * @brief  This function updates the DAB data members with ADC raw values
+ * @return void
+ * 
+ * @details This function is called every 100KHz and triggers the ADC module. This
+ *  also handles the updating of DAB data members with its latest ADC raw values
+ *  and collection of data for averaging.
+ *********************************************************************************/
+void Dev_PwrCtrl_UpdateADConverterData (void)
+{
+    ADC1_SoftwareTriggerEnable();
+    
+    dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); 
+    dab.Data.ISecAverageRectified = abs(dab.Data.ISecAverage - dab.Data.ISecSensorOffset);
+    IsecAveraging.Accumulator += dab.Data.ISecAverageRectified;
+    IsecAveraging.Counter = IsecAveraging.Counter + 1;
+    
+    dab.Data.VSecVoltage = ADC1_ConversionResultGet(VSEC);
+    VsecAveraging.Accumulator += dab.Data.VSecVoltage;
+    VsecAveraging.Counter = VsecAveraging.Counter + 1; 
+    
+    dab.Data.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); 
+    dab.Data.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
+
+    dab.Data.VPriVoltage = ADC1_ConversionResultGet(VPRI);
+    VprimAveraging.Accumulator += dab.Data.VPriVoltage;
+    VprimAveraging.Counter = VprimAveraging.Counter + 1;         
+            
+    dab.Data.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
+    dab.Data.Temperature = ADC1_ConversionResultGet(TEMP);
+    
+}
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl-methods-private
