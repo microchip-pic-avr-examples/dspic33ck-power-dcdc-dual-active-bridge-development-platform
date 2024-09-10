@@ -51,22 +51,15 @@
 #include "dab_psio/dcdt_generated_code/dab_psio_dcdt.h"
 #include "dab_pspo/dcdt_generated_code/dab_pspo_dcdt.h"
 #include "dab_spvo/dcdt_generated_code/dab_spvo_dcdt.h"
-#include "dab_psio/dcdt_generated_code/dab_fm_dcdt.h"
 
 extern SMPS_2P2Z_T VMC_2p2z;
 extern SMPS_2P2Z_T IMC_2p2z;
-extern SMPS_2P2Z_T FMC_2p2z;
 extern SMPS_2P2Z_T PMC_2p2z; 
 
-void VoltageCtrl_Compensator_Handler(void);
-void CurrentCtrl_Compensator_Handler(void);
-void FreqCtrl_Compensator_Handler(void);
-void PowCtrl_Compensator_Handler(void);
 void Dev_PwrCtrl_IComp_Initialize(void);
 void Dev_PwrCtrl_VComp_Initialize(void);
-void Dev_PwrCtrl_FComp_Initialize(void);
 void Dev_PwrCtrl_PComp_Initialize(void);
-
+void Dev_PwrCtrl_ResetControlLoopHistories(void);
 //------------------------------------------------------------------------------
 // END
 //------------------------------------------------------------------------------

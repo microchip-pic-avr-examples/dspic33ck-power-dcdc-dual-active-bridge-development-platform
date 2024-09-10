@@ -59,9 +59,8 @@
 //po  output power     fs   1kHz
 //fo  frequency modulation for opearting point soft switch improvememnt
 
-SMPS_2P2Z_T VMC_2p2z;//Charger
+SMPS_2P2Z_T VMC_2p2z;
 SMPS_2P2Z_T IMC_2p2z;
-SMPS_2P2Z_T FMC_2p2z;
 SMPS_2P2Z_T PMC_2p2z; 
 
 //charger
@@ -81,14 +80,6 @@ int16_t   IMC_2p2zACoefficients[2]__attribute__((space(xmemory)));
 int16_t   IMC_2p2zBCoefficients[3] __attribute__((space(xmemory)));
 int16_t   IMC_2p2zControlHistory[2] __attribute__((space(ymemory), far));
 int16_t   IMC_2p2zErrorHistory[3] __attribute__((space(ymemory), far));
-
-//======================================================================================================================
-//@brief SMPS_2P2Z_T IMC_2p2z //typedef from smps_control.h to var
-//======================================================================================================================
-int16_t   FMC_2p2zACoefficients[2]__attribute__((space(xmemory)));
-int16_t   FMC_2p2zBCoefficients[3] __attribute__((space(xmemory)));
-int16_t   FMC_2p2zControlHistory[2] __attribute__((space(ymemory), far));
-int16_t   FMC_2p2zErrorHistory[3] __attribute__((space(ymemory), far));
 
 //======================================================================================================================
 //@brief SMPS_2P2Z_T IMC_2p2z //typedef from smps_control.h to var
@@ -216,33 +207,28 @@ void Dev_PwrCtrl_PComp_Initialize(void)  //only battery has power sense option. 
    SMPS_Controller2P2ZInitialize(&PMC_2p2z);  
 }
 
-void Dev_PwrCtrl_FComp_Initialize(void)//not used
+void Dev_PwrCtrl_ResetControlLoopHistories(void)
 {
-   FMC_2p2z.aCoefficients =  &FMC_2p2zACoefficients[0]; // Set up pointer to derived coefficients
-   FMC_2p2z.bCoefficients =  &FMC_2p2zBCoefficients[0]; // Set up pointer to derived coefficients
-   FMC_2p2z.controlHistory = &FMC_2p2zControlHistory[0]; // Set up pointer to controller history
-   FMC_2p2z.errorHistory =   &FMC_2p2zErrorHistory[0]; // Set up pointer to error history
-
-   FMC_2p2z.preShift =   DAB_FM_COMP_2P2Z_PRESHIFT;
-   FMC_2p2z.postScaler = DAB_FM_COMP_2P2Z_POSTSCALER;
-   FMC_2p2z.postShift =  DAB_FM_COMP_2P2Z_POSTSHIFT;
-   FMC_2p2z.minOutput =  DAB_FM_COMP_2P2Z_MIN_CLAMP;
-   FMC_2p2z.maxOutput =  DAB_FM_COMP_2P2Z_MAX_CLAMP; 
-   
-   FMC_2p2zACoefficients[0] = DAB_FM_COMP_2P2Z_COEFF_A1;
-   FMC_2p2zACoefficients[1] = DAB_FM_COMP_2P2Z_COEFF_A2;
-   FMC_2p2zBCoefficients[0] = DAB_FM_COMP_2P2Z_COEFF_B0;
-   FMC_2p2zBCoefficients[1] = DAB_FM_COMP_2P2Z_COEFF_B1;
-   FMC_2p2zBCoefficients[2] = DAB_FM_COMP_2P2Z_COEFF_B2;
+  //explicit clear to 0
+  VMC_2p2zControlHistory[0] = 0;
+  VMC_2p2zControlHistory[1] = 0;
+  VMC_2p2zErrorHistory[0] = 0;
+  VMC_2p2zErrorHistory[1] = 0;
+  VMC_2p2zErrorHistory[2] = 0;
   
-    //explicit clear to 0
-   FMC_2p2zControlHistory[0] = 1860;
-   FMC_2p2zControlHistory[1] = 1860;
-   FMC_2p2zErrorHistory[0] =0;
-   FMC_2p2zErrorHistory[1] =0;
-   FMC_2p2zErrorHistory[2] =0;
-    
-   SMPS_Controller2P2ZInitialize(&FMC_2p2z);  
+   //explicit clear to 0
+   IMC_2p2zControlHistory[0] = 0;
+   IMC_2p2zControlHistory[1] = 0;
+   IMC_2p2zErrorHistory[0] = 0;
+   IMC_2p2zErrorHistory[1] = 0;
+   IMC_2p2zErrorHistory[2] = 0;
+   
+   //explicit clear to 0
+   PMC_2p2zControlHistory[0] = 0;
+   PMC_2p2zControlHistory[1] = 0;
+   PMC_2p2zErrorHistory[0] = 0;
+   PMC_2p2zErrorHistory[1] = 0;
+   PMC_2p2zErrorHistory[2] = 0;
 }
 
 //------------------------------------------------------------------------------
