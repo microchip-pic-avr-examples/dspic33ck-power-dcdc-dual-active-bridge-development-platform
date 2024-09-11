@@ -322,7 +322,7 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
     #if (OPEN_LOOP_PBV == true)
         else if ((pcInstance->Pwm.ControlPeriod != pcInstance->Pwm.PBVPeriodTarget) || 
                 (pcInstance->Pwm.ControlPhase != pcInstance->Pwm.PBVControlPhaseTarget))
-            pcInstance->State = PWR_CNTRL_STATE_SOFT_START;
+            pcInstance->State = PWRCTRL_STATE_SOFT_START;
     #endif
             
         // Check if there is change in power control references    

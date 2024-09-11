@@ -58,9 +58,11 @@ uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t sample)
  *********************************************************************************/
 bool Dev_PwrCtrl_RampReference(START_UP_RAMP_t* rampUp)
 { 
-  if (++rampUp->Counter > rampUp->Delay)   
-  {
-    rampUp->Counter = 0;
+    rampUp->RampComplete = false;
+    
+    if (++rampUp->Counter > rampUp->Delay)   
+    {
+        rampUp->Counter = 0;
     
     if(*rampUp->ptrReference ==  *rampUp->ptrReferenceTarget)
     {
@@ -76,10 +78,10 @@ bool Dev_PwrCtrl_RampReference(START_UP_RAMP_t* rampUp)
     }
     else
     {
-      *rampUp->ptrReference =  *rampUp->ptrReferenceTarget;
-      rampUp->RampComplete = true;
+            *rampUp->ptrReference =  *rampUp->ptrReferenceTarget;
+            rampUp->RampComplete = true;
+            }
     }
-  }
   
   return (rampUp->RampComplete);
 }

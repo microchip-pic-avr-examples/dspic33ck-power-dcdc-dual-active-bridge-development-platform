@@ -20,16 +20,16 @@
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
 //------------------------------------------------------------------------------
-#define FAULT_VPRI_OV   true
-#define FAULT_ISEC_OC   true
-#define FAULT_IPRI_OC   true
-#define FAULT_VSEC_OV   true
-#define FAULT_PS_OTP    true
-#define FAULT_SHORT_CCT true
+#define FAULT_VPRI_OV   false
+#define FAULT_ISEC_OC   false
+#define FAULT_IPRI_OC   false
+#define FAULT_VSEC_OV   false
+#define FAULT_PS_OTP    false
+#define FAULT_SHORT_CCT false
 // not implemented yet
 #define FAULT_VRAIL_5V  false
 
-#define CURRENT_CALIBRATION     true
+#define CURRENT_CALIBRATION     false
 
 #define VPRI_OPTOCOUPLER_POLARITY       false ///< false if not inverted; true if inverted 
 
@@ -39,7 +39,9 @@
 
 #define MINIMUM_DEADTIME                (float)150e-9 ///< Minimum Deadtime in seconds
 #define MAXIMUM_DEADTIME                (float)500e-9 ///< Maximum Deadtime in seconds
-#define MINIMUM_PHASESHIFTED_PULSE      (float)256e-9 ///< Minimum phase shifted pulse in seconds
+#define MINIMUM_PHASESHIFTED_PULSE      (float)256e-9 ///< Minimum phase shifted pulse in seconds [sec]
+
+#define PRI_TO_SEC_PHASE_DEGREES_LIMIT  90u ///< Maximum Limit for primary to secondary phase in degrees [deg]
 
 #define ILOOP_EXECUTE                   (float)100e+3 ///< Current Loop control in [Hz]
 #define VLOOP_EXECUTE                   (float)10e+3  ///< Voltage Loop control in [Hz]
@@ -47,9 +49,11 @@
 
 #define AGC_MINIMUM_VIN_THRESHOLD       160u ///< Minimum VIN threshold to activate AGC in [V]  
 
+#if (PERIOD_MODULATION_DEMO == true)
 #define PRI_TO_SEC_PHASE_TARGET         830u ///< Primary to Secondary phase target before switching to period modulation
 #define PERIODSTEP (2<<3) //(1<<3)//(40<<3) //1<<3  least significant 3 bits are allways 0 in PWM HW, so says documentation 
 #define PHASETIMESTEP (1<<3) // 1<<3
+#endif
 
 #define VPRIMARY_VOLTAGE_GAIN            (float)0.2229 ////< scaling for voltage vs ADC value
 //------------------------------------------------------------------------------
