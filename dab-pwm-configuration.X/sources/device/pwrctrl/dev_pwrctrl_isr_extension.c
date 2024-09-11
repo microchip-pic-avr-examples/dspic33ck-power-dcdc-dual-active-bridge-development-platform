@@ -185,9 +185,9 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
                 (uint32_t)dab.ILoop.Output) >> 15); //range 0..180
         
          dab.Pwm.ControlPhase += dab.Pwm.DeadTimeLow;
-         
-        if(dab.Pwm.ControlPhase > (dab.Pwm.ControlDutyCycle-1024))
-            dab.Pwm.ControlPhase = dab.Pwm.ControlDutyCycle-1024;
+        
+        if(dab.Pwm.ControlPhase > (dab.Pwm.ControlDutyCycle - MIN_PHASE_SHIFTED_PULSE))
+            dab.Pwm.ControlPhase = dab.Pwm.ControlDutyCycle - MIN_PHASE_SHIFTED_PULSE;
         
         if(dab.Pwm.ControlPhase < dab.Pwm.DeadTimeLow) dab.Pwm.ControlPhase = dab.Pwm.DeadTimeLow;  
     }
@@ -236,15 +236,14 @@ void Dev_PwrCtrl_UpdateADConverterData (void)
  *********************************************************************************/
 static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
 {
-    uint32_t interm = 0; 
     uint16_t DAB_PrimaryVoltage; // Convert to actual voltage 
-    
-    interm = (uint32_t)((VprimAveraging.AverageValue)* 10);
-    DAB_PrimaryVoltage = __builtin_divud( interm, 44); //scaling formula
+
+    // calculate the primary voltage in terms of Volts
+    DAB_PrimaryVoltage = __builtin_divud((VprimAveraging.AverageValue * VPRI_SCALER), VPRI_FACTOR);     
     
     if(dab.PowerDirection == PWR_CTRL_CHARGING)
     { 
-        if(DAB_PrimaryVoltage > AGC_VIN_THRESHOLD)
+        if(DAB_PrimaryVoltage > AGC_MINIMUM_VIN_THRESHOLD)
             dab.ILoop.AgcFactor = (int16_t) (0x7FFF & 
                     __builtin_divud(AGC_DAB_FACTOR, DAB_PrimaryVoltage));
         

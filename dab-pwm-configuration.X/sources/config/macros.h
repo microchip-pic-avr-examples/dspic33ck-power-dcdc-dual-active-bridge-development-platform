@@ -47,6 +47,8 @@
 #define MIN_PWM_DEAD_TIME   (uint16_t)(MINIMUM_DEADTIME / (float)PWM_CLOCK_PERIOD) ///< Minimum dead time [tick = 250ps]
 #define MAX_PWM_DEAD_TIME   (uint16_t)(MAXIMUM_DEADTIME / (float)PWM_CLOCK_PERIOD) ///< Maximum dead time [tick = 250ps]
 
+#define MIN_PHASE_SHIFTED_PULSE   (uint16_t)(MINIMUM_PHASESHIFTED_PULSE / (float)PWM_CLOCK_PERIOD) ///< Maximum dead time [tick = 250ps]
+
 #define POWER_RESOLUTION        (uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, 14))) / ((ADC_RESOLUTION * VSEC_SNS_GAIN) * (ADC_RESOLUTION * ISEC_AVG_SNS_GAIN))) 
 
 // convert I_SC_LEB_TIME (seconds) into an integer that can be loaded into PGxDC register (assume PWM is in High resolution mode so resolution is 250ps)
@@ -94,7 +96,10 @@
 #define I_SC_T_BLANK_CLEAR                  ((uint16_t)(_rnd(I_SC_T_BLANK_CLEAR_SEC / I_SC_TICK_SEC)))
 
 #define AGC_DAB_FACTOR                      (uint32_t)(AGC_MINIMUM_VIN_THRESHOLD * pow(2.0, 15))
-#define AGC_VIN_THRESHOLD                   (uint16_t)(UNITS_FROM_ADC_TO_ENG(AGC_MINIMUM_VIN_THRESHOLD, VPRI_SNS_GAIN))
+
+#define VPRI_SCALER                           10u
+#define VPRI_FACTOR                      (uint16_t)((1 / VPRIMARY_VOLTAGE_GAIN) * VPRI_SCALER) 
+
 
 // convert I_SC_LEB_TIME (seconds) into an integer that can be loaded into PGxDC register (assume PWM is in High resolution mode so resolution is 250ps)
 #define I_SC_LEB_TIME_PGxDC                   ((uint16_t)(_rnd(I_SC_LEB_TIME / 250.0e-12)))

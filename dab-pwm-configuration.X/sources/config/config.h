@@ -39,6 +39,7 @@
 
 #define MINIMUM_DEADTIME                (float)150e-9 ///< Minimum Deadtime in seconds
 #define MAXIMUM_DEADTIME                (float)500e-9 ///< Maximum Deadtime in seconds
+#define MINIMUM_PHASESHIFTED_PULSE      (float)256e-9 ///< Minimum phase shifted pulse in seconds
 
 #define ILOOP_EXECUTE                   (float)100e+3 ///< Current Loop control in [Hz]
 #define VLOOP_EXECUTE                   (float)10e+3  ///< Voltage Loop control in [Hz]
@@ -50,6 +51,7 @@
 #define PERIODSTEP (2<<3) //(1<<3)//(40<<3) //1<<3  least significant 3 bits are allways 0 in PWM HW, so says documentation 
 #define PHASETIMESTEP (1<<3) // 1<<3
 
+#define VPRIMARY_VOLTAGE_GAIN            (float)0.2229 ////< scaling for voltage vs ADC value
 //------------------------------------------------------------------------------
 // fault related parameters
 //------------------------------------------------------------------------------
