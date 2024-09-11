@@ -49,7 +49,8 @@
 
 #define MIN_PHASE_SHIFTED_PULSE   (uint16_t)(MINIMUM_PHASESHIFTED_PULSE / (float)PWM_CLOCK_PERIOD) ///< Maximum dead time [tick = 250ps]
 
-#define POWER_RESOLUTION        (uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, 14))) / ((ADC_RESOLUTION * VSEC_SNS_GAIN) * (ADC_RESOLUTION * ISEC_AVG_SNS_GAIN))) 
+#define POWER_SCALER        14u
+#define POWER_FACTOR        (uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, POWER_SCALER))) / ((ADC_RESOLUTION * VSEC_SNS_GAIN) * (ADC_RESOLUTION * ISEC_AVG_SNS_GAIN))) 
 
 // convert I_SC_LEB_TIME (seconds) into an integer that can be loaded into PGxDC register (assume PWM is in High resolution mode so resolution is 250ps)
 #define I_SC_LEB_TIME_PGxDC                   ((uint16_t)(_rnd(I_SC_LEB_TIME / 250.0e-12)))
@@ -97,9 +98,13 @@
 
 #define AGC_DAB_FACTOR                      (uint32_t)(AGC_MINIMUM_VIN_THRESHOLD * pow(2.0, 15))
 
-#define VPRI_SCALER                           10u
-#define VPRI_FACTOR                      (uint16_t)((1 / VPRIMARY_VOLTAGE_GAIN) * VPRI_SCALER) 
+#define VPRI_SCALER                         10
+#define VPRI_FACTOR                         (uint16_t)((1 / VPRIMARY_VOLTAGE_GAIN) * VPRI_SCALER) 
 
+#define DEGREES_PHASE_10x                   10   
+#define DEGREES_PHASE_SCALER                10
+#define DEGREES_PHASE_SCALING_10            ((pow(2.0, DEGREES_PHASE_SCALER)) / DEGREES_PHASE_10x)
+#define DEGREES_PHASE_FACTOR                ((PRI_TO_SEC_PHASE_DEGREES_LIMIT * ((DEGREES_PHASE_SCALER)* DEGREES_PHASE_10x)))
 
 // convert I_SC_LEB_TIME (seconds) into an integer that can be loaded into PGxDC register (assume PWM is in High resolution mode so resolution is 250ps)
 #define I_SC_LEB_TIME_PGxDC                   ((uint16_t)(_rnd(I_SC_LEB_TIME / 250.0e-12)))

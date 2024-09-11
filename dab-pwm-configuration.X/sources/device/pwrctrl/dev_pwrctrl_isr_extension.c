@@ -141,11 +141,11 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         // Bit-shift value used to perform input value normalization
         // Scaled the feedback to Power (Watts in units)
         uint32_t buf = (uint32_t)IsecAveraging.AverageValue * 
-                (uint32_t)VsecAveraging.AverageValue * POWER_RESOLUTION; 
+                (uint32_t)VsecAveraging.AverageValue * POWER_FACTOR; 
 
         // scale back the 14 bit from the POWER_RESOLUTION calculation 
         // to get the Watts value for Power Loop
-        buf >>=14;
+        buf >>= POWER_SCALER;
         
         dab.Data.SecPower = buf;
          
@@ -186,10 +186,12 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         
          dab.Pwm.ControlPhase += dab.Pwm.DeadTimeLow;
         
+        // clamping value of control phase
         if(dab.Pwm.ControlPhase > (dab.Pwm.ControlDutyCycle - MIN_PHASE_SHIFTED_PULSE))
             dab.Pwm.ControlPhase = dab.Pwm.ControlDutyCycle - MIN_PHASE_SHIFTED_PULSE;
-        
-        if(dab.Pwm.ControlPhase < dab.Pwm.DeadTimeLow) dab.Pwm.ControlPhase = dab.Pwm.DeadTimeLow;  
+        // clamping value of control phase
+        else if(dab.Pwm.ControlPhase < dab.Pwm.DeadTimeLow) 
+            dab.Pwm.ControlPhase = dab.Pwm.DeadTimeLow;  
     }
 }
 
@@ -243,6 +245,7 @@ static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
     
     if(dab.PowerDirection == PWR_CTRL_CHARGING)
     { 
+        // Apply AGC when primary voltage is greater than the minimum VIN AGC threshold 
         if(DAB_PrimaryVoltage > AGC_MINIMUM_VIN_THRESHOLD)
             dab.ILoop.AgcFactor = (int16_t) (0x7FFF & 
                     __builtin_divud(AGC_DAB_FACTOR, DAB_PrimaryVoltage));
@@ -265,22 +268,25 @@ static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
  * 
  * @details 
  *********************************************************************************/
-void Dev_PwrCtrl_PrimToSecPHDegree(void)//normalize phase to 0..90.  feed this value to steer period modulation
+void Dev_PwrCtrl_PrimToSecPHDegree(void)
 {
-    static unsigned long buff;
-    static unsigned int buf;
-    
-    //instead of floating point operations:
-    buff = ((unsigned long)dab.Pwm.ControlPhase)<<10;//*1024
-    buf = __builtin_divud( buff ,dab.Pwm.ControlDutyCycle);
-    buff = (unsigned long)buf*90;
-    buf = __builtin_divud( buff ,102);//divide by 102.4. Accept  the small rounding error
+    // Calculation of Primary and Secondary degrees phase
+    // Normalize phase to 0..90.  
+    uint32_t buff = ((unsigned long)dab.Pwm.ControlPhase) << DEGREES_PHASE_SCALER;
+    uint16_t buf = __builtin_divud( buff ,dab.Pwm.ControlDutyCycle);
+    buff = buf * PRI_TO_SEC_PHASE_DEGREES_LIMIT;
+    buf = __builtin_divud( buff ,DEGREES_PHASE_SCALING_10);
+
     dab.Pwm.ControlPhase_P2S_Degreex10 = buf;
+    
+    // Clamping value for degrees phase when it exceeds the 90.0 degrees  
     if(dab.Pwm.ControlPhase_P2S_Degreex10 >= 900)
     { 
-       dab.Pwm.ControlPhase_P2S_Degreex10 = 899;//rounding errors hard clip   roughly 10 bit resolution
+        // Override the calculated control phase value
+        dab.Pwm.ControlPhase_P2S_Degreex10 = 899;
     }
 }
+
 /*******************************************************************************
  * @ingroup dev-pwrctrl-methods-private
  * @brief  This function updates the DAB data members dead time based on load. experimental values.
@@ -290,26 +296,36 @@ void Dev_PwrCtrl_PrimToSecPHDegree(void)//normalize phase to 0..90.  feed this v
  *********************************************************************************/
 void Dev_PwrCtrl_DeadTimeAdjust(void)
 {
-        uint16_t NewDT=0;   
+        uint16_t NewDT = 0;   
+        
         // Deadtime values adjusted on rough phase range. experimentally measured values.
-        if  (dab.Pwm.ControlPhase_P2S_Degreex10 < 290)                                           
-            {NewDT = 500*4;}
-        if ((dab.Pwm.ControlPhase_P2S_Degreex10 > 330)&&(dab.Pwm.ControlPhase_P2S_Degreex10 < 800)) 
-            {NewDT = 500*3;}
-        if ((dab.Pwm.ControlPhase_P2S_Degreex10 > 805)&&(dab.Pwm.ControlPhase_P2S_Degreex10 < 875)) 
-            {NewDT = 700;}
-        if  (dab.Pwm.ControlPhase_P2S_Degreex10 > 880)                                           
-            {NewDT = 600;} // Minimum deadtime
+        // If the control phase is less than 29.0 degrees phase
+        if  (dab.Pwm.ControlPhase_P2S_Degreex10 < 290)                                          
+            {NewDT = 2000;} // Equivalent to 500ns DeadTime
+        // If the control phase is within the range of 33.0 and 80.0 degrees phase
+        else if ((dab.Pwm.ControlPhase_P2S_Degreex10 > 330)&&(dab.Pwm.ControlPhase_P2S_Degreex10 < 800)) 
+            {NewDT = 1500;} // Equivalent to 375ns DeadTime
+        // If the control phase is within the range of 80.5 and 87.5 degrees phase
+        else if ((dab.Pwm.ControlPhase_P2S_Degreex10 > 805)&&(dab.Pwm.ControlPhase_P2S_Degreex10 < 875)) 
+            {NewDT = 700;} // Equivalent to 175ns DeadTime
+        // If the control phase is greater than 88.0 degrees phase
+        else if  (dab.Pwm.ControlPhase_P2S_Degreex10 > 880)                                           
+            {NewDT = 600;} // Equivalent to 150ns DeadTime
 
+        // When new dead-time did not satisfy any condition in degrees phase
+        //retain the previous dead-time value
         if(NewDT)
         {
+            // Minimum clamping value of dead-time
             if (NewDT < MINIMUM_DEADTIME) 
-                NewDT = MINIMUM_DEADTIME; //minimum DT for safe operation.
+                NewDT = MINIMUM_DEADTIME; 
             
+            // Write the new dead-time to the PWM
             dab.Pwm.DeadTimeLow = NewDT;
             dab.Pwm.DeadTimeHigh = NewDT;
-            
-            NewDT=0;// update once
+
+            // Clear NewDT variable
+            NewDT=0;
         }
 }
 
@@ -320,6 +336,7 @@ void Dev_PwrCtrl_DeadTimeAdjust(void)
  * 
  * @details 
  *********************************************************************************/
+#if (PERIOD_MODULATION_DEMO == true)
 void  Dev_PwrCtrl_PeriodModulator(void)
 {
     static uint16_t decimPM;
@@ -349,7 +366,7 @@ void  Dev_PwrCtrl_PeriodModulator(void)
             }
         }
 
-        if (dab.Pwm.ControlPhase_P2S_Degreex10 > dab.Pwm.ControlPhase_P2S_Target+5)
+        if (dab.Pwm.ControlPhase_P2S_Degreex10 > dab.Pwm.ControlPhase_P2S_Target + 5)
         {  
             if((dab.Pwm.ControlPeriod < MAX_PWM_PERIOD) && (dab.Pwm.ControlPhase_P2S_Degreex10  > 20))
             {    
@@ -380,3 +397,4 @@ void  Dev_PwrCtrl_PeriodModulator(void)
     }
 }
 
+#endif
