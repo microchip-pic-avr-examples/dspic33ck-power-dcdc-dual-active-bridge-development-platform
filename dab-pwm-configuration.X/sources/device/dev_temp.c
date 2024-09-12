@@ -10,7 +10,7 @@
 #include <stdlib.h>
 
 #include "device/fault/dev_fault_common.h"
-#include "device/pwrctrl/dev_pwrctrl_api.h"
+#include "device/pwrctrl/dev_pwrctrl_comm_interface.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
 
 /*********************************************************************************

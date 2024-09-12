@@ -102,13 +102,10 @@ void Dev_Fault_Initialize(void)
     FAULT_Init(&dab.Fault.Object.PowerSupplyOTP, MAX_TEMPERATURE_THRESHOLD_RAW,         
             OVER_TEMP_UPPER_THRESHOLD_WITH_HYST,FAULT_PERSISTENCE_COUNT_TEMP, FAULT_PERSISTENCE_COUNT_TEMP); 
     
-    //ToDo: need to check this
 #if (FAULT_SHORT_CCT == true)
     // Initialize short circuit fault protection with comparators
     Dev_Fault_EnableShortCircuitProtection();
 #endif 
-    // Clear the fault PCI for each PWM
-    Dev_Fault_ClearHardwareFaults(); 
     
 }
 
@@ -145,13 +142,14 @@ void Dev_Fault_Execute(void)
 
     // primary over voltage fault handler
     #if (FAULT_VRAIL_5V)                
-    FAULT_CheckMax(&dab.Fault.Object.VRail_5V, dab.Data.VRail_5V, &Dev_Fault_Handler);
+    FAULT_CheckMin(&dab.Fault.Object.VRail_5V, dab.Data.VRail_5V, &Dev_Fault_Handler);
     #endif  
     
     // Hardware short circuit
     if(CMP1_StatusGet() || CMP3_StatusGet()){
         dab.Fault.Object.ISenseSCP.FaultActive = 1;
         dab.Fault.Object.ISenseSCP.FaultLatch = 1;
+        dab.Status.bits.FaultActive = 1;
     }
     
     // Identify the fault that trips
@@ -173,28 +171,23 @@ void Dev_Fault_Reset(void)
     FAULT_SetHigh();
     
     // Clear fault Objects FaultActive bit
-    dab.Fault.Object.ISenseSCP.FaultActive = 0;
-    dab.Fault.Object.IPrimaryOCP.FaultActive = 0;
-    dab.Fault.Object.ISecondaryOCP.FaultActive = 0;
     dab.Fault.Object.VPrimaryOVP.FaultActive = 0;
     dab.Fault.Object.VSecondaryOVP.FaultActive = 0;
+    dab.Fault.Object.IPrimaryOCP.FaultActive = 0;
+    dab.Fault.Object.ISecondaryOCP.FaultActive = 0;
     dab.Fault.Object.ISenseSCP.FaultActive = 0;
+    dab.Fault.Object.PowerSupplyOTP.FaultActive = 0;
+    dab.Fault.Object.VRail_5V.FaultActive = 0;
     
     // Clear fault Objects FaultLatch bit
-    dab.Fault.Object.ISenseSCP.FaultLatch = 0;
-    dab.Fault.Object.IPrimaryOCP.FaultLatch = 0;
-    dab.Fault.Object.ISecondaryOCP.FaultLatch = 0;
     dab.Fault.Object.VPrimaryOVP.FaultLatch = 0;
     dab.Fault.Object.VSecondaryOVP.FaultLatch = 0;
+    dab.Fault.Object.IPrimaryOCP.FaultLatch = 0;
+    dab.Fault.Object.ISecondaryOCP.FaultLatch = 0;
     dab.Fault.Object.ISenseSCP.FaultLatch = 0;
+    dab.Fault.Object.VRail_5V.FaultLatch = 0;
+    dab.Fault.Object.PowerSupplyOTP.FaultActive = 0;
     
-    //ToDo: remove this after testing LEB
-    // initialize thresholds of comparators used for short circuit protection
-  CMP_ISEC_SC_DACDataWrite(ISEC_SC_THRES_TRIG);   
-  CMP_IPRI_SC_DACDataWrite(IPRI_SC_THRES_TRIG);  
-    
-    // Clear the fault PCI for each PWM
-    Dev_Fault_ClearHardwareFaults(); 
 }
 
 /*******************************************************************************
@@ -220,24 +213,6 @@ static void Dev_Fault_EnableShortCircuitProtection(void)
   CMP_IPRI_SC_DACEnable();
   CMP_ISEC_SC_DACEnable();
   
-}
-
-/*******************************************************************************
- * @ingroup dev-fault-methods-public
- * @brief   Clear hardware faults 
- * @return void
- * 
- * @details This function clears the hardware faults handled by PCI(PWM Control Input)
- *  block. 
- *********************************************************************************/
-void Dev_Fault_ClearHardwareFaults(void)
-{
-  uint16_t pwmIndex;
-  for (pwmIndex = 1; pwmIndex <= 4; pwmIndex++)
-  {
-    PWM_FaultModeLatchClear(pwmIndex);
-    PWM_GeneratorEventStatusClear(pwmIndex, PWM_GENERATOR_INTERRUPT_FAULT);
-  }
 }
 
 /*******************************************************************************
