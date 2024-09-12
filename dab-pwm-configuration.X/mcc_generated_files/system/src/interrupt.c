@@ -44,12 +44,12 @@
 void INTERRUPT_Initialize(void)
 {
     // CMP3: Comparator 3 
-    // Priority: 5
-    IPC19bits.CMP3IP = 5;
+    // Priority: 6
+    IPC19bits.CMP3IP = 6;
     
     // CMP1: Comparator 1 
-    // Priority: 5
-    IPC19bits.CMP1IP = 5;
+    // Priority: 6
+    IPC19bits.CMP1IP = 6;
     
     // DMT: Dead Man Timer
     // Priority: 1
@@ -60,8 +60,8 @@ void INTERRUPT_Initialize(void)
     IPC0bits.T1IP = 3;
     
     // CCT1: CCP1 Timer Event
-    // Priority: 6
-    IPC1bits.CCT1IP = 6;
+    // Priority: 5
+    IPC1bits.CCT1IP = 5;
     
 }
 
