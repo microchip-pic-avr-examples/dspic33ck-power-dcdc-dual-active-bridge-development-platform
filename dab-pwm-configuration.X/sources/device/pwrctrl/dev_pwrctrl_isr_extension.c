@@ -60,6 +60,120 @@ AVERAGING_t VsecAveraging;
 AVERAGING_t IsecAveraging;
 
 static void Dev_PwrCtrl_AdaptiveGainUpdate(void);
+static bool VLoopInterleaveExec = true;
+
+
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-methods-private
+ * @brief  This function updates the DAB data members with ADC raw values
+ * @return void
+ * 
+ * @details This function is called every 100KHz and triggers the ADC module. This
+ *  also handles the updating of DAB data members with its latest ADC raw values
+ *  and collection of data for averaging.
+ *********************************************************************************/
+void Dev_PwrCtrl_UpdateADConverterData (void)
+{        
+    // Enable the ADC sampling
+    ADC1_SoftwareTriggerEnable();
+    
+    if(ADC1_IsConversionComplete(ISEC_CT))
+        dab.Data.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); 
+    
+    if(ADC1_IsConversionComplete(IPRI_CT))
+        dab.Data.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
+    
+    if(ADC1_IsConversionComplete(VRAIL_5V))
+        dab.Data.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
+    
+    if(ADC1_IsConversionComplete(TEMP))
+        dab.Data.Temperature = ADC1_ConversionResultGet(TEMP);
+    
+    if(ADC1_IsConversionComplete(VPRI)){
+        dab.Data.VPriVoltage = ADC1_ConversionResultGet(VPRI);
+        VprimAveraging.Accumulator += dab.Data.VPriVoltage;
+        VprimAveraging.Counter = VprimAveraging.Counter + 1;   
+    }
+    
+    if(ADC1_IsConversionComplete(VSEC)){
+        dab.Data.VSecVoltage = ADC1_ConversionResultGet(VSEC);
+        VsecAveraging.Accumulator += dab.Data.VSecVoltage;
+        VsecAveraging.Counter = VsecAveraging.Counter + 1; 
+    }
+    
+    if(ADC1_IsConversionComplete(ISEC_AVG)){
+        dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); 
+        dab.Data.ISecAverageRectified = abs(dab.Data.ISecAverage - dab.Data.ISecSensorOffset);
+        IsecAveraging.Accumulator += dab.Data.ISecAverageRectified;
+        IsecAveraging.Counter = IsecAveraging.Counter + 1;
+    }
+}
+
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-methods-private
+ * @brief  This function prepares the data for control loop and selects which 
+ *  control loop will be executed. 
+ * @return void
+ * 
+ * @details This function prepares the data for Voltage loop control and Power
+ *  loop control. The enable bit of these control loops are manage in this function 
+ *  in which the VLoop and PLoop are enabled at 10KHz with 180 degrees phase. 
+ *********************************************************************************/
+void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
+{
+    static uint16_t cnt = 0;
+    
+    //Interleave the execution of VLoop and PLoop control for 10KHz execution
+    if(++cnt == 5) 
+    {
+        // Averaging of Secondary Voltage
+        VsecAveraging.AverageValue = (uint16_t)(__builtin_divud(VsecAveraging.Accumulator, VsecAveraging.Counter));
+        VsecAveraging.Accumulator = 0;
+        VsecAveraging.Counter = 0;
+        
+        #if(OPEN_LOOP_PBV == false)
+        //Condition for control loop execution controlling the loop enable bit
+        if((dab.VLoop.Enable == false) && (VLoopInterleaveExec == true))
+        #endif  
+        {
+            dab.VLoop.Enable = true;
+            dab.PLoop.Enable = false;
+          
+            // Averaging of Primary Voltage
+            VprimAveraging.AverageValue = (uint16_t)(__builtin_divud(VprimAveraging.Accumulator, VprimAveraging.Counter));
+            VprimAveraging.Accumulator = 0;
+            VprimAveraging.Counter = 0;
+            
+            Dev_PwrCtrl_AdaptiveGainUpdate();
+        }
+ 
+        #if(OPEN_LOOP_PBV == false)
+        else if((dab.PLoop.Enable == false) && (VLoopInterleaveExec == false))
+        #endif
+        {
+            dab.VLoop.Enable = false;
+            dab.PLoop.Enable = true;
+        
+            // Averaging of Secondary Current
+            IsecAveraging.AverageValue = (uint16_t)(__builtin_divud(IsecAveraging.Accumulator, IsecAveraging.Counter));
+            IsecAveraging.Accumulator = 0;
+            IsecAveraging.Counter = 0;
+            
+            // Bit-shift value used to perform input value normalization
+            // Scaled the feedback to Power (Watts in units)
+            uint32_t buf = (uint32_t)IsecAveraging.AverageValue * 
+                    (uint32_t)VsecAveraging.AverageValue * POWER_FACTOR; 
+
+            // scale back the 14 bit from the POWER_RESOLUTION calculation 
+            // to get the Watts value for Power Loop
+            buf >>= POWER_SCALER;
+
+            dab.Data.SecPower = buf;
+        
+        }
+        cnt = 0;
+    }
+}
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl-methods-private
@@ -73,47 +187,11 @@ static void Dev_PwrCtrl_AdaptiveGainUpdate(void);
  *  this function is called.  
  *********************************************************************************/
 void Dev_PwrCtrl_ControlLoopExecute(void)
-{
-    static uint16_t cnt = 0;
-    static bool VLoopExec = true;
-    
-    //Interleave the execution of VLoop and PLoop control for 10KHz execution
-    if(++cnt == 5) 
-    {
-        // Averaging of Secondary Voltage
-        VsecAveraging.AverageValue = (uint16_t)(__builtin_divud(VsecAveraging.Accumulator, VsecAveraging.Counter));
-        VsecAveraging.Accumulator = 0;
-        VsecAveraging.Counter = 0;
-        
-        //Condition for control loop execution controlling the loop enable bit
-        if((dab.VLoop.Enable == false) && (VLoopExec == true)){
-            dab.VLoop.Enable = true;
-            dab.PLoop.Enable = false;
-            
-            // Averaging of Primary Voltage
-            VprimAveraging.AverageValue = (uint16_t)(__builtin_divud(VprimAveraging.Accumulator, VprimAveraging.Counter));
-            VprimAveraging.Accumulator = 0;
-            VprimAveraging.Counter = 0;
-            
-            Dev_PwrCtrl_AdaptiveGainUpdate();
-        }
-        
-        else if((dab.PLoop.Enable == false) && (VLoopExec == false)){
-            dab.VLoop.Enable = false;
-            dab.PLoop.Enable = true;
-        
-            // Averaging of Secondary Current
-            IsecAveraging.AverageValue = (uint16_t)(__builtin_divud(IsecAveraging.Accumulator, IsecAveraging.Counter));
-            IsecAveraging.Accumulator = 0;
-            IsecAveraging.Counter = 0;
-        }
-        cnt = 0;
-    }
-    
+{   
     // Execute the Voltage Loop Control
-    if((dab.VLoop.Enable == true) && (VLoopExec == true))
+    if((dab.VLoop.Enable == true) && (VLoopInterleaveExec == true))
     {
-        VLoopExec = false;
+        VLoopInterleaveExec = false;
         
         if(dab.PowerDirection == PWR_CTRL_CHARGING)
         { 
@@ -134,20 +212,9 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     }
 
     // Execute the Power Loop Control
-    if((dab.PLoop.Enable == true) && (VLoopExec == false))
+    if((dab.PLoop.Enable == true) && (VLoopInterleaveExec == false))
     {      
-        VLoopExec = true;
-
-        // Bit-shift value used to perform input value normalization
-        // Scaled the feedback to Power (Watts in units)
-        uint32_t buf = (uint32_t)IsecAveraging.AverageValue * 
-                (uint32_t)VsecAveraging.AverageValue * POWER_FACTOR; 
-
-        // scale back the 14 bit from the POWER_RESOLUTION calculation 
-        // to get the Watts value for Power Loop
-        buf >>= POWER_SCALER;
-        
-        dab.Data.SecPower = buf;
+        VLoopInterleaveExec = true;
          
         dab.PLoop.Feedback = dab.Data.SecPower;
         dab.PLoop.Reference = dab.PLoop.Reference;
@@ -193,40 +260,6 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         else if(dab.Pwm.ControlPhase < dab.Pwm.DeadTimeLow) 
             dab.Pwm.ControlPhase = dab.Pwm.DeadTimeLow;  
     }
-}
-
-/*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
- * @brief  This function updates the DAB data members with ADC raw values
- * @return void
- * 
- * @details This function is called every 100KHz and triggers the ADC module. This
- *  also handles the updating of DAB data members with its latest ADC raw values
- *  and collection of data for averaging.
- *********************************************************************************/
-void Dev_PwrCtrl_UpdateADConverterData (void)
-{
-    ADC1_SoftwareTriggerEnable();
-    
-    dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); 
-    dab.Data.ISecAverageRectified = abs(dab.Data.ISecAverage - dab.Data.ISecSensorOffset);
-    IsecAveraging.Accumulator += dab.Data.ISecAverageRectified;
-    IsecAveraging.Counter = IsecAveraging.Counter + 1;
-    
-    dab.Data.VSecVoltage = ADC1_ConversionResultGet(VSEC);
-    VsecAveraging.Accumulator += dab.Data.VSecVoltage;
-    VsecAveraging.Counter = VsecAveraging.Counter + 1; 
-    
-    dab.Data.ISenseSecondary = ADC1_ConversionResultGet(ISEC_CT); 
-    dab.Data.ISensePrimary = ADC1_ConversionResultGet(IPRI_CT);   
-
-    dab.Data.VPriVoltage = ADC1_ConversionResultGet(VPRI);
-    VprimAveraging.Accumulator += dab.Data.VPriVoltage;
-    VprimAveraging.Counter = VprimAveraging.Counter + 1;         
-            
-    dab.Data.VRail_5V = ADC1_ConversionResultGet(VRAIL_5V);
-    dab.Data.Temperature = ADC1_ConversionResultGet(TEMP);
-    
 }
 
 /*******************************************************************************

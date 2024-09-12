@@ -42,7 +42,7 @@ void Dev_PwrCtrl_DeadTimeAdjust(void);
 void Dev_PwrCtrl_PeriodModulator(void);
 void Dev_PwrCtrl_UpdateADConverterData(void);
 void Dev_PwrCtrl_ControlLoopExecute(void);
-
+void Dev_PwrCtrl_10KHzVPLoopPrepareData(void);
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl-isr-methods-public
@@ -65,6 +65,11 @@ void ControlLoop_Interrupt_CallBack(void)
     
     // Execute the fault detection
     Dev_Fault_Execute();
+    
+    // Performs data averaging necessary for control loop
+    // also Enabling interleaved the Vloop (10KHz execution) 
+    // and Ploop (10KHz execution) enable bit  
+    Dev_PwrCtrl_10KHzVPLoopPrepareData();
     
     #if(OPEN_LOOP_PBV == false)
  
