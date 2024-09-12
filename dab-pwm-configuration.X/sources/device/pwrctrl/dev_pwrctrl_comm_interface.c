@@ -21,8 +21,7 @@
  */
 
 #include "dev_pwrctrl.h"
-#include "dev_pwrctrl_utils.h"
-#include "../../config/macros.h"
+
 /*********************************************************************************
  * @ingroup dev-pwrctrl-api-public
  * @brief   API function to set the power control State
@@ -96,16 +95,6 @@ void Dev_PwrCtrl_SetPeriodTarget(uint16_t reference)
 
 /*********************************************************************************
  * @ingroup dev-pwrctrl-api-public
- * @brief   API function to set the control period
- * @return  none
- **********************************************************************************/
-void Dev_PwrCtrl_SetPeriod(uint16_t reference)
-{    
-    dab.Pwm.ControlPeriod = reference;
-}
-
-/*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
  * @brief   API function to set the target PWM phase
  * @return  none
  **********************************************************************************/
@@ -121,25 +110,6 @@ void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference)
 void Dev_PwrCtrl_SetP2SPhaseTarget(uint16_t reference)
 {    
     dab.Pwm.ControlPhase_P2S_Target = reference;
-}
-/*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
- * @brief   API function to set the dead time high
- * @return  none
- **********************************************************************************/
-void Dev_PwrCtrl_SetDeadTimeHigh(uint16_t reference)
-{    
-    dab.Pwm.DeadTimeHigh = reference;
-}
-
-/*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
- * @brief   API function to set the dead time low
- * @return  none
- **********************************************************************************/
-void Dev_PwrCtrl_SetDeadTimeLow(uint16_t reference)
-{    
-    dab.Pwm.DeadTimeLow = reference;
 }
 
 /*********************************************************************************
@@ -244,16 +214,6 @@ uint16_t Dev_PwrCtrl_Get_DutyCycle(void)
 
 /*********************************************************************************
  * @ingroup dev-pwrctrl-api-public
- * @brief   API function to get the PWM control phase
- * @return  none
- **********************************************************************************/
-uint16_t Dev_PwrCtrl_Get_Phase(void)
-{
-    return(dab.Pwm.ControlPhase);
-}
-
-/*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
  * @brief   API function to get the current state of the state machine
  * @return  none
  **********************************************************************************/
@@ -290,56 +250,6 @@ uint16_t Dev_PwrCtrl_Get_EnableFlag(void)
 uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void)
 {
     return(dab.Pwm.PBVPeriodTarget);
-}
-
-/*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
- * @brief   API function to get the current reference
- * @return  none
- **********************************************************************************/
-uint16_t Dev_PwrCtrl_Get_IReference(void)
-{
-    return(dab.Properties.IReference);
-}
-
-/*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
- * @brief   API function to get the current loop control reference
- * @return  none
- **********************************************************************************/
-uint16_t Dev_PwrCtrl_Get_IloopReference(void)
-{
-    return(dab.ILoop.Reference);
-}
-
-/*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
- * @brief   API function to get the current loop control output
- * @return  none
- **********************************************************************************/
-uint16_t Dev_PwrCtrl_Get_IloopOutput(void)
-{
-    return(dab.ILoop.Output);
-}
-
-/*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
- * @brief   API function to get the current loop control feedback
- * @return  none
- **********************************************************************************/
-uint16_t Dev_PwrCtrl_Get_IloopFeedback(void)
-{
-    return(dab.ILoop.Feedback);
-}
-
-/*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
- * @brief   API function to get the current sensor offset
- * @return  none
- **********************************************************************************/
-uint16_t Dev_PwrCtrl_Get_CurrentSensorOffset(void)
-{
-    return(dab.Data.ISecSensorOffset);
 }
 
 /*********************************************************************************
