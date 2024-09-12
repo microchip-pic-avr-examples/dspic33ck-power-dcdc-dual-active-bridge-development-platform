@@ -13,10 +13,6 @@
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h> // include standard definition data types
 
-#define DAC_DEBUG       false    ///< test values with PIM DAC output
-#define DPDB_TEST_RUN   false    ///< test the code with Digital Power Development Board
-#define OPEN_LOOP_PBV   false    ///< use Power Board visualizer to change the parameters in Open loop operation
-#define PERIOD_MODULATION_DEMO   false  ///< modulates the period; for further development
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
 //------------------------------------------------------------------------------
@@ -26,7 +22,6 @@
 #define FAULT_VSEC_OV   false
 #define FAULT_PS_OTP    false
 #define FAULT_SHORT_CCT false
-// not implemented yet
 #define FAULT_VRAIL_5V  false
 
 #define CURRENT_CALIBRATION     false
@@ -43,16 +38,12 @@
 
 #define PRI_TO_SEC_PHASE_DEGREES_LIMIT  90u ///< Maximum Limit for primary to secondary phase in degrees [deg]
 
-#define ILOOP_EXECUTE                   (float)100e+3 ///< Current Loop control in [Hz]
-#define VLOOP_EXECUTE                   (float)10e+3  ///< Voltage Loop control in [Hz]
-#define PLOOP_EXECUTE                   (float)10e+3  ///< Power Loop control in [Hz]
-
 #define AGC_MINIMUM_VIN_THRESHOLD       160u ///< Minimum VIN threshold to activate AGC in [V]  
 
 #if (PERIOD_MODULATION_DEMO == true)
 #define PRI_TO_SEC_PHASE_TARGET         830u ///< Primary to Secondary phase target before switching to period modulation
-#define PERIODSTEP (2<<3) //(1<<3)//(40<<3) //1<<3  least significant 3 bits are allways 0 in PWM HW, so says documentation 
-#define PHASETIMESTEP (1<<3) // 1<<3
+#define PERIODSTEP                      (2<<3) //1<<3  least significant 3 bits are allways 0 in PWM HW, so says documentation 
+#define PHASETIMESTEP                   (1<<3) // 1<<3
 #endif
 
 #define VPRIMARY_VOLTAGE_GAIN            (float)0.2229 ////< scaling for voltage vs ADC value
@@ -121,8 +112,8 @@
 // hence the fault handler and fault blanking time for both faults is combined
 // thresholds can be different for both primary and secondary side short-circuit faults, as 
 // use different comparators
-#define IPRI_SC_THRES_TRIG_AMPS          (39.0)//(35.0)
-#define ISEC_SC_THRES_TRIG_AMPS          (49.0)  //(35.0)
+#define IPRI_SC_THRES_TRIG_AMPS          (39.0)
+#define ISEC_SC_THRES_TRIG_AMPS          (49.0)
 #define I_SC_T_BLANK_CLEAR_SEC           (2.0)
 #define I_SC_TICK_SEC                    (100.0e-6)
 
@@ -138,13 +129,11 @@
 //------------------------------------------------------------------------------
 // control (for debug only)
 //------------------------------------------------------------------------------
-// OPEN_LOOP_PBV: define this to run in complete open loop mode using PBV to control frequency
-//#define OPEN_LOOP_PBV   
+#define DAC_DEBUG           false    ///< test values with PIM DAC output
+#define OPEN_LOOP_POTI      false    ///< test the code with Digital Power Development Board; runs in openloop using potentiometer
+#define OPEN_LOOP_PBV       false    ///< use Power Board visualizer to change the parameters in Open loop operation
+#define PERIOD_MODULATION_DEMO   false  ///< modulates the period; for further development
 
-// OPEN_LOOP_POTI: define this to run in complete open loop mode using poti to control frequency
-// this is meant for the digital power development board only!!
-// connect a poti to edge connector 11 and vary poti to control the frequency
-//#define OPEN_LOOP_POTI  
 
 #endif	/* CONFIG_H */
 

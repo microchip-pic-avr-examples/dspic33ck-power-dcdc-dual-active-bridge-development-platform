@@ -38,12 +38,12 @@
  **********************************************************************************/
 struct SENSOR_OFFSET_CAL_s
 {  
-  uint32_t  Accumulator; ///> used for sensor offset measurement at startup
-  uint16_t  MeasurementCounter; ///> used for  sensor offset measurement at startup
-  uint16_t  Offset; ///> measured offset 
-  bool      CalibrationComplete; ///> set to true if the sensor is calibrated
-  uint16_t  LimitHigh;  ///> upper bound of what offset should be, offset needs to be < limitHigh and > limitLow for sensorCalibrated = true
-  uint16_t  LimitLow; ///> low bound of what offset should be
+  uint32_t  Accumulator; ///< used for sensor offset measurement at startup
+  uint16_t  MeasurementCounter; ///< used for  sensor offset measurement at startup
+  uint16_t  Offset; ///< measured offset 
+  bool      CalibrationComplete; ///< set to true if the sensor is calibrated
+  uint16_t  LimitHigh;  ///< upper bound of what offset should be, offset needs to be < limitHigh and > limitLow for sensorCalibrated = true
+  uint16_t  LimitLow; ///< low bound of what offset should be
 };
 typedef struct SENSOR_OFFSET_CAL_s SENSOR_OFFSET_CAL_t;
 

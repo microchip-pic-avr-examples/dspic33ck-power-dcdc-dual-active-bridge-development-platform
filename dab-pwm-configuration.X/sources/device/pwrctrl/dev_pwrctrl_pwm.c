@@ -36,7 +36,7 @@
  *********************************************************************************/
 void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
 {   
-     // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
+    // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
     // (please refer to Section 4.1.3.3 in High Resolution PWM FRM)
     uint16_t PeriodMask = 0x7; 
     

@@ -16,10 +16,10 @@ extern AVERAGING_t VprimAveraging;
 extern AVERAGING_t VsecAveraging;
 extern AVERAGING_t IsecAveraging;
 
-extern void Dev_PwrCtrl_Initialize(void);
-extern void Dev_PwrCtrl_Execute(void);
-extern void Dev_PwrCtrl_Suspend(void);
-extern void Dev_PwrCtrl_ControlLoopInitialize(void);
+void Dev_PwrCtrl_Initialize(void);
+void Dev_PwrCtrl_Execute(void);
+void Dev_PwrCtrl_Suspend(void);
+void Dev_PwrCtrl_ControlLoopInitialize(void);
 
 #endif	/* APP_PWRCTRL_H */
 

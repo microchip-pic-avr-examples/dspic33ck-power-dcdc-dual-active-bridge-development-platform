@@ -64,23 +64,23 @@ bool Dev_PwrCtrl_RampReference(START_UP_RAMP_t* rampUp)
     {
         rampUp->Counter = 0;
     
-    if(*rampUp->ptrReference ==  *rampUp->ptrReferenceTarget)
-    {
-        rampUp->RampComplete = true;
-    }
-    else if ((*rampUp->ptrReference + rampUp->StepSize) < *rampUp->ptrReferenceTarget)
-    {
-      *rampUp->ptrReference += rampUp->StepSize;
-    }
-    else if ((*rampUp->ptrReference - rampUp->StepSize) > *rampUp->ptrReferenceTarget)
-    {
-      *rampUp->ptrReference -= rampUp->StepSize;
-    }
-    else
-    {
+        if(*rampUp->ptrReference ==  *rampUp->ptrReferenceTarget)
+        {
+            rampUp->RampComplete = true;
+        }
+        else if ((*rampUp->ptrReference + rampUp->StepSize) < *rampUp->ptrReferenceTarget)
+        {
+          *rampUp->ptrReference += rampUp->StepSize;
+        }
+        else if ((*rampUp->ptrReference - rampUp->StepSize) > *rampUp->ptrReferenceTarget)
+        {
+          *rampUp->ptrReference -= rampUp->StepSize;
+        }
+        else
+        {
             *rampUp->ptrReference =  *rampUp->ptrReferenceTarget;
             rampUp->RampComplete = true;
-            }
+        }
     }
   
   return (rampUp->RampComplete);
