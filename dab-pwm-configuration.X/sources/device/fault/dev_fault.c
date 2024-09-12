@@ -106,6 +106,9 @@ void Dev_Fault_Initialize(void)
     // Initialize short circuit fault protection with comparators
     Dev_Fault_EnableShortCircuitProtection();
 #endif 
+    // Hardware Fault Initialize
+    CMP1_EventCallbackRegister(&Dev_Fault_Handler);
+    CMP3_EventCallbackRegister(&Dev_Fault_Handler);
     
 }
 

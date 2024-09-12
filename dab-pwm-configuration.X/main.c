@@ -74,9 +74,6 @@ int main(void)
     Dev_Fault_Initialize();
     
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt_CallBack); 
-    
-    CMP1_EventCallbackRegister(&Dev_Fault_Handler);
-    CMP3_EventCallbackRegister(&Dev_Fault_Handler);
         
     // X2CScope will be initialized when X2CDEBUG_ENABLED is enabled
     #if (X2CDEBUG_ENABLED == 1)
