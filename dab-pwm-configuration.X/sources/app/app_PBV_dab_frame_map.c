@@ -33,7 +33,7 @@
 #include "system/pins.h"
 #include "device/dev_fan.h"
 #include "device/dev_temp.h"
-#include "device/pwrctrl/dev_pwrctrl_api.h"
+#include "device/pwrctrl/dev_pwrctrl_comm_interface.h"
 #include "device/fault/dev_fault_api.h"
 #include "config/macros.h"
 #include "config/version.h"
@@ -56,7 +56,6 @@
 // command IDs, first data word in received package
 // use this to decide what action to take when data is received
 #define PBV_CMD_ID_DAB_ON_OFF           0xAAAA           ///< turn DAB on or off
-#define PBV_CMD_ID_DAB_RESET            0xAAAB           ///< DAB operation is resetted
 #define PBV_CMD_ID_FREQ_CHANGE          0xBBBB           ///< change DAB switching frequency
 #define PBV_CMD_ID_FAN_SPEED            0xCCCC           ///< set fan speed 
 
@@ -281,19 +280,14 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             
                 bool enable = (bool)control_word;
                 Dev_PwrCtrl_SetEnable(enable);
+                
                 if(enable==false)
                 {    
-                    Dev_PwrCtrl_SetIReference(0);
-                    Dev_PwrCtrl_SetVSecReference(0);
-                    Dev_PwrCtrl_SetPwrReference(0);
+                    Dev_PwrCtrl_SetState(control_word);
                 }
             }
             break; 
         }    
-        case PBV_CMD_ID_DAB_RESET: {
-            Dev_PwrCtrl_SetState(control_word);
-            break; 
-        }
         case PBV_CMD_ID_FREQ_CHANGE: {
             // change target frequency
             if ((control_word <= MAX_PWM_PERIOD) && (control_word >= MIN_PWM_PERIOD)) {
