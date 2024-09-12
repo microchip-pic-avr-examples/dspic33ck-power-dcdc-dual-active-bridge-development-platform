@@ -22,7 +22,7 @@ static __inline__ void DRV_Config_Custom_PWM(void)
     PWM_Trigger_Mode(PWM_GENERATOR_4, PWM_TRIG_MODE_RETRIGGERABLE);
     
     // PWM Swap output based on the hardware
-    PWM_Swap_PWMxL_and_PWMxH(PWM_GENERATOR_2, true);
+    PWM_Swap_PWMxL_and_PWMxH(PWM_GENERATOR_3, true);
     PWM_Swap_PWMxL_and_PWMxH(PWM_GENERATOR_4, true);
     
 }
