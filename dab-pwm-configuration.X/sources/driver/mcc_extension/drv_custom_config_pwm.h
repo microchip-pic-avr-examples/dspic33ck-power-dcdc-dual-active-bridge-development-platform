@@ -16,14 +16,14 @@
 static __inline__ void DRV_Config_Custom_PWM(void)
 {
     //PWMs needs to be re-triggerable for cascaded PWM scheme
-    PWM_Trigger_Mode(PWM_GENERATOR_1, PWM_TRIG_MODE_RETRIGGERABLE);
-    PWM_Trigger_Mode(PWM_GENERATOR_2, PWM_TRIG_MODE_RETRIGGERABLE);
-    PWM_Trigger_Mode(PWM_GENERATOR_3, PWM_TRIG_MODE_RETRIGGERABLE);
-    PWM_Trigger_Mode(PWM_GENERATOR_4, PWM_TRIG_MODE_RETRIGGERABLE);
+    PWM_Trigger_Mode(PWM_PRI_1, PWM_TRIG_MODE_RETRIGGERABLE);
+    PWM_Trigger_Mode(PWM_SEC_1, PWM_TRIG_MODE_RETRIGGERABLE);
+    PWM_Trigger_Mode(PWM_PRI_2, PWM_TRIG_MODE_RETRIGGERABLE);
+    PWM_Trigger_Mode(PWM_SEC_2, PWM_TRIG_MODE_RETRIGGERABLE);
     
     // PWM Swap output based on the hardware
-    PWM_Swap_PWMxL_and_PWMxH(PWM_GENERATOR_3, true);
-    PWM_Swap_PWMxL_and_PWMxH(PWM_GENERATOR_4, true);
+    PWM_Swap_PWMxL_and_PWMxH(PWM_PRI_2, true);
+    PWM_Swap_PWMxL_and_PWMxH(PWM_SEC_2, true);
     
 }
 

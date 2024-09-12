@@ -64,37 +64,37 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
             pcInstance->Pwm.ControlPhase;
     
     // Set the PWM trigger with the calculated PWM phases
-    PWM_TriggerCCompareValueSet(PWM_GENERATOR_1, PrimarySecondaryPhase);
-    PWM_TriggerCCompareValueSet(PWM_GENERATOR_2, PrimaryPhaseDelay);
-    PWM_TriggerCCompareValueSet(PWM_GENERATOR_3, PrimarySecondaryPhase);
+    PWM_TriggerCCompareValueSet(PWM_PRI_1, PrimarySecondaryPhase);
+    PWM_TriggerCCompareValueSet(PWM_SEC_1, PrimaryPhaseDelay);
+    PWM_TriggerCCompareValueSet(PWM_PRI_2, PrimarySecondaryPhase);
 
     // Set the PWM Duty Cycle at 50% with the given Frequency
-    PWM_DutyCycleSet(PWM_GENERATOR_1, pcInstance->Pwm.ControlDutyCycle);
-    PWM_DutyCycleSet(PWM_GENERATOR_2, pcInstance->Pwm.ControlDutyCycle);
-    PWM_DutyCycleSet(PWM_GENERATOR_3, pcInstance->Pwm.ControlDutyCycle);
-    PWM_DutyCycleSet(PWM_GENERATOR_4, pcInstance->Pwm.ControlDutyCycle);
+    PWM_DutyCycleSet(PWM_PRI_1, pcInstance->Pwm.ControlDutyCycle);
+    PWM_DutyCycleSet(PWM_SEC_1, pcInstance->Pwm.ControlDutyCycle);
+    PWM_DutyCycleSet(PWM_PRI_2, pcInstance->Pwm.ControlDutyCycle);
+    PWM_DutyCycleSet(PWM_SEC_2, pcInstance->Pwm.ControlDutyCycle);
     
     // Set the PWM Frequency
-    PWM_PeriodSet(PWM_GENERATOR_1, pcInstance->Pwm.ControlPeriod);
-    PWM_PeriodSet(PWM_GENERATOR_2, pcInstance->Pwm.ControlPeriod);
-    PWM_PeriodSet(PWM_GENERATOR_3, pcInstance->Pwm.ControlPeriod);
-    PWM_PeriodSet(PWM_GENERATOR_4, pcInstance->Pwm.ControlPeriod);
+    PWM_PeriodSet(PWM_PRI_1, pcInstance->Pwm.ControlPeriod);
+    PWM_PeriodSet(PWM_SEC_1, pcInstance->Pwm.ControlPeriod);
+    PWM_PeriodSet(PWM_PRI_2, pcInstance->Pwm.ControlPeriod);
+    PWM_PeriodSet(PWM_SEC_2, pcInstance->Pwm.ControlPeriod);
 
     // Set the PWM Low DeadTime
-    PWM_DeadTimeLowSet(PWM_GENERATOR_1, pcInstance->Pwm.DeadTimeLow);
-    PWM_DeadTimeLowSet(PWM_GENERATOR_2, pcInstance->Pwm.DeadTimeLow);
-    PWM_DeadTimeLowSet(PWM_GENERATOR_3, pcInstance->Pwm.DeadTimeLow);
-    PWM_DeadTimeLowSet(PWM_GENERATOR_4, pcInstance->Pwm.DeadTimeLow);
+    PWM_DeadTimeLowSet(PWM_PRI_1, pcInstance->Pwm.DeadTimeLow);
+    PWM_DeadTimeLowSet(PWM_SEC_1, pcInstance->Pwm.DeadTimeLow);
+    PWM_DeadTimeLowSet(PWM_PRI_2, pcInstance->Pwm.DeadTimeLow);
+    PWM_DeadTimeLowSet(PWM_SEC_2, pcInstance->Pwm.DeadTimeLow);
     
     // Set the PWM High DeadTime
-    PWM_DeadTimeHighSet(PWM_GENERATOR_1, pcInstance->Pwm.DeadTimeHigh);
-    PWM_DeadTimeHighSet(PWM_GENERATOR_2, pcInstance->Pwm.DeadTimeHigh);
-    PWM_DeadTimeHighSet(PWM_GENERATOR_3, pcInstance->Pwm.DeadTimeHigh);
-    PWM_DeadTimeHighSet(PWM_GENERATOR_4, pcInstance->Pwm.DeadTimeHigh);
+    PWM_DeadTimeHighSet(PWM_PRI_1, pcInstance->Pwm.DeadTimeHigh);
+    PWM_DeadTimeHighSet(PWM_SEC_1, pcInstance->Pwm.DeadTimeHigh);
+    PWM_DeadTimeHighSet(PWM_PRI_2, pcInstance->Pwm.DeadTimeHigh);
+    PWM_DeadTimeHighSet(PWM_SEC_2, pcInstance->Pwm.DeadTimeHigh);
     
     // Set the Update bit of the last PWM in the cascaded approach to broadcast
     // it to the other PWMs
-    PWM_SoftwareUpdateRequest(PWM_GENERATOR_4);
+    PWM_SoftwareUpdateRequest(PWM_SEC_2);
     
 }
 
@@ -112,19 +112,19 @@ void Dev_PwrCtrl_PWM_Enable(void)
         
     // Turn-On PWM outputs by disabling the output override 
     // on each high and low PWM output
-    PWM_OverrideHighDisable(PWM_GENERATOR_1);
-    PWM_OverrideHighDisable(PWM_GENERATOR_2);
-    PWM_OverrideHighDisable(PWM_GENERATOR_3);
-    PWM_OverrideHighDisable(PWM_GENERATOR_4);
+    PWM_OverrideHighDisable(PWM_PRI_1);
+    PWM_OverrideHighDisable(PWM_SEC_1);
+    PWM_OverrideHighDisable(PWM_PRI_2);
+    PWM_OverrideHighDisable(PWM_SEC_2);
            
-    PWM_OverrideLowDisable(PWM_GENERATOR_1);
-    PWM_OverrideLowDisable(PWM_GENERATOR_2);
-    PWM_OverrideLowDisable(PWM_GENERATOR_3);
-    PWM_OverrideLowDisable(PWM_GENERATOR_4); 
+    PWM_OverrideLowDisable(PWM_PRI_1);
+    PWM_OverrideLowDisable(PWM_SEC_1);
+    PWM_OverrideLowDisable(PWM_PRI_2);
+    PWM_OverrideLowDisable(PWM_SEC_2); 
     
     // Set update request of the last PWM in the cascade 
     // to update all PWM registers
-    PWM_SoftwareUpdateRequest(PWM_GENERATOR_4);
+    PWM_SoftwareUpdateRequest(PWM_SEC_2);
 
 }
 
@@ -142,18 +142,18 @@ void Dev_PwrCtrl_PWM_Disable(void)
 {   
     // Turn-Off PWM outputs by enabling the output override 
     // on each high and low PWM output
-    PWM_OverrideHighEnable(PWM_GENERATOR_1);
-    PWM_OverrideHighEnable(PWM_GENERATOR_2);
-    PWM_OverrideHighEnable(PWM_GENERATOR_3);
-    PWM_OverrideHighEnable(PWM_GENERATOR_4);
+    PWM_OverrideHighEnable(PWM_PRI_1);
+    PWM_OverrideHighEnable(PWM_SEC_1);
+    PWM_OverrideHighEnable(PWM_PRI_2);
+    PWM_OverrideHighEnable(PWM_SEC_2);
            
-    PWM_OverrideLowEnable(PWM_GENERATOR_1);
-    PWM_OverrideLowEnable(PWM_GENERATOR_2);
-    PWM_OverrideLowEnable(PWM_GENERATOR_3);
-    PWM_OverrideLowEnable(PWM_GENERATOR_4); 
+    PWM_OverrideLowEnable(PWM_PRI_1);
+    PWM_OverrideLowEnable(PWM_SEC_1);
+    PWM_OverrideLowEnable(PWM_PRI_2);
+    PWM_OverrideLowEnable(PWM_SEC_2); 
     
     // Set update request of the last PWM in the cascade 
     // to update all pwm registers
-    PWM_SoftwareUpdateRequest(PWM_GENERATOR_4);
+    PWM_SoftwareUpdateRequest(PWM_SEC_2);
     
 }

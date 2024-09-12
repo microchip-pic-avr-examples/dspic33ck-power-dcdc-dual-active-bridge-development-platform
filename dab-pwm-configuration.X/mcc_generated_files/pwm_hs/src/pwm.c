@@ -526,7 +526,7 @@ void PWM_GeneratorTasks (enum PWM_GENERATOR intGen)
 {
     switch(intGen)
     {
-        case PWM_GENERATOR_1:
+        case PWM_PRI_1:
             if(IFS4bits.PWM1IF == 1)
             {
                 if(NULL != PWM_GeneratorEOCEventHandler)
@@ -536,7 +536,7 @@ void PWM_GeneratorTasks (enum PWM_GENERATOR intGen)
                 IFS4bits.PWM1IF = 0;
             }
             break;
-        case PWM_GENERATOR_2:
+        case PWM_SEC_1:
             if(IFS4bits.PWM2IF == 1)
             {
                 if(NULL != PWM_GeneratorEOCEventHandler)
@@ -546,7 +546,7 @@ void PWM_GeneratorTasks (enum PWM_GENERATOR intGen)
                 IFS4bits.PWM2IF = 0;
             }
             break;
-        case PWM_GENERATOR_3:
+        case PWM_PRI_2:
             if(IFS4bits.PWM3IF == 1)
             {
                 if(NULL != PWM_GeneratorEOCEventHandler)
@@ -556,7 +556,7 @@ void PWM_GeneratorTasks (enum PWM_GENERATOR intGen)
                 IFS4bits.PWM3IF = 0;
             }
             break;
-        case PWM_GENERATOR_4:
+        case PWM_SEC_2:
             if(IFS4bits.PWM4IF == 1)
             {
                 if(NULL != PWM_GeneratorEOCEventHandler)
