@@ -36,6 +36,38 @@
     
 /*******************************************************************************
  * @ingroup dev-pwrctrl-properties-public
+ * @brief Data Object of primary voltage averaging
+ * 
+ * @details The 'VprimAveraging' data object holds the averaging parameter of the 
+ *  Primary Voltage.
+ *******************************************************************************/
+AVERAGING_t VprimAveraging;
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-properties-public
+ * @brief Data Object of secondary voltage averaging
+ * 
+ * @details The 'VsecAveraging' data object holds the averaging parameter of the 
+ *  Secondary Voltage.
+ *******************************************************************************/
+AVERAGING_t VsecAveraging;
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-properties-public
+ * @brief Data Object of primary voltage averaging
+ * 
+ * @details The 'VprimAveraging' data object holds the averaging parameter of the 
+ *  Primary Voltage.
+ *******************************************************************************/
+AVERAGING_t VprimAveraging;
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-properties-public
+ * @brief Data Object of secondary voltage averaging
+ * 
+ * @details The 'VsecAveraging' data object holds the averaging parameter of the 
+ *  Secondary Voltage.
+ *******************************************************************************/
+AVERAGING_t VsecAveraging;
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-properties-public
  * @brief Data Object of secondary current averaging
  * 
  * @details The 'IsecAveraging' data object holds the averaging parameter of the 
@@ -73,6 +105,18 @@ void Dev_PwrCtrl_UpdateADConverterData (void)
     if(ADC1_IsConversionComplete(TEMP))
         dab.Data.Temperature = ADC1_ConversionResultGet(TEMP);
     
+    if(ADC1_IsConversionComplete(VPRI)){
+        dab.Data.VPriVoltage = ADC1_ConversionResultGet(VPRI);
+        VprimAveraging.Accumulator += dab.Data.VPriVoltage;
+        VprimAveraging.Counter = VprimAveraging.Counter + 1;   
+    }
+    
+    if(ADC1_IsConversionComplete(VSEC)){
+        dab.Data.VSecVoltage = ADC1_ConversionResultGet(VSEC);
+        VsecAveraging.Accumulator += dab.Data.VSecVoltage;
+        VsecAveraging.Counter = VsecAveraging.Counter + 1; 
+    }
+    
     if(ADC1_IsConversionComplete(ISEC_AVG)){
         dab.Data.ISecAverage = ADC1_ConversionResultGet(ISEC_AVG); 
         dab.Data.ISecAverageRectified = abs(dab.Data.ISecAverage - dab.Data.ISecSensorOffset);
@@ -98,8 +142,10 @@ void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
     //Interleave the execution of VLoop and PLoop control for 10KHz execution
     if(++cnt == (VPLOOP_ILOOP_EXE_RATIO)) 
     {
-        // Filter Averaging of Secondary Voltage
-        dab.Data.VSecVoltage = ADC1_ConversionResultGet(VSEC);
+        // Averaging of Secondary Voltage
+        VsecAveraging.AverageValue = (uint16_t)(__builtin_divud(VsecAveraging.Accumulator, VsecAveraging.Counter));
+        VsecAveraging.Accumulator = 0;
+        VsecAveraging.Counter = 0;
         
         #if(OPEN_LOOP_PBV == false)
         //Condition for control loop execution controlling the loop enable bit
@@ -109,8 +155,10 @@ void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
             dab.VLoop.Enable = true;
             dab.PLoop.Enable = false;
           
-            // Filter Averaging of Primary Voltage
-            dab.Data.VPriVoltage = ADC1_ConversionResultGet(VPRI);
+            // Averaging of Primary Voltage
+            VprimAveraging.AverageValue = (uint16_t)(__builtin_divud(VprimAveraging.Accumulator, VprimAveraging.Counter));
+            VprimAveraging.Accumulator = 0;
+            VprimAveraging.Counter = 0;
             
             Dev_PwrCtrl_AdaptiveGainUpdate();
         }
@@ -130,7 +178,7 @@ void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
             // Bit-shift value used to perform input value normalization
             // Scaled the feedback to Power (Watts in units)
             uint32_t buf = (uint32_t)IsecAveraging.AverageValue * 
-                    (uint32_t)dab.Data.VSecVoltage * POWER_FACTOR; 
+                    (uint32_t)VsecAveraging.AverageValue * POWER_FACTOR; 
 
             // scale back the 14 bit from the POWER_RESOLUTION calculation 
             // to get the Watts value for Power Loop
@@ -167,7 +215,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
             VMC_2p2z.maxOutput =  0x7FFF;
 
             // Bit-shift value used to perform input value normalization
-            dab.VLoop.Feedback = dab.Data.VSecVoltage << 3;  
+            dab.VLoop.Feedback = VsecAveraging.AverageValue << 3;  
             dab.VLoop.Reference = dab.VLoop.Reference << 3;
 
             // Execute the Voltage Loop Control
@@ -242,7 +290,7 @@ static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
     uint16_t DAB_PrimaryVoltage; // Convert to actual voltage 
 
     // calculate the primary voltage in terms of Volts
-    DAB_PrimaryVoltage = __builtin_divud((dab.Data.VPriVoltage * VPRI_SCALER), VPRI_FACTOR);     
+    DAB_PrimaryVoltage = __builtin_divud((VprimAveraging.AverageValue * VPRI_SCALER), VPRI_FACTOR);     
     
     if(dab.PowerDirection == PWR_CTRL_CHARGING)
     { 
