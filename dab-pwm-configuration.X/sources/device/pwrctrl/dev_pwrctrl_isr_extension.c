@@ -124,7 +124,7 @@ void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
     static uint16_t cnt = 0;
     
     //Interleave the execution of VLoop and PLoop control for 10KHz execution
-    if(++cnt == 5) 
+    if(++cnt == (VPLOOP_ILOOP_EXE_RATIO)) 
     {
         // Averaging of Secondary Voltage
         VsecAveraging.AverageValue = (uint16_t)(__builtin_divud(VsecAveraging.Accumulator, VsecAveraging.Counter));

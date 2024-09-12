@@ -36,6 +36,10 @@
 #define MAXIMUM_DEADTIME                (float)500e-9 ///< Maximum Deadtime in seconds
 #define MINIMUM_PHASESHIFTED_PULSE      (float)256e-9 ///< Minimum phase shifted pulse in seconds [sec]
 
+
+#define VPLOOP_ILOOP_EXE_RATIO           (uint16_t)(10 / 2) ///< ratio of ILOOP /VPLOOP execution [100KHz / 10KHz]
+                                                            ///< divide 2 is for interleaved VLoop and PLoop
+        
 #define PRI_TO_SEC_PHASE_DEGREES_LIMIT  90u ///< Maximum Limit for primary to secondary phase in degrees [deg]
 
 #define AGC_MINIMUM_VIN_THRESHOLD       160u ///< Minimum VIN threshold to activate AGC in [V]  
