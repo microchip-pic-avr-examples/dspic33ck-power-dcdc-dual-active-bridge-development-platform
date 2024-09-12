@@ -93,7 +93,7 @@ void ControlLoop_Interrupt_CallBack(void)
 //    CMP2_DACDataWrite(variable_to_test_here);
     #endif
 
-    #if (true == DPDB_TEST_RUN)
+    #if (true == OPEN_LOOP_POTI)
 
     // Connect TP11 -> Pot1 & TP12 -> Pot2 in digital Power Development Board
     uint16_t Pot1 = dab.Data.ISecAverage; 
@@ -109,6 +109,10 @@ void ControlLoop_Interrupt_CallBack(void)
 
     // Update PWM Properties
     Dev_PwrCtrl_PWM_Update(&dab);
-
+    
+    // Enable the ADC sampling
+    ADC1_SoftwareTriggerEnable();
+    DPD_TP31_SetHigh();
+    
     GPIO_1_SetLow();
 }

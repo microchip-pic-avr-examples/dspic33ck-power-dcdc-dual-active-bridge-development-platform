@@ -52,7 +52,7 @@ extern void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
  * start-up configuration and control loop configuration. 
  *********************************************************************************/
 void Dev_PwrCtrl_Initialize(void)
-{
+{   
     dab.Properties.VPriReference = 0;
     dab.Properties.VSecReference = 0;
     dab.Properties.IReference = 0;
@@ -95,7 +95,7 @@ void Dev_PwrCtrl_Initialize(void)
  *********************************************************************************/
 void Dev_PwrCtrl_Execute(void)
 {
-    
+    // Execute the state machine
     Dev_PwrCtrl_StateMachine(&dab);
 }
 
@@ -175,13 +175,28 @@ static void Dev_PwrCtrl_StartUpInitialize(void)
     dab.PRamp.Counter = 0;
     dab.PRamp.RampComplete = 0;
     
-#if (OPEN_LOOP_PBV)
+#if (OPEN_LOOP_PBV == true)
     // Initialize Voltage ramp-up settings for Period control
+    // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
+    // (please refer to Section 4.1.3.3 in High Resolution PWM FRM)
+    uint16_t PeriodMask = 0x7; 
+    
+    dab.Pwm.ControlPeriod = dab.Pwm.ControlPeriod & ~(PeriodMask);
+    dab.Pwm.PBVPeriodTarget = dab.Pwm.PBVPeriodTarget & ~(PeriodMask);
+    
     dab.VRamp.ptrReference = &dab.Pwm.ControlPeriod;
     dab.VRamp.ptrReferenceTarget = &dab.Pwm.PBVPeriodTarget;
+    dab.VRamp.StepSize = 0x7;
+    dab.VRamp.Delay = 0;
     
     //Initialize Current ramp-up settings for Phase control
+    dab.Pwm.ControlPhase = dab.Pwm.ControlPhase & ~(PeriodMask);
+    dab.Pwm.PBVControlPhaseTarget = dab.Pwm.PBVControlPhaseTarget & ~(PeriodMask);
+    
     dab.IRamp.ptrReference = &dab.Pwm.ControlPhase;
     dab.IRamp.ptrReferenceTarget = &dab.Pwm.PBVControlPhaseTarget;
+    dab.IRamp.StepSize = 0x7;
+    dab.IRamp.Delay = 0;
+    
 #endif
 }
