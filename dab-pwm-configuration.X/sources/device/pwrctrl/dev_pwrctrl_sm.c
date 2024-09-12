@@ -128,9 +128,6 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
         // Clear power control enable bit
         pcInstance->Properties.Enable = 0;
         
-        //Enable current loop control
-        pcInstance->ILoop.Enable = true;
-        
         // Next State assigned to STATE_FAULT_DETECTION
         pcInstance->State = PWRCTRL_STATE_FAULT_DETECTION;
     }   
@@ -188,8 +185,12 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
     {
         // Reset fault objects status bits
         Dev_Fault_Reset();
-        // ToDo: Not yet applied; check this again
-        Dev_Fault_ClearHardwareFaults();
+            
+        // Reset the power control properties and control loop histories
+        Dev_PwrCtrl_Reset(&dab);
+        
+        // Reset Control Loop Histories
+        Dev_PwrCtrl_ResetControlLoopHistories();
             
         #if (CURRENT_CALIBRATION == true) 
         // reset the PWM settings in Standby mode
@@ -202,14 +203,6 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         {    
             pcInstance->Data.ISecSensorOffset = Dev_CurrentSensor_Get_Offset();
 
-            Dev_Fault_ClearHardwareFaults();
-            
-            // Reset the power control properties and control loop histories
-            Dev_PwrCtrl_Reset(&dab);
-        
-            // Reset Control Loop Histories
-            Dev_PwrCtrl_ResetControlLoopHistories();
-            
             // Enable current control loop
             pcInstance->ILoop.Enable = true;
             pcInstance->ILoop.AgcFactor = dab.ILoop.AgcFactor;
@@ -315,12 +308,12 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
             // Clear power control running bit
             pcInstance->Status.bits.Running = 0;
 
-            // State back to STATE_STANDBY
-            pcInstance->State = PWRCTRL_STATE_STANDBY; 
+            // State back to STATE_INITIALIZE
+            pcInstance->State = PWRCTRL_STATE_INITIALIZE; 
         }
         
     #if (OPEN_LOOP_PBV == true)
-        else if ((pcInstance->Pwm.ControlPeriod != pcInstance->Pwm.PBVPeriodTarget) || 
+        else if ((pcInstance->Pwm.ControlPeriod & ~(0x7)) != (pcInstance->Pwm.PBVPeriodTarget& ~(0x7)) || 
                 (pcInstance->Pwm.ControlPhase != pcInstance->Pwm.PBVControlPhaseTarget))
             pcInstance->State = PWRCTRL_STATE_SOFT_START;
     #endif
