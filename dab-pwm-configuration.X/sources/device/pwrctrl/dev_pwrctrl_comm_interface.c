@@ -261,24 +261,6 @@ uint16_t Dev_PwrCtrl_Get_SecPower(void)
 {
     return(dab.Data.SecPower);
 }
-/*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
- * @brief   API function to get the average value of the sampled ADC for primary voltage
- * @return  none
- **********************************************************************************/
-uint16_t Dev_PwrCtrl_GetAveraging_Vprim(void)
-{
-    return(VprimAveraging.AverageValue);
-}
-/*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
- * @brief   API function to get the average value of the sampled ADC for secondary voltage
- * @return  none
- **********************************************************************************/
-uint16_t Dev_PwrCtrl_GetAveraging_Vsec(void)
-{
-    return(VsecAveraging.AverageValue);
-}
 
 /*********************************************************************************
  * @ingroup dev-pwrctrl-api-public

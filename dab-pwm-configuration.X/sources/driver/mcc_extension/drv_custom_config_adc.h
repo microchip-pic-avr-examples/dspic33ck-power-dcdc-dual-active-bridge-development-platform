@@ -23,23 +23,18 @@
 #define ADC_CHANNEL_ISEC_CT     (0)
 #define ADC_CHANNEL_ISEC_AVG    (1)
 
-static __inline__ void Cfg_custom_adc(void)
+static __inline__ void DRV_Config_Custom_ADC(void)
 {
-    // use ADC filter 0 for secondary current averaging
+    
+    // use ADC filter 1 for primary voltage averaging
     ADC_Filter_Mode(0, ADC_FILTER_MODE_AVERAGING);
-    ADC_Filter_Averaging(0, ADC_FILTER_OVRSAM_AVG_8x);
-    ADC_Filter_Input(0, ADC_CHANNEL_ISEC_CT);
+    ADC_Filter_Averaging(0, ADC_FILTER_OVRSAM_AVG_4x);
+    ADC_Filter_Input(0, ADC_CHANNEL_VPRI);
     ADC_Filter_Enable(0, true);
     
     // use ADC filter 1 for secondary voltage averaging
     ADC_Filter_Mode(1, ADC_FILTER_MODE_AVERAGING);
-    ADC_Filter_Averaging(1, ADC_FILTER_OVRSAM_AVG_8x);
-    ADC_Filter_Input(1, ADC_CHANNEL_VSEC);
-    ADC_Filter_Enable(1, true);
-    
-    // use ADC filter 1 for secondary voltage averaging
-    ADC_Filter_Mode(1, ADC_FILTER_MODE_AVERAGING);
-    ADC_Filter_Averaging(1, ADC_FILTER_OVRSAM_AVG_8x);
+    ADC_Filter_Averaging(1, ADC_FILTER_OVRSAM_AVG_4x);
     ADC_Filter_Input(1, ADC_CHANNEL_VSEC);
     ADC_Filter_Enable(1, true);
     

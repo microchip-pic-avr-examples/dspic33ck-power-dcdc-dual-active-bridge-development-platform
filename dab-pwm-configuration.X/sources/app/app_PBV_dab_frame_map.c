@@ -239,8 +239,8 @@ void App_PBV_DAB_Build_Frame()
     uint16_t flag_word = enabled + ((status_flags & 0x0003)<<1) + (fault_flags<<3);
     
     buffer_sixteen_tx[1] = flag_word;
-    buffer_sixteen_tx[2] = Dev_PwrCtrl_GetAveraging_Vprim(); //Dev_PwrCtrl_GetAdc_Vpri();
-    buffer_sixteen_tx[3] = Dev_PwrCtrl_GetAveraging_Vsec();//Dev_PwrCtrl_GetAdc_Vsec();
+    buffer_sixteen_tx[2] = Dev_PwrCtrl_GetAdc_Vpri(); //Dev_PwrCtrl_GetAveraging_Vprim(); //
+    buffer_sixteen_tx[3] = Dev_PwrCtrl_GetAdc_Vsec(); //Dev_PwrCtrl_GetAveraging_Vsec();//
     buffer_sixteen_tx[4] = Dev_PwrCtrl_GetAdc_Ipri_ct();
     buffer_sixteen_tx[5] = Dev_PwrCtrl_GetAdc_Isec_ct();
     buffer_sixteen_tx[6] = Dev_PwrCtrl_GetAveraging_Isec();//Dev_PwrCtrl_GetAdc_Isec_avg();

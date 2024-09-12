@@ -21,10 +21,14 @@
 #include <xc.h>
 #include "driver/mcc_extension/drv_mcc_extension.h"
 #include "driver/mcc_extension/drv_custom_config_pwm.h"
+#include "driver/mcc_extension/drv_custom_config_adc.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
 
 void MCC_Custom_User_Config (void)
 {
-    //Initialize PWM as re-triggerable for the cascaded PWM scheme
+    // Initialize PWM as re-triggerable for the cascaded PWM scheme
     DRV_Config_Custom_PWM();
+    
+    // Initialize ADC with filtering in Vprimary and VSecondary
+    DRV_Config_Custom_ADC();
 }
