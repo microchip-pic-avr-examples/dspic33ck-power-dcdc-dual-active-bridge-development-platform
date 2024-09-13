@@ -52,22 +52,6 @@ AVERAGING_t VprimAveraging;
 AVERAGING_t VsecAveraging;
 /*******************************************************************************
  * @ingroup dev-pwrctrl-properties-public
- * @brief Data Object of primary voltage averaging
- * 
- * @details The 'VprimAveraging' data object holds the averaging parameter of the 
- *  Primary Voltage.
- *******************************************************************************/
-AVERAGING_t VprimAveraging;
-/*******************************************************************************
- * @ingroup dev-pwrctrl-properties-public
- * @brief Data Object of secondary voltage averaging
- * 
- * @details The 'VsecAveraging' data object holds the averaging parameter of the 
- *  Secondary Voltage.
- *******************************************************************************/
-AVERAGING_t VsecAveraging;
-/*******************************************************************************
- * @ingroup dev-pwrctrl-properties-public
  * @brief Data Object of secondary current averaging
  * 
  * @details The 'IsecAveraging' data object holds the averaging parameter of the 
@@ -206,7 +190,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
 {   
     // Execute the Voltage Loop Control
     if((dab.VLoop.Enable == true) && (VLoopInterleaveExec == true))
-    {
+    {     
         VLoopInterleaveExec = false;
         
         if(dab.PowerDirection == PWR_CTRL_CHARGING)
@@ -244,6 +228,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
     // Execute the Current Loop Control
     if(dab.ILoop.Enable == true)
     {
+        DPD_TP31_SetHigh();
         //Bit-shift value used to perform input value normalization
         dab.ILoop.Feedback = dab.Data.ISecAverageRectified << 3;
         //adaptive gain factor
@@ -275,6 +260,8 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         // clamping value of control phase
         else if(dab.Pwm.ControlPhase < dab.Pwm.DeadTimeLow) 
             dab.Pwm.ControlPhase = dab.Pwm.DeadTimeLow;  
+        
+        DPD_TP31_SetLow();
     }
 }
 
