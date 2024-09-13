@@ -73,8 +73,9 @@ void ControlLoop_Interrupt_CallBack(void)
     
     #if(OPEN_LOOP_PBV == false)
  
-    // Execute Power Converter Control Loop
-    Dev_PwrCtrl_ControlLoopExecute();
+    if(dab.Status.bits.Running == 1){ 
+        // Execute Power Converter Control Loop
+        Dev_PwrCtrl_ControlLoopExecute(); }
     
     // Measure Primary to Secondary phase in degrees
     Dev_PwrCtrl_PrimToSecPHDegree(); 
