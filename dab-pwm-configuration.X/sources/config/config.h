@@ -34,7 +34,7 @@
 
 #define MINIMUM_DEADTIME                (float)150e-9 ///< Minimum Deadtime in seconds
 #define MAXIMUM_DEADTIME                (float)500e-9 ///< Maximum Deadtime in seconds
-#define MINIMUM_PHASESHIFTED_PULSE      (float)256e-9 ///< Minimum phase shifted pulse in seconds [sec]
+#define MINIMUM_PHASESHIFTED_PULSE      (float) 80e-9 ///< Minimum phase shifted pulse in seconds [sec]
 
 
 #define VPLOOP_ILOOP_EXE_RATIO           (uint16_t)(10 / 2) ///< ratio of ILOOP /VPLOOP execution [100KHz / 10KHz]

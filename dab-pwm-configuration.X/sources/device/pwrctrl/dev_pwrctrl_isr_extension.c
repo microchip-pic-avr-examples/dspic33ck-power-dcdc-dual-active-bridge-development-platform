@@ -324,7 +324,7 @@ void Dev_PwrCtrl_PrimToSecPHDegree(void)
     // Normalize phase to 0..90.  
     uint32_t buff = ((unsigned long)dab.Pwm.ControlPhase) << DEGREES_PHASE_SCALER;
     uint16_t buf = __builtin_divud( buff ,dab.Pwm.ControlDutyCycle);
-    buff = buf * PRI_TO_SEC_PHASE_DEGREES_LIMIT;
+    buff = __builtin_muluu(buf, PRI_TO_SEC_PHASE_DEGREES_LIMIT);
     buf = __builtin_divud( buff ,DEGREES_PHASE_SCALING_10);
 
     // Calculation result for phase value scaled by 10x 
