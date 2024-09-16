@@ -1,4 +1,4 @@
-/**
+/*
  * @ingroup   version-information
  * @file      dev_led.c
  * @details   <b>Description</b><br>This file has all the logic for led blinkys.
@@ -10,14 +10,40 @@
  * @copyright 
  */
 
+/* Microchip Technology Inc. and its subsidiaries.  You may use this software 
+ * and any derivatives exclusively with Microchip products. 
+ * 
+ * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS".  NO WARRANTIES, WHETHER 
+ * EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED 
+ * WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A 
+ * PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION 
+ * WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION. 
+ *
+ * IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
+ * INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
+ * WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS 
+ * BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE.  TO THE 
+ * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS 
+ * IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF 
+ * ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+ *
+ * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
+ * TERMS. 
+ */
+
+/**
+ * @file      dev_led.c
+ * @ingroup   dev-led   
+ * @brief     Contains LED initialization and execution functions.
+ */
 #include "xc.h"
 #include "dev_led.h"
 #include "system/pins.h"
 
 /*********************************************************************************
- * @ingroup dev-led-enums-private
+ * @ingroup dev-led
  * @{
- * @brief enumerating away privately
+ * @brief These are the macros indicating the status of the LED. 
  **********************************************************************************/
 
 #define LED_STATE_OFF 0
@@ -38,15 +64,14 @@ uint8_t ledtimer[NUM_OF_LEDS];      ///< array that stores led  blink times
 
 uint8_t LEDIterationsCounter[NUM_OF_LEDS];
 /***********************************************************************************
- * @ingroup dev-led-public-functions
- * @fn     Dev_LED_Init
- * @param  void
- * @return nothing
- * @brief this function contains the initialization
+ * @ingroup dev-led
+ * @brief This function contains the LED initialization
+ * @return  void
+ * 
  * @details
- *   This function initalizes the LED to normal blink interval
+ *   This function initializes the LED to normal blink interval.
  * @note
- *   not really needed to be called at startup, but its nice be consistent
+ *   Not really needed to be called at startup, but its nice be consistent
  **********************************************************************************/
 void Dev_LED_Initialize(void)
 {
@@ -57,13 +82,12 @@ void Dev_LED_Initialize(void)
 }
 
 /***********************************************************************************
- * @ingroup dev-led-public-functions
- * @fn     Dev_LED_On
- * @param  led_id 
- * @return nothing
- * @brief Switch on the LED with the ID defined in the header file
- * @details
- *   This function turns on the led
+ * @ingroup dev-led
+ * @brief Switch on the LED 
+ * @param  led_id LED ID instance
+ * @return void
+ * 
+ * @details This function turns on the led with the ID defined in the header file
  **********************************************************************************/
 void Dev_LED_On(uint8_t led_id)
 {
@@ -81,15 +105,13 @@ void Dev_LED_On(uint8_t led_id)
     }
 }
 
-
 /***********************************************************************************
- * @ingroup dev-led-public-functions
- * @fn     Dev_LED_On
- * @param  led_id
- * @return nothing
- * @brief Switch off the LED with the ID defined in the header file
- * @details
- *   This function turns off the led
+ * @ingroup dev-led
+ * @brief Switch off the LED 
+ * @param  led_id LED ID instance
+ * @return void
+ * 
+ * @details This function turns off the led with the ID defined in the header file
  **********************************************************************************/
 void Dev_LED_Off(uint8_t led_id)
 {
@@ -107,15 +129,13 @@ void Dev_LED_Off(uint8_t led_id)
     }
 }
 
-
 /***********************************************************************************
- * @ingroup dev-led-public-functions
- * @fn     Dev_LED_On
- * @param  led_id
- * @return nothing
- * @brief toggle the LED state with the ID defined in the header file
- * @details
- *   This function toggles the led 
+ * @ingroup dev-led
+ * @brief Toggles the LED state 
+ * @param  led_id LED ID instance
+ * @return void
+ * 
+ * @details This function toggles the led with the ID defined in the header file
  **********************************************************************************/
 void Dev_LED_Toggle(uint8_t led_id)
 {
@@ -128,15 +148,13 @@ void Dev_LED_Toggle(uint8_t led_id)
     }
 }
 
-
 /***********************************************************************************
- * @ingroup dev-led-public-functions
- * @fn     Dev_LED_On
- * @param  led_id
- * @return nothing
- * @brief sets the LED with the ID defined in the header file in normal blinking mode
- * @details
- *   This function blinks in normal blink as defined in header
+ * @ingroup dev-led
+ * @brief Set the LED in blinking mode
+ * @param  led_id LED ID instance
+ * @return void
+ * 
+ * @details This function makes the LED blink.
  **********************************************************************************/
 void Dev_LED_Blink(uint8_t led_id)
 {
@@ -146,13 +164,12 @@ void Dev_LED_Blink(uint8_t led_id)
 }
 
 /***********************************************************************************
- * @ingroup dev-led-public-functions
- * @fn     Dev_LED_On
- * @param  led_id
- * @return nothing
- * @brief sets the LED with the ID defined in the header file in normal blinking mode
- * @details
- *   This function blinks in normal blink as defined in header
+ * @ingroup dev-led
+ * @brief Set the LED in blinking mode in number of LED iterations
+ * @param  led_id LED ID instance
+ * @return void
+ * 
+ * @details This function blinks the LED instance in a particular number of blink counts
  **********************************************************************************/
 void Dev_LED_Blink_Iter(uint8_t led_id, uint8_t count)
 {
@@ -162,15 +179,13 @@ void Dev_LED_Blink_Iter(uint8_t led_id, uint8_t count)
     LEDIterationsCounter[led_id] = count;
 }
 
-
 /***********************************************************************************
- * @ingroup dev-led-public-functions
- * @fn     Dev_LED_On
- * @param  led_id
- * @return nothing
- * @brief sets the LED with the ID defined in the header file in slow blinking mode
- * @details
- *   This function blinks in slow blink as defined in header
+ * @ingroup dev-led
+ * @brief Set the LED in SLOW blinking mode 
+ * @param  led_id LED ID instance
+ * @return void
+ * 
+ * @details This function makes the LED blink in slow mode. 
  **********************************************************************************/
 void Dev_LED_Blink_Slow(uint8_t led_id)
 {
@@ -179,15 +194,13 @@ void Dev_LED_Blink_Slow(uint8_t led_id)
     ledstates[led_id] = LED_STATE_BLINK_SLOW;
 }
 
-
 /***********************************************************************************
- * @ingroup dev-led-public-functions
- * @fn     Dev_LED_On
- * @param  led_id
- * @return nothing
- * @brief sets the LED with the ID defined in the header file in fast blinking mode
- * @details
- *   This function blinks in slow blink as defined in header
+ * @ingroup dev-led
+ * @brief Set the LED in FAST blinking mode 
+ * @param  led_id LED ID instance
+ * @return void
+ * 
+ * @details This function makes the LED blink in fast mode. 
  **********************************************************************************/
 void Dev_LED_Blink_Fast(uint8_t led_id)
 {
@@ -196,17 +209,15 @@ void Dev_LED_Blink_Fast(uint8_t led_id)
     ledstates[led_id] = LED_STATE_BLINK_FAST;
 }
 
-
 /***********************************************************************************
- * @ingroup dev-led-public-functions
- * @fn     Dev_LED_On
- * @param  void
- * @return nothing
- * @brief this function needs to be called every 100ms
- *        it contains the code to update the status of the LEDs
- * @details
- *   this function needs to be called every 100ms. This updates the status of the LED. 
- *   The intervals defined in the header file are used to determine the frequency of blinky
+ * @ingroup dev-led
+ * @brief This function needs to be called every 100ms and contains the code to 
+ *  update the status of the LEDs
+ * @return void
+ * 
+ * @details This function needs to be called every 100ms. This updates the status 
+ *  of the LED. The intervals defined in the header file are used to determine 
+ *  the frequency of blinky LED.
  **********************************************************************************/
 void Dev_LED_Task_100ms()
 {
@@ -237,7 +248,3 @@ void Dev_LED_Task_100ms()
         }
     }
 }
-
-/*******************************************************************************
- * end of file
- *******************************************************************************/

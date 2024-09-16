@@ -20,21 +20,24 @@
     TERMS.
  */
 
+/**
+ * @file      dev_current_sensor.c
+ * @ingroup   dev-current-sensor   
+ * @brief     Contains current sensor initialization and calibration evaluation. 
+ */
+
 #include <stdbool.h>
 #include "config/macros.h"
 #include "adc/adc1.h"
 
-// number of measurement to calculate the average over
-#define SENSOR_OFFSET_NUM_MEASUREMENTS      (1000)
+#define SENSOR_OFFSET_NUM_MEASUREMENTS      (1000) ///< Number of measurement to calculate the average over
 
 /***********************************************************************************
- * @ingroup 
- * @struct SENSOR_OFFSET_CAL_s
- * @extends 
- * @brief stores data related to sensor calibration, including data related to  sensor
+ * @ingroup dev-current-sensor
+ * @brief Stores data related to sensor calibration, including data related to  sensor
  * offset 
- * @details
- *  
+ * @details This data structure contains the collection of current sensor
+ *  properties that the user can initialize and monitor.  
  **********************************************************************************/
 struct SENSOR_OFFSET_CAL_s
 {  
@@ -47,7 +50,13 @@ struct SENSOR_OFFSET_CAL_s
 };
 typedef struct SENSOR_OFFSET_CAL_s SENSOR_OFFSET_CAL_t;
 
-// create object to store current sensor 
+/*******************************************************************************
+ * @ingroup dev-current-sensor
+ * @brief Data Object of sensor offset calibration
+ * 
+ * @details The 'isecAvgCurrentSensor' data object holds the averaging parameter
+ *  of the sensor offset calibration.
+ *******************************************************************************/
 SENSOR_OFFSET_CAL_t isecAvgCurrentSensor = {.CalibrationComplete = false,
                                                .Accumulator = 0,
                                                .MeasurementCounter = 0,
@@ -55,13 +64,15 @@ SENSOR_OFFSET_CAL_t isecAvgCurrentSensor = {.CalibrationComplete = false,
                                                .LimitLow = ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW};
 
 /*********************************************************************************
- * @ingroup 
- * @fn      void Dev_SensorOffsetCal(SENSOR_OFFSET_CAL_t* sensor, uint16_t adcReading)
- * @brief   measure offset of a sensor
- * @param   pointer to object of type SENSOR_OFFSET_CAL_t (store all data related to sensor offset), most recent ADC reading
- * @return  
- * @details
- * only using pointer arugment here as may have more than 1 sensor on a system, makes the function more generic
+ * @ingroup dev-current-sensor
+ * @brief   Measure the sensor offset
+ * @param   sensor      pointer to object of type SENSOR_OFFSET_CAL_t 
+ * @param   adcReading  most recent ADC reading
+ * @return  void
+ * 
+ * @details This function takes number of samples of adc sample for averaging
+ *  before acquiring the sensor offset value and checks if it is in the acceptable 
+ *  range before setting the calibration bit complete. 
  **********************************************************************************/
 static void __inline__ Dev_SensorOffsetCal(SENSOR_OFFSET_CAL_t* sensor, uint16_t adcReading)
 {
@@ -86,13 +97,12 @@ static void __inline__ Dev_SensorOffsetCal(SENSOR_OFFSET_CAL_t* sensor, uint16_t
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      void Drv_PwrCtrl_CurrentSensorOffsetCal()
- * @brief   measure offset of current sensors
- * @param   None
- * @return  none
- * @details
- * API function
+ * @ingroup dev-current-sensor
+ * @brief   Measures the currents sensor offset 
+ * @return  void
+ * 
+ * @details This function continuously evaluate the current sensor ADC value 
+ *  until the calibration has been completed. 
  **********************************************************************************/
 void Dev_CurrentSensorOffsetCal(void)
 {
@@ -103,41 +113,31 @@ void Dev_CurrentSensorOffsetCal(void)
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Dev_CurrentSensor_Get_CalibrationStatus()
- * @brief   API function to read calibration status of current sensor
- * @param   none
- * @return  1 if calibration is complete, 0 otherwise
- * @details
- * API function
- **********************************************************************************/ 
+ * @ingroup dev-current-sensor
+ * @brief   API function to get the calibration status
+ * @return  true    calibration complete
+ * @return  false   calibration is not complete
+ **********************************************************************************/
 uint16_t Dev_CurrentSensor_Get_CalibrationStatus(void)
 {
     return(isecAvgCurrentSensor.CalibrationComplete);
 }
 
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Dev_CurrentSensor_Get_Offset()
- * @brief   API function to read the current sensor offset
- * @param   none
- * @return  ADC code corresponding to current sensor offset
- * @details
- * API function
- **********************************************************************************/ 
+ * @ingroup dev-current-sensor
+ * @brief   API function to get the sensor offset
+ * @return  value   current sensor offset value
+ **********************************************************************************/
 uint16_t Dev_CurrentSensor_Get_Offset(void)
 {
     return(isecAvgCurrentSensor.Offset); 
 }
+
 /*********************************************************************************
- * @ingroup 
- * @fn      uint16_t Dev_CurrentSensor_Clr_Offset()
- * @brief   API function to clear the current sensor offset calibration flag
- * @param   none
+ * @ingroup dev-current-sensor
+ * @brief   API function to clear the sensor offset
  * @return  none
- * @details
- * API function
- **********************************************************************************/ 
+ **********************************************************************************/
 void Dev_CurrentSensor_Clr_Offset(void)
 {
     isecAvgCurrentSensor.CalibrationComplete=false; 

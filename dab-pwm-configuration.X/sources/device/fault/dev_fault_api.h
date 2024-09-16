@@ -23,10 +23,10 @@
 #ifndef DEV_FAULT_API_H
 #define	DEV_FAULT_API_H
 
-extern void Dev_Fault_SetPriOVPThreshold(uint16_t reference);
-extern void Dev_Fault_SetSecOVPThreshold(uint16_t reference);
-extern void Dev_Fault_SetIPrimaryThreshold(uint16_t reference);
-extern void Dev_Fault_SetISecondaryThreshold(uint16_t reference);
+void Dev_Fault_SetPriOVPThreshold(uint16_t reference);
+void Dev_Fault_SetSecOVPThreshold(uint16_t reference);
+void Dev_Fault_SetIPrimaryThreshold(uint16_t reference);
+void Dev_Fault_SetISecondaryThreshold(uint16_t reference);
 
 extern uint16_t Dev_Fault_GetFlags(void);
 

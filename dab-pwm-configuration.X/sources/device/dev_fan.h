@@ -42,7 +42,6 @@
  **********************************************************************************/
 
 #define     MULTIPLIER      (CCP3PRL/100)       ///< 1 percent equals to max period / 100
-#define     MAX_PERIOD      CCP3PRL            ///< maximum duty cycle is max period
 
 /** @} */ // end of dev-fan-sccp-abstraction-macros
 
@@ -60,14 +59,13 @@
 
 /***********************************************************************************
  * @ingroup dev-fan-data-type
- * @struct  dev_fan_data_t
- * @brief   a custom data type for fan
+ * @brief   A custom data type for fan
  **********************************************************************************/
 struct FAN_DATA_s {
     uint8_t     CurrentSpeedPercent;     ///< Current Speed in percentage
     uint8_t     TargetSpeedPercent;      ///< targetted Speed in percentage
     uint16_t    MaxSpeedPercent;         ///< based on period value (CCXPRL). Use this to limit the fan max speed
-    uint16_t    Tick;                      ///< set the execution rate in multiples of 100ms
+    uint16_t    Tick;                    ///< set the execution rate in multiples of 100ms
     uint16_t    StepSizePercent;         ///< set the increment rate per tick in percentage
     uint16_t    TargetSpeedRaw;          ///< targetted value raw.
     uint16_t    CurrentSpeedRaw;         ///< current value raw.
@@ -79,7 +77,7 @@ typedef struct FAN_DATA_s FAN_DATA_t;
 
 
 /*********************************************************************************
- * @ingroup dev-fan-data-type
+ * @ingroup dev-fan
  * @var     dev_fan_data_ptr
  * @brief   Fan data object pointer external
  * @details pointer to the Object 'dev_fan_data', providing access to all the fan control

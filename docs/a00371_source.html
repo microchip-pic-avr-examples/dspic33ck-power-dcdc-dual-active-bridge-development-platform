@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/fault/dev_fault_api.h Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/pwrctrl/dev_pwrctrl_isr.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('a00371_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">dev_fault_api.h</div></div>
+  <div class="headertitle"><div class="title">dev_pwrctrl_isr.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
@@ -161,18 +161,14 @@ $(document).ready(function(){initNavTree('a00371_source.html',''); initResizable
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">    TERMS.</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#ifndef DEV_FAULT_API_H</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define DEV_FAULT_API_H</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#ifndef DRV_PWRCTRL_ISR_H</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define DRV_PWRCTRL_ISR_H</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">extern</span> <span class="keywordtype">void</span> Dev_Fault_SetPriOVPThreshold(uint16_t reference);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> <span class="keywordtype">void</span> Dev_Fault_SetSecOVPThreshold(uint16_t reference);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">extern</span> <span class="keywordtype">void</span> Dev_Fault_SetIPrimaryThreshold(uint16_t reference);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">extern</span> <span class="keywordtype">void</span> Dev_Fault_SetISecondaryThreshold(uint16_t reference);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">extern</span> uint16_t Dev_Fault_GetFlags(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_FAULT_API_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00475.html#gae32c9e5ed4d1fb98fc13b26601782c10">ControlLoop_Interrupt_CallBack</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif  </span><span class="comment">/* DRV_PWRCTRL_ISR_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="ttc" id="aa00475_html_gae32c9e5ed4d1fb98fc13b26601782c10"><div class="ttname"><a href="a00475.html#gae32c9e5ed4d1fb98fc13b26601782c10">ControlLoop_Interrupt_CallBack</a></div><div class="ttdeci">void ControlLoop_Interrupt_CallBack(void)</div><div class="ttdoc">Executes the power conveter's control loop.</div><div class="ttdef"><b>Definition</b> <a href="a00368_source.html#l00067">dev_pwrctrl_isr.c:67</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

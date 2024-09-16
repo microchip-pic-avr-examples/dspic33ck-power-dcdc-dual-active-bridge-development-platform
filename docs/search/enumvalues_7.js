@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['output_5fscan_5fmode_0',['OUTPUT_SCAN_MODE',['../a00173.html#a2aa62dfcdb1a141d86f4a895a77e8963ac8601192d048c27eeb1aa5b2dc81a6b4',1,'pwm_types.h']]]
+  ['no_5fchange_0',['NO_CHANGE',['../a00284.html#afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd',1,'dev_fan.c']]]
 ];

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: LED Display</title>
+<title>Dual Active Bridge Development Board: CAN_MSG_OBJ Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,20 +136,91 @@ $(document).ready(function(){initNavTree('a00527.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">LED Display<div class="ingroups"><a class="el" href="a00519.html">Device Layer</a></div></div></div>
+  <div class="summary">
+<a href="#pub-attribs">Data Fields</a>  </div>
+  <div class="headertitle"><div class="title">CAN_MSG_OBJ Struct Reference<div class="ingroups"><a class="el" href="a00489.html">MPLABX Configurator Driver Layer</a> &raquo; <a class="el" href="a00491.html">CAN FD Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The debugging LED application layer is the proprietary user code used to configure and drive the on-board debugging LED.  
-</p>
+<p>This data structure used to configure the CAN FD message object.  
+ <a href="a00527.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00068_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dab-pwm-configuration.X/mcc_generated_files/can/can_types.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for LED Display:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CAN_MSG_OBJ:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00527.svg" width="248" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00525.svg" width="131" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<dl class="section note"><dt>Note</dt><dd>This only contains the application layer of the Debugging LED and it does not have a library layer.</dd></dl>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Data Fields</h2></td></tr>
+<tr class="memitem:a92de58c41afbd447b2536d5c9eb7b0f2" id="r_a92de58c41afbd447b2536d5c9eb7b0f2"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#a92de58c41afbd447b2536d5c9eb7b0f2">msgId</a></td></tr>
+<tr class="separator:a92de58c41afbd447b2536d5c9eb7b0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3db823a278f5d389e9b29a698d10ee68" id="r_a3db823a278f5d389e9b29a698d10ee68"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="a00523.html">CAN_MSG_FIELD</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#a3db823a278f5d389e9b29a698d10ee68">field</a></td></tr>
+<tr class="separator:a3db823a278f5d389e9b29a698d10ee68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe222f6d3581e7920dcad5306cc906a8" id="r_abe222f6d3581e7920dcad5306cc906a8"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#abe222f6d3581e7920dcad5306cc906a8">data</a></td></tr>
+<tr class="separator:abe222f6d3581e7920dcad5306cc906a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00067">67</a> of file <a class="el" href="a00068_source.html">can_types.h</a>.</p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="abe222f6d3581e7920dcad5306cc906a8" name="abe222f6d3581e7920dcad5306cc906a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe222f6d3581e7920dcad5306cc906a8">&#9670;&#160;</a></span>data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t* data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pointer to message data </p>
+
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00071">71</a> of file <a class="el" href="a00068_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="a3db823a278f5d389e9b29a698d10ee68" name="a3db823a278f5d389e9b29a698d10ee68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3db823a278f5d389e9b29a698d10ee68">&#9670;&#160;</a></span>field</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="a00523.html">CAN_MSG_FIELD</a> field</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Defines the <a class="el" href="a00523.html">CAN_MSG_FIELD</a> CAN TX/RX Message Object Control </p>
+
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00070">70</a> of file <a class="el" href="a00068_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="a92de58c41afbd447b2536d5c9eb7b0f2" name="a92de58c41afbd447b2536d5c9eb7b0f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92de58c41afbd447b2536d5c9eb7b0f2">&#9670;&#160;</a></span>msgId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t msgId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the CAN Message ID </p>
+
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00069">69</a> of file <a class="el" href="a00068_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>dab-pwm-configuration.X/mcc_generated_files/can/<a class="el" href="a00068_source.html">can_types.h</a></li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

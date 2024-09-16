@@ -20,6 +20,13 @@
     TERMS.
  */
 
+/**
+ * @file      dev_pwrctrl_isr_externsion.c
+ * @ingroup   dev-pwrctrl-isr-ext   
+ * @brief     Contains some of the functions used in the interrupt service routine
+ *  of control loop.
+ */
+
 #include <xc.h>
 #include <math.h>
 #include <stdbool.h>
@@ -35,7 +42,7 @@
 #include "system/pins.h"
     
 /*******************************************************************************
- * @ingroup dev-pwrctrl-properties-public
+ * @ingroup dev-pwrctrl-isr-ext
  * @brief Data Object of primary voltage averaging
  * 
  * @details The 'VprimAveraging' data object holds the averaging parameter of the 
@@ -43,7 +50,7 @@
  *******************************************************************************/
 AVERAGING_t VprimAveraging;
 /*******************************************************************************
- * @ingroup dev-pwrctrl-properties-public
+ * @ingroup dev-pwrctrl-isr-ext
  * @brief Data Object of secondary voltage averaging
  * 
  * @details The 'VsecAveraging' data object holds the averaging parameter of the 
@@ -51,7 +58,7 @@ AVERAGING_t VprimAveraging;
  *******************************************************************************/
 AVERAGING_t VsecAveraging;
 /*******************************************************************************
- * @ingroup dev-pwrctrl-properties-public
+ * @ingroup dev-pwrctrl-isr-ext
  * @brief Data Object of secondary current averaging
  * 
  * @details The 'IsecAveraging' data object holds the averaging parameter of the 
@@ -59,12 +66,12 @@ AVERAGING_t VsecAveraging;
  *******************************************************************************/
 AVERAGING_t IsecAveraging;
 
+// STATIC VARIABLES and FUNCTIONS
 static void Dev_PwrCtrl_AdaptiveGainUpdate(void);
 static bool VLoopInterleaveExec = true;
 
-
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-isr-ext
  * @brief  This function updates the DAB data members with ADC raw values
  * @return void
  * 
@@ -110,7 +117,7 @@ void Dev_PwrCtrl_UpdateADConverterData (void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-isr-ext
  * @brief  This function prepares the data for control loop and selects which 
  *  control loop will be executed. 
  * @return void
@@ -136,6 +143,7 @@ void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
         if((dab.VLoop.Enable == false) && (VLoopInterleaveExec == true))
         #endif  
         {
+            // Enable Vloop control
             dab.VLoop.Enable = true;
             dab.PLoop.Enable = false;
           
@@ -144,6 +152,7 @@ void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
             VprimAveraging.Accumulator = 0;
             VprimAveraging.Counter = 0;
             
+            // Compute the Adaptive Gain 
             Dev_PwrCtrl_AdaptiveGainUpdate();
         }
  
@@ -151,6 +160,7 @@ void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
         else if((dab.PLoop.Enable == false) && (VLoopInterleaveExec == false))
         #endif
         {
+            // Enable PLoop control
             dab.VLoop.Enable = false;
             dab.PLoop.Enable = true;
         
@@ -168,6 +178,7 @@ void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
             // to get the Watts value for Power Loop
             buf >>= POWER_SCALER;
 
+            // Transfer to SecPower data member the power computation in [Watts] 
             dab.Data.SecPower = buf;
         
         }
@@ -176,14 +187,14 @@ void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-isr-ext
  * @brief Executes the power converter control loop 
  * @return void
  * 
  * @details This function is called to execute the control loop of the power
  *  converter. It comprise of Voltage Loop control (VLoop), Power Loop control (PLoop) 
  *  and Current Loop Control (ILoop). Vloop and PLoop is ten times slower than
- *  the current loop with interleaved execution while Iloop is executed everytime 
+ *  the current loop with interleaved execution while Iloop is executed every time 
  *  this function is called.  
  *********************************************************************************/
 void Dev_PwrCtrl_ControlLoopExecute(void)
@@ -254,10 +265,10 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
         
          dab.Pwm.ControlPhase += dab.Pwm.DeadTimeLow;
         
-        // clamping value of control phase
+        // Clamping value of control phase
         if(dab.Pwm.ControlPhase > (dab.Pwm.ControlDutyCycle - MIN_PHASE_SHIFTED_PULSE))
             dab.Pwm.ControlPhase = dab.Pwm.ControlDutyCycle - MIN_PHASE_SHIFTED_PULSE;
-        // clamping value of control phase
+        // Clamping value of control phase
         else if(dab.Pwm.ControlPhase < dab.Pwm.DeadTimeLow) 
             dab.Pwm.ControlPhase = dab.Pwm.DeadTimeLow;  
         
@@ -266,18 +277,19 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-isr-ext
  * @brief Updates the Adaptive gain for the power converter control loop 
  * @return void
  * 
- * @details tbd
+ * @details AGC is a specific method for tuning the overall feedback loop gain 
+ * during runtime. This function handles the calculation of the gain at a particular 
+ * input voltage. AGC is active when it is above the minimum AGC input voltage.
  *********************************************************************************/
 static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
 {
-    uint16_t DAB_PrimaryVoltage; // Convert to actual voltage 
 
-    // calculate the primary voltage in terms of Volts
-    DAB_PrimaryVoltage = __builtin_divud((VprimAveraging.AverageValue * VPRI_SCALER), VPRI_FACTOR);     
+    // Calculate the primary voltage in terms of Volts
+    uint16_t DAB_PrimaryVoltage = __builtin_divud((VprimAveraging.AverageValue * VPRI_SCALER), VPRI_FACTOR);     
     
     if(dab.PowerDirection == PWR_CTRL_CHARGING)
     { 
@@ -286,7 +298,7 @@ static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
             dab.ILoop.AgcFactor = (int16_t) (0x7FFF & 
                     __builtin_divud(AGC_DAB_FACTOR, DAB_PrimaryVoltage));
         
-        else
+        else // AGC is not active
             dab.ILoop.AgcFactor = 0x7FFF;
     }
     
@@ -298,11 +310,13 @@ static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
 
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
- * @brief  This function updates the DAB data members with phase values normalized in degree
+ * @ingroup dev-pwrctrl-isr-ext
+ * @brief  This function updates the DAB data members with phase values normalized 
+ *  in degree
  * @return void
  * 
- * @details 
+ * @details This function updates the DAB data members with phase values normalized 
+ * in degree. The calculated phase is scaled by 10x to have better phase resolution.
  *********************************************************************************/
 void Dev_PwrCtrl_PrimToSecPHDegree(void)
 {
@@ -313,6 +327,7 @@ void Dev_PwrCtrl_PrimToSecPHDegree(void)
     buff = buf * PRI_TO_SEC_PHASE_DEGREES_LIMIT;
     buf = __builtin_divud( buff ,DEGREES_PHASE_SCALING_10);
 
+    // Calculation result for phase value scaled by 10x 
     dab.Pwm.ControlPhase_P2S_Degreex10 = buf;
     
     // Clamping value for degrees phase when it exceeds the 90.0 degrees  
@@ -324,11 +339,12 @@ void Dev_PwrCtrl_PrimToSecPHDegree(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
- * @brief  This function updates the DAB data members dead time based on load. experimental values.
+ * @ingroup dev-pwrctrl-isr-ext
+ * @brief  This function updates the DAB data members dead time based on load. 
  * @return void
  * 
- * @details 
+ * @details This function updates the DAB data members dead time based on load. 
+ * The phase and dead-time in this function is based on the actual board test.
  *********************************************************************************/
 void Dev_PwrCtrl_DeadTimeAdjust(void)
 {
@@ -365,14 +381,14 @@ void Dev_PwrCtrl_DeadTimeAdjust(void)
         }
 }
 
+#if (PERIOD_MODULATION_DEMO == true)
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-isr-ext
  * @brief  This function updates the DAB data members and modulates PWM period
  * @return void
  * 
  * @details 
  *********************************************************************************/
-#if (PERIOD_MODULATION_DEMO == true)
 void  Dev_PwrCtrl_PeriodModulator(void)
 {
     static uint16_t decimPM;

@@ -19,13 +19,20 @@
  * TERMS. 
  */
 
+/**
+ * @file      dev_pwrctrl_pwm.c
+ * @ingroup   dev-pwrctrl-pwm   
+ * @brief     Contains DAB control phase calculation between primary and 
+ *  secondary, and the PWM distribution.
+ */
+
 #include <xc.h> 
 #include <stdbool.h>
 #include "pwm_hs/pwm.h"
 #include "dev_pwrctrl_typedef.h"
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-pwm
  * @brief  PWM distribution for DAB converter
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -55,7 +62,7 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
     // Calculate primary to secondary phase as half of the control phase
     uint16_t PrimarySecondaryPhase = (pcInstance->Pwm.ControlPhase >> 1);
     
-    // Compensate the added Deadtime 
+    // Compensate the added Dead-time 
     PrimarySecondaryPhase += pcInstance->Pwm.DeadTimeLow >> 1;
     
     // Calculate the Bridge Delay ((Frequency / 2) - Primary to Secondary Phase + Control Phase)
@@ -99,7 +106,7 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-pwm
  * @brief  Enable the PWM output
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t 
  * @return void
@@ -108,8 +115,7 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
  *  output override of the PWM module. 
  *********************************************************************************/
 void Dev_PwrCtrl_PWM_Enable(void)
-{
-        
+{      
     // Turn-On PWM outputs by disabling the output override 
     // on each high and low PWM output
     PWM_OverrideHighDisable(PWM_PRI_1);
@@ -130,7 +136,7 @@ void Dev_PwrCtrl_PWM_Enable(void)
 
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-pwm
  * @brief  Disable the PWM output
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void

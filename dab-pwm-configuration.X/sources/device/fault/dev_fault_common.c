@@ -5,7 +5,7 @@
 #include <stddef.h>
 
 /*******************************************************************************
- * @ingroup  fault-common-methods-public
+ * @ingroup  dev-fault-common
  * @brief    This function initializes the fault object data structure with the 
  *   values that required to detect a fault.  
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
@@ -31,7 +31,7 @@ void FAULT_Init(FAULT_OBJ_T *faultInput,
 }
 
 /*******************************************************************************
- * @ingroup  fault-common-methods-public
+ * @ingroup  dev-fault-common
  * @brief    This function initializes the fault object data structure with the 
  *   values that required to detect a fault at a particular range.  
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
@@ -63,7 +63,7 @@ void FAULT_InitRange(FAULT_OBJ_T *faultInput,
 }
 
 /*******************************************************************************
- * @ingroup  fault-common-methods-public
+ * @ingroup  dev-fault-common
  * @brief    This function initializes/sets the fault structure with the counter limits.
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
  * @param    fltThresholdCnt  threshold counter (increments when threshold limit is reached)    
@@ -81,7 +81,7 @@ void FAULT_SetCounters(FAULT_OBJ_T *faultInput, uint16_t fltThresholdCnt, uint32
 }
 
 /*******************************************************************************
- * @ingroup  fault-common-methods-public
+ * @ingroup  dev-fault-common
  * @brief    This function initializes/sets the fault structure with the threshold limits.
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
  * @param    fltThreshold  sets the fault allowed limit
@@ -99,7 +99,7 @@ void FAULT_SetThresholds(FAULT_OBJ_T *faultInput, int16_t fltThreshold, int16_t 
 }
 
 /*******************************************************************************
- * @ingroup  fault-common-methods-public
+ * @ingroup  dev-fault-common
  * @brief    This function compares the fault source value with the threshold 
  *  limits and sets (or) resets the fault active state accordingly.
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
@@ -156,7 +156,7 @@ bool FAULT_CheckMax(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK
 }
 
 /*******************************************************************************
- * @ingroup  fault-common-methods-public
+ * @ingroup  dev-fault-common
  * @brief    This function compares the fault source value with the threshold 
  *  limits and sets (or) resets the fault active state accordingly.
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
@@ -213,7 +213,7 @@ bool FAULT_CheckMin(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK
 }
 
 /*******************************************************************************
- * @ingroup  fault-common-methods-public
+ * @ingroup  dev-fault-common
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
  * @param    faultBit   bit being checked by fault function
  * @param    callback   function executed when fault trips 
@@ -263,7 +263,7 @@ bool FAULT_CheckBit(FAULT_OBJ_T *faultInput, bool faultBit, FAULT_CALLBACK callb
 }
 
 /*******************************************************************************
- * @ingroup  Fault_Handler_API
+ * @ingroup  dev-fault-common
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
  * @param    inputValue value being evaluated by the function
  * @param    callback   function executed when fault trips 

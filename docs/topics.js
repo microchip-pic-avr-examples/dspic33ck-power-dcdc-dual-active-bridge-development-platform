@@ -1,8 +1,8 @@
 var topics =
 [
-    [ "Application Layer", "a00518.html", null ],
-    [ "Device Layer", "a00519.html", "a00519" ],
-    [ "Configuration Layer", "a00528.html", null ],
-    [ "Operating System Layer", "a00529.html", null ],
-    [ "MPLABX Configurator Driver Layer", "a00530.html", "a00530" ]
+    [ "Application Layer", "a00470.html", "a00470" ],
+    [ "Device Layer", "a00472.html", "a00472" ],
+    [ "Configuration Layer", "a00487.html", null ],
+    [ "Operating System Layer", "a00488.html", null ],
+    [ "MPLABX Configurator Driver Layer", "a00489.html", "a00489" ]
 ];

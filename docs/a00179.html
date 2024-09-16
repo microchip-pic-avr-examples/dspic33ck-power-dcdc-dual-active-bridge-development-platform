@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/pwm/src/sccp3.c File Reference</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/system/src/pins.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,102 +137,37 @@ $(document).ready(function(){initNavTree('a00179.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">sccp3.c File Reference<div class="ingroups"><a class="el" href="a00530.html">MPLABX Configurator Driver Layer</a> &raquo; <a class="el" href="a00536.html">PWM Driver</a></div></div></div>
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">pins.c File Reference<div class="ingroups"><a class="el" href="a00489.html">MPLABX Configurator Driver Layer</a> &raquo; <a class="el" href="a00500.html">Pins Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the generated driver source file for SCCP3 driver.  
+<p>This is the generated driver source file for PINS driver.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
 <code>#include &lt;stddef.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00176_source.html">../sccp3.h</a>&quot;</code><br />
+<code>#include &quot;../pins.h&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for sccp3.c:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pins.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00180.svg" width="347" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00180.svg" width="232" height="219"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00179_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga809f90ef20376e690eb52fbb4a0c9cb3" id="r_ga809f90ef20376e690eb52fbb4a0c9cb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#ga809f90ef20376e690eb52fbb4a0c9cb3">SCCP3_PWM_Initialize</a> (void)</td></tr>
-<tr class="memdesc:ga809f90ef20376e690eb52fbb4a0c9cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the SCCP3 Pulse driver. This function must be called before any other SCCP3 function is called.  <br /></td></tr>
-<tr class="separator:ga809f90ef20376e690eb52fbb4a0c9cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6fb7818d3569a39f7d21903c81e78aa7" id="r_ga6fb7818d3569a39f7d21903c81e78aa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#ga6fb7818d3569a39f7d21903c81e78aa7">SCCP3_PWM_Deinitialize</a> (void)</td></tr>
-<tr class="memdesc:ga6fb7818d3569a39f7d21903c81e78aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the SCCP3 to POR values.  <br /></td></tr>
-<tr class="separator:ga6fb7818d3569a39f7d21903c81e78aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6f57d725bb9b840c8b4f3be0ff8d832e" id="r_ga6f57d725bb9b840c8b4f3be0ff8d832e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#ga6f57d725bb9b840c8b4f3be0ff8d832e">SCCP3_PWM_Enable</a> (void)</td></tr>
-<tr class="memdesc:ga6f57d725bb9b840c8b4f3be0ff8d832e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the SCCP3 module.  <br /></td></tr>
-<tr class="separator:ga6f57d725bb9b840c8b4f3be0ff8d832e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga215716b466252c678c01cf0db83dcc4a" id="r_ga215716b466252c678c01cf0db83dcc4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#ga215716b466252c678c01cf0db83dcc4a">SCCP3_PWM_Disable</a> (void)</td></tr>
-<tr class="memdesc:ga215716b466252c678c01cf0db83dcc4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the SCCP3 module.  <br /></td></tr>
-<tr class="separator:ga215716b466252c678c01cf0db83dcc4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga09fe5a6d2e2fde0eee0f9d1b1e4462d9" id="r_ga09fe5a6d2e2fde0eee0f9d1b1e4462d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#ga09fe5a6d2e2fde0eee0f9d1b1e4462d9">SCCP3_PWM_PeriodSet</a> (size_t periodCount)</td></tr>
-<tr class="memdesc:ga09fe5a6d2e2fde0eee0f9d1b1e4462d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cycle width.  <br /></td></tr>
-<tr class="separator:ga09fe5a6d2e2fde0eee0f9d1b1e4462d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4217568ce7d40ce04f74c937347811f9" id="r_ga4217568ce7d40ce04f74c937347811f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#ga4217568ce7d40ce04f74c937347811f9">SCCP3_PWM_DutyCycleSet</a> (size_t dutyCycleCount)</td></tr>
-<tr class="memdesc:ga4217568ce7d40ce04f74c937347811f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ON pulse width.  <br /></td></tr>
-<tr class="separator:ga4217568ce7d40ce04f74c937347811f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab26ef78a582b1a03658191fdbd113eeb" id="r_gab26ef78a582b1a03658191fdbd113eeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#gab26ef78a582b1a03658191fdbd113eeb">SCCP3_PWM_SoftwareTriggerSet</a> (void)</td></tr>
-<tr class="memdesc:gab26ef78a582b1a03658191fdbd113eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function sets the manual trigger.  <br /></td></tr>
-<tr class="separator:gab26ef78a582b1a03658191fdbd113eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf9818122aff50cd60e48c543286f1996" id="r_gaf9818122aff50cd60e48c543286f1996"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#gaf9818122aff50cd60e48c543286f1996">SCCP3_PWM_CallbackRegister</a> (void(*handler)(void))</td></tr>
-<tr class="memdesc:gaf9818122aff50cd60e48c543286f1996"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for SCCP3 PWM event.  <br /></td></tr>
-<tr class="separator:gaf9818122aff50cd60e48c543286f1996"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1506bedb95645d84acf900440b046461" id="r_ga1506bedb95645d84acf900440b046461"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#ga1506bedb95645d84acf900440b046461">SCCP3_PWM_Callback</a> (void)</td></tr>
-<tr class="memdesc:ga1506bedb95645d84acf900440b046461"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using SCCP3_PWM_CallbackRegister.  <br /></td></tr>
-<tr class="separator:ga1506bedb95645d84acf900440b046461"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaab00ca303a8991de3bc06795d1fa8878" id="r_gaab00ca303a8991de3bc06795d1fa8878"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#gaab00ca303a8991de3bc06795d1fa8878">SCCP3_PWM_Tasks</a> (void)</td></tr>
-<tr class="memdesc:gaab00ca303a8991de3bc06795d1fa8878"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to implement the tasks for polled implementations.  <br /></td></tr>
-<tr class="separator:gaab00ca303a8991de3bc06795d1fa8878"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a35426a55a2a3d2c96463ba5780f144f8" id="r_a35426a55a2a3d2c96463ba5780f144f8"><td class="memItemLeft" align="right" valign="top">static void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00179.html#a35426a55a2a3d2c96463ba5780f144f8">SCCP3_PWMHandler</a> )(void) = NULL</td></tr>
-<tr class="separator:a35426a55a2a3d2c96463ba5780f144f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaefb33d483bc26188d3a5d7f31fe21c42" id="r_gaefb33d483bc26188d3a5d7f31fe21c42"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00604.html">PWM_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#gaefb33d483bc26188d3a5d7f31fe21c42">FAN_PWM</a></td></tr>
-<tr class="memdesc:gaefb33d483bc26188d3a5d7f31fe21c42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00604.html" title="Structure containing the function pointers of PWM generator driver.">PWM_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. PWM1 can be changed by the user in the MCCP user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
-<tr class="separator:gaefb33d483bc26188d3a5d7f31fe21c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6f767603dec823a33d6b0aceea97e27" id="r_gad6f767603dec823a33d6b0aceea97e27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#gad6f767603dec823a33d6b0aceea97e27">PINS_Initialize</a> (void)</td></tr>
+<tr class="memdesc:gad6f767603dec823a33d6b0aceea97e27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the PINS module.  <br /></td></tr>
+<tr class="separator:gad6f767603dec823a33d6b0aceea97e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>SCCP3 Generated Driver Source File</p>
+<div class="textblock"><p>PINS Generated Driver Source File</p>
 <div class="fragment"></div><!-- fragment -->
-<p class="definition">Definition in file <a class="el" href="a00179_source.html">sccp3.c</a>.</p>
-</div><h2 class="groupheader">Variable Documentation</h2>
-<a id="a35426a55a2a3d2c96463ba5780f144f8" name="a35426a55a2a3d2c96463ba5780f144f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35426a55a2a3d2c96463ba5780f144f8">&#9670;&#160;</a></span>SCCP3_PWMHandler</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* SCCP3_PWMHandler) (void) </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> = NULL</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00179_source.html#l00046">46</a> of file <a class="el" href="a00179_source.html">sccp3.c</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00179_source.html">pins.c</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

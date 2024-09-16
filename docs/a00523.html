@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Interrupt Functions</title>
+<title>Dual Active Bridge Development Board: CAN_MSG_FIELD Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,59 +137,128 @@ $(document).ready(function(){initNavTree('a00523.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Interrupt Functions<div class="ingroups"><a class="el" href="a00519.html">Device Layer</a> &raquo; <a class="el" href="a00520.html">Power Control</a></div></div></div>
+<a href="#pub-attribs">Data Fields</a>  </div>
+  <div class="headertitle"><div class="title">CAN_MSG_FIELD Struct Reference<div class="ingroups"><a class="el" href="a00489.html">MPLABX Configurator Driver Layer</a> &raquo; <a class="el" href="a00491.html">CAN FD Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Interrupt public functions of Power Control Device layer.  
-<a href="#details">More...</a></p>
+<p>This data structure used to configure the message fields. Some of the fields formatType and brs data should match with the CAN FD configuration in Melody MCC user interface.  
+ <a href="a00523.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00068_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dab-pwm-configuration.X/mcc_generated_files/can/can_types.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Interrupt Functions:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CAN_MSG_FIELD:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00523.svg" width="291" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00521.svg" width="131" height="166"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gae32c9e5ed4d1fb98fc13b26601782c10" id="r_gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#gae32c9e5ed4d1fb98fc13b26601782c10">ControlLoop_Interrupt_CallBack</a> (void)</td></tr>
-<tr class="memdesc:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power conveter's control loop.  <br /></td></tr>
-<tr class="separator:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Data Fields</h2></td></tr>
+<tr class="memitem:ae64211504f2eaef4481b381cc65167da" id="r_ae64211504f2eaef4481b381cc65167da"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ae64211504f2eaef4481b381cc65167da">idType</a>:1</td></tr>
+<tr class="separator:ae64211504f2eaef4481b381cc65167da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a168da43d2a5c2406e469b93b9370a9da" id="r_a168da43d2a5c2406e469b93b9370a9da"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#a168da43d2a5c2406e469b93b9370a9da">frameType</a>:1</td></tr>
+<tr class="separator:a168da43d2a5c2406e469b93b9370a9da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4d50729bdfb45cf06faa799877f71e6" id="r_ab4d50729bdfb45cf06faa799877f71e6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ab4d50729bdfb45cf06faa799877f71e6">dlc</a>:4</td></tr>
+<tr class="separator:ab4d50729bdfb45cf06faa799877f71e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d037b9c22db4004322cb0840853edeb" id="r_a6d037b9c22db4004322cb0840853edeb"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#a6d037b9c22db4004322cb0840853edeb">formatType</a>:1</td></tr>
+<tr class="separator:a6d037b9c22db4004322cb0840853edeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8b17a0932ca0baafa19b60e06fb2ed9" id="r_ae8b17a0932ca0baafa19b60e06fb2ed9"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ae8b17a0932ca0baafa19b60e06fb2ed9">brs</a>:1</td></tr>
+<tr class="separator:ae8b17a0932ca0baafa19b60e06fb2ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This is the detailed description of Interrupt public functions of the Power Control Device layer. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="gae32c9e5ed4d1fb98fc13b26601782c10" name="gae32c9e5ed4d1fb98fc13b26601782c10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae32c9e5ed4d1fb98fc13b26601782c10">&#9670;&#160;</a></span>ControlLoop_Interrupt_CallBack()</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00052">52</a> of file <a class="el" href="a00068_source.html">can_types.h</a>.</p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="ae8b17a0932ca0baafa19b60e06fb2ed9" name="ae8b17a0932ca0baafa19b60e06fb2ed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8b17a0932ca0baafa19b60e06fb2ed9">&#9670;&#160;</a></span>brs</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void ControlLoop_Interrupt_CallBack </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">unsigned int brs</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This interrupt function is a timing interrupt executed every 100KHz and calls an ADC function that updates the DAB data member with ADC raw values. The fault check is also called in this function to detect any fault events. It is followed by the control loop execution for Voltage, Current and Power Loop Controllers. The end result of the control loop is handed over to the PWM distribution. </p>
+<p>Enables or Disables the Bit Rate Switch </p>
 
-<p class="definition">Definition at line <a class="el" href="a00422_source.html#l00074">74</a> of file <a class="el" href="a00422_source.html">dev_pwrctrl_isr.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00523_gae32c9e5ed4d1fb98fc13b26601782c10_cgraph.svg" width="646" height="291"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00058">58</a> of file <a class="el" href="a00068_source.html">can_types.h</a>.</p>
 
 </div>
 </div>
+<a id="ab4d50729bdfb45cf06faa799877f71e6" name="ab4d50729bdfb45cf06faa799877f71e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4d50729bdfb45cf06faa799877f71e6">&#9670;&#160;</a></span>dlc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int dlc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Defines the size of the data bytes in a message format. The maximum date length is defined in MCC Melody </p>
+
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00056">56</a> of file <a class="el" href="a00068_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="a6d037b9c22db4004322cb0840853edeb" name="a6d037b9c22db4004322cb0840853edeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d037b9c22db4004322cb0840853edeb">&#9670;&#160;</a></span>formatType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int formatType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Defines the message type as CAN 2.0 Format or CAN_FD Format </p>
+
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00057">57</a> of file <a class="el" href="a00068_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="a168da43d2a5c2406e469b93b9370a9da" name="a168da43d2a5c2406e469b93b9370a9da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a168da43d2a5c2406e469b93b9370a9da">&#9670;&#160;</a></span>frameType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int frameType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Defines the message frame type as Data Frame or RTR Frame </p>
+
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00055">55</a> of file <a class="el" href="a00068_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="ae64211504f2eaef4481b381cc65167da" name="ae64211504f2eaef4481b381cc65167da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae64211504f2eaef4481b381cc65167da">&#9670;&#160;</a></span>idType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int idType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Defines the message ID type as Standard ID or Extended ID </p>
+
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00054">54</a> of file <a class="el" href="a00068_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>dab-pwm-configuration.X/mcc_generated_files/can/<a class="el" href="a00068_source.html">can_types.h</a></li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

@@ -6,8 +6,7 @@
 #include <stdbool.h>
 
 /***********************************************************************************
- * @ingroup  Fault_Handler_API
- * @struct   FAULT_OBJ_T
+ * @ingroup  dev-fault-common
  * @brief    The Fault object data structure contains a list of elements/variables that are used to detect/check a fault. 
  * @details
  * These fault object data structure variables are initialized in the power controller initialization source file. 

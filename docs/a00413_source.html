@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/pwrctrl/dev_pwrctrl.h Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/driver/mcc_extension/mcc_custom_config.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,40 +136,23 @@ $(document).ready(function(){initNavTree('a00413_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">dev_pwrctrl.h</div></div>
+  <div class="headertitle"><div class="title">mcc_custom_config.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* </span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * File:   app_pwrctrl.h</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * File:   app_mcc_custom_config.h</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Author: M15690</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Created on 10 July 2024, 14:46</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Created on 10 July 2024, 15:38</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef APP_PWRCTRL_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define APP_PWRCTRL_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef APP_MCC_CUSTOM_CONFIG_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define APP_MCC_CUSTOM_CONFIG_H</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;dev_pwrctrl_typedef.h&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;dev_pwrctrl_utils.h&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00732.html">POWER_CONTROL_t</a> <a class="code hl_variable" href="a00524.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00736.html">AVERAGING_t</a> <a class="code hl_variable" href="a00524.html#gab32442553cb7f7f3a3cd4a022e2a02ab">VsecAveraging</a>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00736.html">AVERAGING_t</a> <a class="code hl_variable" href="a00524.html#gaed1035188dd736fafeda8cd2d6049791">IsecAveraging</a>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00521.html#ga6523e7af2c1c7f66d8495c072a5c7281">Dev_PwrCtrl_Initialize</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00521.html#gad5d6590aeda3bb06b60874802edc14f6">Dev_PwrCtrl_Execute</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">extern</span> <span class="keywordtype">void</span> Dev_PwrCtrl_Suspend(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">extern</span> <span class="keywordtype">void</span> Dev_PwrCtrl_ControlLoopInitialize(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif  </span><span class="comment">/* APP_PWRCTRL_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="ttc" id="aa00521_html_ga6523e7af2c1c7f66d8495c072a5c7281"><div class="ttname"><a href="a00521.html#ga6523e7af2c1c7f66d8495c072a5c7281">Dev_PwrCtrl_Initialize</a></div><div class="ttdeci">void Dev_PwrCtrl_Initialize(void)</div><div class="ttdoc">Initialize the power control parameters.</div><div class="ttdef"><b>Definition</b> <a href="a00410_source.html#l00053">dev_pwrctrl.c:53</a></div></div>
-<div class="ttc" id="aa00521_html_gad5d6590aeda3bb06b60874802edc14f6"><div class="ttname"><a href="a00521.html#gad5d6590aeda3bb06b60874802edc14f6">Dev_PwrCtrl_Execute</a></div><div class="ttdeci">void Dev_PwrCtrl_Execute(void)</div><div class="ttdoc">Executes the power control state machine.</div><div class="ttdef"><b>Definition</b> <a href="a00410_source.html#l00104">dev_pwrctrl.c:104</a></div></div>
-<div class="ttc" id="aa00524_html_ga5762de26b3d1b822c6a4b9c1605cd387"><div class="ttname"><a href="a00524.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a></div><div class="ttdeci">POWER_CONTROL_t dab</div><div class="ttdoc">Global data object for a DAB Converter.</div><div class="ttdef"><b>Definition</b> <a href="a00410_source.html#l00038">dev_pwrctrl.c:38</a></div></div>
-<div class="ttc" id="aa00524_html_gab32442553cb7f7f3a3cd4a022e2a02ab"><div class="ttname"><a href="a00524.html#gab32442553cb7f7f3a3cd4a022e2a02ab">VsecAveraging</a></div><div class="ttdeci">AVERAGING_t VsecAveraging</div><div class="ttdoc">Data Object of secondary voltage averaging.</div><div class="ttdef"><b>Definition</b> <a href="a00422_source.html#l00050">dev_pwrctrl_isr.c:50</a></div></div>
-<div class="ttc" id="aa00524_html_gaed1035188dd736fafeda8cd2d6049791"><div class="ttname"><a href="a00524.html#gaed1035188dd736fafeda8cd2d6049791">IsecAveraging</a></div><div class="ttdeci">AVERAGING_t IsecAveraging</div><div class="ttdoc">Data Object of secondary current averaging.</div><div class="ttdef"><b>Definition</b> <a href="a00422_source.html#l00059">dev_pwrctrl_isr.c:59</a></div></div>
-<div class="ttc" id="aa00732_html"><div class="ttname"><a href="a00732.html">POWER_CONTROL_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00437_source.html#l00176">dev_pwrctrl_typedef.h:177</a></div></div>
-<div class="ttc" id="aa00736_html"><div class="ttname"><a href="a00736.html">AVERAGING_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00011">dev_pwrctrl_utils.h:12</a></div></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keywordtype">void</span> MCC_Custom_User_Config (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#endif  </span><span class="comment">/* APP_MCC_CUSTOM_CONFIG_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

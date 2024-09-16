@@ -20,7 +20,17 @@
     TERMS.
  */
 
+/**
+ * @file      dev_pwrctrl_comm_interface.c
+ * @ingroup   dev-pwrctrl   
+ * @brief     Contains power control interface with communication/gui.
+ */
+
 #include "dev_pwrctrl.h"
+
+extern AVERAGING_t VprimAveraging;
+extern AVERAGING_t VsecAveraging;
+extern AVERAGING_t IsecAveraging;
 
 /*********************************************************************************
  * @ingroup dev-pwrctrl-api-public

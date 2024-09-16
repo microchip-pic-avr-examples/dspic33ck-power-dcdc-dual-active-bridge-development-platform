@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/config/macros.h Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/fault/dev_fault_common.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,119 +136,72 @@ $(document).ready(function(){initNavTree('a00323_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">macros.h</div></div>
+  <div class="headertitle"><div class="title">dev_fault_common.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* </span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * File:   macros.h</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Author: M15690</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Created on July 2, 2024, 10:41 AM</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef FAULT_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define FAULT_H</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef MACROS_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define MACROS_H</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;xc.h&gt;</span> <span class="comment">// include processor files - each processor file is guarded.  </span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdint.h&gt;</span> <span class="comment">// include standard integer data types</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span> <span class="comment">// include standard boolean data types</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;stddef.h&gt;</span> <span class="comment">// include standard definition data types</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;useful_macros.h&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;config.h&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;hardware.h&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">//device specific </span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#if (PWM_CLOCK_HIGH_RESOLUTION)</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define PWM_CLOCK_FREQUENCY     (float)4.0e+9 </span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#define PWM_CLOCK_FREQUENCY     (float)500.0e+6 </span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define ADC_RESOLUTION          4095 </span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define ADC_REFERENCE           (float)3.3</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#define ADC_SCALER              (float)(1.0 / ADC_RESOLUTION)</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#define PHASE_DEGREES           360U</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#define PHASE_180_SCALER        (float)(1.0 / 180)</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define PWM_CLOCK_PERIOD       (float)(1.0 / PWM_CLOCK_FREQUENCY) </span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define MAX_SWITCHING_PERIOD   (float)(1.0/MINIMUM_SWITCHING_FREQUENCY)   </span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#define MAX_PWM_PERIOD         (uint16_t)(float)(MAX_SWITCHING_PERIOD / PWM_CLOCK_PERIOD) </span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#define MIN_SWITCHING_PERIOD   (float)(1.0/MAXIMUM_SWITCHING_FREQUENCY)   </span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#define MIN_PWM_PERIOD         (uint16_t)(float)(MIN_SWITCHING_PERIOD / PWM_CLOCK_PERIOD) </span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define PERIOD_RANGE           (uint16_t)(MAX_PWM_PERIOD - MIN_PWM_PERIOD)  </span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#define ADC_PERIOD_RANGE       (uint16_t)(float)(PERIOD_RANGE / ADC_RESOLUTION)</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#define CONTROL_PHASE_RAD      (uint16_t)(float)(PHASE_DEGREES / 180) </span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#define MIN_PER_CONTROL_PHASE  (uint16_t)(float)(MIN_PWM_PERIOD / CONTROL_PHASE_RAD)</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#define MAX_PER_CONTROL_PHASE  (uint16_t)(float)(MAX_PWM_PERIOD / CONTROL_PHASE_RAD)</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#define ADC_5V_SAMPLE_DIV   ((uint16_t)(_rnd(T_ADC_5V_SAMPLE_DIVIDER/3)))</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="a00627.html">   16</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="a00627.html#a5edf921fa44db4fc0b59e47bb5fd0dfd">   18</a></span>   int16_t  <a class="code hl_variable" href="a00627.html#a5edf921fa44db4fc0b59e47bb5fd0dfd">Val1_Threshold</a>;     </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="a00627.html#a2a3b491ddd84f3397021f935033f3aa2">   19</a></span>   int16_t  <a class="code hl_variable" href="a00627.html#a2a3b491ddd84f3397021f935033f3aa2">Val1_Hysteresis</a>;    </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="a00627.html#ad968f59d734c469b74fb82587f59e07a">   20</a></span>   int16_t  <a class="code hl_variable" href="a00627.html#ad968f59d734c469b74fb82587f59e07a">Val2_Threshold</a>;     </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="a00627.html#a8e9aca4cd2e220497c2dc9aee4278e12">   21</a></span>   int16_t  <a class="code hl_variable" href="a00627.html#a8e9aca4cd2e220497c2dc9aee4278e12">Val2_Hysteresis</a>;    </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="a00627.html#abd60c5f6c857aba89b79ed3912e92561">   22</a></span>   uint16_t  <a class="code hl_variable" href="a00627.html#abd60c5f6c857aba89b79ed3912e92561">CounterSet</a>;        </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="a00627.html#aa0edd97925490e413dd660faa944ac2d">   23</a></span>   uint32_t  <a class="code hl_variable" href="a00627.html#aa0edd97925490e413dd660faa944ac2d">CounterReset</a>;      </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="a00627.html#a1ab3fa6c23f578b903365ceac7d6924a">   24</a></span>   uint16_t  <a class="code hl_variable" href="a00627.html#a1ab3fa6c23f578b903365ceac7d6924a">FaultCounter</a>;      </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="a00627.html#a48d214f48d00e2178310f94faf613b2a">   25</a></span>   uint16_t  <a class="code hl_variable" href="a00627.html#a48d214f48d00e2178310f94faf613b2a">FaultCode</a>;         </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="a00627.html#a1f8690ab82873811964f062a76d15fe7">   26</a></span>   uint8_t   <a class="code hl_variable" href="a00627.html#a1f8690ab82873811964f062a76d15fe7">FaultActive</a>;       </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="a00627.html#a4789222e3347d2016dd8af50cabd4b14">   27</a></span>   uint8_t   <a class="code hl_variable" href="a00627.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a>;        </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}<a class="code hl_struct" href="a00627.html">FAULT_OBJ_T</a>;   </div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">typedef</span> void(*FAULT_CALLBACK)(void);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00482.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(<a class="code hl_struct" href="a00627.html">FAULT_OBJ_T</a> *faultInput,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                int16_t  threshold, int16_t  hysLimit,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>                uint16_t thresholdCnt, uint32_t hysCnt);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00482.html#ga5feed023da8938178c78afe29ca8d2cb">FAULT_InitRange</a>(<a class="code hl_struct" href="a00627.html">FAULT_OBJ_T</a> *faultInput,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                int16_t  thresholdMin, int16_t  hysLimitMin,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                int16_t  thresholdMax, int16_t  hysLimitMax,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                uint16_t thresholdCnt, uint32_t hysCnt);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00482.html#ga81272ffd00652b2dbe00bfa8594be05f">FAULT_SetCounters</a>(<a class="code hl_struct" href="a00627.html">FAULT_OBJ_T</a> *faultInput, uint16_t fltThresholdCnt, uint32_t fltHysCnt);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00482.html#ga9814ba400be29bb6b3d2372c26252850">FAULT_SetThresholds</a>(<a class="code hl_struct" href="a00627.html">FAULT_OBJ_T</a> *faultInput, int16_t fltThreshold, int16_t fltHysLimit);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keywordtype">bool</span> <a class="code hl_function" href="a00482.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a>(<a class="code hl_struct" href="a00627.html">FAULT_OBJ_T</a> *faultInput, int16_t faultSource, FAULT_CALLBACK callback);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">bool</span> <a class="code hl_function" href="a00482.html#gabe4788eb1b8be3ad755eb7daf6bba295">FAULT_CheckMin</a>(<a class="code hl_struct" href="a00627.html">FAULT_OBJ_T</a> *faultInput, int16_t faultSource, FAULT_CALLBACK callback);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">bool</span> <a class="code hl_function" href="a00482.html#ga4d793923449f4e03992bcbdda147a3ec">FAULT_CheckBit</a>(<a class="code hl_struct" href="a00627.html">FAULT_OBJ_T</a> *faultInput, <span class="keywordtype">bool</span> faultBit, FAULT_CALLBACK callback);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="keywordtype">bool</span> <a class="code hl_function" href="a00482.html#ga1eb8f7e7cab65ed3eb87edd0b076f695">FAULT_CheckRange</a>(<a class="code hl_struct" href="a00627.html">FAULT_OBJ_T</a> *faultInput, int16_t inputValue, FAULT_CALLBACK callback);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#define ADC_TEMP_SAMPLE_DIV     ((uint16_t)(_rnd(T_ADC_TEMP_SAMPLE_DIVIDER/ADC_5V_SAMPLE_DIV)))</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define VSEC_SETPOINT_DEFAULT   (UNITS_FROM_ENG_TO_ADC(VSEC_SETPOINT_DEFAULT_VOLTS,VSEC_SNS_GAIN,0.0))</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#define POWER_RESOLUTION             (((ADC_REFERENCE * ADC_REFERENCE * 16384)) / ((ADC_RESOLUTION * VSEC_SNS_GAIN) * (ADC_RESOLUTION * ISEC_AVG_SNS_GAIN))) </span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">// convert I_SC_LEB_TIME (seconds) into an integer that can be loaded into PGxDC register (assume PWM is in High resolution mode so resolution is 250ps)</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#define I_SC_LEB_TIME_PGxDC                   ((uint16_t)(_rnd(I_SC_LEB_TIME / 250.0e-12)))</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">// fault related</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">// convert a threshold in enginnering units (volts,amps etc,) or amps to ADC threshold</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">// formula is:</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">// integer threshold = (volts or amps threshold)*gain + offset</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">// convert fault thresholds and delays into integers that can be used by the firmware</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#define ISEC_OC_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(ISEC_OC_THRES_TRIG_AMPS,ISEC_CT_SNS_GAIN,ISEC_CT_SNS_OFS))</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#define ISEC_OC_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(ISEC_OC_THRES_CLEAR_AMPS,ISEC_CT_SNS_GAIN,ISEC_CT_SNS_OFS))</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#define ISEC_OC_T_BLANK_TRIG                ((uint16_t)(_rnd(ISEC_OC_T_BLANK_TRIG_SEC / ISEC_OC_TICK_SEC)))</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#define ISEC_OC_T_BLANK_CLEAR               ((uint16_t)(_rnd(ISEC_OC_T_BLANK_CLEAR_SEC / ISEC_OC_TICK_SEC)))</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#define IPRI_OC_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(IPRI_OC_THRES_TRIG_AMPS,IPRI_CT_SNS_GAIN,IPRI_CT_SNS_OFS))</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#define IPRI_OC_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(IPRI_OC_THRES_CLEAR_AMPS,IPRI_CT_SNS_GAIN,IPRI_CT_SNS_OFS))</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#define IPRI_OC_T_BLANK_TRIG                ((uint16_t)(_rnd(IPRI_OC_T_BLANK_TRIG_SEC / IPRI_OC_TICK_SEC)))      </span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#define IPRI_OC_T_BLANK_CLEAR               ((uint16_t)(_rnd(IPRI_OC_T_BLANK_CLEAR_SEC / IPRI_OC_TICK_SEC)))      </span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#define VSEC_OV_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(VSEC_OV_THRES_TRIG_VOLTS,VSEC_SNS_GAIN,0.0))</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#define VSEC_OV_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(VSEC_OV_THRES_CLEAR_VOLTS,VSEC_SNS_GAIN,0.0))</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#define VSEC_OV_T_BLANK_TRIG                ((uint16_t)(_rnd(VSEC_OV_T_BLANK_TRIG_SEC / VSEC_OV_TICK_SEC)))  </span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#define VSEC_OV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VSEC_OV_T_BLANK_CLEAR_SEC / VSEC_OV_TICK_SEC)))  </span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#define VSEC_UV_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(VSEC_UV_THRES_TRIG_VOLTS,VPRI_SNS_GAIN,0.0))</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#define VSEC_UV_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(VSEC_UV_THRES_CLEAR_VOLTS,VPRI_SNS_GAIN,0.0))</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#define VSEC_UV_T_BLANK_TRIG                ((uint16_t)(_rnd(VSEC_UV_T_BLANK_TRIG_SEC / VSEC_UV_TICK_SEC)))    </span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#define VSEC_UV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VSEC_UV_T_BLANK_CLEAR_SEC / VSEC_UV_TICK_SEC)))    </span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#define VPRI_OV_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(VPRI_OV_THRES_TRIG_VOLTS,VPRI_SNS_GAIN,VPRI_SNS_OFS))</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#define VPRI_OV_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(VPRI_OV_THRES_CLEAR_VOLTS,VPRI_SNS_GAIN,VPRI_SNS_OFS))</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#define VPRI_OV_T_BLANK_TRIG                ((uint16_t)(_rnd(VPRI_OV_T_BLANK_TRIG_SEC / VSEC_OV_TICK_SEC))) </span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#define VPRI_OV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VPRI_OV_T_BLANK_CLEAR_SEC / VSEC_OV_TICK_SEC))) </span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#define VRAIL_5V_UV_THRES_TRIG              (UNITS_FROM_ENG_TO_ADC(VRAIL_5V_UV_THRES_TRIG_VOLTS,VRAIL_5V_SNS_GAIN,0.0))</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#define VRAIL_5V_UV_THRES_CLEAR             (UNITS_FROM_ENG_TO_ADC(VRAIL_5V_UV_THRES_CLEAR_VOLTS,VRAIL_5V_SNS_GAIN,0.0))</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#define VRAIL_5V_UV_T_BLANK_TRIG            ((uint16_t)(_rnd(VRAIL_5V_UV_T_BLANK_TRIG_SEC / VRAIL_5V_UV_TICK_SEC)))  </span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#define VRAIL_5V_UV_T_BLANK_CLEAR           ((uint16_t)(_rnd(VRAIL_5V_UV_T_BLANK_CLEAR_SEC / VRAIL_5V_UV_TICK_SEC)))  </span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#define ISEC_SC_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(ISEC_SC_THRES_TRIG_AMPS,ISEC_CT_SNS_GAIN,ISEC_CT_SNS_OFS))     </span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#define IPRI_SC_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(IPRI_SC_THRES_TRIG_AMPS,IPRI_CT_SNS_GAIN,IPRI_CT_SNS_OFS))</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#define I_SC_T_BLANK_CLEAR                  ((uint16_t)(_rnd(I_SC_T_BLANK_CLEAR_SEC / I_SC_TICK_SEC)))</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">// convert I_SC_LEB_TIME (seconds) into an integer that can be loaded into PGxDC register (assume PWM is in High resolution mode so resolution is 250ps)</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#define I_SC_LEB_TIME_PGxDC                   ((uint16_t)(_rnd(I_SC_LEB_TIME / 250.0e-12)))</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">// parameters related to secondary current sensor calibration</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">// allowing for +/-5% from ideal</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH      (_rnd((ISEC_AVG_SNS_OFS*1.05)/3.3*4096.0))</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW       (_rnd((ISEC_AVG_SNS_OFS*0.95)/3.3*4096.0))</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#endif  </span><span class="comment">/* MACROS_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#endif </span></div>
+<div class="ttc" id="aa00482_html_ga1a12d5b7c5b1f234c50ea2214e91fcfc"><div class="ttname"><a href="a00482.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a></div><div class="ttdeci">bool FAULT_CheckMax(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK callback)</div><div class="ttdoc">This function compares the fault source value with the threshold limits and sets (or) resets the faul...</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00120">dev_fault_common.c:120</a></div></div>
+<div class="ttc" id="aa00482_html_ga1eb8f7e7cab65ed3eb87edd0b076f695"><div class="ttname"><a href="a00482.html#ga1eb8f7e7cab65ed3eb87edd0b076f695">FAULT_CheckRange</a></div><div class="ttdeci">bool FAULT_CheckRange(FAULT_OBJ_T *faultInput, int16_t inputValue, FAULT_CALLBACK callback)</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00281">dev_fault_common.c:281</a></div></div>
+<div class="ttc" id="aa00482_html_ga4d793923449f4e03992bcbdda147a3ec"><div class="ttname"><a href="a00482.html#ga4d793923449f4e03992bcbdda147a3ec">FAULT_CheckBit</a></div><div class="ttdeci">bool FAULT_CheckBit(FAULT_OBJ_T *faultInput, bool faultBit, FAULT_CALLBACK callback)</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00230">dev_fault_common.c:230</a></div></div>
+<div class="ttc" id="aa00482_html_ga5feed023da8938178c78afe29ca8d2cb"><div class="ttname"><a href="a00482.html#ga5feed023da8938178c78afe29ca8d2cb">FAULT_InitRange</a></div><div class="ttdeci">void FAULT_InitRange(FAULT_OBJ_T *faultInput, int16_t thresholdMin, int16_t hysLimitMin, int16_t thresholdMax, int16_t hysLimitMax, uint16_t thresholdCnt, uint32_t hysCnt)</div><div class="ttdoc">This function initializes the fault object data structure with the values that required to detect a f...</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00049">dev_fault_common.c:49</a></div></div>
+<div class="ttc" id="aa00482_html_ga81272ffd00652b2dbe00bfa8594be05f"><div class="ttname"><a href="a00482.html#ga81272ffd00652b2dbe00bfa8594be05f">FAULT_SetCounters</a></div><div class="ttdeci">void FAULT_SetCounters(FAULT_OBJ_T *faultInput, uint16_t fltThresholdCnt, uint32_t fltHysCnt)</div><div class="ttdoc">This function initializes/sets the fault structure with the counter limits.</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00077">dev_fault_common.c:77</a></div></div>
+<div class="ttc" id="aa00482_html_ga9814ba400be29bb6b3d2372c26252850"><div class="ttname"><a href="a00482.html#ga9814ba400be29bb6b3d2372c26252850">FAULT_SetThresholds</a></div><div class="ttdeci">void FAULT_SetThresholds(FAULT_OBJ_T *faultInput, int16_t fltThreshold, int16_t fltHysLimit)</div><div class="ttdoc">This function initializes/sets the fault structure with the threshold limits.</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00095">dev_fault_common.c:95</a></div></div>
+<div class="ttc" id="aa00482_html_gabe4788eb1b8be3ad755eb7daf6bba295"><div class="ttname"><a href="a00482.html#gabe4788eb1b8be3ad755eb7daf6bba295">FAULT_CheckMin</a></div><div class="ttdeci">bool FAULT_CheckMin(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK callback)</div><div class="ttdoc">This function compares the fault source value with the threshold limits and sets (or) resets the faul...</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00178">dev_fault_common.c:178</a></div></div>
+<div class="ttc" id="aa00482_html_gae9aa4b1a3733fa6ee5fb7778bdf74103"><div class="ttname"><a href="a00482.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a></div><div class="ttdeci">void FAULT_Init(FAULT_OBJ_T *faultInput, int16_t threshold, int16_t hysLimit, uint16_t thresholdCnt, uint32_t hysCnt)</div><div class="ttdoc">This function initializes the fault object data structure with the values that required to detect a f...</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00021">dev_fault_common.c:21</a></div></div>
+<div class="ttc" id="aa00627_html"><div class="ttname"><a href="a00627.html">FAULT_OBJ_T</a></div><div class="ttdoc">The Fault object data structure contains a list of elements/variables that are used to detect/check a...</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00016">dev_fault_common.h:17</a></div></div>
+<div class="ttc" id="aa00627_html_a1ab3fa6c23f578b903365ceac7d6924a"><div class="ttname"><a href="a00627.html#a1ab3fa6c23f578b903365ceac7d6924a">FAULT_OBJ_T::FaultCounter</a></div><div class="ttdeci">uint16_t FaultCounter</div><div class="ttdoc">Internal counter for activating/removing fault.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00024">dev_fault_common.h:24</a></div></div>
+<div class="ttc" id="aa00627_html_a1f8690ab82873811964f062a76d15fe7"><div class="ttname"><a href="a00627.html#a1f8690ab82873811964f062a76d15fe7">FAULT_OBJ_T::FaultActive</a></div><div class="ttdeci">uint8_t FaultActive</div><div class="ttdoc">Set/Cleared inside flt check loop</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00026">dev_fault_common.h:26</a></div></div>
+<div class="ttc" id="aa00627_html_a2a3b491ddd84f3397021f935033f3aa2"><div class="ttname"><a href="a00627.html#a2a3b491ddd84f3397021f935033f3aa2">FAULT_OBJ_T::Val1_Hysteresis</a></div><div class="ttdeci">int16_t Val1_Hysteresis</div><div class="ttdoc">Fault hysteresis limit. If hysteresis is not needed, fltThreshold = fltHysLimit.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00019">dev_fault_common.h:19</a></div></div>
+<div class="ttc" id="aa00627_html_a4789222e3347d2016dd8af50cabd4b14"><div class="ttname"><a href="a00627.html#a4789222e3347d2016dd8af50cabd4b14">FAULT_OBJ_T::FaultLatch</a></div><div class="ttdeci">uint8_t FaultLatch</div><div class="ttdoc">Flag indicating if FAULT has been tripped.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00027">dev_fault_common.h:27</a></div></div>
+<div class="ttc" id="aa00627_html_a48d214f48d00e2178310f94faf613b2a"><div class="ttname"><a href="a00627.html#a48d214f48d00e2178310f94faf613b2a">FAULT_OBJ_T::FaultCode</a></div><div class="ttdeci">uint16_t FaultCode</div><div class="ttdoc">Code that can be used to display fault (1st fault occurred) to global variable.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00025">dev_fault_common.h:25</a></div></div>
+<div class="ttc" id="aa00627_html_a5edf921fa44db4fc0b59e47bb5fd0dfd"><div class="ttname"><a href="a00627.html#a5edf921fa44db4fc0b59e47bb5fd0dfd">FAULT_OBJ_T::Val1_Threshold</a></div><div class="ttdeci">int16_t Val1_Threshold</div><div class="ttdoc">Fault threshold limit: Range of -32768 to 32767.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00018">dev_fault_common.h:18</a></div></div>
+<div class="ttc" id="aa00627_html_a8e9aca4cd2e220497c2dc9aee4278e12"><div class="ttname"><a href="a00627.html#a8e9aca4cd2e220497c2dc9aee4278e12">FAULT_OBJ_T::Val2_Hysteresis</a></div><div class="ttdeci">int16_t Val2_Hysteresis</div><div class="ttdoc">Fault hysteresis limit. If hysteresis is not needed, fltThreshold = fltHysLimit.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00021">dev_fault_common.h:21</a></div></div>
+<div class="ttc" id="aa00627_html_aa0edd97925490e413dd660faa944ac2d"><div class="ttname"><a href="a00627.html#aa0edd97925490e413dd660faa944ac2d">FAULT_OBJ_T::CounterReset</a></div><div class="ttdeci">uint32_t CounterReset</div><div class="ttdoc">Number of consecutive events when input outside hysteresis limit in order to remove fault,...</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00023">dev_fault_common.h:23</a></div></div>
+<div class="ttc" id="aa00627_html_abd60c5f6c857aba89b79ed3912e92561"><div class="ttname"><a href="a00627.html#abd60c5f6c857aba89b79ed3912e92561">FAULT_OBJ_T::CounterSet</a></div><div class="ttdeci">uint16_t CounterSet</div><div class="ttdoc">Number of consecutive fault events before fault becomes active.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00022">dev_fault_common.h:22</a></div></div>
+<div class="ttc" id="aa00627_html_ad968f59d734c469b74fb82587f59e07a"><div class="ttname"><a href="a00627.html#ad968f59d734c469b74fb82587f59e07a">FAULT_OBJ_T::Val2_Threshold</a></div><div class="ttdeci">int16_t Val2_Threshold</div><div class="ttdoc">Fault threshold limit: Range of -32768 to 32767.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00020">dev_fault_common.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

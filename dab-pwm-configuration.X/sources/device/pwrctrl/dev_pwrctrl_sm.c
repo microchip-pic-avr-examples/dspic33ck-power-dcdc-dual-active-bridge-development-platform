@@ -18,6 +18,14 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  */
+
+/**
+ * @file      dev_pwrctrl_sm.c
+ * @ingroup   dev-pwrctrl-sm   
+ * @brief     Contains power control state machine functions that is 
+ *  executed every 100us.
+ */
+
 #include <xc.h>
 #include <stdint.h> // include standard integer data types
 #include <stdbool.h> // include standard boolean data types
@@ -33,7 +41,7 @@
 #include "device/fault/dev_fault.h"
 #include "dcdt/dev_pwrctrl_dcdt.h"
 
-//Private Functions
+//PRIVATE FUNCTIONS
 static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance);
 static void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance);
 static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance);
@@ -42,7 +50,7 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance);
 static void Dev_PwrCtrl_Reset(POWER_CONTROL_t* pcInstance);
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-sm
  * @brief  Manages the power control state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -93,7 +101,7 @@ void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-sm
  * @brief  Executes function for initialze state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -134,7 +142,7 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-sm
  * @brief  Executes the fault handler state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -153,7 +161,7 @@ static void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-sm
  * @brief  Executes Standby State machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -188,9 +196,6 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
             
         // Reset the power control properties and control loop histories
         Dev_PwrCtrl_Reset(&dab);
-        
-        // Reset Control Loop Histories
-        Dev_PwrCtrl_ResetControlLoopHistories();
             
         #if (CURRENT_CALIBRATION == true) 
         // reset the PWM settings in Standby mode
@@ -223,7 +228,7 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-sm
  * @brief  Executes the power control soft start state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -276,7 +281,7 @@ static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl-sm
  * @brief  Executes the Online state
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -328,6 +333,15 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
     }
 } 
 
+/*******************************************************************************
+ * @ingroup dev-pwrctrl-sm
+ * @brief  Resets the power control properties
+ * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
+ * @return void
+ * 
+ * @details This function resets the power control properties including the 
+ *  PWM properties and control loop references.
+ *********************************************************************************/
 static void Dev_PwrCtrl_Reset(POWER_CONTROL_t* pcInstance)
 {
     //set the period to maximum  
@@ -336,7 +350,7 @@ static void Dev_PwrCtrl_Reset(POWER_CONTROL_t* pcInstance)
     pcInstance->Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
     pcInstance->Pwm.PBVControlPhaseTarget = dab.Pwm.DeadTimeLow;
     
-    // reset the 
+    // Reset the power control references
     pcInstance->Properties.VPriReference = 0;
     pcInstance->Properties.VSecReference = 0;
     pcInstance->Properties.IReference = 0;
@@ -348,5 +362,13 @@ static void Dev_PwrCtrl_Reset(POWER_CONTROL_t* pcInstance)
     pcInstance->PLoop.Reference = 0;
     // Initialize voltage loop reference to current secondary voltage
     pcInstance->VLoop.Reference = 0;
+    
+    // Set the AGC to 1
+    pcInstance->VLoop.AgcFactor = 0x7FFF;
+    pcInstance->ILoop.AgcFactor = 0x7FFF;
+    pcInstance->PLoop.AgcFactor = 0x7FFF;
+    
+    // Reset Control Loop Histories
+    Dev_PwrCtrl_ResetControlLoopHistories();
             
 }

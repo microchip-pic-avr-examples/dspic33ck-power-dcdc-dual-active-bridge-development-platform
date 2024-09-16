@@ -20,6 +20,13 @@
     TERMS.
  */
 
+/**
+ * @file      dev_fault.c
+ * @ingroup   dev-fault  
+ * @brief     Contains fault functions including the fault handler, fault 
+ *  object initialization and fault execution. 
+ */
+
 #include "xc.h"
 #include <stdbool.h>
 #include <stddef.h>
@@ -41,7 +48,7 @@
 static void Dev_Fault_EnableShortCircuitProtection(void);
 
 /*******************************************************************************
- * @ingroup dev-fault-methods-public
+ * @ingroup dev-fault
  * @brief  Handles the fault trip by turning off the power control switching
  * @return void
  * 
@@ -69,7 +76,7 @@ void Dev_Fault_Handler(void)
 
 
 /*******************************************************************************
- * @ingroup dev-fault-methods-public
+ * @ingroup dev-fault
  * @brief   Initialize the fault objects
  * @return void
  * 
@@ -113,7 +120,7 @@ void Dev_Fault_Initialize(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-fault-methods-public
+ * @ingroup dev-fault
  * @brief   Executes the fault handlers
  * @return void
  * 
@@ -161,7 +168,7 @@ void Dev_Fault_Execute(void)
 
 
 /*******************************************************************************
- * @ingroup dev-fault-methods-public
+ * @ingroup dev-fault
  * @brief   Clears the fault object flag bits
  * @return void
  * 
@@ -194,7 +201,7 @@ void Dev_Fault_Reset(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-fault-methods-public
+ * @ingroup dev-fault
  * @brief   Enable Short circuit hardware protection
  * @return void
  * 
@@ -219,7 +226,7 @@ static void Dev_Fault_EnableShortCircuitProtection(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-fault-methods-public
+ * @ingroup dev-fault
  * @brief   Fault evaluation for Temperature
  * @return void
  * 

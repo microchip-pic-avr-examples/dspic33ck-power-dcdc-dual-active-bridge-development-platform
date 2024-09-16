@@ -12,9 +12,6 @@
 #include "dev_pwrctrl_utils.h"
 
 extern POWER_CONTROL_t dab;
-extern AVERAGING_t VprimAveraging;
-extern AVERAGING_t VsecAveraging;
-extern AVERAGING_t IsecAveraging;
 
 void Dev_PwrCtrl_Initialize(void);
 void Dev_PwrCtrl_Execute(void);

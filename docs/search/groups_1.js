@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['button_0',['Push Button',['../a00526.html',1,'']]]
+  ['board_20visualizer_0',['Power Board Visualizer',['../a00471.html',1,'']]]
 ];

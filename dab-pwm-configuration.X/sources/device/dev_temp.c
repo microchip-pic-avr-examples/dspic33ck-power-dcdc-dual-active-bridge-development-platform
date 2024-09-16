@@ -14,10 +14,10 @@
 #include "device/pwrctrl/dev_pwrctrl.h"
 
 /*********************************************************************************
- * @ingroup dev-temp-data-type
- * @var     temp_ntc_t NTC_lookuptable
- * @brief   lookup table for NTC device measurement
- * @details example
+ * @ingroup dev-temp
+ * @brief   Lookup table for NTC device measurement
+ * @details This array contains the loock-up table for a particular temperature
+ *  device. As an example: 
  *          NTC device on the DAB board is NTCALUG02A103G. The resistance vs 
  *          temperature value can be gotten through data sheet. The voltage 
  *          divider has R1 = 3.3K, and NTC is R2. The ADC reference is also 
@@ -64,34 +64,20 @@ static TEMP_NTC_LUT_t NTC_lookuptable[34] =
     {.ADC_Val = 379,    .temperature = 165},
 };
 
-/*********************************************************************************
- * @ingroup dev-temp-private-variables
- * @var     dev_temp_data
- * @brief   temp interface object
- * @details 'dev_temp_data'. is the object providing access to all the temperature
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-current-sensor
+ * @brief Data Object of temperature settings
+ * 
+ * @details The 'devTempData' data object holds the settings for temperature
+ *  sensor.
+ *******************************************************************************/
 TEMP_SETTINGS_t devTempData;
 TEMP_SETTINGS_t* devTempDataPtr = &devTempData;
 
-/*********************************************************************************
- * @ingroup dev-temp-private-variables
- * @var     FAULT_OBJ_T Temp_Fault_Min
- * @brief   fault object for checking over temperature condition
- * @details min as negative temperature coefficient
- **********************************************************************************/
-//FAULT_OBJ_T tempFaultMin;
+// Private Function Call Prototypes
+static uint16_t Average_Temp_ADC_Samples(void);
+static uint16_t Temp_Calculate_Average(uint16_t * buffer, uint16_t size);
 
-/***********************************************************************************
- * Private Function Call Prototypes
- **********************************************************************************/
-
-void Dev_Temp_Get_ADC_Sample(void);
-uint16_t Average_Temp_ADC_Samples(void);
-uint16_t Temp_Calculate_Average(uint16_t * buffer, uint16_t size);
-
-/***********************************************************************************
- * Public Functions Definitions
- **********************************************************************************/
 
 /***********************************************************************************
  * @ingroup dev-temp-public-functions
@@ -102,6 +88,13 @@ uint16_t Temp_Calculate_Average(uint16_t * buffer, uint16_t size);
  * @details
  *   
  **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-temp
+ * @brief  Initializes the temperature data structure
+ * @return void
+ * 
+ * @details This function initializes the temperature data structure.
+ *********************************************************************************/
 void Dev_Temp_Initialize(void){
     devTempData.OverTemperatureFlag = 0;        ///< Over temperature flag
     devTempData.SensorLost = 0;                 ///< if Sensor is present  
@@ -110,36 +103,17 @@ void Dev_Temp_Initialize(void){
     devTempData.TemperatureCelcius = 0;         ///< temperature celcius.
 }
 
-/***********************************************************************************
- * @ingroup dev-temp-public-functions
- * @fn      Dev_Temp_Task_100ms
- * @param   void
- * @return  nothing
- * @brief   this function needs to be called every 100ms
- *          it contains the code to sample the temperature and check for faults 
- *          against raw values
- * @details
- *   this function needs to be called every 100ms. 
- * @note
- *    this is called in a rather slow 100ms object
- **********************************************************************************/
-
-/***********************************************************************************
- * @ingroup dev-temp-public-functions
- * @fn      Dev_Temp_Get_Temperature_Celcius
- * @param   void
- * @return  uint16_t
- * @brief   this converts the raw values to temperature celcius as per device 
+/*******************************************************************************
+ * @ingroup dev-temp
+ * @brief  This converts the raw values to temperature celcius as per device 
  *          lookup table
- * @details
- *          this takes in the current adc values and get the closest high temperature
- *          value in the lookup table. i.e. if the averaged value is 3195, it will
- *          return the temperature value corresponding to 3079 i.e. 65. 
- *          This value is offset by 40 degrees to avoid working with negative. 
- * @note
- *         The temperature value is offset by 40 degrees to avoid working with negative 
- *          value
- **********************************************************************************/
+ * @return void
+ * 
+ * @details This function takes in the current adc values and get the closest 
+ *  high temperature value in the lookup table. i.e. if the averaged value is 
+ *  3195, it will return the temperature value corresponding to 3079 i.e. 65. 
+ *  This value is offset by 40 degrees to avoid working with negative.
+ *********************************************************************************/
 int8_t Dev_Temp_Get_Temperature_Celcius(void){
     
     uint8_t index = 0;
@@ -166,33 +140,26 @@ int8_t Dev_Temp_Get_Temperature_Celcius(void){
     return point0.temperatureCelsius;
 }
 
-/***********************************************************************************
- * @ingroup dev-temp-public-functions
- * @fn      Dev_Temp_Is_Over_Temperature
- * @param   void
- * @return  uint8_t flag
- * @brief   returns the value of over temperature flag
- * @details
- *         
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-temp
+ * @brief  Returns the status of the Over Temperature flag
+ * @return true Over temperature is detected
+ * @return false Over temperature is not detected
+ * 
+ * @details This function returns the status of the Over Temperature flag.
+ *********************************************************************************/
 uint8_t Dev_Temp_Is_Over_Temperature(void) {
-    return devTempData.OverTemperatureFlag ;
+    return devTempData.OverTemperatureFlag;
 }
 
-/***********************************************************************************
- * Private Functions Definitions
- **********************************************************************************/
-
-/*********************************************************************************
- * @ingroup dev-temp-private-functions
- * @fn      Dev_Temp_Get_ADC_Sample
- * @param   void
- * @brief   get the adc sample, 
- * @return  nothing
- * @details 
- *          This function gets the adc value, adds it to the buffer. Increments the buffer index
- *          
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-temp
+ * @brief  Gets the temperature ADC sample
+ * @return void
+ * 
+ * @details This function gets the temperature ADC sample and adds it to the 
+ *  temperature buffer for averaging use. 
+ *********************************************************************************/
 void Dev_Temp_Get_ADC_Sample(void) 
 {
     // making sure that array does not go out of bounds. 
@@ -208,32 +175,28 @@ void Dev_Temp_Get_ADC_Sample(void)
     
 }
 
-/*********************************************************************************
- * @ingroup dev-temp-private-functions
- * @fn      Average_Temp_ADC_Samples
- * @param   void
- * @brief   check if buffer is full. and if the buffer is full, average the values 
- * @return  uint16_t averaged raw values
- * @details 
- *          
- **********************************************************************************/
-uint16_t Average_Temp_ADC_Samples(void) {
+/*******************************************************************************
+ * @ingroup dev-temp
+ * @brief  Returns the temperature average value
+ * @return void
+ * 
+ * @details This function returns the average result of the temperature ADC samples. 
+ *********************************************************************************/
+static uint16_t Average_Temp_ADC_Samples(void) {
     if (devTempData.BufferFull)
         return Temp_Calculate_Average(devTempData.TempBuffer, MAX_NUM_SAMPLES_TEMP_BUFFER);
     else 
         return 0;
 }
 
-/*********************************************************************************
- * @ingroup dev-temp-private-functions
- * @fn      Temp_Calculate_Average
- * @param   uint16_t
- * @brief   calculates average of the buffer
- * @return  uint16_t averaged buffer
- * @details 
- *          
- **********************************************************************************/
-uint16_t Temp_Calculate_Average(uint16_t * buffer, uint16_t length) {
+/*******************************************************************************
+ * @ingroup dev-temp
+ * @brief  Averages the temperature ADC samples
+ * @return void
+ * 
+ * @details This function averages the temperature ADC samples.
+ *********************************************************************************/
+static uint16_t Temp_Calculate_Average(uint16_t * buffer, uint16_t length) {
     uint16_t index = 0;
     uint32_t sum = 0;
     for (index = 0; index <length; index++)

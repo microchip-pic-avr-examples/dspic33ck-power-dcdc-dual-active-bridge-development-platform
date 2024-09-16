@@ -18,6 +18,14 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  */
+
+/**
+ * @file      dev_pwrctrl.c
+ * @ingroup   dev-pwrctrl   
+ * @brief     Contains power control initialization including control loop 
+ *  initialization and start-up initialization, and the power control execution.
+ */
+
 #include <xc.h>
 
 #include "config/macros.h"
@@ -29,7 +37,7 @@
 #include "dcdt/dev_pwrctrl_dcdt.h"
 
 /******************************************************************************
- * @ingroup dev-pwrctrl-properties-public
+ * @ingroup dev-pwrctrl
  * @brief Global data object for a DAB Converter
  * 
  * @details The 'dab' data object holds all status, control and monitoring values 
@@ -41,18 +49,20 @@ POWER_CONTROL_t dab;    // Declare DAB converter data structure
 static void Dev_PwrCtrl_StartUpInitialize(void);
 static void Dev_PwrCtrl_ControlLoopInitialize(void);
 
+// PUBLIC FUNCTIONS
 extern void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl
  * @brief  Initialize the power control parameters
  * @return void
  * 
  * @details This function initialize the power control PWM instances, settings, 
  * start-up configuration and control loop configuration. 
- *********************************************************************************/
+ *******************************************************************************/
 void Dev_PwrCtrl_Initialize(void)
 {   
+    // Clear dab references
     dab.Properties.VPriReference = 0;
     dab.Properties.VSecReference = 0;
     dab.Properties.IReference = 0;
@@ -85,7 +95,7 @@ void Dev_PwrCtrl_Initialize(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl
  * @brief  Executes the power control state machine
  * @return void
  * 
@@ -100,7 +110,7 @@ void Dev_PwrCtrl_Execute(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl
  * @brief  Initializes the control loop
  * @return void
  * 
@@ -118,18 +128,21 @@ void Dev_PwrCtrl_ControlLoopInitialize(void)
     // Initialize power loop compensator
     Dev_PwrCtrl_PComp_Initialize();
     
+    // Voltage loop properties initialize 
     dab.VLoop.Enable = false;
     dab.VLoop.AgcFactor = 0x7FFF;
     dab.VLoop.Feedback = 0;
     dab.VLoop.Output = 0;
     dab.VLoop.Reference = 0;
 
+    // Current loop properties initialize
     dab.ILoop.Enable = false;
     dab.ILoop.AgcFactor = 0x7FFF;
     dab.ILoop.Feedback = 0;
     dab.ILoop.Output = 0;
     dab.ILoop.Reference = 0;
     
+    // Power loop properties initialize
     dab.PLoop.Enable = false;
     dab.PLoop.AgcFactor = 0x7FFF;
     dab.PLoop.Feedback = 0;
@@ -139,7 +152,7 @@ void Dev_PwrCtrl_ControlLoopInitialize(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-private
+ * @ingroup dev-pwrctrl
  * @brief  Initialize the StartUp Ramp configuration
  * @return void
  * 
@@ -176,11 +189,11 @@ static void Dev_PwrCtrl_StartUpInitialize(void)
     dab.PRamp.RampComplete = 0;
     
 #if (OPEN_LOOP_PBV == true)
-    // Initialize Voltage ramp-up settings for Period control
     // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
     // (please refer to Section 4.1.3.3 in High Resolution PWM FRM)
     uint16_t PeriodMask = 0x7; 
     
+    // Initialize Voltage ramp-up settings for Period control
     dab.Pwm.ControlPeriod = dab.Pwm.ControlPeriod & ~(PeriodMask);
     dab.Pwm.PBVPeriodTarget = dab.Pwm.PBVPeriodTarget & ~(PeriodMask);
     

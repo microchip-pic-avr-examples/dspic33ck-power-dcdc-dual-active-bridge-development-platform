@@ -19,26 +19,23 @@
  * TERMS. 
  */
 
+/**
+ * @file      dev_fan.c
+ * @ingroup   dev-fan   
+ * @brief     Contains fan initialization and execution functions.
+ */
+
 #include "dev_fan.h"
 
-/*********************************************************************************
- * @ingroup dev-fan-private-variables
- * @var     dev_fan_data
- * @brief   fan interface object
- * @details 'dev_fan_data'. is the object providing access to all the fan control
- *          and monitoring values.
- **********************************************************************************/
+/*******************************************************************************
+ * @ingroup dev-fan
+ * @brief Data Object of fan 
+ * 
+ * @details The 'FAN_DATA_t' data object holds the access to all the fan control
+ *   and monitoring values.
+ *******************************************************************************/
 FAN_DATA_t devFanData;
 FAN_DATA_t* devFanDataPtr = &devFanData;
-/*********************************************************************************
- * @ingroup dev-fan-private-variables
- * @var     current_tick_count
- * @brief   ticking away
- * @details 
- *          Ticking away detailed description
- **********************************************************************************/
-
-static uint8_t CurrentTickCount;
 
 enum FAN_SETTINGS_e {
     NO_CHANGE     = 0,
@@ -46,34 +43,31 @@ enum FAN_SETTINGS_e {
 };
 typedef enum FAN_SETTINGS_e FAN_SETTINGS_t;
 
-
 static FAN_SETTINGS_t ChangeSpeed = CHANGE_SPEED;
+static uint8_t CurrentTickCount;
 
-/***********************************************************************************
- * Private Function Call Prototypes
- **********************************************************************************/
-uint16_t Convert_From_Percentage (uint8_t percentage);
-uint8_t Convert_From_Raw(uint16_t raw);
-
-void Override_Speed(void);
-void Calculate_Speed(void);
-void Update_Speed(void);
+//Private Function Call Prototypes
+static uint16_t Convert_From_Percentage (uint8_t percentage);
+static uint8_t Convert_From_Raw(uint16_t raw);
+static void Override_Speed(void);
+static void Calculate_Speed(void);
+static void Update_Speed(void);
 
 
 /***********************************************************************************
- * @ingroup dev-fan-public-functions
- * @fn     Dev_Fan_Init
- * @param  void
- * @return nothing
- * @brief this function initializes to the fan object
- * @details
- *   This function initalizes the LED to normal blink interval
+ * @ingroup dev-fan
+ * @brief This function initializes the fan object
+ * @return  void
+ * 
+ * @details This function initializes fan data objects including the initial
+ *  fan speed, the maximum allowable speed, and the increment/decrement step 
+ *  of the fan speed.
  **********************************************************************************/
 void Dev_Fan_Initialize(void)
 {
     devFanData.CurrentSpeedPercent = 0 ;
-    devFanData.TargetSpeedPercent = INIT_SPEED_PERCENT ;
-    devFanData.MaxSpeedPercent = MAX_SPEED_PERCENT ;
+    devFanData.TargetSpeedPercent = INIT_SPEED_PERCENT;
+    devFanData.MaxSpeedPercent = MAX_SPEED_PERCENT;
     devFanData.Tick = 5 ;
     devFanData.StepSizePercent = STEP_SIZE ;
     devFanData.TargetSpeedRaw = 0 ;
@@ -84,19 +78,18 @@ void Dev_Fan_Initialize(void)
 }
 
 /***********************************************************************************
- * @ingroup dev-fan-public-functions
- * @fn     Dev_Fan_Task_100ms
- * @param  void
- * @return nothing
- * @brief this function needs to be called every 100ms
- *        it contains the code to update the status of the fan
- * @details
- *   this function needs to be called every 100ms. This modulates the speed of fan as per the 
- *   parameters in the fan object. also checks for the override flag.
+ * @ingroup dev-fan
+ * @brief this function needs to be called every 100ms it contains the code to 
+ *  update the status of the fan
+ * @return void
+ * 
+ * @details This function needs to be called every 100ms. This modulates the 
+ * speed of fan depending on the initialized parameters in the fan object. 
+ *
  * @note
- *    this is called in a rather slow 100ms object, as the speed modulation is not so critical.
+ *    This is called in a rather slow 100ms object, as the speed modulation 
+ * is not so critical.
  **********************************************************************************/
-
 void Dev_Fan_Task_100ms(void) 
 {
     if (devFanData.OverrideFlag == 1) 
@@ -114,37 +107,58 @@ void Dev_Fan_Task_100ms(void)
     }
 }
 
-// not to be inlined, but this should be part of api.
+/*******************************************************************************
+ * @ingroup dev-fan
+ * @brief  Sets the fan override bit and the fan speed
+ * @return void
+ * 
+ * @details This function sets the fan override flag bit to true and sets the 
+ *  fan target speed to maximum speed.
+ * 
+ *********************************************************************************/
 void Dev_Fan_Set_Override(void) 
 {
     devFanData.OverrideFlag = 1;
     Override_Speed();
 }
 
-/*********************************************************************************
- * @ingroup dev-fan-private-functions
- * @fn      Convert_From_Percentage
- * @param   void
- * @brief   converts the desired target
- * @return  nothing
- * @details 
- *  This function converts the percent value to the duty cycle value as per MULTIPLIER
- **********************************************************************************/
-uint16_t Convert_From_Percentage(uint8_t percentage_value) 
+/*******************************************************************************
+ * @ingroup dev-fan
+ * @brief  Sets the fan speed
+ * @return void
+ * 
+ * @details This function sets the fan speed when the target speed does not 
+ *  exceed the maximum fan speed.
+ *********************************************************************************/
+void Dev_Fan_Set_Speed(uint8_t target_speed_percent) 
+{
+    if (target_speed_percent <= MAX_SPEED_PERCENT)
+    {
+        devFanData.TargetSpeedPercent = target_speed_percent;
+    }
+}
+
+/*******************************************************************************
+ * @ingroup dev-fan
+ * @brief  Converts the percentage value to number of ticks
+ * @return void
+ * 
+ * @details This function converts the percent value to the duty cycle value as 
+ *  per MULTIPLIER.
+ *********************************************************************************/
+static uint16_t Convert_From_Percentage(uint8_t percentage_value) 
 {
     return (percentage_value * MULTIPLIER) ;
 }
 
-/*********************************************************************************
- * @ingroup dev-fan-private-functions
- * @fn      Override_Speed
- * @param   void
- * @brief   changes the values
- * @return  nothing
- * @details 
- *  Changes the target value to max, and the update frequency to max update speed
- **********************************************************************************/
-void Override_Speed(void) 
+/*******************************************************************************
+ * @ingroup dev-fan
+ * @brief  Override the fan speed with maximum speed
+ * @return void
+ * 
+ * @details This function changes the target speed value to maximum.
+ *********************************************************************************/
+static void Override_Speed(void) 
 {
     devFanData.TargetSpeedPercent = MAX_SPEED_PERCENT;
     devFanData.Tick = MIN_TICK;
@@ -159,7 +173,14 @@ void Override_Speed(void)
  * @details 
  *  changes the target as per step size
  **********************************************************************************/
-void Calculate_Speed(void) 
+/*******************************************************************************
+ * @ingroup dev-fan
+ * @brief  Calculates the fan speed
+ * @return void
+ * 
+ * @details This function calculates the fan speed.
+ *********************************************************************************/
+static void Calculate_Speed(void) 
 {
     devFanData.TargetSpeedPercent -= (devFanData.TargetSpeedPercent % devFanData.StepSizePercent);
     
@@ -182,16 +203,14 @@ void Calculate_Speed(void)
     }
 } 
 
-/*********************************************************************************
- * @ingroup dev-fan-private-functions
- * @fn      Update_Speed
- * @param   void
- * @brief   changes the target value
- * @return  nothing
- * @details 
- *  changes the target as per step size
- **********************************************************************************/
-void Update_Speed(void) 
+/*******************************************************************************
+ * @ingroup dev-fan
+ * @brief  Update the fan speed
+ * @return void
+ * 
+ * @details This functions updates the fan speed.
+ *********************************************************************************/
+static void Update_Speed(void) 
 {
     if (ChangeSpeed != NO_CHANGE)
     {
@@ -204,35 +223,17 @@ void Update_Speed(void)
     }
 }
 
-/*********************************************************************************
- * @ingroup dev-fan-private-functions
- * @fn      Convert_From_Raw
- * @param   raw value
- * @brief   raw to percentage
- * @return  percentage
+/*******************************************************************************
+ * @ingroup 
+ * @brief  
+ * @return 
+ * 
  * @details 
- *  raw to percentage
- **********************************************************************************/
-
-uint8_t Convert_From_Raw(uint16_t raw) 
+ * 
+ *********************************************************************************/
+static uint8_t Convert_From_Raw(uint16_t raw) 
 {
     return ( raw * 0.02 );  //TODO: recalculate math
-}
-
-/*********************************************************************************
- * @fn      Dev_Fan_Set_Speed
- * @param   target speed (as a percent of max)
- * @brief   set fan speed
- * @return  none
- * @details 
- * set fan speed
- **********************************************************************************/
-void Dev_Fan_Set_Speed(uint8_t target_speed_percent) 
-{
-    if (target_speed_percent <= MAX_SPEED_PERCENT)
-    {
-        devFanData.TargetSpeedPercent = target_speed_percent;
-    }
 }
 
 /*******************************************************************************

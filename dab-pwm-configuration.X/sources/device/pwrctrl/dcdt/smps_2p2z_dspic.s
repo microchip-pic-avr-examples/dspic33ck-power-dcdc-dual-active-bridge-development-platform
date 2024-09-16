@@ -190,15 +190,15 @@ _SMPS_Controller2P2ZUpdate:
         mov     [w10 + #0], w5					; W5 = ErrorHistory[n]
         mov     w5, [w10 + #2]					; ErrorHistory[n-1] = W5
 
-		; Calculate most recent error with normalization,
+	; Calculate most recent error with normalization,
 
-		sub w2, [w1], w5                   		; w5 = Reference - inputSource
-		sl	w5, w8, w5				; shift error by PRE_SHIFT bit to the left (Q15 scaling)
+	sub w2, [w1], w5                   		; w5 = Reference - inputSource
+	sl	w5, w8, w5				; shift error by PRE_SHIFT bit to the left (Q15 scaling)
 
-		; Store most recent error to error history array
-		mov 	w5, [w10]				; controller2P2Z.errorHistory[n] = w5
+	; Store most recent error to error history array
+	mov 	w5, [w10]				; controller2P2Z.errorHistory[n] = w5
 
-		; Initialize B coefficients array
+	; Initialize B coefficients array
 
         mov [w0 + #offsetBCoefficients], w8			; w8  = Base Address of _BCoefficients array (B0, B1, B2, B3)
 

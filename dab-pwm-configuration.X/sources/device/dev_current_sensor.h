@@ -1,17 +1,40 @@
-/* 
- * File:   dev_current_sensor.h
- * Author: M63731
- *
- * Created on 07 June 2024, 13:59
+/*
+    (c) 2024 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
+
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
+ */
+
+/**
+ * @file      dev_current_sensor.h
+ * @ingroup   dev-current-sensor   
+ * @brief     Contains current sensor public functions.
  */
 
 #ifndef DEV_CURRENT_SENSOR_H
 #define	DEV_CURRENT_SENSOR_H
 
 
-extern void Dev_CurrentSensorOffsetCal(void);
+void Dev_CurrentSensorOffsetCal(void);
+void Dev_CurrentSensor_Clr_Offset(void);
+
 extern uint16_t Dev_CurrentSensor_Get_CalibrationStatus(void);
 extern uint16_t Dev_CurrentSensor_Get_Offset(void);
-extern void Dev_CurrentSensor_Clr_Offset(void);
+
 #endif	/* DEV_CURRENT_SENSOR_H */
 

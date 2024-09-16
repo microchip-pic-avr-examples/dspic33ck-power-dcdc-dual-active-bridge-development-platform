@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/system/reset_types.h File Reference</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/timer/tmr1.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,105 +137,116 @@ $(document).ready(function(){initNavTree('a00215.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#enum-members">Enumerations</a>  </div>
-  <div class="headertitle"><div class="title">reset_types.h File Reference<div class="ingroups"><a class="el" href="a00530.html">MPLABX Configurator Driver Layer</a> &raquo; <a class="el" href="a00543.html">Reset Driver</a></div></div></div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">tmr1.h File Reference<div class="ingroups"><a class="el" href="a00489.html">MPLABX Configurator Driver Layer</a> &raquo; <a class="el" href="a00505.html">Timer Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the generated driver types header file for the RESET driver.  
+<p>This is the generated driver header file for the TMR1 driver.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;xc.h&gt;</code><br />
+<code>#include &quot;timer_interface.h&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for tmr1.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00217.svg" width="203" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00216.svg" width="416" height="235"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00217.svg" width="403" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00215_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a92cc33c67de24fe26250120e3aafda6c" id="r_a92cc33c67de24fe26250120e3aafda6c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#a92cc33c67de24fe26250120e3aafda6c">RESET_TYPES</a> { <a class="el" href="a00215.html#a92cc33c67de24fe26250120e3aafda6cad974210eb3f052af587cafd1471f0f67">RESET_ERROR_RCON_TRAPR</a> = 1
-, <a class="el" href="a00215.html#a92cc33c67de24fe26250120e3aafda6cad50f2cab06dc54dd6fee62dc023aadb9">RESET_ERROR_RCON_IOPUWR</a> = 2
-, <a class="el" href="a00215.html#a92cc33c67de24fe26250120e3aafda6cad15efd66bf9cfb08382194b72b39cd96">RESET_ERROR_RCON_CM</a> = 3
-, <a class="el" href="a00215.html#a92cc33c67de24fe26250120e3aafda6caad384de18a0059f8c1f7edd96d92fcd6">RESET_ERROR_RCON_WDTO_ISR</a> = 4
- }</td></tr>
-<tr class="separator:a92cc33c67de24fe26250120e3aafda6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b9230c673ed49797255d1f6173d45bc" id="r_a3b9230c673ed49797255d1f6173d45bc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#a3b9230c673ed49797255d1f6173d45bc">RESET_MASKS</a> { <a class="el" href="a00215.html#a3b9230c673ed49797255d1f6173d45bcade24eaaa45bcfb478a59f3883741fb88">RESET_MASK_POR</a> = 0x0001
-, <a class="el" href="a00215.html#a3b9230c673ed49797255d1f6173d45bca0195abe5d431a7bed22c78fab34e17ad">RESET_MASK_WDTO</a> = 0x0010
-, <a class="el" href="a00215.html#a3b9230c673ed49797255d1f6173d45bca614781b5da4962bd9265aa5fca72c7c1">RESET_MASK_SWR</a> = 0x0040
-, <a class="el" href="a00215.html#a3b9230c673ed49797255d1f6173d45bca3fa962659b419b21fc3d0a6543384e6f">RESET_MASK_EXTR</a> = 0x0080
-, <a class="el" href="a00215.html#a3b9230c673ed49797255d1f6173d45bca8d4a8d4c0d7ad5ea8646046862decb4e">RESET_MASK_CM</a> = 0x0200
-, <a class="el" href="a00215.html#a3b9230c673ed49797255d1f6173d45bcaaae0abec60599ee127c50bc78bf200fa">RESET_MASK_IOPUWR</a> = 0x4000
-, <a class="el" href="a00215.html#a3b9230c673ed49797255d1f6173d45bcac55f85ffed9cf26e28cd21e20dc062aa">RESET_MASK_TRAPR</a> = 0x8000
- }</td></tr>
-<tr class="separator:a3b9230c673ed49797255d1f6173d45bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga7a9360dec794f08b98b90533d0d87ef5" id="r_ga7a9360dec794f08b98b90533d0d87ef5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#ga7a9360dec794f08b98b90533d0d87ef5">Timer1_Initialize</a>&#160;&#160;&#160;<a class="el" href="a00505.html#gaeca9435d024c8eeada966c9dffbb8427">TMR1_Initialize</a></td></tr>
+<tr class="memdesc:ga7a9360dec794f08b98b90533d0d87ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00505.html#gaeca9435d024c8eeada966c9dffbb8427">TMR1_Initialize</a> API.  <br /></td></tr>
+<tr class="separator:ga7a9360dec794f08b98b90533d0d87ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga55a72f26af13432a3db96be1d984b899" id="r_ga55a72f26af13432a3db96be1d984b899"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#ga55a72f26af13432a3db96be1d984b899">Timer1_Deinitialize</a>&#160;&#160;&#160;<a class="el" href="a00505.html#ga2841c95f77415643312872bc9e042fd9">TMR1_Deinitialize</a></td></tr>
+<tr class="memdesc:ga55a72f26af13432a3db96be1d984b899"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00505.html#ga2841c95f77415643312872bc9e042fd9">TMR1_Deinitialize</a> API.  <br /></td></tr>
+<tr class="separator:ga55a72f26af13432a3db96be1d984b899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca3fcbafabd00cd1491c27b936b16551" id="r_gaca3fcbafabd00cd1491c27b936b16551"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#gaca3fcbafabd00cd1491c27b936b16551">Timer1_Start</a>&#160;&#160;&#160;<a class="el" href="a00505.html#gafed3745413684e23104d29539be4f2e5">TMR1_Start</a></td></tr>
+<tr class="memdesc:gaca3fcbafabd00cd1491c27b936b16551"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00505.html#gafed3745413684e23104d29539be4f2e5">TMR1_Start</a> API.  <br /></td></tr>
+<tr class="separator:gaca3fcbafabd00cd1491c27b936b16551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3441b968c7eb5533731c3f1faf6373df" id="r_ga3441b968c7eb5533731c3f1faf6373df"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#ga3441b968c7eb5533731c3f1faf6373df">Timer1_Stop</a>&#160;&#160;&#160;<a class="el" href="a00505.html#ga27bf11425ad1e1d2e8e16a14aebb5a9c">TMR1_Stop</a></td></tr>
+<tr class="memdesc:ga3441b968c7eb5533731c3f1faf6373df"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00505.html#ga27bf11425ad1e1d2e8e16a14aebb5a9c">TMR1_Stop</a> API.  <br /></td></tr>
+<tr class="separator:ga3441b968c7eb5533731c3f1faf6373df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2ad5317cbaf74d6d6ba4d95bf29ec69" id="r_gae2ad5317cbaf74d6d6ba4d95bf29ec69"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#gae2ad5317cbaf74d6d6ba4d95bf29ec69">Timer1_PeriodSet</a>&#160;&#160;&#160;<a class="el" href="a00505.html#gaee0dcecbe2ec34ee2a5ab9e263b63ca3">TMR1_PeriodSet</a></td></tr>
+<tr class="memdesc:gae2ad5317cbaf74d6d6ba4d95bf29ec69"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00505.html#gaee0dcecbe2ec34ee2a5ab9e263b63ca3">TMR1_PeriodSet</a> API.  <br /></td></tr>
+<tr class="separator:gae2ad5317cbaf74d6d6ba4d95bf29ec69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf355277e21588ad4dfd44bf09cd1cf16" id="r_gaf355277e21588ad4dfd44bf09cd1cf16"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#gaf355277e21588ad4dfd44bf09cd1cf16">Timer1_PeriodGet</a>&#160;&#160;&#160;<a class="el" href="a00505.html#ga1a457e2e1f171e9320d31501cef3ff7f">TMR1_PeriodGet</a></td></tr>
+<tr class="memdesc:gaf355277e21588ad4dfd44bf09cd1cf16"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00505.html#ga1a457e2e1f171e9320d31501cef3ff7f">TMR1_PeriodGet</a> API.  <br /></td></tr>
+<tr class="separator:gaf355277e21588ad4dfd44bf09cd1cf16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3bfaddd795c95d3a8e37a627470ba95f" id="r_ga3bfaddd795c95d3a8e37a627470ba95f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#ga3bfaddd795c95d3a8e37a627470ba95f">Timer1_CounterGet</a>&#160;&#160;&#160;<a class="el" href="a00505.html#ga6498e2fb4a5faf4e92d1ca88edafa1dc">TMR1_CounterGet</a></td></tr>
+<tr class="memdesc:ga3bfaddd795c95d3a8e37a627470ba95f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00505.html#ga6498e2fb4a5faf4e92d1ca88edafa1dc">TMR1_CounterGet</a> API.  <br /></td></tr>
+<tr class="separator:ga3bfaddd795c95d3a8e37a627470ba95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa3062d0930c5fe1ddbd7e6d22a31d807" id="r_gaa3062d0930c5fe1ddbd7e6d22a31d807"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#gaa3062d0930c5fe1ddbd7e6d22a31d807">Timer1_Counter16BitGet</a>&#160;&#160;&#160;<a class="el" href="a00505.html#ga90e3025b8fc72c8eb9753a1e8b3d9578">TMR1_Counter16BitGet</a></td></tr>
+<tr class="memdesc:gaa3062d0930c5fe1ddbd7e6d22a31d807"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00505.html#ga90e3025b8fc72c8eb9753a1e8b3d9578">TMR1_Counter16BitGet</a> API.  <br /></td></tr>
+<tr class="separator:gaa3062d0930c5fe1ddbd7e6d22a31d807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga976cad07a190522f38297875719b6669" id="r_ga976cad07a190522f38297875719b6669"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#ga976cad07a190522f38297875719b6669">Timer1_InterruptPrioritySet</a>&#160;&#160;&#160;<a class="el" href="a00505.html#gae817aeb318bfedb428c2e0a237b1a7b3">TMR1_InterruptPrioritySet</a></td></tr>
+<tr class="memdesc:ga976cad07a190522f38297875719b6669"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00505.html#gae817aeb318bfedb428c2e0a237b1a7b3">TMR1_InterruptPrioritySet</a> API.  <br /></td></tr>
+<tr class="separator:ga976cad07a190522f38297875719b6669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadeaada1e4bb45544d41037e6619b7188" id="r_gadeaada1e4bb45544d41037e6619b7188"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#gadeaada1e4bb45544d41037e6619b7188">Timer1_TimeoutCallbackRegister</a>&#160;&#160;&#160;<a class="el" href="a00505.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a></td></tr>
+<tr class="memdesc:gadeaada1e4bb45544d41037e6619b7188"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00505.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a> API.  <br /></td></tr>
+<tr class="separator:gadeaada1e4bb45544d41037e6619b7188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaeca9435d024c8eeada966c9dffbb8427" id="r_gaeca9435d024c8eeada966c9dffbb8427"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#gaeca9435d024c8eeada966c9dffbb8427">TMR1_Initialize</a> (void)</td></tr>
+<tr class="memdesc:gaeca9435d024c8eeada966c9dffbb8427"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the TMR1 module.  <br /></td></tr>
+<tr class="separator:gaeca9435d024c8eeada966c9dffbb8427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2841c95f77415643312872bc9e042fd9" id="r_ga2841c95f77415643312872bc9e042fd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#ga2841c95f77415643312872bc9e042fd9">TMR1_Deinitialize</a> (void)</td></tr>
+<tr class="memdesc:ga2841c95f77415643312872bc9e042fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the TMR1 to POR values.  <br /></td></tr>
+<tr class="separator:ga2841c95f77415643312872bc9e042fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafed3745413684e23104d29539be4f2e5" id="r_gafed3745413684e23104d29539be4f2e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#gafed3745413684e23104d29539be4f2e5">TMR1_Start</a> (void)</td></tr>
+<tr class="memdesc:gafed3745413684e23104d29539be4f2e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer.  <br /></td></tr>
+<tr class="separator:gafed3745413684e23104d29539be4f2e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga27bf11425ad1e1d2e8e16a14aebb5a9c" id="r_ga27bf11425ad1e1d2e8e16a14aebb5a9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#ga27bf11425ad1e1d2e8e16a14aebb5a9c">TMR1_Stop</a> (void)</td></tr>
+<tr class="memdesc:ga27bf11425ad1e1d2e8e16a14aebb5a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer.  <br /></td></tr>
+<tr class="separator:ga27bf11425ad1e1d2e8e16a14aebb5a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee0dcecbe2ec34ee2a5ab9e263b63ca3" id="r_gaee0dcecbe2ec34ee2a5ab9e263b63ca3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#gaee0dcecbe2ec34ee2a5ab9e263b63ca3">TMR1_PeriodSet</a> (uint32_t count)</td></tr>
+<tr class="memdesc:gaee0dcecbe2ec34ee2a5ab9e263b63ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the TMR1 period count value.  <br /></td></tr>
+<tr class="separator:gaee0dcecbe2ec34ee2a5ab9e263b63ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a457e2e1f171e9320d31501cef3ff7f" id="r_ga1a457e2e1f171e9320d31501cef3ff7f"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#ga1a457e2e1f171e9320d31501cef3ff7f">TMR1_PeriodGet</a> (void)</td></tr>
+<tr class="memdesc:ga1a457e2e1f171e9320d31501cef3ff7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function gets the TMR1 period count value.  <br /></td></tr>
+<tr class="separator:ga1a457e2e1f171e9320d31501cef3ff7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6498e2fb4a5faf4e92d1ca88edafa1dc" id="r_ga6498e2fb4a5faf4e92d1ca88edafa1dc"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#ga6498e2fb4a5faf4e92d1ca88edafa1dc">TMR1_CounterGet</a> (void)</td></tr>
+<tr class="memdesc:ga6498e2fb4a5faf4e92d1ca88edafa1dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function gets the TMR1 elapsed time value.  <br /></td></tr>
+<tr class="separator:ga6498e2fb4a5faf4e92d1ca88edafa1dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90e3025b8fc72c8eb9753a1e8b3d9578" id="r_ga90e3025b8fc72c8eb9753a1e8b3d9578"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#ga90e3025b8fc72c8eb9753a1e8b3d9578">TMR1_Counter16BitGet</a> (void)</td></tr>
+<tr class="memdesc:ga90e3025b8fc72c8eb9753a1e8b3d9578"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function gets the 16 bit TMR1 elapsed time value.  <br /></td></tr>
+<tr class="separator:ga90e3025b8fc72c8eb9753a1e8b3d9578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae817aeb318bfedb428c2e0a237b1a7b3" id="r_gae817aeb318bfedb428c2e0a237b1a7b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#gae817aeb318bfedb428c2e0a237b1a7b3">TMR1_InterruptPrioritySet</a> (enum INTERRUPT_PRIORITY priority)</td></tr>
+<tr class="memdesc:gae817aeb318bfedb428c2e0a237b1a7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the TMR1 interrupt priority value.  <br /></td></tr>
+<tr class="separator:gae817aeb318bfedb428c2e0a237b1a7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf9de8f06456af5b10227545089697ff" id="r_gacf9de8f06456af5b10227545089697ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a> (void(*handler)(void))</td></tr>
+<tr class="memdesc:gacf9de8f06456af5b10227545089697ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for TMR1 Timeout event.  <br /></td></tr>
+<tr class="separator:gacf9de8f06456af5b10227545089697ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga68e2de2fe38060ac6e5538406974ed3d" id="r_ga68e2de2fe38060ac6e5538406974ed3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#ga68e2de2fe38060ac6e5538406974ed3d">TMR1_TimeoutCallback</a> (void)</td></tr>
+<tr class="memdesc:ga68e2de2fe38060ac6e5538406974ed3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using <a class="el" href="a00505.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a>.  <br /></td></tr>
+<tr class="separator:ga68e2de2fe38060ac6e5538406974ed3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga4146a540908bbc651749031d3f3c1456" id="r_ga4146a540908bbc651749031d3f3c1456"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00571.html">TIMER_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html#ga4146a540908bbc651749031d3f3c1456">Timer1</a></td></tr>
+<tr class="memdesc:ga4146a540908bbc651749031d3f3c1456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00571.html" title="Structure containing the function pointers of TIMER driver.">TIMER_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. Timer1 can be changed by the user in the TIMER user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
+<tr class="separator:ga4146a540908bbc651749031d3f3c1456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>RESET Generated Driver Types Header File</p>
+<div class="textblock"><p>TMR1 Generated Driver Header File</p>
 <div class="fragment"></div><!-- fragment -->
-<p class="definition">Definition in file <a class="el" href="a00215_source.html">reset_types.h</a>.</p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a3b9230c673ed49797255d1f6173d45bc" name="a3b9230c673ed49797255d1f6173d45bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b9230c673ed49797255d1f6173d45bc">&#9670;&#160;</a></span>RESET_MASKS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00215.html#a3b9230c673ed49797255d1f6173d45bc">RESET_MASKS</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3b9230c673ed49797255d1f6173d45bcade24eaaa45bcfb478a59f3883741fb88" name="a3b9230c673ed49797255d1f6173d45bcade24eaaa45bcfb478a59f3883741fb88"></a>RESET_MASK_POR&#160;</td><td class="fielddoc"><p>Defines the power ON Reset flag mask location </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b9230c673ed49797255d1f6173d45bca0195abe5d431a7bed22c78fab34e17ad" name="a3b9230c673ed49797255d1f6173d45bca0195abe5d431a7bed22c78fab34e17ad"></a>RESET_MASK_WDTO&#160;</td><td class="fielddoc"><p>Defines the watchdog timeout reset flag mask location </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b9230c673ed49797255d1f6173d45bca614781b5da4962bd9265aa5fca72c7c1" name="a3b9230c673ed49797255d1f6173d45bca614781b5da4962bd9265aa5fca72c7c1"></a>RESET_MASK_SWR&#160;</td><td class="fielddoc"><p>Defines the software reset mask location </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b9230c673ed49797255d1f6173d45bca3fa962659b419b21fc3d0a6543384e6f" name="a3b9230c673ed49797255d1f6173d45bca3fa962659b419b21fc3d0a6543384e6f"></a>RESET_MASK_EXTR&#160;</td><td class="fielddoc"><p>Defines the external reset mask location </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b9230c673ed49797255d1f6173d45bca8d4a8d4c0d7ad5ea8646046862decb4e" name="a3b9230c673ed49797255d1f6173d45bca8d4a8d4c0d7ad5ea8646046862decb4e"></a>RESET_MASK_CM&#160;</td><td class="fielddoc"><p>Defines the configuration mismatch reset mask location </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b9230c673ed49797255d1f6173d45bcaaae0abec60599ee127c50bc78bf200fa" name="a3b9230c673ed49797255d1f6173d45bcaaae0abec60599ee127c50bc78bf200fa"></a>RESET_MASK_IOPUWR&#160;</td><td class="fielddoc"><p>Defines the illegal opcode or uninitialized W access reset mask location </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b9230c673ed49797255d1f6173d45bcac55f85ffed9cf26e28cd21e20dc062aa" name="a3b9230c673ed49797255d1f6173d45bcac55f85ffed9cf26e28cd21e20dc062aa"></a>RESET_MASK_TRAPR&#160;</td><td class="fielddoc"><p>Defines the trap reset mask location </p>
-</td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00059">59</a> of file <a class="el" href="a00215_source.html">reset_types.h</a>.</p>
-
-</div>
-</div>
-<a id="a92cc33c67de24fe26250120e3aafda6c" name="a92cc33c67de24fe26250120e3aafda6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92cc33c67de24fe26250120e3aafda6c">&#9670;&#160;</a></span>RESET_TYPES</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00215.html#a92cc33c67de24fe26250120e3aafda6c">RESET_TYPES</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a92cc33c67de24fe26250120e3aafda6cad974210eb3f052af587cafd1471f0f67" name="a92cc33c67de24fe26250120e3aafda6cad974210eb3f052af587cafd1471f0f67"></a>RESET_ERROR_RCON_TRAPR&#160;</td><td class="fielddoc"><p>A Trap Conflict Reset has occurred </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a92cc33c67de24fe26250120e3aafda6cad50f2cab06dc54dd6fee62dc023aadb9" name="a92cc33c67de24fe26250120e3aafda6cad50f2cab06dc54dd6fee62dc023aadb9"></a>RESET_ERROR_RCON_IOPUWR&#160;</td><td class="fielddoc"><p>An illegal opcode detection, an illegal address mode or Uninitialized W register used as an Address Pointer caused a Reset </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a92cc33c67de24fe26250120e3aafda6cad15efd66bf9cfb08382194b72b39cd96" name="a92cc33c67de24fe26250120e3aafda6cad15efd66bf9cfb08382194b72b39cd96"></a>RESET_ERROR_RCON_CM&#160;</td><td class="fielddoc"><p>A Configuration Mismatch Reset has occurred </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a92cc33c67de24fe26250120e3aafda6caad384de18a0059f8c1f7edd96d92fcd6" name="a92cc33c67de24fe26250120e3aafda6caad384de18a0059f8c1f7edd96d92fcd6"></a>RESET_ERROR_RCON_WDTO_ISR&#160;</td><td class="fielddoc"><p>WDT time-out has occurred </p>
-</td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00215_source.html#l00046">46</a> of file <a class="el" href="a00215_source.html">reset_types.h</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00215_source.html">tmr1.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

@@ -39,20 +39,10 @@
  * @
  * @brief   These have to be renamed to make the temp device driver abstract
  **********************************************************************************/
-#include "adc/adc1.h"
-#define IsConversionComplete        ADC1_IsConversionComplete       
-#define GetResult                   ADC1_ConversionResultGet        
-#define ADC_TEMP_CHANNEL            TEMP             ///< adc pin/channel name
-#define ADC_SOFTWARE_TRIGGER        ADC1_SoftwareTriggerEnable
+#include "adc/adc1.h"   
 
-/*********************************************************************************
- * @ingroup dev-temp-buffer-define-macros
- * @
- * @brief   averaging filter depth 
- **********************************************************************************/
 #define MAX_NUM_SAMPLES_TEMP_BUFFER                         64      ///< average calculated using 64 samples
 #define MAX_NUM_SAMPLES_TEMP_BUFFER_AS_EXP_OF_TWO            6      ///< for bit shifting
-/** @} */ // end of dev-temp-buffer-define-macros
 
 /*********************************************************************************
  * @ingroup dev-temp-sys-spec-macros
@@ -116,6 +106,6 @@ void Dev_Temp_Task_100ms(void);
 int8_t Dev_Temp_Get_Temperature_Celcius();
 uint16_t Dev_Temp_Get_Temperature_Raw();
 uint8_t Dev_Temp_Is_Over_Temperature();
-extern void Dev_Temp_Get_ADC_Sample(void); 
+void Dev_Temp_Get_ADC_Sample(void); 
 #endif	/* DEV_TEMP_H */
 

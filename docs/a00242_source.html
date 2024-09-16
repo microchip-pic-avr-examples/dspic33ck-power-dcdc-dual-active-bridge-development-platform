@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/system/src/traps.c Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/app/app_PBV_dab_frame_map.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,183 +136,357 @@ $(document).ready(function(){initNavTree('a00242_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">traps.c</div></div>
+  <div class="headertitle"><div class="title">app_PBV_dab_frame_map.c</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00242.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">© [2024] Microchip Technology Inc. and its subsidiaries.</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">    Subject to your compliance with these terms, you may use Microchip </span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">    software and any derivatives exclusively with Microchip products. </span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">    You are responsible for complying with 3rd party license terms  </span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">    applicable to your use of 3rd party software (including open source  </span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">    software) that may accompany Microchip software. SOFTWARE IS ?AS IS.? </span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">    NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS </span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">    SOFTWARE, INCLUDING ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT,  </span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">    MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT </span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">    WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, </span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY </span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">    KIND WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF </span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">    MICROCHIP HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE </span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">    FORESEEABLE. TO THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP?S </span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">    TOTAL LIABILITY ON ALL CLAIMS RELATED TO THE SOFTWARE WILL NOT </span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">    EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR </span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    THIS SOFTWARE.</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// Section: Included Files</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;../traps.h&quot;</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">    (c) 2024 Microchip Technology Inc. and its subsidiaries. You may use this</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">    software and any derivatives exclusively with Microchip products.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">    THIS SOFTWARE IS SUPPLIED BY MICROCHIP &quot;AS IS&quot;. NO WARRANTIES, WHETHER</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"></span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP&#39;S TOTAL LIABILITY ON ALL CLAIMS IN</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">    TERMS.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;xc.h&gt;</span> <span class="comment">// include processor files - each processor file is guarded.  </span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;stdint.h&gt;</span> <span class="comment">// include standard integer data types</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span> <span class="comment">// include standard boolean data types</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;stddef.h&gt;</span> <span class="comment">// include standard definition data types</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">// MCC header files</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// other header files</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;App_PBV_DAB_frame_map.h&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;system/pins.h&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;device/dev_fan.h&quot;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;device/dev_temp.h&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;device/pwrctrl/dev_pwrctrl_comm_interface.h&quot;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;device/fault/dev_fault_api.h&quot;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;config/macros.h&quot;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;config/version.h&quot;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="a00242.html#afc1223fc26cddba5ffba1c5bd5def82f">   42</a></span><span class="preprocessor">#define ERROR_HANDLER __attribute__((interrupt,no_auto_psv))</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="a00242.html#a8d6c626527a12311e8a698a87daae6f7">   43</a></span><span class="preprocessor">#define FAILSAFE_STACK_GUARDSIZE 8</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">// A private place to store the error code if we run into a severe error</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="a00242.html#ad5ed11bf5b4e1b432ffb169e279a29bc">   47</a></span><span class="keyword">static</span> uint16_t <a class="code hl_variable" href="a00242.html#ad5ed11bf5b4e1b432ffb169e279a29bc">TRAPS_error_code</a> = -1;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">// Section: Driver Interface Function Definitions</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define FIRMWARE_PROTOCOL_ID            0x1000           </span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define PBV_RX_PROTOCOL_ID              0x202            </span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#define PBV_TX_PROTOCOL_ID              0x204            </span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">//@brief Halts </span></div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">   52</a></span><span class="keywordtype">void</span> __attribute__((weak)) <a class="code hl_function" href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a>(uint16_t code)</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_variable" href="a00242.html#ad5ed11bf5b4e1b432ffb169e279a29bc">TRAPS_error_code</a> = code;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#ifdef __DEBUG    </span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">/* If we are in debug mode, cause a software breakpoint in the debugger */</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    __builtin_software_breakpoint();</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">while</span>(1)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="comment">// Trigger software reset</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    __asm__ <span class="keyword">volatile</span> (<span class="stringliteral">&quot;reset&quot;</span>);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
-</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">// @brief Sets the stack pointer to a backup area of memory, in case we run into</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">//   a stack error (in which case we can&#39;t really trust the stack pointer)</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="a00242.html#a179592ff2045f0be286f62f3b2e1cb63">   71</a></span><span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00242.html#a179592ff2045f0be286f62f3b2e1cb63">use_failsafe_stack</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">static</span> uint8_t failsafe_stack[32];</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">asm</span> <span class="keyword">volatile</span> (</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="stringliteral">&quot;   mov    %[pstack], W15\n&quot;</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        :</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        : [pstack]<span class="stringliteral">&quot;r&quot;</span>(failsafe_stack)</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    );</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">/* Controls where the stack pointer limit is, relative to the end of the</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">     * failsafe stack</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">     */</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    SPLIM = (uint16_t)(((uint8_t *)failsafe_stack) + <span class="keyword">sizeof</span>(failsafe_stack) - (uint16_t) <a class="code hl_define" href="a00242.html#a8d6c626527a12311e8a698a87daae6f7">FAILSAFE_STACK_GUARDSIZE</a>);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
-</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="a00242.html#a369f76085b5e8862ed6c95ebc4196240">   87</a></span><span class="keywordtype">void</span> <a class="code hl_define" href="a00242.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a> <a class="code hl_function" href="a00242.html#a369f76085b5e8862ed6c95ebc4196240">_AddressError</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>{</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    INTCON1bits.ADDRERR = 0;  <span class="comment">//Clear the trap flag</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_function" href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a>(TRAPS_ADDRESS_ERR);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
-</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define PBV_GUI_BUTTONS                 0x202            </span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#define PBV_GUI_SLIDERS                 0x203            </span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#define PBV_SYSTEM_TO_GUI_ID            0x204            </span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#define PBV_LOG_ID                      0x300            </span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">// command IDs, first data word in received package</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// use this to decide what action to take when data is received</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#define PBV_CMD_ID_DAB_ON_OFF           0xAAAA           </span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#define PBV_CMD_ID_FREQ_CHANGE          0xBBBB           </span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#define PBV_CMD_ID_FAN_SPEED            0xCCCC           </span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#define PBV_CMD_ID_ILOOP_REF_SET        0xDDDD           </span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#define PBV_CMD_ID_VLOOP_REF_SET        0xDDDE           </span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#define PBV_CMD_ID_PLOOP_REF_SET        0xDDDF           </span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#define PBV_CMD_ID_PHASE_CHANGE         0xEE01           </span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#define PBV_CMD_ID_P2S_PHASE_TARGET     0xEE02           </span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#define PBV_CMD_ID_PRI_OVP_TEST         0xEE11           </span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#define PBV_CMD_ID_SEC_OVP_TEST         0xEE10           </span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#define PBV_CMD_ID_IPRI_TEST            0xEE20           </span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#define PBV_CMD_ID_ISEC_TEST            0xEE30           </span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+ <span class="comment">// end of pbv-protocol-ids</span><div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">// static because these are private.</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">static</span> <a class="code hl_struct" href="a00591.html">PBV_Datatype_TX_t</a> App_PBV_DAB_TX;          </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">static</span> <a class="code hl_struct" href="a00595.html">PBV_Datatype_RX_t</a> App_PBV_DAB_RX;          </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">static</span> <a class="code hl_struct" href="a00591.html">PBV_Datatype_TX_t</a> App_PBV_DAB_ASCII;       </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">static</span> <a class="code hl_struct" href="a00591.html">PBV_Datatype_TX_t</a> * App_PBV_DAB_TX_Ptr = &amp;App_PBV_DAB_TX;        </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">static</span> <a class="code hl_struct" href="a00595.html">PBV_Datatype_RX_t</a> * App_PBV_DAB_RX_Ptr = &amp;App_PBV_DAB_RX;        </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">static</span> <a class="code hl_struct" href="a00591.html">PBV_Datatype_TX_t</a> * App_PBV_DAB_ASCII_Ptr = &amp;App_PBV_DAB_ASCII;  </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>uint8_t buffer_eight_rx[64];</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>uint16_t buffer_sixteen_rx[32];</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>uint8_t buffer_eight_tx[64];</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>uint16_t buffer_sixteen_tx[32];</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="foldopen" id="foldopen00094" data-start="{" data-end="}">
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="a00242.html#adbfe1bbe232090a223197057a768befb">   94</a></span><span class="keywordtype">void</span> <a class="code hl_define" href="a00242.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a> <a class="code hl_function" href="a00242.html#adbfe1bbe232090a223197057a768befb">_HardTrapError</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>{</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    INTCON4bits.SGHT = 0;  <span class="comment">//Clear the trap flag</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_function" href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a>(TRAPS_HARD_ERR);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
-</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">static</span> uint32_t tick_counter = 0;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">static</span> uint8_t transmit_firmware_id = 1;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">// temporary variables</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">static</span> int16_t temperature = 0;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="a00242.html#acf6324ef35ef0cdd3aa63c1f195ba553">  101</a></span><span class="keywordtype">void</span> <a class="code hl_define" href="a00242.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a> <a class="code hl_function" href="a00242.html#acf6324ef35ef0cdd3aa63c1f195ba553">_SoftTrapError</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">if</span>(INTCON3bits.DOOVR == 1)</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    {</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>      INTCON3bits.DOOVR = 0;  <span class="comment">//Clear the trap flag</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>      <a class="code hl_function" href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a>(TRAPS_DOOVR_ERR);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#ifdef _DAE</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">if</span>(INTCON3bits.DAE == 1)</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>      INTCON3bits.DAE = 0;  <span class="comment">//Clear the trap flag</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>      <a class="code hl_function" href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a>(TRAPS_DAE_ERR);</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">if</span>(INTCON3bits.NAE == 1)</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    {</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      INTCON3bits.NAE = 0;  <span class="comment">//Clear the trap flag</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>      <a class="code hl_function" href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a>(TRAPS_NVM_ERR);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">#ifdef _CAN</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordflow">if</span>(INTCON3bits.CAN == 1)</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    {</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>      INTCON3bits.CAN = 0;  <span class="comment">//Clear the trap flag</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>      <a class="code hl_function" href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a>(TRAPS_CAN_ERR);</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    }</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordflow">if</span>(INTCON3bits.APLL == 1)</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>      INTCON3bits.APLL = 0;  <span class="comment">//Clear the trap flag</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>      <a class="code hl_function" href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a>(TRAPS_APLL_ERR);</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordtype">void</span> App_PBV_DAB_Build_Frame(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keywordtype">void</span> App_PBV_DAB_Process_Rx_Data(uint16_t * data);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keywordtype">void</span> App_PBV_DAB_Frame_Parser(uint16_t protocol_ID, uint16_t length, uint8_t * data);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="keywordtype">void</span> App_PBV_DAB_Init()</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>{</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    App_PBV_DAB_TX_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>        = PBV_TX_PROTOCOL_ID;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    App_PBV_DAB_TX_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Signal_Ascii</a>      = PBV_SIGNAL_MODE;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    App_PBV_DAB_TX_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a>     = PBV_MESSAGE_INIT;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    App_PBV_DAB_TX_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a930e5a4d8414c0427fe5c636062579db">Length</a>                = 64;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    App_PBV_DAB_RX_Ptr-&gt;<a class="code hl_variable" href="a00595.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a>     = PBV_MESSAGE_READY_TO_RECEIVE;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>     = FIRMWARE_PROTOCOL_ID;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Signal_Ascii</a>   = PBV_ASCII_MODE;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a>  = PBV_MESSAGE_INIT;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a930e5a4d8414c0427fe5c636062579db">Length</a>             = 64;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    App_PBV_Init(App_PBV_DAB_TX_Ptr, App_PBV_DAB_ASCII_Ptr, App_PBV_DAB_RX_Ptr);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordflow">while</span>(1)</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    {</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    }</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>}</div>
-</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="a00242.html#ae50a96c4daa59acda66ca62e59b2a9a9">  143</a></span><span class="keywordtype">void</span> <a class="code hl_define" href="a00242.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a> <a class="code hl_function" href="a00242.html#ae50a96c4daa59acda66ca62e59b2a9a9">_OscillatorFail</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>{</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    INTCON1bits.OSCFAIL = 0;  <span class="comment">//Clear the trap flag</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_function" href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a>(TRAPS_OSC_FAIL);</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>}</div>
-</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="foldopen" id="foldopen00150" data-start="{" data-end="}">
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="a00242.html#a2017082168ce25fa118fc65101c58620">  150</a></span><span class="keywordtype">void</span> <a class="code hl_define" href="a00242.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a> <a class="code hl_function" href="a00242.html#a2017082168ce25fa118fc65101c58620">_MathError</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>{</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    INTCON1bits.MATHERR = 0;  <span class="comment">//Clear the trap flag</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_function" href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a>(TRAPS_MATH_ERR);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>}</div>
-</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="foldopen" id="foldopen00157" data-start="{" data-end="}">
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="a00242.html#a2bb82ba68a7d3e7a3384ae5b6d2c5205">  157</a></span><span class="keywordtype">void</span> <a class="code hl_define" href="a00242.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a> <a class="code hl_function" href="a00242.html#a2bb82ba68a7d3e7a3384ae5b6d2c5205">_StackError</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>{</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="comment">/* We use a failsafe stack: the presence of a stack-pointer error</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">     * means that we cannot trust the stack to operate correctly unless</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">     * we set the stack pointer to a safe place.</span></div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <a class="code hl_function" href="a00242.html#a179592ff2045f0be286f62f3b2e1cb63">use_failsafe_stack</a>(); </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    INTCON1bits.STKERR = 0;  <span class="comment">//Clear the trap flag</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <a class="code hl_function" href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a>(TRAPS_STACK_ERR);</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>}</div>
-</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
-<div class="ttc" id="aa00242_html_a179592ff2045f0be286f62f3b2e1cb63"><div class="ttname"><a href="a00242.html#a179592ff2045f0be286f62f3b2e1cb63">use_failsafe_stack</a></div><div class="ttdeci">static void use_failsafe_stack(void)</div><div class="ttdef"><b>Definition</b> <a href="a00242_source.html#l00071">traps.c:71</a></div></div>
-<div class="ttc" id="aa00242_html_a2017082168ce25fa118fc65101c58620"><div class="ttname"><a href="a00242.html#a2017082168ce25fa118fc65101c58620">_MathError</a></div><div class="ttdeci">void ERROR_HANDLER _MathError(void)</div><div class="ttdef"><b>Definition</b> <a href="a00242_source.html#l00150">traps.c:150</a></div></div>
-<div class="ttc" id="aa00242_html_a2bb82ba68a7d3e7a3384ae5b6d2c5205"><div class="ttname"><a href="a00242.html#a2bb82ba68a7d3e7a3384ae5b6d2c5205">_StackError</a></div><div class="ttdeci">void ERROR_HANDLER _StackError(void)</div><div class="ttdef"><b>Definition</b> <a href="a00242_source.html#l00157">traps.c:157</a></div></div>
-<div class="ttc" id="aa00242_html_a369f76085b5e8862ed6c95ebc4196240"><div class="ttname"><a href="a00242.html#a369f76085b5e8862ed6c95ebc4196240">_AddressError</a></div><div class="ttdeci">void ERROR_HANDLER _AddressError(void)</div><div class="ttdef"><b>Definition</b> <a href="a00242_source.html#l00087">traps.c:87</a></div></div>
-<div class="ttc" id="aa00242_html_a8d6c626527a12311e8a698a87daae6f7"><div class="ttname"><a href="a00242.html#a8d6c626527a12311e8a698a87daae6f7">FAILSAFE_STACK_GUARDSIZE</a></div><div class="ttdeci">#define FAILSAFE_STACK_GUARDSIZE</div><div class="ttdef"><b>Definition</b> <a href="a00242_source.html#l00043">traps.c:43</a></div></div>
-<div class="ttc" id="aa00242_html_acf6324ef35ef0cdd3aa63c1f195ba553"><div class="ttname"><a href="a00242.html#acf6324ef35ef0cdd3aa63c1f195ba553">_SoftTrapError</a></div><div class="ttdeci">void ERROR_HANDLER _SoftTrapError(void)</div><div class="ttdef"><b>Definition</b> <a href="a00242_source.html#l00101">traps.c:101</a></div></div>
-<div class="ttc" id="aa00242_html_ad5ed11bf5b4e1b432ffb169e279a29bc"><div class="ttname"><a href="a00242.html#ad5ed11bf5b4e1b432ffb169e279a29bc">TRAPS_error_code</a></div><div class="ttdeci">static uint16_t TRAPS_error_code</div><div class="ttdef"><b>Definition</b> <a href="a00242_source.html#l00047">traps.c:47</a></div></div>
-<div class="ttc" id="aa00242_html_adbfe1bbe232090a223197057a768befb"><div class="ttname"><a href="a00242.html#adbfe1bbe232090a223197057a768befb">_HardTrapError</a></div><div class="ttdeci">void ERROR_HANDLER _HardTrapError(void)</div><div class="ttdef"><b>Definition</b> <a href="a00242_source.html#l00094">traps.c:94</a></div></div>
-<div class="ttc" id="aa00242_html_ae50a96c4daa59acda66ca62e59b2a9a9"><div class="ttname"><a href="a00242.html#ae50a96c4daa59acda66ca62e59b2a9a9">_OscillatorFail</a></div><div class="ttdeci">void ERROR_HANDLER _OscillatorFail(void)</div><div class="ttdef"><b>Definition</b> <a href="a00242_source.html#l00143">traps.c:143</a></div></div>
-<div class="ttc" id="aa00242_html_afc1223fc26cddba5ffba1c5bd5def82f"><div class="ttname"><a href="a00242.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a></div><div class="ttdeci">#define ERROR_HANDLER</div><div class="ttdef"><b>Definition</b> <a href="a00242_source.html#l00042">traps.c:42</a></div></div>
-<div class="ttc" id="aa00545_html_ga0333bbed0a73350c26f5e7c151de564f"><div class="ttname"><a href="a00545.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a></div><div class="ttdeci">void TRAPS_halt_on_error(uint16_t code)</div><div class="ttdoc">Stores the trap error code and waits forever. This is a weak attribute function. The user can overrid...</div><div class="ttdef"><b>Definition</b> <a href="a00242_source.html#l00052">traps.c:52</a></div></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keywordtype">void</span> App_PBV_DAB_Task_10ms(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>{</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="comment">// RX handler</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">if</span> (App_PBV_DAB_RX_Ptr-&gt;<a class="code hl_variable" href="a00595.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a> == PBV_MESSAGE_RECEIVED)</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    {        </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        App_Read_Received_From_PBV(App_PBV_DAB_RX_Ptr);       </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        App_PBV_DAB_Frame_Parser(App_PBV_DAB_RX_Ptr-&gt;<a class="code hl_variable" href="a00595.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>, App_PBV_DAB_RX_Ptr-&gt;<a class="code hl_variable" href="a00595.html#a930e5a4d8414c0427fe5c636062579db">Length</a>, App_PBV_DAB_RX_Ptr-&gt;<a class="code hl_variable" href="a00595.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a>);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="comment">// msg read. Read another</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        App_Receive_From_PBV(App_PBV_DAB_RX_Ptr); </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    } </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">if</span> (++tick_counter &gt; 11)</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        App_PBV_DAB_Build_Frame();</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        App_Send_To_PBV(App_PBV_DAB_TX_Ptr);  </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        tick_counter = 0;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    }    </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>}</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="keywordtype">void</span> App_PBV_DAB_Task_1s(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>{</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">if</span> (App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> == FIRMWARE_PROTOCOL_ID)</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = (uint8_t *)FIRMWARE_VERSION_STRING;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        App_Send_To_PBV(App_PBV_DAB_ASCII_Ptr);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> = PBV_LOG_ID;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        transmit_firmware_id = 1;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">if</span> (App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> == PBV_LOG_ID)</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    {</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordflow">if</span> (transmit_firmware_id) App_PBV_Re_Init(App_PBV_DAB_ASCII_Ptr);     </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        transmit_firmware_id = 0; </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    }</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="comment">//ToDo: Check with Cormac</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = (uint8_t *)<span class="stringliteral">&quot;                 Log Message From Protocol ID 0x300&quot;</span>;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    App_Send_To_PBV(App_PBV_DAB_ASCII_Ptr);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>   </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    temperature = (int16_t)<a class="code hl_function" href="a00486.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a>();</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><a class="code hl_struct" href="a00591.html">PBV_Datatype_TX_t</a> * App_PB_DAB_Get_TX_ASCII_ptr(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>{</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordflow">if</span> (App_PBV_DAB_ASCII_Ptr -&gt;PBV_Message_State == PBV_MESSAGE_TRANSMITTING)</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    {</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    }</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordflow">return</span> App_PBV_DAB_ASCII_Ptr;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>}</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="keywordtype">void</span> App_PBV_DAB_Build_Frame()</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>{        </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="comment">// Power Board Visualizer can only mask single bits</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="comment">// so create maskable word that can be parsed by GUI by sending the</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="comment">// &quot;2 ^ (state)&quot; instead of &quot;state&quot;</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    buffer_sixteen_tx[0] = 1&lt;&lt;(<a class="code hl_function" href="a00362.html#a0a4bc9ff1027ccd07af11d8bd2865219">Dev_PwrCtrl_Get_State</a>());</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="comment">// send back one &quot;flag word&quot; which combines fault and status and enable control flag</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    uint16_t enabled = <a class="code hl_function" href="a00362.html#a7a61c299efe9f39fbddb6d902d4b3adc">Dev_PwrCtrl_Get_EnableFlag</a>();</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    uint16_t fault_flags = Dev_Fault_GetFlags();</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    uint16_t status_flags = <a class="code hl_function" href="a00362.html#ab500c9c4e05b023607a8e72ababe07b3">Dev_PwrCtrl_Get_Status</a>();</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    uint16_t flag_word = enabled + ((status_flags &amp; 0x0003)&lt;&lt;1) + (fault_flags&lt;&lt;3);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    buffer_sixteen_tx[1] = flag_word;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    buffer_sixteen_tx[2] = <a class="code hl_function" href="a00362.html#a70a3c74e48285c709f735a499a3024dc">Dev_PwrCtrl_GetAveraging_Vprim</a>(); <span class="comment">//Dev_PwrCtrl_GetAdc_Vpri();</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    buffer_sixteen_tx[3] = <a class="code hl_function" href="a00362.html#a5178aaea783edff228941c4ecf749a90">Dev_PwrCtrl_GetAveraging_Vsec</a>();<span class="comment">//Dev_PwrCtrl_GetAdc_Vsec();</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    buffer_sixteen_tx[4] = <a class="code hl_function" href="a00362.html#a4ce0a8e3c687c7466cd2def3e2967589">Dev_PwrCtrl_GetAdc_Ipri_ct</a>();</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    buffer_sixteen_tx[5] = <a class="code hl_function" href="a00362.html#a5df7c5db36f4b904ca397157889a6170">Dev_PwrCtrl_GetAdc_Isec_ct</a>();</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    buffer_sixteen_tx[6] = <a class="code hl_function" href="a00362.html#a346aaaf8b8cf0266d9873405945c55dd">Dev_PwrCtrl_GetAveraging_Isec</a>();<span class="comment">//Dev_PwrCtrl_GetAdc_Isec_avg();</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    buffer_sixteen_tx[7] = temperature + 40;<span class="comment">//Dev_PwrCtrl_GetAdc_Temperature();</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    buffer_sixteen_tx[8] = <a class="code hl_function" href="a00362.html#a89627f0a37054586c8cd6950ccd6fb09">Dev_PwrCtrl_GetAdc_Vrail_5V</a>();    </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    buffer_sixteen_tx[9] =  <a class="code hl_function" href="a00362.html#ab7d328bdf259e35fce481dd4c5f74666">Dev_PwrCtrl_GetPhase_P2SDegree</a>();<span class="comment">//devFanDataPtr-&gt;CurrentSpeedRaw;</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    buffer_sixteen_tx[10] = <a class="code hl_function" href="a00362.html#acbd31a3dc73cd77bc06f9064a7c61975">Dev_PwrCtrl_Get_DbgValue</a>();<span class="comment">//devFanDataPtr-&gt;CurrentSpeedPercent;</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    buffer_sixteen_tx[11] = temperature;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    buffer_sixteen_tx[12] = <a class="code hl_function" href="a00362.html#a6ea3a7d0d8075757d7dd3fc4ddaca1f5">Dev_PwrCtrl_Get_Period</a>();</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    buffer_sixteen_tx[13] = <a class="code hl_function" href="a00362.html#add921f8c68bb08d611f3fd7ab03e60ee">Dev_PwrCtrl_Get_PwmprdTarget</a>();</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    buffer_sixteen_tx[14] = <a class="code hl_function" href="a00362.html#afe5653e08d77956b5b4fbbcc4305870e">Dev_PwrCtrl_Get_SecPower</a>(); </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    PBV_Change_from_Sixteen_to_Eight(buffer_sixteen_tx, buffer_eight_tx, 18);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    App_PBV_DAB_TX_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = buffer_eight_tx;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    App_PBV_DAB_TX_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a930e5a4d8414c0427fe5c636062579db">Length</a> = 18 * 2 ;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>}</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="keywordtype">void</span> App_PBV_DAB_Process_Rx_Data(uint16_t * data) </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>{</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    uint16_t cmd_id = data[0];</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    uint16_t control_word = data[1];</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keywordflow">switch</span> (cmd_id)</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    {</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <span class="keywordflow">case</span> PBV_CMD_ID_DAB_ON_OFF: {</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            <span class="comment">// turn DAB on or off</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>            <span class="keywordflow">if</span> (control_word &lt; 2) {<span class="comment">// should be 0 or 1</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>            </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>                <span class="keywordtype">bool</span> enable = (bool)control_word;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                <a class="code hl_function" href="a00362.html#ad36bb3ca34731b57c45d8be3e83f7262">Dev_PwrCtrl_SetEnable</a>(enable);</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                <span class="keywordflow">if</span>(enable==<span class="keyword">false</span>)</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>                {    </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                    <a class="code hl_function" href="a00362.html#ae5e607ebc1cfbf0fcb8caa5775d5e782">Dev_PwrCtrl_SetState</a>(control_word);</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                }</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>            }</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        }    </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        <span class="keywordflow">case</span> PBV_CMD_ID_FREQ_CHANGE: {</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>            <span class="comment">// change target frequency</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>            <span class="keywordflow">if</span> ((control_word &lt;= MAX_PWM_PERIOD) &amp;&amp; (control_word &gt;= MIN_PWM_PERIOD)) {</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>                <a class="code hl_function" href="a00362.html#a63aaa9b18763533c5603dc4c01f682cd">Dev_PwrCtrl_SetPeriodTarget</a>(control_word);</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>                <span class="comment">// when Frequency is changed, control phase will be zero</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>                uint16_t controlPhase = 0;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>                <a class="code hl_function" href="a00362.html#ab5188428fbb9231a650d8ecca0b2d090">Dev_PwrCtrl_SetPhaseTarget</a>(controlPhase);</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>            }            </div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        }</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        <span class="keywordflow">case</span> PBV_CMD_ID_ILOOP_REF_SET: {</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>            <span class="keywordflow">if</span> (control_word &lt; 32767) <span class="comment">//TODO: put in proper check here!</span></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>            {</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>                <a class="code hl_function" href="a00362.html#a6b5c7307a14f59bbfded0ca2dea86163">Dev_PwrCtrl_SetIReference</a>(control_word);</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>            }</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        }        </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <span class="keywordflow">case</span> PBV_CMD_ID_VLOOP_REF_SET: {</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>            <span class="keywordflow">if</span> (control_word &lt; 32767) <span class="comment">//TODO: put in proper check here!</span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            {</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>                <a class="code hl_function" href="a00362.html#a4a95f3c8fffe66b8e49b9de93f07f25b">Dev_PwrCtrl_SetVSecReference</a>(control_word);</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>            }</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        }  </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        <span class="keywordflow">case</span> PBV_CMD_ID_PLOOP_REF_SET: {</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>            <span class="keywordflow">if</span> (control_word &lt; 32767) <span class="comment">//TODO: put in proper check here!</span></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>            {</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>                <a class="code hl_function" href="a00362.html#a3007f1498508f49a15d257f2bd02d77a">Dev_PwrCtrl_SetPwrReference</a>(control_word);</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>            }</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        }  </div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>       </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        <span class="keywordflow">case</span>  PBV_CMD_ID_P2S_PHASE_TARGET: {</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>            <span class="comment">// change target phase</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="preprocessor">            #if(OPEN_LOOP_PBV == false)</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>            uint16_t controlPhase = (uint16_t)(control_word);</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>            <a class="code hl_function" href="a00362.html#ab0a12c347c51165427470f4c5b195f71">Dev_PwrCtrl_SetP2SPhaseTarget</a>(controlPhase);</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span><span class="preprocessor">            #endif</span></div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        }</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>                </div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        <span class="keywordflow">case</span> PBV_CMD_ID_PHASE_CHANGE: {</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>            <span class="comment">// change target phase</span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="preprocessor">            #if(OPEN_LOOP_PBV == true)</span></div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>            uint16_t controlPhase = (uint16_t)((control_word)* PHASE_180_SCALER * (<a class="code hl_function" href="a00362.html#ad6514b638a32baed68543a56bedd5c5d">Dev_PwrCtrl_Get_DutyCycle</a>()));</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>            <a class="code hl_function" href="a00362.html#ab5188428fbb9231a650d8ecca0b2d090">Dev_PwrCtrl_SetPhaseTarget</a>(controlPhase); </div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="preprocessor">            #endif</span></div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        }</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        <span class="keywordflow">case</span> PBV_CMD_ID_FAN_SPEED: {            </div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            <a class="code hl_function" href="a00484.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a>(control_word);</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        }</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        <span class="keywordflow">case</span> PBV_CMD_ID_PRI_OVP_TEST: {</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>            Dev_Fault_SetPriOVPThreshold(control_word);</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        }</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        <span class="keywordflow">case</span> PBV_CMD_ID_SEC_OVP_TEST: {</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>            Dev_Fault_SetSecOVPThreshold(control_word); </div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        }</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        <span class="keywordflow">case</span> PBV_CMD_ID_IPRI_TEST: {</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>            Dev_Fault_SetIPrimaryThreshold(control_word);</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>             <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>        }</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>        <span class="keywordflow">case</span> PBV_CMD_ID_ISEC_TEST:{</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>            Dev_Fault_SetISecondaryThreshold(control_word);    </div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        }</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>                 </div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    }</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>}</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span> </div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span><span class="keywordtype">void</span> App_PBV_DAB_Frame_Parser(uint16_t protocol_ID, uint16_t length, uint8_t * data)</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>{</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    PBV_Change_from_Eight_to_Sixteen(data, buffer_sixteen_rx, length);</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    App_PBV_DAB_Process_Rx_Data(buffer_sixteen_rx);</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>}</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span> </div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="ttc" id="aa00362_html_a0a4bc9ff1027ccd07af11d8bd2865219"><div class="ttname"><a href="a00362.html#a0a4bc9ff1027ccd07af11d8bd2865219">Dev_PwrCtrl_Get_State</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_State(void)</div><div class="ttdoc">API function to get the current state of the state machine.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00230">dev_pwrctrl_comm_interface.c:230</a></div></div>
+<div class="ttc" id="aa00362_html_a3007f1498508f49a15d257f2bd02d77a"><div class="ttname"><a href="a00362.html#a3007f1498508f49a15d257f2bd02d77a">Dev_PwrCtrl_SetPwrReference</a></div><div class="ttdeci">void Dev_PwrCtrl_SetPwrReference(uint16_t reference)</div><div class="ttdoc">API function to set the power controller reference.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00091">dev_pwrctrl_comm_interface.c:91</a></div></div>
+<div class="ttc" id="aa00362_html_a346aaaf8b8cf0266d9873405945c55dd"><div class="ttname"><a href="a00362.html#a346aaaf8b8cf0266d9873405945c55dd">Dev_PwrCtrl_GetAveraging_Isec</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_GetAveraging_Isec(void)</div><div class="ttdoc">API function to get the average value of the sampled ADC for secondary current.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00298">dev_pwrctrl_comm_interface.c:298</a></div></div>
+<div class="ttc" id="aa00362_html_a4a95f3c8fffe66b8e49b9de93f07f25b"><div class="ttname"><a href="a00362.html#a4a95f3c8fffe66b8e49b9de93f07f25b">Dev_PwrCtrl_SetVSecReference</a></div><div class="ttdeci">void Dev_PwrCtrl_SetVSecReference(uint16_t reference)</div><div class="ttdoc">API function to set the secondary voltage controller reference.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00081">dev_pwrctrl_comm_interface.c:81</a></div></div>
+<div class="ttc" id="aa00362_html_a4ce0a8e3c687c7466cd2def3e2967589"><div class="ttname"><a href="a00362.html#a4ce0a8e3c687c7466cd2def3e2967589">Dev_PwrCtrl_GetAdc_Ipri_ct</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct(void)</div><div class="ttdoc">API function to get the raw ADC value for primary current transformer current.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00160">dev_pwrctrl_comm_interface.c:160</a></div></div>
+<div class="ttc" id="aa00362_html_a5178aaea783edff228941c4ecf749a90"><div class="ttname"><a href="a00362.html#a5178aaea783edff228941c4ecf749a90">Dev_PwrCtrl_GetAveraging_Vsec</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_GetAveraging_Vsec(void)</div><div class="ttdoc">API function to get the average value of the sampled ADC for secondary voltage.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00288">dev_pwrctrl_comm_interface.c:288</a></div></div>
+<div class="ttc" id="aa00362_html_a5df7c5db36f4b904ca397157889a6170"><div class="ttname"><a href="a00362.html#a5df7c5db36f4b904ca397157889a6170">Dev_PwrCtrl_GetAdc_Isec_ct</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void)</div><div class="ttdoc">API function to get the raw ADC value for secondary current transformer current.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00170">dev_pwrctrl_comm_interface.c:170</a></div></div>
+<div class="ttc" id="aa00362_html_a63aaa9b18763533c5603dc4c01f682cd"><div class="ttname"><a href="a00362.html#a63aaa9b18763533c5603dc4c01f682cd">Dev_PwrCtrl_SetPeriodTarget</a></div><div class="ttdeci">void Dev_PwrCtrl_SetPeriodTarget(uint16_t reference)</div><div class="ttdoc">API function to set the target period.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00101">dev_pwrctrl_comm_interface.c:101</a></div></div>
+<div class="ttc" id="aa00362_html_a6b5c7307a14f59bbfded0ca2dea86163"><div class="ttname"><a href="a00362.html#a6b5c7307a14f59bbfded0ca2dea86163">Dev_PwrCtrl_SetIReference</a></div><div class="ttdeci">void Dev_PwrCtrl_SetIReference(uint16_t reference)</div><div class="ttdoc">API function to set the current controller reference.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00071">dev_pwrctrl_comm_interface.c:71</a></div></div>
+<div class="ttc" id="aa00362_html_a6ea3a7d0d8075757d7dd3fc4ddaca1f5"><div class="ttname"><a href="a00362.html#a6ea3a7d0d8075757d7dd3fc4ddaca1f5">Dev_PwrCtrl_Get_Period</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_Period(void)</div><div class="ttdoc">API function to get the PWM period.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00210">dev_pwrctrl_comm_interface.c:210</a></div></div>
+<div class="ttc" id="aa00362_html_a70a3c74e48285c709f735a499a3024dc"><div class="ttname"><a href="a00362.html#a70a3c74e48285c709f735a499a3024dc">Dev_PwrCtrl_GetAveraging_Vprim</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_GetAveraging_Vprim(void)</div><div class="ttdoc">API function to get the average value of the sampled ADC for primary voltage.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00279">dev_pwrctrl_comm_interface.c:279</a></div></div>
+<div class="ttc" id="aa00362_html_a7a61c299efe9f39fbddb6d902d4b3adc"><div class="ttname"><a href="a00362.html#a7a61c299efe9f39fbddb6d902d4b3adc">Dev_PwrCtrl_Get_EnableFlag</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_EnableFlag(void)</div><div class="ttdoc">API function to get the state of the power control enable bit.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00250">dev_pwrctrl_comm_interface.c:250</a></div></div>
+<div class="ttc" id="aa00362_html_a89627f0a37054586c8cd6950ccd6fb09"><div class="ttname"><a href="a00362.html#a89627f0a37054586c8cd6950ccd6fb09">Dev_PwrCtrl_GetAdc_Vrail_5V</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V(void)</div><div class="ttdoc">API function to get the raw ADC value for 5V rail.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00200">dev_pwrctrl_comm_interface.c:200</a></div></div>
+<div class="ttc" id="aa00362_html_ab0a12c347c51165427470f4c5b195f71"><div class="ttname"><a href="a00362.html#ab0a12c347c51165427470f4c5b195f71">Dev_PwrCtrl_SetP2SPhaseTarget</a></div><div class="ttdeci">void Dev_PwrCtrl_SetP2SPhaseTarget(uint16_t reference)</div><div class="ttdoc">API function to set the target prim to sec phase which will steer other modulation.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00120">dev_pwrctrl_comm_interface.c:120</a></div></div>
+<div class="ttc" id="aa00362_html_ab500c9c4e05b023607a8e72ababe07b3"><div class="ttname"><a href="a00362.html#ab500c9c4e05b023607a8e72ababe07b3">Dev_PwrCtrl_Get_Status</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_Status(void)</div><div class="ttdoc">API function to get the power control status.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00240">dev_pwrctrl_comm_interface.c:240</a></div></div>
+<div class="ttc" id="aa00362_html_ab5188428fbb9231a650d8ecca0b2d090"><div class="ttname"><a href="a00362.html#ab5188428fbb9231a650d8ecca0b2d090">Dev_PwrCtrl_SetPhaseTarget</a></div><div class="ttdeci">void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference)</div><div class="ttdoc">API function to set the target PWM phase.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00111">dev_pwrctrl_comm_interface.c:111</a></div></div>
+<div class="ttc" id="aa00362_html_ab7d328bdf259e35fce481dd4c5f74666"><div class="ttname"><a href="a00362.html#ab7d328bdf259e35fce481dd4c5f74666">Dev_PwrCtrl_GetPhase_P2SDegree</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_GetPhase_P2SDegree(void)</div><div class="ttdoc">API function to set the power control State.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00040">dev_pwrctrl_comm_interface.c:40</a></div></div>
+<div class="ttc" id="aa00362_html_acbd31a3dc73cd77bc06f9064a7c61975"><div class="ttname"><a href="a00362.html#acbd31a3dc73cd77bc06f9064a7c61975">Dev_PwrCtrl_Get_DbgValue</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_DbgValue(void)</div><div class="ttdoc">API function to get some unit test debug purpose value. Do not use otherwise.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00050">dev_pwrctrl_comm_interface.c:50</a></div></div>
+<div class="ttc" id="aa00362_html_ad36bb3ca34731b57c45d8be3e83f7262"><div class="ttname"><a href="a00362.html#ad36bb3ca34731b57c45d8be3e83f7262">Dev_PwrCtrl_SetEnable</a></div><div class="ttdeci">void Dev_PwrCtrl_SetEnable(bool enable)</div><div class="ttdoc">API function to set the power control enable bit.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00130">dev_pwrctrl_comm_interface.c:130</a></div></div>
+<div class="ttc" id="aa00362_html_ad6514b638a32baed68543a56bedd5c5d"><div class="ttname"><a href="a00362.html#ad6514b638a32baed68543a56bedd5c5d">Dev_PwrCtrl_Get_DutyCycle</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_DutyCycle(void)</div><div class="ttdoc">API function to get the PWM duty cycle.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00220">dev_pwrctrl_comm_interface.c:220</a></div></div>
+<div class="ttc" id="aa00362_html_add921f8c68bb08d611f3fd7ab03e60ee"><div class="ttname"><a href="a00362.html#add921f8c68bb08d611f3fd7ab03e60ee">Dev_PwrCtrl_Get_PwmprdTarget</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void)</div><div class="ttdoc">API function to get the PWM period target.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00260">dev_pwrctrl_comm_interface.c:260</a></div></div>
+<div class="ttc" id="aa00362_html_ae5e607ebc1cfbf0fcb8caa5775d5e782"><div class="ttname"><a href="a00362.html#ae5e607ebc1cfbf0fcb8caa5775d5e782">Dev_PwrCtrl_SetState</a></div><div class="ttdeci">void Dev_PwrCtrl_SetState(uint16_t reference)</div><div class="ttdoc">API function to set the power control State.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00061">dev_pwrctrl_comm_interface.c:61</a></div></div>
+<div class="ttc" id="aa00362_html_afe5653e08d77956b5b4fbbcc4305870e"><div class="ttname"><a href="a00362.html#afe5653e08d77956b5b4fbbcc4305870e">Dev_PwrCtrl_Get_SecPower</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_SecPower(void)</div><div class="ttdoc">API function to get the secondary power.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00270">dev_pwrctrl_comm_interface.c:270</a></div></div>
+<div class="ttc" id="aa00484_html_ga5cfd61659ae6b17ad25e51bfc211723b"><div class="ttname"><a href="a00484.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a></div><div class="ttdeci">void Dev_Fan_Set_Speed(uint8_t target_speed_percent)</div><div class="ttdoc">Sets the fan speed.</div><div class="ttdef"><b>Definition</b> <a href="a00284_source.html#l00133">dev_fan.c:133</a></div></div>
+<div class="ttc" id="aa00486_html_gac9618e1ca87e77920c94cdfdcc80321a"><div class="ttname"><a href="a00486.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a></div><div class="ttdeci">int8_t Dev_Temp_Get_Temperature_Celcius(void)</div><div class="ttdoc">This converts the raw values to temperature celcius as per device lookup table.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00117">dev_temp.c:117</a></div></div>
+<div class="ttc" id="aa00591_html"><div class="ttname"><a href="a00591.html">PBV_Datatype_TX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00094">app_PBV_interface.h:94</a></div></div>
+<div class="ttc" id="aa00591_html_a0825cb65b385f89880718e0654f07fb6"><div class="ttname"><a href="a00591.html#a0825cb65b385f89880718e0654f07fb6">PBV_Datatype_TX_t::PBV_Protcol_ID</a></div><div class="ttdeci">uint32_t PBV_Protcol_ID</div><div class="ttdoc">Protocol ID.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00096">app_PBV_interface.h:96</a></div></div>
+<div class="ttc" id="aa00591_html_a4e589bbf7c5e6c3eb82a0e22fe8e8e50"><div class="ttname"><a href="a00591.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">PBV_Datatype_TX_t::Data_Buffer</a></div><div class="ttdeci">uint8_t * Data_Buffer</div><div class="ttdoc">Pointer to the data to be transmitted.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00099">app_PBV_interface.h:99</a></div></div>
+<div class="ttc" id="aa00591_html_a885bf5a8fec6c0b6af1dfc8d6a78c368"><div class="ttname"><a href="a00591.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Datatype_TX_t::PBV_Signal_Ascii</a></div><div class="ttdeci">enum PBV_SIGNAL_ASCII_MODE PBV_Signal_Ascii</div><div class="ttdoc">Object will transmit Signals or ASCII.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00097">app_PBV_interface.h:97</a></div></div>
+<div class="ttc" id="aa00591_html_a91c81f1c5a476778f2b9faf3f36cfd7e"><div class="ttname"><a href="a00591.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Datatype_TX_t::PBV_Message_State</a></div><div class="ttdeci">PBV_MESSAGE_TX_STATE_t PBV_Message_State</div><div class="ttdoc">State of the TX object.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00098">app_PBV_interface.h:98</a></div></div>
+<div class="ttc" id="aa00591_html_a930e5a4d8414c0427fe5c636062579db"><div class="ttname"><a href="a00591.html#a930e5a4d8414c0427fe5c636062579db">PBV_Datatype_TX_t::Length</a></div><div class="ttdeci">uint16_t Length</div><div class="ttdoc">Length of transmitted message in Bytes.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00095">app_PBV_interface.h:95</a></div></div>
+<div class="ttc" id="aa00595_html"><div class="ttname"><a href="a00595.html">PBV_Datatype_RX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00108">app_PBV_interface.h:108</a></div></div>
+<div class="ttc" id="aa00595_html_a0825cb65b385f89880718e0654f07fb6"><div class="ttname"><a href="a00595.html#a0825cb65b385f89880718e0654f07fb6">PBV_Datatype_RX_t::PBV_Protcol_ID</a></div><div class="ttdeci">uint32_t PBV_Protcol_ID</div><div class="ttdoc">Protocol ID of the received message.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00110">app_PBV_interface.h:110</a></div></div>
+<div class="ttc" id="aa00595_html_a30afce7d5f8aa2a94029446cfe2f4a36"><div class="ttname"><a href="a00595.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Datatype_RX_t::PBV_Message_State</a></div><div class="ttdeci">PBV_MESSAGE_RX_STATE_t PBV_Message_State</div><div class="ttdoc">State of the received message.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00112">app_PBV_interface.h:112</a></div></div>
+<div class="ttc" id="aa00595_html_a4e589bbf7c5e6c3eb82a0e22fe8e8e50"><div class="ttname"><a href="a00595.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">PBV_Datatype_RX_t::Data_Buffer</a></div><div class="ttdeci">uint8_t * Data_Buffer</div><div class="ttdoc">Received Data pointer.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00113">app_PBV_interface.h:113</a></div></div>
+<div class="ttc" id="aa00595_html_a930e5a4d8414c0427fe5c636062579db"><div class="ttname"><a href="a00595.html#a930e5a4d8414c0427fe5c636062579db">PBV_Datatype_RX_t::Length</a></div><div class="ttdeci">uint16_t Length</div><div class="ttdoc">Length of received message in Bytes.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00109">app_PBV_interface.h:109</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

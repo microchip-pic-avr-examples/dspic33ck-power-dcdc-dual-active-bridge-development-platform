@@ -18,6 +18,14 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  */
+
+/**
+ * @file      dev_pwrctrl_utils.c
+ * @ingroup   dev-pwrctrl-utils   
+ * @brief     Contains generic functions that handles power control ramp Up/Down 
+ *  and the averaging generic function.
+ */
+
 #include <xc.h>
 #include <stdint.h> // include standard integer data types
 #include <stdbool.h> // include standard boolean data types
@@ -27,7 +35,7 @@
 #include "dev_pwrctrl_utils.h" // include standard definition data types
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-utils
  * @brief  Average the raw data over number of samples
  * @param  data     Pointer to averaging data object of type AVERAGING_t
  * @param  sample   data that will be averaged 
@@ -47,7 +55,7 @@ uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t sample)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-methods-public
+ * @ingroup dev-pwrctrl-utils
  * @brief   Softly increment / decrement to the set reference target
  * @param   rampUp     Pointer to start-up ramp data object of type START_UP_RAMP_t
  * @return  RampComplete Indicates if the ramp-up/down is done

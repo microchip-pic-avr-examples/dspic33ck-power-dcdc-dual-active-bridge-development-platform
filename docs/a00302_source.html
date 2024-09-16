@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/app/app_PBV_interface.c Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/dev_temp.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,188 +136,184 @@ $(document).ready(function(){initNavTree('a00302_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">app_PBV_interface.c</div></div>
+  <div class="headertitle"><div class="title">dev_temp.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">    (c) 2024 Microchip Technology Inc. and its subsidiaries. You may use this</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">    software and any derivatives exclusively with Microchip products.</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">    THIS SOFTWARE IS SUPPLIED BY MICROCHIP &quot;AS IS&quot;. NO WARRANTIES, WHETHER</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"></span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP&#39;S TOTAL LIABILITY ON ALL CLAIMS IN</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">    TERMS.</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;config/comms_config.h&quot;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;app_PBV_interface.h&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;app_PBV_config.h&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">extern</span> <span class="keyword">const</span> <a class="code hl_struct" href="a00628.html">APP_PBV_INTF_API_t</a> APP_PBV_FUNCS;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">static</span> <a class="code hl_struct" href="a00632.html">PBV_Datatype_TX_t</a> * App_System_To_PBV_Ptr;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">static</span> <a class="code hl_struct" href="a00636.html">PBV_Datatype_RX_t</a> * App_PBV_To_System_Ptr;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">static</span> <a class="code hl_struct" href="a00632.html">PBV_Datatype_TX_t</a> * App_System_To_PBV_ASCII_Ptr;</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * File:   dev_Temp.c</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Author: M70027</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Created on Jan 17, 2024, 13:30 PM</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;dev_temp.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;device/fault/dev_fault_common.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;device/pwrctrl/dev_pwrctrl_comm_interface.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;device/pwrctrl/dev_pwrctrl.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="a00486.html#ga251990d0202af5df9ea715fbcac8bbb5">   29</a></span><span class="keyword">static</span> <a class="code hl_struct" href="a00623.html">TEMP_NTC_LUT_t</a> <a class="code hl_variable" href="a00486.html#ga251990d0202af5df9ea715fbcac8bbb5">NTC_lookuptable</a>[34] = </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {.<a class="code hl_variable" href="a00623.html#a3fbe96a5356b8df5897ac9bf89bb5979">ADC_Val</a> = 4056,   .temperature = 0  },</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    {.ADC_Val = 4040,   .temperature = 5  },</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    {.ADC_Val = 4020,   .temperature = 10 },</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {.ADC_Val = 3994,   .temperature = 15 },</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    {.ADC_Val = 3961,   .temperature = 20 },</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    {.ADC_Val = 3918,   .temperature = 25 },</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {.ADC_Val = 3865,   .temperature = 30 },</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {.ADC_Val = 3799,   .temperature = 35 },</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {.ADC_Val = 3719,   .temperature = 40 },</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {.ADC_Val = 3624,   .temperature = 45 },</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {.ADC_Val = 3513,   .temperature = 50 },</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {.ADC_Val = 3385,   .temperature = 55 },</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {.ADC_Val = 3240,   .temperature = 60 },</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    {.ADC_Val = 3079,   .temperature = 65 },</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {.ADC_Val = 2905,   .temperature = 70 },</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {.ADC_Val = 2721,   .temperature = 75 },</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {.ADC_Val = 2528,   .temperature = 80 },</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    {.ADC_Val = 2332,   .temperature = 85 },</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {.ADC_Val = 2136,   .temperature = 90 },</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    {.ADC_Val = 1944,   .temperature = 95 },</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {.ADC_Val = 1759,   .temperature = 100},</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {.ADC_Val = 1583,   .temperature = 105},</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    {.ADC_Val = 1418,   .temperature = 110},</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {.ADC_Val = 1265,   .temperature = 115},</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {.ADC_Val = 1126,   .temperature = 120},</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {.ADC_Val = 1000,   .temperature = 125},</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {.ADC_Val = 886,    .temperature = 130},</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {.ADC_Val = 785,    .temperature = 135},</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    {.ADC_Val = 694,    .temperature = 140},</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    {.ADC_Val = 614,    .temperature = 145},</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {.ADC_Val = 544,    .temperature = 150},</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {.ADC_Val = 482,    .temperature = 155},</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    {.ADC_Val = 427,    .temperature = 160},</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {.ADC_Val = 379,    .temperature = 165},</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
+</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">void</span> PBV_Change_from_Sixteen_to_Eight(uint16_t * sixteenPtr, uint8_t * eightPtr, uint16_t length)</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>{</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">for</span> (uint16_t i = 0, j = 0; i &lt; (length * 2); i = i + 2, j++)</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        eightPtr[i] = (uint8_t) (sixteenPtr[j] &gt;&gt; 8);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        eightPtr[i + 1] = (uint8_t) (sixteenPtr[j] &amp; 0x00FF);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keywordtype">void</span> PBV_Change_from_Eight_to_Sixteen(uint8_t * eightPtr, uint16_t * sixteenPtr, uint16_t length)</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>{</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    uint8_t length_odd = (uint8_t) (length &amp; 0x01);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    uint16_t length_t;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    uint16_t i, j;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">if</span> (length_odd)</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    {</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        length_t = (length &amp; 0xFFFE);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        length_t = length;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordflow">for</span> (i = 0, j = 0; i &lt; length_t; i = i + 2, j++)</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    {</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        sixteenPtr[j] = ((uint16_t) (eightPtr[i] &lt;&lt; 8)) + eightPtr[i + 1];</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }    </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">if</span> (length_odd)</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    {</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        sixteenPtr[++j] = ((uint16_t) (eightPtr[length-1] &lt;&lt; 8));</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>}</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keywordtype">void</span> App_PBV_Init(<a class="code hl_struct" href="a00632.html">PBV_Datatype_TX_t</a> * Board_To_PBV, <a class="code hl_struct" href="a00632.html">PBV_Datatype_TX_t</a> * Board_To_PBVAscii, <a class="code hl_struct" href="a00636.html">PBV_Datatype_RX_t</a> *PBV_To_Board)</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>{</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    App_System_To_PBV_Ptr = Board_To_PBV;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    App_System_To_PBV_ASCII_Ptr = Board_To_PBVAscii;</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    App_PBV_To_System_Ptr = PBV_To_Board;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">   74</a></span><a class="code hl_struct" href="a00619.html">TEMP_SETTINGS_t</a> <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><a class="code hl_struct" href="a00619.html">TEMP_SETTINGS_t</a>* devTempDataPtr = &amp;<a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">// Private Function Call Prototypes</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">static</span> uint16_t <a class="code hl_function" href="a00486.html#gaed1c98bc3ba65035d1ac0bdda433d812">Average_Temp_ADC_Samples</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">static</span> uint16_t <a class="code hl_function" href="a00486.html#ga87aa48cb3d8848b8dc9bee6ce978b1b1">Temp_Calculate_Average</a>(uint16_t * buffer, uint16_t size);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="a00486.html#ga777c30f75162d97f4e112d1fc8d49f87">   98</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00486.html#ga777c30f75162d97f4e112d1fc8d49f87">Dev_Temp_Initialize</a>(<span class="keywordtype">void</span>){</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#a4905336182a9fec2c6e219631604c50f">OverTemperatureFlag</a> = 0;        </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#a9bd7d10eb7cc3c2d2fcd07bd6a58da84">SensorLost</a> = 0;                 </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#aadb6f8d669172a241150025a40fcf44d">AdcReading</a> = 0;                 </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#ab3ddfcd824de2587d479076324c61bfa">AdcAverage</a> = 0;                 </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#abf8f604e028adbffcfed2825d3e9384e">TemperatureCelcius</a> = 0;         </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
+</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="a00486.html#gac9618e1ca87e77920c94cdfdcc80321a">  117</a></span>int8_t <a class="code hl_function" href="a00486.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a>(<span class="keywordtype">void</span>){</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    uint8_t index = 0;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_struct" href="a00623.html">TEMP_NTC_LUT_t</a> point0;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#ab3ddfcd824de2587d479076324c61bfa">AdcAverage</a> = <a class="code hl_function" href="a00486.html#gaed1c98bc3ba65035d1ac0bdda433d812">Average_Temp_ADC_Samples</a>();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#ab3ddfcd824de2587d479076324c61bfa">AdcAverage</a> == 0)  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#ab3ddfcd824de2587d479076324c61bfa">AdcAverage</a> &gt; 4056) </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00486.html#ga251990d0202af5df9ea715fbcac8bbb5">NTC_lookuptable</a>[0].<a class="code hl_variable" href="a00623.html#a6bd95140398cc8f4b44157b17d6ba31e">temperature</a> - 40; </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#ab3ddfcd824de2587d479076324c61bfa">AdcAverage</a> &lt; 379) </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00486.html#ga251990d0202af5df9ea715fbcac8bbb5">NTC_lookuptable</a>[33].<a class="code hl_variable" href="a00623.html#a6bd95140398cc8f4b44157b17d6ba31e">temperature</a> - 40;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordflow">for</span> (index = 0; index &lt; 32; index++) {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#ab3ddfcd824de2587d479076324c61bfa">AdcAverage</a> &gt; <a class="code hl_variable" href="a00486.html#ga251990d0202af5df9ea715fbcac8bbb5">NTC_lookuptable</a>[index].<a class="code hl_variable" href="a00623.html#a3fbe96a5356b8df5897ac9bf89bb5979">ADC_Val</a>) {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            point0 = <a class="code hl_variable" href="a00486.html#ga251990d0202af5df9ea715fbcac8bbb5">NTC_lookuptable</a>[index];           </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        } </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    point0.<a class="code hl_variable" href="a00623.html#ae072e225a53017393ee6a21424335d6a">temperatureCelsius</a>=point0.<a class="code hl_variable" href="a00623.html#a6bd95140398cc8f4b44157b17d6ba31e">temperature</a>-40;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordflow">return</span> point0.<a class="code hl_variable" href="a00623.html#ae072e225a53017393ee6a21424335d6a">temperatureCelsius</a>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>}</div>
+</div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    APP_PBV_FUNCS.<a class="code hl_variable" href="a00628.html#a2349c43259a9d3c23a516c9b4ad6baaa">init</a>(App_System_To_PBV_Ptr, App_System_To_PBV_ASCII_Ptr, PBV_To_Board);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>}</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keywordtype">void</span> App_PBV_Re_Init(<a class="code hl_struct" href="a00632.html">PBV_Datatype_TX_t</a> * ptr)</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>{</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="comment">// experiment with reassigning the protocol IDs in runtime to CAN objects.</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="comment">// or changing DLCs...</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    APP_PBV_FUNCS.<a class="code hl_variable" href="a00628.html#aad1488054aade0d9770cbae5597a8db9">reinit</a>(ptr);</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>}</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="keywordtype">void</span> App_Receive_From_PBV(<a class="code hl_struct" href="a00636.html">PBV_Datatype_RX_t</a> * ptr)</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>{</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">if</span> (ptr-&gt;<a class="code hl_variable" href="a00636.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a> != PBV_STATE_RECEIVING)</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    {</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        ptr-&gt;<a class="code hl_variable" href="a00636.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a> = PBV_MESSAGE_READY_TO_RECEIVE;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    }</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>}</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="keywordtype">void</span> App_Send_To_PBV(<a class="code hl_struct" href="a00632.html">PBV_Datatype_TX_t</a> * ptr)</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>{</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">if</span> (ptr-&gt;<a class="code hl_variable" href="a00632.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a> == PBV_MESSAGE_INIT</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            ||</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        ptr-&gt;<a class="code hl_variable" href="a00632.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a> == PBV_MESSAGE_TRANSMITTED   </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>            ||</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        ptr-&gt;<a class="code hl_variable" href="a00632.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a> == PBV_MESSAGE_TX_ERROR      <span class="comment">// TODO: for CAN. If the tx fails in arbitration. Introduce a RETRY mechanism.</span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            )</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    {</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        APP_PBV_FUNCS.<a class="code hl_variable" href="a00628.html#a4156ff07130f03dfbd50bf7c30493bfb">linkDataTX</a>(ptr);</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        ptr-&gt;<a class="code hl_variable" href="a00632.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a> = PBV_MESSAGE_TRANSMIT_START;</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    }</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="foldopen" id="foldopen00151" data-start="{" data-end="}">
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="a00486.html#ga595a5dbd8f35a5e37d5fa77cfcd756a5">  151</a></span>uint8_t <a class="code hl_function" href="a00486.html#ga595a5dbd8f35a5e37d5fa77cfcd756a5">Dev_Temp_Is_Over_Temperature</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#a4905336182a9fec2c6e219631604c50f">OverTemperatureFlag</a>;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>}</div>
+</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="foldopen" id="foldopen00163" data-start="{" data-end="}">
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="a00486.html#ga6ce3446cb43022df6a5a96c90ec70a17">  163</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00486.html#ga6ce3446cb43022df6a5a96c90ec70a17">Dev_Temp_Get_ADC_Sample</a>(<span class="keywordtype">void</span>) </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>{</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="comment">// making sure that array does not go out of bounds. </span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#a894ac46d26a1a6eeaf39098ee8083ccf">BufferIndex</a> &gt;= (MAX_NUM_SAMPLES_TEMP_BUFFER - 1))   </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    {      </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#a894ac46d26a1a6eeaf39098ee8083ccf">BufferIndex</a> = 0;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#af15f06d55d9455ee4404bd24e08d67f4">BufferFull</a> = 1;    </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    }</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="comment">// use API from power controller to read temperature</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#aadb6f8d669172a241150025a40fcf44d">AdcReading</a> = <a class="code hl_function" href="a00362.html#a97590a3e3a8b680b67e206dd91fb8dce">Dev_PwrCtrl_GetAdc_Temperature</a>();            </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#a665c9a1e8efc7255becd331cb622ab85">TempBuffer</a>[<a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#a894ac46d26a1a6eeaf39098ee8083ccf">BufferIndex</a>++] = <a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#aadb6f8d669172a241150025a40fcf44d">AdcReading</a>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>}</div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="foldopen" id="foldopen00185" data-start="{" data-end="}">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="a00486.html#gaed1c98bc3ba65035d1ac0bdda433d812">  185</a></span><span class="keyword">static</span> uint16_t <a class="code hl_function" href="a00486.html#gaed1c98bc3ba65035d1ac0bdda433d812">Average_Temp_ADC_Samples</a>(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#af15f06d55d9455ee4404bd24e08d67f4">BufferFull</a>)</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="a00486.html#ga87aa48cb3d8848b8dc9bee6ce978b1b1">Temp_Calculate_Average</a>(<a class="code hl_variable" href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00619.html#a665c9a1e8efc7255becd331cb622ab85">TempBuffer</a>, MAX_NUM_SAMPLES_TEMP_BUFFER);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordflow">else</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>}</div>
+</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="foldopen" id="foldopen00199" data-start="{" data-end="}">
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="a00486.html#ga87aa48cb3d8848b8dc9bee6ce978b1b1">  199</a></span><span class="keyword">static</span> uint16_t <a class="code hl_function" href="a00486.html#ga87aa48cb3d8848b8dc9bee6ce978b1b1">Temp_Calculate_Average</a>(uint16_t * buffer, uint16_t length) {</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    uint16_t index = 0;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    uint32_t sum = 0;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordflow">for</span> (index = 0; index &lt;length; index++)</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        sum +=buffer[index];</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordflow">return</span> (sum &gt;&gt; MAX_NUM_SAMPLES_TEMP_BUFFER_AS_EXP_OF_TWO);</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>}</div>
+</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="keywordtype">int</span> App_Read_Received_From_PBV(<a class="code hl_struct" href="a00636.html">PBV_Datatype_RX_t</a> * ptr)                             </div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>{</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keywordflow">return</span> APP_PBV_FUNCS.<a class="code hl_variable" href="a00628.html#acf3107157116c08f212dafb02c8128f5">linkDataRX</a>(ptr);</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>}</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="keyword">static</span> <span class="keywordtype">void</span> App_PBV_Task(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>{</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordflow">if</span> (App_PBV_To_System_Ptr-&gt;<a class="code hl_variable" href="a00636.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a> == PBV_MESSAGE_READY_TO_RECEIVE </div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            ||</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        App_PBV_To_System_Ptr-&gt;<a class="code hl_variable" href="a00636.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a> == PBV_STATE_RECEIVING</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            )</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    {</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            App_PBV_To_System_Ptr-&gt;<a class="code hl_variable" href="a00636.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a> = APP_PBV_FUNCS.<a class="code hl_variable" href="a00628.html#add9801b083b7d6f3f7bbb0f1d9a55773">rxGui</a>();</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    }</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordflow">if</span> (App_System_To_PBV_Ptr-&gt;<a class="code hl_variable" href="a00632.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a> == PBV_MESSAGE_TRANSMIT_START</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>            ||</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        App_System_To_PBV_Ptr-&gt;<a class="code hl_variable" href="a00632.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a> == PBV_MESSAGE_TRANSMITTING</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>            )</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    {</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        App_System_To_PBV_Ptr-&gt;<a class="code hl_variable" href="a00632.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a> = APP_PBV_FUNCS.<a class="code hl_variable" href="a00628.html#adca8b72baa17241a6989f96a073cc51c">txGui</a>();</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    }</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keywordflow">if</span> (App_System_To_PBV_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00632.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a> == PBV_MESSAGE_TRANSMIT_START</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>            ||</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        App_System_To_PBV_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00632.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a> == PBV_MESSAGE_TRANSMITTING    </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            )</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    {</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        App_System_To_PBV_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00632.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a> = APP_PBV_FUNCS.<a class="code hl_variable" href="a00628.html#a8ee94030daa6ae1784d3a4c1efd446eb">txGuiAscii</a>();</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    }</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>}</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="keywordtype">void</span> App_PBV_Task_10ms()</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>{</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="preprocessor">#if PBV_CANFD</span></div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    App_PBV_Task();</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="preprocessor">#endif </span></div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>}</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="keywordtype">void</span> App_PBV_Task_100us()</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>{</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="preprocessor">#if PBV_UART</span></div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    App_PBV_Task();</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="preprocessor">#endif </span></div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>}</div>
-<div class="ttc" id="aa00628_html"><div class="ttname"><a href="a00628.html">APP_PBV_INTF_API_s</a></div><div class="ttdoc">structure of API function pointers.</div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00107">app_PBV_config.h:108</a></div></div>
-<div class="ttc" id="aa00628_html_a2349c43259a9d3c23a516c9b4ad6baaa"><div class="ttname"><a href="a00628.html#a2349c43259a9d3c23a516c9b4ad6baaa">APP_PBV_INTF_API_s::init</a></div><div class="ttdeci">PBV_Intf_Init_t init</div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00109">app_PBV_config.h:109</a></div></div>
-<div class="ttc" id="aa00628_html_a4156ff07130f03dfbd50bf7c30493bfb"><div class="ttname"><a href="a00628.html#a4156ff07130f03dfbd50bf7c30493bfb">APP_PBV_INTF_API_s::linkDataTX</a></div><div class="ttdeci">PBV_Intf_Link_Data_TX_t linkDataTX</div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00114">app_PBV_config.h:114</a></div></div>
-<div class="ttc" id="aa00628_html_a8ee94030daa6ae1784d3a4c1efd446eb"><div class="ttname"><a href="a00628.html#a8ee94030daa6ae1784d3a4c1efd446eb">APP_PBV_INTF_API_s::txGuiAscii</a></div><div class="ttdeci">PBV_Intf_Transmit_Ascii_to_GUI_t txGuiAscii</div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00112">app_PBV_config.h:112</a></div></div>
-<div class="ttc" id="aa00628_html_aad1488054aade0d9770cbae5597a8db9"><div class="ttname"><a href="a00628.html#aad1488054aade0d9770cbae5597a8db9">APP_PBV_INTF_API_s::reinit</a></div><div class="ttdeci">PBV_Intf_Reinit_t reinit</div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00113">app_PBV_config.h:113</a></div></div>
-<div class="ttc" id="aa00628_html_acf3107157116c08f212dafb02c8128f5"><div class="ttname"><a href="a00628.html#acf3107157116c08f212dafb02c8128f5">APP_PBV_INTF_API_s::linkDataRX</a></div><div class="ttdeci">PBV_Intf_Link_Data_RX_t linkDataRX</div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00115">app_PBV_config.h:115</a></div></div>
-<div class="ttc" id="aa00628_html_adca8b72baa17241a6989f96a073cc51c"><div class="ttname"><a href="a00628.html#adca8b72baa17241a6989f96a073cc51c">APP_PBV_INTF_API_s::txGui</a></div><div class="ttdeci">PBV_Intf_Transmit_to_GUI_t txGui</div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00111">app_PBV_config.h:111</a></div></div>
-<div class="ttc" id="aa00628_html_add9801b083b7d6f3f7bbb0f1d9a55773"><div class="ttname"><a href="a00628.html#add9801b083b7d6f3f7bbb0f1d9a55773">APP_PBV_INTF_API_s::rxGui</a></div><div class="ttdeci">PBV_Intf_Receive_from_GUI_t rxGui</div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00110">app_PBV_config.h:110</a></div></div>
-<div class="ttc" id="aa00632_html"><div class="ttname"><a href="a00632.html">PBV_Datatype_TX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00094">app_PBV_interface.h:94</a></div></div>
-<div class="ttc" id="aa00632_html_a91c81f1c5a476778f2b9faf3f36cfd7e"><div class="ttname"><a href="a00632.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Datatype_TX_t::PBV_Message_State</a></div><div class="ttdeci">PBV_MESSAGE_TX_STATE_t PBV_Message_State</div><div class="ttdoc">State of the TX object.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00098">app_PBV_interface.h:98</a></div></div>
-<div class="ttc" id="aa00636_html"><div class="ttname"><a href="a00636.html">PBV_Datatype_RX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00108">app_PBV_interface.h:108</a></div></div>
-<div class="ttc" id="aa00636_html_a30afce7d5f8aa2a94029446cfe2f4a36"><div class="ttname"><a href="a00636.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Datatype_RX_t::PBV_Message_State</a></div><div class="ttdeci">PBV_MESSAGE_RX_STATE_t PBV_Message_State</div><div class="ttdoc">State of the received message.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00112">app_PBV_interface.h:112</a></div></div>
+<div class="ttc" id="aa00362_html_a97590a3e3a8b680b67e206dd91fb8dce"><div class="ttname"><a href="a00362.html#a97590a3e3a8b680b67e206dd91fb8dce">Dev_PwrCtrl_GetAdc_Temperature</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_GetAdc_Temperature(void)</div><div class="ttdoc">API function to get the raw ADC value for temperature.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00190">dev_pwrctrl_comm_interface.c:190</a></div></div>
+<div class="ttc" id="aa00483_html_gac4362e7ed233e3ac6e62b7f6f49a80d0"><div class="ttname"><a href="a00483.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a></div><div class="ttdeci">TEMP_SETTINGS_t devTempData</div><div class="ttdoc">Data Object of temperature settings.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00074">dev_temp.c:74</a></div></div>
+<div class="ttc" id="aa00486_html_ga251990d0202af5df9ea715fbcac8bbb5"><div class="ttname"><a href="a00486.html#ga251990d0202af5df9ea715fbcac8bbb5">NTC_lookuptable</a></div><div class="ttdeci">static TEMP_NTC_LUT_t NTC_lookuptable[34]</div><div class="ttdoc">Lookup table for NTC device measurement.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00029">dev_temp.c:29</a></div></div>
+<div class="ttc" id="aa00486_html_ga595a5dbd8f35a5e37d5fa77cfcd756a5"><div class="ttname"><a href="a00486.html#ga595a5dbd8f35a5e37d5fa77cfcd756a5">Dev_Temp_Is_Over_Temperature</a></div><div class="ttdeci">uint8_t Dev_Temp_Is_Over_Temperature(void)</div><div class="ttdoc">Returns the status of the Over Temperature flag.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00151">dev_temp.c:151</a></div></div>
+<div class="ttc" id="aa00486_html_ga6ce3446cb43022df6a5a96c90ec70a17"><div class="ttname"><a href="a00486.html#ga6ce3446cb43022df6a5a96c90ec70a17">Dev_Temp_Get_ADC_Sample</a></div><div class="ttdeci">void Dev_Temp_Get_ADC_Sample(void)</div><div class="ttdoc">Gets the temperature ADC sample.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00163">dev_temp.c:163</a></div></div>
+<div class="ttc" id="aa00486_html_ga777c30f75162d97f4e112d1fc8d49f87"><div class="ttname"><a href="a00486.html#ga777c30f75162d97f4e112d1fc8d49f87">Dev_Temp_Initialize</a></div><div class="ttdeci">void Dev_Temp_Initialize(void)</div><div class="ttdoc">Initializes the temperature data structure.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00098">dev_temp.c:98</a></div></div>
+<div class="ttc" id="aa00486_html_ga87aa48cb3d8848b8dc9bee6ce978b1b1"><div class="ttname"><a href="a00486.html#ga87aa48cb3d8848b8dc9bee6ce978b1b1">Temp_Calculate_Average</a></div><div class="ttdeci">static uint16_t Temp_Calculate_Average(uint16_t *buffer, uint16_t size)</div><div class="ttdoc">Averages the temperature ADC samples.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00199">dev_temp.c:199</a></div></div>
+<div class="ttc" id="aa00486_html_gac9618e1ca87e77920c94cdfdcc80321a"><div class="ttname"><a href="a00486.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a></div><div class="ttdeci">int8_t Dev_Temp_Get_Temperature_Celcius(void)</div><div class="ttdoc">This converts the raw values to temperature celcius as per device lookup table.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00117">dev_temp.c:117</a></div></div>
+<div class="ttc" id="aa00486_html_gaed1c98bc3ba65035d1ac0bdda433d812"><div class="ttname"><a href="a00486.html#gaed1c98bc3ba65035d1ac0bdda433d812">Average_Temp_ADC_Samples</a></div><div class="ttdeci">static uint16_t Average_Temp_ADC_Samples(void)</div><div class="ttdoc">Returns the temperature average value.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00185">dev_temp.c:185</a></div></div>
+<div class="ttc" id="aa00619_html"><div class="ttname"><a href="a00619.html">TEMP_SETTINGS_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00065">dev_temp.h:65</a></div></div>
+<div class="ttc" id="aa00619_html_a4905336182a9fec2c6e219631604c50f"><div class="ttname"><a href="a00619.html#a4905336182a9fec2c6e219631604c50f">TEMP_SETTINGS_s::OverTemperatureFlag</a></div><div class="ttdeci">uint8_t OverTemperatureFlag</div><div class="ttdoc">Over temperature flag.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00066">dev_temp.h:66</a></div></div>
+<div class="ttc" id="aa00619_html_a665c9a1e8efc7255becd331cb622ab85"><div class="ttname"><a href="a00619.html#a665c9a1e8efc7255becd331cb622ab85">TEMP_SETTINGS_s::TempBuffer</a></div><div class="ttdeci">uint16_t TempBuffer[MAX_NUM_SAMPLES_TEMP_BUFFER]</div><div class="ttdoc">buffer for calcualting average.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00071">dev_temp.h:71</a></div></div>
+<div class="ttc" id="aa00619_html_a894ac46d26a1a6eeaf39098ee8083ccf"><div class="ttname"><a href="a00619.html#a894ac46d26a1a6eeaf39098ee8083ccf">TEMP_SETTINGS_s::BufferIndex</a></div><div class="ttdeci">uint16_t BufferIndex</div><div class="ttdoc">buffer index</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00074">dev_temp.h:74</a></div></div>
+<div class="ttc" id="aa00619_html_a9bd7d10eb7cc3c2d2fcd07bd6a58da84"><div class="ttname"><a href="a00619.html#a9bd7d10eb7cc3c2d2fcd07bd6a58da84">TEMP_SETTINGS_s::SensorLost</a></div><div class="ttdeci">uint8_t SensorLost</div><div class="ttdoc">if sensor is present</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00067">dev_temp.h:67</a></div></div>
+<div class="ttc" id="aa00619_html_aadb6f8d669172a241150025a40fcf44d"><div class="ttname"><a href="a00619.html#aadb6f8d669172a241150025a40fcf44d">TEMP_SETTINGS_s::AdcReading</a></div><div class="ttdeci">uint16_t AdcReading</div><div class="ttdoc">temperature value raw sampled from ADC</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00068">dev_temp.h:68</a></div></div>
+<div class="ttc" id="aa00619_html_ab3ddfcd824de2587d479076324c61bfa"><div class="ttname"><a href="a00619.html#ab3ddfcd824de2587d479076324c61bfa">TEMP_SETTINGS_s::AdcAverage</a></div><div class="ttdeci">uint16_t AdcAverage</div><div class="ttdoc">temperature</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00069">dev_temp.h:69</a></div></div>
+<div class="ttc" id="aa00619_html_abf8f604e028adbffcfed2825d3e9384e"><div class="ttname"><a href="a00619.html#abf8f604e028adbffcfed2825d3e9384e">TEMP_SETTINGS_s::TemperatureCelcius</a></div><div class="ttdeci">uint16_t TemperatureCelcius</div><div class="ttdoc">temperature celcius.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00070">dev_temp.h:70</a></div></div>
+<div class="ttc" id="aa00619_html_af15f06d55d9455ee4404bd24e08d67f4"><div class="ttname"><a href="a00619.html#af15f06d55d9455ee4404bd24e08d67f4">TEMP_SETTINGS_s::BufferFull</a></div><div class="ttdeci">uint16_t BufferFull</div><div class="ttdoc">flag to monitor if full then allow averaging.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00072">dev_temp.h:72</a></div></div>
+<div class="ttc" id="aa00623_html"><div class="ttname"><a href="a00623.html">TEMP_NTC_LUT_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00083">dev_temp.h:83</a></div></div>
+<div class="ttc" id="aa00623_html_a3fbe96a5356b8df5897ac9bf89bb5979"><div class="ttname"><a href="a00623.html#a3fbe96a5356b8df5897ac9bf89bb5979">TEMP_NTC_LUT_s::ADC_Val</a></div><div class="ttdeci">uint16_t ADC_Val</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00086">dev_temp.h:86</a></div></div>
+<div class="ttc" id="aa00623_html_a6bd95140398cc8f4b44157b17d6ba31e"><div class="ttname"><a href="a00623.html#a6bd95140398cc8f4b44157b17d6ba31e">TEMP_NTC_LUT_s::temperature</a></div><div class="ttdeci">uint16_t temperature</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00084">dev_temp.h:84</a></div></div>
+<div class="ttc" id="aa00623_html_ae072e225a53017393ee6a21424335d6a"><div class="ttname"><a href="a00623.html#ae072e225a53017393ee6a21424335d6a">TEMP_NTC_LUT_s::temperatureCelsius</a></div><div class="ttdeci">int8_t temperatureCelsius</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00085">dev_temp.h:85</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

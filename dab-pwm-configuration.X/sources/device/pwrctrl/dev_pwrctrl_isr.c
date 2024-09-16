@@ -20,6 +20,14 @@
     TERMS.
  */
 
+/**
+ * @file      dev_pwrctrl_isr.c
+ * @ingroup   dev-pwrctrl-isr   
+ * @brief     Contains Control loop interrupt Callback that acquires the ADC raw 
+ *  data and process it in the control loop, and use the control output for the 
+ *  PWM distribution for this converter
+ */
+
 #include <xc.h>
 #include <math.h>
 #include <stdbool.h>
@@ -45,7 +53,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void);
 void Dev_PwrCtrl_10KHzVPLoopPrepareData(void);
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-isr-methods-public
+ * @ingroup dev-pwrctrl-isr
  * @brief  Executes the power conveter's control loop
  * @return void
  * 
@@ -113,7 +121,6 @@ void ControlLoop_Interrupt_CallBack(void)
     
     // Enable the ADC sampling
     ADC1_SoftwareTriggerEnable();
-    DPD_TP31_SetHigh();
-    
+
     GPIO_1_SetLow();
 }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['system_5fcorcon_5fmodes_0',['SYSTEM_CORCON_MODES',['../a00248.html#a20024c0647552ed1d76dbb4f332d0dce',1,'system_types.h']]]
+  ['fan_5fsettings_5ft_0',['FAN_SETTINGS_t',['../a00284.html#a659bfa45ad96d6e745795d58c6053a94',1,'dev_fan.c']]]
 ];
