@@ -35,7 +35,6 @@
 #include "device/pwrctrl/dev_pwrctrl_isr.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
 #include "device/fault/dev_fault.h"
-#include "x2cScope/X2CScope.h"
 #include "app/app_PBV_DAB_frame_map.h"
 #include "driver/mcc_extension/mcc_custom_config.h"
 #include "system/pins.h"
@@ -74,11 +73,6 @@ int main(void)
     Dev_Fault_Initialize();
     
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt_CallBack); 
-        
-    // X2CScope will be initialized when X2CDEBUG_ENABLED is enabled
-    #if (X2CDEBUG_ENABLED == 1)
-    X2CScope_Init();
-    #endif
     
     OS_Init();
     App_PBV_DAB_Init();

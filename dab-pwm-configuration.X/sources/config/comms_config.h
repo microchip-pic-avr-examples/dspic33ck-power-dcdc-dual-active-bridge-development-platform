@@ -30,6 +30,5 @@
 // PBV working with CAN OR UART
 #define PBV_UART                0   ///< Enable UART interrupts before
 #define PBV_CANFD               1
-#define X2CDEBUG_ENABLED        0
 
 #endif	/*  COMMS_CONFIG_H */

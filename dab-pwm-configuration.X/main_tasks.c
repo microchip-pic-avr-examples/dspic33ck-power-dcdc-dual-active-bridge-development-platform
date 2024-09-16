@@ -53,7 +53,6 @@
 #include "device/pwrctrl/dev_pwrctrl.h"
 #include "device/fault/dev_fault.h"
 
-#include "x2cScope/X2CScope.h"
 #include "system/pins.h"
 
 //=======================================================================================================
@@ -112,11 +111,6 @@ void Tasks_Realtime_1ms(void)
 void Tasks_100us(void)
 {
     App_PBV_Task_100us();
-    
-    // X2CScope Update will be executed every 100us when X2CDEBUG_ENABLED is enabled
-    #if (X2CDEBUG_ENABLED == 1)
-        X2CScope_Update();
-    #endif   
 }
 #endif /* OS_USE_SCHEDULER_100us */
 //=======================================================================================================
@@ -171,8 +165,5 @@ void Tasks_1s(void)
 /* LDRA_EXCLUDE 65 D */
 void Tasks_Background(void)
 {
-    // X2CScope_Communicate will be executed in a free running mode when X2CDEBUG_ENABLED is enabled
-    #if (X2CDEBUG_ENABLED == 1)
-    X2CScope_Communicate();    
-    #endif
+    
 }
