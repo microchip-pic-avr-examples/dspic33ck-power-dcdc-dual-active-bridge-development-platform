@@ -14,18 +14,6 @@
 			fast code migration between different hardware platforms. Thus, fast adaptation of new 
 			hardware can be achieved by modifying this set of centralized definitions. 
 
-			By including a hardware abstraction header file in a project results in an automated 
-			adaptation of all parameters available. To ensure no conflicts occur, each hardware 
-			abstraction layer header file needs a unique identifier. This unique identifier is provided
-			by the so-called Hardware Version ID.
-
-			The hardware abstraction layer introduces global defines which can be used in the firmware 
-			section of the source code to reference hardware dependent parameters and device peripheral 
-			instances and features.This abstraction is essential to adapt to hardware changes including migration across microcontroller 
-			device families and hardware versions with minimum risk and time efforts.
-			As the microcontroller used in this design is a fixed, irreplaceable board component, this particular 
-			Hardware Abstraction Layer (HAL) covers declarations of circuit control and feedback signals as well as
-			associated microcontroller peripheral instances and features.
 */
 
 
@@ -36,20 +24,7 @@
 @defgroup   pwm-fundamentals PWM Settings
 @ingroup    hardware-abstraction-layer
 @brief      Declaration of fundamental PWM parameters
-@details	This section defines fundamental PWM settings required for the interleaved buck converter
-			of the Digital Power Starter Kit 3. This design requires one PWM generator, generating a
-			complementary, fixed frequency PWM waveform to commutate the switching nodes of the synchronous 
-			buck converter topology. A second PWM channel is used to commutate the switch node of the
-			asynchronous boost converter using a single-ended PWM output.
- 
-			These settings are determined by the hardware pinout and the target device used. Users can modify 
-			high level parameters such as PWM switching frequency and dead times by using physical quantities. 
-			Pre-compiler macros are used to automatically convert physical values into binary (integer) numbers
-			at compile time to be written to variables and/or Special Function Registers (SFR) at runtime.
- 
-		    This section is also used to assign peripheral instances to the device pins used as PWM generator 
-		    outputs. This includes timing parameter registers, interrupt sources, ADC trigger signals and 
-		    output pin control registers.
+@details	This section defines fundamental PWM settings required for the Dual Active Bridge. 
 */
 
 /*----------------------------------------------------------------------------*/
