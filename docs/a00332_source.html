@@ -173,20 +173,20 @@ $(document).ready(function(){initNavTree('a00332_source.html',''); initResizable
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><a class="code hl_struct" href="a00651.html">FAULT_OBJ_T</a> Vin_Fault_Min;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><a class="code hl_struct" href="a00651.html">FAULT_OBJ_T</a> Vin_Fault_Max;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><a class="code hl_struct" href="a00640.html">FAULT_OBJ_T</a> Vin_Fault_Min;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><a class="code hl_struct" href="a00640.html">FAULT_OBJ_T</a> Vin_Fault_Max;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00715.html">POWER_CONTROL_t</a> <a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00704.html">POWER_CONTROL_t</a> <a class="code hl_variable" href="a00487.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keywordtype">void</span> Dev_VinIsolated_Initialize(<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    CCP2CON1Hbits.RTRGEN = 1;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    DMA_SourceAddressSet(DMA_CHANNEL_2, (uint16_t)&amp;CCP2BUFL);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    DMA_DestinationAddressSet(DMA_CHANNEL_2, (uint16_t)&amp;<a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.Adc.VInputVoltage);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    DMA_DestinationAddressSet(DMA_CHANNEL_2, (uint16_t)&amp;<a class="code hl_variable" href="a00487.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.Adc.VInputVoltage);</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// ToDo: Check with Cormac the Fault_Persistence_Count</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">    #if(FAULT_VIN_UV == true)</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>     <a class="code hl_function" href="a00506.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>     <a class="code hl_function" href="a00495.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            &amp;Vin_Fault_Min,                             </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            UV_THRESHOLD_RAW,                           </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            UV_LOWER_THRESHOLD_WITH_HYST,               </div>
@@ -196,7 +196,7 @@ $(document).ready(function(){initNavTree('a00332_source.html',''); initResizable
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">    #endif</span></div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">    #if(FAULT_VIN_OV == true)</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_function" href="a00506.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_function" href="a00495.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            &amp;Vin_Fault_Max, </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            OV_THRESHOLD_RAW,               </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            OV_UPPER_THRESHOLD_WITH_HYST,</div>
@@ -205,10 +205,10 @@ $(document).ready(function(){initNavTree('a00332_source.html',''); initResizable
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">    #endif</span></div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
-<div class="ttc" id="aa00498_html_ga5762de26b3d1b822c6a4b9c1605cd387"><div class="ttname"><a href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a></div><div class="ttdeci">POWER_CONTROL_t dab</div><div class="ttdoc">Global data object for a DAB Converter.</div><div class="ttdef"><b>Definition</b> <a href="a00359_source.html#l00046">dev_pwrctrl.c:46</a></div></div>
-<div class="ttc" id="aa00506_html_gae9aa4b1a3733fa6ee5fb7778bdf74103"><div class="ttname"><a href="a00506.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a></div><div class="ttdeci">void FAULT_Init(FAULT_OBJ_T *faultInput, int16_t threshold, int16_t hysLimit, uint16_t thresholdCnt, uint32_t hysCnt)</div><div class="ttdoc">This function initializes the fault object data structure with the values that required to detect a f...</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00021">dev_fault_common.c:21</a></div></div>
-<div class="ttc" id="aa00651_html"><div class="ttname"><a href="a00651.html">FAULT_OBJ_T</a></div><div class="ttdoc">The Fault object data structure contains a list of elements/variables that are used to detect/check a...</div><div class="ttdef"><b>Definition</b> <a href="a00326_source.html#l00016">dev_fault_common.h:17</a></div></div>
-<div class="ttc" id="aa00715_html"><div class="ttname"><a href="a00715.html">POWER_CONTROL_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00389_source.html#l00175">dev_pwrctrl_typedef.h:176</a></div></div>
+<div class="ttc" id="aa00487_html_ga5762de26b3d1b822c6a4b9c1605cd387"><div class="ttname"><a href="a00487.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a></div><div class="ttdeci">POWER_CONTROL_t dab</div><div class="ttdoc">Global data object for a DAB Converter.</div><div class="ttdef"><b>Definition</b> <a href="a00359_source.html#l00046">dev_pwrctrl.c:46</a></div></div>
+<div class="ttc" id="aa00495_html_gae9aa4b1a3733fa6ee5fb7778bdf74103"><div class="ttname"><a href="a00495.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a></div><div class="ttdeci">void FAULT_Init(FAULT_OBJ_T *faultInput, int16_t threshold, int16_t hysLimit, uint16_t thresholdCnt, uint32_t hysCnt)</div><div class="ttdoc">This function initializes the fault object data structure with the values that required to detect a f...</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00021">dev_fault_common.c:21</a></div></div>
+<div class="ttc" id="aa00640_html"><div class="ttname"><a href="a00640.html">FAULT_OBJ_T</a></div><div class="ttdoc">The Fault object data structure contains a list of elements/variables that are used to detect/check a...</div><div class="ttdef"><b>Definition</b> <a href="a00326_source.html#l00016">dev_fault_common.h:17</a></div></div>
+<div class="ttc" id="aa00704_html"><div class="ttname"><a href="a00704.html">POWER_CONTROL_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00389_source.html#l00175">dev_pwrctrl_typedef.h:176</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

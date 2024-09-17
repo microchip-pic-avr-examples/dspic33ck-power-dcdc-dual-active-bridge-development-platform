@@ -1,13 +1,21 @@
 var searchData=
 [
-  ['dac_20driver_0',['CMP DAC Driver',['../a00517.html',1,'']]],
-  ['declarations_1',['Control Loop Interrupt Vector Declarations',['../a00489.html',1,'']]],
-  ['detection_2',['Temperature Detection',['../a00510.html',1,'']]],
-  ['device_20gpio_20assignments_3',['Device GPIO Assignments',['../a00492.html',1,'']]],
-  ['device_20layer_4',['Device Layer',['../a00496.html',1,'']]],
-  ['device_20peripheral_20assignments_5',['device peripheral assignments',['../a00465.html',1,'Device Peripheral Assignments'],['../a00473.html',1,'Device Peripheral Assignments'],['../a00477.html',1,'Device Peripheral Assignments'],['../a00481.html',1,'Device Peripheral Assignments'],['../a00485.html',1,'Device Peripheral Assignments']]],
-  ['display_6',['LED Display',['../a00509.html',1,'']]],
-  ['dmt_20driver_7',['DMT Driver',['../a00521.html',1,'']]],
-  ['driver_8',['driver',['../a00514.html',1,'ADC Multicore Driver'],['../a00515.html',1,'CAN FD Driver'],['../a00516.html',1,'CLC Driver'],['../a00527.html',1,'Clock Driver'],['../a00517.html',1,'CMP DAC Driver'],['../a00531.html',1,'CONFIGBITS Driver'],['../a00518.html',1,'CRC Driver'],['../a00521.html',1,'DMT Driver'],['../a00506.html',1,'Generic Fault Driver'],['../a00522.html',1,'Interrupt Driver'],['../a00524.html',1,'Pins Driver'],['../a00519.html',1,'PWM Driver'],['../a00520.html',1,'PWM HS Driver'],['../a00526.html',1,'Reset Driver'],['../a00525.html',1,'System Driver'],['../a00529.html',1,'Timer Driver'],['../a00528.html',1,'Traps Driver'],['../a00530.html',1,'UART Driver'],['../a00523.html',1,'WDT Driver']]],
-  ['driver_20layer_9',['MPLABX Configurator Driver Layer',['../a00513.html',1,'']]]
+  ['calibration_0',['Current Sensor Calibration',['../a00496.html',1,'']]],
+  ['can_20communication_1',['CAN Communication',['../a00481.html',1,'']]],
+  ['can_20fd_20driver_2',['CAN FD Driver',['../a00504.html',1,'']]],
+  ['clc_20driver_3',['CLC Driver',['../a00505.html',1,'']]],
+  ['clock_20driver_4',['Clock Driver',['../a00516.html',1,'']]],
+  ['cmp_20dac_20driver_5',['CMP DAC Driver',['../a00506.html',1,'']]],
+  ['communication_6',['communication',['../a00481.html',1,'CAN Communication'],['../a00482.html',1,'UART Communication']]],
+  ['configbits_20driver_7',['CONFIGBITS Driver',['../a00520.html',1,'']]],
+  ['configuration_8',['configuration',['../a00487.html',1,'Configuration'],['../a00494.html',1,'Fault Configuration'],['../a00490.html',1,'PWM Configuration'],['../a00484.html',1,'User Configuration']]],
+  ['configuration_20layer_9',['Configuration Layer',['../a00500.html',1,'']]],
+  ['configurator_20driver_20layer_10',['MPLABX Configurator Driver Layer',['../a00502.html',1,'']]],
+  ['control_11',['control',['../a00497.html',1,'Fan Control'],['../a00486.html',1,'Power Control']]],
+  ['control_20loop_20br_12',['Control Loop  &lt;br&gt;',['../a00473.html',1,'']]],
+  ['control_20loop_20interrupt_20vector_20declarations_13',['Control Loop Interrupt Vector Declarations',['../a00477.html',1,'']]],
+  ['conversion_20macros_14',['conversion macros',['../a00462.html',1,'Conversion Macros'],['../a00464.html',1,'Conversion Macros'],['../a00466.html',1,'Conversion Macros'],['../a00468.html',1,'Conversion Macros'],['../a00470.html',1,'Conversion Macros'],['../a00472.html',1,'Conversion Macros'],['../a00474.html',1,'Conversion Macros'],['../a00476.html',1,'Conversion Macros']]],
+  ['crc_20driver_15',['CRC Driver',['../a00507.html',1,'']]],
+  ['current_20feedback_16',['current feedback',['../a00467.html',1,'Primary Current Feedback'],['../a00469.html',1,'Secondary Current Feedback']]],
+  ['current_20sensor_20calibration_17',['Current Sensor Calibration',['../a00496.html',1,'']]]
 ];

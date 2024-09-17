@@ -7,13 +7,39 @@
 @details
 */
 
-		/**
-		@defgroup   PBV_CAN Power Board Visualizer
-		@ingroup    apps-layer
-		@brief      
-		@details    
-		*/
-
+/**
+@defgroup   pbv-layer Power Board Visualizer
+@ingroup    apps-layer
+@brief      
+@details    
+*/
+	/**
+	@defgroup   PBV_CAN CAN Communication
+	@ingroup    pbv-layer
+	@brief      
+	@details    
+	*/
+	
+	/**
+	@defgroup   PBV_UART UART Communication
+	@ingroup    pbv-layer
+	@brief      
+	@details    
+	*/
+	
+	/**
+	@defgroup   APP_PBV PBV Interface
+	@ingroup    pbv-layer
+	@brief      
+	@details    
+	*/
+	
+	/**
+	@defgroup   app-pbv-public-function User Configuration
+	@ingroup    pbv-layer
+	@brief      
+	@details    
+	*/
 
 /*----------------------------------------------------------------------------*/
 /* DEVICE LAYER */
@@ -148,9 +174,16 @@
 /*----------------------------------------------------------------------------*/
 /**
 @defgroup	config-layer Configuration Layer
-@brief		Allow user to quickly change fundamental system parameters, adopt pin-out and hardware changes and 
-			even migrating the firmware across different designs without having to modify the actual source code
-			
+@brief		Allow user to quickly change fundamental system parameters, hardware changes and 
+			even migrating the firmware across different designs wiht minimal modification in the actual source code
+@detail The main purpose of a configuration layer is to provide one central point 
+			in the firmware architecture where hardware dependencies can be specified, 
+			signal scalings can be defined and specific chip resources can be assigned to support/
+			connect generic software functions to the hardware. 
+
+			This central definitions allow fast modifications and optimizations but also support 
+			fast code migration between different hardware platforms. Thus, fast adaptation of new 
+			hardware can be achieved by modifying this set of centralized definitions.			
 */
 
 /*----------------------------------------------------------------------------*/
