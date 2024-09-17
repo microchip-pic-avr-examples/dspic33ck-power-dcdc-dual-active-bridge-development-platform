@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/fault/dev_fault_api.h Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/fault/dev_fault_api.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('a00317_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">dev_fault_api.h</div></div>
+  <div class="headertitle"><div class="title">dev_fault_api.c</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
@@ -159,20 +159,74 @@ $(document).ready(function(){initNavTree('a00317_source.html',''); initResizable
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">    TERMS.</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#ifndef DEV_FAULT_API_H</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define DEV_FAULT_API_H</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;dev_fault_common.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;device/pwrctrl/dev_pwrctrl.h&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> Dev_Fault_SetPriOVPThreshold(uint16_t reference);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> Dev_Fault_SetSecOVPThreshold(uint16_t reference);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> Dev_Fault_SetIPrimaryThreshold(uint16_t reference);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordtype">void</span> Dev_Fault_SetISecondaryThreshold(uint16_t reference);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">extern</span> uint16_t Dev_Fault_GetFlags(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_FAULT_API_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">enum</span> FAULTLOG_FLAGS_e {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    FLT_VPRI_OVP,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    FLT_VPRI_UVP,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    FLT_VSEC_OVP,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    FLT_VSEC_UVP,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    FLT_IPRI_OCP,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    FLT_ISEC_OCP,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    FLT_ISNS_SCP,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    FLT_DAB_TEMP,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    FLT_RAIL_5V,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    FLT_FAULT_NUMBER</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>};</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">typedef</span> <span class="keyword">enum</span> FAULTLOG_FLAGS_e FAULTLOG_FLAGS_t;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>uint16_t Dev_Fault_GetFlags(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    uint16_t fault = 0;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">// Concatenate the Fault status in one for PBV </span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    fault = (<a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00715.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00659.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00655.html#a9aa55289e8d0d3f1cd2c1b979707653a">IPrimaryOCP</a>.<a class="code hl_variable" href="a00651.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> &lt;&lt; FLT_IPRI_OCP) +</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            (<a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00715.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00659.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00655.html#a5c0ebb178553b28679126e15448f3680">ISecondaryOCP</a>.<a class="code hl_variable" href="a00651.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> &lt;&lt; FLT_ISEC_OCP) +</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            (<a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00715.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00659.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00655.html#af268179095dc26cb1a693ef5621c70c6">ISenseSCP</a>.<a class="code hl_variable" href="a00651.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> &lt;&lt; FLT_ISNS_SCP) +</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            (<a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00715.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00659.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00655.html#a67a6d7934156a505fe648c5a895795ed">VPrimaryOVP</a>.<a class="code hl_variable" href="a00651.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> &lt;&lt; FLT_VPRI_OVP) +</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            (<a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00715.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00659.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00655.html#a4a4096da1c84272a28022842417dc638">VSecondaryOVP</a>.<a class="code hl_variable" href="a00651.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> &lt;&lt; FLT_VSEC_OVP) +</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            (<a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00715.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00659.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00655.html#a480a8e0249740ab8759aeee1c804ba5c">PowerSupplyOTP</a>.<a class="code hl_variable" href="a00651.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> &lt;&lt; FLT_DAB_TEMP) +</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            (<a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00715.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00659.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00655.html#a0c6c9adf47adaed77dbc76be05305b1d">VRail_5V</a>.<a class="code hl_variable" href="a00651.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> &lt;&lt; FLT_RAIL_5V);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">return</span>(fault);        </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keywordtype">void</span> Dev_Fault_SetSecOVPThreshold(uint16_t reference)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{    </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00715.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00659.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00655.html#a4a4096da1c84272a28022842417dc638">VSecondaryOVP</a>.<a class="code hl_variable" href="a00651.html#a5edf921fa44db4fc0b59e47bb5fd0dfd">Val1_Threshold</a> = reference;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">void</span> Dev_Fault_SetPriOVPThreshold(uint16_t reference)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>{    </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00715.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00659.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00655.html#a67a6d7934156a505fe648c5a895795ed">VPrimaryOVP</a>.<a class="code hl_variable" href="a00651.html#a5edf921fa44db4fc0b59e47bb5fd0dfd">Val1_Threshold</a> = reference;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">void</span> Dev_Fault_SetIPrimaryThreshold(uint16_t reference)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{    </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00715.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00659.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00655.html#a9aa55289e8d0d3f1cd2c1b979707653a">IPrimaryOCP</a>.<a class="code hl_variable" href="a00651.html#a5edf921fa44db4fc0b59e47bb5fd0dfd">Val1_Threshold</a> = reference;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">void</span> Dev_Fault_SetISecondaryThreshold(uint16_t reference)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{    </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_variable" href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00715.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00659.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00655.html#a5c0ebb178553b28679126e15448f3680">ISecondaryOCP</a>.<a class="code hl_variable" href="a00651.html#a5edf921fa44db4fc0b59e47bb5fd0dfd">Val1_Threshold</a> = reference;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="ttc" id="aa00498_html_ga5762de26b3d1b822c6a4b9c1605cd387"><div class="ttname"><a href="a00498.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a></div><div class="ttdeci">POWER_CONTROL_t dab</div><div class="ttdoc">Global data object for a DAB Converter.</div><div class="ttdef"><b>Definition</b> <a href="a00359_source.html#l00046">dev_pwrctrl.c:46</a></div></div>
+<div class="ttc" id="aa00651_html_a4789222e3347d2016dd8af50cabd4b14"><div class="ttname"><a href="a00651.html#a4789222e3347d2016dd8af50cabd4b14">FAULT_OBJ_T::FaultLatch</a></div><div class="ttdeci">uint8_t FaultLatch</div><div class="ttdoc">Flag indicating if FAULT has been tripped.</div><div class="ttdef"><b>Definition</b> <a href="a00326_source.html#l00027">dev_fault_common.h:27</a></div></div>
+<div class="ttc" id="aa00651_html_a5edf921fa44db4fc0b59e47bb5fd0dfd"><div class="ttname"><a href="a00651.html#a5edf921fa44db4fc0b59e47bb5fd0dfd">FAULT_OBJ_T::Val1_Threshold</a></div><div class="ttdeci">int16_t Val1_Threshold</div><div class="ttdoc">Fault threshold limit: Range of -32768 to 32767.</div><div class="ttdef"><b>Definition</b> <a href="a00326_source.html#l00018">dev_fault_common.h:18</a></div></div>
+<div class="ttc" id="aa00655_html_a0c6c9adf47adaed77dbc76be05305b1d"><div class="ttname"><a href="a00655.html#a0c6c9adf47adaed77dbc76be05305b1d">FAULT_s::VRail_5V</a></div><div class="ttdeci">FAULT_OBJ_T VRail_5V</div><div class="ttdoc">Fault object for 5V rail.</div><div class="ttdef"><b>Definition</b> <a href="a00329_source.html#l00028">dev_fault_typedef.h:28</a></div></div>
+<div class="ttc" id="aa00655_html_a480a8e0249740ab8759aeee1c804ba5c"><div class="ttname"><a href="a00655.html#a480a8e0249740ab8759aeee1c804ba5c">FAULT_s::PowerSupplyOTP</a></div><div class="ttdeci">FAULT_OBJ_T PowerSupplyOTP</div><div class="ttdoc">Fault object for Power Supply Temperature.</div><div class="ttdef"><b>Definition</b> <a href="a00329_source.html#l00027">dev_fault_typedef.h:27</a></div></div>
+<div class="ttc" id="aa00655_html_a4a4096da1c84272a28022842417dc638"><div class="ttname"><a href="a00655.html#a4a4096da1c84272a28022842417dc638">FAULT_s::VSecondaryOVP</a></div><div class="ttdeci">FAULT_OBJ_T VSecondaryOVP</div><div class="ttdoc">Fault object for Secondary over voltage protection.</div><div class="ttdef"><b>Definition</b> <a href="a00329_source.html#l00025">dev_fault_typedef.h:25</a></div></div>
+<div class="ttc" id="aa00655_html_a5c0ebb178553b28679126e15448f3680"><div class="ttname"><a href="a00655.html#a5c0ebb178553b28679126e15448f3680">FAULT_s::ISecondaryOCP</a></div><div class="ttdeci">FAULT_OBJ_T ISecondaryOCP</div><div class="ttdoc">Fault object for Secondary over current protection.</div><div class="ttdef"><b>Definition</b> <a href="a00329_source.html#l00023">dev_fault_typedef.h:23</a></div></div>
+<div class="ttc" id="aa00655_html_a67a6d7934156a505fe648c5a895795ed"><div class="ttname"><a href="a00655.html#a67a6d7934156a505fe648c5a895795ed">FAULT_s::VPrimaryOVP</a></div><div class="ttdeci">FAULT_OBJ_T VPrimaryOVP</div><div class="ttdoc">Fault object for Primary over voltage protection.</div><div class="ttdef"><b>Definition</b> <a href="a00329_source.html#l00024">dev_fault_typedef.h:24</a></div></div>
+<div class="ttc" id="aa00655_html_a9aa55289e8d0d3f1cd2c1b979707653a"><div class="ttname"><a href="a00655.html#a9aa55289e8d0d3f1cd2c1b979707653a">FAULT_s::IPrimaryOCP</a></div><div class="ttdeci">FAULT_OBJ_T IPrimaryOCP</div><div class="ttdoc">Fault object for Primary over current protection.</div><div class="ttdef"><b>Definition</b> <a href="a00329_source.html#l00022">dev_fault_typedef.h:22</a></div></div>
+<div class="ttc" id="aa00655_html_af268179095dc26cb1a693ef5621c70c6"><div class="ttname"><a href="a00655.html#af268179095dc26cb1a693ef5621c70c6">FAULT_s::ISenseSCP</a></div><div class="ttdeci">FAULT_OBJ_T ISenseSCP</div><div class="ttdoc">Fault object for Short circuit protection.</div><div class="ttdef"><b>Definition</b> <a href="a00329_source.html#l00026">dev_fault_typedef.h:26</a></div></div>
+<div class="ttc" id="aa00659_html_aec432521ca331df364eb6aa8a74422a2"><div class="ttname"><a href="a00659.html#aec432521ca331df364eb6aa8a74422a2">FAULT_SETTINGS_s::Object</a></div><div class="ttdeci">FAULT_t Object</div><div class="ttdoc">Fault Objects.</div><div class="ttdef"><b>Definition</b> <a href="a00329_source.html#l00040">dev_fault_typedef.h:40</a></div></div>
+<div class="ttc" id="aa00715_html_aead2ae6cfabf4831af21d23684e19d1f"><div class="ttname"><a href="a00715.html#aead2ae6cfabf4831af21d23684e19d1f">POWER_CONTROL_s::Fault</a></div><div class="ttdeci">FAULT_SETTINGS_t Fault</div><div class="ttdoc">Fault flags and settings.</div><div class="ttdef"><b>Definition</b> <a href="a00389_source.html#l00182">dev_pwrctrl_typedef.h:182</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

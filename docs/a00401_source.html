@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/driver/mcc_extension/drv_mcc_extension.h Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/driver/mcc_extension/drv_custom_config_pwm.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,40 +136,45 @@ $(document).ready(function(){initNavTree('a00401_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">drv_mcc_extension.h</div></div>
+  <div class="headertitle"><div class="title">drv_custom_config_pwm.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* Microchip Technology Inc. and its subsidiaries.  You may use this software </span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * and any derivatives exclusively with Microchip products. </span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * THIS SOFTWARE IS SUPPLIED BY MICROCHIP &quot;AS IS&quot;.  NO WARRANTIES, WHETHER </span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED </span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A </span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION </span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION. </span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, </span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND </span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS </span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE.  TO THE </span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP&#39;S TOTAL LIABILITY ON ALL CLAIMS </span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF </span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE </span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * TERMS. </span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// more than once.  </span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#ifndef DRV_MCC_EXTENSION_H</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#define DRV_MCC_EXTENSION_H</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;drv_mcc_extension_pwm.h&quot;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;drv_mcc_extension_adc.h&quot;</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* </span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * File:   drv_mcc_config_pwm.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Author: M15690</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Created on 10 July 2024, 14:50</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DRV_CONFIG_CUSTOM_PWM_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DRV_CONFIG_CUSTOM_PWM_H</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;device/pwrctrl/dev_pwrctrl_typedef.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;drv_mcc_extension_pwm.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;config/macros.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="a00131.html">pwm_hs/pwm.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> DRV_Config_Custom_PWM(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">//PWMs needs to be re-triggerable for cascaded PWM scheme</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    PWM_Trigger_Mode(<a class="code hl_enumvalue" href="a00140.html#aa552a948d5b08cc9a8345234b82fe5a8a486f4c61c953939ade26a1d48f57197c">PWM_PRI_1</a>, PWM_TRIG_MODE_RETRIGGERABLE);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    PWM_Trigger_Mode(<a class="code hl_enumvalue" href="a00140.html#aa552a948d5b08cc9a8345234b82fe5a8a2d038a5a03cabafe601e3565cd701b58">PWM_SEC_1</a>, PWM_TRIG_MODE_RETRIGGERABLE);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    PWM_Trigger_Mode(<a class="code hl_enumvalue" href="a00140.html#aa552a948d5b08cc9a8345234b82fe5a8ad5f68a24115f48485c95e9d0f8cb4f1f">PWM_PRI_2</a>, PWM_TRIG_MODE_RETRIGGERABLE);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    PWM_Trigger_Mode(<a class="code hl_enumvalue" href="a00140.html#aa552a948d5b08cc9a8345234b82fe5a8ac2ed50db261be046cb6758a72f9fcda9">PWM_SEC_2</a>, PWM_TRIG_MODE_RETRIGGERABLE);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">// PWM Swap output based on the hardware</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    PWM_Swap_PWMxL_and_PWMxH(<a class="code hl_enumvalue" href="a00140.html#aa552a948d5b08cc9a8345234b82fe5a8ad5f68a24115f48485c95e9d0f8cb4f1f">PWM_PRI_2</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    PWM_Swap_PWMxL_and_PWMxH(<a class="code hl_enumvalue" href="a00140.html#aa552a948d5b08cc9a8345234b82fe5a8ac2ed50db261be046cb6758a72f9fcda9">PWM_SEC_2</a>, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif  </span><span class="comment">/* DRV_MCC_EXTENSION_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif  </span><span class="comment">/* DRV_MCC_CONFIG_PWM_H */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="ttc" id="aa00131_html"><div class="ttname"><a href="a00131.html">pwm.h</a></div><div class="ttdoc">This is the generated driver header file for the PWM driver.</div></div>
+<div class="ttc" id="aa00140_html_aa552a948d5b08cc9a8345234b82fe5a8a2d038a5a03cabafe601e3565cd701b58"><div class="ttname"><a href="a00140.html#aa552a948d5b08cc9a8345234b82fe5a8a2d038a5a03cabafe601e3565cd701b58">PWM_SEC_1</a></div><div class="ttdeci">@ PWM_SEC_1</div><div class="ttdef"><b>Definition</b> <a href="a00140_source.html#l00056">pwm_hs_types.h:56</a></div></div>
+<div class="ttc" id="aa00140_html_aa552a948d5b08cc9a8345234b82fe5a8a486f4c61c953939ade26a1d48f57197c"><div class="ttname"><a href="a00140.html#aa552a948d5b08cc9a8345234b82fe5a8a486f4c61c953939ade26a1d48f57197c">PWM_PRI_1</a></div><div class="ttdeci">@ PWM_PRI_1</div><div class="ttdef"><b>Definition</b> <a href="a00140_source.html#l00055">pwm_hs_types.h:55</a></div></div>
+<div class="ttc" id="aa00140_html_aa552a948d5b08cc9a8345234b82fe5a8ac2ed50db261be046cb6758a72f9fcda9"><div class="ttname"><a href="a00140.html#aa552a948d5b08cc9a8345234b82fe5a8ac2ed50db261be046cb6758a72f9fcda9">PWM_SEC_2</a></div><div class="ttdeci">@ PWM_SEC_2</div><div class="ttdef"><b>Definition</b> <a href="a00140_source.html#l00058">pwm_hs_types.h:58</a></div></div>
+<div class="ttc" id="aa00140_html_aa552a948d5b08cc9a8345234b82fe5a8ad5f68a24115f48485c95e9d0f8cb4f1f"><div class="ttname"><a href="a00140.html#aa552a948d5b08cc9a8345234b82fe5a8ad5f68a24115f48485c95e9d0f8cb4f1f">PWM_PRI_2</a></div><div class="ttdeci">@ PWM_PRI_2</div><div class="ttdef"><b>Definition</b> <a href="a00140_source.html#l00057">pwm_hs_types.h:57</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

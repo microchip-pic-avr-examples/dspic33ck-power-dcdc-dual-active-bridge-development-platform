@@ -1,0 +1,352 @@
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: Hardware Abstraction Layer Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   hardware-abstraction-layer Hardware Abstraction Layer 
+@ingroup    config-layer
+@brief      Hardware Abstraction Layer 
+@details	The main purpose of a hardware abstraction layer is to provide one central point 
+			in complex firmware architectures where hardware dependencies can be specified, 
+			signal scalings can be defined and specific chip resources can be assigned to support/
+			connect generic software functions to the hardware. 
+
+			This central definitions allow fast modifications and optimizations but also support 
+			fast code migration between different hardware platforms. Thus, fast adaptation of new 
+			hardware can be achieved by modifying this set of centralized definitions. 
+
+			By including a hardware abstraction header file in a project results in an automated 
+			adaptation of all parameters available. To ensure no conflicts occur, each hardware 
+			abstraction layer header file needs a unique identifier. This unique identifier is provided
+			by the so-called Hardware Version ID.
+
+			The hardware abstraction layer introduces global defines which can be used in the firmware 
+			section of the source code to reference hardware dependent parameters and device peripheral 
+			instances and features.This abstraction is essential to adapt to hardware changes including migration across microcontroller 
+			device families and hardware versions with minimum risk and time efforts.
+			As the microcontroller used in this design is a fixed, irreplaceable board component, this particular 
+			Hardware Abstraction Layer (HAL) covers declarations of circuit control and feedback signals as well as
+			associated microcontroller peripheral instances and features.
+*/
+
+
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: PWM Declarations Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   pwm-fundamentals PWM Settings
+@ingroup    hardware-abstraction-layer
+@brief      Declaration of fundamental PWM parameters
+@details	This section defines fundamental PWM settings required for the interleaved buck converter
+			of the Digital Power Starter Kit 3. This design requires one PWM generator, generating a
+			complementary, fixed frequency PWM waveform to commutate the switching nodes of the synchronous 
+			buck converter topology. A second PWM channel is used to commutate the switch node of the
+			asynchronous boost converter using a single-ended PWM output.
+ 
+			These settings are determined by the hardware pinout and the target device used. Users can modify 
+			high level parameters such as PWM switching frequency and dead times by using physical quantities. 
+			Pre-compiler macros are used to automatically convert physical values into binary (integer) numbers
+			at compile time to be written to variables and/or Special Function Registers (SFR) at runtime.
+ 
+		    This section is also used to assign peripheral instances to the device pins used as PWM generator 
+		    outputs. This includes timing parameter registers, interrupt sources, ADC trigger signals and 
+		    output pin control registers.
+*/
+
+/*----------------------------------------------------------------------------*/
+/* User Settings, Conversion Macros and Device Peripheral Assignments */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   pwm-user-settings User Settings
+@ingroup    pwm-fundamentals
+@brief      User-declaration of PWM peripheral using physical quantities
+@details	User-declaration of PWM peripheral using physical quantities
+
+@defgroup	pwm-macros Conversion Macros
+@ingroup	pwm-fundamentals
+@brief		Conversion macros for user declarations of PWM peripheral
+@details	Conversion macros converting physical quantities of parameters into binary (integer) 
+			numbers for registers and variables
+
+@defgroup	pwm-mcal Device Peripheral Assignments
+@ingroup	pwm-fundamentals
+@brief		Peripheral output pins, control signals and register assignments
+@details 	Peripheral output pins, control signals and register assignments
+*/
+
+
+
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: Fault Response Declarations Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   fault-response Fault Response Settings
+@ingroup    hardware-abstraction-layer
+@brief      Declaration of Fault Object Trip and Recovery Delays
+@note		The Fault Response Declarations only contain user settings and conversion macros
+			and it does not have device peripheral assignments.
+*/
+
+/*----------------------------------------------------------------------------*/
+/* User Settings, Conversion Macros and Device Peripheral Assignments */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   fault-response-settings User Settings
+@ingroup    fault-response
+@brief      User-declaration of Fault Object Trip and Recovery Delays using physical quantities
+@details    User-declaration of Fault Object Trip and Recovery Delays using physical quantities
+
+@defgroup	fault-response-macros Conversion Macros
+@ingroup	fault-response
+@brief		Conversion macros for user declarations of Fault Object Trip and Recovery Delays
+@details	Conversion macros converting physical quantities of parameters into binary (integer) numbers for registers and variables
+
+*/
+
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: Hardware ID Macro Settings Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   hardware-id-macro-user-settings Harware ID Macro
+@ingroup    hardware-abstraction-layer
+@brief  	Declaration of fundamental Harware ID Macro
+@note		The Hardware ID Macro Settings only contains user settings and it does
+			not have conversion macros and device peripheral assignments.
+*/
+
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: Input Voltage Feedback Declarations Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   input-voltage-feedback Input Voltage Feedback
+@ingroup    hardware-abstraction-layer
+@brief  	Declaration of Input Voltage Feedback parameters
+@details  	Declaration of Input Voltage Feedback parameters
+*/
+
+/*----------------------------------------------------------------------------*/
+/* User Settings, Conversion Macros and Device Peripheral Assignments */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   input-voltage-feedback-settings User Settings
+@ingroup    input-voltage-feedback
+@brief      User-declaration of Input Voltage Feedback parameters using physical quantities
+@details      User-declaration of Input Voltage Feedback parameters using physical quantities
+
+@defgroup	input-voltage-feedback-macros Conversion Macros
+@ingroup	input-voltage-feedback
+@brief		Conversion macros for user-declarations of Input Voltage Feedback parameters
+@details	Conversion macros converting physical quantities of parameters into binary (integer) 
+			numbers for registers and variables
+
+@defgroup	input-voltage-feedback-mcal Device Peripheral Assignments
+@ingroup	input-voltage-feedback
+@brief		Peripheral output pins, control signals and register assignments
+*/
+
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: Output Voltage Feedback Declarations Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   output-voltage-feedback Ouput Voltage Feedback
+@ingroup    hardware-abstraction-layer
+@brief  	Declaration of Output Voltage Feedback parameters
+@details	Declaration of Output Voltage Feedback parameters
+*/
+
+/*----------------------------------------------------------------------------*/
+/* User Settings, Conversion Macros and Device Peripheral Assignments */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   output-voltage-feedback-settings User Settings
+@ingroup    output-voltage-feedback
+@brief      User-declaration of Output Voltage Feedback parameters using physical quantities
+@details    User-declaration of Output Voltage Feedback parameters using physical quantities
+
+@defgroup	output-voltage-feedback-macros Conversion Macros
+@ingroup	output-voltage-feedback
+@brief		Conversion macros for user-declarations of Output Voltage Feedback parameters
+@details	Conversion macros converting physical quantities of parameters into binary (integer) 
+			numbers for registers and variables
+
+@defgroup	output-voltage-feedback-mcal Device Peripheral Assignments
+@ingroup	output-voltage-feedback
+@brief		Peripheral output pins, control signals and register assignments
+@details	Peripheral output pins, control signals and register assignments
+
+*/
+
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: Phase Current Feedback Declarations Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   phase-current-feedback Phase Current Feedback
+@ingroup    hardware-abstraction-layer
+@brief  	Declaration of Phase Current Feedback parameters
+@details  	Declaration of Phase Current Feedback parameters
+*/
+
+/*----------------------------------------------------------------------------*/
+/* User Settings, Conversion Macros and Device Peripheral Assignments */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   phase-current-feedback-settings User Settings
+@ingroup    phase-current-feedback
+@brief      User-declaration of Phase Current Feedback parameters using physical quantities
+@details    User-declaration of Phase Current Feedback parameters using physical quantities
+
+
+@defgroup	phase-current-feedback-macros Conversion Macros
+@ingroup	phase-current-feedback
+@brief		Conversion macros for user-declarations of Phase Current Feedback parameters
+@details	Conversion macros converting physical quantities of parameters into binary (integer) 
+			numbers for registers and variables
+
+@defgroup	phase-current-feedback-mcal Device Peripheral Assignments
+@ingroup	phase-current-feedback
+@brief		Peripheral output pins, control signals and register assignments
+@details	Peripheral output pins, control signals and register assignments
+*/
+
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: Temperature Feedback Declarations Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   temperature-feedback Temperature Feedback
+@ingroup    hardware-abstraction-layer
+@brief  	Declaration of Temperature Feedback parameters
+@details 	Declaration of Temperature Feedback parameters
+*/
+
+/*----------------------------------------------------------------------------*/
+/* User Settings, Conversion Macros and Device Peripheral Assignments */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   temperature-feedback-settings User Settings
+@ingroup    temperature-feedback
+@brief      User-declaration of Temperature Feedback parameters using physical quantities
+@details      User-declaration of Temperature Feedback parameters using physical quantities
+
+@defgroup	temperature-feedback-macros Conversion Macros
+@ingroup	temperature-feedback
+@brief		Conversion macros for user-declarations of Temperature Feedback parameters
+details		Conversion macros converting physical quantities of parameters into binary (integer) 
+			numbers for registers and variables
+
+@defgroup	temperature-feedback-mcal Device Peripheral Assignments
+@ingroup	temperature-feedback
+@brief		Peripheral output pins, control signals and register assignments
+@details	Peripheral output pins, control signals and register assignments
+
+*/
+
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: Adaptive Gain Control Declarations Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   adaptive-gain-control Adaptive Gain Control Feed Forward 
+@ingroup    hardware-abstraction-layer
+@brief  	Declaration of macros calculating additional parameters for Adaptive Gain Modulation
+@note		The Adaptive Gain Control Declarations only contain user settings and
+			conversion macros and it does not have device peripheral assignments.
+*/
+
+/*----------------------------------------------------------------------------*/
+/* User Settings, Conversion Macros and Device Peripheral Assignments */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   adaptive-gain-control-settings User Settings
+@ingroup    adaptive-gain-control
+@brief      User-declaration of Adaptive Gain Modulation parameters using physical quantities
+@details    User-declaration of Adaptive Gain Modulation parameters using physical quantities
+
+
+@defgroup	adaptive-gain-control-macros Conversion Macros
+@ingroup	adaptive-gain-control
+@brief		Conversion macros for user-declarations of Adaptive Gain Modulation parameters
+@details	Conversion macros converting physical quantities of parameters into binary (integer) 
+			numbers for registers and variables
+
+@cond		HIDE_THIS
+@defgroup	adaptive-gain-control-mcal Device Peripheral Assignments
+@ingroup	adaptive-gain-control
+@brief		Peripheral output pins, control signals and register assignments
+@note		The Adaptive Gain Control declarations does not have device peripheral assignments.
+@endcond
+*/
+
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: Control Loop Interrupt Vector Settings Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   isr-settings Control Loop Interrupt Vector Declarations 
+@ingroup    hardware-abstraction-layer
+@brief  	Real-time control loop interrupt service routine declarations
+@details	Real-time control loops are executed in dedicated, high-priority interrupts to ensure a constant and reliable
+			call rate, which is the time base for the control loop response filter. Hence, no other firmware process should be able
+			to interrupt or delay the execution of the loop controllers. This section allows the selection of different interrupt
+			sources used to trigger the control loop execution and its priority.
+@note		The Control Loop Interrupt Vector Settings only contains user settings and
+			it does not have conversion macros and device peripheral assignments.
+*/
+
+/*----------------------------------------------------------------------------*/
+/* User Settings, Conversion Macros and Device Peripheral Assignments */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   isr-user-settings User Settings
+@ingroup    isr-settings
+@brief      User-declaration of Control Loop Interrupt Vector parameters using physical quantities
+@details    User-declaration of Control Loop Interrupt Vector parameters using physical quantities
+
+@cond		HIDE_THIS
+@defgroup	isr-macros Conversion Macros
+@ingroup	isr-settings
+@brief		Conversion macros for user-declarations of Control Loop Interrupt Vector parameters
+@details	Conversion macros converting physical quantities of parameters into binary (integer) 
+			numbers for registers and variables
+
+@defgroup	isr-mcal Device Peripheral Assignments
+@ingroup	isr-settings
+@brief		Peripheral output pins, control signals and register assignments
+@note		The Control Loop Interrupt Vector declarations does not have device peripheral assignments.
+@endcond
+*/
+
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: Device GPIO Assignment Declarations Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   circuit-peripherals Special Circuit Signals
+@ingroup    hardware-abstraction-layer
+@brief  	Special Circuit Signals for GPIO and device peripheral assignments
+@details	Special Circuit Signals for GPIO and device peripheral assignments
+
+*/
+
+/*----------------------------------------------------------------------------*/
+/* User Settings, Conversion Macros and Device Peripheral Assignments */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   circuit-gpio-mcal Device GPIO Assignments
+@ingroup    circuit-peripherals
+@brief		Assignment of microcontroller device general purpose input/output to circuit functions and signals
+@details	Assignment of microcontroller device general purpose input/output to circuit functions and signals
+
+
+@cond		HIDE_THIS
+@defgroup	circuit-peripheral-mcal Device Peripheral Assignments
+@ingroup	circuit-peripherals
+@brief		Assignment of microcontroller device specific chip-resources to circuit functions and signals
+@endcond
+*/
+
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: Special Firmware Options Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   special-options Special Firmware Options
+@ingroup    hardware-abstraction-layer
+@brief  	Special functions use to enable or disable special firmware options.
+@details	Special functions use to enable or disable special firmware options.
+*/
+

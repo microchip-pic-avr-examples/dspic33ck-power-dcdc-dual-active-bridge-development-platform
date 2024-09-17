@@ -32,12 +32,12 @@ var NAVTREE =
       [ "Software Used", "index.html#autotoc_md9", null ],
       [ "Hardware Used", "index.html#autotoc_md11", null ]
     ] ],
-    [ "Firmware Overview", "a00720.html", [
-      [ "Converter State Machine", "a00720.html#autotoc_md15", null ],
-      [ "Power Control Data Structure", "a00720.html#autotoc_md16", null ],
-      [ "Fault Protection", "a00720.html#autotoc_md18", null ],
-      [ "PWM Setup", "a00720.html#autotoc_md22", null ],
-      [ "Compensator Settings", "a00720.html#autotoc_md24", null ]
+    [ "Firmware Overview", "a00756.html", [
+      [ "Converter State Machine", "a00756.html#autotoc_md15", null ],
+      [ "Power Control Data Structure", "a00756.html#autotoc_md16", null ],
+      [ "Fault Protection", "a00756.html#autotoc_md18", null ],
+      [ "PWM Setup", "a00756.html#autotoc_md22", null ],
+      [ "Compensator Settings", "a00756.html#autotoc_md24", null ]
     ] ],
     [ "Software Overview", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
@@ -61,12 +61,12 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"a00044.html",
-"a00479.html#ga6d9c583ae763f27f4010371932f3fa01",
-"a00484.html#gad6e8219dfcec3ef2b19c4f270dfaef79",
-"a00507.html#ad65d2428ff5e999742c448c5d46b7d1d",
-"a00615.html#a1f8690ab82873811964f062a76d15fe7",
-"index.html#autotoc_md1"
+"a00047.html",
+"a00515.html#ga0dab5f41a5a5ef032d23c2ba4890a866",
+"a00520.html#ga3453a907bf8e14bb9bb434ddd0e82500",
+"a00539.html#a292e0f89d364c1053064f1e282b5acf5",
+"a00635.html#a6ea3b4a0033803dc206c7e104ab29ca8",
+"globals_defs_t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

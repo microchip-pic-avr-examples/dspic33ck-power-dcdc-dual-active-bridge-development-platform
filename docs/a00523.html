@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: CAN1_FIFO_INFO Struct Reference</title>
+<title>Dual Active Bridge Development Board: WDT Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,82 +137,167 @@ $(document).ready(function(){initNavTree('a00523.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">CAN1_FIFO_INFO Struct Reference</div></div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">WDT Driver<div class="ingroups"><a class="el" href="a00513.html">MPLABX Configurator Driver Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Watchdog Timer Driver using dsPIC MCUs.  
+<a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CAN1_FIFO_INFO:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for WDT Driver:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00521.svg" width="131" height="123"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00523.svg" width="292" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Data Fields</h2></td></tr>
-<tr class="memitem:a6c93cd7da46684a3bb95c08d4768619a" id="r_a6c93cd7da46684a3bb95c08d4768619a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#a6c93cd7da46684a3bb95c08d4768619a">payloadSize</a></td></tr>
-<tr class="separator:a6c93cd7da46684a3bb95c08d4768619a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69ab523116d5c3f2a58f7f3a5a807643" id="r_a69ab523116d5c3f2a58f7f3a5a807643"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#a69ab523116d5c3f2a58f7f3a5a807643">msgDeepSize</a></td></tr>
-<tr class="separator:a69ab523116d5c3f2a58f7f3a5a807643"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1802f0aae06d874726cd3522625999" id="r_abc1802f0aae06d874726cd3522625999"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#abc1802f0aae06d874726cd3522625999">address</a></td></tr>
-<tr class="separator:abc1802f0aae06d874726cd3522625999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga9fe59f55f06cfb2df71dcf9f0b64cd3c" id="r_ga9fe59f55f06cfb2df71dcf9f0b64cd3c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga9fe59f55f06cfb2df71dcf9f0b64cd3c">WATCHDOG_CLR_KEY</a>&#160;&#160;&#160;0x5743</td></tr>
+<tr class="memdesc:ga9fe59f55f06cfb2df71dcf9f0b64cd3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro holds the key value to clear Watchdog Timer (WDT)  <br /></td></tr>
+<tr class="separator:ga9fe59f55f06cfb2df71dcf9f0b64cd3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaf945fced45ce9cc9a9922d8f31e09e67" id="r_gaf945fced45ce9cc9a9922d8f31e09e67"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#gaf945fced45ce9cc9a9922d8f31e09e67">WATCHDOG_TimerSoftwareEnable</a> (void)</td></tr>
+<tr class="memdesc:gaf945fced45ce9cc9a9922d8f31e09e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function is used to enable the Watchdog Timer (WDT) using the software bit.  <br /></td></tr>
+<tr class="separator:gaf945fced45ce9cc9a9922d8f31e09e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga74fb697367e441a6ac0a56e33794ebc4" id="r_ga74fb697367e441a6ac0a56e33794ebc4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga74fb697367e441a6ac0a56e33794ebc4">WATCHDOG_TimerSoftwareDisable</a> (void)</td></tr>
+<tr class="memdesc:ga74fb697367e441a6ac0a56e33794ebc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function is used to disable the Watchdog Timer (WDT) using the software bit.  <br /></td></tr>
+<tr class="separator:ga74fb697367e441a6ac0a56e33794ebc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0709c01950447ea286ea4538174a7a82" id="r_ga0709c01950447ea286ea4538174a7a82"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga0709c01950447ea286ea4538174a7a82">WATCHDOG_TimerClear</a> (void)</td></tr>
+<tr class="memdesc:ga0709c01950447ea286ea4538174a7a82"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function is used to clear the Watchdog Timer (WDT)  <br /></td></tr>
+<tr class="separator:ga0709c01950447ea286ea4538174a7a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00152">152</a> of file <a class="el" href="a00071_source.html">can1.c</a>.</p>
-</div><h2 class="groupheader">Field Documentation</h2>
-<a id="abc1802f0aae06d874726cd3522625999" name="abc1802f0aae06d874726cd3522625999"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc1802f0aae06d874726cd3522625999">&#9670;&#160;</a></span>address</h2>
+<div class="fragment"></div><!-- fragment --><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga9fe59f55f06cfb2df71dcf9f0b64cd3c" name="ga9fe59f55f06cfb2df71dcf9f0b64cd3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9fe59f55f06cfb2df71dcf9f0b64cd3c">&#9670;&#160;</a></span>WATCHDOG_CLR_KEY</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t* address</td>
+          <td class="memname">#define WATCHDOG_CLR_KEY&#160;&#160;&#160;0x5743</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00156">156</a> of file <a class="el" href="a00071_source.html">can1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00048">48</a> of file <a class="el" href="a00203_source.html">watchdog.h</a>.</p>
 
 </div>
 </div>
-<a id="a69ab523116d5c3f2a58f7f3a5a807643" name="a69ab523116d5c3f2a58f7f3a5a807643"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69ab523116d5c3f2a58f7f3a5a807643">&#9670;&#160;</a></span>msgDeepSize</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga0709c01950447ea286ea4538174a7a82" name="ga0709c01950447ea286ea4538174a7a82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0709c01950447ea286ea4538174a7a82">&#9670;&#160;</a></span>WATCHDOG_TimerClear()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t msgDeepSize</td>
+          <td class="memname">static void WATCHDOG_TimerClear </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00155">155</a> of file <a class="el" href="a00071_source.html">can1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00078">78</a> of file <a class="el" href="a00203_source.html">watchdog.h</a>.</p>
 
 </div>
 </div>
-<a id="a6c93cd7da46684a3bb95c08d4768619a" name="a6c93cd7da46684a3bb95c08d4768619a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c93cd7da46684a3bb95c08d4768619a">&#9670;&#160;</a></span>payloadSize</h2>
+<a id="ga74fb697367e441a6ac0a56e33794ebc4" name="ga74fb697367e441a6ac0a56e33794ebc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga74fb697367e441a6ac0a56e33794ebc4">&#9670;&#160;</a></span>WATCHDOG_TimerSoftwareDisable()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t payloadSize</td>
+          <td class="memname">static void WATCHDOG_TimerSoftwareDisable </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00154">154</a> of file <a class="el" href="a00071_source.html">can1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00067">67</a> of file <a class="el" href="a00203_source.html">watchdog.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dab-pwm-configuration.X/mcc_generated_files/can/src/<a class="el" href="a00071_source.html">can1.c</a></li>
-</ul>
+<a id="gaf945fced45ce9cc9a9922d8f31e09e67" name="gaf945fced45ce9cc9a9922d8f31e09e67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf945fced45ce9cc9a9922d8f31e09e67">&#9670;&#160;</a></span>WATCHDOG_TimerSoftwareEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void WATCHDOG_TimerSoftwareEnable </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00203_source.html#l00056">56</a> of file <a class="el" href="a00203_source.html">watchdog.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

@@ -1,15 +1,14 @@
 var a00539 =
 [
-    [ "CalculateBufferStart", "a00539.html#a01e09543f212af0233ff01a10f19ca9c", null ],
-    [ "CalculateProgramStart", "a00539.html#a27390f310caf979c736f4cfc0debb9e5", null ],
-    [ "CalculationIsDone", "a00539.html#ad56e3f501b27743a8d2a807f32ea5c09", null ],
-    [ "CalculationResultGet", "a00539.html#a81659c7e4085008f82fb1314f0b8057b", null ],
-    [ "CalculationResultRawGet", "a00539.html#ae6a4f4b9210ad97240e5fee999581c19", null ],
-    [ "CalculationResultReverseGet", "a00539.html#ab6c8949cb8ea4cf3ff39fbfe503bd119", null ],
-    [ "CalculationResultXORGet", "a00539.html#ac54c3bd7b6d876e1fcb5f5cbc69e67fb", null ],
-    [ "Deinitialize", "a00539.html#ab6aa2863d2196e9f95f70fde91049ee6", null ],
-    [ "EventCallbackRegister", "a00539.html#a230052648485a0338d60dcc9bf109a8f", null ],
-    [ "Initialize", "a00539.html#afea2a7e78ccb7643d694c4bd7fa2ed5f", null ],
-    [ "SeedSet", "a00539.html#a6bda9bfa110dad0b0cce7cb9dd629d35", null ],
-    [ "Tasks", "a00539.html#a1cd6ba5da58bb0185a3939d1fdcd25f5", null ]
+    [ "ChannelCallbackRegister", "a00539.html#abc2510a2a435fd0c5c37a56cfa732e47", null ],
+    [ "ChannelTasks", "a00539.html#ae3fe7b48113a92f320d89727df0c9b7c", null ],
+    [ "ComparatorCallbackRegister", "a00539.html#a292e0f89d364c1053064f1e282b5acf5", null ],
+    [ "ComparatorTasks", "a00539.html#a97c7ef7d4e053ae1a9c75b85dec70f07", null ],
+    [ "CorePowerEnable", "a00539.html#a415ad59e4b8144f1c758db5556932abf", null ],
+    [ "IndividualChannelInterruptDisable", "a00539.html#a9687d57a6b8c72e55484c40887a26314", null ],
+    [ "IndividualChannelInterruptEnable", "a00539.html#a3ae084298dffecf868a2180d4111f815", null ],
+    [ "IndividualChannelInterruptFlagClear", "a00539.html#a397992f7ede7840d43d2251a6d3c39fb", null ],
+    [ "IndividualChannelInterruptPrioritySet", "a00539.html#adbbcbe450cc0f43690a599b11dbc8a0a", null ],
+    [ "PWMTriggerSourceSet", "a00539.html#a41eb48477f4c5e0e256f8a237535464a", null ],
+    [ "SharedCorePowerEnable", "a00539.html#aa90dfb603622ed6295c16e283d542f40", null ]
 ];

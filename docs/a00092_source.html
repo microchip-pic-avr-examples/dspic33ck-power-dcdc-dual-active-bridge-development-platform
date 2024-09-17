@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/cmp/cmp_interface.h Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/cmp/cmp3.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,10 +136,10 @@ $(document).ready(function(){initNavTree('a00092_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">cmp_interface.h</div></div>
+  <div class="headertitle"><div class="title">cmp3.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="a00092.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">© [2024] Microchip Technology Inc. and its subsidiaries.</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span> </div>
@@ -161,63 +161,67 @@ $(document).ready(function(){initNavTree('a00092_source.html',''); initResizable
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    THIS SOFTWARE.</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#ifndef CMP_INTERFACE_H</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define CMP_INTERFACE_H</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#ifndef CMP3_H</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define CMP3_H</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// Section: Included Files</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">// Section: Data Type Definitions</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  </div>
-<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="a00531.html">   54</a></span><span class="keyword">struct </span><a class="code hl_struct" href="a00531.html">DAC_DC_INTERFACE</a></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="a00531.html#a04c571590cd163f474c876943a39e0f1">   56</a></span>    void (*<a class="code hl_variable" href="a00531.html#a04c571590cd163f474c876943a39e0f1">Enable</a>)(void);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="a00531.html#a7fd5c6c55c6a76c4d35e3f81609fab87">   59</a></span>    void (*<a class="code hl_variable" href="a00531.html#a7fd5c6c55c6a76c4d35e3f81609fab87">Disable</a>)(void);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="a00531.html#a3875e8f2c2cdcb91979f704d48db76b0">   62</a></span>    void (*<a class="code hl_variable" href="a00531.html#a3875e8f2c2cdcb91979f704d48db76b0">DataWrite</a>)(<span class="keywordtype">size_t</span> value);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
-</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="foldopen" id="foldopen00072" data-start="{" data-end="};">
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="a00535.html">   72</a></span><span class="keyword">struct </span><a class="code hl_struct" href="a00535.html">CMP_INTERFACE</a></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>{</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="a00535.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">   74</a></span>    void (*<a class="code hl_variable" href="a00535.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">Initialize</a>)(void);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="a00535.html#ab6aa2863d2196e9f95f70fde91049ee6">   77</a></span>    void (*<a class="code hl_variable" href="a00535.html#ab6aa2863d2196e9f95f70fde91049ee6">Deinitialize</a>)(void);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="a00535.html#a04c571590cd163f474c876943a39e0f1">   80</a></span>    void (*<a class="code hl_variable" href="a00535.html#a04c571590cd163f474c876943a39e0f1">Enable</a>)(void);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="a00535.html#a7fd5c6c55c6a76c4d35e3f81609fab87">   83</a></span>    void (*<a class="code hl_variable" href="a00535.html#a7fd5c6c55c6a76c4d35e3f81609fab87">Disable</a>)(void);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="a00535.html#a24f27219b70a98575c30c84585a0456c">   86</a></span>    bool (*<a class="code hl_variable" href="a00535.html#a24f27219b70a98575c30c84585a0456c">StatusGet</a>)(void);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="a00535.html#aad49cd423e587e4688bad864c2420148">   89</a></span>    void (*<a class="code hl_variable" href="a00535.html#aad49cd423e587e4688bad864c2420148">EventCallbackRegister</a>)(void (*handler)(void));</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="a00535.html#a1cd6ba5da58bb0185a3939d1fdcd25f5">   93</a></span>    void (*<a class="code hl_variable" href="a00535.html#a1cd6ba5da58bb0185a3939d1fdcd25f5">Tasks</a>)(void);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="a00535.html#a6d9887579eb5b51f6f5f9df819fa0538">   96</a></span>    <span class="keyword">const</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00531.html">DAC_DC_INTERFACE</a> *<a class="code hl_variable" href="a00535.html#a6d9887579eb5b51f6f5f9df819fa0538">cmp_dac_dc_interface</a>;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>};</div>
-</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aa00531_html"><div class="ttname"><a href="a00531.html">DAC_DC_INTERFACE</a></div><div class="ttdoc">Structure containing the function pointers of DAC driver in DC mode.</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00054">cmp_interface.h:55</a></div></div>
-<div class="ttc" id="aa00531_html_a04c571590cd163f474c876943a39e0f1"><div class="ttname"><a href="a00531.html#a04c571590cd163f474c876943a39e0f1">DAC_DC_INTERFACE::Enable</a></div><div class="ttdeci">void(* Enable)(void)</div><div class="ttdoc">Pointer to CMPx_DACEnable e.g. CMP1_DACEnable.</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00056">cmp_interface.h:56</a></div></div>
-<div class="ttc" id="aa00531_html_a3875e8f2c2cdcb91979f704d48db76b0"><div class="ttname"><a href="a00531.html#a3875e8f2c2cdcb91979f704d48db76b0">DAC_DC_INTERFACE::DataWrite</a></div><div class="ttdeci">void(* DataWrite)(size_t value)</div><div class="ttdoc">Pointer to CMPx_DACDataWrite e.g. CMP1_DACDataWrite.</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00062">cmp_interface.h:62</a></div></div>
-<div class="ttc" id="aa00531_html_a7fd5c6c55c6a76c4d35e3f81609fab87"><div class="ttname"><a href="a00531.html#a7fd5c6c55c6a76c4d35e3f81609fab87">DAC_DC_INTERFACE::Disable</a></div><div class="ttdeci">void(* Disable)(void)</div><div class="ttdoc">Pointer to CMPx_DACDisable e.g. CMP1_DACDisable.</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00059">cmp_interface.h:59</a></div></div>
-<div class="ttc" id="aa00535_html"><div class="ttname"><a href="a00535.html">CMP_INTERFACE</a></div><div class="ttdoc">Structure containing the function pointers of CMP driver.</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00072">cmp_interface.h:73</a></div></div>
-<div class="ttc" id="aa00535_html_a04c571590cd163f474c876943a39e0f1"><div class="ttname"><a href="a00535.html#a04c571590cd163f474c876943a39e0f1">CMP_INTERFACE::Enable</a></div><div class="ttdeci">void(* Enable)(void)</div><div class="ttdoc">Pointer to CMPx_Enable e.g. CMP1_Enable.</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00080">cmp_interface.h:80</a></div></div>
-<div class="ttc" id="aa00535_html_a1cd6ba5da58bb0185a3939d1fdcd25f5"><div class="ttname"><a href="a00535.html#a1cd6ba5da58bb0185a3939d1fdcd25f5">CMP_INTERFACE::Tasks</a></div><div class="ttdeci">void(* Tasks)(void)</div><div class="ttdoc">Pointer to CMPx_Tasks e.g. CMP1_Tasks (Supported only in polling mode)</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00093">cmp_interface.h:93</a></div></div>
-<div class="ttc" id="aa00535_html_a24f27219b70a98575c30c84585a0456c"><div class="ttname"><a href="a00535.html#a24f27219b70a98575c30c84585a0456c">CMP_INTERFACE::StatusGet</a></div><div class="ttdeci">bool(* StatusGet)(void)</div><div class="ttdoc">Pointer to CMPx_StatusGet e.g. CMP1_StatusGet.</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00086">cmp_interface.h:86</a></div></div>
-<div class="ttc" id="aa00535_html_a6d9887579eb5b51f6f5f9df819fa0538"><div class="ttname"><a href="a00535.html#a6d9887579eb5b51f6f5f9df819fa0538">CMP_INTERFACE::cmp_dac_dc_interface</a></div><div class="ttdeci">const struct DAC_DC_INTERFACE * cmp_dac_dc_interface</div><div class="ttdoc">Pointer to DAC_DC_INTERFACE.</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00096">cmp_interface.h:96</a></div></div>
-<div class="ttc" id="aa00535_html_a7fd5c6c55c6a76c4d35e3f81609fab87"><div class="ttname"><a href="a00535.html#a7fd5c6c55c6a76c4d35e3f81609fab87">CMP_INTERFACE::Disable</a></div><div class="ttdeci">void(* Disable)(void)</div><div class="ttdoc">Pointer to CMPx_Disable e.g. CMP1_Disable.</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00083">cmp_interface.h:83</a></div></div>
-<div class="ttc" id="aa00535_html_aad49cd423e587e4688bad864c2420148"><div class="ttname"><a href="a00535.html#aad49cd423e587e4688bad864c2420148">CMP_INTERFACE::EventCallbackRegister</a></div><div class="ttdeci">void(* EventCallbackRegister)(void(*handler)(void))</div><div class="ttdoc">Pointer to CMPx_EventCallbackRegister e.g. CMP1_EventCallbackRegister.</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00089">cmp_interface.h:89</a></div></div>
-<div class="ttc" id="aa00535_html_ab6aa2863d2196e9f95f70fde91049ee6"><div class="ttname"><a href="a00535.html#ab6aa2863d2196e9f95f70fde91049ee6">CMP_INTERFACE::Deinitialize</a></div><div class="ttdeci">void(* Deinitialize)(void)</div><div class="ttdoc">Pointer to CMPx_Deinitialize e.g. CMP1_Deinitialize.</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00077">cmp_interface.h:77</a></div></div>
-<div class="ttc" id="aa00535_html_afea2a7e78ccb7643d694c4bd7fa2ed5f"><div class="ttname"><a href="a00535.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">CMP_INTERFACE::Initialize</a></div><div class="ttdeci">void(* Initialize)(void)</div><div class="ttdoc">Pointer to CMPx_Initialize e.g. CMP1_Initialize.</div><div class="ttdef"><b>Definition</b> <a href="a00092_source.html#l00074">cmp_interface.h:74</a></div></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &quot;cmp_interface.h&quot;</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">// Section: Data Type Definitions</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00571.html">CMP_INTERFACE</a> <a class="code hl_variable" href="a00517.html#ga8d83dcb02dc2386593cfef2b3a4634e8">CMP_IPRI_SC</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="a00517.html#gab6e9410546f7aab50a5d27a81d0989f6">   65</a></span><span class="preprocessor">#define CMP_IPRI_SC_Initialize CMP3_Initialize</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="a00517.html#gac6490ae4382f1ab9d4f4218f94c710f8">   70</a></span><span class="preprocessor">#define CMP_IPRI_SC_Deinitialize CMP3_Deinitialize</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="a00517.html#ga610ba68613c7350381de4d3503a2312a">   75</a></span><span class="preprocessor">#define CMP_IPRI_SC_StatusGet CMP3_StatusGet</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="a00517.html#ga97848def7224eb7036b79df287c8162d">   80</a></span><span class="preprocessor">#define CMP_IPRI_SC_Enable CMP3_Enable</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="a00517.html#gac44d6913fe24ad793896af83503a8bc3">   85</a></span><span class="preprocessor">#define CMP_IPRI_SC_Disable CMP3_Disable</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="a00517.html#ga596f523f69486e7c350097edc2ccce89">   90</a></span><span class="preprocessor">#define CMP_IPRI_SC_DACEnable CMP3_DACEnable</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="a00517.html#ga4c7e41aa56773e036ae6ffee1335b5fd">   95</a></span><span class="preprocessor">#define CMP_IPRI_SC_DACDisable CMP3_DACDisable</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="a00517.html#ga427c1e93b73f03b0f62bc6c4fb252dd0">  100</a></span><span class="preprocessor">#define CMP_IPRI_SC_DACDataWrite CMP3_DACDataWrite</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#define CMP_IPRI_SC_DACDisable CMP3_DACDisable</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="a00517.html#ga4144d139fc97c70c341f61433011e1d2">  110</a></span><span class="preprocessor">#define CMP_IPRI_SC_EventCallbackRegister CMP3_EventCallbackRegister</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">// Section: CMP3 Module APIs</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00517.html#gad18bcc8357cf844e1e1526f100f81154">CMP3_Initialize</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00517.html#ga9f7e809f9b5addaa7971b43504fecd73">CMP3_Deinitialize</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keywordtype">bool</span> <a class="code hl_function" href="a00517.html#ga1f8da3d5ca79eeff2f2d0af0cfe7964a">CMP3_StatusGet</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00517.html#ga31429eb81465c3430d254b6649622c74">CMP3_Enable</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00517.html#ga6fd939135087eca4400ba73172acd6f4">CMP3_Disable</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00517.html#gadf91ce0ea5a1ba21daeb96fa3e14fea3">CMP3_DACEnable</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00517.html#gae8fc6e741033d7c25cce81d0ccdfd7b8">CMP3_DACDisable</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00517.html#ga9e6f3ad2d6195a668dd0f5acea2c65fc">CMP3_DACDataWrite</a>(<span class="keywordtype">size_t</span> value);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00517.html#ga0d7c1a0ccd35767078e0a677eff7e5d9">CMP3_EventCallbackRegister</a>(<span class="keywordtype">void</span> (*handler)(<span class="keywordtype">void</span>));</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00517.html#ga03c26aa9550cc743bfe7997ece67d858">CMP3_EventCallback</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="preprocessor">#endif </span><span class="comment">//CMP3_H</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="ttc" id="aa00517_html_ga03c26aa9550cc743bfe7997ece67d858"><div class="ttname"><a href="a00517.html#ga03c26aa9550cc743bfe7997ece67d858">CMP3_EventCallback</a></div><div class="ttdeci">void CMP3_EventCallback(void)</div><div class="ttdoc">This is the default callback with weak attribute. The user can override and implement the default cal...</div><div class="ttdef"><b>Definition</b> <a href="a00104_source.html#l00155">cmp3.c:155</a></div></div>
+<div class="ttc" id="aa00517_html_ga0d7c1a0ccd35767078e0a677eff7e5d9"><div class="ttname"><a href="a00517.html#ga0d7c1a0ccd35767078e0a677eff7e5d9">CMP3_EventCallbackRegister</a></div><div class="ttdeci">void CMP3_EventCallbackRegister(void(*handler)(void))</div><div class="ttdoc">This function can be used to override default callback and to define custom callback for CMP3 Event e...</div><div class="ttdef"><b>Definition</b> <a href="a00104_source.html#l00147">cmp3.c:147</a></div></div>
+<div class="ttc" id="aa00517_html_ga1f8da3d5ca79eeff2f2d0af0cfe7964a"><div class="ttname"><a href="a00517.html#ga1f8da3d5ca79eeff2f2d0af0cfe7964a">CMP3_StatusGet</a></div><div class="ttdeci">bool CMP3_StatusGet(void)</div><div class="ttdoc">Returns the comparator output status.</div><div class="ttdef"><b>Definition</b> <a href="a00104_source.html#l00117">cmp3.c:117</a></div></div>
+<div class="ttc" id="aa00517_html_ga31429eb81465c3430d254b6649622c74"><div class="ttname"><a href="a00517.html#ga31429eb81465c3430d254b6649622c74">CMP3_Enable</a></div><div class="ttdeci">void CMP3_Enable(void)</div><div class="ttdoc">Enables the common DAC module.</div><div class="ttdef"><b>Definition</b> <a href="a00104_source.html#l00122">cmp3.c:122</a></div></div>
+<div class="ttc" id="aa00517_html_ga6fd939135087eca4400ba73172acd6f4"><div class="ttname"><a href="a00517.html#ga6fd939135087eca4400ba73172acd6f4">CMP3_Disable</a></div><div class="ttdeci">void CMP3_Disable(void)</div><div class="ttdoc">Disables the common DAC module.</div><div class="ttdef"><b>Definition</b> <a href="a00104_source.html#l00127">cmp3.c:127</a></div></div>
+<div class="ttc" id="aa00517_html_ga8d83dcb02dc2386593cfef2b3a4634e8"><div class="ttname"><a href="a00517.html#ga8d83dcb02dc2386593cfef2b3a4634e8">CMP_IPRI_SC</a></div><div class="ttdeci">const struct CMP_INTERFACE CMP_IPRI_SC</div><div class="ttdoc">Structure object of type CMP_INTERFACE with the custom name given by the user in the Melody Driver Us...</div><div class="ttdef"><b>Definition</b> <a href="a00104_source.html#l00055">cmp3.c:55</a></div></div>
+<div class="ttc" id="aa00517_html_ga9e6f3ad2d6195a668dd0f5acea2c65fc"><div class="ttname"><a href="a00517.html#ga9e6f3ad2d6195a668dd0f5acea2c65fc">CMP3_DACDataWrite</a></div><div class="ttdeci">void CMP3_DACDataWrite(size_t value)</div><div class="ttdoc">CMP DAC Data write to register.</div><div class="ttdef"><b>Definition</b> <a href="a00104_source.html#l00142">cmp3.c:142</a></div></div>
+<div class="ttc" id="aa00517_html_ga9f7e809f9b5addaa7971b43504fecd73"><div class="ttname"><a href="a00517.html#ga9f7e809f9b5addaa7971b43504fecd73">CMP3_Deinitialize</a></div><div class="ttdeci">void CMP3_Deinitialize(void)</div><div class="ttdoc">Deinitializes the CMP3 to POR values.</div><div class="ttdef"><b>Definition</b> <a href="a00104_source.html#l00095">cmp3.c:95</a></div></div>
+<div class="ttc" id="aa00517_html_gad18bcc8357cf844e1e1526f100f81154"><div class="ttname"><a href="a00517.html#gad18bcc8357cf844e1e1526f100f81154">CMP3_Initialize</a></div><div class="ttdeci">void CMP3_Initialize(void)</div><div class="ttdoc">Initialize the CMP3 module.</div><div class="ttdef"><b>Definition</b> <a href="a00104_source.html#l00069">cmp3.c:69</a></div></div>
+<div class="ttc" id="aa00517_html_gadf91ce0ea5a1ba21daeb96fa3e14fea3"><div class="ttname"><a href="a00517.html#gadf91ce0ea5a1ba21daeb96fa3e14fea3">CMP3_DACEnable</a></div><div class="ttdeci">void CMP3_DACEnable(void)</div><div class="ttdoc">Enables the individual DAC module.</div><div class="ttdef"><b>Definition</b> <a href="a00104_source.html#l00132">cmp3.c:132</a></div></div>
+<div class="ttc" id="aa00517_html_gae8fc6e741033d7c25cce81d0ccdfd7b8"><div class="ttname"><a href="a00517.html#gae8fc6e741033d7c25cce81d0ccdfd7b8">CMP3_DACDisable</a></div><div class="ttdeci">void CMP3_DACDisable(void)</div><div class="ttdoc">Disables the individual DAC module.</div><div class="ttdef"><b>Definition</b> <a href="a00104_source.html#l00137">cmp3.c:137</a></div></div>
+<div class="ttc" id="aa00571_html"><div class="ttname"><a href="a00571.html">CMP_INTERFACE</a></div><div class="ttdoc">Structure containing the function pointers of CMP driver.</div><div class="ttdef"><b>Definition</b> <a href="a00095_source.html#l00072">cmp_interface.h:73</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

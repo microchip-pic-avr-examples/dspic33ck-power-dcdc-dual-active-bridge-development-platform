@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/driver/mcc_extension/drv_custom_config_pwm.h Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/driver/mcc_extension/drv_custom_config_adc.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,45 +136,55 @@ $(document).ready(function(){initNavTree('a00398_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">drv_custom_config_pwm.h</div></div>
+  <div class="headertitle"><div class="title">drv_custom_config_adc.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* </span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * File:   drv_mcc_config_pwm.h</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * File:   drv_custom_config_adc.h</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Author: M15690</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Created on 10 July 2024, 14:50</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Created on September 10, 2024, 9:58 AM</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DRV_CONFIG_CUSTOM_PWM_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DRV_CONFIG_CUSTOM_PWM_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DRV_CUSTOM_CONFIG_ADC_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DRV_CUSTOM_CONFIG_ADC_H</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;device/pwrctrl/dev_pwrctrl_typedef.h&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;drv_mcc_extension_pwm.h&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;config/macros.h&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="a00128.html">pwm_hs/pwm.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> DRV_Config_Custom_PWM(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="comment">//PWMs needs to be re-triggerable for cascaded PWM scheme</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    PWM_Trigger_Mode(<a class="code hl_enumvalue" href="a00137.html#aa552a948d5b08cc9a8345234b82fe5a8a486f4c61c953939ade26a1d48f57197c">PWM_PRI_1</a>, PWM_TRIG_MODE_RETRIGGERABLE);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    PWM_Trigger_Mode(<a class="code hl_enumvalue" href="a00137.html#aa552a948d5b08cc9a8345234b82fe5a8a2d038a5a03cabafe601e3565cd701b58">PWM_SEC_1</a>, PWM_TRIG_MODE_RETRIGGERABLE);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    PWM_Trigger_Mode(<a class="code hl_enumvalue" href="a00137.html#aa552a948d5b08cc9a8345234b82fe5a8ad5f68a24115f48485c95e9d0f8cb4f1f">PWM_PRI_2</a>, PWM_TRIG_MODE_RETRIGGERABLE);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    PWM_Trigger_Mode(<a class="code hl_enumvalue" href="a00137.html#aa552a948d5b08cc9a8345234b82fe5a8ac2ed50db261be046cb6758a72f9fcda9">PWM_SEC_2</a>, PWM_TRIG_MODE_RETRIGGERABLE);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">// PWM Swap output based on the hardware</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    PWM_Swap_PWMxL_and_PWMxH(<a class="code hl_enumvalue" href="a00137.html#aa552a948d5b08cc9a8345234b82fe5a8ad5f68a24115f48485c95e9d0f8cb4f1f">PWM_PRI_2</a>, <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    PWM_Swap_PWMxL_and_PWMxH(<a class="code hl_enumvalue" href="a00137.html#aa552a948d5b08cc9a8345234b82fe5a8ac2ed50db261be046cb6758a72f9fcda9">PWM_SEC_2</a>, <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif  </span><span class="comment">/* DRV_MCC_CONFIG_PWM_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="ttc" id="aa00128_html"><div class="ttname"><a href="a00128.html">pwm.h</a></div><div class="ttdoc">This is the generated driver header file for the PWM driver.</div></div>
-<div class="ttc" id="aa00137_html_aa552a948d5b08cc9a8345234b82fe5a8a2d038a5a03cabafe601e3565cd701b58"><div class="ttname"><a href="a00137.html#aa552a948d5b08cc9a8345234b82fe5a8a2d038a5a03cabafe601e3565cd701b58">PWM_SEC_1</a></div><div class="ttdeci">@ PWM_SEC_1</div><div class="ttdef"><b>Definition</b> <a href="a00137_source.html#l00056">pwm_hs_types.h:56</a></div></div>
-<div class="ttc" id="aa00137_html_aa552a948d5b08cc9a8345234b82fe5a8a486f4c61c953939ade26a1d48f57197c"><div class="ttname"><a href="a00137.html#aa552a948d5b08cc9a8345234b82fe5a8a486f4c61c953939ade26a1d48f57197c">PWM_PRI_1</a></div><div class="ttdeci">@ PWM_PRI_1</div><div class="ttdef"><b>Definition</b> <a href="a00137_source.html#l00055">pwm_hs_types.h:55</a></div></div>
-<div class="ttc" id="aa00137_html_aa552a948d5b08cc9a8345234b82fe5a8ac2ed50db261be046cb6758a72f9fcda9"><div class="ttname"><a href="a00137.html#aa552a948d5b08cc9a8345234b82fe5a8ac2ed50db261be046cb6758a72f9fcda9">PWM_SEC_2</a></div><div class="ttdeci">@ PWM_SEC_2</div><div class="ttdef"><b>Definition</b> <a href="a00137_source.html#l00058">pwm_hs_types.h:58</a></div></div>
-<div class="ttc" id="aa00137_html_aa552a948d5b08cc9a8345234b82fe5a8ad5f68a24115f48485c95e9d0f8cb4f1f"><div class="ttname"><a href="a00137.html#aa552a948d5b08cc9a8345234b82fe5a8ad5f68a24115f48485c95e9d0f8cb4f1f">PWM_PRI_2</a></div><div class="ttdeci">@ PWM_PRI_2</div><div class="ttdef"><b>Definition</b> <a href="a00137_source.html#l00057">pwm_hs_types.h:57</a></div></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="a00047.html">adc/adc1.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;drv_mcc_extension_adc.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">// ADC channels numbers for shared ADC</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#define ADC_CHANNEL_VSEC        (2)</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define ADC_CHANNEL_IPRI_CT     (7)</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define ADC_CHANNEL_VPRI        (10)</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define ADC_CHANNEL_TEMP        (14)</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define ADC_CHANNEL_VRAIL_5V    (19)</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">// ADC channel numbers for dedicated ADC</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#define ADC_CHANNEL_ISEC_CT     (0)</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define ADC_CHANNEL_ISEC_AVG    (1)</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">static</span> __inline__ <span class="keywordtype">void</span> DRV_Config_Custom_ADC(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// use ADC filter 1 for primary voltage averaging</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    ADC_Filter_Mode(0, ADC_FILTER_MODE_AVERAGING);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    ADC_Filter_Averaging(0, ADC_FILTER_OVRSAM_AVG_4x);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    ADC_Filter_Input(0, ADC_CHANNEL_VPRI);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    ADC_Filter_Enable(0, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="comment">// use ADC filter 1 for secondary voltage averaging</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    ADC_Filter_Mode(1, ADC_FILTER_MODE_AVERAGING);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    ADC_Filter_Averaging(1, ADC_FILTER_OVRSAM_AVG_4x);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    ADC_Filter_Input(1, ADC_CHANNEL_VSEC);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    ADC_Filter_Enable(1, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>}</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif  </span><span class="comment">/* DRV_CUSTOM_CONFIG_ADC_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="a00047.html">adc1.h</a></div><div class="ttdoc">This is the generated driver header file for the ADC1 driver.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
