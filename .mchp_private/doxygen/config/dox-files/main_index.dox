@@ -60,52 +60,71 @@
 	/**
 	@defgroup	dev-layer-pcontrol Power Control
 	@ingroup	dev-layer
-	@brief		The Power Control layer contains the state machine managing the power converter
+	@brief		The Power Control layer contains the state machine managing the power converter.
+	@details	Power control layer provides a wide function in power supply applications. 
+	 It has something to do with the control, regulation and monitoring of the power supply. 
+	 Moreover, it sets the peripheral configurations needed for a particular power supply topology 
+	 as required by the application, as well as sets parameters and performs operations for digital 
+	 power control. 
 	*/
 
-
 		/**
-		@defgroup   dev-pwrctrl Configuration
+		@defgroup   dev-pwrctrl Power Control Configuration
 		@ingroup    dev-layer-pcontrol
 		@brief      Contains Power Control Configuration 
 		@details    This document includes the power control initialization and execution functions.
 		*/
 
 		/**
-		@defgroup   dev-pwrctrl-isr Interrupt Routine
+		@defgroup   dev-pwrctrl-isr Interrupt Routine and Functions
 		@ingroup    dev-layer-pcontrol
-		@brief      Contains the interrupt function
+		@brief      Contains the interrupt routine and other functions called in the interrupt
 		@details    This document includes the interrupt function in power control.
-		*/
-
-		/**
-		@defgroup   dev-pwrctrl-isr-ext Extension File
-		@ingroup    dev-layer-pcontrol
-		@brief      
-		@details    
 		*/
 
 		/**
 		@defgroup   dev-pwrctrl-pwm PWM Configuration
 		@ingroup    dev-layer-pcontrol
-		@brief      
-		@details    
+		@brief      Contains functions related to PWM properties
+		@details    This document includes the power control PWM distribution and other PWM functionalities 
+		 relevant to the application.
 		*/
 		
 		/**
 		@defgroup   dev-pwrctrl-sm State Machine
 		@ingroup    dev-layer-pcontrol
-		@brief      
-		@details    
+		@brief      Contains the state machine of the power control 
+		@details    This document covers the state machine execution.
+		*/
+		
+		/**
+		@defgroup   dev-pwrctrl-dcdt Control Loop Configuration
+		@ingroup    dev-layer-pcontrol
+		@brief      Contains the control loop configuration and initialization functions. 
+		@details    This document covers the functions that initialize the control loop using DCDT tool. 
 		*/
 
 		/**
-		@defgroup   dev-pwrctrl-utils Rename this
+		@defgroup   dev-pwrctrl-comm Power Control Communication Interface
 		@ingroup    dev-layer-pcontrol
-		@brief      
-		@details    
+		@brief      Contains functions use to interface to Graphical User Interface or Power Board Visualizer 
+		@details    This document covers the functions that sets or gets the power control properties relevant 
+		 to the Power Board Visualizer.
+		*/
+
+		/**
+		@defgroup   dev-pwrctrl-utils Useful Functions
+		@ingroup    dev-layer-pcontrol
+		@brief      Contains generic functions that is usable to the application
+		@details    This document covers some generic power control functions that the user can utilize while developing the application code.
 		*/
     	
+		/**
+		@defgroup   dev-pwrctrl-data-types Power Control Data Types
+		@ingroup    dev-layer-pcontrol
+		@brief      Contains the collection of power control data types
+		@details    This document covers all the data types used in power control application.
+		*/
 
 
 	/*----------------------------------------------------------------------------*/
@@ -115,20 +134,27 @@
 	@defgroup 	dev-layer-fault Fault Monitor
 	@ingroup 	dev-layer
 	@brief 		The Fault Handler is an independent firmware task which is used to define certain so-called Fault Objects
+	@details    Fault monitor is one of the vital components in creating different power supply applications. 
+	 It is responsible for the protection of power supply including the monitoring and handling of faults that 
+	 may be encountered while power supply is in operation. It is implemented as high-priority task included 
+	 in the real-time operating system. Thresholds are being set for voltage, current, and temperature level 
+	 that are being monitored if user-defined fault objects violate the minimum and maximum input and output 
+	 voltage and current, and maximum temperature level allowed. Once the fault monitor objects detect a fault, 
+	 this will trigger the fault responses and respond immediately.
 	*/
 	
 		/**
 		@defgroup   dev-fault Fault Configuration
 		@ingroup    dev-layer-fault
-		@brief      
-		@details    
+		@brief      Contains functions that initialize, execute and handles the power supply fault.
+		@details    This document covers the fault initialization, the fault execute function, and the fault handler. 
 		*/
 
 		/**
 		@defgroup   dev-fault-common Generic Fault Driver
 		@ingroup    dev-layer-fault
-		@brief      
-		@details    
+		@brief      Contains generic fault functions
+		@details    This document contains fault functions that handles different fault conditions and threshold.
 		*/
 	
 	/*----------------------------------------------------------------------------*/
@@ -193,8 +219,7 @@
 /*----------------------------------------------------------------------------*/
 /**
 @defgroup	os-layer Operating System Layer
-@brief		Contain functions and properties of the Real-Time Operating System including its
-			Boot Library, Core Layer and Exception Handlers.
+@brief		Contain functions and properties of the Operating System 
 */
 
 /*----------------------------------------------------------------------------*/

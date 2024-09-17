@@ -55,6 +55,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 // DOM-IGNORE-END
 
+/**
+ * @file smps_control.h     
+ * @ingroup dev-pwrctrl-dcdt   
+ * @brief Contains the DCDT generated functions and data types.    
+ */
+
 #ifndef _SMPS_CONTROL_H		// Guards against multiple inclusion
 #define _SMPS_CONTROL_H
 

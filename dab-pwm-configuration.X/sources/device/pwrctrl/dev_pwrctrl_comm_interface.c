@@ -22,7 +22,7 @@
 
 /**
  * @file      dev_pwrctrl_comm_interface.c
- * @ingroup   dev-pwrctrl   
+ * @ingroup   dev-pwrctrl-comm   
  * @brief     Contains power control interface with communication/gui.
  */
 
@@ -33,9 +33,10 @@ extern AVERAGING_t VsecAveraging;
 extern AVERAGING_t IsecAveraging;
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to set the power control State
- * @return  none
+ * @return  value   Control phase between primary and secondary bridge multiplied 
+ *  by 10 for more degrees resolution 
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetPhase_P2SDegree(void)
 {
@@ -43,9 +44,10 @@ uint16_t Dev_PwrCtrl_GetPhase_P2SDegree(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get some unit test debug purpose value. Do not use otherwise
- * @return  none
+ * @return  true Fault has been detected
+ * @return  false Fault is not detected
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_Get_DbgValue(void)
 {
@@ -54,7 +56,7 @@ uint16_t Dev_PwrCtrl_Get_DbgValue(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to set the power control State
  * @return  none
  **********************************************************************************/
@@ -64,7 +66,7 @@ void Dev_PwrCtrl_SetState(uint16_t reference)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to set the current controller reference
  * @return  none
  **********************************************************************************/
@@ -74,7 +76,7 @@ void Dev_PwrCtrl_SetIReference(uint16_t reference)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to set the secondary voltage controller reference
  * @return  none
  **********************************************************************************/
@@ -84,7 +86,7 @@ void Dev_PwrCtrl_SetVSecReference(uint16_t reference)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to set the power controller reference
  * @return  none
  **********************************************************************************/
@@ -94,7 +96,7 @@ void Dev_PwrCtrl_SetPwrReference(uint16_t reference)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to set the target period
  * @return  none
  **********************************************************************************/
@@ -104,7 +106,7 @@ void Dev_PwrCtrl_SetPeriodTarget(uint16_t reference)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to set the target PWM phase
  * @return  none
  **********************************************************************************/
@@ -113,7 +115,7 @@ void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference)
     dab.Pwm.PBVControlPhaseTarget = reference;
 }
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to set the target prim to sec phase which will steer other modulation
  * @return  none
  **********************************************************************************/
@@ -123,7 +125,7 @@ void Dev_PwrCtrl_SetP2SPhaseTarget(uint16_t reference)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to set the power control enable bit
  * @return  none
  **********************************************************************************/
@@ -133,7 +135,7 @@ void Dev_PwrCtrl_SetEnable(bool enable)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the raw ADC value for primary voltage
  * @return  none
  **********************************************************************************/
@@ -143,7 +145,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Vpri(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the raw ADC value for secondary voltage
  * @return  none
  **********************************************************************************/
@@ -153,7 +155,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Vsec(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the raw ADC value for primary current transformer current
  * @return  none
  **********************************************************************************/
@@ -163,7 +165,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the raw ADC value for secondary current transformer current
  * @return  none
  **********************************************************************************/
@@ -173,7 +175,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the raw ADC value for secondary average current
  * @return  none
  **********************************************************************************/
@@ -183,7 +185,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Isec_avg(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the raw ADC value for temperature
  * @return  none
  **********************************************************************************/
@@ -193,7 +195,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Temperature(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the raw ADC value for 5V rail
  * @return  none
  **********************************************************************************/
@@ -203,7 +205,7 @@ uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the PWM period
  * @return  none
  **********************************************************************************/
@@ -213,7 +215,7 @@ uint16_t Dev_PwrCtrl_Get_Period(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the PWM duty cycle
  * @return  none
  **********************************************************************************/
@@ -223,7 +225,7 @@ uint16_t Dev_PwrCtrl_Get_DutyCycle(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the current state of the state machine
  * @return  none
  **********************************************************************************/
@@ -233,7 +235,7 @@ uint16_t Dev_PwrCtrl_Get_State(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the power control status
  * @return  none
  **********************************************************************************/
@@ -243,7 +245,7 @@ uint16_t Dev_PwrCtrl_Get_Status(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the state of the power control enable bit
  * @return  none
  **********************************************************************************/
@@ -253,7 +255,7 @@ uint16_t Dev_PwrCtrl_Get_EnableFlag(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the PWM period target
  * @return  none
  **********************************************************************************/
@@ -263,7 +265,7 @@ uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the secondary power
  * @return  none
  **********************************************************************************/
@@ -272,7 +274,7 @@ uint16_t Dev_PwrCtrl_Get_SecPower(void)
     return(dab.Data.SecPower);
 }
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the average value of the sampled ADC for primary voltage
  * @return  none
  **********************************************************************************/
@@ -281,7 +283,7 @@ uint16_t Dev_PwrCtrl_GetAveraging_Vprim(void)
     return(VprimAveraging.AverageValue);
 }
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the average value of the sampled ADC for secondary voltage
  * @return  none
  **********************************************************************************/
@@ -291,7 +293,7 @@ uint16_t Dev_PwrCtrl_GetAveraging_Vsec(void)
 }
 
 /*********************************************************************************
- * @ingroup dev-pwrctrl-api-public
+ * @ingroup dev-pwrctrl-comm
  * @brief   API function to get the average value of the sampled ADC for secondary current
  * @return  none
  **********************************************************************************/

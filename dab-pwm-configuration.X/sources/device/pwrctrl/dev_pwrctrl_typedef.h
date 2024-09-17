@@ -18,6 +18,11 @@
  * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
  * TERMS. 
  */
+/**
+ * @file dev_pwrctrl_typedefs.h     
+ * @ingroup dev-pwrctrl-data-types   
+ * @brief Contains the power control data structure.    
+ */
 
 #ifndef DEV_PWRCTRL_TYPEDEF_H
 #define	DEV_PWRCTRL_TYPEDEF_H
@@ -25,7 +30,7 @@
 #include "device/fault/dev_fault_typedef.h"
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-type-definitions-data-types
+ * @ingroup dev-pwrctrl-data-types
  * @brief   Enumeration of power controller state machine states
  * @details
  * These are all of the states for the power controller state machine
@@ -41,20 +46,19 @@ enum  PWR_CTRL_STATES_e
 typedef enum PWR_CTRL_STATES_e PWR_CTRL_STATE_t;
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-type-definitions-data-types
+ * @ingroup dev-pwrctrl-data-types
  * @brief   Power converter switch-node specifications
  * @details
  *   This data structure is used to set the converter switch-node specifications declaring which
  *  PWM channel is used as well as its switching period, duty cycle and phase-shift.
  ***********************************************************************************/
-
 struct SWITCH_NODE_s
 {
     uint16_t ControlPeriod;         ///< Control period value from control loop
     uint16_t ControlDutyCycle;      ///< Control Duty Cycle calculation based on Control Period
     uint16_t ControlPhase;          ///< Control phase value from control loop
     uint16_t ControlPhase_P2S_Degreex10; ///< Control phase value from control loop in 10 x degree, integer
-    uint16_t ControlPhase_P2S_Target;     //
+    uint16_t ControlPhase_P2S_Target;     ///< Control phase value from control loop in degrees
     uint16_t DeadTimeHigh;          ///< Deadtime High settings for PWM
     uint16_t DeadTimeLow;          ///< Deadtime High settings for PWM
     uint16_t PBVPeriodTarget;       ///< Power Board Visualizer Set Control target 
@@ -64,7 +68,7 @@ struct SWITCH_NODE_s
 typedef struct SWITCH_NODE_s SWITCH_NODE_t;
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-type-definitions-data-types
+ * @ingroup dev-pwrctrl-data-types
  * @brief   Publicly accessible data buffer of most recent runtime data values
  * @details
  *   This data structure is used to store the feedback values of the most 
@@ -86,7 +90,7 @@ struct FEEDBACK_SETTINGS_s
 typedef struct FEEDBACK_SETTINGS_s FEEDBACK_SETTINGS_t;
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-type-definitions-data-types
+ * @ingroup dev-pwrctrl-data-types
  * @brief Power converter status flags
  * @details
  *      This data structure is used to indicate when the there is a fault or
@@ -105,12 +109,11 @@ struct STATUS_FLAGS_s {
 typedef struct STATUS_FLAGS_s STATUS_FLAGS_t;
 
 /***********************************************************************************
- * @ingroup 
- * @extends 
- * @brief stores data related to controller
- * @details
- * "reference" is the actual reference currently being used
- * "targetReference" can be different that reference during soft-start etc.
+ * @ingroup dev-pwrctrl-data-types
+ * @brief Stores data related to the ramping up/down of the reference
+ * @details This data structure manages the ramping up/down of the reference depending 
+ *  on the target. "reference" is the actual reference currently being used while
+ *  "targetReference" can be different that reference during soft-start.
  **********************************************************************************/
 struct START_UP_RAMP_s 
 {
@@ -120,21 +123,17 @@ struct START_UP_RAMP_s
     uint16_t* ptrReference;     ///< pointer the reference variable
     uint16_t* ptrReferenceTarget;///< pointer to the ramp-up reference target
     bool RampComplete;          ///< indicates when ramp-up is complete
-    
-}; // Power converter soft-start auxiliary variables
-typedef struct START_UP_RAMP_s START_UP_RAMP_t; ///< Power converter soft-start auxiliary variables data types
-
+};
+typedef struct START_UP_RAMP_s START_UP_RAMP_t; 
 
 
 /***********************************************************************************
- * @ingroup 
- * @struct CONTROLLER_s
- * @extends 
- * @brief stores data related to controller
- * @details
- * "output" is the output of the controller
- * "reference" is the actual reference currently being used
- * "targetReference" can be different that reference during soft-start etc.
+ * @ingroup dev-pwrctrl-data-types
+ * @brief Stores data related to the control loop properties
+ * @details This data structure manages the control loop properties. The 
+ * "output" is the output of the controller, "reference" is the actual reference 
+ * currently being used, and "targetReference" is the desirable reference that
+ * the control loop should achieved.
  **********************************************************************************/
 struct CONTROLLER_s
 {
@@ -147,10 +146,10 @@ struct CONTROLLER_s
 typedef struct CONTROLLER_s CONTROLLER_t;
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-type-definitions-data-types
+ * @ingroup dev-pwrctrl-data-types
  * @brief   Enumeration of power controller charging state
  * @details
- * These are all of the states for the power controller state machine
+ * These is the enumeration of the DAB's charging state
  ***********************************************************************************/
 enum  PWR_CTRL_CHARGE_STATE_e
 {
@@ -159,6 +158,13 @@ enum  PWR_CTRL_CHARGE_STATE_e
 };
 typedef enum PWR_CTRL_CHARGE_STATE_e PWR_CTRL_CHARGE_STATE_t;
 
+/***********************************************************************************
+ * @ingroup dev-pwrctrl-data-types
+ * @brief   Collection of power control properties
+ * @details This data structure can be use to initialize the desired output voltage,
+ *  current and power. THe bits like charging state and if the power supply 
+ *  is enabled can be monitored in this structure. 
+ ***********************************************************************************/
 struct PWR_CTRL_PROPERTIES_s 
 {
     uint16_t VSecReference;    ///< User secondary-voltage port reference setting used to control the power converter output voltage in buck mode
@@ -172,6 +178,11 @@ struct PWR_CTRL_PROPERTIES_s
 };  
 typedef struct PWR_CTRL_PROPERTIES_s PWR_CTRL_PROPERTIES_t;  
 
+/***********************************************************************************
+ * @ingroup dev-pwrctrl-data-types
+ * @brief   Power control API structure
+ * @details This data structure contains all the properties of the power control.  
+ ***********************************************************************************/
 struct POWER_CONTROL_s
 {
     STATUS_FLAGS_t      Status; ///< Power Supply status flags

@@ -1,8 +1,8 @@
-/* 
- * File:   app_pwrctrl.h
- * Author: M15690
- *
- * Created on 10 July 2024, 14:46
+
+/**
+ * @file dev_pwrctrl.h     
+ * @ingroup dev-pwrctrl   
+ * @brief Contains public functions and data types relevant for power control interface.    
  */
 
 #ifndef APP_PWRCTRL_H

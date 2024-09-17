@@ -54,5 +54,12 @@ var searchData=
   ['pwm_5fsource_5fselect_5fmaster_51',['PWM_SOURCE_SELECT_MASTER',['../a00140.html#aaf75b04e4ce65147e631b1c76af67934a9c9aa23582485a3d0bb9df2d6f40ef73',1,'pwm_hs_types.h']]],
   ['pwm_5ftrigger_5fcompare_5fa_52',['PWM_TRIGGER_COMPARE_A',['../a00140.html#a49a81b3d1835f88d40c81ea13ba7ffa6a1b1f3c381f0dd0818a4ad2f999ff2192',1,'pwm_hs_types.h']]],
   ['pwm_5ftrigger_5fcompare_5fb_53',['PWM_TRIGGER_COMPARE_B',['../a00140.html#a49a81b3d1835f88d40c81ea13ba7ffa6a6f8d846fe3e8284ed806f7007108222d',1,'pwm_hs_types.h']]],
-  ['pwm_5ftrigger_5fcompare_5fc_54',['PWM_TRIGGER_COMPARE_C',['../a00140.html#a49a81b3d1835f88d40c81ea13ba7ffa6a8e32380415e3040ffd442c05649e635d',1,'pwm_hs_types.h']]]
+  ['pwm_5ftrigger_5fcompare_5fc_54',['PWM_TRIGGER_COMPARE_C',['../a00140.html#a49a81b3d1835f88d40c81ea13ba7ffa6a8e32380415e3040ffd442c05649e635d',1,'pwm_hs_types.h']]],
+  ['pwr_5fctrl_5fcharging_55',['PWR_CTRL_CHARGING',['../a00494.html#ggae94eaf60955fa03f484bca0efeb21372a7e93608f89f7322341ebf9cb1de80510',1,'dev_pwrctrl_typedef.h']]],
+  ['pwr_5fctrl_5fdischarging_56',['PWR_CTRL_DISCHARGING',['../a00494.html#ggae94eaf60955fa03f484bca0efeb21372abd8cec55edea529de0821c90b1d9ebeb',1,'dev_pwrctrl_typedef.h']]],
+  ['pwrctrl_5fstate_5ffault_5fdetection_57',['PWRCTRL_STATE_FAULT_DETECTION',['../a00494.html#gga6abbf677724014640a3ad06684ff488badc35bd1d52664024d8d8fe1360b7f786',1,'dev_pwrctrl_typedef.h']]],
+  ['pwrctrl_5fstate_5finitialize_58',['PWRCTRL_STATE_INITIALIZE',['../a00494.html#gga6abbf677724014640a3ad06684ff488ba8c956a177c166f90721f74c6d6586c02',1,'dev_pwrctrl_typedef.h']]],
+  ['pwrctrl_5fstate_5fonline_59',['PWRCTRL_STATE_ONLINE',['../a00494.html#gga6abbf677724014640a3ad06684ff488ba08bb03d1d4ff0769adb84e8daf1b0ea5',1,'dev_pwrctrl_typedef.h']]],
+  ['pwrctrl_5fstate_5fsoft_5fstart_60',['PWRCTRL_STATE_SOFT_START',['../a00494.html#gga6abbf677724014640a3ad06684ff488ba97dd8660a6b2331c038a6e0346668c82',1,'dev_pwrctrl_typedef.h']]],
+  ['pwrctrl_5fstate_5fstandby_61',['PWRCTRL_STATE_STANDBY',['../a00494.html#gga6abbf677724014640a3ad06684ff488ba454f037f198f953960eaec16f459104a',1,'dev_pwrctrl_typedef.h']]]
 ];

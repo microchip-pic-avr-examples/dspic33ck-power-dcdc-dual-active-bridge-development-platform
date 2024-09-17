@@ -1,8 +1,7 @@
-/* 
- * File:   drv_pwrctrl_pwm.h
- * Author: M15690
- *
- * Created on July 8, 2024, 4:42 PM
+/**
+ * @file dev_pwrctrl_pwm.h     
+ * @ingroup dev-pwrctrl-pwm   
+ * @brief Contains public functions for PWM.    
  */
 
 #ifndef DRV_PWRCTRL_PWM_H

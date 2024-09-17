@@ -21,8 +21,8 @@
  */
 
 /**
- * @file      dev_pwrctrl_isr_externsion.c
- * @ingroup   dev-pwrctrl-isr-ext   
+ * @file      dev_pwrctrl_isr_extension.c
+ * @ingroup   dev-pwrctrl-isr   
  * @brief     Contains some of the functions used in the interrupt service routine
  *  of control loop.
  */
@@ -42,7 +42,7 @@
 #include "system/pins.h"
     
 /*******************************************************************************
- * @ingroup dev-pwrctrl-isr-ext
+ * @ingroup dev-pwrctrl-isr
  * @brief Data Object of primary voltage averaging
  * 
  * @details The 'VprimAveraging' data object holds the averaging parameter of the 
@@ -50,7 +50,7 @@
  *******************************************************************************/
 AVERAGING_t VprimAveraging;
 /*******************************************************************************
- * @ingroup dev-pwrctrl-isr-ext
+ * @ingroup dev-pwrctrl-isr
  * @brief Data Object of secondary voltage averaging
  * 
  * @details The 'VsecAveraging' data object holds the averaging parameter of the 
@@ -58,7 +58,7 @@ AVERAGING_t VprimAveraging;
  *******************************************************************************/
 AVERAGING_t VsecAveraging;
 /*******************************************************************************
- * @ingroup dev-pwrctrl-isr-ext
+ * @ingroup dev-pwrctrl-isr
  * @brief Data Object of secondary current averaging
  * 
  * @details The 'IsecAveraging' data object holds the averaging parameter of the 
@@ -71,7 +71,7 @@ static void Dev_PwrCtrl_AdaptiveGainUpdate(void);
 static bool VLoopInterleaveExec = true;
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-isr-ext
+ * @ingroup dev-pwrctrl-isr
  * @brief  This function updates the DAB data members with ADC raw values
  * @return void
  * 
@@ -117,7 +117,7 @@ void Dev_PwrCtrl_UpdateADConverterData (void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-isr-ext
+ * @ingroup dev-pwrctrl-isr
  * @brief  This function prepares the data for control loop and selects which 
  *  control loop will be executed. 
  * @return void
@@ -187,7 +187,7 @@ void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-isr-ext
+ * @ingroup dev-pwrctrl-isr
  * @brief Executes the power converter control loop 
  * @return void
  * 
@@ -277,7 +277,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-isr-ext
+ * @ingroup dev-pwrctrl-isr
  * @brief Updates the Adaptive gain for the power converter control loop 
  * @return void
  * 
@@ -310,7 +310,7 @@ static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
 
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-isr-ext
+ * @ingroup dev-pwrctrl-isr
  * @brief  This function updates the DAB data members with phase values normalized 
  *  in degree
  * @return void
@@ -339,7 +339,7 @@ void Dev_PwrCtrl_PrimToSecPHDegree(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-isr-ext
+ * @ingroup dev-pwrctrl-isr
  * @brief  This function updates the DAB data members dead time based on load. 
  * @return void
  * 
@@ -383,11 +383,11 @@ void Dev_PwrCtrl_DeadTimeAdjust(void)
 
 #if (PERIOD_MODULATION_DEMO == true)
 /*******************************************************************************
- * @ingroup dev-pwrctrl-isr-ext
+ * @ingroup dev-pwrctrl-isr
  * @brief  This function updates the DAB data members and modulates PWM period
  * @return void
  * 
- * @details 
+ * @details Modulates the DAB period when the maximum phase has been reached.
  *********************************************************************************/
 void  Dev_PwrCtrl_PeriodModulator(void)
 {

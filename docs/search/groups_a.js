@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['layer_0',['layer',['../a00479.html',1,'Application Layer'],['../a00500.html',1,'Configuration Layer'],['../a00485.html',1,'Device Layer'],['../a00502.html',1,'MPLABX Configurator Driver Layer'],['../a00501.html',1,'Operating System Layer']]],
-  ['led_20display_1',['LED Display',['../a00498.html',1,'']]],
-  ['loop_2',['Control Loop',['../a00473.html',1,'']]]
+  ['machine_0',['State Machine',['../a00490.html',1,'']]],
+  ['macros_1',['macros',['../a00462.html',1,'Conversion Macros'],['../a00464.html',1,'Conversion Macros'],['../a00466.html',1,'Conversion Macros'],['../a00468.html',1,'Conversion Macros'],['../a00470.html',1,'Conversion Macros'],['../a00472.html',1,'Conversion Macros'],['../a00474.html',1,'Conversion Macros'],['../a00476.html',1,'Conversion Macros'],['../a00478.html',1,'Useful Macros']]],
+  ['monitor_2',['Fault Monitor',['../a00495.html',1,'']]],
+  ['mplabx_20configurator_20driver_20layer_3',['MPLABX Configurator Driver Layer',['../a00504.html',1,'']]],
+  ['multicore_20driver_4',['ADC Multicore Driver',['../a00505.html',1,'']]]
 ];

@@ -63,10 +63,9 @@
  * @ingroup primary-current-feedback
  * @{
  ******************************************************************************/
-// T_ADC_SAMPLE_SECS: smallest period between ADC samples
-#define T_ADC_SAMPLE_SECS                   (10.0e-6) // ADC sampling rate
+#define T_ADC_SAMPLE_SECS                   (10.0e-6) ///< ADC sampling rate
 
-#define IPRI_OC_THRES_TRIG_AMPS             (39.0)
+#define IPRI_OC_THRES_TRIG_AMPS             (39.0) ///< Primary over current trigger threshold
 #define IPRI_OC_THRES_CLEAR_AMPS            (2.0)
 #define IPRI_OC_T_BLANK_TRIG_SEC            (50.0e-6)
 #define IPRI_OC_T_BLANK_CLEAR_SEC           (0.0)

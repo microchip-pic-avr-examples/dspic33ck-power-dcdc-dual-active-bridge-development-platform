@@ -20,6 +20,12 @@
     TERMS.
  */
 
+/**
+ * @file dev_pwrctrl_comm_interface.h     
+ * @ingroup dev-pwrctrl-comm   
+ * @brief Contains public functions relevant for power control communication interface.    
+ */
+
 #ifndef DRV_PWRCTRL_API_H
 #define	DRV_PWRCTRL_API_H
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fan_5fsettings_5ft_0',['FAN_SETTINGS_t',['../a00287.html#a659bfa45ad96d6e745795d58c6053a94',1,'dev_fan.c']]]
+  ['averaging_5ft_0',['AVERAGING_t',['../a00395.html#aeb85fd21821814ad43f0744c4bf7434e',1,'dev_pwrctrl_utils.h']]]
 ];
