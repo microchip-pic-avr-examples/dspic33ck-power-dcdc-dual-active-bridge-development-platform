@@ -13,9 +13,14 @@
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h> // include standard definition data types
 
+/******************************************************************************
+ * @ingroup special-options
+ * @{
+ ******************************************************************************/
 #define PERIOD_MODULATION_DEMO   false  ///< modulates the period; for further development
 #define CURRENT_CALIBRATION     true    ///< Enable current calibration
 #define VPRI_OPTOCOUPLER_POLARITY       false ///< false if not inverted; true if inverted 
+/** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
  * @ingroup pwm-fundamentals
@@ -134,9 +139,14 @@
 //------------------------------------------------------------------------------
 // control (for debug only)
 //------------------------------------------------------------------------------
+/******************************************************************************
+ * @ingroup special-options
+ * @{
+ ******************************************************************************/
 #define DAC_DEBUG           false    ///< test values with PIM DAC output
 #define OPEN_LOOP_POTI      false    ///< test the code with Digital Power Development Board; runs in openloop using potentiometer
 #define OPEN_LOOP_PBV       false    ///< use Power Board visualizer to change the parameters in Open loop operation
+/** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 //------------------------------------------------------------------------------
 // fault disables (for debug only)

@@ -101,5 +101,6 @@ var searchData=
   ['average_5ftemp_5fadc_5fsamples_98',['Average_Temp_ADC_Samples',['../a00499.html#gaed1c98bc3ba65035d1ac0bdda433d812',1,'dev_temp.c']]],
   ['averagevalue_99',['AverageValue',['../a00708.html#ababc9b3b062bdea79c71035d651fbe79',1,'AVERAGING_s']]],
   ['averaging_5fs_100',['AVERAGING_s',['../a00708.html',1,'']]],
-  ['averagingcount_101',['AveragingCount',['../a00708.html#a5c501c087c00d88f54766fff1bed2839',1,'AVERAGING_s']]]
+  ['averagingcount_101',['AveragingCount',['../a00708.html#a5c501c087c00d88f54766fff1bed2839',1,'AVERAGING_s']]],
+  ['avg_5fto_5frms_102',['AVG_TO_RMS',['../a00478.html#gaec140a01387ddcbb23059abeb73d163e',1,'useful_macros.h']]]
 ];

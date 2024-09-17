@@ -1,7 +1,7 @@
 var searchData=
 [
   ['machine_0',['machine',['../a00745.html#autotoc_md15',1,'Converter State Machine'],['../a00491.html',1,'State Machine']]],
-  ['macros_1',['macros',['../a00462.html',1,'Conversion Macros'],['../a00474.html',1,'Conversion Macros'],['../a00476.html',1,'Conversion Macros'],['../a00472.html',1,'Conversion Macros'],['../a00470.html',1,'Conversion Macros'],['../a00468.html',1,'Conversion Macros'],['../a00466.html',1,'Conversion Macros'],['../a00464.html',1,'Conversion Macros']]],
+  ['macros_1',['macros',['../a00464.html',1,'Conversion Macros'],['../a00476.html',1,'Conversion Macros'],['../a00474.html',1,'Conversion Macros'],['../a00472.html',1,'Conversion Macros'],['../a00470.html',1,'Conversion Macros'],['../a00468.html',1,'Conversion Macros'],['../a00466.html',1,'Conversion Macros'],['../a00462.html',1,'Conversion Macros'],['../a00478.html',1,'Useful Macros']]],
   ['mask_5f32_5fbit_5fhigh_2',['mask_32_bit_high',['../a00209.html#a3e3affedd77bf522f423cdd636f6e90b',1,'MASK_32_BIT_HIGH:&#160;sccp1.c'],['../a00212.html#a3e3affedd77bf522f423cdd636f6e90b',1,'MASK_32_BIT_HIGH:&#160;tmr1.c']]],
   ['mask_5f32_5fbit_5flow_3',['mask_32_bit_low',['../a00209.html#ab1af98b17905c2c4854e5d9a460a64b5',1,'MASK_32_BIT_LOW:&#160;sccp1.c'],['../a00212.html#ab1af98b17905c2c4854e5d9a460a64b5',1,'MASK_32_BIT_LOW:&#160;tmr1.c']]],
   ['masterdutycycleset_4',['MasterDutyCycleSet',['../a00580.html#a6290fee98af07007b9e584f24f0a1da5',1,'PWM_HS_INTERFACE']]],

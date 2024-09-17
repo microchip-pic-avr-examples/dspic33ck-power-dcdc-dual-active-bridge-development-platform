@@ -52,7 +52,7 @@ var searchData=
   ['feedback_5fsettings_5fs_49',['FEEDBACK_SETTINGS_s',['../a00676.html',1,'']]],
   ['field_50',['field',['../a00540.html#a3db823a278f5d389e9b29a698d10ee68',1,'CAN_MSG_OBJ']]],
   ['file_51',['Extension File',['../a00489.html',1,'']]],
-  ['firmware_20options_52',['Special Firmware Options',['../a00478.html',1,'']]],
+  ['firmware_20options_52',['Special Firmware Options',['../a00477.html',1,'']]],
   ['firmware_20overview_53',['Firmware Overview',['../a00745.html',1,'']]],
   ['formattype_54',['formatType',['../a00536.html#a6d037b9c22db4004322cb0840853edeb',1,'CAN_MSG_FIELD']]],
   ['frametype_55',['frameType',['../a00536.html#a168da43d2a5c2406e469b93b9370a9da',1,'CAN_MSG_FIELD']]],

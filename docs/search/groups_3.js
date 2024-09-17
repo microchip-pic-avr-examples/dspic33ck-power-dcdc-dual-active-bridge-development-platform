@@ -12,10 +12,9 @@ var searchData=
   ['configuration_20layer_9',['Configuration Layer',['../a00500.html',1,'']]],
   ['configurator_20driver_20layer_10',['MPLABX Configurator Driver Layer',['../a00502.html',1,'']]],
   ['control_11',['control',['../a00497.html',1,'Fan Control'],['../a00486.html',1,'Power Control']]],
-  ['control_20loop_20br_12',['Control Loop  &lt;br&gt;',['../a00473.html',1,'']]],
-  ['control_20loop_20interrupt_20vector_20declarations_13',['Control Loop Interrupt Vector Declarations',['../a00477.html',1,'']]],
-  ['conversion_20macros_14',['conversion macros',['../a00462.html',1,'Conversion Macros'],['../a00464.html',1,'Conversion Macros'],['../a00466.html',1,'Conversion Macros'],['../a00468.html',1,'Conversion Macros'],['../a00470.html',1,'Conversion Macros'],['../a00472.html',1,'Conversion Macros'],['../a00474.html',1,'Conversion Macros'],['../a00476.html',1,'Conversion Macros']]],
-  ['crc_20driver_15',['CRC Driver',['../a00507.html',1,'']]],
-  ['current_20feedback_16',['current feedback',['../a00467.html',1,'Primary Current Feedback'],['../a00469.html',1,'Secondary Current Feedback']]],
-  ['current_20sensor_20calibration_17',['Current Sensor Calibration',['../a00496.html',1,'']]]
+  ['control_20loop_12',['Control Loop',['../a00473.html',1,'']]],
+  ['conversion_20macros_13',['conversion macros',['../a00462.html',1,'Conversion Macros'],['../a00464.html',1,'Conversion Macros'],['../a00466.html',1,'Conversion Macros'],['../a00468.html',1,'Conversion Macros'],['../a00470.html',1,'Conversion Macros'],['../a00472.html',1,'Conversion Macros'],['../a00474.html',1,'Conversion Macros'],['../a00476.html',1,'Conversion Macros']]],
+  ['crc_20driver_14',['CRC Driver',['../a00507.html',1,'']]],
+  ['current_20feedback_15',['current feedback',['../a00467.html',1,'Primary Current Feedback'],['../a00469.html',1,'Secondary Current Feedback']]],
+  ['current_20sensor_20calibration_16',['Current Sensor Calibration',['../a00496.html',1,'']]]
 ];

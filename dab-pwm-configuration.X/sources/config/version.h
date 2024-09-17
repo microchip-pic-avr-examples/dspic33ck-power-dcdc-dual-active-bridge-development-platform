@@ -37,7 +37,7 @@
 //#define FIRMWARE_VERSION (uint32_t) 0x00010002 ///< from right to left:  digits 5-n: Major,  digits 3-4: Minor,  digits 0-2: Revision, 
 #define FIRMWARE_VERSION_MAJOR    (0x00)
 #define FIRMWARE_VERSION_MINOR    (0x01)
-#define FIRMWARE_VERSION_REVISION (0x0007)
+#define FIRMWARE_VERSION_REVISION (0x0008)
 #define FIRMWARE_VERSION (uint32_t)(FIRMWARE_VERSION_MAJOR << 24)+ (uint32_t)(FIRMWARE_VERSION_MINOR<<16) + (uint32_t)(FIRMWARE_VERSION_REVISION)
 /*********************************************************************************
  * @ingroup apps-layer-properties-public-defines

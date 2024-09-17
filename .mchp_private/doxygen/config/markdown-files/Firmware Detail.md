@@ -150,15 +150,8 @@ The table below lists all faults that are protected by our firmware, which execu
 ### Hardware fault protection
 
 The hardware fault protection system is designed to prevent severe board damage, especially from input or output overcurrent. It activates instantly without any delay, setting all PWM drive signals to zero and shutting down the converter. This system operates independently of the dsPIC, ensuring that any drive signals from the dsPIC are overridden by the hardware protection before reaching the FET drivers.
-<p>
-  <center>
-    <img src="images/" alt="fault-protection" width="400">
-    <br>
-    DAB faults with hardware protection.
-  </center>
-</p>
 
-If the hardware fault protection is triggered, the red LED will turn on. The protection is latched, meaning that once triggered it will not clear itself, it needs to be manually cleared.
+If the hardware fault protection is triggered, the protection is latched, meaning that once triggered it will not clear itself, it needs to be manually cleared.
 
 If you want to re-run the board, you need to
 
@@ -175,7 +168,7 @@ Like the hardware fault protection, this fault protection is also latched, meani
 
 <p>
   <center>
-    <img src="images/" alt="fault-protection" width="250">
+    <img src="images/" alt="fault-protection.jpg" width="250">
     <br>
     DAB faults with hardware protection.
   </center>

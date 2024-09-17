@@ -79,8 +79,8 @@ written to Special Function Registers (SFR).
 /**
 @defgroup   primary-current-feedback Primary Current Feedback
 @ingroup    config-layer
-@brief  	Declaration of Primary Current Feedback parameters
-@details  	Declaration of Primary Current Feedback parameters
+@brief  	Declaration of Primary Current Feedback parameters, fault configuration and macros
+@details  	Declaration of Primary Current Feedback parameters, fault configuration and macros
 */
 
 /*----------------------------------------------------------------------------*/
@@ -101,8 +101,8 @@ written to Special Function Registers (SFR).
 /**
 @defgroup   secondary-current-feedback Secondary Current Feedback
 @ingroup    config-layer
-@brief  	Declaration of Secondary Current Feedback parameters
-@details  	Declaration of Secondary Current Feedback parameters
+@brief  	Declaration of Secondary Current Feedback parameters, fault configuration and macros
+@details  	Declaration of Secondary Current Feedback parameters, fault configuration and macros
 */
 
 /*----------------------------------------------------------------------------*/
@@ -144,11 +144,11 @@ written to Special Function Registers (SFR).
 /* TASK LAYER: Control Loop Documentation */
 /*----------------------------------------------------------------------------*/
 /**
-@defgroup   control-loop Control Loop  
+@defgroup   control-loop Control Loop
 @ingroup    config-layer
 @brief  	Declaration of macros calculating additional parameters for Control Loop
 @note		The Control Loop Declarations only contain user settings and
-			conversion macros and it does not have device peripheral assignments.
+			conversion macros.
 */
 
 /*----------------------------------------------------------------------------*/
@@ -194,22 +194,6 @@ details		Conversion macros converting physical quantities of parameters into bin
 
 */
 
-
-/*----------------------------------------------------------------------------*/
-/* TASK LAYER: Control Loop Interrupt Vector Settings Documentation */
-/*----------------------------------------------------------------------------*/
-/**
-@defgroup   isr-settings Control Loop Interrupt Vector Declarations 
-@ingroup    config-layer
-@brief  	Real-time control loop interrupt service routine declarations
-@details	Real-time control loops are executed in dedicated, high-priority interrupts to ensure a constant and reliable
-			call rate, which is the time base for the control loop response filter. Hence, no other firmware process should be able
-			to interrupt or delay the execution of the loop controllers. This section allows the selection of different interrupt
-			sources used to trigger the control loop execution and its priority.
-@note		The Control Loop Interrupt Vector Settings only contains user settings and
-			it does not have conversion macros and device peripheral assignments.
-*/
-
 /*----------------------------------------------------------------------------*/
 /* TASK LAYER: Special Firmware Options Documentation */
 /*----------------------------------------------------------------------------*/
@@ -220,3 +204,14 @@ details		Conversion macros converting physical quantities of parameters into bin
 @details	Special functions use to enable or disable special firmware options.
 */
 
+/*----------------------------------------------------------------------------*/
+/* TASK LAYER: Useful Macros Documentation */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup   useful-macros Useful Macros
+@ingroup    config-layer
+@brief  	Collection of macros that the user can utilize when converting physical 
+            quantities of parameters into binary (integer) numbers for registers and variables.
+@details	Collection of macros that the user can utilize when converting physical 
+            quantities of parameters into binary (integer) numbers for registers and variables.
+*/
