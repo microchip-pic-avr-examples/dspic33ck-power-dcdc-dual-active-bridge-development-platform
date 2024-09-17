@@ -1,5 +1,6 @@
 var a00531 =
 [
-    [ "channel", "a00531.html#a8e61c8eba37a71deeb3c55a9a18951e1", null ],
-    [ "headCount", "a00531.html#ac05d288ebd078cbb7091914e3517f41b", null ]
+    [ "DataWrite", "a00531.html#a3875e8f2c2cdcb91979f704d48db76b0", null ],
+    [ "Disable", "a00531.html#a7fd5c6c55c6a76c4d35e3f81609fab87", null ],
+    [ "Enable", "a00531.html#a04c571590cd163f474c876943a39e0f1", null ]
 ];

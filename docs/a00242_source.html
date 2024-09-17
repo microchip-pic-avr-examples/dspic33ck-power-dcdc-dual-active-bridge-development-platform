@@ -212,100 +212,100 @@ $(document).ready(function(){initNavTree('a00242_source.html',''); initResizable
  <span class="comment">// end of pbv-protocol-ids</span><div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">// static because these are private.</span></div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">static</span> <a class="code hl_struct" href="a00591.html">PBV_Datatype_TX_t</a> App_PBV_DAB_TX;          </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">static</span> <a class="code hl_struct" href="a00595.html">PBV_Datatype_RX_t</a> App_PBV_DAB_RX;          </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">static</span> <a class="code hl_struct" href="a00591.html">PBV_Datatype_TX_t</a> App_PBV_DAB_ASCII;       </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">static</span> <a class="code hl_struct" href="a00579.html">PBV_Datatype_TX_t</a> appPbvDabTx;          </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">static</span> <a class="code hl_struct" href="a00583.html">PBV_Datatype_RX_t</a> appPbvDabRx;          </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">static</span> <a class="code hl_struct" href="a00579.html">PBV_Datatype_TX_t</a> appPbvDabAscii;       </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">static</span> <a class="code hl_struct" href="a00591.html">PBV_Datatype_TX_t</a> * App_PBV_DAB_TX_Ptr = &amp;App_PBV_DAB_TX;        </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">static</span> <a class="code hl_struct" href="a00595.html">PBV_Datatype_RX_t</a> * App_PBV_DAB_RX_Ptr = &amp;App_PBV_DAB_RX;        </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">static</span> <a class="code hl_struct" href="a00591.html">PBV_Datatype_TX_t</a> * App_PBV_DAB_ASCII_Ptr = &amp;App_PBV_DAB_ASCII;  </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">static</span> <a class="code hl_struct" href="a00579.html">PBV_Datatype_TX_t</a> * appPbvDabTxPtr = &amp;appPbvDabTx;        </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">static</span> <a class="code hl_struct" href="a00583.html">PBV_Datatype_RX_t</a> * appPbvDabRxPtr = &amp;appPbvDabRx;        </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">static</span> <a class="code hl_struct" href="a00579.html">PBV_Datatype_TX_t</a> * appPbvDabAsciiPtr = &amp;appPbvDabAscii;  </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>uint8_t buffer_eight_rx[64];</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>uint16_t buffer_sixteen_rx[32];</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>uint8_t BufferEightRx[64];</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>uint16_t BufferSixteenRx[32];</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>uint8_t buffer_eight_tx[64];</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>uint16_t buffer_sixteen_tx[32];</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>uint8_t BufferEightTx[64];</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>uint16_t BufferSixteenTx[32];</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">static</span> uint32_t tick_counter = 0;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">static</span> uint8_t transmit_firmware_id = 1;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">static</span> uint32_t TickCounter = 0;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">static</span> uint8_t TransmitFirmwareId = 1;</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">// temporary variables</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">static</span> int16_t temperature = 0;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">static</span> int16_t Temperature = 0;</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordtype">void</span> App_PBV_DAB_Build_Frame(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keywordtype">void</span> App_PBV_DAB_Process_Rx_Data(uint16_t * data);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keywordtype">void</span> App_PBV_DAB_Frame_Parser(uint16_t protocol_ID, uint16_t length, uint8_t * data);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keywordtype">void</span> protocolID(uint16_t protocol_ID, uint16_t length, uint8_t * data);</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="keywordtype">void</span> App_PBV_DAB_Init()</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>{</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    App_PBV_DAB_TX_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>        = PBV_TX_PROTOCOL_ID;</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    App_PBV_DAB_TX_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Signal_Ascii</a>      = PBV_SIGNAL_MODE;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    App_PBV_DAB_TX_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a>     = PBV_MESSAGE_INIT;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    App_PBV_DAB_TX_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a930e5a4d8414c0427fe5c636062579db">Length</a>                = 64;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00579.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>        = PBV_TX_PROTOCOL_ID;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00579.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Signal_Ascii</a>      = PBV_SIGNAL_MODE;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00579.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a>     = PBV_MESSAGE_INIT;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00579.html#a930e5a4d8414c0427fe5c636062579db">Length</a>                = 64;</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    App_PBV_DAB_RX_Ptr-&gt;<a class="code hl_variable" href="a00595.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a>     = PBV_MESSAGE_READY_TO_RECEIVE;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00583.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a>     = PBV_MESSAGE_READY_TO_RECEIVE;</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>     = FIRMWARE_PROTOCOL_ID;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Signal_Ascii</a>   = PBV_ASCII_MODE;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a>  = PBV_MESSAGE_INIT;</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a930e5a4d8414c0427fe5c636062579db">Length</a>             = 64;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00579.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>     = FIRMWARE_PROTOCOL_ID;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00579.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Signal_Ascii</a>   = PBV_ASCII_MODE;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00579.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a>  = PBV_MESSAGE_INIT;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00579.html#a930e5a4d8414c0427fe5c636062579db">Length</a>             = 64;</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    App_PBV_Init(App_PBV_DAB_TX_Ptr, App_PBV_DAB_ASCII_Ptr, App_PBV_DAB_RX_Ptr);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    App_PBV_Init(appPbvDabTxPtr, appPbvDabAsciiPtr, appPbvDabRxPtr);</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keywordtype">void</span> App_PBV_DAB_Task_10ms(<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>{</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="comment">// RX handler</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">if</span> (App_PBV_DAB_RX_Ptr-&gt;<a class="code hl_variable" href="a00595.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a> == PBV_MESSAGE_RECEIVED)</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">if</span> (appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00583.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a> == PBV_MESSAGE_RECEIVED)</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    {        </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        App_Read_Received_From_PBV(App_PBV_DAB_RX_Ptr);       </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        App_PBV_DAB_Frame_Parser(App_PBV_DAB_RX_Ptr-&gt;<a class="code hl_variable" href="a00595.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>, App_PBV_DAB_RX_Ptr-&gt;<a class="code hl_variable" href="a00595.html#a930e5a4d8414c0427fe5c636062579db">Length</a>, App_PBV_DAB_RX_Ptr-&gt;<a class="code hl_variable" href="a00595.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a>);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        App_Read_Received_From_PBV(appPbvDabRxPtr);       </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        protocolID(appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00583.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>, appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00583.html#a930e5a4d8414c0427fe5c636062579db">Length</a>, appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00583.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a>);</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        </div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="comment">// msg read. Read another</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        App_Receive_From_PBV(App_PBV_DAB_RX_Ptr); </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        App_Receive_From_PBV(appPbvDabRxPtr); </div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    } </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">if</span> (++tick_counter &gt; 11)</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">if</span> (++TickCounter &gt; 11)</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    {</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        App_PBV_DAB_Build_Frame();</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        App_Send_To_PBV(App_PBV_DAB_TX_Ptr);  </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        tick_counter = 0;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        App_Send_To_PBV(appPbvDabTxPtr);  </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        TickCounter = 0;</div>
 <div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    }    </div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>}</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="keywordtype">void</span> App_PBV_DAB_Task_1s(<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>{</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">if</span> (App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> == FIRMWARE_PROTOCOL_ID)</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">if</span> (appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00579.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> == FIRMWARE_PROTOCOL_ID)</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    {</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = (uint8_t *)FIRMWARE_VERSION_STRING;</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        App_Send_To_PBV(App_PBV_DAB_ASCII_Ptr);</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> = PBV_LOG_ID;</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        transmit_firmware_id = 1;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00579.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = (uint8_t *)FIRMWARE_VERSION_STRING;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        App_Send_To_PBV(appPbvDabAsciiPtr);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00579.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> = PBV_LOG_ID;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        TransmitFirmwareId = 1;</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">if</span> (App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> == PBV_LOG_ID)</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">if</span> (appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00579.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> == PBV_LOG_ID)</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    {</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordflow">if</span> (transmit_firmware_id) App_PBV_Re_Init(App_PBV_DAB_ASCII_Ptr);     </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        transmit_firmware_id = 0; </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <span class="keywordflow">if</span> (TransmitFirmwareId) App_PBV_Re_Init(appPbvDabAsciiPtr);     </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        TransmitFirmwareId = 0; </div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    }</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="comment">//ToDo: Check with Cormac</span></div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    App_PBV_DAB_ASCII_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = (uint8_t *)<span class="stringliteral">&quot;                 Log Message From Protocol ID 0x300&quot;</span>;</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    App_Send_To_PBV(App_PBV_DAB_ASCII_Ptr);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00579.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = (uint8_t *)<span class="stringliteral">&quot;                 Log Message From Protocol ID 0x300&quot;</span>;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    App_Send_To_PBV(appPbvDabAsciiPtr);</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>   </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    temperature = (int16_t)<a class="code hl_function" href="a00486.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a>();</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    Temperature = (int16_t)<a class="code hl_function" href="a00474.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a>();</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><a class="code hl_struct" href="a00591.html">PBV_Datatype_TX_t</a> * App_PB_DAB_Get_TX_ASCII_ptr(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><a class="code hl_struct" href="a00579.html">PBV_Datatype_TX_t</a> * App_PB_DAB_Get_TX_ASCII_ptr(<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>{</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordflow">if</span> (App_PBV_DAB_ASCII_Ptr -&gt;PBV_Message_State == PBV_MESSAGE_TRANSMITTING)</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordflow">if</span> (appPbvDabAsciiPtr -&gt;PBV_Message_State == PBV_MESSAGE_TRANSMITTING)</div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    {</div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    }</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordflow">return</span> App_PBV_DAB_ASCII_Ptr;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordflow">return</span> appPbvDabAsciiPtr;</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>}</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
@@ -315,7 +315,7 @@ $(document).ready(function(){initNavTree('a00242_source.html',''); initResizable
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="comment">// Power Board Visualizer can only mask single bits</span></div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="comment">// so create maskable word that can be parsed by GUI by sending the</span></div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="comment">// &quot;2 ^ (state)&quot; instead of &quot;state&quot;</span></div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    buffer_sixteen_tx[0] = 1&lt;&lt;(<a class="code hl_function" href="a00362.html#a0a4bc9ff1027ccd07af11d8bd2865219">Dev_PwrCtrl_Get_State</a>());</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    BufferSixteenTx[0] = 1&lt;&lt;(<a class="code hl_function" href="a00362.html#a0a4bc9ff1027ccd07af11d8bd2865219">Dev_PwrCtrl_Get_State</a>());</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    </div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="comment">// send back one &quot;flag word&quot; which combines fault and status and enable control flag</span></div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    uint16_t enabled = <a class="code hl_function" href="a00362.html#a7a61c299efe9f39fbddb6d902d4b3adc">Dev_PwrCtrl_Get_EnableFlag</a>();</div>
@@ -323,25 +323,25 @@ $(document).ready(function(){initNavTree('a00242_source.html',''); initResizable
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    uint16_t status_flags = <a class="code hl_function" href="a00362.html#ab500c9c4e05b023607a8e72ababe07b3">Dev_PwrCtrl_Get_Status</a>();</div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    uint16_t flag_word = enabled + ((status_flags &amp; 0x0003)&lt;&lt;1) + (fault_flags&lt;&lt;3);</div>
 <div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    buffer_sixteen_tx[1] = flag_word;</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    buffer_sixteen_tx[2] = <a class="code hl_function" href="a00362.html#a70a3c74e48285c709f735a499a3024dc">Dev_PwrCtrl_GetAveraging_Vprim</a>(); <span class="comment">//Dev_PwrCtrl_GetAdc_Vpri();</span></div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    buffer_sixteen_tx[3] = <a class="code hl_function" href="a00362.html#a5178aaea783edff228941c4ecf749a90">Dev_PwrCtrl_GetAveraging_Vsec</a>();<span class="comment">//Dev_PwrCtrl_GetAdc_Vsec();</span></div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    buffer_sixteen_tx[4] = <a class="code hl_function" href="a00362.html#a4ce0a8e3c687c7466cd2def3e2967589">Dev_PwrCtrl_GetAdc_Ipri_ct</a>();</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    buffer_sixteen_tx[5] = <a class="code hl_function" href="a00362.html#a5df7c5db36f4b904ca397157889a6170">Dev_PwrCtrl_GetAdc_Isec_ct</a>();</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    buffer_sixteen_tx[6] = <a class="code hl_function" href="a00362.html#a346aaaf8b8cf0266d9873405945c55dd">Dev_PwrCtrl_GetAveraging_Isec</a>();<span class="comment">//Dev_PwrCtrl_GetAdc_Isec_avg();</span></div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    buffer_sixteen_tx[7] = temperature + 40;<span class="comment">//Dev_PwrCtrl_GetAdc_Temperature();</span></div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    buffer_sixteen_tx[8] = <a class="code hl_function" href="a00362.html#a89627f0a37054586c8cd6950ccd6fb09">Dev_PwrCtrl_GetAdc_Vrail_5V</a>();    </div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    buffer_sixteen_tx[9] =  <a class="code hl_function" href="a00362.html#ab7d328bdf259e35fce481dd4c5f74666">Dev_PwrCtrl_GetPhase_P2SDegree</a>();<span class="comment">//devFanDataPtr-&gt;CurrentSpeedRaw;</span></div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    buffer_sixteen_tx[10] = <a class="code hl_function" href="a00362.html#acbd31a3dc73cd77bc06f9064a7c61975">Dev_PwrCtrl_Get_DbgValue</a>();<span class="comment">//devFanDataPtr-&gt;CurrentSpeedPercent;</span></div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    buffer_sixteen_tx[11] = temperature;</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    buffer_sixteen_tx[12] = <a class="code hl_function" href="a00362.html#a6ea3a7d0d8075757d7dd3fc4ddaca1f5">Dev_PwrCtrl_Get_Period</a>();</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    buffer_sixteen_tx[13] = <a class="code hl_function" href="a00362.html#add921f8c68bb08d611f3fd7ab03e60ee">Dev_PwrCtrl_Get_PwmprdTarget</a>();</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    buffer_sixteen_tx[14] = <a class="code hl_function" href="a00362.html#afe5653e08d77956b5b4fbbcc4305870e">Dev_PwrCtrl_Get_SecPower</a>(); </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    BufferSixteenTx[1] = flag_word;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    BufferSixteenTx[2] = <a class="code hl_function" href="a00362.html#a70a3c74e48285c709f735a499a3024dc">Dev_PwrCtrl_GetAveraging_Vprim</a>(); <span class="comment">//Dev_PwrCtrl_GetAdc_Vpri();</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    BufferSixteenTx[3] = <a class="code hl_function" href="a00362.html#a5178aaea783edff228941c4ecf749a90">Dev_PwrCtrl_GetAveraging_Vsec</a>();<span class="comment">//Dev_PwrCtrl_GetAdc_Vsec();</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    BufferSixteenTx[4] = <a class="code hl_function" href="a00362.html#a4ce0a8e3c687c7466cd2def3e2967589">Dev_PwrCtrl_GetAdc_Ipri_ct</a>();</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    BufferSixteenTx[5] = <a class="code hl_function" href="a00362.html#a5df7c5db36f4b904ca397157889a6170">Dev_PwrCtrl_GetAdc_Isec_ct</a>();</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    BufferSixteenTx[6] = <a class="code hl_function" href="a00362.html#a346aaaf8b8cf0266d9873405945c55dd">Dev_PwrCtrl_GetAveraging_Isec</a>();<span class="comment">//Dev_PwrCtrl_GetAdc_Isec_avg();</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    BufferSixteenTx[7] = Temperature + 40;<span class="comment">//Dev_PwrCtrl_GetAdc_Temperature();</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    BufferSixteenTx[8] = <a class="code hl_function" href="a00362.html#a89627f0a37054586c8cd6950ccd6fb09">Dev_PwrCtrl_GetAdc_Vrail_5V</a>();    </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    BufferSixteenTx[9] =  <a class="code hl_function" href="a00362.html#ab7d328bdf259e35fce481dd4c5f74666">Dev_PwrCtrl_GetPhase_P2SDegree</a>();<span class="comment">//devFanDataPtr-&gt;CurrentSpeedRaw;</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    BufferSixteenTx[10] = <a class="code hl_function" href="a00362.html#acbd31a3dc73cd77bc06f9064a7c61975">Dev_PwrCtrl_Get_DbgValue</a>();<span class="comment">//devFanDataPtr-&gt;CurrentSpeedPercent;</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    BufferSixteenTx[11] = Temperature;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    BufferSixteenTx[12] = <a class="code hl_function" href="a00362.html#a6ea3a7d0d8075757d7dd3fc4ddaca1f5">Dev_PwrCtrl_Get_Period</a>();</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    BufferSixteenTx[13] = <a class="code hl_function" href="a00362.html#add921f8c68bb08d611f3fd7ab03e60ee">Dev_PwrCtrl_Get_PwmprdTarget</a>();</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    BufferSixteenTx[14] = <a class="code hl_function" href="a00362.html#afe5653e08d77956b5b4fbbcc4305870e">Dev_PwrCtrl_Get_SecPower</a>(); </div>
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    PBV_Change_from_Sixteen_to_Eight(buffer_sixteen_tx, buffer_eight_tx, 18);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    PBV_Change_from_Sixteen_to_Eight(BufferSixteenTx, BufferEightTx, 18);</div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    App_PBV_DAB_TX_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = buffer_eight_tx;</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    App_PBV_DAB_TX_Ptr-&gt;<a class="code hl_variable" href="a00591.html#a930e5a4d8414c0427fe5c636062579db">Length</a> = 18 * 2 ;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00579.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = BufferEightTx;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00579.html#a930e5a4d8414c0427fe5c636062579db">Length</a> = 18 * 2 ;</div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>}</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
@@ -417,7 +417,7 @@ $(document).ready(function(){initNavTree('a00242_source.html',''); initResizable
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>            <span class="keywordflow">break</span>; </div>
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        }</div>
 <div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        <span class="keywordflow">case</span> PBV_CMD_ID_FAN_SPEED: {            </div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            <a class="code hl_function" href="a00484.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a>(control_word);</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            <a class="code hl_function" href="a00472.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a>(control_word);</div>
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>            <span class="keywordflow">break</span>; </div>
 <div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        }</div>
 <div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        <span class="keywordflow">case</span> PBV_CMD_ID_PRI_OVP_TEST: {</div>
@@ -443,10 +443,10 @@ $(document).ready(function(){initNavTree('a00242_source.html',''); initResizable
 <div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>}</div>
 <div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
 <div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span> </div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span><span class="keywordtype">void</span> App_PBV_DAB_Frame_Parser(uint16_t protocol_ID, uint16_t length, uint8_t * data)</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span><span class="keywordtype">void</span> protocolID(uint16_t protocol_ID, uint16_t length, uint8_t * data)</div>
 <div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>{</div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    PBV_Change_from_Eight_to_Sixteen(data, buffer_sixteen_rx, length);</div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    App_PBV_DAB_Process_Rx_Data(buffer_sixteen_rx);</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    PBV_Change_from_Eight_to_Sixteen(data, BufferSixteenRx, length);</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    App_PBV_DAB_Process_Rx_Data(BufferSixteenRx);</div>
 <div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>}</div>
 <div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span> </div>
 <div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
@@ -474,19 +474,19 @@ $(document).ready(function(){initNavTree('a00242_source.html',''); initResizable
 <div class="ttc" id="aa00362_html_add921f8c68bb08d611f3fd7ab03e60ee"><div class="ttname"><a href="a00362.html#add921f8c68bb08d611f3fd7ab03e60ee">Dev_PwrCtrl_Get_PwmprdTarget</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void)</div><div class="ttdoc">API function to get the PWM period target.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00260">dev_pwrctrl_comm_interface.c:260</a></div></div>
 <div class="ttc" id="aa00362_html_ae5e607ebc1cfbf0fcb8caa5775d5e782"><div class="ttname"><a href="a00362.html#ae5e607ebc1cfbf0fcb8caa5775d5e782">Dev_PwrCtrl_SetState</a></div><div class="ttdeci">void Dev_PwrCtrl_SetState(uint16_t reference)</div><div class="ttdoc">API function to set the power control State.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00061">dev_pwrctrl_comm_interface.c:61</a></div></div>
 <div class="ttc" id="aa00362_html_afe5653e08d77956b5b4fbbcc4305870e"><div class="ttname"><a href="a00362.html#afe5653e08d77956b5b4fbbcc4305870e">Dev_PwrCtrl_Get_SecPower</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_SecPower(void)</div><div class="ttdoc">API function to get the secondary power.</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00270">dev_pwrctrl_comm_interface.c:270</a></div></div>
-<div class="ttc" id="aa00484_html_ga5cfd61659ae6b17ad25e51bfc211723b"><div class="ttname"><a href="a00484.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a></div><div class="ttdeci">void Dev_Fan_Set_Speed(uint8_t target_speed_percent)</div><div class="ttdoc">Sets the fan speed.</div><div class="ttdef"><b>Definition</b> <a href="a00284_source.html#l00133">dev_fan.c:133</a></div></div>
-<div class="ttc" id="aa00486_html_gac9618e1ca87e77920c94cdfdcc80321a"><div class="ttname"><a href="a00486.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a></div><div class="ttdeci">int8_t Dev_Temp_Get_Temperature_Celcius(void)</div><div class="ttdoc">This converts the raw values to temperature celcius as per device lookup table.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00117">dev_temp.c:117</a></div></div>
-<div class="ttc" id="aa00591_html"><div class="ttname"><a href="a00591.html">PBV_Datatype_TX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00094">app_PBV_interface.h:94</a></div></div>
-<div class="ttc" id="aa00591_html_a0825cb65b385f89880718e0654f07fb6"><div class="ttname"><a href="a00591.html#a0825cb65b385f89880718e0654f07fb6">PBV_Datatype_TX_t::PBV_Protcol_ID</a></div><div class="ttdeci">uint32_t PBV_Protcol_ID</div><div class="ttdoc">Protocol ID.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00096">app_PBV_interface.h:96</a></div></div>
-<div class="ttc" id="aa00591_html_a4e589bbf7c5e6c3eb82a0e22fe8e8e50"><div class="ttname"><a href="a00591.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">PBV_Datatype_TX_t::Data_Buffer</a></div><div class="ttdeci">uint8_t * Data_Buffer</div><div class="ttdoc">Pointer to the data to be transmitted.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00099">app_PBV_interface.h:99</a></div></div>
-<div class="ttc" id="aa00591_html_a885bf5a8fec6c0b6af1dfc8d6a78c368"><div class="ttname"><a href="a00591.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Datatype_TX_t::PBV_Signal_Ascii</a></div><div class="ttdeci">enum PBV_SIGNAL_ASCII_MODE PBV_Signal_Ascii</div><div class="ttdoc">Object will transmit Signals or ASCII.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00097">app_PBV_interface.h:97</a></div></div>
-<div class="ttc" id="aa00591_html_a91c81f1c5a476778f2b9faf3f36cfd7e"><div class="ttname"><a href="a00591.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Datatype_TX_t::PBV_Message_State</a></div><div class="ttdeci">PBV_MESSAGE_TX_STATE_t PBV_Message_State</div><div class="ttdoc">State of the TX object.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00098">app_PBV_interface.h:98</a></div></div>
-<div class="ttc" id="aa00591_html_a930e5a4d8414c0427fe5c636062579db"><div class="ttname"><a href="a00591.html#a930e5a4d8414c0427fe5c636062579db">PBV_Datatype_TX_t::Length</a></div><div class="ttdeci">uint16_t Length</div><div class="ttdoc">Length of transmitted message in Bytes.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00095">app_PBV_interface.h:95</a></div></div>
-<div class="ttc" id="aa00595_html"><div class="ttname"><a href="a00595.html">PBV_Datatype_RX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00108">app_PBV_interface.h:108</a></div></div>
-<div class="ttc" id="aa00595_html_a0825cb65b385f89880718e0654f07fb6"><div class="ttname"><a href="a00595.html#a0825cb65b385f89880718e0654f07fb6">PBV_Datatype_RX_t::PBV_Protcol_ID</a></div><div class="ttdeci">uint32_t PBV_Protcol_ID</div><div class="ttdoc">Protocol ID of the received message.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00110">app_PBV_interface.h:110</a></div></div>
-<div class="ttc" id="aa00595_html_a30afce7d5f8aa2a94029446cfe2f4a36"><div class="ttname"><a href="a00595.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Datatype_RX_t::PBV_Message_State</a></div><div class="ttdeci">PBV_MESSAGE_RX_STATE_t PBV_Message_State</div><div class="ttdoc">State of the received message.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00112">app_PBV_interface.h:112</a></div></div>
-<div class="ttc" id="aa00595_html_a4e589bbf7c5e6c3eb82a0e22fe8e8e50"><div class="ttname"><a href="a00595.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">PBV_Datatype_RX_t::Data_Buffer</a></div><div class="ttdeci">uint8_t * Data_Buffer</div><div class="ttdoc">Received Data pointer.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00113">app_PBV_interface.h:113</a></div></div>
-<div class="ttc" id="aa00595_html_a930e5a4d8414c0427fe5c636062579db"><div class="ttname"><a href="a00595.html#a930e5a4d8414c0427fe5c636062579db">PBV_Datatype_RX_t::Length</a></div><div class="ttdeci">uint16_t Length</div><div class="ttdoc">Length of received message in Bytes.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00109">app_PBV_interface.h:109</a></div></div>
+<div class="ttc" id="aa00472_html_ga5cfd61659ae6b17ad25e51bfc211723b"><div class="ttname"><a href="a00472.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a></div><div class="ttdeci">void Dev_Fan_Set_Speed(uint8_t target_speed_percent)</div><div class="ttdoc">Sets the fan speed.</div><div class="ttdef"><b>Definition</b> <a href="a00284_source.html#l00133">dev_fan.c:133</a></div></div>
+<div class="ttc" id="aa00474_html_gac9618e1ca87e77920c94cdfdcc80321a"><div class="ttname"><a href="a00474.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a></div><div class="ttdeci">int8_t Dev_Temp_Get_Temperature_Celcius(void)</div><div class="ttdoc">This converts the raw values to temperature celcius as per device lookup table.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00117">dev_temp.c:117</a></div></div>
+<div class="ttc" id="aa00579_html"><div class="ttname"><a href="a00579.html">PBV_Datatype_TX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00094">app_PBV_interface.h:94</a></div></div>
+<div class="ttc" id="aa00579_html_a0825cb65b385f89880718e0654f07fb6"><div class="ttname"><a href="a00579.html#a0825cb65b385f89880718e0654f07fb6">PBV_Datatype_TX_t::PBV_Protcol_ID</a></div><div class="ttdeci">uint32_t PBV_Protcol_ID</div><div class="ttdoc">Protocol ID.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00096">app_PBV_interface.h:96</a></div></div>
+<div class="ttc" id="aa00579_html_a4e589bbf7c5e6c3eb82a0e22fe8e8e50"><div class="ttname"><a href="a00579.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">PBV_Datatype_TX_t::Data_Buffer</a></div><div class="ttdeci">uint8_t * Data_Buffer</div><div class="ttdoc">Pointer to the data to be transmitted.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00099">app_PBV_interface.h:99</a></div></div>
+<div class="ttc" id="aa00579_html_a885bf5a8fec6c0b6af1dfc8d6a78c368"><div class="ttname"><a href="a00579.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Datatype_TX_t::PBV_Signal_Ascii</a></div><div class="ttdeci">enum PBV_SIGNAL_ASCII_MODE PBV_Signal_Ascii</div><div class="ttdoc">Object will transmit Signals or ASCII.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00097">app_PBV_interface.h:97</a></div></div>
+<div class="ttc" id="aa00579_html_a91c81f1c5a476778f2b9faf3f36cfd7e"><div class="ttname"><a href="a00579.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Datatype_TX_t::PBV_Message_State</a></div><div class="ttdeci">PBV_MESSAGE_TX_STATE_t PBV_Message_State</div><div class="ttdoc">State of the TX object.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00098">app_PBV_interface.h:98</a></div></div>
+<div class="ttc" id="aa00579_html_a930e5a4d8414c0427fe5c636062579db"><div class="ttname"><a href="a00579.html#a930e5a4d8414c0427fe5c636062579db">PBV_Datatype_TX_t::Length</a></div><div class="ttdeci">uint16_t Length</div><div class="ttdoc">Length of transmitted message in Bytes.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00095">app_PBV_interface.h:95</a></div></div>
+<div class="ttc" id="aa00583_html"><div class="ttname"><a href="a00583.html">PBV_Datatype_RX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00108">app_PBV_interface.h:108</a></div></div>
+<div class="ttc" id="aa00583_html_a0825cb65b385f89880718e0654f07fb6"><div class="ttname"><a href="a00583.html#a0825cb65b385f89880718e0654f07fb6">PBV_Datatype_RX_t::PBV_Protcol_ID</a></div><div class="ttdeci">uint32_t PBV_Protcol_ID</div><div class="ttdoc">Protocol ID of the received message.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00110">app_PBV_interface.h:110</a></div></div>
+<div class="ttc" id="aa00583_html_a30afce7d5f8aa2a94029446cfe2f4a36"><div class="ttname"><a href="a00583.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Datatype_RX_t::PBV_Message_State</a></div><div class="ttdeci">PBV_MESSAGE_RX_STATE_t PBV_Message_State</div><div class="ttdoc">State of the received message.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00112">app_PBV_interface.h:112</a></div></div>
+<div class="ttc" id="aa00583_html_a4e589bbf7c5e6c3eb82a0e22fe8e8e50"><div class="ttname"><a href="a00583.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">PBV_Datatype_RX_t::Data_Buffer</a></div><div class="ttdeci">uint8_t * Data_Buffer</div><div class="ttdoc">Received Data pointer.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00113">app_PBV_interface.h:113</a></div></div>
+<div class="ttc" id="aa00583_html_a930e5a4d8414c0427fe5c636062579db"><div class="ttname"><a href="a00583.html#a930e5a4d8414c0427fe5c636062579db">PBV_Datatype_RX_t::Length</a></div><div class="ttdeci">uint16_t Length</div><div class="ttdoc">Length of received message in Bytes.</div><div class="ttdef"><b>Definition</b> <a href="a00251_source.html#l00109">app_PBV_interface.h:109</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

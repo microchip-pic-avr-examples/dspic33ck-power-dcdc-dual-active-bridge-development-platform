@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hs_20driver_0',['PWM HS Driver',['../a00496.html',1,'']]]
+  ['hs_20driver_0',['PWM HS Driver',['../a00484.html',1,'']]]
 ];

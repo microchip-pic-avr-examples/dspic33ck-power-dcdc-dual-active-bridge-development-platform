@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: CAN1_FIFO_INFO Struct Reference</title>
+<title>Dual Active Bridge Development Board: CMP_INTERFACE Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,80 +138,183 @@ $(document).ready(function(){initNavTree('a00535.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">CAN1_FIFO_INFO Struct Reference</div></div>
+  <div class="headertitle"><div class="title">CMP_INTERFACE Struct Reference<div class="ingroups"><a class="el" href="a00477.html">MPLABX Configurator Driver Layer</a> &raquo; <a class="el" href="a00481.html">CMP DAC Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Structure containing the function pointers of CMP driver.  
+ <a href="a00535.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00092_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dab-pwm-configuration.X/mcc_generated_files/cmp/cmp_interface.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CAN1_FIFO_INFO:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CMP_INTERFACE:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00533.svg" width="131" height="123"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00533.svg" width="230" height="384"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a6c93cd7da46684a3bb95c08d4768619a" id="r_a6c93cd7da46684a3bb95c08d4768619a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#a6c93cd7da46684a3bb95c08d4768619a">payloadSize</a></td></tr>
-<tr class="separator:a6c93cd7da46684a3bb95c08d4768619a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69ab523116d5c3f2a58f7f3a5a807643" id="r_a69ab523116d5c3f2a58f7f3a5a807643"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#a69ab523116d5c3f2a58f7f3a5a807643">msgDeepSize</a></td></tr>
-<tr class="separator:a69ab523116d5c3f2a58f7f3a5a807643"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1802f0aae06d874726cd3522625999" id="r_abc1802f0aae06d874726cd3522625999"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#abc1802f0aae06d874726cd3522625999">address</a></td></tr>
-<tr class="separator:abc1802f0aae06d874726cd3522625999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afea2a7e78ccb7643d694c4bd7fa2ed5f" id="r_afea2a7e78ccb7643d694c4bd7fa2ed5f"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">Initialize</a> )(void)</td></tr>
+<tr class="memdesc:afea2a7e78ccb7643d694c4bd7fa2ed5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CMPx_Initialize e.g. <a class="el" href="a00481.html#ga84bc24b25eabe4579b0322971bd1d86a">CMP1_Initialize</a>.  <br /></td></tr>
+<tr class="separator:afea2a7e78ccb7643d694c4bd7fa2ed5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6aa2863d2196e9f95f70fde91049ee6" id="r_ab6aa2863d2196e9f95f70fde91049ee6"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ab6aa2863d2196e9f95f70fde91049ee6">Deinitialize</a> )(void)</td></tr>
+<tr class="memdesc:ab6aa2863d2196e9f95f70fde91049ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CMPx_Deinitialize e.g. <a class="el" href="a00481.html#ga69de2a268b86d261dc404a2188a77d77">CMP1_Deinitialize</a>.  <br /></td></tr>
+<tr class="separator:ab6aa2863d2196e9f95f70fde91049ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04c571590cd163f474c876943a39e0f1" id="r_a04c571590cd163f474c876943a39e0f1"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#a04c571590cd163f474c876943a39e0f1">Enable</a> )(void)</td></tr>
+<tr class="memdesc:a04c571590cd163f474c876943a39e0f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CMPx_Enable e.g. <a class="el" href="a00481.html#ga2ec35007a82510ca4a53a23ff5904406">CMP1_Enable</a>.  <br /></td></tr>
+<tr class="separator:a04c571590cd163f474c876943a39e0f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fd5c6c55c6a76c4d35e3f81609fab87" id="r_a7fd5c6c55c6a76c4d35e3f81609fab87"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#a7fd5c6c55c6a76c4d35e3f81609fab87">Disable</a> )(void)</td></tr>
+<tr class="memdesc:a7fd5c6c55c6a76c4d35e3f81609fab87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CMPx_Disable e.g. <a class="el" href="a00481.html#gad99656bbb8a8d59deceda4df05c5c81d">CMP1_Disable</a>.  <br /></td></tr>
+<tr class="separator:a7fd5c6c55c6a76c4d35e3f81609fab87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24f27219b70a98575c30c84585a0456c" id="r_a24f27219b70a98575c30c84585a0456c"><td class="memItemLeft" align="right" valign="top">bool(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#a24f27219b70a98575c30c84585a0456c">StatusGet</a> )(void)</td></tr>
+<tr class="memdesc:a24f27219b70a98575c30c84585a0456c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CMPx_StatusGet e.g. <a class="el" href="a00481.html#ga568e6ce9c8d08361412894ce59c8d1c2">CMP1_StatusGet</a>.  <br /></td></tr>
+<tr class="separator:a24f27219b70a98575c30c84585a0456c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad49cd423e587e4688bad864c2420148" id="r_aad49cd423e587e4688bad864c2420148"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#aad49cd423e587e4688bad864c2420148">EventCallbackRegister</a> )(void(*handler)(void))</td></tr>
+<tr class="memdesc:aad49cd423e587e4688bad864c2420148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CMPx_EventCallbackRegister e.g. <a class="el" href="a00481.html#gada13a4830178c3947f7df4fdfafc7d07">CMP1_EventCallbackRegister</a>.  <br /></td></tr>
+<tr class="separator:aad49cd423e587e4688bad864c2420148"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cd6ba5da58bb0185a3939d1fdcd25f5" id="r_a1cd6ba5da58bb0185a3939d1fdcd25f5"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#a1cd6ba5da58bb0185a3939d1fdcd25f5">Tasks</a> )(void)</td></tr>
+<tr class="memdesc:a1cd6ba5da58bb0185a3939d1fdcd25f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CMPx_Tasks e.g. CMP1_Tasks (Supported only in polling mode)  <br /></td></tr>
+<tr class="separator:a1cd6ba5da58bb0185a3939d1fdcd25f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d9887579eb5b51f6f5f9df819fa0538" id="r_a6d9887579eb5b51f6f5f9df819fa0538"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00531.html">DAC_DC_INTERFACE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#a6d9887579eb5b51f6f5f9df819fa0538">cmp_dac_dc_interface</a></td></tr>
+<tr class="memdesc:a6d9887579eb5b51f6f5f9df819fa0538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to <a class="el" href="a00531.html">DAC_DC_INTERFACE</a>.  <br /></td></tr>
+<tr class="separator:a6d9887579eb5b51f6f5f9df819fa0538"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00152">152</a> of file <a class="el" href="a00071_source.html">can1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00072">72</a> of file <a class="el" href="a00092_source.html">cmp_interface.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="abc1802f0aae06d874726cd3522625999" name="abc1802f0aae06d874726cd3522625999"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc1802f0aae06d874726cd3522625999">&#9670;&#160;</a></span>address</h2>
+<a id="a6d9887579eb5b51f6f5f9df819fa0538" name="a6d9887579eb5b51f6f5f9df819fa0538"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9887579eb5b51f6f5f9df819fa0538">&#9670;&#160;</a></span>cmp_dac_dc_interface</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t* address</td>
+          <td class="memname">const struct <a class="el" href="a00531.html">DAC_DC_INTERFACE</a>* cmp_dac_dc_interface</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00156">156</a> of file <a class="el" href="a00071_source.html">can1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00096">96</a> of file <a class="el" href="a00092_source.html">cmp_interface.h</a>.</p>
 
 </div>
 </div>
-<a id="a69ab523116d5c3f2a58f7f3a5a807643" name="a69ab523116d5c3f2a58f7f3a5a807643"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69ab523116d5c3f2a58f7f3a5a807643">&#9670;&#160;</a></span>msgDeepSize</h2>
+<a id="ab6aa2863d2196e9f95f70fde91049ee6" name="ab6aa2863d2196e9f95f70fde91049ee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6aa2863d2196e9f95f70fde91049ee6">&#9670;&#160;</a></span>Deinitialize</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t msgDeepSize</td>
+          <td class="memname">void(* Deinitialize) (void)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00155">155</a> of file <a class="el" href="a00071_source.html">can1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00077">77</a> of file <a class="el" href="a00092_source.html">cmp_interface.h</a>.</p>
 
 </div>
 </div>
-<a id="a6c93cd7da46684a3bb95c08d4768619a" name="a6c93cd7da46684a3bb95c08d4768619a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c93cd7da46684a3bb95c08d4768619a">&#9670;&#160;</a></span>payloadSize</h2>
+<a id="a7fd5c6c55c6a76c4d35e3f81609fab87" name="a7fd5c6c55c6a76c4d35e3f81609fab87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fd5c6c55c6a76c4d35e3f81609fab87">&#9670;&#160;</a></span>Disable</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t payloadSize</td>
+          <td class="memname">void(* Disable) (void)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00154">154</a> of file <a class="el" href="a00071_source.html">can1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00083">83</a> of file <a class="el" href="a00092_source.html">cmp_interface.h</a>.</p>
+
+</div>
+</div>
+<a id="a04c571590cd163f474c876943a39e0f1" name="a04c571590cd163f474c876943a39e0f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04c571590cd163f474c876943a39e0f1">&#9670;&#160;</a></span>Enable</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* Enable) (void)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00080">80</a> of file <a class="el" href="a00092_source.html">cmp_interface.h</a>.</p>
+
+</div>
+</div>
+<a id="aad49cd423e587e4688bad864c2420148" name="aad49cd423e587e4688bad864c2420148"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad49cd423e587e4688bad864c2420148">&#9670;&#160;</a></span>EventCallbackRegister</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* EventCallbackRegister) (void(*handler)(void))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00089">89</a> of file <a class="el" href="a00092_source.html">cmp_interface.h</a>.</p>
+
+</div>
+</div>
+<a id="afea2a7e78ccb7643d694c4bd7fa2ed5f" name="afea2a7e78ccb7643d694c4bd7fa2ed5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afea2a7e78ccb7643d694c4bd7fa2ed5f">&#9670;&#160;</a></span>Initialize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* Initialize) (void)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00074">74</a> of file <a class="el" href="a00092_source.html">cmp_interface.h</a>.</p>
+
+</div>
+</div>
+<a id="a24f27219b70a98575c30c84585a0456c" name="a24f27219b70a98575c30c84585a0456c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24f27219b70a98575c30c84585a0456c">&#9670;&#160;</a></span>StatusGet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool(* StatusGet) (void)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00086">86</a> of file <a class="el" href="a00092_source.html">cmp_interface.h</a>.</p>
+
+</div>
+</div>
+<a id="a1cd6ba5da58bb0185a3939d1fdcd25f5" name="a1cd6ba5da58bb0185a3939d1fdcd25f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cd6ba5da58bb0185a3939d1fdcd25f5">&#9670;&#160;</a></span>Tasks</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* Tasks) (void)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00093">93</a> of file <a class="el" href="a00092_source.html">cmp_interface.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dab-pwm-configuration.X/mcc_generated_files/can/src/<a class="el" href="a00071_source.html">can1.c</a></li>
+<li>dab-pwm-configuration.X/mcc_generated_files/cmp/<a class="el" href="a00092_source.html">cmp_interface.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
