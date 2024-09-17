@@ -162,21 +162,21 @@ uint16_t PBV_Calculate_CRC(uint8_t *message, uint16_t length);
  * @struct  PBV_UART_Object_TX
  * @brief   UART object for numeric tx
  **********************************************************************************/
-UART_MSG_TX_OBJ_t PBV_UART_Object_TX;
+UART_MSG_TX_OBJ_t pbvUartObjectTx;
 
 /***********************************************************************************
  * @ingroup PBV_UART
  * @struct  PBV_UART_Object_RX
  * @brief   UART object for numeric rx
  **********************************************************************************/
-UART_MSG_RX_OBJ_t PBV_UART_Object_RX;
+UART_MSG_RX_OBJ_t pbvUartObjectRx;
 
 /***********************************************************************************
  * @ingroup PBV_UART
  * @struct  PBV_UART_Object_ASCII
  * @brief   UART object for ascii tx
  **********************************************************************************/
-UART_MSG_TX_OBJ_t PBV_UART_Object_ASCII; //
+UART_MSG_TX_OBJ_t pbvUartObjectAscii; 
 
 /*********************************************************************************
  * @ingroup PBV_UART 
@@ -189,19 +189,19 @@ UART_MSG_TX_OBJ_t PBV_UART_Object_ASCII; //
  * @details initializes UART objects with application objects. Also initializes uartActiveTx and uartActiveTxAscii
  **********************************************************************************/
 
-void PBV_UART_Init(PBV_Datatype_TX_t * Board_To_PBV, PBV_Datatype_TX_t * Board_To_PBVAscii, PBV_Datatype_RX_t * Pbv_To_Board)
+void PBV_UART_Init(PBV_Datatype_TX_t * boardToPbv, PBV_Datatype_TX_t * boardToPbvAscii, PBV_Datatype_RX_t * pbvToBoard)
 {
-    PBV_UART_Object_TX.Protocol_ID = Board_To_PBV->PBV_Protcol_ID;
-    PBV_UART_Object_TX.offset = 0;
-    PBV_UART_Object_TX.Length_in_Bytes = Board_To_PBV->Length;
-    PBV_UART_Object_TX.data = Board_To_PBV->Data_Buffer;
+    pbvUartObjectTx.Protocol_ID = boardToPbv->PBV_Protcol_ID;
+    pbvUartObjectTx.offset = 0;
+    pbvUartObjectTx.Length_in_Bytes = boardToPbv->Length;
+    pbvUartObjectTx.data = boardToPbv->Data_Buffer;
 
-    PBV_UART_Object_RX.offset = 0;
+    pbvUartObjectRx.offset = 0;
 
-    PBV_UART_Object_ASCII.Protocol_ID = Board_To_PBVAscii->PBV_Protcol_ID;
-    PBV_UART_Object_ASCII.offset = 0;
-    PBV_UART_Object_ASCII.Length_in_Bytes = Board_To_PBVAscii->Length;
-    PBV_UART_Object_ASCII.data = Board_To_PBVAscii->Data_Buffer;
+    pbvUartObjectAscii.Protocol_ID = boardToPbvAscii->PBV_Protcol_ID;
+    pbvUartObjectAscii.offset = 0;
+    pbvUartObjectAscii.Length_in_Bytes = boardToPbvAscii->Length;
+    pbvUartObjectAscii.data = boardToPbvAscii->Data_Buffer;
 
     uartActiveTx = false;
     uartActiveTxAscii = false;
@@ -231,103 +231,103 @@ uint8_t PBV_UART_Receive_from_GUI()
             if (++rcv_timeout >= 10000)
             {
                 rcv_timeout = 0;
-                PBV_UART_Object_RX.UART_Frame_State = RCV_WAIT_FOR_STARTBYTE;
+                pbvUartObjectRx.UART_Frame_State = RCV_WAIT_FOR_STARTBYTE;
             }
             return PBV_MESSAGE_READY_TO_RECEIVE;
         }
         // ok, we have some data coming in, lets read and process
         rcv_timeout = 0;
         data = PBV_Read();
-        switch (PBV_UART_Object_RX.UART_Frame_State)
+        switch (pbvUartObjectRx.UART_Frame_State)
         {
         case RCV_WAIT_FOR_STARTBYTE:
             if (data == PBV_START_OF_FRAME)
             {
-                PBV_UART_Object_RX.UART_Frame_State = RCV_READ_ID_HIGHBYTE;
-                PBV_UART_Object_RX.offset = 0;
-                PBV_UART_Object_RX.PBV_Header[PBV_UART_Object_RX.offset] = data; 
+                pbvUartObjectRx.UART_Frame_State = RCV_READ_ID_HIGHBYTE;
+                pbvUartObjectRx.offset = 0;
+                pbvUartObjectRx.PBV_Header[pbvUartObjectRx.offset] = data; 
                 rcv_copy_for_CRC[rcv_data_index] = data;                        // for CRC
                 rcv_data_index++;                                               // for CRC
-                PBV_UART_Object_RX.offset++;
+                pbvUartObjectRx.offset++;
             }
             return PBV_STATE_RECEIVING;
 
         case RCV_READ_ID_HIGHBYTE:
-            PBV_UART_Object_RX.Protocol_ID = data << 8;
-            PBV_UART_Object_RX.UART_Frame_State = RCV_READ_ID_LOWBYTE;
-            PBV_UART_Object_RX.PBV_Header[PBV_UART_Object_RX.offset] = data; 
+            pbvUartObjectRx.Protocol_ID = data << 8;
+            pbvUartObjectRx.UART_Frame_State = RCV_READ_ID_LOWBYTE;
+            pbvUartObjectRx.PBV_Header[pbvUartObjectRx.offset] = data; 
             rcv_copy_for_CRC[rcv_data_index] = data;                        // for CRC
             rcv_data_index++;                                               // for CRC
-            PBV_UART_Object_RX.offset++;
+            pbvUartObjectRx.offset++;
             return PBV_STATE_RECEIVING;
 
         case RCV_READ_ID_LOWBYTE:
-            PBV_UART_Object_RX.Protocol_ID |= data;
-            PBV_UART_Object_RX.UART_Frame_State = RCV_READ_LENGTH_HIGHBYTE;
-            PBV_UART_Object_RX.PBV_Header[PBV_UART_Object_RX.offset] = data; 
+            pbvUartObjectRx.Protocol_ID |= data;
+            pbvUartObjectRx.UART_Frame_State = RCV_READ_LENGTH_HIGHBYTE;
+            pbvUartObjectRx.PBV_Header[pbvUartObjectRx.offset] = data; 
             rcv_copy_for_CRC[rcv_data_index] = data;                        // for CRC
             rcv_data_index++;                                               // for CRC
-            PBV_UART_Object_RX.offset++;
+            pbvUartObjectRx.offset++;
             return PBV_STATE_RECEIVING;
 
         case RCV_READ_LENGTH_HIGHBYTE:
             // clear CRC flag, for now, as the firmware doesn't support it
             // With PBV version 2.0.0, dsPIC cannot receive
             // messages from the GUI if this flag is not cleared
-            PBV_UART_Object_RX.PBV_Header[PBV_UART_Object_RX.offset] = data;
+            pbvUartObjectRx.PBV_Header[pbvUartObjectRx.offset] = data;
             rcv_copy_for_CRC[rcv_data_index] = data;                        // for CRC
             rcv_data_index++;                                               // for CRC
             data = data & 0x7F; // clear bit 7 (CRC flag) 
-            PBV_UART_Object_RX.Length_in_Bytes = data << 8;
-            PBV_UART_Object_RX.UART_Frame_State = RCV_READ_LENGTH_LOWBYTE;
-            PBV_UART_Object_RX.offset++;
+            pbvUartObjectRx.Length_in_Bytes = data << 8;
+            pbvUartObjectRx.UART_Frame_State = RCV_READ_LENGTH_LOWBYTE;
+            pbvUartObjectRx.offset++;
             return PBV_STATE_RECEIVING;
 
         case RCV_READ_LENGTH_LOWBYTE:
-            PBV_UART_Object_RX.PBV_Header[PBV_UART_Object_RX.offset] = data;
-            PBV_UART_Object_RX.Length_in_Bytes |= data;
+            pbvUartObjectRx.PBV_Header[pbvUartObjectRx.offset] = data;
+            pbvUartObjectRx.Length_in_Bytes |= data;
             rcv_copy_for_CRC[rcv_data_index] = data;                        // for CRC
             rcv_data_index++;                                               // for CRC
-            PBV_UART_Object_RX.UART_Frame_State = RCV_READ_DATA;
-            PBV_UART_Object_RX.offset = 0;
+            pbvUartObjectRx.UART_Frame_State = RCV_READ_DATA;
+            pbvUartObjectRx.offset = 0;
             return PBV_STATE_RECEIVING;
 
         case RCV_READ_DATA:
-            if (PBV_UART_Object_RX.offset < PBV_RCV_DATABUFFER_SIZE + PBV_HEADER_SIZE ) // MAX
+            if (pbvUartObjectRx.offset < PBV_RCV_DATABUFFER_SIZE + PBV_HEADER_SIZE ) // MAX
             {
-                PBV_UART_Object_RX.data[PBV_UART_Object_RX.offset] = data;
-                PBV_UART_Object_RX.offset++;
+                pbvUartObjectRx.data[pbvUartObjectRx.offset] = data;
+                pbvUartObjectRx.offset++;
                 
                 rcv_copy_for_CRC[rcv_data_index] = data;                        // for CRC
                 rcv_data_index++;                                               // for CRC
             }
-            if (PBV_UART_Object_RX.offset >= PBV_UART_Object_RX.Length_in_Bytes) //are we finished receiving data???
+            if (pbvUartObjectRx.offset >= pbvUartObjectRx.Length_in_Bytes) //are we finished receiving data???
             {
-                PBV_UART_Object_RX.UART_Frame_State = RCV_READ_CRC_HIGHBYTE;
+                pbvUartObjectRx.UART_Frame_State = RCV_READ_CRC_HIGHBYTE;
             }
             return PBV_STATE_RECEIVING;
 
         case RCV_READ_CRC_HIGHBYTE:
             rcv_CRC = data << 8;
-            PBV_UART_Object_RX.UART_Frame_State = RCV_READ_CRC_LOWBYTE;
+            pbvUartObjectRx.UART_Frame_State = RCV_READ_CRC_LOWBYTE;
             return PBV_STATE_RECEIVING;
 
         case RCV_READ_CRC_LOWBYTE:
             rcv_CRC |= data;
-            PBV_UART_Object_RX.UART_Frame_State = RCV_READ_EOF;
+            pbvUartObjectRx.UART_Frame_State = RCV_READ_EOF;
             return PBV_STATE_RECEIVING;
 
         case RCV_READ_EOF:
             if (data == 0x0d)
             {
                 ///< calculating CRC. data for CRC  [header][data]
-                PBV_calculated_CRC = PBV_Calculate_CRC(rcv_copy_for_CRC, PBV_UART_Object_RX.Length_in_Bytes + PBV_HEADER_SIZE);
+                PBV_calculated_CRC = PBV_Calculate_CRC(rcv_copy_for_CRC, pbvUartObjectRx.Length_in_Bytes + PBV_HEADER_SIZE);
                 if (PBV_calculated_CRC == rcv_CRC)
                 {
                     rcv_data_index = 0;
                     rcv_CRC = 0;
                     PBV_calculated_CRC = 0;
-                    PBV_UART_Object_RX.UART_Frame_State = RCV_MESSAGE_RECEIVED;
+                    pbvUartObjectRx.UART_Frame_State = RCV_MESSAGE_RECEIVED;
                     return PBV_MESSAGE_RECEIVED;
                 }
                 else {
@@ -358,16 +358,16 @@ uint8_t PBV_UART_Transmit_Ascii_to_GUI()
     }
     else
     {
-        switch (PBV_UART_Object_ASCII.UART_Frame_State)
+        switch (pbvUartObjectAscii.UART_Frame_State)
         {
             case 0:
-                PBV_UART_Object_ASCII.PBV_Header[0] = PBV_START_OF_FRAME;
-                PBV_UART_Object_ASCII.PBV_Header[1] = PBV_UART_Object_ASCII.Protocol_ID >> 8;
-                PBV_UART_Object_ASCII.PBV_Header[2] = PBV_UART_Object_ASCII.Protocol_ID & 0xff;
-                PBV_UART_Object_ASCII.PBV_Header[3] = PBV_UART_Object_ASCII.Length_in_Bytes >> 8;
-                PBV_UART_Object_ASCII.PBV_Header[4] = PBV_UART_Object_ASCII.Length_in_Bytes & 0xff;
-                PBV_UART_Object_ASCII.offset = 0;
-                PBV_UART_Object_ASCII.UART_Frame_State = 1;
+                pbvUartObjectAscii.PBV_Header[0] = PBV_START_OF_FRAME;
+                pbvUartObjectAscii.PBV_Header[1] = pbvUartObjectAscii.Protocol_ID >> 8;
+                pbvUartObjectAscii.PBV_Header[2] = pbvUartObjectAscii.Protocol_ID & 0xff;
+                pbvUartObjectAscii.PBV_Header[3] = pbvUartObjectAscii.Length_in_Bytes >> 8;
+                pbvUartObjectAscii.PBV_Header[4] = pbvUartObjectAscii.Length_in_Bytes & 0xff;
+                pbvUartObjectAscii.offset = 0;
+                pbvUartObjectAscii.UART_Frame_State = 1;
                 uartActiveTxAscii = true;
                 retval =  PBV_MESSAGE_TRANSMITTING;
             break;
@@ -375,13 +375,13 @@ uint8_t PBV_UART_Transmit_Ascii_to_GUI()
             case 1: //transfer header
                 if (PBV_ReadyToSend())//    && (MsCounter_++ > 1)) //@ftx
                 {
-                    temp = PBV_UART_Object_ASCII.PBV_Header[PBV_UART_Object_ASCII.offset];
+                    temp = pbvUartObjectAscii.PBV_Header[pbvUartObjectAscii.offset];
                     PBV_Write(temp);
-                    PBV_UART_Object_ASCII.offset++;
-                    if (PBV_UART_Object_ASCII.offset > 4)
+                    pbvUartObjectAscii.offset++;
+                    if (pbvUartObjectAscii.offset > 4)
                     {
-                        PBV_UART_Object_ASCII.offset = 0;
-                        PBV_UART_Object_ASCII.UART_Frame_State = 2;
+                        pbvUartObjectAscii.offset = 0;
+                        pbvUartObjectAscii.UART_Frame_State = 2;
                         retval = PBV_MESSAGE_TRANSMITTING; // Why is this here?
                     }
                 }
@@ -394,12 +394,12 @@ uint8_t PBV_UART_Transmit_Ascii_to_GUI()
             case 2: //transfer data 
                 if (PBV_ReadyToSend())// && (MsCounter_++ > 1)) //@ftx
                 {
-                    PBV_Write(PBV_UART_Object_ASCII.data[PBV_UART_Object_ASCII.offset]);
-                    PBV_UART_Object_ASCII.offset++;
-                    if (PBV_UART_Object_ASCII.offset >= PBV_UART_Object_ASCII.Length_in_Bytes)
+                    PBV_Write(pbvUartObjectAscii.data[pbvUartObjectAscii.offset]);
+                    pbvUartObjectAscii.offset++;
+                    if (pbvUartObjectAscii.offset >= pbvUartObjectAscii.Length_in_Bytes)
                     {
-                        PBV_UART_Object_ASCII.UART_Frame_State = 3;
-                        PBV_UART_Object_ASCII.offset = 0;
+                        pbvUartObjectAscii.UART_Frame_State = 3;
+                        pbvUartObjectAscii.offset = 0;
                         retval = PBV_MESSAGE_TRANSMITTING;
                     }
                 }
@@ -411,22 +411,22 @@ uint8_t PBV_UART_Transmit_Ascii_to_GUI()
                 
             case 3: //calculate CRC make end header
                 //IMPORTANT calculate crc before reusing PBV_HEADER
-                PBV_UART_Object_ASCII.PBV_Header[0] = 0; //
-                PBV_UART_Object_ASCII.PBV_Header[1] = 0; //add crc
-                PBV_UART_Object_ASCII.PBV_Header[2] = PBV_END_OF_FRAME;
-                PBV_UART_Object_ASCII.UART_Frame_State = 4;
+                pbvUartObjectAscii.PBV_Header[0] = 0; //
+                pbvUartObjectAscii.PBV_Header[1] = 0; //add crc
+                pbvUartObjectAscii.PBV_Header[2] = PBV_END_OF_FRAME;
+                pbvUartObjectAscii.UART_Frame_State = 4;
                 retval = PBV_MESSAGE_TRANSMITTING;
                 break;
 
             case 4: //transfer header
                 if (PBV_ReadyToSend())
                 {
-                    PBV_Write(PBV_UART_Object_ASCII.PBV_Header[PBV_UART_Object_ASCII.offset]);
-                    PBV_UART_Object_ASCII.offset++;
-                    if (PBV_UART_Object_ASCII.offset >= 3)
+                    PBV_Write(pbvUartObjectAscii.PBV_Header[pbvUartObjectAscii.offset]);
+                    pbvUartObjectAscii.offset++;
+                    if (pbvUartObjectAscii.offset >= 3)
                     {
-                        PBV_UART_Object_ASCII.UART_Frame_State = 0;
-                        PBV_UART_Object_ASCII.offset = 0;
+                        pbvUartObjectAscii.UART_Frame_State = 0;
+                        pbvUartObjectAscii.offset = 0;
                         uartActiveTxAscii = false;
                         retval =  PBV_MESSAGE_TRANSMITTED;
                     }
@@ -464,16 +464,16 @@ uint8_t PBV_UART_Transmit_to_GUI()
     }
     else
     {
-        switch (PBV_UART_Object_TX.UART_Frame_State)
+        switch (pbvUartObjectTx.UART_Frame_State)
         {
             case 0:
-                PBV_UART_Object_TX.PBV_Header[0] = PBV_START_OF_FRAME;
-                PBV_UART_Object_TX.PBV_Header[1] = PBV_UART_Object_TX.Protocol_ID >> 8;
-                PBV_UART_Object_TX.PBV_Header[2] = PBV_UART_Object_TX.Protocol_ID & 0xff;
-                PBV_UART_Object_TX.PBV_Header[3] = PBV_UART_Object_TX.Length_in_Bytes >> 8;
-                PBV_UART_Object_TX.PBV_Header[4] = PBV_UART_Object_TX.Length_in_Bytes & 0xff;
-                PBV_UART_Object_TX.offset = 0;
-                PBV_UART_Object_TX.UART_Frame_State = 1;
+                pbvUartObjectTx.PBV_Header[0] = PBV_START_OF_FRAME;
+                pbvUartObjectTx.PBV_Header[1] = pbvUartObjectTx.Protocol_ID >> 8;
+                pbvUartObjectTx.PBV_Header[2] = pbvUartObjectTx.Protocol_ID & 0xff;
+                pbvUartObjectTx.PBV_Header[3] = pbvUartObjectTx.Length_in_Bytes >> 8;
+                pbvUartObjectTx.PBV_Header[4] = pbvUartObjectTx.Length_in_Bytes & 0xff;
+                pbvUartObjectTx.offset = 0;
+                pbvUartObjectTx.UART_Frame_State = 1;
                 uartActiveTx = true;
                 retval = PBV_MESSAGE_TRANSMITTING;
                 break;
@@ -481,13 +481,13 @@ uint8_t PBV_UART_Transmit_to_GUI()
             case 1: //transfer header
                 if (PBV_ReadyToSend())//    && (MsCounter_++ > 1)) //@ftx
                 {
-                    temp = PBV_UART_Object_TX.PBV_Header[PBV_UART_Object_TX.offset];
+                    temp = pbvUartObjectTx.PBV_Header[pbvUartObjectTx.offset];
                     PBV_Write(temp);
-                    PBV_UART_Object_TX.offset++;
-                    if (PBV_UART_Object_TX.offset > 4)
+                    pbvUartObjectTx.offset++;
+                    if (pbvUartObjectTx.offset > 4)
                     {
-                        PBV_UART_Object_TX.offset = 0;
-                        PBV_UART_Object_TX.UART_Frame_State = 2;
+                        pbvUartObjectTx.offset = 0;
+                        pbvUartObjectTx.UART_Frame_State = 2;
                         retval = PBV_MESSAGE_TRANSMITTING;
                     }
                 }
@@ -500,12 +500,12 @@ uint8_t PBV_UART_Transmit_to_GUI()
             case 2: //transfer data 
                 if (PBV_ReadyToSend())// && (MsCounter_++ > 1)) //@ftx
                 {
-                    PBV_Write(PBV_UART_Object_TX.data[PBV_UART_Object_TX.offset]);
-                    PBV_UART_Object_TX.offset++;
-                    if (PBV_UART_Object_TX.offset >= PBV_UART_Object_TX.Length_in_Bytes)
+                    PBV_Write(pbvUartObjectTx.data[pbvUartObjectTx.offset]);
+                    pbvUartObjectTx.offset++;
+                    if (pbvUartObjectTx.offset >= pbvUartObjectTx.Length_in_Bytes)
                     {
-                        PBV_UART_Object_TX.UART_Frame_State = 3;
-                        PBV_UART_Object_TX.offset = 0;
+                        pbvUartObjectTx.UART_Frame_State = 3;
+                        pbvUartObjectTx.offset = 0;
                         retval = PBV_MESSAGE_TRANSMITTING;
                     }
                 }
@@ -517,22 +517,22 @@ uint8_t PBV_UART_Transmit_to_GUI()
 
             case 3: //calculate CRC make end header
                 //IMPORTANT calculate crc before reusing PBV_HEADER
-                PBV_UART_Object_TX.PBV_Header[0] = 0; //
-                PBV_UART_Object_TX.PBV_Header[1] = 0; //add crc
-                PBV_UART_Object_TX.PBV_Header[2] = PBV_END_OF_FRAME;
-                PBV_UART_Object_TX.UART_Frame_State = 4;
+                pbvUartObjectTx.PBV_Header[0] = 0; //
+                pbvUartObjectTx.PBV_Header[1] = 0; //add crc
+                pbvUartObjectTx.PBV_Header[2] = PBV_END_OF_FRAME;
+                pbvUartObjectTx.UART_Frame_State = 4;
                 retval = PBV_MESSAGE_TRANSMITTING;
                 break;
 
             case 4: //transfer header
                 if (PBV_ReadyToSend())
                 {
-                    PBV_Write(PBV_UART_Object_TX.PBV_Header[PBV_UART_Object_TX.offset]);
-                    PBV_UART_Object_TX.offset++;
-                    if (PBV_UART_Object_TX.offset >= 3)
+                    PBV_Write(pbvUartObjectTx.PBV_Header[pbvUartObjectTx.offset]);
+                    pbvUartObjectTx.offset++;
+                    if (pbvUartObjectTx.offset >= 3)
                     {
-                        PBV_UART_Object_TX.UART_Frame_State = 0;
-                        PBV_UART_Object_TX.offset = 0;
+                        pbvUartObjectTx.UART_Frame_State = 0;
+                        pbvUartObjectTx.offset = 0;
                         uartActiveTx = false;
                         retval = PBV_MESSAGE_TRANSMITTED;
                     }
@@ -562,9 +562,9 @@ uint8_t PBV_UART_Transmit_to_GUI()
 void PBV_UART_Reinit(PBV_Datatype_TX_t * ptr)
 {
     if (ptr->PBV_Signal_Ascii == PBV_SIGNAL_MODE)
-        PBV_UART_Object_TX.Protocol_ID = ptr->PBV_Protcol_ID;
+        pbvUartObjectTx.Protocol_ID = ptr->PBV_Protcol_ID;
     else
-        PBV_UART_Object_ASCII.Protocol_ID = ptr->PBV_Protcol_ID;
+        pbvUartObjectAscii.Protocol_ID = ptr->PBV_Protcol_ID;
 }
 
 /*********************************************************************************
@@ -580,13 +580,13 @@ void PBV_UART_Link_Data_TX(PBV_Datatype_TX_t * ptr)
 {
     if (ptr->PBV_Signal_Ascii == PBV_SIGNAL_MODE)
     {
-        PBV_UART_Object_TX.data             =    ptr->Data_Buffer;
-        PBV_UART_Object_TX.Length_in_Bytes  =    ptr->Length;
+        pbvUartObjectTx.data             =    ptr->Data_Buffer;
+        pbvUartObjectTx.Length_in_Bytes  =    ptr->Length;
     }
     else
     {
-        PBV_UART_Object_ASCII.data          =   ptr->Data_Buffer;
-        PBV_UART_Object_TX.Length_in_Bytes  =   ptr->Length;
+        pbvUartObjectAscii.data          =   ptr->Data_Buffer;
+        pbvUartObjectTx.Length_in_Bytes  =   ptr->Length;
     }
 }
 
@@ -602,9 +602,9 @@ void PBV_UART_Link_Data_TX(PBV_Datatype_TX_t * ptr)
 void PBV_UART_Link_Data_RX(PBV_Datatype_RX_t * ptr)
 {
     if (ptr->PBV_Message_State == PBV_MESSAGE_RECEIVED){
-        ptr->PBV_Protcol_ID = PBV_UART_Object_RX.Protocol_ID;
-        ptr->Data_Buffer = PBV_UART_Object_RX.data;
-        ptr->Length = PBV_UART_Object_RX.Length_in_Bytes;
+        ptr->PBV_Protcol_ID = pbvUartObjectRx.Protocol_ID;
+        ptr->Data_Buffer = pbvUartObjectRx.data;
+        ptr->Length = pbvUartObjectRx.Length_in_Bytes;
     } 
 }
 

@@ -36,7 +36,7 @@
  * @var     APP_PBV_FUNCS
  * @brief   structure of API function pointers. 
  **********************************************************************************/
-const APP_PBV_INTF_API_t APP_PBV_FUNCS = {
+const APP_PBV_INTF_API_t appPbvFuncs = {
 
 #if (PBV_UART == 1)
     PBV_UART_Init,

@@ -32,7 +32,7 @@
  *      this structure has the function pointers that links to the interfaces from CAN 
  * or UART. depending upon the selection in config.h
  **********************************************************************************/
-extern const APP_PBV_INTF_API_t APP_PBV_FUNCS;
+extern const APP_PBV_INTF_API_t appPbvFuncs;
 
 /*********************************************************************************
  * @ingroup APP_PBV
@@ -42,7 +42,7 @@ extern const APP_PBV_INTF_API_t APP_PBV_FUNCS;
  *      pointer to the PBV_Datatype_TX_t object that will be passed from the application. 
  * 
  **********************************************************************************/
-static PBV_Datatype_TX_t * App_System_To_PBV_Ptr;
+static PBV_Datatype_TX_t * appSystemToPbvPtr;
 
 
 /*********************************************************************************
@@ -53,7 +53,7 @@ static PBV_Datatype_TX_t * App_System_To_PBV_Ptr;
  *      pointer to the PBV_Datatype_RX_t object that will be passed from the application. 
  * 
  **********************************************************************************/
-static PBV_Datatype_RX_t * App_PBV_To_System_Ptr;
+static PBV_Datatype_RX_t * appPbvToSystemPtr;
 
 /*********************************************************************************
  * @ingroup App_PBV
@@ -62,7 +62,7 @@ static PBV_Datatype_RX_t * App_PBV_To_System_Ptr;
  * @details 
  *      pointer to the PBV_Datatype_TX_t object that will be passed from the application. 
  **********************************************************************************/
-static PBV_Datatype_TX_t * App_System_To_PBV_ASCII_Ptr;
+static PBV_Datatype_TX_t * appSystemToPbvAsciiPtr;
 
 /*********************************************************************************
  * @ingroup APP_PBV  
@@ -136,11 +136,11 @@ void PBV_Change_from_Eight_to_Sixteen(uint8_t * eightPtr, uint16_t * sixteenPtr,
 
 void App_PBV_Init(PBV_Datatype_TX_t * Board_To_PBV, PBV_Datatype_TX_t * Board_To_PBVAscii, PBV_Datatype_RX_t *PBV_To_Board)
 {
-    App_System_To_PBV_Ptr = Board_To_PBV;
-    App_System_To_PBV_ASCII_Ptr = Board_To_PBVAscii;
-    App_PBV_To_System_Ptr = PBV_To_Board;
+    appSystemToPbvPtr = Board_To_PBV;
+    appSystemToPbvAsciiPtr = Board_To_PBVAscii;
+    appPbvToSystemPtr = PBV_To_Board;
 
-    APP_PBV_FUNCS.init(App_System_To_PBV_Ptr, App_System_To_PBV_ASCII_Ptr, PBV_To_Board);
+    appPbvFuncs.init(appSystemToPbvPtr, appSystemToPbvAsciiPtr, PBV_To_Board);
 }
 
 /*********************************************************************************
@@ -157,7 +157,7 @@ void App_PBV_Re_Init(PBV_Datatype_TX_t * ptr)
 {
     // experiment with reassigning the protocol IDs in runtime to CAN objects.
     // or changing DLCs...
-    APP_PBV_FUNCS.reinit(ptr);
+    appPbvFuncs.reinit(ptr);
 }
 
 /*********************************************************************************
@@ -199,7 +199,7 @@ void App_Send_To_PBV(PBV_Datatype_TX_t * ptr)
         ptr->PBV_Message_State == PBV_MESSAGE_TX_ERROR      // TODO: for CAN. If the tx fails in arbitration. Introduce a RETRY mechanism.
             )
     {
-        APP_PBV_FUNCS.linkDataTX(ptr);
+        appPbvFuncs.linkDataTX(ptr);
         ptr->PBV_Message_State = PBV_MESSAGE_TRANSMIT_START;
     }
 }
@@ -216,7 +216,7 @@ void App_Send_To_PBV(PBV_Datatype_TX_t * ptr)
  **********************************************************************************/
 int App_Read_Received_From_PBV(PBV_Datatype_RX_t * ptr)                             
 {
-    return APP_PBV_FUNCS.linkDataRX(ptr);
+    return appPbvFuncs.linkDataRX(ptr);
 }
 
 /*********************************************************************************
@@ -231,28 +231,28 @@ int App_Read_Received_From_PBV(PBV_Datatype_RX_t * ptr)
  * **********************************************************************************/
 static void App_PBV_Task(void)
 {
-    if (App_PBV_To_System_Ptr->PBV_Message_State == PBV_MESSAGE_READY_TO_RECEIVE 
+    if (appPbvToSystemPtr->PBV_Message_State == PBV_MESSAGE_READY_TO_RECEIVE 
             ||
-        App_PBV_To_System_Ptr->PBV_Message_State == PBV_STATE_RECEIVING
+        appPbvToSystemPtr->PBV_Message_State == PBV_STATE_RECEIVING
             )
     {
-            App_PBV_To_System_Ptr->PBV_Message_State = APP_PBV_FUNCS.rxGui();
+            appPbvToSystemPtr->PBV_Message_State = appPbvFuncs.rxGui();
     }
 
-    if (App_System_To_PBV_Ptr->PBV_Message_State == PBV_MESSAGE_TRANSMIT_START
+    if (appSystemToPbvPtr->PBV_Message_State == PBV_MESSAGE_TRANSMIT_START
             ||
-        App_System_To_PBV_Ptr->PBV_Message_State == PBV_MESSAGE_TRANSMITTING
+        appSystemToPbvPtr->PBV_Message_State == PBV_MESSAGE_TRANSMITTING
             )
     {
-        App_System_To_PBV_Ptr->PBV_Message_State = APP_PBV_FUNCS.txGui();
+        appSystemToPbvPtr->PBV_Message_State = appPbvFuncs.txGui();
     }
 
-    if (App_System_To_PBV_ASCII_Ptr->PBV_Message_State == PBV_MESSAGE_TRANSMIT_START
+    if (appSystemToPbvAsciiPtr->PBV_Message_State == PBV_MESSAGE_TRANSMIT_START
             ||
-        App_System_To_PBV_ASCII_Ptr->PBV_Message_State == PBV_MESSAGE_TRANSMITTING    
+        appSystemToPbvAsciiPtr->PBV_Message_State == PBV_MESSAGE_TRANSMITTING    
             )
     {
-        App_System_To_PBV_ASCII_Ptr->PBV_Message_State = APP_PBV_FUNCS.txGuiAscii();
+        appSystemToPbvAsciiPtr->PBV_Message_State = appPbvFuncs.txGuiAscii();
     }
 }
 

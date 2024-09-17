@@ -76,25 +76,25 @@
 
 // static because these are private.
 
-static PBV_Datatype_TX_t App_PBV_DAB_TX;          ///< Application TX object
-static PBV_Datatype_RX_t App_PBV_DAB_RX;          ///< Application RX object
-static PBV_Datatype_TX_t App_PBV_DAB_ASCII;       ///< Application TX object for ascii
+static PBV_Datatype_TX_t appPbvDabTx;          ///< Application TX object
+static PBV_Datatype_RX_t appPbvDabRx;          ///< Application RX object
+static PBV_Datatype_TX_t appPbvDabAscii;       ///< Application TX object for ascii
 
-static PBV_Datatype_TX_t * App_PBV_DAB_TX_Ptr = &App_PBV_DAB_TX;        ///< Application TX object pointer
-static PBV_Datatype_RX_t * App_PBV_DAB_RX_Ptr = &App_PBV_DAB_RX;        ///< Application RX object pointer
-static PBV_Datatype_TX_t * App_PBV_DAB_ASCII_Ptr = &App_PBV_DAB_ASCII;  ///< Application TX object ascii pointer
+static PBV_Datatype_TX_t * appPbvDabTxPtr = &appPbvDabTx;        ///< Application TX object pointer
+static PBV_Datatype_RX_t * appPbvDabRxPtr = &appPbvDabRx;        ///< Application RX object pointer
+static PBV_Datatype_TX_t * appPbvDabAsciiPtr = &appPbvDabAscii;  ///< Application TX object ascii pointer
 
-uint8_t buffer_eight_rx[64];
-uint16_t buffer_sixteen_rx[32];
+uint8_t BufferEightRx[64];
+uint16_t BufferSixteenRx[32];
 
-uint8_t buffer_eight_tx[64];
-uint16_t buffer_sixteen_tx[32];
+uint8_t BufferEightTx[64];
+uint16_t BufferSixteenTx[32];
 
-static uint32_t tick_counter = 0;
-static uint8_t transmit_firmware_id = 1;
+static uint32_t TickCounter = 0;
+static uint8_t TransmitFirmwareId = 1;
 
 // temporary variables
-static int16_t temperature = 0;
+static int16_t Temperature = 0;
 
 /***********************************************************************************
  * Private Functions Prototypes
@@ -102,7 +102,7 @@ static int16_t temperature = 0;
 
 void App_PBV_DAB_Build_Frame(void);
 void App_PBV_DAB_Process_Rx_Data(uint16_t * data);
-void App_PBV_DAB_Frame_Parser(uint16_t protocol_ID, uint16_t length, uint8_t * data);
+void protocolID(uint16_t protocol_ID, uint16_t length, uint8_t * data);
 /***********************************************************************************
  * Public Functions Definitions
  **********************************************************************************/
@@ -118,19 +118,19 @@ void App_PBV_DAB_Frame_Parser(uint16_t protocol_ID, uint16_t length, uint8_t * d
  **********************************************************************************/
 void App_PBV_DAB_Init()
 {
-    App_PBV_DAB_TX_Ptr->PBV_Protcol_ID        = PBV_TX_PROTOCOL_ID;
-    App_PBV_DAB_TX_Ptr->PBV_Signal_Ascii      = PBV_SIGNAL_MODE;
-    App_PBV_DAB_TX_Ptr->PBV_Message_State     = PBV_MESSAGE_INIT;
-    App_PBV_DAB_TX_Ptr->Length                = 64;
+    appPbvDabTxPtr->PBV_Protcol_ID        = PBV_TX_PROTOCOL_ID;
+    appPbvDabTxPtr->PBV_Signal_Ascii      = PBV_SIGNAL_MODE;
+    appPbvDabTxPtr->PBV_Message_State     = PBV_MESSAGE_INIT;
+    appPbvDabTxPtr->Length                = 64;
 
-    App_PBV_DAB_RX_Ptr->PBV_Message_State     = PBV_MESSAGE_READY_TO_RECEIVE;
+    appPbvDabRxPtr->PBV_Message_State     = PBV_MESSAGE_READY_TO_RECEIVE;
 
-    App_PBV_DAB_ASCII_Ptr->PBV_Protcol_ID     = FIRMWARE_PROTOCOL_ID;
-    App_PBV_DAB_ASCII_Ptr->PBV_Signal_Ascii   = PBV_ASCII_MODE;
-    App_PBV_DAB_ASCII_Ptr->PBV_Message_State  = PBV_MESSAGE_INIT;
-    App_PBV_DAB_ASCII_Ptr->Length             = 64;
+    appPbvDabAsciiPtr->PBV_Protcol_ID     = FIRMWARE_PROTOCOL_ID;
+    appPbvDabAsciiPtr->PBV_Signal_Ascii   = PBV_ASCII_MODE;
+    appPbvDabAsciiPtr->PBV_Message_State  = PBV_MESSAGE_INIT;
+    appPbvDabAsciiPtr->Length             = 64;
 
-    App_PBV_Init(App_PBV_DAB_TX_Ptr, App_PBV_DAB_ASCII_Ptr, App_PBV_DAB_RX_Ptr);
+    App_PBV_Init(appPbvDabTxPtr, appPbvDabAsciiPtr, appPbvDabRxPtr);
 }
 
 /***********************************************************************************
@@ -147,20 +147,20 @@ void App_PBV_DAB_Init()
 void App_PBV_DAB_Task_10ms(void)
 {
     // RX handler
-    if (App_PBV_DAB_RX_Ptr->PBV_Message_State == PBV_MESSAGE_RECEIVED)
+    if (appPbvDabRxPtr->PBV_Message_State == PBV_MESSAGE_RECEIVED)
     {        
-        App_Read_Received_From_PBV(App_PBV_DAB_RX_Ptr);       
-        App_PBV_DAB_Frame_Parser(App_PBV_DAB_RX_Ptr->PBV_Protcol_ID, App_PBV_DAB_RX_Ptr->Length, App_PBV_DAB_RX_Ptr->Data_Buffer);
+        App_Read_Received_From_PBV(appPbvDabRxPtr);       
+        protocolID(appPbvDabRxPtr->PBV_Protcol_ID, appPbvDabRxPtr->Length, appPbvDabRxPtr->Data_Buffer);
         
         // msg read. Read another
-        App_Receive_From_PBV(App_PBV_DAB_RX_Ptr); 
+        App_Receive_From_PBV(appPbvDabRxPtr); 
     } 
     ///< 110ms sending 
-    if (++tick_counter > 11)
+    if (++TickCounter > 11)
     {
         App_PBV_DAB_Build_Frame();
-        App_Send_To_PBV(App_PBV_DAB_TX_Ptr);  
-        tick_counter = 0;
+        App_Send_To_PBV(appPbvDabTxPtr);  
+        TickCounter = 0;
     }    
 }
 
@@ -175,24 +175,24 @@ void App_PBV_DAB_Task_10ms(void)
  **********************************************************************************/
 void App_PBV_DAB_Task_1s(void)
 {
-    if (App_PBV_DAB_ASCII_Ptr->PBV_Protcol_ID == FIRMWARE_PROTOCOL_ID)
+    if (appPbvDabAsciiPtr->PBV_Protcol_ID == FIRMWARE_PROTOCOL_ID)
     {
-        App_PBV_DAB_ASCII_Ptr->Data_Buffer = (uint8_t *)FIRMWARE_VERSION_STRING;
-        App_Send_To_PBV(App_PBV_DAB_ASCII_Ptr);
-        App_PBV_DAB_ASCII_Ptr->PBV_Protcol_ID = PBV_LOG_ID;
-        transmit_firmware_id = 1;
+        appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)FIRMWARE_VERSION_STRING;
+        App_Send_To_PBV(appPbvDabAsciiPtr);
+        appPbvDabAsciiPtr->PBV_Protcol_ID = PBV_LOG_ID;
+        TransmitFirmwareId = 1;
         return;
     }
-    if (App_PBV_DAB_ASCII_Ptr->PBV_Protcol_ID == PBV_LOG_ID)
+    if (appPbvDabAsciiPtr->PBV_Protcol_ID == PBV_LOG_ID)
     {
-        if (transmit_firmware_id) App_PBV_Re_Init(App_PBV_DAB_ASCII_Ptr);     ///< reinit to new id
-        transmit_firmware_id = 0; 
+        if (TransmitFirmwareId) App_PBV_Re_Init(appPbvDabAsciiPtr);     ///< reinit to new id
+        TransmitFirmwareId = 0; 
     }
     //ToDo: Check with Cormac
-    App_PBV_DAB_ASCII_Ptr->Data_Buffer = (uint8_t *)"                 Log Message From Protocol ID 0x300";
-    App_Send_To_PBV(App_PBV_DAB_ASCII_Ptr);
+    appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)"                 Log Message From Protocol ID 0x300";
+    App_Send_To_PBV(appPbvDabAsciiPtr);
    
-    temperature = (int16_t)Dev_Temp_Get_Temperature_Celcius();
+    Temperature = (int16_t)Dev_Temp_Get_Temperature_Celcius();
 }
 
 /***********************************************************************************
@@ -205,11 +205,11 @@ void App_PBV_DAB_Task_1s(void)
  **********************************************************************************/
 PBV_Datatype_TX_t * App_PB_DAB_Get_TX_ASCII_ptr(void)
 {
-    if (App_PBV_DAB_ASCII_Ptr ->PBV_Message_State == PBV_MESSAGE_TRANSMITTING)
+    if (appPbvDabAsciiPtr ->PBV_Message_State == PBV_MESSAGE_TRANSMITTING)
     {
         return 0;
     }
-    return App_PBV_DAB_ASCII_Ptr;
+    return appPbvDabAsciiPtr;
 }
 
 /***********************************************************************************
@@ -230,7 +230,7 @@ void App_PBV_DAB_Build_Frame()
     // Power Board Visualizer can only mask single bits
     // so create maskable word that can be parsed by GUI by sending the
     // "2 ^ (state)" instead of "state"
-    buffer_sixteen_tx[0] = 1<<(Dev_PwrCtrl_Get_State());
+    BufferSixteenTx[0] = 1<<(Dev_PwrCtrl_Get_State());
     
     // send back one "flag word" which combines fault and status and enable control flag
     uint16_t enabled = Dev_PwrCtrl_Get_EnableFlag();
@@ -238,25 +238,25 @@ void App_PBV_DAB_Build_Frame()
     uint16_t status_flags = Dev_PwrCtrl_Get_Status();
     uint16_t flag_word = enabled + ((status_flags & 0x0003)<<1) + (fault_flags<<3);
     
-    buffer_sixteen_tx[1] = flag_word;
-    buffer_sixteen_tx[2] = Dev_PwrCtrl_GetAveraging_Vprim(); //Dev_PwrCtrl_GetAdc_Vpri();
-    buffer_sixteen_tx[3] = Dev_PwrCtrl_GetAveraging_Vsec();//Dev_PwrCtrl_GetAdc_Vsec();
-    buffer_sixteen_tx[4] = Dev_PwrCtrl_GetAdc_Ipri_ct();
-    buffer_sixteen_tx[5] = Dev_PwrCtrl_GetAdc_Isec_ct();
-    buffer_sixteen_tx[6] = Dev_PwrCtrl_GetAveraging_Isec();//Dev_PwrCtrl_GetAdc_Isec_avg();
-    buffer_sixteen_tx[7] = temperature + 40;//Dev_PwrCtrl_GetAdc_Temperature();
-    buffer_sixteen_tx[8] = Dev_PwrCtrl_GetAdc_Vrail_5V();    
-    buffer_sixteen_tx[9] =  Dev_PwrCtrl_GetPhase_P2SDegree();//devFanDataPtr->CurrentSpeedRaw;
-    buffer_sixteen_tx[10] = Dev_PwrCtrl_Get_DbgValue();//devFanDataPtr->CurrentSpeedPercent;
-    buffer_sixteen_tx[11] = temperature;
-    buffer_sixteen_tx[12] = Dev_PwrCtrl_Get_Period();
-    buffer_sixteen_tx[13] = Dev_PwrCtrl_Get_PwmprdTarget();
-    buffer_sixteen_tx[14] = Dev_PwrCtrl_Get_SecPower(); 
+    BufferSixteenTx[1] = flag_word;
+    BufferSixteenTx[2] = Dev_PwrCtrl_GetAveraging_Vprim(); //Dev_PwrCtrl_GetAdc_Vpri();
+    BufferSixteenTx[3] = Dev_PwrCtrl_GetAveraging_Vsec();//Dev_PwrCtrl_GetAdc_Vsec();
+    BufferSixteenTx[4] = Dev_PwrCtrl_GetAdc_Ipri_ct();
+    BufferSixteenTx[5] = Dev_PwrCtrl_GetAdc_Isec_ct();
+    BufferSixteenTx[6] = Dev_PwrCtrl_GetAveraging_Isec();//Dev_PwrCtrl_GetAdc_Isec_avg();
+    BufferSixteenTx[7] = Temperature + 40;//Dev_PwrCtrl_GetAdc_Temperature();
+    BufferSixteenTx[8] = Dev_PwrCtrl_GetAdc_Vrail_5V();    
+    BufferSixteenTx[9] =  Dev_PwrCtrl_GetPhase_P2SDegree();//devFanDataPtr->CurrentSpeedRaw;
+    BufferSixteenTx[10] = Dev_PwrCtrl_Get_DbgValue();//devFanDataPtr->CurrentSpeedPercent;
+    BufferSixteenTx[11] = Temperature;
+    BufferSixteenTx[12] = Dev_PwrCtrl_Get_Period();
+    BufferSixteenTx[13] = Dev_PwrCtrl_Get_PwmprdTarget();
+    BufferSixteenTx[14] = Dev_PwrCtrl_Get_SecPower(); 
     
-    PBV_Change_from_Sixteen_to_Eight(buffer_sixteen_tx, buffer_eight_tx, 18);
+    PBV_Change_from_Sixteen_to_Eight(BufferSixteenTx, BufferEightTx, 18);
     
-    App_PBV_DAB_TX_Ptr->Data_Buffer = buffer_eight_tx;
-    App_PBV_DAB_TX_Ptr->Length = 18 * 2 ;
+    appPbvDabTxPtr->Data_Buffer = BufferEightTx;
+    appPbvDabTxPtr->Length = 18 * 2 ;
 }
 
 
@@ -372,10 +372,10 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
  * @details
  * @note
  **********************************************************************************/
-void App_PBV_DAB_Frame_Parser(uint16_t protocol_ID, uint16_t length, uint8_t * data)
+void protocolID(uint16_t protocol_ID, uint16_t length, uint8_t * data)
 {
-    PBV_Change_from_Eight_to_Sixteen(data, buffer_sixteen_rx, length);
-    App_PBV_DAB_Process_Rx_Data(buffer_sixteen_rx);
+    PBV_Change_from_Eight_to_Sixteen(data, BufferSixteenRx, length);
+    App_PBV_DAB_Process_Rx_Data(BufferSixteenRx);
 }
 
 
