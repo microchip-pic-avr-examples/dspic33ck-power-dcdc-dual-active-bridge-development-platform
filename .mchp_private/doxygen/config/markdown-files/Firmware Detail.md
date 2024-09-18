@@ -15,7 +15,7 @@ The Microchip Code Configurator (MCC) is utilized to set up peripherals. This co
 
 The project files are organized as follows:
 
-- CAN Communication:
+- PBV Communication:
 
     - app_PBV_CAN.c: Manages CAN communication objects and functions.
     - app_PBV_UART.c: Manages UART communication objects and functions.
@@ -149,27 +149,22 @@ The table below lists all faults that are protected by our firmware, which execu
 
 ### Hardware fault protection
 
-The hardware fault protection system is designed to prevent severe board damage, especially from input or output overcurrent. It activates instantly without any delay, setting all PWM drive signals to zero and shutting down the converter. This system operates independently of the dsPIC, ensuring that any drive signals from the dsPIC are overridden by the hardware protection before reaching the FET drivers.
+The hardware fault protection system is engineered to avert significant board damage, particularly from input or output overcurrent. It activates instantaneously, setting all PWM drive signals to zero and shutting down the converter. This system functions independently of the dsPIC, ensuring that any drive signals from the dsPIC are overridden by the hardware protection before reaching the FET drivers.
 
-If the hardware fault protection is triggered, the protection is latched, meaning that once triggered it will not clear itself, it needs to be manually cleared.
+When the hardware fault protection is triggered, it latches, meaning it will not reset automatically and requires manual intervention to clear.
 
-If you want to re-run the board, you need to
+To restart the board, follow these steps:
 
-- disable all PWMs first, either by holding down the RESET push button, or erasing the dsPIC firmware (we recommend the second option as it is safer)
-- then short press the "RESET protection" push button on the HMI interface.
+- Disable all PWMs by either holding down the RESET push button or erasing the dsPIC firmware (the latter is recommended for safety).
+- Briefly press the "RESET protection" push button on the HMI interface.
+Additionally, the dsPIC implements output overcurrent protection using comparators and DACs as follows:
 
-On the dsPIC, output over current protection using comparators and DACs is also implemented as follows:
-
-- Current transformer in high voltage Bridge sense tied to CMP1DAC 
-- Current transformer in low voltage Bridge sense tied to CMP3DAC 
-
-Either of these comparators tripping will trigger the highest priority interrupt, which disables all PWM drive signals and puts the converter in the "FAULT ACTIVE" state.
-Like the hardware fault protection, this fault protection is also latched, meaning that the dsPIC needs to be reset to restart the converter. If this fault protection is triggered, the RESET flag in the Power Board Visualizer GUI will be set, as shown below, indicating that the dsPIC needs to be reset to re-start the DAB converter.
-
+The current transformer in the high voltage bridge sense is connected to CMP1DAC.
+The current transformer in the low voltage bridge sense is connected to CMP3DAC.
+If either comparator trips, it triggers the highest priority interrupt, disabling all PWM drive signals and placing the converter in the "FAULT ACTIVE" state. Similar to the hardware fault protection, this fault protection is also latched, necessitating a dsPIC reset to restart the converter. If this fault protection is activated, the RESET flag in the Power Board Visualizer GUI will be set, indicating that the dsPIC needs to be reset to restart the DAB converter.
 <p>
   <center>
-    <img src="images/" alt="fault-protection.jpg" width="250">
-    <br>
+    <img src="images/fault-protection.jpg" width="250"></p>
     DAB faults with hardware protection.
   </center>
 </p>
@@ -217,12 +212,33 @@ In a cascaded PWM configuration, the first PWM triggers subsequent PWMs in seque
 </p>
 
 ---
-## Compensator Settings
+## Power Control Compensator
+In this project, the Microchip [Digital Compensator Design Tool](https://www.microchip.com/en-us/development-tool/dcdt) has been employed for managing control loops. This software utility is specifically designed to aid engineers in the development and optimization of digital compensators for power supply systems. The tool streamlines the design process of digital control loops by offering an intuitive interface for configuring and tuning compensators. 
 
-mention DCDT configuration
-relevant files for dcdt
+This tool generates control loop files that are essential for code development. These files can be found in the directory pwrctrl/dcdt. In the file dev_pwrctrl_dcdt.c, users need to initialize the A- and B- coefficients of the control loop from DCDT, as well as set the scaling and limits for the control loop output. The control loop compensator is executed within the control loop interrupt service routine. This application includes three compensators: Voltage Loop, Current Loop, and Power Loop. The compensators are configured to allow users to adjust their limits in the Power Board Visualizer. The compensator with the lowest reference threshold will take precedence in controlling the loop.
 
+<p>
+  <center>
+    <img src="images/pbv-control-loop.jpg" width="600"></p>
+    DAB Power Board Visualizer Control Loop 
+  </center>
+</p>
 
+The Voltage loop and Power Loop is executed every 10KHz, with phase shift of 180 degrees making it interleaved with each other, while the Current Loop is executed every 100KHz. This timing diagram shows how much the control loop interrupt service routine in the CPU load.
+
+<p>
+  <center>
+    <img src="images/control-loop-timing.jpg" width="700"></p>
+    DAB Vloop, Ploop and ILoop Timing
+  </center>
+</p>
+
+<p>
+  <center>
+    <img src="images/isr-timing.jpg" width="700"></p>
+    DAB ISR Timing
+  </center>
+</p>
 ---
 
 &copy; 2024, Microchip Technology Inc.

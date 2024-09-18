@@ -37,7 +37,8 @@ var NAVTREE =
       [ "Power Control Data Structure", "a00747.html#autotoc_md16", null ],
       [ "Fault Protection", "a00747.html#autotoc_md18", null ],
       [ "PWM Setup", "a00747.html#autotoc_md22", null ],
-      [ "Compensator Settings", "a00747.html#autotoc_md24", null ]
+      [ "Power Control Compensator", "a00747.html#autotoc_md24", null ],
+      [ "</p>", "a00747.html#autotoc_md25", null ]
     ] ],
     [ "Software Overview", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
