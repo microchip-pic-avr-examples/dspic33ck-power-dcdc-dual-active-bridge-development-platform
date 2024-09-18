@@ -10,6 +10,6 @@ var searchData=
   ['pwm_5foutput_5fmodes_7',['PWM_OUTPUT_MODES',['../a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963',1,'pwm_types.h']]],
   ['pwm_5fsource_5fselect_8',['PWM_SOURCE_SELECT',['../a00140.html#aaf75b04e4ce65147e631b1c76af67934',1,'pwm_hs_types.h']]],
   ['pwm_5ftrigger_5fcompare_9',['PWM_TRIGGER_COMPARE',['../a00140.html#a49a81b3d1835f88d40c81ea13ba7ffa6',1,'pwm_hs_types.h']]],
-  ['pwr_5fctrl_5fcharge_5fstate_5fe_10',['PWR_CTRL_CHARGE_STATE_e',['../a00494.html#gae94eaf60955fa03f484bca0efeb21372',1,'dev_pwrctrl_typedef.h']]],
-  ['pwr_5fctrl_5fstates_5fe_11',['PWR_CTRL_STATES_e',['../a00494.html#ga6abbf677724014640a3ad06684ff488b',1,'dev_pwrctrl_typedef.h']]]
+  ['pwr_5fctrl_5fcharge_5fstate_5fe_10',['PWR_CTRL_CHARGE_STATE_e',['../a00495.html#gae94eaf60955fa03f484bca0efeb21372',1,'dev_pwrctrl_typedef.h']]],
+  ['pwr_5fctrl_5fstates_5fe_11',['PWR_CTRL_STATES_e',['../a00495.html#ga6abbf677724014640a3ad06684ff488b',1,'dev_pwrctrl_typedef.h']]]
 ];

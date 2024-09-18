@@ -41,6 +41,26 @@
 	@details    
 	*/
 
+
+/*----------------------------------------------------------------------------*/
+/* CONFIGURATION LAYER */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup	config-layer Configuration Layer
+@brief		Allow user to quickly change fundamental system parameters, hardware changes and 
+			even migrating the firmware across different designs wiht minimal modification 
+			in the actual source code.
+
+@details The main purpose of a configuration layer is to provide one central point 
+			in the firmware architecture where hardware dependencies can be specified, 
+			signal scalings can be defined and specific chip resources can be assigned to support/
+			connect generic software functions to the hardware. 
+
+			This central definitions allow fast modifications and optimizations but also support 
+			fast code migration between different hardware platforms. Thus, fast adaptation of new 
+			hardware can be achieved by modifying this set of centralized definitions.			
+*/
+
 /*----------------------------------------------------------------------------*/
 /* DEVICE LAYER */
 /*----------------------------------------------------------------------------*/
@@ -196,22 +216,14 @@
 	*/
 
 /*----------------------------------------------------------------------------*/
-/* CONFIGURATION LAYER */
+/* DRIVER LAYER */
 /*----------------------------------------------------------------------------*/
 /**
-@defgroup	config-layer Configuration Layer
-@brief		Allow user to quickly change fundamental system parameters, hardware changes and 
-			even migrating the firmware across different designs wiht minimal modification 
-			in the actual source code.
-
-@detail The main purpose of a configuration layer is to provide one central point 
-			in the firmware architecture where hardware dependencies can be specified, 
-			signal scalings can be defined and specific chip resources can be assigned to support/
-			connect generic software functions to the hardware. 
-
-			This central definitions allow fast modifications and optimizations but also support 
-			fast code migration between different hardware platforms. Thus, fast adaptation of new 
-			hardware can be achieved by modifying this set of centralized definitions.			
+@defgroup	driver-layer Driver Layer
+@brief		Contain functions and properties of the Driver layer
+@details 	The driver layer includes peripheral drivers managed by the MPLABX MCC Melody tool. 
+			It is essential to initialize certain peripheral functionalities to enable specific 
+			features required for the application.
 */
 
 /*----------------------------------------------------------------------------*/
