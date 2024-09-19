@@ -1,5 +1,5 @@
 
-# Firmware Features
+# Firmware Detail
 
 The firmware overview indicates that the power controller state machine and fault handler are executed every 100 microseconds by the scheduler. Additionally, the GUI handler operates every 10 milliseconds, while the LED and fan operations, along with temperature checks, are performed every 100 milliseconds.
 
@@ -39,7 +39,8 @@ The project files are organized as follows:
     - dev_pwrctrl_pwm.c: Calculates DAB control phase and manages PWM distribution.
     - dev_pwrctrl_sm.c: Executes the power control state machine every 100 microseconds.
     - dev_pwrctrl_utils.c: Contains functions for power control ramp up/down and averaging.
-<br>
+    
+
 <p>
   <center>
     <img src="images/dab-block-diagram.jpg" alt="firmware-0" width="850">

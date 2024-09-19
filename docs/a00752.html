@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Firmware Features</title>
+<title>Dual Active Bridge Development Board: Firmware Detail</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('a00752.html',''); initResizable(); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Firmware Features</div></div>
+  <div class="headertitle"><div class="title">Firmware Detail</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md13"></a> The firmware overview indicates that the power controller state machine and fault handler are executed every 100 microseconds by the scheduler. Additionally, the GUI handler operates every 10 milliseconds, while the LED and fan operations, along with temperature checks, are performed every 100 milliseconds.</p>
@@ -165,18 +165,17 @@ $(document).ready(function(){initNavTree('a00752.html',''); initResizable(); });
 <li><a class="el" href="a00326_source.html">dev_fault_common.c</a>: Contains generic fault handling functions.</li>
 </ul>
 </li>
-<li><p class="startli">Power Control:</p><ul>
+<li>Power Control:<ul>
 <li><a class="el" href="a00359.html" title="Contains power control initialization including control loop initialization and start-up initializati...">dev_pwrctrl.c</a>: Manages power control initialization, control loop, and execution.</li>
 <li><a class="el" href="a00371.html" title="Contains Control loop interrupt Callback that acquires the ADC raw data and process it in the control...">dev_pwrctrl_isr.c</a>: Handles control loop interrupt callbacks, ADC data acquisition, and PWM distribution.</li>
 <li><a class="el" href="a00380.html" title="Contains DAB control phase calculation between primary and secondary, and the PWM distribution.">dev_pwrctrl_pwm.c</a>: Calculates DAB control phase and manages PWM distribution.</li>
 <li><a class="el" href="a00386.html" title="Contains power control state machine functions that is executed every 100us.">dev_pwrctrl_sm.c</a>: Executes the power control state machine every 100 microseconds.</li>
-<li><a class="el" href="a00392.html" title="Contains generic functions that handles power control ramp Up/Down and the averaging generic function...">dev_pwrctrl_utils.c</a>: Contains functions for power control ramp up/down and averaging. <br  />
- </li>
+<li><a class="el" href="a00392.html" title="Contains generic functions that handles power control ramp Up/Down and the averaging generic function...">dev_pwrctrl_utils.c</a>: Contains functions for power control ramp up/down and averaging.</li>
+</ul>
+</li>
 </ul>
 <center> <img src="images/dab-block-diagram.jpg" alt="firmware-0" width="850" class="inline"/> <br  />
- Firmware block diagram. </center> </li>
-</ul>
-<p>The firmware block diagram illustrates the use of the dspic33C for a Dual Active Bridge converter. The following provides a detailed explanation of the firmware development for this application.</p>
+ Firmware block diagram. </center> <p>The firmware block diagram illustrates the use of the dspic33C for a Dual Active Bridge converter. The following provides a detailed explanation of the firmware development for this application.</p>
 <hr  />
 <h1><a class="anchor" id="autotoc_md15"></a>
 Converter State Machine</h1>

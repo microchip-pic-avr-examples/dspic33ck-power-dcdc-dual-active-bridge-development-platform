@@ -32,7 +32,7 @@ var NAVTREE =
       [ "Software Used", "index.html#autotoc_md9", null ],
       [ "Hardware Used", "index.html#autotoc_md11", null ]
     ] ],
-    [ "Firmware Features", "a00752.html", [
+    [ "Firmware Detail", "a00752.html", [
       [ "Converter State Machine", "a00752.html#autotoc_md15", null ],
       [ "Power Control Data Structure", "a00752.html#autotoc_md16", null ],
       [ "Fault Protection", "a00752.html#autotoc_md18", null ],
@@ -65,11 +65,11 @@ var NAVTREEINDEX =
 "a00029.html",
 "a00485.html#ga79ec24216fcdceeda0313df0193990ee",
 "a00505.html#gga047f851c8ef37ed494a184f9dc539301ac87f14c56cfbec685fcf370502957e6f",
-"a00511.html#ga48091f7bbd0977f82a3b4aeb0c13668f",
-"a00516.html#ga8561d223164c9d5d70aef54b9fb87c28",
-"a00539.html#a2f4198315b0c2aec55ba153fad19f958",
-"a00639.html#a4905336182a9fec2c6e219631604c50f",
-"globals_eval_t.html"
+"a00511.html#ga39f25f8e916a1be5aa90b959fe617f5c",
+"a00516.html#ga7bc6a7a90dce612edebdf1a6e38b34dc",
+"a00539.html#a2b6930de6d3a69b79434c2ed88f8511c",
+"a00635.html#afef96784db1d5e946b11ee6a13b1b1c0",
+"globals_eval_r.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

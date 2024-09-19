@@ -29,7 +29,7 @@
 #include "os/os.h"
 #include "stdint.h"
 
-#if OS_FEATURE_WATCHDOG_ENABLED == 1
+#if OS_FEATURE_WATCHDOG_ENABLED == true
 #include "os_watchdog.h"
 #endif     
 

@@ -16,7 +16,7 @@
 
 //=======================================================================================================
 // @file os_scheduler_100us.c
-//
+// @ingroup sched-layer
 // @brief contains the 100µs scheduler that calls all the tasks that need to be called regularly
 //        two different timing priorities are available:
 //          1. 100µs and 1ms Tasks called from the scheduler interrupt
@@ -140,6 +140,7 @@ static inline void OS_Scheduler_Init_Timer1_100us(void)
 //  @brief  Initializes Scheduler
 //  @note   call this function in your main routine before calling the RunForever function
 */
+//=======================================================================================================
 void OS_Scheduler_Init(void)
 {
     #if OS_USE_MCC_TIMER1 == 0
@@ -161,7 +162,8 @@ void OS_Scheduler_Init(void)
 //  @note   with this simple implementation we do not lose any tick from the timer, even when the tasks
 //          in the main loop take longer than 100µs
 */
-#if OS_USE_MCC_TIMER1 == 1
+//=======================================================================================================
+#if (OS_USE_MCC_TIMER1 == true)
 /* TMR1_CallBack is a weak linked function in the tmr1.c */
 /* LDRA_EXCLUDE 34 D */
 void TMR1_CallBack(void)
@@ -194,6 +196,7 @@ void __attribute__((__interrupt__,no_auto_psv)) _T1Interrupt(void)
 //          please consider that the timing of the calls are dependent on the duration of the last call
 //          the resulting jitter therefore depends on the timing of the calls before
 */
+//=======================================================================================================
 /* OS_Scheduler_RunOnce() is not called in this application, but is 
  available to do so */
 /* LDRA_EXCLUDE 61 D */ 
