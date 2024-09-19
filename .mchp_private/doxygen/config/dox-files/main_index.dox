@@ -273,11 +273,12 @@
 */
 
 /*----------------------------------------------------------------------------*/
-/* RTOS LAYER */
+/* TASK SCHEDULER LAYER */
 /*----------------------------------------------------------------------------*/
 /**
-@defgroup	os-layer Operating System Layer
-@brief		Contain functions and properties of the Operating System 
+@defgroup	sched-layer Task Sequencer Layer
+@brief		Contain functions and properties necessary to schedule a task.
+@details	A firmware task sequencer with a 100 microsecond (µs) execution interval is a critical component in real-time embedded systems, where precise timing and deterministic behavior are paramount. This sequencer is designed to manage and execute a series of tasks or operations at a highly granular time resolution, ensuring that each task is initiated every 100 µs. Such a high-frequency task scheduler is typically implemented using a hardware timer or interrupt service routine (ISR) to maintain strict timing accuracy. The sequencer must be optimized for minimal overhead to ensure that the majority of the 100 µs window is available for task execution rather than administrative functions.
 */
 
 /*----------------------------------------------------------------------------*/

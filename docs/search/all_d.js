@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['layer_0',['layer',['../a00480.html',1,'Application Layer'],['../a00486.html',1,'Configuration Layer'],['../a00487.html',1,'Device Layer'],['../a00504.html',1,'Driver Layer'],['../a00508.html',1,'MPLABX Configurator Driver Layer'],['../a00507.html',1,'Operating System Layer']]],
+  ['layer_0',['layer',['../a00480.html',1,'Application Layer'],['../a00486.html',1,'Configuration Layer'],['../a00487.html',1,'Device Layer'],['../a00504.html',1,'Driver Layer'],['../a00508.html',1,'MPLABX Configurator Driver Layer'],['../a00507.html',1,'Task Sequencer Layer']]],
   ['led_20display_1',['LED Display',['../a00502.html',1,'']]],
   ['led_5fdp_5fpim_5fgetvalue_2',['LED_DP_PIM_GetValue',['../a00520.html#ga4da15301986ea86700e1523243afcf14',1,'pins.h']]],
   ['led_5fdp_5fpim_5fsetdigitalinput_3',['LED_DP_PIM_SetDigitalInput',['../a00520.html#ga7cc1dd15ece050d947263d882063525b',1,'pins.h']]],

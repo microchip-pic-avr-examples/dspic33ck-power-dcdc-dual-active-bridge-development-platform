@@ -136,9 +136,10 @@ static inline void OS_Scheduler_Init_Timer1_100us(void)
 #endif
 
 //=======================================================================================================
+/**  @ingroup sched-layer
 //  @brief  Initializes Scheduler
 //  @note   call this function in your main routine before calling the RunForever function
-//=======================================================================================================
+*/
 void OS_Scheduler_Init(void)
 {
     #if OS_USE_MCC_TIMER1 == 0
@@ -155,10 +156,11 @@ void OS_Scheduler_Init(void)
 
 
 //=======================================================================================================
+/**  @ingroup sched-layer
 //  @brief  Timer 1 interrupt routine for generating the 100µs timing for the scheduler
 //  @note   with this simple implementation we do not lose any tick from the timer, even when the tasks
 //          in the main loop take longer than 100µs
-//=======================================================================================================
+*/
 #if OS_USE_MCC_TIMER1 == 1
 /* TMR1_CallBack is a weak linked function in the tmr1.c */
 /* LDRA_EXCLUDE 34 D */
@@ -186,11 +188,12 @@ void __attribute__((__interrupt__,no_auto_psv)) _T1Interrupt(void)
 
 
 //=======================================================================================================
+/**  @ingroup sched-layer
 //  @brief  Scheduler function for calling all the Tasks regularly ( 100us, 1ms, 10ms, 100ms, 1s )
 //  @note   call this function as last function in main.c after calling the Init-function
 //          please consider that the timing of the calls are dependent on the duration of the last call
 //          the resulting jitter therefore depends on the timing of the calls before
-//=======================================================================================================
+*/
 /* OS_Scheduler_RunOnce() is not called in this application, but is 
  available to do so */
 /* LDRA_EXCLUDE 61 D */ 
@@ -243,11 +246,12 @@ void OS_Scheduler_RunOnce(void)
 
 
 //=======================================================================================================
+/**  @ingroup sched-layer
 //  @brief  Scheduler function for calling all the Tasks regularly ( 100us, 1ms, 10ms, 100ms, 1s )
 //  @note   call this function as last function in main.c after calling the Init-function
 //          please consider that the timing of the calls are dependent on the duration of the last call
 //          the resulting jitter therefore depends on the timing of the calls before
-//=======================================================================================================
+*/
 void OS_Scheduler_RunForever(void)
 {
     // do some initialization

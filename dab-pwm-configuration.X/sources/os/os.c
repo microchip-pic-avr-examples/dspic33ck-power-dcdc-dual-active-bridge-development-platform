@@ -31,11 +31,7 @@
 
 #if OS_FEATURE_WATCHDOG_ENABLED == 1
 #include "os_watchdog.h"
-#endif
-
-//#include "os/os_sys_time.h"             
-
-//#include "os/os_sys_time.h"             
+#endif     
 
 #ifndef OS_TIMER_NUMBER_OF_TIMERS
 #warning OS_TIMER_NUMBER_OF_TIMERS needs to be defined in main/project_setting.h
