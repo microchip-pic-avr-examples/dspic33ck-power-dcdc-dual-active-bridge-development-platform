@@ -1,13 +1,12 @@
 var a00631 =
 [
-    [ "buffer_full", "a00631.html#ad4f64567943fe8c00dbd2d4233af5ba2", null ],
-    [ "error_flag", "a00631.html#afef96784db1d5e946b11ee6a13b1b1c0", null ],
-    [ "no_signal_flag", "a00631.html#a37f9081b236fa981d01cc25a1e758b71", null ],
-    [ "over_voltage_flag", "a00631.html#aeaf96ee6938bea2314c290a7aceffe34", null ],
-    [ "reset_buffer", "a00631.html#a01157d1c9ff38caaefb920f452acebe4", null ],
-    [ "under_voltage_flag", "a00631.html#a4928ed7605644a030deedfb9a66e6423", null ],
-    [ "voltage_averaged", "a00631.html#aee01ff86eaaebfe6ac63e12f76bad45f", null ],
-    [ "voltage_buffer", "a00631.html#a9d28ef607da9d827b7a84a53762ddc5b", null ],
-    [ "voltage_buffer_idx", "a00631.html#a47bba42074e93108d4dcbfee607716ce", null ],
-    [ "voltage_raw", "a00631.html#afd19992b906019d496441160a589d8e6", null ]
+    [ "CurrentSpeedPercent", "a00631.html#ad5d31528415a4ed9cf81ebfd785128c2", null ],
+    [ "CurrentSpeedRaw", "a00631.html#a833f5d95cb05c7446c9493ce32cd6a4e", null ],
+    [ "MaxSpeedPercent", "a00631.html#ad407e9ccc871b7dc9cca12bde19c730d", null ],
+    [ "MaxSpeedRaw", "a00631.html#a17841407278bd546565d170f7b6e9e78", null ],
+    [ "OverrideFlag", "a00631.html#a4f9053371e35277861b7403cd46b0d98", null ],
+    [ "StepSizePercent", "a00631.html#a6ea3b4a0033803dc206c7e104ab29ca8", null ],
+    [ "TargetSpeedPercent", "a00631.html#ad26b627b999dd76f16aa4a9e36470c91", null ],
+    [ "TargetSpeedRaw", "a00631.html#ac2a920307a7df3fdd9d9ef56b0fbac82", null ],
+    [ "Tick", "a00631.html#a4c53383b26fe25c1a65efe0e9b6ed9cf", null ]
 ];

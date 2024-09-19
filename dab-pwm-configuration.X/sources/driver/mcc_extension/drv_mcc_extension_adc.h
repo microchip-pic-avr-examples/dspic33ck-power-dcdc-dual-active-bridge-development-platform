@@ -1,22 +1,29 @@
-/* Microchip Technology Inc. and its subsidiaries.  You may use this software 
- * and any derivatives exclusively with Microchip products. 
- * 
- * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS".  NO WARRANTIES, WHETHER 
- * EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED 
- * WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A 
- * PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION 
- * WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION. 
- *
- * IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
- * INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
- * WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS 
- * BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE.  TO THE 
- * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS 
- * IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF 
- * ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
- *
- * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
- * TERMS. 
+/*
+    (c) 2024 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
+
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
+ */
+
+/**
+ * @file    drv_mcc_extension_adc.h     
+ * @ingroup driver-layer-adc   
+ * @brief   Contains public functions and defines for the MCC code extension for ADC.  
  */
 
 #ifndef DRV_MCC_EXTENSION_ADC_H
@@ -28,11 +35,8 @@
 #include <stddef.h> // include standard definition data types
 
 /*********************************************************************************
- * @ingroup GROUP_NAME
- * @def     ADC_FILTER_MODE_e
+ * @ingroup driver-layer-adc   
  * @brief   ADC Filter Modes of operation
- * @details
- *  ADD_DESCRIPTION_HERE
  **********************************************************************************/
 enum ADC_FILTER_MODE_e
 {
@@ -43,11 +47,8 @@ enum ADC_FILTER_MODE_e
 typedef enum ADC_FILTER_MODE_e ADC_FILTER_MODE_t;
 
 /*********************************************************************************
- * @ingroup GROUP_NAME
- * @def     ADC_FILTER_OVRSAM_AVG_e
+ * @ingroup driver-layer-adc  
  * @brief   ADC Filter Oversampling Ratio when in averaging mode
- * @details
- *  ADD_DESCRIPTION_HERE
  **********************************************************************************/
 enum ADC_FILTER_OVRSAM_AVG_e
 {
@@ -64,10 +65,12 @@ enum ADC_FILTER_OVRSAM_AVG_e
 typedef enum ADC_FILTER_OVRSAM_AVG_e ADC_FILTER_OVRSAM_AVG_t;
 
 /*********************************************************************************
- * @ingroup GROUP_NAME
- * @def    inline static void ADC_Filter_Enable(uint16_t filterIndex, bool enable)
- * @brief  divide ADC trigger 1 frequency by an integer, from 1 to 32
- * @details 
+ * @ingroup driver-layer-adc  
+ * @brief   Enables the ADC filter feature of the ADC
+ * @param   filterIndex ADC filter index (four indexes available for ADC filter)
+ * @param   enable       ADC filter enable
+ * @return  void
+ * @details This function enables the ADC feature of the ADC instance.
  **********************************************************************************/
 inline static void ADC_Filter_Enable(uint16_t filterIndex, bool enable)
 {
@@ -92,10 +95,13 @@ inline static void ADC_Filter_Enable(uint16_t filterIndex, bool enable)
 }
 
 /*********************************************************************************
- * @ingroup GROUP_NAME
- * @def    ADC_Filter_Mode(uint16_t filterIndex, ADC_FILTER_MODE_t mode)
- * @brief  set the filter mode (averaging or oversampling)
- * @details 
+ * @ingroup driver-layer-adc  
+ * @brief   Sets the ADC instance filter mode
+ * @param   filterIndex ADC filter index (four indexes available for ADC filter)
+ * @param   mode Pointer to a power control data object of type ADC_FILTER_MODE_t
+ * @return  void
+ * @details This function set the ADC instance filter mode either OverSampling
+ *  mode or Averaging mode. 
  **********************************************************************************/
 inline static void ADC_Filter_Mode(uint16_t filterIndex, ADC_FILTER_MODE_t mode)
 {
@@ -120,10 +126,13 @@ inline static void ADC_Filter_Mode(uint16_t filterIndex, ADC_FILTER_MODE_t mode)
 }
 
 /*********************************************************************************
- * @ingroup GROUP_NAME
- * @def    ADC_Filter_Averaging(uint16_t filterIndex, ADC_FILTER_OVRSAM_AVG_t averagingRatio)
- * @brief  set the amount of filter averaging when in averaging mode
- * @details 
+ * @ingroup driver-layer-adc  
+ * @brief   Sets the ADC instance number of samples to average
+ * @param   filterIndex ADC filter index (four indexes available for ADC filter)
+ * @param   averagingRatio Pointer to a power control data object of type ADC_FILTER_OVRSAM_AVG_t
+ * @return  void
+ * @details This function sets the number of samples to average in the particular
+ *  ADC instance.
  **********************************************************************************/
 inline static void ADC_Filter_Averaging(uint16_t filterIndex, ADC_FILTER_OVRSAM_AVG_t averagingRatio)
 {
@@ -148,10 +157,12 @@ inline static void ADC_Filter_Averaging(uint16_t filterIndex, ADC_FILTER_OVRSAM_
 }
 
 /*********************************************************************************
- * @ingroup GROUP_NAME
- * @def    ADC_Filter_Averaging(uint16_t filterIndex, ADC_FILTER_OVRSAM_AVG_e averagingRatio)
- * @brief  set the amount of filter averaging when in averaging mode
- * @details 
+ * @ingroup driver-layer-adc  
+ * @brief   Sets the ADC instance to be filtered
+ * @param   filterIndex ADC filter index (four indexes available for ADC filter)
+ * @param   channelIndex ADC channel
+ * @return  void
+ * @details This function sets up the ADC filter for the specific ADC instance.
  **********************************************************************************/
 inline static void ADC_Filter_Input(uint16_t filterIndex, uint16_t channelIndex)
 {
@@ -179,10 +190,11 @@ inline static void ADC_Filter_Input(uint16_t filterIndex, uint16_t channelIndex)
 }
 
 /*********************************************************************************
- * @ingroup GROUP_NAME
- * @def    ADC_Filter_GetResult(uint16_t filterIndex)
- * @brief  Read the Filter Result
- * @details 
+ * @ingroup driver-layer-adc  
+ * @brief   Gets the ADC filter result
+ * @param   filterIndex ADC filter index (four indexes available for ADC filter)
+ * @return  filterResult result of the filtered ADC
+ * @details This function gives the value of the ADC filter output. 
  **********************************************************************************/
 inline static uint16_t ADC_Filter_GetResult(uint16_t filterIndex)
 {

@@ -1,12 +1,9 @@
 var a00627 =
 [
-    [ "CurrentSpeedPercent", "a00627.html#ad5d31528415a4ed9cf81ebfd785128c2", null ],
-    [ "CurrentSpeedRaw", "a00627.html#a833f5d95cb05c7446c9493ce32cd6a4e", null ],
-    [ "MaxSpeedPercent", "a00627.html#ad407e9ccc871b7dc9cca12bde19c730d", null ],
-    [ "MaxSpeedRaw", "a00627.html#a17841407278bd546565d170f7b6e9e78", null ],
-    [ "OverrideFlag", "a00627.html#a4f9053371e35277861b7403cd46b0d98", null ],
-    [ "StepSizePercent", "a00627.html#a6ea3b4a0033803dc206c7e104ab29ca8", null ],
-    [ "TargetSpeedPercent", "a00627.html#ad26b627b999dd76f16aa4a9e36470c91", null ],
-    [ "TargetSpeedRaw", "a00627.html#ac2a920307a7df3fdd9d9ef56b0fbac82", null ],
-    [ "Tick", "a00627.html#a4c53383b26fe25c1a65efe0e9b6ed9cf", null ]
+    [ "Accumulator", "a00627.html#a1bf80696497119c4e36460f57de7f667", null ],
+    [ "CalibrationComplete", "a00627.html#adf25ddb38dbda4b3bf8401ccfa38187f", null ],
+    [ "LimitHigh", "a00627.html#a26af6df9982c908f6c04dac5febbfabe", null ],
+    [ "LimitLow", "a00627.html#a807559395dd14cc8be15101fbc71677d", null ],
+    [ "MeasurementCounter", "a00627.html#a439f5c23e968e4d9d17def3e46ca3aff", null ],
+    [ "Offset", "a00627.html#ae6e68acb116dc3b5f8a7354c7f7d4146", null ]
 ];

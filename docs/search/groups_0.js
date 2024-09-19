@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['5v_20voltage_20feedback_0',['5V Voltage Feedback',['../a00471.html',1,'']]]
+  ['2p2z_20dspic_20description_0',['Smps-2p2z-dspic-description',['../a00479.html',1,'']]]
 ];

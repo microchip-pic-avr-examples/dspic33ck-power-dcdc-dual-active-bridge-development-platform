@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['firmware_20overview_0',['Firmware Overview',['../a00748.html',1,'']]]
+  ['features_0',['Firmware Features',['../a00752.html',1,'']]],
+  ['firmware_20features_1',['Firmware Features',['../a00752.html',1,'']]]
 ];

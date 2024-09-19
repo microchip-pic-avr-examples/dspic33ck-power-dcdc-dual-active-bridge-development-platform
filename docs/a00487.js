@@ -1,11 +1,9 @@
 var a00487 =
 [
-    [ "Power Control Configuration", "a00488.html", "a00488" ],
-    [ "Interrupt Routine and Functions", "a00489.html", "a00489" ],
-    [ "PWM Configuration", "a00490.html", "a00490" ],
-    [ "State Machine", "a00491.html", "a00491" ],
-    [ "Control Loop Configuration", "a00492.html", "a00492" ],
-    [ "Power Control Communication Interface", "a00493.html", "a00493" ],
-    [ "Useful Functions", "a00494.html", "a00494" ],
-    [ "Power Control Data Types", "a00495.html", "a00495" ]
+    [ "Power Control", "a00488.html", "a00488" ],
+    [ "Fault Monitor", "a00497.html", "a00497" ],
+    [ "Current Sensor Calibration", "a00500.html", "a00500" ],
+    [ "Fan Control", "a00501.html", "a00501" ],
+    [ "LED Display", "a00502.html", "a00502" ],
+    [ "Temperature Detection", "a00503.html", "a00503" ]
 ];

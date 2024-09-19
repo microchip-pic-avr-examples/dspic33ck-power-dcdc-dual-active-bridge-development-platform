@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/pwrctrl/dcdt/smps_2p2z_dspic_FRANZ.s Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/pwrctrl/dcdt/smps_2p2z_dspic.s Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,10 +136,10 @@ $(document).ready(function(){initNavTree('a00347_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">smps_2p2z_dspic_FRANZ.s</div></div>
+  <div class="headertitle"><div class="title">smps_2p2z_dspic.s</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
+<a href="a00347.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span>; (c) 2013 Microchip Technology Inc.</div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span>;</div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>; MICROCHIP SOFTWARE NOTICE AND DISCLAIMER:  You may use this software, and any</div>
@@ -331,15 +331,15 @@ $(document).ready(function(){initNavTree('a00347_source.html',''); initResizable
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        mov     [w10 + #0], w5                  ; W5 = ErrorHistory[n]</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        mov     w5, [w10 + #2]                  ; ErrorHistory[n-1] = W5</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        ; Calculate most recent error with normalization,</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    ; Calculate most recent error with normalization,</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        sub w2, [w1], w5                        ; w5 = Reference - inputSource</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        sl  w5, w8, w5              ; shift error by PRE_SHIFT bit to the left (Q15 scaling)</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    sub w2, [w1], w5                        ; w5 = Reference - inputSource</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    sl  w5, w8, w5              ; shift error by PRE_SHIFT bit to the left (Q15 scaling)</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        ; Store most recent error to error history array</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        mov     w5, [w10]               ; controller2P2Z.errorHistory[n] = w5</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    ; Store most recent error to error history array</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    mov     w5, [w10]               ; controller2P2Z.errorHistory[n] = w5</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        ; Initialize B coefficients array</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    ; Initialize B coefficients array</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        mov [w0 + #offsetBCoefficients], w8         ; w8  = Base Address of _BCoefficients array (B0, B1, B2, B3)</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
@@ -351,131 +351,113 @@ $(document).ready(function(){initNavTree('a00347_source.html',''); initResizable
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        mac     w4*w5, a, [w8], w4, [w10], w5           ; ACCA = B0 * e[n] + B1 * e[n-1]</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                                ; w4   = B2, w5 = e[n-2]</div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        mac     w4*w5, a                    ; ACCA = B0 * e[n] + B1 * e[n-1] + B2 * e[n-2]</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>       ; Initialize A coefficients and control history arrays</div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        mov     [w0 + #offsetACoefficients],  w8    ; w8  = Base Address of _ACoefficients array  (A1, A2, A3)</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        mov     [w0 + #offsetControlHistory], w10   ; w10 = Base Address of _ControlHistory array (y[n-1], y[n-2], y[n-3])</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    mov     [w0 + #offsetACoefficients],  w8    ; w8  = Base Address of _ACoefficients array  (A1, A2, A3)</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    mov     [w0 + #offsetControlHistory], w10   ; w10 = Base Address of _ControlHistory array (y[n-1], y[n-2], y[n-3])</div>
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        ; Calculate second section of 2P2Z controller - Controller History</div>
 <div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        movsac  a, [w8]+=2, w4, [w10]+=2, w5        ; w4  = A1, w5 = y[n-1]</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        mac     w4*w5, a, [w8], w4, [w10], w5       ; ACCA = A1 * y[n-1] + B0 * e[n] + B1 * e[n-1] + B2 * e[n-2]</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    movsac  a, [w8]+=2, w4, [w10]+=2, w5        ; w4  = A1, w5 = y[n-1]</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    mac     w4*w5, a, [w8], w4, [w10], w5       ; ACCA = A1 * y[n-1] + B0 * e[n] + B1 * e[n-1] + B2 * e[n-2]</div>
 <div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                                ; w4   = A2, w5 = y[n-2]</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        mac     w4*w5, a                ; ACCA = A1 * y[n-1] + A2 * y[n-2] + B0 * e[n] + B1 * e[n-1] + B2 * e[n-2]</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    mac     w4*w5, a                ; ACCA = A1 * y[n-1] + A2 * y[n-2] + B0 * e[n] + B1 * e[n-1] + B2 * e[n-2]</div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        ; Initialize Scale-factor and multiply</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        sac.r   a, w4                   ; w4 = Sat(Rnd(ACCAH))</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        mov     [w0 + #offsetPostScaler],  w5       ; w5 = postScaler</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        mpy w4*w5, a                ; Multiply control output and scale-factor</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    sac.r   a, w4                   ; w4 = Sat(Rnd(ACCAH))</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    mov     [w0 + #offsetPostScaler],  w5       ; w5 = postScaler</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    mpy w4*w5, a                ; Multiply control output and scale-factor</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                                </div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    ; Backwards normalization &amp; write back</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        mov [w0 + #offsetPostShift], w5     ; w5 = Normalization Shift to compensate coefficient scaling</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        sftac   a, w5                   ; Backward normalization to compensate coefficient scaling</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        sac.r   a, w4                                   ; w4 = Sat(Rnd(ACCAH))  </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    mov [w0 + #offsetPostShift], w5     ; w5 = Normalization Shift to compensate coefficient scaling</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    sftac   a, w5                   ; Backward normalization to compensate coefficient scaling</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    sac.r   a, w4                                   ; w4 = Sat(Rnd(ACCAH))  </div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        </div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        </div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        ; Clamp controller output to min/max values if needed</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        mov     [w0 + #offsetMinOutput], w5</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    cpsgt   w4, w5</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        mov.w   w5, w4</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        mov     [w0 + #offsetMaxOutput], w5</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    cpslt   w4, w5</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        mov.w   w5, w4</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    </div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    </div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        ; Update the controller output history on the delay line</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    mov     [w10 + #-2], w5                 ; W5 = ControlHistory[n-1]</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        mov     w5, [w10]                           ; ControlHistory[n-2] = W5</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        mov     w4, [w10 + #-2]                         ; ControlHistory[n]   = w2</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>;       ; Clamp controller output to min/max values if needed</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>;        mov    [w0 + #offsetMinOutput], w5</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>;   cpsgt   w4, w5</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>;        mov.w   w5, w4</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>;        mov    [w0 + #offsetMaxOutput], w5</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>;   cpslt   w4, w5</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>;        mov.w   w5, w4</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        ; Controller write back into target register</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    mov w4, [w3]                        ; write result into target register</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        ; restore registers</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        pop     CORCON                      ; restore CORCON.</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        pop     w10                     ; restore working register W10</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        pop     w8                      ; restore working register W8</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        pop     w5                      ; restore working register W5</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        pop     w4                      ; restore working register W4</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        pop.s                           ; restore working registers W0...W3</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        return</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>; _SMPS_Controller2P2ZInitialize:</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>;</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>; Prototype:</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>;      void SMPS_Controller2P2ZInitialize( SMPS_2P2Z_T *controllerData )</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>;</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>; Operation: This routine clears the delay line elements in the arrays</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>;            _ControlHistory and _ErrorHistory.</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>;</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>; Input:</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>;       w0 = Address of data structure SMPS_2P2Z_T (type defined in smps_control.h)</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>;</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>; Return:</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>;       (void)</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>;</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>; System resources usage:</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>;       w0      saved, used, restored</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>;</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>;............................................................................</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    .global _SMPS_Controller2P2ZInitialize          ; provide global scope to routine</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        </div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>_SMPS_Controller2P2ZInitialize:</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>                                </div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        ; Clear controlHistory variables</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        push    w0                  ; Save w0</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        mov     [w0 + #offsetControlHistory], w0    ; Set up pointer to the base of </div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>                                                ; controlHistory variables within SMPS_2P2Z_T</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        clr     [w0++]                  ; ControlHistory[n-1] = 0</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        clr     [w0]                    ; ControlHistory[n-2] = 0</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    pop w0                  ; Restore pointer to base of SMPS_2P2Z_T</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        ; Clean up errorHistory variables</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        push    w0                  ; Save w0</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>        mov [w0 + #offsetErrorHistory], w0      ; w0 = Address of _ErrorHistory array (e[n], e[n-1], e[n-2], e[n-3])</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        clr     [w0++]                  ; ErrorHistory[n]   = 0</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        clr     [w0++]                  ; ErrorHistory[n-1] = 0</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        clr     [w0]                    ; ErrorHistory[n-2] = 0</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>        pop     w0                  ; Restore pointer to base of SMPS_2P2Z_T</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        return</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>;</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        .end</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>; EOF</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    ; Clamp controller output to min/max values if needed</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        mov     [w0 + #offsetMinOutput], w5</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    cpsgt   w4, w5</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        mov.w   w5, w4</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        mov     [w0 + #offsetMaxOutput], w5</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    cpslt   w4, w5</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        mov.w   w5, w4</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    ; Update the controller output history on the delay line</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    mov     [w10 + #-2], w5                 ; W5 = ControlHistory[n-1]</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        mov     w5, [w10]                           ; ControlHistory[n-2] = W5</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        mov     w4, [w10 + #-2]                         ; ControlHistory[n]   = w2</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    ; Controller write back into target register</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    mov w4, [w3]                        ; write result into target register</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    ; restore registers</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        pop     CORCON                      ; restore CORCON.</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        pop     w10                     ; restore working register W10</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        pop     w8                      ; restore working register W8</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        pop     w5                      ; restore working register W5</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        pop     w4                      ; restore working register W4</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        pop.s                           ; restore working registers W0...W3</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        return</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>; _SMPS_Controller2P2ZInitialize:</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>; Prototype:</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>;      void SMPS_Controller2P2ZInitialize( SMPS_2P2Z_T *controllerData )</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>; Operation: This routine clears the delay line elements in the arrays</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>;            _ControlHistory and _ErrorHistory.</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>; Input:</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>;       w0 = Address of data structure SMPS_2P2Z_T (type defined in smps_control.h)</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>; Return:</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>;       (void)</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>; System resources usage:</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>;       w0      saved, used, restored</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>;</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>;............................................................................</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    .global _SMPS_Controller2P2ZInitialize          ; provide global scope to routine</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>_SMPS_Controller2P2ZInitialize:</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>                                </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        ; Clear controlHistory variables</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        push    w0                  ; Save w0</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        mov     [w0 + #offsetControlHistory], w0    ; Set up pointer to the base of </div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>                                                ; controlHistory variables within SMPS_2P2Z_T</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        clr     [w0++]                  ; ControlHistory[n-1] = 0</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        clr     [w0]                    ; ControlHistory[n-2] = 0</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    pop w0                  ; Restore pointer to base of SMPS_2P2Z_T</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        ; Clean up errorHistory variables</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        push    w0                  ; Save w0</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        mov [w0 + #offsetErrorHistory], w0      ; w0 = Address of _ErrorHistory array (e[n], e[n-1], e[n-2], e[n-3])</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        clr     [w0++]                  ; ErrorHistory[n]   = 0</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        clr     [w0++]                  ; ErrorHistory[n-1] = 0</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        clr     [w0]                    ; ErrorHistory[n-2] = 0</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        pop     w0                  ; Restore pointer to base of SMPS_2P2Z_T</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        return</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        .end</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>; EOF</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

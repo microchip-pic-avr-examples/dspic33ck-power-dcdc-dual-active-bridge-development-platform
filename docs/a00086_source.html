@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/cmp/cmp1.h Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/clc/src/clc1.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('a00086_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">cmp1.h</div></div>
+  <div class="headertitle"><div class="title">clc1.c</div></div>
 </div><!--header-->
 <div class="contents">
 <a href="a00086.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
@@ -161,67 +161,154 @@ $(document).ready(function(){initNavTree('a00086_source.html',''); initResizable
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    THIS SOFTWARE.</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#ifndef CMP1_H</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define CMP1_H</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// Section: Included Files</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &quot;cmp_interface.h&quot;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// Section: Included Files</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;../clc1.h&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// Section: File specific functions</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="a00086.html#abd2914eeafd942415745ab5ddc662939">   44</a></span><span class="keyword">static</span> void (*<a class="code hl_variable" href="a00086.html#abd2914eeafd942415745ab5ddc662939">CLC1_PositiveEdgeHandler</a>)(void) = NULL;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="a00086.html#ae47047b8370af6628fc69d35e9e2ea23">   45</a></span><span class="keyword">static</span> void (*<a class="code hl_variable" href="a00086.html#ae47047b8370af6628fc69d35e9e2ea23">CLC1_NegativeEdgeHandler</a>)(void) = NULL;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">// Section: Data Type Definitions</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">// Section: File specific data type definitions</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00563.html">CMP_INTERFACE</a> <a class="code hl_variable" href="a00509.html#ga81b1ec445112110d10afe83428ee9b0c">CMP_ISEC_SC</a>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="a00509.html#ga267c703c18edca476e26a01fef40aba4">   65</a></span><span class="preprocessor">#define CMP_ISEC_SC_Initialize CMP1_Initialize</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="a00509.html#gad9359df04e2106c9ae8911f122f82109">   70</a></span><span class="preprocessor">#define CMP_ISEC_SC_Deinitialize CMP1_Deinitialize</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="a00509.html#ga9decde17bcc3e9d70a6b6686971ca969">   75</a></span><span class="preprocessor">#define CMP_ISEC_SC_StatusGet CMP1_StatusGet</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="a00509.html#ga1e3bbe27a6365fe9d15ad9cd36c9101b">   80</a></span><span class="preprocessor">#define CMP_ISEC_SC_Enable CMP1_Enable</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="a00509.html#ga240713f023c08a86154e2885e40c2f8f">   85</a></span><span class="preprocessor">#define CMP_ISEC_SC_Disable CMP1_Disable</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="a00509.html#gaf9f384155703e0397d7872981f38a0e7">   90</a></span><span class="preprocessor">#define CMP_ISEC_SC_DACEnable CMP1_DACEnable</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="a00509.html#gab6f270c852bcecfbdbd44fbc80ba3434">   95</a></span><span class="preprocessor">#define CMP_ISEC_SC_DACDisable CMP1_DACDisable</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="a00509.html#ga7f158b81caafe069aa2b7c1254e1027c">  100</a></span><span class="preprocessor">#define CMP_ISEC_SC_DACDataWrite CMP1_DACDataWrite</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#define CMP_ISEC_SC_DACDisable CMP1_DACDisable</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="a00509.html#gaa10c22707dd22e6bd8c6993b681b5360">  110</a></span><span class="preprocessor">#define CMP_ISEC_SC_EventCallbackRegister CMP1_EventCallbackRegister</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">// Section: CMP1 Module APIs</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00509.html#ga84bc24b25eabe4579b0322971bd1d86a">CMP1_Initialize</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">//Defines an object for CLC_INTERFACE</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="a00512.html#gaf313a644645eaeb160dd1eba82ff4506">   51</a></span><span class="keyword">const</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00559.html">CLC_INTERFACE</a> <a class="code hl_variable" href="a00512.html#gaf313a644645eaeb160dd1eba82ff4506">CLC1</a> = {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    .<a class="code hl_variable" href="a00559.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">Initialize</a>         = &amp;<a class="code hl_function" href="a00512.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a>,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    .Deinitialize       = &amp;<a class="code hl_function" href="a00512.html#ga01516d04dce352de74ae123cf553cb30">CLC1_Deinitialize</a>,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    .Enable             = &amp;<a class="code hl_function" href="a00512.html#ga7c85f3e09616a9a2855839d4b45c0e43">CLC1_Enable</a>,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    .Disable            = &amp;<a class="code hl_function" href="a00512.html#ga278c795208d6f58fb1b0c1bf2739f883">CLC1_Disable</a>,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    .OutputStatusGet    =&amp;<a class="code hl_function" href="a00512.html#gaf3af7f12e3d269fdc409d1a279736b27">CLC1_OutputStatusGet</a>,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    .PositiveEdgeCallbackRegister = &amp;<a class="code hl_function" href="a00512.html#gaecad61896990ca955aab640a8609a74d">CLC1_PositiveEdgeCallbackRegister</a>,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    .NegativeEdgeCallbackRegister = &amp;<a class="code hl_function" href="a00512.html#gab37490b9172b07cf29c311b7501d04f6">CLC1_NegativeEdgeCallbackRegister</a>,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    .Tasks              = &amp;<a class="code hl_function" href="a00512.html#gaac6c1a14b3589b2c967b9a1b6bb01551">CLC1_Tasks</a>,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">// Section: Driver Interface Function Definitions</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="a00512.html#gaaa42a5ba0915a962cd75964a4dcde3b4">   63</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>{</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">// Set the CLC1 to the options selected in the User Interface</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="comment">// LCEN enabled; LCINTN disabled; LCPOL non_inverted; LCOUT Low; LCINTP disabled; LCMODE AND-OR; LCOE enabled; </span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    CLC1CONL = 0x8080;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="comment">// LCG1POL non_inverted; LCG2POL non_inverted; LCG3POL non_inverted; LCG4POL non_inverted; </span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    CLC1CONH = 0x0;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">// LCD2S CMP1 output; LCD1S CLCINA I/O pin; LCD4S CMP3 output; LCD3S CLCINC I/O pin; </span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    CLC1SELL = 0x2020;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="comment">// LCG1D1T disabled; LCG1D3T disabled; LCG2D2T enabled; LCG1D2T enabled; LCG2D1T disabled; LCG2D4T disabled; LCG1D4T disabled; LCG2D3T disabled; LCG1D1N disabled; LCG1D3N disabled; LCG2D2N disabled; LCG1D2N disabled; LCG2D1N disabled; LCG2D4N disabled; LCG1D4N disabled; LCG2D3N disabled; </span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    CLC1GLSL = 0x808;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="comment">// LCG3D1T disabled; LCG3D2T disabled; LCG4D1T disabled; LCG3D3T disabled; LCG4D2T disabled; LCG3D4T enabled; LCG4D3T disabled; LCG4D4T enabled; LCG3D1N disabled; LCG3D2N disabled; LCG4D1N disabled; LCG3D3N disabled; LCG4D2N disabled; LCG3D4N disabled; LCG4D3N disabled; LCG4D4N disabled; </span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    CLC1GLSH = 0x8080;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_function" href="a00512.html#gaecad61896990ca955aab640a8609a74d">CLC1_PositiveEdgeCallbackRegister</a>(&amp;<a class="code hl_function" href="a00512.html#ga055481a146c113692385b653e64331f8">CLC1_PositiveEdgeCallback</a>);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_function" href="a00512.html#gab37490b9172b07cf29c311b7501d04f6">CLC1_NegativeEdgeCallbackRegister</a>(&amp;<a class="code hl_function" href="a00512.html#gaf25cf35f34affb5c7832814688a02873">CLC1_NegativeEdgeCallback</a>);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_function" href="a00512.html#ga7c85f3e09616a9a2855839d4b45c0e43">CLC1_Enable</a>();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="a00512.html#ga01516d04dce352de74ae123cf553cb30">   85</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#ga01516d04dce352de74ae123cf553cb30">CLC1_Deinitialize</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>{</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_function" href="a00512.html#ga278c795208d6f58fb1b0c1bf2739f883">CLC1_Disable</a>();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    CLC1CONL = 0x0;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    CLC1CONH = 0x0;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    CLC1SELL = 0x0;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    CLC1GLSL = 0x0;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    CLC1GLSH = 0x0;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
+</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="a00512.html#gaecad61896990ca955aab640a8609a74d">   96</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#gaecad61896990ca955aab640a8609a74d">CLC1_PositiveEdgeCallbackRegister</a>(<span class="keywordtype">void</span> (*handler)(<span class="keywordtype">void</span>))</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>{</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">if</span>(NULL != handler)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <a class="code hl_variable" href="a00086.html#abd2914eeafd942415745ab5ddc662939">CLC1_PositiveEdgeHandler</a> = handler;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
+</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="a00512.html#ga055481a146c113692385b653e64331f8">  104</a></span><span class="keywordtype">void</span> __attribute__ ((weak)) <a class="code hl_function" href="a00512.html#ga055481a146c113692385b653e64331f8">CLC1_PositiveEdgeCallback</a> ( <span class="keywordtype">void</span> )</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>{ </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>} </div>
+</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="a00512.html#gab37490b9172b07cf29c311b7501d04f6">  109</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#gab37490b9172b07cf29c311b7501d04f6">CLC1_NegativeEdgeCallbackRegister</a>(<span class="keywordtype">void</span> (*handler)(<span class="keywordtype">void</span>))</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>{</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">if</span>(NULL != handler)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <a class="code hl_variable" href="a00086.html#ae47047b8370af6628fc69d35e9e2ea23">CLC1_NegativeEdgeHandler</a> = handler;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>}</div>
+</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="a00512.html#gaf25cf35f34affb5c7832814688a02873">  117</a></span><span class="keywordtype">void</span> __attribute__ ((weak)) <a class="code hl_function" href="a00512.html#gaf25cf35f34affb5c7832814688a02873">CLC1_NegativeEdgeCallback</a> ( <span class="keywordtype">void</span> )</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>{ </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>} </div>
+</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00509.html#ga69de2a268b86d261dc404a2188a77d77">CMP1_Deinitialize</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keywordtype">bool</span> <a class="code hl_function" href="a00509.html#ga568e6ce9c8d08361412894ce59c8d1c2">CMP1_StatusGet</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00509.html#ga2ec35007a82510ca4a53a23ff5904406">CMP1_Enable</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00509.html#gad99656bbb8a8d59deceda4df05c5c81d">CMP1_Disable</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00509.html#ga8bc1b3b9702a02692dd80a4b4a44ddb7">CMP1_DACEnable</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00509.html#gacc663a8dfb68218eadfd67c3e4c36af5">CMP1_DACDisable</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00509.html#gaee866792f2c0cc3bb200b7db2f05963f">CMP1_DACDataWrite</a>(<span class="keywordtype">size_t</span> value);</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00509.html#gada13a4830178c3947f7df4fdfafc7d07">CMP1_EventCallbackRegister</a>(<span class="keywordtype">void</span> (*handler)(<span class="keywordtype">void</span>));</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00509.html#ga45e264e4cac4f412bf60fa40a3d61dbe">CMP1_EventCallback</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="preprocessor">#endif </span><span class="comment">//CMP1_H</span></div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
-<div class="ttc" id="aa00509_html_ga2ec35007a82510ca4a53a23ff5904406"><div class="ttname"><a href="a00509.html#ga2ec35007a82510ca4a53a23ff5904406">CMP1_Enable</a></div><div class="ttdeci">void CMP1_Enable(void)</div><div class="ttdoc">Enables the common DAC module.</div><div class="ttdef"><b>Definition</b> <a href="a00098_source.html#l00122">cmp1.c:122</a></div></div>
-<div class="ttc" id="aa00509_html_ga45e264e4cac4f412bf60fa40a3d61dbe"><div class="ttname"><a href="a00509.html#ga45e264e4cac4f412bf60fa40a3d61dbe">CMP1_EventCallback</a></div><div class="ttdeci">void CMP1_EventCallback(void)</div><div class="ttdoc">This is the default callback with weak attribute. The user can override and implement the default cal...</div><div class="ttdef"><b>Definition</b> <a href="a00098_source.html#l00155">cmp1.c:155</a></div></div>
-<div class="ttc" id="aa00509_html_ga568e6ce9c8d08361412894ce59c8d1c2"><div class="ttname"><a href="a00509.html#ga568e6ce9c8d08361412894ce59c8d1c2">CMP1_StatusGet</a></div><div class="ttdeci">bool CMP1_StatusGet(void)</div><div class="ttdoc">Returns the comparator output status.</div><div class="ttdef"><b>Definition</b> <a href="a00098_source.html#l00117">cmp1.c:117</a></div></div>
-<div class="ttc" id="aa00509_html_ga69de2a268b86d261dc404a2188a77d77"><div class="ttname"><a href="a00509.html#ga69de2a268b86d261dc404a2188a77d77">CMP1_Deinitialize</a></div><div class="ttdeci">void CMP1_Deinitialize(void)</div><div class="ttdoc">Deinitializes the CMP1 to POR values.</div><div class="ttdef"><b>Definition</b> <a href="a00098_source.html#l00095">cmp1.c:95</a></div></div>
-<div class="ttc" id="aa00509_html_ga81b1ec445112110d10afe83428ee9b0c"><div class="ttname"><a href="a00509.html#ga81b1ec445112110d10afe83428ee9b0c">CMP_ISEC_SC</a></div><div class="ttdeci">const struct CMP_INTERFACE CMP_ISEC_SC</div><div class="ttdoc">Structure object of type CMP_INTERFACE with the custom name given by the user in the Melody Driver Us...</div><div class="ttdef"><b>Definition</b> <a href="a00098_source.html#l00055">cmp1.c:55</a></div></div>
-<div class="ttc" id="aa00509_html_ga84bc24b25eabe4579b0322971bd1d86a"><div class="ttname"><a href="a00509.html#ga84bc24b25eabe4579b0322971bd1d86a">CMP1_Initialize</a></div><div class="ttdeci">void CMP1_Initialize(void)</div><div class="ttdoc">Initialize the CMP1 module.</div><div class="ttdef"><b>Definition</b> <a href="a00098_source.html#l00069">cmp1.c:69</a></div></div>
-<div class="ttc" id="aa00509_html_ga8bc1b3b9702a02692dd80a4b4a44ddb7"><div class="ttname"><a href="a00509.html#ga8bc1b3b9702a02692dd80a4b4a44ddb7">CMP1_DACEnable</a></div><div class="ttdeci">void CMP1_DACEnable(void)</div><div class="ttdoc">Enables the individual DAC module.</div><div class="ttdef"><b>Definition</b> <a href="a00098_source.html#l00132">cmp1.c:132</a></div></div>
-<div class="ttc" id="aa00509_html_gacc663a8dfb68218eadfd67c3e4c36af5"><div class="ttname"><a href="a00509.html#gacc663a8dfb68218eadfd67c3e4c36af5">CMP1_DACDisable</a></div><div class="ttdeci">void CMP1_DACDisable(void)</div><div class="ttdoc">Disables the individual DAC module.</div><div class="ttdef"><b>Definition</b> <a href="a00098_source.html#l00137">cmp1.c:137</a></div></div>
-<div class="ttc" id="aa00509_html_gad99656bbb8a8d59deceda4df05c5c81d"><div class="ttname"><a href="a00509.html#gad99656bbb8a8d59deceda4df05c5c81d">CMP1_Disable</a></div><div class="ttdeci">void CMP1_Disable(void)</div><div class="ttdoc">Disables the common DAC module.</div><div class="ttdef"><b>Definition</b> <a href="a00098_source.html#l00127">cmp1.c:127</a></div></div>
-<div class="ttc" id="aa00509_html_gada13a4830178c3947f7df4fdfafc7d07"><div class="ttname"><a href="a00509.html#gada13a4830178c3947f7df4fdfafc7d07">CMP1_EventCallbackRegister</a></div><div class="ttdeci">void CMP1_EventCallbackRegister(void(*handler)(void))</div><div class="ttdoc">This function can be used to override default callback and to define custom callback for CMP1 Event e...</div><div class="ttdef"><b>Definition</b> <a href="a00098_source.html#l00147">cmp1.c:147</a></div></div>
-<div class="ttc" id="aa00509_html_gaee866792f2c0cc3bb200b7db2f05963f"><div class="ttname"><a href="a00509.html#gaee866792f2c0cc3bb200b7db2f05963f">CMP1_DACDataWrite</a></div><div class="ttdeci">void CMP1_DACDataWrite(size_t value)</div><div class="ttdoc">CMP DAC Data write to register.</div><div class="ttdef"><b>Definition</b> <a href="a00098_source.html#l00142">cmp1.c:142</a></div></div>
-<div class="ttc" id="aa00563_html"><div class="ttname"><a href="a00563.html">CMP_INTERFACE</a></div><div class="ttdoc">Structure containing the function pointers of CMP driver.</div><div class="ttdef"><b>Definition</b> <a href="a00095_source.html#l00072">cmp_interface.h:73</a></div></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="foldopen" id="foldopen00124" data-start="{" data-end="}">
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="a00512.html#gaac6c1a14b3589b2c967b9a1b6bb01551">  124</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#gaac6c1a14b3589b2c967b9a1b6bb01551">CLC1_Tasks</a>( <span class="keywordtype">void</span> )</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>{</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordflow">if</span>(IFS7bits.CLC1PIF == 1)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    {</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">if</span>(NULL != <a class="code hl_variable" href="a00086.html#abd2914eeafd942415745ab5ddc662939">CLC1_PositiveEdgeHandler</a>)</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            (*CLC1_PositiveEdgeHandler)();</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        }</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="comment">// Clear the CLC1 Positive Edge Interrupt flag</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        IFS7bits.CLC1PIF = 0;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordflow">if</span>(IFS11bits.CLC1NIF == 1)</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">if</span>(NULL != <a class="code hl_variable" href="a00086.html#ae47047b8370af6628fc69d35e9e2ea23">CLC1_NegativeEdgeHandler</a>)</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        {</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            (*CLC1_NegativeEdgeHandler)();</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        }</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="comment">// Clear the CLC1 Negative Edge Interrupt flag</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        IFS11bits.CLC1NIF = 0;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>}</div>
+</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="a00512.html#gaf3af7f12e3d269fdc409d1a279736b27">  148</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="a00512.html#gaf3af7f12e3d269fdc409d1a279736b27">CLC1_OutputStatusGet</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>{</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">return</span>(CLC1CONLbits.LCOUT);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>}</div>
+</div>
+<div class="ttc" id="aa00086_html_abd2914eeafd942415745ab5ddc662939"><div class="ttname"><a href="a00086.html#abd2914eeafd942415745ab5ddc662939">CLC1_PositiveEdgeHandler</a></div><div class="ttdeci">static void(* CLC1_PositiveEdgeHandler)(void)</div><div class="ttdef"><b>Definition</b> <a href="a00086_source.html#l00044">clc1.c:44</a></div></div>
+<div class="ttc" id="aa00086_html_ae47047b8370af6628fc69d35e9e2ea23"><div class="ttname"><a href="a00086.html#ae47047b8370af6628fc69d35e9e2ea23">CLC1_NegativeEdgeHandler</a></div><div class="ttdeci">static void(* CLC1_NegativeEdgeHandler)(void)</div><div class="ttdef"><b>Definition</b> <a href="a00086_source.html#l00045">clc1.c:45</a></div></div>
+<div class="ttc" id="aa00512_html_ga01516d04dce352de74ae123cf553cb30"><div class="ttname"><a href="a00512.html#ga01516d04dce352de74ae123cf553cb30">CLC1_Deinitialize</a></div><div class="ttdeci">void CLC1_Deinitialize(void)</div><div class="ttdoc">Deinitializes the CLC1 to POR values.</div><div class="ttdef"><b>Definition</b> <a href="a00086_source.html#l00085">clc1.c:85</a></div></div>
+<div class="ttc" id="aa00512_html_ga055481a146c113692385b653e64331f8"><div class="ttname"><a href="a00512.html#ga055481a146c113692385b653e64331f8">CLC1_PositiveEdgeCallback</a></div><div class="ttdeci">void CLC1_PositiveEdgeCallback(void)</div><div class="ttdoc">This is the default callback with weak attribute. The user can override and implement the default cal...</div><div class="ttdef"><b>Definition</b> <a href="a00086_source.html#l00104">clc1.c:104</a></div></div>
+<div class="ttc" id="aa00512_html_ga278c795208d6f58fb1b0c1bf2739f883"><div class="ttname"><a href="a00512.html#ga278c795208d6f58fb1b0c1bf2739f883">CLC1_Disable</a></div><div class="ttdeci">static void CLC1_Disable(void)</div><div class="ttdoc">This inline function disables the CLC1 module.</div><div class="ttdef"><b>Definition</b> <a href="a00080_source.html#l00110">clc1.h:110</a></div></div>
+<div class="ttc" id="aa00512_html_ga7c85f3e09616a9a2855839d4b45c0e43"><div class="ttname"><a href="a00512.html#ga7c85f3e09616a9a2855839d4b45c0e43">CLC1_Enable</a></div><div class="ttdeci">static void CLC1_Enable(void)</div><div class="ttdoc">This inline function enables the CLC1 module.</div><div class="ttdef"><b>Definition</b> <a href="a00080_source.html#l00097">clc1.h:97</a></div></div>
+<div class="ttc" id="aa00512_html_gaaa42a5ba0915a962cd75964a4dcde3b4"><div class="ttname"><a href="a00512.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a></div><div class="ttdeci">void CLC1_Initialize(void)</div><div class="ttdoc">Initializes the CLC1 module.</div><div class="ttdef"><b>Definition</b> <a href="a00086_source.html#l00063">clc1.c:63</a></div></div>
+<div class="ttc" id="aa00512_html_gaac6c1a14b3589b2c967b9a1b6bb01551"><div class="ttname"><a href="a00512.html#gaac6c1a14b3589b2c967b9a1b6bb01551">CLC1_Tasks</a></div><div class="ttdeci">void CLC1_Tasks(void)</div><div class="ttdoc">Implements the tasks for polled implementations where the hardware supports dedicated event for Posit...</div><div class="ttdef"><b>Definition</b> <a href="a00086_source.html#l00124">clc1.c:124</a></div></div>
+<div class="ttc" id="aa00512_html_gab37490b9172b07cf29c311b7501d04f6"><div class="ttname"><a href="a00512.html#gab37490b9172b07cf29c311b7501d04f6">CLC1_NegativeEdgeCallbackRegister</a></div><div class="ttdeci">void CLC1_NegativeEdgeCallbackRegister(void(*handler)(void))</div><div class="ttdoc">This function can be used to override default callback and to define custom callback for CLC1 Negativ...</div><div class="ttdef"><b>Definition</b> <a href="a00086_source.html#l00109">clc1.c:109</a></div></div>
+<div class="ttc" id="aa00512_html_gaecad61896990ca955aab640a8609a74d"><div class="ttname"><a href="a00512.html#gaecad61896990ca955aab640a8609a74d">CLC1_PositiveEdgeCallbackRegister</a></div><div class="ttdeci">void CLC1_PositiveEdgeCallbackRegister(void(*handler)(void))</div><div class="ttdoc">This function can be used to override default callback and to define custom callback for CLC1 Positiv...</div><div class="ttdef"><b>Definition</b> <a href="a00086_source.html#l00096">clc1.c:96</a></div></div>
+<div class="ttc" id="aa00512_html_gaf25cf35f34affb5c7832814688a02873"><div class="ttname"><a href="a00512.html#gaf25cf35f34affb5c7832814688a02873">CLC1_NegativeEdgeCallback</a></div><div class="ttdeci">void CLC1_NegativeEdgeCallback(void)</div><div class="ttdoc">This is the default callback with weak attribute. The user can override and implement the default cal...</div><div class="ttdef"><b>Definition</b> <a href="a00086_source.html#l00117">clc1.c:117</a></div></div>
+<div class="ttc" id="aa00512_html_gaf313a644645eaeb160dd1eba82ff4506"><div class="ttname"><a href="a00512.html#gaf313a644645eaeb160dd1eba82ff4506">CLC1</a></div><div class="ttdeci">const struct CLC_INTERFACE CLC1</div><div class="ttdoc">Structure object of type CLC_INTERFACE with the custom name given by the user in the Melody Driver Us...</div><div class="ttdef"><b>Definition</b> <a href="a00086_source.html#l00051">clc1.c:51</a></div></div>
+<div class="ttc" id="aa00512_html_gaf3af7f12e3d269fdc409d1a279736b27"><div class="ttname"><a href="a00512.html#gaf3af7f12e3d269fdc409d1a279736b27">CLC1_OutputStatusGet</a></div><div class="ttdeci">bool CLC1_OutputStatusGet(void)</div><div class="ttdoc">Returns output pin status of the CLC1 module.</div><div class="ttdef"><b>Definition</b> <a href="a00086_source.html#l00148">clc1.c:148</a></div></div>
+<div class="ttc" id="aa00559_html"><div class="ttname"><a href="a00559.html">CLC_INTERFACE</a></div><div class="ttdoc">Structure containing the function pointers of CLC driver.</div><div class="ttdef"><b>Definition</b> <a href="a00083_source.html#l00051">clc_interface.h:52</a></div></div>
+<div class="ttc" id="aa00559_html_afea2a7e78ccb7643d694c4bd7fa2ed5f"><div class="ttname"><a href="a00559.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">CLC_INTERFACE::Initialize</a></div><div class="ttdeci">void(* Initialize)(void)</div><div class="ttdoc">Pointer to CLCx_Initialize e.g. CLC1_Initialize.</div><div class="ttdef"><b>Definition</b> <a href="a00083_source.html#l00053">clc_interface.h:53</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

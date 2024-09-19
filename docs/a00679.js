@@ -1,13 +1,13 @@
 var a00679 =
 [
-    [ "ISecAverage", "a00679.html#a852e1ba399fd7762820a5a48b277e235", null ],
-    [ "ISecAverageRectified", "a00679.html#a2ebeb1daee42d50afad2f53cfe8f8548", null ],
-    [ "ISecSensorOffset", "a00679.html#aad3cd92609bdf3ca099564c676a824cb", null ],
-    [ "ISensePrimary", "a00679.html#a4bb8d9e45d3b1791b7597c46356d6f7f", null ],
-    [ "ISenseSecondary", "a00679.html#ab69cdd1acf7db7e5e2521d1afe46d8f9", null ],
-    [ "SecPower", "a00679.html#a6961d340d23b02e801410da9d41e9c20", null ],
-    [ "Temperature", "a00679.html#ad389e5a23077ca8d6548dffd7f5ec1c1", null ],
-    [ "VPriVoltage", "a00679.html#a05578776f684221691f412d73de487ea", null ],
-    [ "VRail_5V", "a00679.html#acc72d884c453d1343c8e836369311454", null ],
-    [ "VSecVoltage", "a00679.html#a4e6e0db2e515990bc32d13435a75b50e", null ]
+    [ "ControlDutyCycle", "a00679.html#a5eb08d6bfe077124da067795181f03a2", null ],
+    [ "ControlPeriod", "a00679.html#a2b3122d0cc562492b079305016344571", null ],
+    [ "ControlPhase", "a00679.html#ab2fe25cd913f397b52515ce1f98d31dc", null ],
+    [ "ControlPhase_P2S_Degreex10", "a00679.html#a2f9a96c90798708142be79f979e0e723", null ],
+    [ "ControlPhase_P2S_Target", "a00679.html#a1b2f921d9eb1d364246e97c1f0d00b99", null ],
+    [ "DeadTimeHigh", "a00679.html#a54a8a0e5503b84ab2643656320c176b4", null ],
+    [ "DeadTimeLow", "a00679.html#aa24ebdbedfb58e84843be95b5138b1ed", null ],
+    [ "LowPowerSlowMode", "a00679.html#aa6105071906dfaff3e2062b6406ceb17", null ],
+    [ "PBVControlPhaseTarget", "a00679.html#afe456845608e185d7666f1e8db9f118e", null ],
+    [ "PBVPeriodTarget", "a00679.html#aa9fe0fb976db533a369cd12c3589765e", null ]
 ];

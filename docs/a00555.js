@@ -1,12 +1,6 @@
 var a00555 =
 [
-    [ "Deinitialize", "a00555.html#ab6aa2863d2196e9f95f70fde91049ee6", null ],
-    [ "Disable", "a00555.html#a7fd5c6c55c6a76c4d35e3f81609fab87", null ],
-    [ "EdgeCallbackRegister", "a00555.html#a608c4bc40a85b436b4094a7fc88a22e8", null ],
-    [ "Enable", "a00555.html#a04c571590cd163f474c876943a39e0f1", null ],
-    [ "Initialize", "a00555.html#afea2a7e78ccb7643d694c4bd7fa2ed5f", null ],
-    [ "NegativeEdgeCallbackRegister", "a00555.html#ab860ba9f294d7c8826db45ba1d5640d5", null ],
-    [ "OutputStatusGet", "a00555.html#a01d0f5300c488764a1090a869cfa92a0", null ],
-    [ "PositiveEdgeCallbackRegister", "a00555.html#ab6dcbda8f44087989855f4463221516d", null ],
-    [ "Tasks", "a00555.html#a1cd6ba5da58bb0185a3939d1fdcd25f5", null ]
+    [ "address", "a00555.html#abc1802f0aae06d874726cd3522625999", null ],
+    [ "msgDeepSize", "a00555.html#a69ab523116d5c3f2a58f7f3a5a807643", null ],
+    [ "payloadSize", "a00555.html#a6c93cd7da46684a3bb95c08d4768619a", null ]
 ];

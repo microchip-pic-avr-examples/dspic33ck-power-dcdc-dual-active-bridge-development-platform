@@ -1,8 +1,10 @@
 var a00607 =
 [
-    [ "Data_Buffer", "a00607.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50", null ],
-    [ "Length", "a00607.html#a930e5a4d8414c0427fe5c636062579db", null ],
-    [ "PBV_Message_State", "a00607.html#a91c81f1c5a476778f2b9faf3f36cfd7e", null ],
-    [ "PBV_Protcol_ID", "a00607.html#a0825cb65b385f89880718e0654f07fb6", null ],
-    [ "PBV_Signal_Ascii", "a00607.html#a885bf5a8fec6c0b6af1dfc8d6a78c368", null ]
+    [ "init", "a00607.html#a2349c43259a9d3c23a516c9b4ad6baaa", null ],
+    [ "linkDataRX", "a00607.html#acf3107157116c08f212dafb02c8128f5", null ],
+    [ "linkDataTX", "a00607.html#a4156ff07130f03dfbd50bf7c30493bfb", null ],
+    [ "reinit", "a00607.html#aad1488054aade0d9770cbae5597a8db9", null ],
+    [ "rxGui", "a00607.html#add9801b083b7d6f3f7bbb0f1d9a55773", null ],
+    [ "txGui", "a00607.html#adca8b72baa17241a6989f96a073cc51c", null ],
+    [ "txGuiAscii", "a00607.html#a8ee94030daa6ae1784d3a4c1efd446eb", null ]
 ];

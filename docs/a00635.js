@@ -1,12 +1,13 @@
 var a00635 =
 [
-    [ "AdcAverage", "a00635.html#ab3ddfcd824de2587d479076324c61bfa", null ],
-    [ "AdcReading", "a00635.html#aadb6f8d669172a241150025a40fcf44d", null ],
-    [ "BufferFull", "a00635.html#af15f06d55d9455ee4404bd24e08d67f4", null ],
-    [ "BufferIndex", "a00635.html#a894ac46d26a1a6eeaf39098ee8083ccf", null ],
-    [ "OverTemperatureFlag", "a00635.html#a4905336182a9fec2c6e219631604c50f", null ],
-    [ "ResetBuffer", "a00635.html#afad405df907341bbd9f263b80aac92ce", null ],
-    [ "SensorLost", "a00635.html#a9bd7d10eb7cc3c2d2fcd07bd6a58da84", null ],
-    [ "TempBuffer", "a00635.html#a665c9a1e8efc7255becd331cb622ab85", null ],
-    [ "TemperatureCelcius", "a00635.html#abf8f604e028adbffcfed2825d3e9384e", null ]
+    [ "buffer_full", "a00635.html#ad4f64567943fe8c00dbd2d4233af5ba2", null ],
+    [ "error_flag", "a00635.html#afef96784db1d5e946b11ee6a13b1b1c0", null ],
+    [ "no_signal_flag", "a00635.html#a37f9081b236fa981d01cc25a1e758b71", null ],
+    [ "over_voltage_flag", "a00635.html#aeaf96ee6938bea2314c290a7aceffe34", null ],
+    [ "reset_buffer", "a00635.html#a01157d1c9ff38caaefb920f452acebe4", null ],
+    [ "under_voltage_flag", "a00635.html#a4928ed7605644a030deedfb9a66e6423", null ],
+    [ "voltage_averaged", "a00635.html#aee01ff86eaaebfe6ac63e12f76bad45f", null ],
+    [ "voltage_buffer", "a00635.html#a9d28ef607da9d827b7a84a53762ddc5b", null ],
+    [ "voltage_buffer_idx", "a00635.html#a47bba42074e93108d4dcbfee607716ce", null ],
+    [ "voltage_raw", "a00635.html#afd19992b906019d496441160a589d8e6", null ]
 ];

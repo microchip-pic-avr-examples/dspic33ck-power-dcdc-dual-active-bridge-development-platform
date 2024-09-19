@@ -1,13 +1,19 @@
 var a00500 =
 [
-    [ "dev_fan.c", "a00287.html", null ],
-    [ "Calculate_Speed", "a00500.html#ga66c5db181798514534d7f97b622ca35e", null ],
-    [ "Convert_From_Percentage", "a00500.html#ga3ba0ef09cbd1274a9c325fc04cab411d", null ],
-    [ "Dev_Fan_Initialize", "a00500.html#gad4274efc956bcca058565b186c2fd1a0", null ],
-    [ "Dev_Fan_Set_Override", "a00500.html#gabf5c734c9834b070c4adf1af69e9f048", null ],
-    [ "Dev_Fan_Set_Speed", "a00500.html#ga5cfd61659ae6b17ad25e51bfc211723b", null ],
-    [ "Dev_Fan_Task_100ms", "a00500.html#ga1bd7dce99469a41bbb705d939ea512ad", null ],
-    [ "Override_Speed", "a00500.html#ga0d2b426f7411623a821415f02956aac8", null ],
-    [ "Update_Speed", "a00500.html#gad7e38e334c2209a2a296bf3f573fed78", null ],
-    [ "devFanData", "a00500.html#ga52debd393de750722aca541b24b1bc6d", null ]
+    [ "dev_current_sensor.c", "a00284.html", null ],
+    [ "dev_current_sensor.h", "a00287.html", null ],
+    [ "SENSOR_OFFSET_CAL_s", "a00627.html", [
+      [ "Accumulator", "a00627.html#a1bf80696497119c4e36460f57de7f667", null ],
+      [ "CalibrationComplete", "a00627.html#adf25ddb38dbda4b3bf8401ccfa38187f", null ],
+      [ "LimitHigh", "a00627.html#a26af6df9982c908f6c04dac5febbfabe", null ],
+      [ "LimitLow", "a00627.html#a807559395dd14cc8be15101fbc71677d", null ],
+      [ "MeasurementCounter", "a00627.html#a439f5c23e968e4d9d17def3e46ca3aff", null ],
+      [ "Offset", "a00627.html#ae6e68acb116dc3b5f8a7354c7f7d4146", null ]
+    ] ],
+    [ "Dev_CurrentSensor_Clr_Offset", "a00500.html#ga494b4a948891fd5757ccc647f9962529", null ],
+    [ "Dev_CurrentSensor_Get_CalibrationStatus", "a00500.html#ga218632f9814c3bf20c40cea0794ffc7d", null ],
+    [ "Dev_CurrentSensor_Get_Offset", "a00500.html#ga9f581abf52dc00ba320faafa189fafb9", null ],
+    [ "Dev_CurrentSensorOffsetCal", "a00500.html#gaaa75855922e60913d443c6203475256f", null ],
+    [ "Dev_SensorOffsetCal", "a00500.html#ga03e8d61bbc0f4b686c400440f80dcf69", null ],
+    [ "isecAvgCurrentSensor", "a00500.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f", null ]
 ];

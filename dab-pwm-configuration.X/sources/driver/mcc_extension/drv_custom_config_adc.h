@@ -1,8 +1,28 @@
-/* 
- * File:   drv_custom_config_adc.h
- * Author: M15690
- *
- * Created on September 10, 2024, 9:58 AM
+/*
+    (c) 2024 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
+
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
+ */
+/**
+ * @file    drv_custom_config_adc.h     
+ * @ingroup driver-layer-adc   
+ * @brief   Contains ADC initialization that was not supported by MCC generated code.  
  */
 
 #ifndef DRV_CUSTOM_CONFIG_ADC_H
@@ -12,17 +32,30 @@
 #include "adc/adc1.h"
 #include "drv_mcc_extension_adc.h"
 
+/******************************************************************************
+ * @ingroup driver-layer-adc 
+ * @{
+ ******************************************************************************/
 // ADC channels numbers for shared ADC
-#define ADC_CHANNEL_VSEC        (2)
-#define ADC_CHANNEL_IPRI_CT     (7)
-#define ADC_CHANNEL_VPRI        (10)
-#define ADC_CHANNEL_TEMP        (14)
-#define ADC_CHANNEL_VRAIL_5V    (19)
+#define ADC_CHANNEL_VSEC        (2)     ///< ADC2 is routed to Secondary Voltage
+#define ADC_CHANNEL_IPRI_CT     (7)     ///< ADC7 is routed to Primary CT Current
+#define ADC_CHANNEL_VPRI        (10)    ///< ADC10 is routed to Primary Voltage
+#define ADC_CHANNEL_TEMP        (14)    ///< ADC14 is routed to Temperature
+#define ADC_CHANNEL_VRAIL_5V    (19)    ///< ADC19 is routed to 5V rail
 
 // ADC channel numbers for dedicated ADC
-#define ADC_CHANNEL_ISEC_CT     (0)
-#define ADC_CHANNEL_ISEC_AVG    (1)
+#define ADC_CHANNEL_ISEC_CT     (0)     ///< ADC0 is routed to Secondary CT Current
+#define ADC_CHANNEL_ISEC_AVG    (1)     ///< ADC1 is routed to Secondary Average Current
+/** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
+/*********************************************************************************
+ * @ingroup driver-layer-adc 
+ * @brief   Customize configuration for ADC
+ * @return  void
+ *
+ * @details This function initializes the ADC module to use the ADC Filter mode
+ * (averaging mode) to some of the ADC being sampled in the application. 
+ **********************************************************************************/
 static __inline__ void DRV_Config_Custom_ADC(void)
 {
     

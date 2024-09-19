@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/system/src/config_bits.c Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/system/src/clock.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,10 +136,10 @@ $(document).ready(function(){initNavTree('a00170_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">config_bits.c</div></div>
+  <div class="headertitle"><div class="title">clock.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="a00170.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">© [2024] Microchip Technology Inc. and its subsidiaries.</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span> </div>
@@ -161,84 +161,87 @@ $(document).ready(function(){initNavTree('a00170_source.html',''); initResizable
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    THIS SOFTWARE.</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// Configuration bits: selected in the GUI</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">// FSEC</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#pragma config BWRP = OFF    </span><span class="comment">//Boot Segment Write-Protect bit-&gt;Boot Segment may be written</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#pragma config BSS = DISABLED    </span><span class="comment">//Boot Segment Code-Protect Level bits-&gt;No Protection (other than BWRP)</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#pragma config BSEN = OFF    </span><span class="comment">//Boot Segment Control bit-&gt;No Boot Segment</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#pragma config GWRP = OFF    </span><span class="comment">//General Segment Write-Protect bit-&gt;General Segment may be written</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#pragma config GSS = DISABLED    </span><span class="comment">//General Segment Code-Protect Level bits-&gt;No Protection (other than GWRP)</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#pragma config CWRP = OFF    </span><span class="comment">//Configuration Segment Write-Protect bit-&gt;Configuration Segment may be written</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#pragma config CSS = DISABLED    </span><span class="comment">//Configuration Segment Code-Protect Level bits-&gt;No Protection (other than CWRP)</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#pragma config AIVTDIS = OFF    </span><span class="comment">//Alternate Interrupt Vector Table bit-&gt;Disabled AIVT</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">// FBSLIM</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#pragma config BSLIM = 0x1fff    </span><span class="comment">//Boot Segment Flash Page Address Limit bits</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">// FOSCSEL</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#pragma config FNOSC = FRC    </span><span class="comment">//Oscillator Source Selection-&gt;Internal Fast RC (FRC)</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#pragma config IESO = OFF    </span><span class="comment">//Two-speed Oscillator Start-up Enable bit-&gt;Start up with user-selected oscillator source</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// FOSC</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#pragma config POSCMD = NONE    </span><span class="comment">//Primary Oscillator Mode Select bits-&gt;Primary Oscillator disabled</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#pragma config OSCIOFNC = ON    </span><span class="comment">//OSC2 Pin Function bit-&gt;OSC2 is general purpose digital I/O pin</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#pragma config FCKSM = CSECMD    </span><span class="comment">//Clock Switching Mode bits-&gt;Clock switching is enabled,Fail-safe Clock Monitor is disabled</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#pragma config PLLKEN = ON    </span><span class="comment">//PLL Lock Status Control-&gt;PLL lock signal will be used to disable PLL clock output if lock is lost</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#pragma config XTCFG = G3    </span><span class="comment">//XT Config-&gt;24-32 MHz crystals</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#pragma config XTBST = ENABLE    </span><span class="comment">//XT Boost-&gt;Boost the kick-start</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">// FWDT</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#pragma config RWDTPS = PS2147483648    </span><span class="comment">//Run Mode Watchdog Timer Post Scaler select bits-&gt;1:2147483648</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#pragma config RCLKSEL = LPRC    </span><span class="comment">//Watchdog Timer Clock Select bits-&gt;Always use LPRC</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#pragma config WINDIS = ON    </span><span class="comment">//Watchdog Timer Window Enable bit-&gt;Watchdog Timer in Non-Window mode</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#pragma config WDTWIN = WIN25    </span><span class="comment">//Watchdog Timer Window Select bits-&gt;WDT Window is 25% of WDT period</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#pragma config SWDTPS = PS2147483648    </span><span class="comment">//Sleep Mode Watchdog Timer Post Scaler select bits-&gt;1:2147483648</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#pragma config FWDTEN = ON_SW    </span><span class="comment">//Watchdog Timer Enable bit-&gt;WDT controlled via SW, use WDTCON.ON bit</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">// FPOR</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#pragma config BISTDIS = DISABLED    </span><span class="comment">//Memory BIST Feature Disable-&gt;mBIST on reset feature disabled</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">// FICD</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#pragma config ICS = PGD2    </span><span class="comment">//ICD Communication Channel Select bits-&gt;Communicate on PGC2 and PGD2</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#pragma config JTAGEN = OFF    </span><span class="comment">//JTAG Enable bit-&gt;JTAG is disabled</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#pragma config NOBTSWP = DISABLED    </span><span class="comment">//BOOTSWP instruction disable bit-&gt;BOOTSWP instruction is disabled</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">// FDMTIVTL</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#pragma config DMTIVTL = 0x0    </span><span class="comment">//Dead Man Timer Interval low word</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">// FDMTIVTH</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#pragma config DMTIVTH = 0x0    </span><span class="comment">//Dead Man Timer Interval high word</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">// FDMTCNTL</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#pragma config DMTCNTL = 0x0    </span><span class="comment">//Lower 16 bits of 32 bit DMT instruction count time-out value (0-0xFFFF)</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">// FDMTCNTH</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#pragma config DMTCNTH = 0x0    </span><span class="comment">//Upper 16 bits of 32 bit DMT instruction count time-out value (0-0xFFFF)</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">// FDMT</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#pragma config DMTDIS = OFF    </span><span class="comment">//Dead Man Timer Disable bit-&gt;Dead Man Timer is Disabled and can be enabled by software</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">// FDEVOPT</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#pragma config ALTI2C1 = OFF    </span><span class="comment">//Alternate I2C1 Pin bit-&gt;I2C1 mapped to SDA1/SCL1 pins</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#pragma config ALTI2C2 = OFF    </span><span class="comment">//Alternate I2C2 Pin bit-&gt;I2C2 mapped to SDA2/SCL2 pins</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#pragma config ALTI2C3 = OFF    </span><span class="comment">//Alternate I2C3 Pin bit-&gt;I2C3 mapped to SDA3/SCL3 pins</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#pragma config SMBEN = SMBUS    </span><span class="comment">//SM Bus Enable-&gt;SMBus input threshold is enabled</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#pragma config SPI2PIN = PPS    </span><span class="comment">//SPI2 Pin Select bit-&gt;SPI2 uses I/O remap (PPS) pins</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">// FALTREG</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#pragma config CTXT1 = IPL6    </span><span class="comment">//Specifies Interrupt Priority Level (IPL) Associated to Alternate Working Register 1 bits-&gt;Alternate Register set assigned to IPL level 6</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#pragma config CTXT2 = IPL5    </span><span class="comment">//Specifies Interrupt Priority Level (IPL) Associated to Alternate Working Register 2 bits-&gt;Alternate Register set assigned to IPL level 5</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#pragma config CTXT3 = OFF    </span><span class="comment">//Specifies Interrupt Priority Level (IPL) Associated to Alternate Working Register 3 bits-&gt;Not Assigned</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#pragma config CTXT4 = OFF    </span><span class="comment">//Specifies Interrupt Priority Level (IPL) Associated to Alternate Working Register 4 bits-&gt;Not Assigned</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">// FBTSEQ</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#pragma config BSEQ = 0xfff    </span><span class="comment">//Relative value defining which partition will be active after device Reset; the partition containing a lower boot number will be active</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">#pragma config IBSEQ = 0xfff    </span><span class="comment">//The one&#39;s complement of BSEQ; must be calculated by the user and written during device programming.</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// Section: Includes</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;../clock.h&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="a00523.html#ga98390d19c7087c52765eab23eb8ded96">   43</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00523.html#ga98390d19c7087c52765eab23eb8ded96">CLOCK_Initialize</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">/*  </span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">       Input frequency                               :  8.00 MHz</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">       Clock source                                  :  FRC Oscillator with PLL</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">       System frequency (Fosc)                       :  200.00 MHz [(8.00 MHz / 1) * 50 / 1 / 2 = 200.00 MHz]</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">       PLL VCO frequency (Fvco)                      :  400.00 MHz [(8.00 MHz / 1) * 50 = 400.00 MHz]</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">       PLL output frequency (Fpllo)                  :  400.00 MHz [(8.00 MHz / 1) * 50 / 1 = 400.00 MHz]</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">       PLL VCO divider frequency (Fvcodiv)           :  200.00 MHz [400.00 MHz / 2 = 200.00 MHz]</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">       Clock switching enabled                       :  true</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">       Clock source when device boots                :  FRC Oscillator</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">       Auxiliary clock source                        :  FRC Oscillator with PLL</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">       Auxiliary clock input frequency               :  8.00 MHz</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">       Auxiliary PLL VCO frequency (AFvco)           :  1000.00 MHz  [(8.00 MHz / 1) * 125 = 1000.00 MHz]</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">       Auxiliary clock PLL output frequency (AFpllo) :  500.00 MHz [(8.00 MHz / 1) * 125 / 2 = 500.00 MHz]</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">       Auxiliary PLL VCO divider frequency (AFvcodiv):  500.00 MHz [1000.00 MHz / 2 = 500.00 MHz]</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">    */</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// RCDIV FRC/1; PLLPRE 1:1; DOZE 1:8; DOZEN disabled; ROI disabled; </span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    CLKDIV = 0x3001;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">// PLLDIV 50; </span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    PLLFBD = 0x32;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="comment">// TUN Center frequency; </span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    OSCTUN = 0x0;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="comment">// PLLPOST 1:1; VCODIV FVCO/2; POST2DIV 1:1; </span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    PLLDIV = 0x211;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// ENAPLL enabled; FRCSEL FRC Oscillator; APLLPRE 1:1; </span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    ACLKCON1 = 0x8101;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="comment">// APLLFBDIV 125; </span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    APLLFBD1 = 0x7D;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="comment">// APSTSCLR 1:2; APOST2DIV 1:1; AVCODIV FVCO/2; </span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    APLLDIV1 = 0x221;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="comment">// CANCLKEN enabled; CANCLKSEL FPLLO; CANCLKDIV Divide by 10; </span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    CANCLKCON = 0x8209;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="comment">// ROEN disabled; DIVSWEN disabled; ROSLP disabled; ROSEL ; OE disabled; ROSIDL disabled; </span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    REFOCONL = 0x0;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="comment">// RODIV 0; </span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    REFOCONH = 0x0;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="comment">// ROTRIM 0; </span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    REFOTRIMH = 0x0;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="comment">// IOLOCK disabled; </span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    RPCON = 0x0;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// PMDLOCK disabled; </span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    PMDCON = 0x0;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">// ADC1MD enabled; T1MD enabled; U2MD enabled; U1MD enabled; SPI2MD enabled; SPI1MD enabled; QEIMD enabled; PWMMD enabled; I2C1MD enabled; C1MD enabled; </span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    PMD1 = 0x0;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment">// CCP2MD enabled; CCP1MD enabled; CCP4MD enabled; CCP3MD enabled; CCP7MD enabled; CCP8MD enabled; CCP5MD enabled; CCP6MD enabled; CCP9MD enabled; </span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    PMD2 = 0x0;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">// U3MD enabled; CRCMD enabled; I2C2MD enabled; I2C3MD enabled; QEI2MD enabled; PMPMD enabled; </span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    PMD3 = 0x0;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="comment">// REFOMD enabled; </span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    PMD4 = 0x0;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// DMA1MD enabled; DMA2MD enabled; DMA3MD enabled; DMA0MD enabled; SPI3MD enabled; </span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    PMD6 = 0x0;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">// PTGMD enabled; CMP1MD enabled; CMP3MD enabled; CMP2MD enabled; </span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    PMD7 = 0x0;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">// DMTMD enabled; CLC3MD enabled; OPAMPMD enabled; BIASMD enabled; CLC4MD enabled; SENT1MD enabled; CLC1MD enabled; CLC2MD enabled; SENT2MD enabled; </span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    PMD8 = 0x0;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">// CF no clock failure; NOSC FRCPLL; CLKLOCK unlocked; OSWEN Switch is Complete; </span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    __builtin_write_OSCCONH((uint8_t) (0x01));</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    __builtin_write_OSCCONL((uint8_t) (0x01));</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// Wait for Clock switch to occur</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">while</span> (OSCCONbits.OSWEN != 0);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordflow">while</span> (OSCCONbits.LOCK != 1);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="a00523.html#ga0153c20a7c603596e5722a8b45571d4a">  108</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="a00523.html#ga0153c20a7c603596e5722a8b45571d4a">CLOCK_AuxPllLockStatusGet</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>{</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">return</span> ACLKCON1bits.APLLCK;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">// FBOOT</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">#pragma config BTMODE = SINGLE    </span><span class="comment">//Device Boot Mode Configuration-&gt;Device is in Single Boot (legacy) mode</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="ttc" id="aa00523_html_ga0153c20a7c603596e5722a8b45571d4a"><div class="ttname"><a href="a00523.html#ga0153c20a7c603596e5722a8b45571d4a">CLOCK_AuxPllLockStatusGet</a></div><div class="ttdeci">bool CLOCK_AuxPllLockStatusGet(void)</div><div class="ttdoc">Returns Auxiliary PLL status.</div><div class="ttdef"><b>Definition</b> <a href="a00170_source.html#l00108">clock.c:108</a></div></div>
+<div class="ttc" id="aa00523_html_ga98390d19c7087c52765eab23eb8ded96"><div class="ttname"><a href="a00523.html#ga98390d19c7087c52765eab23eb8ded96">CLOCK_Initialize</a></div><div class="ttdeci">void CLOCK_Initialize(void)</div><div class="ttdoc">Initializes all the INTERNAL OSCILLATOR sources and clock switch configurations.</div><div class="ttdef"><b>Definition</b> <a href="a00170_source.html#l00043">clock.c:43</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

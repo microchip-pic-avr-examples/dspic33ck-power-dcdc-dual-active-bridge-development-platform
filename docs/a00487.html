@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Power Control</title>
+<title>Dual Active Bridge Development Board: Device Layer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,49 +138,44 @@ $(document).ready(function(){initNavTree('a00487.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#groups">Modules</a>  </div>
-  <div class="headertitle"><div class="title">Power Control<div class="ingroups"><a class="el" href="a00486.html">Device Layer</a></div></div></div>
+  <div class="headertitle"><div class="title">Device Layer</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The Power Control layer contains the state machine managing the power converter.  
+<p>Contains all the application tasks that will be executed.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Power Control:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Device Layer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00487.svg" width="502" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00487.svg" width="328" height="291"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
 Modules</h2></td></tr>
-<tr class="memitem:a00488" id="r_a00488"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00488.html">Power Control Configuration</a></td></tr>
-<tr class="memdesc:a00488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains Power Control Configuration. <br /></td></tr>
+<tr class="memitem:a00488" id="r_a00488"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00488.html">Power Control</a></td></tr>
+<tr class="memdesc:a00488"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Power Control layer contains the state machine managing the power converter. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00489" id="r_a00489"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00489.html">Interrupt Routine and Functions</a></td></tr>
-<tr class="memdesc:a00489"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the interrupt routine and other functions called in the interrupt. <br /></td></tr>
+<tr class="memitem:a00497" id="r_a00497"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00497.html">Fault Monitor</a></td></tr>
+<tr class="memdesc:a00497"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Fault Handler is an independent firmware task which is used to define certain so-called Fault Objects. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00490" id="r_a00490"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00490.html">PWM Configuration</a></td></tr>
-<tr class="memdesc:a00490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains functions related to PWM properties. <br /></td></tr>
+<tr class="memitem:a00500" id="r_a00500"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html">Current Sensor Calibration</a></td></tr>
+<tr class="memdesc:a00500"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Current Sensor Calibration device layer is a proprietary user code utilized for configuring the sensor properties. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00491" id="r_a00491"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00491.html">State Machine</a></td></tr>
-<tr class="memdesc:a00491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the state machine of the power control. <br /></td></tr>
+<tr class="memitem:a00501" id="r_a00501"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html">Fan Control</a></td></tr>
+<tr class="memdesc:a00501"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Fan control device layer is a proprietary user code utilized for configuring the fan control properties. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00492" id="r_a00492"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html">Control Loop Configuration</a></td></tr>
-<tr class="memdesc:a00492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the control loop configuration and initialization functions. <br /></td></tr>
+<tr class="memitem:a00502" id="r_a00502"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00502.html">LED Display</a></td></tr>
+<tr class="memdesc:a00502"><td class="mdescLeft">&#160;</td><td class="mdescRight">The LED device layer is the proprietary user code used to configure and drive the on-board debugging LED. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00493" id="r_a00493"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00493.html">Power Control Communication Interface</a></td></tr>
-<tr class="memdesc:a00493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains functions use to interface to Graphical User Interface or Power Board Visualizer. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00494" id="r_a00494"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html">Useful Functions</a></td></tr>
-<tr class="memdesc:a00494"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains generic functions that is usable to the application. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00495" id="r_a00495"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html">Power Control Data Types</a></td></tr>
-<tr class="memdesc:a00495"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the collection of power control data types. <br /></td></tr>
+<tr class="memitem:a00503" id="r_a00503"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00503.html">Temperature Detection</a></td></tr>
+<tr class="memdesc:a00503"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Temperature device layer is the proprietary user code used to configure and detect the board temperature. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Power control layer provides a wide function in power supply applications. It has something to do with the control, regulation and monitoring of the power supply. Moreover, it sets the peripheral configurations needed for a particular power supply topology as required by the application, as well as sets parameters and performs operations for digital power control. </p>
+<p>The device layer covers all user tasks executed by the task scheduler. Each task is an independent entity called on its respective timing defined by the user. Tasks are proprietary user code modules representing specific functions of the application or end-product. <br  />
+ </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

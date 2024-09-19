@@ -23,7 +23,7 @@
 /**
  * @file dev_pwrctrl_isr.h     
  * @ingroup dev-pwrctrl-isr   
- * @brief Contains public function relevant for power control interrupt.    
+ * @brief Contains public function relevant for power control interrupt.
  */
 
 #ifndef DRV_PWRCTRL_ISR_H

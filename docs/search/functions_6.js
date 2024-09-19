@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['override_5fspeed_0',['Override_Speed',['../a00500.html#ga0d2b426f7411623a821415f02956aac8',1,'dev_fan.c']]]
+  ['mcc_5fcustom_5fuser_5fconfig_0',['mcc_custom_user_config',['../a00504.html#gafe646acf69be10085d651f4561909f69',1,'MCC_Custom_User_Config(void):&#160;mcc_custom_config.c'],['../a00504.html#gafe646acf69be10085d651f4561909f69',1,'MCC_Custom_User_Config(void):&#160;mcc_custom_config.c']]]
 ];

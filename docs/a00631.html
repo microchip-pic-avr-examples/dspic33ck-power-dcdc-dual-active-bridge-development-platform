@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: iso_voltage Struct Reference</title>
+<title>Dual Active Bridge Development Board: FAN_DATA_s Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,219 +138,202 @@ $(document).ready(function(){initNavTree('a00631.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">iso_voltage Struct Reference</div></div>
+  <div class="headertitle"><div class="title">FAN_DATA_s Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00296_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dab-pwm-configuration.X/sources/device/dev_iso_voltage_sense.h</a>&gt;</code></p>
+<p>A custom data type for fan.  
+ <a href="a00631.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00293_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dab-pwm-configuration.X/sources/device/dev_fan.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for iso_voltage:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for FAN_DATA_s:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00629.svg" width="140" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00629.svg" width="159" height="251"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:afef96784db1d5e946b11ee6a13b1b1c0" id="r_afef96784db1d5e946b11ee6a13b1b1c0"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#afef96784db1d5e946b11ee6a13b1b1c0">error_flag</a></td></tr>
-<tr class="memdesc:afef96784db1d5e946b11ee6a13b1b1c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">error_flag <br  />
-  <br /></td></tr>
-<tr class="separator:afef96784db1d5e946b11ee6a13b1b1c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaf96ee6938bea2314c290a7aceffe34" id="r_aeaf96ee6938bea2314c290a7aceffe34"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#aeaf96ee6938bea2314c290a7aceffe34">over_voltage_flag</a></td></tr>
-<tr class="memdesc:aeaf96ee6938bea2314c290a7aceffe34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Over voltage flag.  <br /></td></tr>
-<tr class="separator:aeaf96ee6938bea2314c290a7aceffe34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4928ed7605644a030deedfb9a66e6423" id="r_a4928ed7605644a030deedfb9a66e6423"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#a4928ed7605644a030deedfb9a66e6423">under_voltage_flag</a></td></tr>
-<tr class="memdesc:a4928ed7605644a030deedfb9a66e6423"><td class="mdescLeft">&#160;</td><td class="mdescRight">under voltage flag  <br /></td></tr>
-<tr class="separator:a4928ed7605644a030deedfb9a66e6423"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37f9081b236fa981d01cc25a1e758b71" id="r_a37f9081b236fa981d01cc25a1e758b71"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#a37f9081b236fa981d01cc25a1e758b71">no_signal_flag</a></td></tr>
-<tr class="memdesc:a37f9081b236fa981d01cc25a1e758b71"><td class="mdescLeft">&#160;</td><td class="mdescRight">if no signal is present  <br /></td></tr>
-<tr class="separator:a37f9081b236fa981d01cc25a1e758b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd19992b906019d496441160a589d8e6" id="r_afd19992b906019d496441160a589d8e6"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#afd19992b906019d496441160a589d8e6">voltage_raw</a></td></tr>
-<tr class="memdesc:afd19992b906019d496441160a589d8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">voltage value raw  <br /></td></tr>
-<tr class="separator:afd19992b906019d496441160a589d8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee01ff86eaaebfe6ac63e12f76bad45f" id="r_aee01ff86eaaebfe6ac63e12f76bad45f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#aee01ff86eaaebfe6ac63e12f76bad45f">voltage_averaged</a></td></tr>
-<tr class="memdesc:aee01ff86eaaebfe6ac63e12f76bad45f"><td class="mdescLeft">&#160;</td><td class="mdescRight">voltage averaged raw  <br /></td></tr>
-<tr class="separator:aee01ff86eaaebfe6ac63e12f76bad45f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d28ef607da9d827b7a84a53762ddc5b" id="r_a9d28ef607da9d827b7a84a53762ddc5b"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#a9d28ef607da9d827b7a84a53762ddc5b">voltage_buffer</a> [MAX_NUM_SAMPLES_ISO_BUFFER]</td></tr>
-<tr class="memdesc:a9d28ef607da9d827b7a84a53762ddc5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffer for averaging  <br /></td></tr>
-<tr class="separator:a9d28ef607da9d827b7a84a53762ddc5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47bba42074e93108d4dcbfee607716ce" id="r_a47bba42074e93108d4dcbfee607716ce"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#a47bba42074e93108d4dcbfee607716ce">voltage_buffer_idx</a></td></tr>
-<tr class="memdesc:a47bba42074e93108d4dcbfee607716ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">current index of averaging buffer  <br /></td></tr>
-<tr class="separator:a47bba42074e93108d4dcbfee607716ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4f64567943fe8c00dbd2d4233af5ba2" id="r_ad4f64567943fe8c00dbd2d4233af5ba2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#ad4f64567943fe8c00dbd2d4233af5ba2">buffer_full</a></td></tr>
-<tr class="memdesc:ad4f64567943fe8c00dbd2d4233af5ba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag to monitor if full then allow averaging.  <br /></td></tr>
-<tr class="separator:ad4f64567943fe8c00dbd2d4233af5ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01157d1c9ff38caaefb920f452acebe4" id="r_a01157d1c9ff38caaefb920f452acebe4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#a01157d1c9ff38caaefb920f452acebe4">reset_buffer</a></td></tr>
-<tr class="memdesc:a01157d1c9ff38caaefb920f452acebe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset voltage_buffer  <br /></td></tr>
-<tr class="separator:a01157d1c9ff38caaefb920f452acebe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5d31528415a4ed9cf81ebfd785128c2" id="r_ad5d31528415a4ed9cf81ebfd785128c2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#ad5d31528415a4ed9cf81ebfd785128c2">CurrentSpeedPercent</a></td></tr>
+<tr class="memdesc:ad5d31528415a4ed9cf81ebfd785128c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current Speed in percentage.  <br /></td></tr>
+<tr class="separator:ad5d31528415a4ed9cf81ebfd785128c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad26b627b999dd76f16aa4a9e36470c91" id="r_ad26b627b999dd76f16aa4a9e36470c91"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#ad26b627b999dd76f16aa4a9e36470c91">TargetSpeedPercent</a></td></tr>
+<tr class="memdesc:ad26b627b999dd76f16aa4a9e36470c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">targetted Speed in percentage  <br /></td></tr>
+<tr class="separator:ad26b627b999dd76f16aa4a9e36470c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad407e9ccc871b7dc9cca12bde19c730d" id="r_ad407e9ccc871b7dc9cca12bde19c730d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#ad407e9ccc871b7dc9cca12bde19c730d">MaxSpeedPercent</a></td></tr>
+<tr class="memdesc:ad407e9ccc871b7dc9cca12bde19c730d"><td class="mdescLeft">&#160;</td><td class="mdescRight">based on period value (CCXPRL). Use this to limit the fan max speed  <br /></td></tr>
+<tr class="separator:ad407e9ccc871b7dc9cca12bde19c730d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c53383b26fe25c1a65efe0e9b6ed9cf" id="r_a4c53383b26fe25c1a65efe0e9b6ed9cf"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#a4c53383b26fe25c1a65efe0e9b6ed9cf">Tick</a></td></tr>
+<tr class="memdesc:a4c53383b26fe25c1a65efe0e9b6ed9cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the execution rate in multiples of 100ms  <br /></td></tr>
+<tr class="separator:a4c53383b26fe25c1a65efe0e9b6ed9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ea3b4a0033803dc206c7e104ab29ca8" id="r_a6ea3b4a0033803dc206c7e104ab29ca8"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#a6ea3b4a0033803dc206c7e104ab29ca8">StepSizePercent</a></td></tr>
+<tr class="memdesc:a6ea3b4a0033803dc206c7e104ab29ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the increment rate per tick in percentage  <br /></td></tr>
+<tr class="separator:a6ea3b4a0033803dc206c7e104ab29ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2a920307a7df3fdd9d9ef56b0fbac82" id="r_ac2a920307a7df3fdd9d9ef56b0fbac82"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#ac2a920307a7df3fdd9d9ef56b0fbac82">TargetSpeedRaw</a></td></tr>
+<tr class="memdesc:ac2a920307a7df3fdd9d9ef56b0fbac82"><td class="mdescLeft">&#160;</td><td class="mdescRight">targetted value raw.  <br /></td></tr>
+<tr class="separator:ac2a920307a7df3fdd9d9ef56b0fbac82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833f5d95cb05c7446c9493ce32cd6a4e" id="r_a833f5d95cb05c7446c9493ce32cd6a4e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a></td></tr>
+<tr class="memdesc:a833f5d95cb05c7446c9493ce32cd6a4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">current value raw.  <br /></td></tr>
+<tr class="separator:a833f5d95cb05c7446c9493ce32cd6a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17841407278bd546565d170f7b6e9e78" id="r_a17841407278bd546565d170f7b6e9e78"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#a17841407278bd546565d170f7b6e9e78">MaxSpeedRaw</a></td></tr>
+<tr class="memdesc:a17841407278bd546565d170f7b6e9e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">based on period value (CCXPRL).  <br /></td></tr>
+<tr class="separator:a17841407278bd546565d170f7b6e9e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f9053371e35277861b7403cd46b0d98" id="r_a4f9053371e35277861b7403cd46b0d98"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00631.html#a4f9053371e35277861b7403cd46b0d98">OverrideFlag</a></td></tr>
+<tr class="memdesc:a4f9053371e35277861b7403cd46b0d98"><td class="mdescLeft">&#160;</td><td class="mdescRight">override flag. sets tick value to 1, step_size to 20 and target to 100%  <br /></td></tr>
+<tr class="separator:a4f9053371e35277861b7403cd46b0d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00128">128</a> of file <a class="el" href="a00296_source.html">dev_iso_voltage_sense.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00064">64</a> of file <a class="el" href="a00293_source.html">dev_fan.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="ad4f64567943fe8c00dbd2d4233af5ba2" name="ad4f64567943fe8c00dbd2d4233af5ba2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4f64567943fe8c00dbd2d4233af5ba2">&#9670;&#160;</a></span>buffer_full</h2>
+<a id="ad5d31528415a4ed9cf81ebfd785128c2" name="ad5d31528415a4ed9cf81ebfd785128c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5d31528415a4ed9cf81ebfd785128c2">&#9670;&#160;</a></span>CurrentSpeedPercent</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t buffer_full</td>
+          <td class="memname">uint8_t CurrentSpeedPercent</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00137">137</a> of file <a class="el" href="a00296_source.html">dev_iso_voltage_sense.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00065">65</a> of file <a class="el" href="a00293_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
-<a id="afef96784db1d5e946b11ee6a13b1b1c0" name="afef96784db1d5e946b11ee6a13b1b1c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afef96784db1d5e946b11ee6a13b1b1c0">&#9670;&#160;</a></span>error_flag</h2>
+<a id="a833f5d95cb05c7446c9493ce32cd6a4e" name="a833f5d95cb05c7446c9493ce32cd6a4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a833f5d95cb05c7446c9493ce32cd6a4e">&#9670;&#160;</a></span>CurrentSpeedRaw</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t error_flag</td>
+          <td class="memname">uint16_t CurrentSpeedRaw</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00129">129</a> of file <a class="el" href="a00296_source.html">dev_iso_voltage_sense.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00071">71</a> of file <a class="el" href="a00293_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
-<a id="a37f9081b236fa981d01cc25a1e758b71" name="a37f9081b236fa981d01cc25a1e758b71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37f9081b236fa981d01cc25a1e758b71">&#9670;&#160;</a></span>no_signal_flag</h2>
+<a id="ad407e9ccc871b7dc9cca12bde19c730d" name="ad407e9ccc871b7dc9cca12bde19c730d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad407e9ccc871b7dc9cca12bde19c730d">&#9670;&#160;</a></span>MaxSpeedPercent</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t no_signal_flag</td>
+          <td class="memname">uint16_t MaxSpeedPercent</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00132">132</a> of file <a class="el" href="a00296_source.html">dev_iso_voltage_sense.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00067">67</a> of file <a class="el" href="a00293_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
-<a id="aeaf96ee6938bea2314c290a7aceffe34" name="aeaf96ee6938bea2314c290a7aceffe34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaf96ee6938bea2314c290a7aceffe34">&#9670;&#160;</a></span>over_voltage_flag</h2>
+<a id="a17841407278bd546565d170f7b6e9e78" name="a17841407278bd546565d170f7b6e9e78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17841407278bd546565d170f7b6e9e78">&#9670;&#160;</a></span>MaxSpeedRaw</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t over_voltage_flag</td>
+          <td class="memname">uint16_t MaxSpeedRaw</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00130">130</a> of file <a class="el" href="a00296_source.html">dev_iso_voltage_sense.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00072">72</a> of file <a class="el" href="a00293_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
-<a id="a01157d1c9ff38caaefb920f452acebe4" name="a01157d1c9ff38caaefb920f452acebe4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01157d1c9ff38caaefb920f452acebe4">&#9670;&#160;</a></span>reset_buffer</h2>
+<a id="a4f9053371e35277861b7403cd46b0d98" name="a4f9053371e35277861b7403cd46b0d98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f9053371e35277861b7403cd46b0d98">&#9670;&#160;</a></span>OverrideFlag</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t reset_buffer</td>
+          <td class="memname">uint8_t OverrideFlag</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00138">138</a> of file <a class="el" href="a00296_source.html">dev_iso_voltage_sense.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00073">73</a> of file <a class="el" href="a00293_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
-<a id="a4928ed7605644a030deedfb9a66e6423" name="a4928ed7605644a030deedfb9a66e6423"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4928ed7605644a030deedfb9a66e6423">&#9670;&#160;</a></span>under_voltage_flag</h2>
+<a id="a6ea3b4a0033803dc206c7e104ab29ca8" name="a6ea3b4a0033803dc206c7e104ab29ca8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ea3b4a0033803dc206c7e104ab29ca8">&#9670;&#160;</a></span>StepSizePercent</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t under_voltage_flag</td>
+          <td class="memname">uint16_t StepSizePercent</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00131">131</a> of file <a class="el" href="a00296_source.html">dev_iso_voltage_sense.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00069">69</a> of file <a class="el" href="a00293_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
-<a id="aee01ff86eaaebfe6ac63e12f76bad45f" name="aee01ff86eaaebfe6ac63e12f76bad45f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee01ff86eaaebfe6ac63e12f76bad45f">&#9670;&#160;</a></span>voltage_averaged</h2>
+<a id="ad26b627b999dd76f16aa4a9e36470c91" name="ad26b627b999dd76f16aa4a9e36470c91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad26b627b999dd76f16aa4a9e36470c91">&#9670;&#160;</a></span>TargetSpeedPercent</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t voltage_averaged</td>
+          <td class="memname">uint8_t TargetSpeedPercent</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00134">134</a> of file <a class="el" href="a00296_source.html">dev_iso_voltage_sense.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00066">66</a> of file <a class="el" href="a00293_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
-<a id="a9d28ef607da9d827b7a84a53762ddc5b" name="a9d28ef607da9d827b7a84a53762ddc5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d28ef607da9d827b7a84a53762ddc5b">&#9670;&#160;</a></span>voltage_buffer</h2>
+<a id="ac2a920307a7df3fdd9d9ef56b0fbac82" name="ac2a920307a7df3fdd9d9ef56b0fbac82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2a920307a7df3fdd9d9ef56b0fbac82">&#9670;&#160;</a></span>TargetSpeedRaw</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t voltage_buffer[MAX_NUM_SAMPLES_ISO_BUFFER]</td>
+          <td class="memname">uint16_t TargetSpeedRaw</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00135">135</a> of file <a class="el" href="a00296_source.html">dev_iso_voltage_sense.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00070">70</a> of file <a class="el" href="a00293_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
-<a id="a47bba42074e93108d4dcbfee607716ce" name="a47bba42074e93108d4dcbfee607716ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47bba42074e93108d4dcbfee607716ce">&#9670;&#160;</a></span>voltage_buffer_idx</h2>
+<a id="a4c53383b26fe25c1a65efe0e9b6ed9cf" name="a4c53383b26fe25c1a65efe0e9b6ed9cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c53383b26fe25c1a65efe0e9b6ed9cf">&#9670;&#160;</a></span>Tick</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t voltage_buffer_idx</td>
+          <td class="memname">uint16_t Tick</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00136">136</a> of file <a class="el" href="a00296_source.html">dev_iso_voltage_sense.h</a>.</p>
-
-</div>
-</div>
-<a id="afd19992b906019d496441160a589d8e6" name="afd19992b906019d496441160a589d8e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd19992b906019d496441160a589d8e6">&#9670;&#160;</a></span>voltage_raw</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t voltage_raw</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00133">133</a> of file <a class="el" href="a00296_source.html">dev_iso_voltage_sense.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00068">68</a> of file <a class="el" href="a00293_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dab-pwm-configuration.X/sources/device/<a class="el" href="a00296_source.html">dev_iso_voltage_sense.h</a></li>
+<li>dab-pwm-configuration.X/sources/device/<a class="el" href="a00293_source.html">dev_fan.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

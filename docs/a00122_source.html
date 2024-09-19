@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/pwm/pwm_types.h Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/pwm/pwm_interface.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,10 +136,10 @@ $(document).ready(function(){initNavTree('a00122_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">pwm_types.h</div></div>
+  <div class="headertitle"><div class="title">pwm_interface.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00122.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">© [2024] Microchip Technology Inc. and its subsidiaries.</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span> </div>
@@ -161,34 +161,57 @@ $(document).ready(function(){initNavTree('a00122_source.html',''); initResizable
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    THIS SOFTWARE.</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#ifndef PWM_TYPES_H</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define PWM_TYPES_H</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#ifndef PWM_INTERFACE_H</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define PWM_INTERFACE_H</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// Section: Included Files</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">// Section: Enum Declarations</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="foldopen" id="foldopen00051" data-start="{" data-end="};">
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963">   51</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963">PWM_OUTPUT_MODES</a></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963ac8601192d048c27eeb1aa5b2dc81a6b4">   54</a></span>    <a class="code hl_enumvalue" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963ac8601192d048c27eeb1aa5b2dc81a6b4">OUTPUT_SCAN_MODE</a>  = 0x6, </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963aaf10d7579e0dfaf6b0531937293d5e8e">   55</a></span>    <a class="code hl_enumvalue" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963aaf10d7579e0dfaf6b0531937293d5e8e">BRUSH_DC_OUTPUT_FORWARD</a>  = 0x5, </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963a64e3214bd746ba44fe0e621152542c65">   56</a></span>    <a class="code hl_enumvalue" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963a64e3214bd746ba44fe0e621152542c65">BRUSH_DC_OUTPUT_REVERSE</a>  = 0x4, </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963a1c9824670a80147490dfa7ab04f98f88">   57</a></span>    <a class="code hl_enumvalue" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963a1c9824670a80147490dfa7ab04f98f88">HALF_BRIDGE_OUTPUT</a>  = 0x2, </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963a6cfd29362d2a3d56c1216b53dc03eba3">   58</a></span>    <a class="code hl_enumvalue" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963a6cfd29362d2a3d56c1216b53dc03eba3">PUSH_PULL_OUTPUT</a>  = 0x1, </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963a840dc10f5875fd85f91d2b46f1c83d45">   59</a></span>    <a class="code hl_enumvalue" href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963a840dc10f5875fd85f91d2b46f1c83d45">STEERABLE_SINGLE_OUTPUT</a>  = 0x0, </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>};</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &quot;<a class="code" href="a00125.html">pwm_types.h</a>&quot;</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">// Section: Data Type Definitions</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        </div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="a00583.html">   54</a></span><span class="keyword">struct </span><a class="code hl_struct" href="a00583.html">PWM_INTERFACE</a>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="a00583.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">   55</a></span>    void (*<a class="code hl_variable" href="a00583.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">Initialize</a>)(void);   </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="a00583.html#ab6aa2863d2196e9f95f70fde91049ee6">   58</a></span>    void (*<a class="code hl_variable" href="a00583.html#ab6aa2863d2196e9f95f70fde91049ee6">Deinitialize</a>)(void);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="a00583.html#a04c571590cd163f474c876943a39e0f1">   61</a></span>    void (*<a class="code hl_variable" href="a00583.html#a04c571590cd163f474c876943a39e0f1">Enable</a>)(void);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="a00583.html#a7fd5c6c55c6a76c4d35e3f81609fab87">   64</a></span>    void (*<a class="code hl_variable" href="a00583.html#a7fd5c6c55c6a76c4d35e3f81609fab87">Disable</a>)(void);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="a00583.html#a8bfc1b042d812297e2bdeb23c78c6a1f">   67</a></span>    void (*<a class="code hl_variable" href="a00583.html#a8bfc1b042d812297e2bdeb23c78c6a1f">PeriodSet</a>)(<span class="keywordtype">size_t</span> periodCount);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="a00583.html#ab807c7b68893dc14af8b465526e3afbf">   70</a></span>    void (*<a class="code hl_variable" href="a00583.html#ab807c7b68893dc14af8b465526e3afbf">DutyCycleSet</a>)(<span class="keywordtype">size_t</span> dutyCycleCount);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="a00583.html#a8664b14f1d9b71751ac0ec06bbb7f420">   73</a></span>    void (*<a class="code hl_variable" href="a00583.html#a8664b14f1d9b71751ac0ec06bbb7f420">DeadTimeSet</a>)(<span class="keywordtype">size_t</span> deadTimeCount);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="a00583.html#ae4a35aeba6a1f972341bd6e6eef6c952">   76</a></span>    void (*<a class="code hl_variable" href="a00583.html#ae4a35aeba6a1f972341bd6e6eef6c952">OutputModeSet</a>)(<span class="keyword">enum</span> <a class="code hl_enumeration" href="a00125.html#a2aa62dfcdb1a141d86f4a895a77e8963">PWM_OUTPUT_MODES</a> outputMode);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="a00583.html#a6b902e9f14be393d2ca10c5748326a48">   79</a></span>    void (*<a class="code hl_variable" href="a00583.html#a6b902e9f14be393d2ca10c5748326a48">SoftwareTriggerSet</a>)(void);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="a00583.html#a093b973db37c8958d7c5537c554bba2e">   82</a></span>    void (*<a class="code hl_variable" href="a00583.html#a093b973db37c8958d7c5537c554bba2e">CallbackRegister</a>)(void (*handler)(void));</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="a00583.html#a1cd6ba5da58bb0185a3939d1fdcd25f5">   85</a></span>    void (*<a class="code hl_variable" href="a00583.html#a1cd6ba5da58bb0185a3939d1fdcd25f5">Tasks</a>)(void);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>};</div>
 </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#endif  </span><span class="comment">//PWM_TYPES_H</span></div>
-<div class="ttc" id="aa00122_html_a2aa62dfcdb1a141d86f4a895a77e8963"><div class="ttname"><a href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963">PWM_OUTPUT_MODES</a></div><div class="ttdeci">PWM_OUTPUT_MODES</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00051">pwm_types.h:52</a></div></div>
-<div class="ttc" id="aa00122_html_a2aa62dfcdb1a141d86f4a895a77e8963a1c9824670a80147490dfa7ab04f98f88"><div class="ttname"><a href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963a1c9824670a80147490dfa7ab04f98f88">HALF_BRIDGE_OUTPUT</a></div><div class="ttdeci">@ HALF_BRIDGE_OUTPUT</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00057">pwm_types.h:57</a></div></div>
-<div class="ttc" id="aa00122_html_a2aa62dfcdb1a141d86f4a895a77e8963a64e3214bd746ba44fe0e621152542c65"><div class="ttname"><a href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963a64e3214bd746ba44fe0e621152542c65">BRUSH_DC_OUTPUT_REVERSE</a></div><div class="ttdeci">@ BRUSH_DC_OUTPUT_REVERSE</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00056">pwm_types.h:56</a></div></div>
-<div class="ttc" id="aa00122_html_a2aa62dfcdb1a141d86f4a895a77e8963a6cfd29362d2a3d56c1216b53dc03eba3"><div class="ttname"><a href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963a6cfd29362d2a3d56c1216b53dc03eba3">PUSH_PULL_OUTPUT</a></div><div class="ttdeci">@ PUSH_PULL_OUTPUT</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00058">pwm_types.h:58</a></div></div>
-<div class="ttc" id="aa00122_html_a2aa62dfcdb1a141d86f4a895a77e8963a840dc10f5875fd85f91d2b46f1c83d45"><div class="ttname"><a href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963a840dc10f5875fd85f91d2b46f1c83d45">STEERABLE_SINGLE_OUTPUT</a></div><div class="ttdeci">@ STEERABLE_SINGLE_OUTPUT</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00059">pwm_types.h:59</a></div></div>
-<div class="ttc" id="aa00122_html_a2aa62dfcdb1a141d86f4a895a77e8963aaf10d7579e0dfaf6b0531937293d5e8e"><div class="ttname"><a href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963aaf10d7579e0dfaf6b0531937293d5e8e">BRUSH_DC_OUTPUT_FORWARD</a></div><div class="ttdeci">@ BRUSH_DC_OUTPUT_FORWARD</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00055">pwm_types.h:55</a></div></div>
-<div class="ttc" id="aa00122_html_a2aa62dfcdb1a141d86f4a895a77e8963ac8601192d048c27eeb1aa5b2dc81a6b4"><div class="ttname"><a href="a00122.html#a2aa62dfcdb1a141d86f4a895a77e8963ac8601192d048c27eeb1aa5b2dc81a6b4">OUTPUT_SCAN_MODE</a></div><div class="ttdeci">@ OUTPUT_SCAN_MODE</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00054">pwm_types.h:54</a></div></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif  </span><span class="comment">//PWM_INTERFACE_H</span></div>
+<div class="ttc" id="aa00125_html"><div class="ttname"><a href="a00125.html">pwm_types.h</a></div><div class="ttdoc">This is the generated driver types header file for the PWM driver.</div></div>
+<div class="ttc" id="aa00125_html_a2aa62dfcdb1a141d86f4a895a77e8963"><div class="ttname"><a href="a00125.html#a2aa62dfcdb1a141d86f4a895a77e8963">PWM_OUTPUT_MODES</a></div><div class="ttdeci">PWM_OUTPUT_MODES</div><div class="ttdef"><b>Definition</b> <a href="a00125_source.html#l00051">pwm_types.h:52</a></div></div>
+<div class="ttc" id="aa00583_html"><div class="ttname"><a href="a00583.html">PWM_INTERFACE</a></div><div class="ttdoc">Structure containing the function pointers of PWM generator driver.</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00054">pwm_interface.h:54</a></div></div>
+<div class="ttc" id="aa00583_html_a04c571590cd163f474c876943a39e0f1"><div class="ttname"><a href="a00583.html#a04c571590cd163f474c876943a39e0f1">PWM_INTERFACE::Enable</a></div><div class="ttdeci">void(* Enable)(void)</div><div class="ttdoc">Pointer to SCCPx_PWM_Enable e.g. SCCP1_PWM_Enable.</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00061">pwm_interface.h:61</a></div></div>
+<div class="ttc" id="aa00583_html_a093b973db37c8958d7c5537c554bba2e"><div class="ttname"><a href="a00583.html#a093b973db37c8958d7c5537c554bba2e">PWM_INTERFACE::CallbackRegister</a></div><div class="ttdeci">void(* CallbackRegister)(void(*handler)(void))</div><div class="ttdoc">Pointer to SCCPx_PWM_CallbackRegister e.g. SCCP1_PWM_CallbackRegister.</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00082">pwm_interface.h:82</a></div></div>
+<div class="ttc" id="aa00583_html_a1cd6ba5da58bb0185a3939d1fdcd25f5"><div class="ttname"><a href="a00583.html#a1cd6ba5da58bb0185a3939d1fdcd25f5">PWM_INTERFACE::Tasks</a></div><div class="ttdeci">void(* Tasks)(void)</div><div class="ttdoc">Pointer to SCCPx_PWM_Tasks e.g. SCCP1_PWM_Tasks (Supported only in polling mode)</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00085">pwm_interface.h:85</a></div></div>
+<div class="ttc" id="aa00583_html_a6b902e9f14be393d2ca10c5748326a48"><div class="ttname"><a href="a00583.html#a6b902e9f14be393d2ca10c5748326a48">PWM_INTERFACE::SoftwareTriggerSet</a></div><div class="ttdeci">void(* SoftwareTriggerSet)(void)</div><div class="ttdoc">Pointer to SCCPx_PWM_SoftwareTriggerSet e.g. SCCP1_PWM_SoftwareTriggerSet.</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00079">pwm_interface.h:79</a></div></div>
+<div class="ttc" id="aa00583_html_a7fd5c6c55c6a76c4d35e3f81609fab87"><div class="ttname"><a href="a00583.html#a7fd5c6c55c6a76c4d35e3f81609fab87">PWM_INTERFACE::Disable</a></div><div class="ttdeci">void(* Disable)(void)</div><div class="ttdoc">Pointer to SCCPx_PWM_Disable e.g. SCCP1_PWM_Disable.</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00064">pwm_interface.h:64</a></div></div>
+<div class="ttc" id="aa00583_html_a8664b14f1d9b71751ac0ec06bbb7f420"><div class="ttname"><a href="a00583.html#a8664b14f1d9b71751ac0ec06bbb7f420">PWM_INTERFACE::DeadTimeSet</a></div><div class="ttdeci">void(* DeadTimeSet)(size_t deadTimeCount)</div><div class="ttdoc">Pointer to SCCPx_PWM_DeadTimeSet e.g. SCCP1_PWM_DeadTimeSet (This feature is hardware dependent)</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00073">pwm_interface.h:73</a></div></div>
+<div class="ttc" id="aa00583_html_a8bfc1b042d812297e2bdeb23c78c6a1f"><div class="ttname"><a href="a00583.html#a8bfc1b042d812297e2bdeb23c78c6a1f">PWM_INTERFACE::PeriodSet</a></div><div class="ttdeci">void(* PeriodSet)(size_t periodCount)</div><div class="ttdoc">Pointer to SCCPx_PWM_PeriodSet e.g. SCCP1_PWM_PeriodSet.</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00067">pwm_interface.h:67</a></div></div>
+<div class="ttc" id="aa00583_html_ab6aa2863d2196e9f95f70fde91049ee6"><div class="ttname"><a href="a00583.html#ab6aa2863d2196e9f95f70fde91049ee6">PWM_INTERFACE::Deinitialize</a></div><div class="ttdeci">void(* Deinitialize)(void)</div><div class="ttdoc">Pointer to SCCPx_PWM_Deinitialize e.g. SCCP1_PWM_Deinitialize.</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00058">pwm_interface.h:58</a></div></div>
+<div class="ttc" id="aa00583_html_ab807c7b68893dc14af8b465526e3afbf"><div class="ttname"><a href="a00583.html#ab807c7b68893dc14af8b465526e3afbf">PWM_INTERFACE::DutyCycleSet</a></div><div class="ttdeci">void(* DutyCycleSet)(size_t dutyCycleCount)</div><div class="ttdoc">Pointer to SCCPx_PWM_DutyCycleSet e.g. SCCP1_PWM_DutyCycleSet.</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00070">pwm_interface.h:70</a></div></div>
+<div class="ttc" id="aa00583_html_ae4a35aeba6a1f972341bd6e6eef6c952"><div class="ttname"><a href="a00583.html#ae4a35aeba6a1f972341bd6e6eef6c952">PWM_INTERFACE::OutputModeSet</a></div><div class="ttdeci">void(* OutputModeSet)(enum PWM_OUTPUT_MODES outputMode)</div><div class="ttdoc">Pointer to SCCPx_PWM_OutputModeSet e.g. SCCP1_PWM_OutputModeSet (This feature is hardware dependent)</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00076">pwm_interface.h:76</a></div></div>
+<div class="ttc" id="aa00583_html_afea2a7e78ccb7643d694c4bd7fa2ed5f"><div class="ttname"><a href="a00583.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">PWM_INTERFACE::Initialize</a></div><div class="ttdeci">void(* Initialize)(void)</div><div class="ttdoc">Pointer to SCCPx_PWM_Initialize e.g. SCCP1_PWM_Initialize.</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00055">pwm_interface.h:55</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

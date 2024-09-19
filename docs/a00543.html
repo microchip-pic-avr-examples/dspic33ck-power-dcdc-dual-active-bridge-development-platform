@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: CAN_MSG_OBJ Struct Reference</title>
+<title>Dual Active Bridge Development Board: CAN_MSG_FIELD Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,88 +138,126 @@ $(document).ready(function(){initNavTree('a00543.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">CAN_MSG_OBJ Struct Reference<div class="ingroups"><a class="el" href="a00505.html">MPLABX Configurator Driver Layer</a> &raquo; <a class="el" href="a00507.html">CAN FD Driver</a></div></div></div>
+  <div class="headertitle"><div class="title">CAN_MSG_FIELD Struct Reference<div class="ingroups"><a class="el" href="a00508.html">MPLABX Configurator Driver Layer</a> &raquo; <a class="el" href="a00511.html">CAN FD Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This data structure used to configure the CAN FD message object.  
+<p>This data structure used to configure the message fields. Some of the fields formatType and brs data should match with the CAN FD configuration in Melody MCC user interface.  
  <a href="a00543.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00071_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dab-pwm-configuration.X/mcc_generated_files/can/can_types.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00074_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dab-pwm-configuration.X/mcc_generated_files/can/can_types.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CAN_MSG_OBJ:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CAN_MSG_FIELD:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00541.svg" width="131" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00541.svg" width="131" height="166"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a92de58c41afbd447b2536d5c9eb7b0f2" id="r_a92de58c41afbd447b2536d5c9eb7b0f2"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a92de58c41afbd447b2536d5c9eb7b0f2">msgId</a></td></tr>
-<tr class="separator:a92de58c41afbd447b2536d5c9eb7b0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3db823a278f5d389e9b29a698d10ee68" id="r_a3db823a278f5d389e9b29a698d10ee68"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="a00539.html">CAN_MSG_FIELD</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a3db823a278f5d389e9b29a698d10ee68">field</a></td></tr>
-<tr class="separator:a3db823a278f5d389e9b29a698d10ee68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe222f6d3581e7920dcad5306cc906a8" id="r_abe222f6d3581e7920dcad5306cc906a8"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#abe222f6d3581e7920dcad5306cc906a8">data</a></td></tr>
-<tr class="separator:abe222f6d3581e7920dcad5306cc906a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae64211504f2eaef4481b381cc65167da" id="r_ae64211504f2eaef4481b381cc65167da"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ae64211504f2eaef4481b381cc65167da">idType</a>:1</td></tr>
+<tr class="separator:ae64211504f2eaef4481b381cc65167da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a168da43d2a5c2406e469b93b9370a9da" id="r_a168da43d2a5c2406e469b93b9370a9da"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a168da43d2a5c2406e469b93b9370a9da">frameType</a>:1</td></tr>
+<tr class="separator:a168da43d2a5c2406e469b93b9370a9da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4d50729bdfb45cf06faa799877f71e6" id="r_ab4d50729bdfb45cf06faa799877f71e6"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ab4d50729bdfb45cf06faa799877f71e6">dlc</a>:4</td></tr>
+<tr class="separator:ab4d50729bdfb45cf06faa799877f71e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d037b9c22db4004322cb0840853edeb" id="r_a6d037b9c22db4004322cb0840853edeb"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a6d037b9c22db4004322cb0840853edeb">formatType</a>:1</td></tr>
+<tr class="separator:a6d037b9c22db4004322cb0840853edeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8b17a0932ca0baafa19b60e06fb2ed9" id="r_ae8b17a0932ca0baafa19b60e06fb2ed9"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ae8b17a0932ca0baafa19b60e06fb2ed9">brs</a>:1</td></tr>
+<tr class="separator:ae8b17a0932ca0baafa19b60e06fb2ed9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00067">67</a> of file <a class="el" href="a00071_source.html">can_types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00074_source.html#l00052">52</a> of file <a class="el" href="a00074_source.html">can_types.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="abe222f6d3581e7920dcad5306cc906a8" name="abe222f6d3581e7920dcad5306cc906a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe222f6d3581e7920dcad5306cc906a8">&#9670;&#160;</a></span>data</h2>
+<a id="ae8b17a0932ca0baafa19b60e06fb2ed9" name="ae8b17a0932ca0baafa19b60e06fb2ed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8b17a0932ca0baafa19b60e06fb2ed9">&#9670;&#160;</a></span>brs</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t* data</td>
+          <td class="memname">unsigned int brs</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Pointer to message data </p>
+<p>Enables or Disables the Bit Rate Switch </p>
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00071">71</a> of file <a class="el" href="a00071_source.html">can_types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00074_source.html#l00058">58</a> of file <a class="el" href="a00074_source.html">can_types.h</a>.</p>
 
 </div>
 </div>
-<a id="a3db823a278f5d389e9b29a698d10ee68" name="a3db823a278f5d389e9b29a698d10ee68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3db823a278f5d389e9b29a698d10ee68">&#9670;&#160;</a></span>field</h2>
+<a id="ab4d50729bdfb45cf06faa799877f71e6" name="ab4d50729bdfb45cf06faa799877f71e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4d50729bdfb45cf06faa799877f71e6">&#9670;&#160;</a></span>dlc</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="a00539.html">CAN_MSG_FIELD</a> field</td>
+          <td class="memname">unsigned int dlc</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Defines the <a class="el" href="a00539.html">CAN_MSG_FIELD</a> CAN TX/RX Message Object Control </p>
+<p>Defines the size of the data bytes in a message format. The maximum date length is defined in MCC Melody </p>
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00070">70</a> of file <a class="el" href="a00071_source.html">can_types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00074_source.html#l00056">56</a> of file <a class="el" href="a00074_source.html">can_types.h</a>.</p>
 
 </div>
 </div>
-<a id="a92de58c41afbd447b2536d5c9eb7b0f2" name="a92de58c41afbd447b2536d5c9eb7b0f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92de58c41afbd447b2536d5c9eb7b0f2">&#9670;&#160;</a></span>msgId</h2>
+<a id="a6d037b9c22db4004322cb0840853edeb" name="a6d037b9c22db4004322cb0840853edeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d037b9c22db4004322cb0840853edeb">&#9670;&#160;</a></span>formatType</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t msgId</td>
+          <td class="memname">unsigned int formatType</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the CAN Message ID </p>
+<p>Defines the message type as CAN 2.0 Format or CAN_FD Format </p>
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00069">69</a> of file <a class="el" href="a00071_source.html">can_types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00074_source.html#l00057">57</a> of file <a class="el" href="a00074_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="a168da43d2a5c2406e469b93b9370a9da" name="a168da43d2a5c2406e469b93b9370a9da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a168da43d2a5c2406e469b93b9370a9da">&#9670;&#160;</a></span>frameType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int frameType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Defines the message frame type as Data Frame or RTR Frame </p>
+
+<p class="definition">Definition at line <a class="el" href="a00074_source.html#l00055">55</a> of file <a class="el" href="a00074_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="ae64211504f2eaef4481b381cc65167da" name="ae64211504f2eaef4481b381cc65167da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae64211504f2eaef4481b381cc65167da">&#9670;&#160;</a></span>idType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int idType</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Defines the message ID type as Standard ID or Extended ID </p>
+
+<p class="definition">Definition at line <a class="el" href="a00074_source.html#l00054">54</a> of file <a class="el" href="a00074_source.html">can_types.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dab-pwm-configuration.X/mcc_generated_files/can/<a class="el" href="a00071_source.html">can_types.h</a></li>
+<li>dab-pwm-configuration.X/mcc_generated_files/can/<a class="el" href="a00074_source.html">can_types.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

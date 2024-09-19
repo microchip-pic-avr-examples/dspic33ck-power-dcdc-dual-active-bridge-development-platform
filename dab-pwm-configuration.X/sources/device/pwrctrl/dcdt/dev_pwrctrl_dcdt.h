@@ -1,4 +1,4 @@
-/**
+/*
   @Company
     Microchip Technology Inc.
 
@@ -43,7 +43,7 @@
 /**
  * @file dev_pwrctrl_dcdt.h     
  * @ingroup dev-pwrctrl-dcdt   
- * @brief Contains public functions and data types relevant for DCDT file interface.    
+ * @brief Contains public functions and data types relevant for DCDT file interface.
  */
 
 #ifndef _DRV_CONTROLLER_DAB_DCDC_H

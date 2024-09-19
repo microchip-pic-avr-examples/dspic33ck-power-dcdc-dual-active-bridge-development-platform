@@ -1,5 +1,5 @@
 
-# Firmware Overview
+# Firmware Features
 
 The firmware overview indicates that the power controller state machine and fault handler are executed every 100 microseconds by the scheduler. Additionally, the GUI handler operates every 10 milliseconds, while the LED and fan operations, along with temperature checks, are performed every 100 milliseconds.
 

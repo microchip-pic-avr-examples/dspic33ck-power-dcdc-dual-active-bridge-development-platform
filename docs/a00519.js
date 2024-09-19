@@ -1,9 +1,7 @@
 var a00519 =
 [
-    [ "clock.c", "a00167.html", null ],
-    [ "CLOCK_InstructionFrequencyGet", "a00519.html#ga7c2fd6abb192260205b77d167d8e78da", null ],
-    [ "CLOCK_PeripheralFrequencyGet", "a00519.html#ga192799fb698929f78edb9653d4eea55c", null ],
-    [ "CLOCK_SystemFrequencyGet", "a00519.html#gae20bf0a12edd902aa2ee56554d6d4790", null ],
-    [ "CLOCK_AuxPllLockStatusGet", "a00519.html#ga0153c20a7c603596e5722a8b45571d4a", null ],
-    [ "CLOCK_Initialize", "a00519.html#ga98390d19c7087c52765eab23eb8ded96", null ]
+    [ "WATCHDOG_CLR_KEY", "a00519.html#ga9fe59f55f06cfb2df71dcf9f0b64cd3c", null ],
+    [ "WATCHDOG_TimerClear", "a00519.html#ga0709c01950447ea286ea4538174a7a82", null ],
+    [ "WATCHDOG_TimerSoftwareDisable", "a00519.html#ga74fb697367e441a6ac0a56e33794ebc4", null ],
+    [ "WATCHDOG_TimerSoftwareEnable", "a00519.html#gaf945fced45ce9cc9a9922d8f31e09e67", null ]
 ];

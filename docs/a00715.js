@@ -1,5 +1,7 @@
 var a00715 =
 [
-    [ "__pad0__", "a00715.html#adf71f3d8410c1f1dbbc96680a92c49af", null ],
-    [ "reset_by_watchdog", "a00715.html#af7905814a554a97a8db48d413ca5aa21", null ]
+    [ "Accumulator", "a00715.html#a1bf80696497119c4e36460f57de7f667", null ],
+    [ "AverageValue", "a00715.html#ababc9b3b062bdea79c71035d651fbe79", null ],
+    [ "AveragingCount", "a00715.html#a5c501c087c00d88f54766fff1bed2839", null ],
+    [ "Counter", "a00715.html#ac73dde33a2be13416f717c1ab8954227", null ]
 ];

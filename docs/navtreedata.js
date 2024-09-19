@@ -25,20 +25,20 @@
 var NAVTREE =
 [
   [ "Dual Active Bridge Development Board", "index.html", [
-    [ "dsPIC33CK Power DC-DC Dual Active Bridge Development Platform", "index.html#autotoc_md1", [
+    [ "Dual Active Bridge Development Board", "index.html#autotoc_md1", [
       [ "Summary", "index.html#autotoc_md3", null ],
       [ "Highlights", "index.html#autotoc_md5", null ],
       [ "Related Documentation", "index.html#autotoc_md7", null ],
       [ "Software Used", "index.html#autotoc_md9", null ],
       [ "Hardware Used", "index.html#autotoc_md11", null ]
     ] ],
-    [ "Firmware Overview", "a00748.html", [
-      [ "Converter State Machine", "a00748.html#autotoc_md15", null ],
-      [ "Power Control Data Structure", "a00748.html#autotoc_md16", null ],
-      [ "Fault Protection", "a00748.html#autotoc_md18", null ],
-      [ "PWM Setup", "a00748.html#autotoc_md22", null ],
-      [ "Power Control Compensator", "a00748.html#autotoc_md24", null ],
-      [ "</p>", "a00748.html#autotoc_md25", null ]
+    [ "Firmware Features", "a00752.html", [
+      [ "Converter State Machine", "a00752.html#autotoc_md15", null ],
+      [ "Power Control Data Structure", "a00752.html#autotoc_md16", null ],
+      [ "Fault Protection", "a00752.html#autotoc_md18", null ],
+      [ "PWM Setup", "a00752.html#autotoc_md22", null ],
+      [ "Power Control Compensator", "a00752.html#autotoc_md24", null ],
+      [ "</p>", "a00752.html#autotoc_md25", null ]
     ] ],
     [ "Software Overview", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
@@ -54,7 +54,7 @@ var NAVTREE =
       [ "Variables", "globals_vars.html", null ],
       [ "Typedefs", "globals_type.html", null ],
       [ "Enumerations", "globals_enum.html", null ],
-      [ "Enumerator", "globals_eval.html", null ],
+      [ "Enumerator", "globals_eval.html", "globals_eval" ],
       [ "Macros", "globals_defs.html", "globals_defs" ]
     ] ]
   ] ]
@@ -62,12 +62,14 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"a00047.html",
-"a00489.html",
-"a00507.html#gacbe5d017b9015e9756ea3530da8cc8db",
-"a00515.html#ga9fe59f55f06cfb2df71dcf9f0b64cd3c",
-"a00555.html#ab6dcbda8f44087989855f4463221516d",
-"a00655.html#ad1355dec3eb324d2eab4aeec3949315b"
+"a00029.html",
+"a00485.html#ga79ec24216fcdceeda0313df0193990ee",
+"a00505.html#gga047f851c8ef37ed494a184f9dc539301ac87f14c56cfbec685fcf370502957e6f",
+"a00511.html#ga53d15680586c09f0d89297ea3c2c2429",
+"a00516.html#gaa629dc9cb7ee6293754be9004f980deb",
+"a00539.html#a5755f0cfecb719da5ef16b301373942d",
+"a00639.html#abf8f604e028adbffcfed2825d3e9384e",
+"globals_func_a.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

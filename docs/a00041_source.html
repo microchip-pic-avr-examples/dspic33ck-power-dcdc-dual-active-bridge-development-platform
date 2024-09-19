@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/main.c Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/dcdt/dab_spvo/dcdt_generated_code/dab_spvo_dcdt.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,90 +136,30 @@ $(document).ready(function(){initNavTree('a00041_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">main.c</div></div>
+  <div class="headertitle"><div class="title">dab_spvo_dcdt.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">© [2024] Microchip Technology Inc. and its subsidiaries.</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"></span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">    Subject to your compliance with these terms, you may use Microchip </span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">    software and any derivatives exclusively with Microchip products. </span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">    You are responsible for complying with 3rd party license terms  </span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">    applicable to your use of 3rd party software (including open source  </span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">    software) that may accompany Microchip software. SOFTWARE IS ?AS IS.? </span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">    NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS </span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">    SOFTWARE, INCLUDING ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT,  </span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">    MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT </span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">    WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, </span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY </span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">    KIND WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF </span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    MICROCHIP HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE </span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    FORESEEABLE. TO THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP?S </span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    TOTAL LIABILITY ON ALL CLAIMS RELATED TO THE SOFTWARE WILL NOT </span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">    EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR </span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    THIS SOFTWARE.</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;xc.h&gt;</span> <span class="comment">// include processor files - each processor file is guarded.  </span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;stdint.h&gt;</span> <span class="comment">// include standard integer data types</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span> <span class="comment">// include standard boolean data types</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;stddef.h&gt;</span> <span class="comment">// include standard definition data types</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;system/system.h&quot;</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="a00206.html">timer/sccp1.h</a>&quot;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;os/os.h&quot;</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;device/fault/dev_vin_isolated.h&quot;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;device/dev_fan.h&quot;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;device/dev_led.h&quot;</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;device/dev_temp.h&quot;</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;<a class="code" href="a00374.html">device/pwrctrl/dev_pwrctrl_isr.h</a>&quot;</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;<a class="code" href="a00362.html">device/pwrctrl/dev_pwrctrl.h</a>&quot;</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;device/fault/dev_fault.h&quot;</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;app/app_PBV_DAB_frame_map.h&quot;</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;driver/mcc_extension/mcc_custom_config.h&quot;</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;system/pins.h&quot;</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">    Main application</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_function" href="a00517.html#ga5e8391114a0cf91ac20002be25e3d352">SYSTEM_Initialize</a>();</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    MCC_Custom_User_Config();</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_function" href="a00488.html#ga6523e7af2c1c7f66d8495c072a5c7281">Dev_PwrCtrl_Initialize</a>();</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_function" href="a00497.html#gaf5d210df8b3540e4dd911cb3d8c77fcd">Dev_Fault_Initialize</a>();</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_function" href="a00521.html#ga8997d5f758579b5b3629655f9972efaf">SCCP1_Timer_TimeoutCallbackRegister</a>(&amp;<a class="code hl_function" href="a00489.html#gae32c9e5ed4d1fb98fc13b26601782c10">ControlLoop_Interrupt_CallBack</a>); </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    OS_Init();</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_function" href="a00484.html#ga00307bed276aca52423f1e10365e3334">App_PBV_DAB_Init</a>();</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_function" href="a00501.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a>();</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_function" href="a00500.html#gad4274efc956bcca058565b186c2fd1a0">Dev_Fan_Initialize</a>();</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_function" href="a00502.html#ga777c30f75162d97f4e112d1fc8d49f87">Dev_Temp_Initialize</a>();</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    OS_Scheduler_RunForever();</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">while</span>(1)</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }    </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
-<div class="ttc" id="aa00206_html"><div class="ttname"><a href="a00206.html">sccp1.h</a></div><div class="ttdoc">This is the generated driver header file for the SCCP1-TIMER driver.</div></div>
-<div class="ttc" id="aa00362_html"><div class="ttname"><a href="a00362.html">dev_pwrctrl.h</a></div><div class="ttdoc">Contains public functions and data types relevant for power control interface.</div></div>
-<div class="ttc" id="aa00374_html"><div class="ttname"><a href="a00374.html">dev_pwrctrl_isr.h</a></div><div class="ttdoc">Contains public function relevant for power control interrupt.</div></div>
-<div class="ttc" id="aa00484_html_ga00307bed276aca52423f1e10365e3334"><div class="ttname"><a href="a00484.html#ga00307bed276aca52423f1e10365e3334">App_PBV_DAB_Init</a></div><div class="ttdeci">void App_PBV_DAB_Init()</div><div class="ttdoc">this function initializes the local pbv objects. these objects are then passed on to the app_PBV_init...</div><div class="ttdef"><b>Definition</b> <a href="a00245_source.html#l00119">app_PBV_dab_frame_map.c:119</a></div></div>
-<div class="ttc" id="aa00488_html_ga6523e7af2c1c7f66d8495c072a5c7281"><div class="ttname"><a href="a00488.html#ga6523e7af2c1c7f66d8495c072a5c7281">Dev_PwrCtrl_Initialize</a></div><div class="ttdeci">void Dev_PwrCtrl_Initialize(void)</div><div class="ttdoc">Initialize the power control parameters.</div><div class="ttdef"><b>Definition</b> <a href="a00359_source.html#l00063">dev_pwrctrl.c:63</a></div></div>
-<div class="ttc" id="aa00489_html_gae32c9e5ed4d1fb98fc13b26601782c10"><div class="ttname"><a href="a00489.html#gae32c9e5ed4d1fb98fc13b26601782c10">ControlLoop_Interrupt_CallBack</a></div><div class="ttdeci">void ControlLoop_Interrupt_CallBack(void)</div><div class="ttdoc">Executes the power conveter's control loop.</div><div class="ttdef"><b>Definition</b> <a href="a00371_source.html#l00067">dev_pwrctrl_isr.c:67</a></div></div>
-<div class="ttc" id="aa00497_html_gaf5d210df8b3540e4dd911cb3d8c77fcd"><div class="ttname"><a href="a00497.html#gaf5d210df8b3540e4dd911cb3d8c77fcd">Dev_Fault_Initialize</a></div><div class="ttdeci">void Dev_Fault_Initialize(void)</div><div class="ttdoc">Initialize the fault objects.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00086">dev_fault.c:86</a></div></div>
-<div class="ttc" id="aa00500_html_gad4274efc956bcca058565b186c2fd1a0"><div class="ttname"><a href="a00500.html#gad4274efc956bcca058565b186c2fd1a0">Dev_Fan_Initialize</a></div><div class="ttdeci">void Dev_Fan_Initialize(void)</div><div class="ttdoc">This function initializes the fan object.</div><div class="ttdef"><b>Definition</b> <a href="a00287_source.html#l00066">dev_fan.c:66</a></div></div>
-<div class="ttc" id="aa00501_html_ga2d2db02502e7b576a9149d114f303daa"><div class="ttname"><a href="a00501.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a></div><div class="ttdeci">void Dev_LED_Initialize(void)</div><div class="ttdoc">This function contains the LED initialization.</div><div class="ttdef"><b>Definition</b> <a href="a00299_source.html#l00076">dev_led.c:76</a></div></div>
-<div class="ttc" id="aa00502_html_ga777c30f75162d97f4e112d1fc8d49f87"><div class="ttname"><a href="a00502.html#ga777c30f75162d97f4e112d1fc8d49f87">Dev_Temp_Initialize</a></div><div class="ttdeci">void Dev_Temp_Initialize(void)</div><div class="ttdoc">Initializes the temperature data structure.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00098">dev_temp.c:98</a></div></div>
-<div class="ttc" id="aa00517_html_ga5e8391114a0cf91ac20002be25e3d352"><div class="ttname"><a href="a00517.html#ga5e8391114a0cf91ac20002be25e3d352">SYSTEM_Initialize</a></div><div class="ttdeci">void SYSTEM_Initialize(void)</div><div class="ttdoc">Initializes the System module.</div><div class="ttdef"><b>Definition</b> <a href="a00188_source.html#l00055">system.c:55</a></div></div>
-<div class="ttc" id="aa00521_html_ga8997d5f758579b5b3629655f9972efaf"><div class="ttname"><a href="a00521.html#ga8997d5f758579b5b3629655f9972efaf">SCCP1_Timer_TimeoutCallbackRegister</a></div><div class="ttdeci">void SCCP1_Timer_TimeoutCallbackRegister(void(*handler)(void))</div><div class="ttdoc">This function can be used to override default callback and to define custom callback for SCCP1 Timeou...</div><div class="ttdef"><b>Definition</b> <a href="a00209_source.html#l00176">sccp1.c:176</a></div></div>
+<a href="a00041.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#ifndef _DAB_SPVO_DCDT_DEFINES_H</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#define _DAB_SPVO_DCDT_DEFINES_H</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">// Compensator Coefficient Defines</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="a00041.html#a8f65b7ffccbf05f8a99946235076bf76">  103</a></span><span class="preprocessor">#define DAB_SPVO_COMP_2P2Z_COEFF_A1      0x0513</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="a00041.html#a2ced05e9f28e49ff26d3306609c7b451">  104</a></span><span class="preprocessor">#define DAB_SPVO_COMP_2P2Z_COEFF_A2      0x00A6</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="a00041.html#a320bddcd9447fac86c40245f16ea4054">  105</a></span><span class="preprocessor">#define DAB_SPVO_COMP_2P2Z_COEFF_B0      0x7FFC</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="a00041.html#ac186340134a0309cd8339e83d6d9e0cc">  106</a></span><span class="preprocessor">#define DAB_SPVO_COMP_2P2Z_COEFF_B1      0x00CD</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="a00041.html#aecae0f9677997563dd239c12b6385800">  107</a></span><span class="preprocessor">#define DAB_SPVO_COMP_2P2Z_COEFF_B2      0x80D1</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="a00041.html#aa9a4825fefeeb55e7d503b2c231e6707">  108</a></span><span class="preprocessor">#define DAB_SPVO_COMP_2P2Z_POSTSCALER    0x5963</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="a00041.html#a0a4b56e160c373001e7c72368cb71a7f">  109</a></span><span class="preprocessor">#define DAB_SPVO_COMP_2P2Z_POSTSHIFT     0xFFFB</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="a00041.html#a8845f15e03de5f04b15871faa8b657bf">  110</a></span><span class="preprocessor">#define DAB_SPVO_COMP_2P2Z_PRESHIFT      0x0000</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">// Compensator Clamp Limits</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="a00041.html#a5807488802de7734f933ea124567da8f">  114</a></span><span class="preprocessor">#define DAB_SPVO_COMP_2P2Z_MIN_CLAMP    0x0000</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="a00041.html#a4518733386f140df24b8e3865642996c">  115</a></span><span class="preprocessor">#define DAB_SPVO_COMP_2P2Z_MAX_CLAMP    0x7FFF</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

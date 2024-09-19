@@ -1,14 +1,15 @@
 var a00571 =
 [
-    [ "data", "a00571.html#a735984d41155bc1032e09bece8f8d66d", null ],
-    [ "data16bit", "a00571.html#a658e8037b0f8c2c1f2ae60440dc0e2d3", null ],
-    [ "data32bit", "a00571.html#a199aaa77495095822c847af9e6bfc9a6", null ],
-    [ "data8bit", "a00571.html#adb736300817b3148878c4239def641ea", null ],
-    [ "dataWidth", "a00571.html#a66a1d5a959aad7270b8e482fa2e2965b", null ],
-    [ "polyWidth", "a00571.html#ae309e69cf392c9d842aaee54b13f242e", null ],
-    [ "program", "a00571.html#ae196ef9bb2f2fcba8cf613e072f0fe94", null ],
-    [ "program", "a00571.html#a04455838484a6927635ac503bfa7ea33", null ],
-    [ "ptr", "a00571.html#ab5a3524f1ba519d5db348733e3d0fd66", null ],
-    [ "remainingSize", "a00571.html#a539eeba5764098e42674a9af62aeb0b1", null ],
-    [ "state", "a00571.html#ab225b5a567ae019f7ef3891f51bf94e9", null ]
+    [ "CalculateBufferStart", "a00571.html#a01e09543f212af0233ff01a10f19ca9c", null ],
+    [ "CalculateProgramStart", "a00571.html#a27390f310caf979c736f4cfc0debb9e5", null ],
+    [ "CalculationIsDone", "a00571.html#ad56e3f501b27743a8d2a807f32ea5c09", null ],
+    [ "CalculationResultGet", "a00571.html#a81659c7e4085008f82fb1314f0b8057b", null ],
+    [ "CalculationResultRawGet", "a00571.html#ae6a4f4b9210ad97240e5fee999581c19", null ],
+    [ "CalculationResultReverseGet", "a00571.html#ab6c8949cb8ea4cf3ff39fbfe503bd119", null ],
+    [ "CalculationResultXORGet", "a00571.html#ac54c3bd7b6d876e1fcb5f5cbc69e67fb", null ],
+    [ "Deinitialize", "a00571.html#ab6aa2863d2196e9f95f70fde91049ee6", null ],
+    [ "EventCallbackRegister", "a00571.html#a230052648485a0338d60dcc9bf109a8f", null ],
+    [ "Initialize", "a00571.html#afea2a7e78ccb7643d694c4bd7fa2ed5f", null ],
+    [ "SeedSet", "a00571.html#a6bda9bfa110dad0b0cce7cb9dd629d35", null ],
+    [ "Tasks", "a00571.html#a1cd6ba5da58bb0185a3939d1fdcd25f5", null ]
 ];

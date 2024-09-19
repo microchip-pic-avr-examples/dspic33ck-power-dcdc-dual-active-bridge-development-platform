@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['sensor_5foffset_5fnum_5fmeasurements_0',['SENSOR_OFFSET_NUM_MEASUREMENTS',['../a00281.html#a175e2f52c3522e4154a8d21da88426df',1,'dev_current_sensor.c']]]
+  ['mask_5f32_5fbit_5fhigh_0',['mask_32_bit_high',['../a00212.html#a3e3affedd77bf522f423cdd636f6e90b',1,'MASK_32_BIT_HIGH:&#160;sccp1.c'],['../a00215.html#a3e3affedd77bf522f423cdd636f6e90b',1,'MASK_32_BIT_HIGH:&#160;tmr1.c']]],
+  ['mask_5f32_5fbit_5flow_1',['mask_32_bit_low',['../a00212.html#ab1af98b17905c2c4854e5d9a460a64b5',1,'MASK_32_BIT_LOW:&#160;sccp1.c'],['../a00215.html#ab1af98b17905c2c4854e5d9a460a64b5',1,'MASK_32_BIT_LOW:&#160;tmr1.c']]]
 ];

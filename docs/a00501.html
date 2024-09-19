@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: LED Display</title>
+<title>Dual Active Bridge Development Board: Fan Control</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,306 +138,152 @@ $(document).ready(function(){initNavTree('a00501.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">LED Display<div class="ingroups"><a class="el" href="a00486.html">Device Layer</a></div></div></div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Fan Control<div class="ingroups"><a class="el" href="a00487.html">Device Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The LED device layer is the proprietary user code used to configure and drive the on-board debugging LED.  
+<p>The Fan control device layer is a proprietary user code utilized for configuring the fan control properties.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for LED Display:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Fan Control:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00501.svg" width="248" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00501.svg" width="243" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00299" id="r_a00299"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00299.html">dev_led.c</a></td></tr>
-<tr class="memdesc:a00299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains LED initialization and execution functions. <br /></td></tr>
+<tr class="memitem:a00290" id="r_a00290"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00290.html">dev_fan.c</a></td></tr>
+<tr class="memdesc:a00290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains fan initialization and execution functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga2d2db02502e7b576a9149d114f303daa" id="r_ga2d2db02502e7b576a9149d114f303daa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a> (void)</td></tr>
-<tr class="memdesc:ga2d2db02502e7b576a9149d114f303daa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function contains the LED initialization.  <br /></td></tr>
-<tr class="separator:ga2d2db02502e7b576a9149d114f303daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6fc0416c8ff212d938628b290a18a390" id="r_ga6fc0416c8ff212d938628b290a18a390"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga6fc0416c8ff212d938628b290a18a390">Dev_LED_On</a> (uint8_t led_id)</td></tr>
-<tr class="memdesc:ga6fc0416c8ff212d938628b290a18a390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch on the LED.  <br /></td></tr>
-<tr class="separator:ga6fc0416c8ff212d938628b290a18a390"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga645c25dba273dcf25dc202d31f441154" id="r_ga645c25dba273dcf25dc202d31f441154"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga645c25dba273dcf25dc202d31f441154">Dev_LED_Off</a> (uint8_t led_id)</td></tr>
-<tr class="memdesc:ga645c25dba273dcf25dc202d31f441154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch off the LED.  <br /></td></tr>
-<tr class="separator:ga645c25dba273dcf25dc202d31f441154"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacf12fda3f7d99f77a0e68b846273984f" id="r_gacf12fda3f7d99f77a0e68b846273984f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gacf12fda3f7d99f77a0e68b846273984f">Dev_LED_Toggle</a> (uint8_t led_id)</td></tr>
-<tr class="memdesc:gacf12fda3f7d99f77a0e68b846273984f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the LED state.  <br /></td></tr>
-<tr class="separator:gacf12fda3f7d99f77a0e68b846273984f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf44b310330b9dbf4597275fdade9b5f7" id="r_gaf44b310330b9dbf4597275fdade9b5f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gaf44b310330b9dbf4597275fdade9b5f7">Dev_LED_Blink</a> (uint8_t led_id)</td></tr>
-<tr class="memdesc:gaf44b310330b9dbf4597275fdade9b5f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED in blinking mode.  <br /></td></tr>
-<tr class="separator:gaf44b310330b9dbf4597275fdade9b5f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab8abb73dda8dc3829d57da8c681f4931" id="r_gab8abb73dda8dc3829d57da8c681f4931"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gab8abb73dda8dc3829d57da8c681f4931">Dev_LED_Blink_Iter</a> (uint8_t led_id, uint8_t count)</td></tr>
-<tr class="memdesc:gab8abb73dda8dc3829d57da8c681f4931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED in blinking mode in number of LED iterations.  <br /></td></tr>
-<tr class="separator:gab8abb73dda8dc3829d57da8c681f4931"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga371fdb6009ec0f15b00e75ad4ef4d177" id="r_ga371fdb6009ec0f15b00e75ad4ef4d177"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga371fdb6009ec0f15b00e75ad4ef4d177">Dev_LED_Blink_Slow</a> (uint8_t led_id)</td></tr>
-<tr class="memdesc:ga371fdb6009ec0f15b00e75ad4ef4d177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED in SLOW blinking mode.  <br /></td></tr>
-<tr class="separator:ga371fdb6009ec0f15b00e75ad4ef4d177"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9a710b93c9efd76f1c850ee4415f736c" id="r_ga9a710b93c9efd76f1c850ee4415f736c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga9a710b93c9efd76f1c850ee4415f736c">Dev_LED_Blink_Fast</a> (uint8_t led_id)</td></tr>
-<tr class="memdesc:ga9a710b93c9efd76f1c850ee4415f736c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED in FAST blinking mode.  <br /></td></tr>
-<tr class="separator:ga9a710b93c9efd76f1c850ee4415f736c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad26b3effecb0675aad3bcba8993a0bb2" id="r_gad26b3effecb0675aad3bcba8993a0bb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gad26b3effecb0675aad3bcba8993a0bb2">Dev_LED_Task_100ms</a> ()</td></tr>
-<tr class="memdesc:gad26b3effecb0675aad3bcba8993a0bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function needs to be called every 100ms and contains the code to update the status of the LEDs.  <br /></td></tr>
-<tr class="separator:gad26b3effecb0675aad3bcba8993a0bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga900bdeb2c6d6ab966bad8f4fd78e8cd2" id="r_ga900bdeb2c6d6ab966bad8f4fd78e8cd2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga900bdeb2c6d6ab966bad8f4fd78e8cd2">LED_STATE_OFF</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:ga900bdeb2c6d6ab966bad8f4fd78e8cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">These are the macros indicating the status of the LED.  <br /></td></tr>
-<tr class="separator:ga900bdeb2c6d6ab966bad8f4fd78e8cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga04ba0e3f7ea33a087f01b2745a2de63b" id="r_ga04ba0e3f7ea33a087f01b2745a2de63b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga04ba0e3f7ea33a087f01b2745a2de63b">LED_STATE_ON</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:ga04ba0e3f7ea33a087f01b2745a2de63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae7328822ca8e2fd16a638854eeae068b" id="r_gae7328822ca8e2fd16a638854eeae068b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gae7328822ca8e2fd16a638854eeae068b">LED_STATE_BLINK</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:gae7328822ca8e2fd16a638854eeae068b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac387d5ec1a81ff6058b9bf31e5809e9d" id="r_gac387d5ec1a81ff6058b9bf31e5809e9d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gac387d5ec1a81ff6058b9bf31e5809e9d">LED_STATE_BLINK_SLOW</a>&#160;&#160;&#160;3</td></tr>
-<tr class="separator:gac387d5ec1a81ff6058b9bf31e5809e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga065311bdf1ad091dc6f4aa643bd59f48" id="r_ga065311bdf1ad091dc6f4aa643bd59f48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga065311bdf1ad091dc6f4aa643bd59f48">LED_STATE_BLINK_FAST</a>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:ga065311bdf1ad091dc6f4aa643bd59f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaa38f6cc3eb9957214f94466dd2650cc" id="r_gaaa38f6cc3eb9957214f94466dd2650cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gaaa38f6cc3eb9957214f94466dd2650cc">LED_STATE_BLINK_COUNT</a>&#160;&#160;&#160;5</td></tr>
-<tr class="separator:gaaa38f6cc3eb9957214f94466dd2650cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4274efc956bcca058565b186c2fd1a0" id="r_gad4274efc956bcca058565b186c2fd1a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gad4274efc956bcca058565b186c2fd1a0">Dev_Fan_Initialize</a> (void)</td></tr>
+<tr class="memdesc:gad4274efc956bcca058565b186c2fd1a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the fan object.  <br /></td></tr>
+<tr class="separator:gad4274efc956bcca058565b186c2fd1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bd7dce99469a41bbb705d939ea512ad" id="r_ga1bd7dce99469a41bbb705d939ea512ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga1bd7dce99469a41bbb705d939ea512ad">Dev_Fan_Task_100ms</a> (void)</td></tr>
+<tr class="memdesc:ga1bd7dce99469a41bbb705d939ea512ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">this function needs to be called every 100ms it contains the code to update the status of the fan  <br /></td></tr>
+<tr class="separator:ga1bd7dce99469a41bbb705d939ea512ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf5c734c9834b070c4adf1af69e9f048" id="r_gabf5c734c9834b070c4adf1af69e9f048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gabf5c734c9834b070c4adf1af69e9f048">Dev_Fan_Set_Override</a> (void)</td></tr>
+<tr class="memdesc:gabf5c734c9834b070c4adf1af69e9f048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fan override bit and the fan speed.  <br /></td></tr>
+<tr class="separator:gabf5c734c9834b070c4adf1af69e9f048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cfd61659ae6b17ad25e51bfc211723b" id="r_ga5cfd61659ae6b17ad25e51bfc211723b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a> (uint8_t target_speed_percent)</td></tr>
+<tr class="memdesc:ga5cfd61659ae6b17ad25e51bfc211723b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fan speed.  <br /></td></tr>
+<tr class="separator:ga5cfd61659ae6b17ad25e51bfc211723b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ba0ef09cbd1274a9c325fc04cab411d" id="r_ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga3ba0ef09cbd1274a9c325fc04cab411d">Convert_From_Percentage</a> (uint8_t percentage_value)</td></tr>
+<tr class="memdesc:ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the percentage value to number of ticks.  <br /></td></tr>
+<tr class="separator:ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d2b426f7411623a821415f02956aac8" id="r_ga0d2b426f7411623a821415f02956aac8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga0d2b426f7411623a821415f02956aac8">Override_Speed</a> (void)</td></tr>
+<tr class="memdesc:ga0d2b426f7411623a821415f02956aac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override the fan speed with maximum speed.  <br /></td></tr>
+<tr class="separator:ga0d2b426f7411623a821415f02956aac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66c5db181798514534d7f97b622ca35e" id="r_ga66c5db181798514534d7f97b622ca35e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga66c5db181798514534d7f97b622ca35e">Calculate_Speed</a> (void)</td></tr>
+<tr class="memdesc:ga66c5db181798514534d7f97b622ca35e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the fan speed.  <br /></td></tr>
+<tr class="separator:ga66c5db181798514534d7f97b622ca35e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7e38e334c2209a2a296bf3f573fed78" id="r_gad7e38e334c2209a2a296bf3f573fed78"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gad7e38e334c2209a2a296bf3f573fed78">Update_Speed</a> (void)</td></tr>
+<tr class="memdesc:gad7e38e334c2209a2a296bf3f573fed78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the fan speed.  <br /></td></tr>
+<tr class="separator:gad7e38e334c2209a2a296bf3f573fed78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga52debd393de750722aca541b24b1bc6d" id="r_ga52debd393de750722aca541b24b1bc6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00631.html">FAN_DATA_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a></td></tr>
+<tr class="memdesc:ga52debd393de750722aca541b24b1bc6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of fan.  <br /></td></tr>
+<tr class="separator:ga52debd393de750722aca541b24b1bc6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="gae7328822ca8e2fd16a638854eeae068b" name="gae7328822ca8e2fd16a638854eeae068b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae7328822ca8e2fd16a638854eeae068b">&#9670;&#160;</a></span>LED_STATE_BLINK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_STATE_BLINK&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00051">51</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
-
-</div>
-</div>
-<a id="gaaa38f6cc3eb9957214f94466dd2650cc" name="gaaa38f6cc3eb9957214f94466dd2650cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaaa38f6cc3eb9957214f94466dd2650cc">&#9670;&#160;</a></span>LED_STATE_BLINK_COUNT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_STATE_BLINK_COUNT&#160;&#160;&#160;5</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00054">54</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
-
-</div>
-</div>
-<a id="ga065311bdf1ad091dc6f4aa643bd59f48" name="ga065311bdf1ad091dc6f4aa643bd59f48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga065311bdf1ad091dc6f4aa643bd59f48">&#9670;&#160;</a></span>LED_STATE_BLINK_FAST</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_STATE_BLINK_FAST&#160;&#160;&#160;4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00053">53</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
-
-</div>
-</div>
-<a id="gac387d5ec1a81ff6058b9bf31e5809e9d" name="gac387d5ec1a81ff6058b9bf31e5809e9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac387d5ec1a81ff6058b9bf31e5809e9d">&#9670;&#160;</a></span>LED_STATE_BLINK_SLOW</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_STATE_BLINK_SLOW&#160;&#160;&#160;3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00052">52</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
-
-</div>
-</div>
-<a id="ga900bdeb2c6d6ab966bad8f4fd78e8cd2" name="ga900bdeb2c6d6ab966bad8f4fd78e8cd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga900bdeb2c6d6ab966bad8f4fd78e8cd2">&#9670;&#160;</a></span>LED_STATE_OFF</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_STATE_OFF&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00049">49</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
-
-</div>
-</div>
-<a id="ga04ba0e3f7ea33a087f01b2745a2de63b" name="ga04ba0e3f7ea33a087f01b2745a2de63b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga04ba0e3f7ea33a087f01b2745a2de63b">&#9670;&#160;</a></span>LED_STATE_ON</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_STATE_ON&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00050">50</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gaf44b310330b9dbf4597275fdade9b5f7" name="gaf44b310330b9dbf4597275fdade9b5f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf44b310330b9dbf4597275fdade9b5f7">&#9670;&#160;</a></span>Dev_LED_Blink()</h2>
+<a id="ga66c5db181798514534d7f97b622ca35e" name="ga66c5db181798514534d7f97b622ca35e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga66c5db181798514534d7f97b622ca35e">&#9670;&#160;</a></span>Calculate_Speed()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_LED_Blink </td>
+          <td class="memname">static void Calculate_Speed </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>led_id</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function makes the LED blink. </p>
+<p>This function calculates the fan speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00159">159</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00183">183</a> of file <a class="el" href="a00290_source.html">dev_fan.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_gaf44b310330b9dbf4597275fdade9b5f7_icgraph.svg" width="298" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_ga66c5db181798514534d7f97b622ca35e_cgraph.svg" width="352" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_ga66c5db181798514534d7f97b622ca35e_icgraph.svg" width="331" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ga9a710b93c9efd76f1c850ee4415f736c" name="ga9a710b93c9efd76f1c850ee4415f736c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9a710b93c9efd76f1c850ee4415f736c">&#9670;&#160;</a></span>Dev_LED_Blink_Fast()</h2>
+<a id="ga3ba0ef09cbd1274a9c325fc04cab411d" name="ga3ba0ef09cbd1274a9c325fc04cab411d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3ba0ef09cbd1274a9c325fc04cab411d">&#9670;&#160;</a></span>Convert_From_Percentage()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_LED_Blink_Fast </td>
+          <td class="memname">static uint16_t Convert_From_Percentage </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>led_id</em></td><td>)</td>
+          <td class="paramname"><em>percentage_value</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function makes the LED blink in fast mode. </p>
+<p>This function converts the percent value to the duty cycle value as per MULTIPLIER. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00205">205</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00149">149</a> of file <a class="el" href="a00290_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_ga3ba0ef09cbd1274a9c325fc04cab411d_icgraph.svg" width="559" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="gab8abb73dda8dc3829d57da8c681f4931" name="gab8abb73dda8dc3829d57da8c681f4931"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab8abb73dda8dc3829d57da8c681f4931">&#9670;&#160;</a></span>Dev_LED_Blink_Iter()</h2>
+<a id="gad4274efc956bcca058565b186c2fd1a0" name="gad4274efc956bcca058565b186c2fd1a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad4274efc956bcca058565b186c2fd1a0">&#9670;&#160;</a></span>Dev_Fan_Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_LED_Blink_Iter </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>led_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>count</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function blinks the LED instance in a particular number of blink counts </p>
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00174">174</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
-
-</div>
-</div>
-<a id="ga371fdb6009ec0f15b00e75ad4ef4d177" name="ga371fdb6009ec0f15b00e75ad4ef4d177"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga371fdb6009ec0f15b00e75ad4ef4d177">&#9670;&#160;</a></span>Dev_LED_Blink_Slow()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_LED_Blink_Slow </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>led_id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function makes the LED blink in slow mode. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00190">190</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
-
-</div>
-</div>
-<a id="ga2d2db02502e7b576a9149d114f303daa" name="ga2d2db02502e7b576a9149d114f303daa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2d2db02502e7b576a9149d114f303daa">&#9670;&#160;</a></span>Dev_LED_Initialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_LED_Initialize </td>
+          <td class="memname">void Dev_Fan_Initialize </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -446,121 +292,196 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the LED to normal blink interval. </p><dl class="section note"><dt>Note</dt><dd>Not really needed to be called at startup, but its nice be consistent </dd></dl>
+<p>This function initializes fan data objects including the initial fan speed, the maximum allowable speed, and the increment/decrement step of the fan speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00076">76</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00066">66</a> of file <a class="el" href="a00290_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_ga2d2db02502e7b576a9149d114f303daa_cgraph.svg" width="298" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_gad4274efc956bcca058565b186c2fd1a0_cgraph.svg" width="359" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ga645c25dba273dcf25dc202d31f441154" name="ga645c25dba273dcf25dc202d31f441154"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga645c25dba273dcf25dc202d31f441154">&#9670;&#160;</a></span>Dev_LED_Off()</h2>
+<a id="gabf5c734c9834b070c4adf1af69e9f048" name="gabf5c734c9834b070c4adf1af69e9f048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabf5c734c9834b070c4adf1af69e9f048">&#9670;&#160;</a></span>Dev_Fan_Set_Override()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_LED_Off </td>
+          <td class="memname">void Dev_Fan_Set_Override </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>led_id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function turns off the led with the ID defined in the header file </p>
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00116">116</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
-
-</div>
-</div>
-<a id="ga6fc0416c8ff212d938628b290a18a390" name="ga6fc0416c8ff212d938628b290a18a390"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6fc0416c8ff212d938628b290a18a390">&#9670;&#160;</a></span>Dev_LED_On()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_LED_On </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>led_id</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function turns on the led with the ID defined in the header file </p>
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00092">92</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
-
-</div>
-</div>
-<a id="gad26b3effecb0675aad3bcba8993a0bb2" name="gad26b3effecb0675aad3bcba8993a0bb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad26b3effecb0675aad3bcba8993a0bb2">&#9670;&#160;</a></span>Dev_LED_Task_100ms()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_LED_Task_100ms </td>
-          <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function needs to be called every 100ms. This updates the status of the LED. The intervals defined in the header file are used to determine the frequency of blinky LED. </p>
+<p>This function sets the fan override flag bit to true and sets the fan target speed to maximum speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00222">222</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00119">119</a> of file <a class="el" href="a00290_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_gabf5c734c9834b070c4adf1af69e9f048_cgraph.svg" width="324" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="gacf12fda3f7d99f77a0e68b846273984f" name="gacf12fda3f7d99f77a0e68b846273984f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gacf12fda3f7d99f77a0e68b846273984f">&#9670;&#160;</a></span>Dev_LED_Toggle()</h2>
+<a id="ga5cfd61659ae6b17ad25e51bfc211723b" name="ga5cfd61659ae6b17ad25e51bfc211723b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5cfd61659ae6b17ad25e51bfc211723b">&#9670;&#160;</a></span>Dev_Fan_Set_Speed()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_LED_Toggle </td>
+          <td class="memname">void Dev_Fan_Set_Speed </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>led_id</em></td><td>)</td>
+          <td class="paramname"><em>target_speed_percent</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function toggles the led with the ID defined in the header file </p>
+<p>This function sets the fan speed when the target speed does not exceed the maximum fan speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00140">140</a> of file <a class="el" href="a00299_source.html">dev_led.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00133">133</a> of file <a class="el" href="a00290_source.html">dev_fan.c</a>.</p>
+
+</div>
+</div>
+<a id="ga1bd7dce99469a41bbb705d939ea512ad" name="ga1bd7dce99469a41bbb705d939ea512ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1bd7dce99469a41bbb705d939ea512ad">&#9670;&#160;</a></span>Dev_Fan_Task_100ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_Fan_Task_100ms </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function needs to be called every 100ms. This modulates the speed of fan depending on the initialized parameters in the fan object.</p>
+<dl class="section note"><dt>Note</dt><dd>This is called in a rather slow 100ms object, as the speed modulation is not so critical. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00093">93</a> of file <a class="el" href="a00290_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_ga1bd7dce99469a41bbb705d939ea512ad_cgraph.svg" width="554" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga0d2b426f7411623a821415f02956aac8" name="ga0d2b426f7411623a821415f02956aac8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0d2b426f7411623a821415f02956aac8">&#9670;&#160;</a></span>Override_Speed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Override_Speed </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function changes the target speed value to maximum. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00161">161</a> of file <a class="el" href="a00290_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_ga0d2b426f7411623a821415f02956aac8_icgraph.svg" width="324" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gad7e38e334c2209a2a296bf3f573fed78" name="gad7e38e334c2209a2a296bf3f573fed78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad7e38e334c2209a2a296bf3f573fed78">&#9670;&#160;</a></span>Update_Speed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Update_Speed </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This functions updates the fan speed. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00213">213</a> of file <a class="el" href="a00290_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_gad7e38e334c2209a2a296bf3f573fed78_cgraph.svg" width="299" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_gad7e38e334c2209a2a296bf3f573fed78_icgraph.svg" width="318" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ga52debd393de750722aca541b24b1bc6d" name="ga52debd393de750722aca541b24b1bc6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga52debd393de750722aca541b24b1bc6d">&#9670;&#160;</a></span>devFanData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00631.html">FAN_DATA_t</a> devFanData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The 'FAN_DATA_t' data object holds the access to all the fan control and monitoring values. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00037">37</a> of file <a class="el" href="a00290_source.html">dev_fan.c</a>.</p>
 
 </div>
 </div>

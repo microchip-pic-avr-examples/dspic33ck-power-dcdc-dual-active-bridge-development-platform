@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['machine_0',['State Machine',['../a00491.html',1,'']]],
-  ['macros_1',['macros',['../a00462.html',1,'Conversion Macros'],['../a00464.html',1,'Conversion Macros'],['../a00466.html',1,'Conversion Macros'],['../a00468.html',1,'Conversion Macros'],['../a00470.html',1,'Conversion Macros'],['../a00472.html',1,'Conversion Macros'],['../a00474.html',1,'Conversion Macros'],['../a00476.html',1,'Conversion Macros'],['../a00478.html',1,'Useful Macros']]],
-  ['monitor_2',['Fault Monitor',['../a00496.html',1,'']]],
-  ['mplabx_20configurator_20driver_20layer_3',['MPLABX Configurator Driver Layer',['../a00505.html',1,'']]],
-  ['multicore_20driver_4',['ADC Multicore Driver',['../a00506.html',1,'']]]
+  ['layer_0',['layer',['../a00480.html',1,'Application Layer'],['../a00486.html',1,'Configuration Layer'],['../a00487.html',1,'Device Layer'],['../a00504.html',1,'Driver Layer'],['../a00508.html',1,'MPLABX Configurator Driver Layer'],['../a00507.html',1,'Operating System Layer']]],
+  ['led_20display_1',['LED Display',['../a00502.html',1,'']]],
+  ['loop_2',['Control Loop',['../a00473.html',1,'']]],
+  ['loop_20configuration_3',['Control Loop Configuration',['../a00493.html',1,'']]]
 ];

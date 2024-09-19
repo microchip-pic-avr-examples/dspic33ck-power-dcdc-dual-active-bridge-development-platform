@@ -1,25 +1,11 @@
 var a00492 =
 [
-    [ "dev_pwrctrl_dcdt.c", "a00338.html", null ],
-    [ "dev_pwrctrl_dcdt.h", "a00341.html", null ],
-    [ "smps_control.h", "a00353.html", null ],
-    [ "Dev_PwrCtrl_IComp_Initialize", "a00492.html#gaaaac85e4a51c833160b5b86e33c8aa5e", null ],
-    [ "Dev_PwrCtrl_PComp_Initialize", "a00492.html#ga516c60db39175332c838fb9d6bc6a3a3", null ],
-    [ "Dev_PwrCtrl_ResetControlLoopHistories", "a00492.html#ga9b1748de6edbef1aebeb340c642d6beb", null ],
-    [ "Dev_PwrCtrl_VComp_Initialize", "a00492.html#gab8788b6f0239ffe6b8b602dafb306f82", null ],
-    [ "IMC_2p2z", "a00492.html#gaeb77b094c98ccef3e5592a3a906f3ff8", null ],
-    [ "IMC_2p2zACoefficients", "a00492.html#ga072d115d70c4a53ef83eca8349473fbc", null ],
-    [ "IMC_2p2zBCoefficients", "a00492.html#ga5f7eae1e6c6c48bc17dd6c1a32152cb1", null ],
-    [ "IMC_2p2zControlHistory", "a00492.html#ga2cf7b13e307b4eac32527342d132ae1f", null ],
-    [ "IMC_2p2zErrorHistory", "a00492.html#ga23fb64e9394c0369a56fbd1119bb4206", null ],
-    [ "PMC_2p2z", "a00492.html#ga5aad9c96a95744da30275ec0eacf4ae3", null ],
-    [ "PMC_2p2zACoefficients", "a00492.html#gaff6cb8c5b4defabb8dfd413b09ace25e", null ],
-    [ "PMC_2p2zBCoefficients", "a00492.html#ga43d0ae4c22329434c3797a3a375dca96", null ],
-    [ "PMC_2p2zControlHistory", "a00492.html#ga84772ba49f833efd3fc5ed0b998d1dc5", null ],
-    [ "PMC_2p2zErrorHistory", "a00492.html#ga4721d8e893fdfa19ddc8f3ea375545d0", null ],
-    [ "VMC_2p2z", "a00492.html#ga6f2fab45cc1fd91be7e11205806b6a63", null ],
-    [ "VMC_2p2zACoefficients", "a00492.html#ga3422b2f0c8646b9f21ec3bd3814b6c63", null ],
-    [ "VMC_2p2zBCoefficients", "a00492.html#ga0594cf1be33dceded1e5e6a9ce477f61", null ],
-    [ "VMC_2p2zControlHistory", "a00492.html#gad7a21ede48d6c4463dbbcffb82effe85", null ],
-    [ "VMC_2p2zErrorHistory", "a00492.html#ga56c622aab565b9ee31f2ab72b4c2ef67", null ]
+    [ "dev_pwrctrl_sm.c", "a00386.html", null ],
+    [ "Dev_PwrCtrl_Reset", "a00492.html#ga89ec53d01888c9648d6e9588e5be082f", null ],
+    [ "Dev_PwrCtrl_StateMachine", "a00492.html#gaebef55c78d9df043c293ffcf8a06b63f", null ],
+    [ "PCS_INIT_handler", "a00492.html#ga8307344d190a5459682d315fc7bfe198", null ],
+    [ "PCS_SOFT_START_handler", "a00492.html#gabda6b853bb6547821acd0ec87e0a4842", null ],
+    [ "PCS_STANDBY_handler", "a00492.html#ga42f7c8f65745b2f81bb6dbd381ea8121", null ],
+    [ "PCS_UP_AND_RUNNING_handler", "a00492.html#ga8752fbb48416e60141e205f1cbda0f98", null ],
+    [ "PCS_WAIT_IF_FAULT_ACTIVE_handler", "a00492.html#gaad6ef2378120876a621b349c1380aef7", null ]
 ];

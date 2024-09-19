@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['uart_20communication_0',['UART Communication',['../a00482.html',1,'']]],
-  ['uart_20driver_1',['UART Driver',['../a00522.html',1,'']]],
-  ['useful_20functions_2',['Useful Functions',['../a00494.html',1,'']]],
-  ['useful_20macros_3',['Useful Macros',['../a00478.html',1,'']]],
-  ['user_20configuration_4',['User Configuration',['../a00484.html',1,'']]]
+  ['temperature_20detection_0',['Temperature Detection',['../a00503.html',1,'']]],
+  ['temperature_20feedback_1',['Temperature Feedback',['../a00475.html',1,'']]],
+  ['timer_20driver_2',['Timer Driver',['../a00525.html',1,'']]],
+  ['traps_20driver_3',['Traps Driver',['../a00524.html',1,'']]],
+  ['types_4',['Power Control Data Types',['../a00496.html',1,'']]]
 ];

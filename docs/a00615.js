@@ -1,10 +1,8 @@
 var a00615 =
 [
-    [ "CRC", "a00615.html#afb8cac113b1a41d1c48d80018ddb6744", null ],
-    [ "data", "a00615.html#af6818e30aac80097c9ba1786e8408956", null ],
-    [ "Length_in_Bytes", "a00615.html#a3b818f332a9c32b3297efe5f9c6b021d", null ],
-    [ "offset", "a00615.html#ac681806181c80437cfab37335f62ff39", null ],
-    [ "PBV_Header", "a00615.html#a84122a7e2f523d0278895ca4f5d8748c", null ],
-    [ "Protocol_ID", "a00615.html#abfd2be56b2355b0fadf7124f95b00431", null ],
-    [ "UART_Frame_State", "a00615.html#a86b4ce2d2304f1de364f16d241b9c7d6", null ]
+    [ "Callback_Function", "a00615.html#ab7942a7d2614f936c173cc0239fc9e07", null ],
+    [ "Data_Buffer", "a00615.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50", null ],
+    [ "Length", "a00615.html#a930e5a4d8414c0427fe5c636062579db", null ],
+    [ "PBV_Message_State", "a00615.html#a30afce7d5f8aa2a94029446cfe2f4a36", null ],
+    [ "PBV_Protcol_ID", "a00615.html#a0825cb65b385f89880718e0654f07fb6", null ]
 ];

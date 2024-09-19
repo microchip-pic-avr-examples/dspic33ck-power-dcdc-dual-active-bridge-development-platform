@@ -65,7 +65,7 @@ static TEMP_NTC_LUT_t NTC_lookuptable[34] =
 };
 
 /*******************************************************************************
- * @ingroup dev-current-sensor
+ * @ingroup dev-temp
  * @brief Data Object of temperature settings
  * 
  * @details The 'devTempData' data object holds the settings for temperature

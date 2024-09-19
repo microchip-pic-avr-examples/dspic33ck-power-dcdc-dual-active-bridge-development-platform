@@ -1,6 +1,8 @@
 var a00543 =
 [
-    [ "data", "a00543.html#abe222f6d3581e7920dcad5306cc906a8", null ],
-    [ "field", "a00543.html#a3db823a278f5d389e9b29a698d10ee68", null ],
-    [ "msgId", "a00543.html#a92de58c41afbd447b2536d5c9eb7b0f2", null ]
+    [ "brs", "a00543.html#ae8b17a0932ca0baafa19b60e06fb2ed9", null ],
+    [ "dlc", "a00543.html#ab4d50729bdfb45cf06faa799877f71e6", null ],
+    [ "formatType", "a00543.html#a6d037b9c22db4004322cb0840853edeb", null ],
+    [ "frameType", "a00543.html#a168da43d2a5c2406e469b93b9370a9da", null ],
+    [ "idType", "a00543.html#ae64211504f2eaef4481b381cc65167da", null ]
 ];

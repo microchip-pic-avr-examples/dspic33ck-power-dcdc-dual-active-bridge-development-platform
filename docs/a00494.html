@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Useful Functions</title>
+<title>Dual Active Bridge Development Board: Power Control Communication Interface</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -139,113 +139,690 @@ $(document).ready(function(){initNavTree('a00494.html',''); initResizable(); });
   <div class="summary">
 <a href="#files">Files</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Useful Functions<div class="ingroups"><a class="el" href="a00486.html">Device Layer</a> &raquo; <a class="el" href="a00487.html">Power Control</a></div></div></div>
+  <div class="headertitle"><div class="title">Power Control Communication Interface<div class="ingroups"><a class="el" href="a00487.html">Device Layer</a> &raquo; <a class="el" href="a00488.html">Power Control</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains generic functions that is usable to the application.  
+<p>Contains functions use to interface to Graphical User Interface or Power Board Visualizer.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Useful Functions:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Power Control Communication Interface:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00494.svg" width="280" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00494.svg" width="358" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00392" id="r_a00392"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00392.html">dev_pwrctrl_utils.c</a></td></tr>
-<tr class="memdesc:a00392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains generic functions that handles power control ramp Up/Down and the averaging generic function. <br /></td></tr>
+<tr class="memitem:a00365" id="r_a00365"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00365.html">dev_pwrctrl_comm_interface.c</a></td></tr>
+<tr class="memdesc:a00365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains power control interface with communication/gui. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00395" id="r_a00395"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00395.html">dev_pwrctrl_utils.h</a></td></tr>
-<tr class="memdesc:a00395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the power control reusable functions. <br  />
+<tr class="memitem:a00368" id="r_a00368"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00368.html">dev_pwrctrl_comm_interface.h</a></td></tr>
+<tr class="memdesc:a00368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains public functions relevant for power control communication interface. <br  />
  <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga17c0ec6d113fa9e6e157ad628ad66f74" id="r_ga17c0ec6d113fa9e6e157ad628ad66f74"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga17c0ec6d113fa9e6e157ad628ad66f74">Dev_PwrCtrl_UpdateAverage</a> (<a class="el" href="a00395.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a> *data, uint16_t sample)</td></tr>
-<tr class="memdesc:ga17c0ec6d113fa9e6e157ad628ad66f74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average the raw data over number of samples.  <br /></td></tr>
-<tr class="separator:ga17c0ec6d113fa9e6e157ad628ad66f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae958b8e13bf04622c6c67ea391639f41" id="r_gae958b8e13bf04622c6c67ea391639f41"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#gae958b8e13bf04622c6c67ea391639f41">Dev_PwrCtrl_RampReference</a> (<a class="el" href="a00695.html">START_UP_RAMP_t</a> *rampUp)</td></tr>
-<tr class="memdesc:gae958b8e13bf04622c6c67ea391639f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Softly increment / decrement to the set reference target.  <br /></td></tr>
-<tr class="separator:gae958b8e13bf04622c6c67ea391639f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab7d328bdf259e35fce481dd4c5f74666" id="r_gab7d328bdf259e35fce481dd4c5f74666"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#gab7d328bdf259e35fce481dd4c5f74666">Dev_PwrCtrl_GetPhase_P2SDegree</a> (void)</td></tr>
+<tr class="memdesc:gab7d328bdf259e35fce481dd4c5f74666"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the power control State.  <br /></td></tr>
+<tr class="separator:gab7d328bdf259e35fce481dd4c5f74666"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacbd31a3dc73cd77bc06f9064a7c61975" id="r_gacbd31a3dc73cd77bc06f9064a7c61975"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#gacbd31a3dc73cd77bc06f9064a7c61975">Dev_PwrCtrl_Get_DbgValue</a> (void)</td></tr>
+<tr class="memdesc:gacbd31a3dc73cd77bc06f9064a7c61975"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get some unit test debug purpose value. Do not use otherwise.  <br /></td></tr>
+<tr class="separator:gacbd31a3dc73cd77bc06f9064a7c61975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5e607ebc1cfbf0fcb8caa5775d5e782" id="r_gae5e607ebc1cfbf0fcb8caa5775d5e782"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#gae5e607ebc1cfbf0fcb8caa5775d5e782">Dev_PwrCtrl_SetState</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:gae5e607ebc1cfbf0fcb8caa5775d5e782"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the power control State.  <br /></td></tr>
+<tr class="separator:gae5e607ebc1cfbf0fcb8caa5775d5e782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b5c7307a14f59bbfded0ca2dea86163" id="r_ga6b5c7307a14f59bbfded0ca2dea86163"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga6b5c7307a14f59bbfded0ca2dea86163">Dev_PwrCtrl_SetIReference</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:ga6b5c7307a14f59bbfded0ca2dea86163"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the current controller reference.  <br /></td></tr>
+<tr class="separator:ga6b5c7307a14f59bbfded0ca2dea86163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4a95f3c8fffe66b8e49b9de93f07f25b" id="r_ga4a95f3c8fffe66b8e49b9de93f07f25b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga4a95f3c8fffe66b8e49b9de93f07f25b">Dev_PwrCtrl_SetVSecReference</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:ga4a95f3c8fffe66b8e49b9de93f07f25b"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the secondary voltage controller reference.  <br /></td></tr>
+<tr class="separator:ga4a95f3c8fffe66b8e49b9de93f07f25b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3007f1498508f49a15d257f2bd02d77a" id="r_ga3007f1498508f49a15d257f2bd02d77a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga3007f1498508f49a15d257f2bd02d77a">Dev_PwrCtrl_SetPwrReference</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:ga3007f1498508f49a15d257f2bd02d77a"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the power controller reference.  <br /></td></tr>
+<tr class="separator:ga3007f1498508f49a15d257f2bd02d77a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga63aaa9b18763533c5603dc4c01f682cd" id="r_ga63aaa9b18763533c5603dc4c01f682cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga63aaa9b18763533c5603dc4c01f682cd">Dev_PwrCtrl_SetPeriodTarget</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:ga63aaa9b18763533c5603dc4c01f682cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the target period.  <br /></td></tr>
+<tr class="separator:ga63aaa9b18763533c5603dc4c01f682cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab5188428fbb9231a650d8ecca0b2d090" id="r_gab5188428fbb9231a650d8ecca0b2d090"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#gab5188428fbb9231a650d8ecca0b2d090">Dev_PwrCtrl_SetPhaseTarget</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:gab5188428fbb9231a650d8ecca0b2d090"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the target PWM phase.  <br /></td></tr>
+<tr class="separator:gab5188428fbb9231a650d8ecca0b2d090"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab0a12c347c51165427470f4c5b195f71" id="r_gab0a12c347c51165427470f4c5b195f71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#gab0a12c347c51165427470f4c5b195f71">Dev_PwrCtrl_SetP2SPhaseTarget</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:gab0a12c347c51165427470f4c5b195f71"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the target prim to sec phase which will steer other modulation.  <br /></td></tr>
+<tr class="separator:gab0a12c347c51165427470f4c5b195f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad36bb3ca34731b57c45d8be3e83f7262" id="r_gad36bb3ca34731b57c45d8be3e83f7262"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#gad36bb3ca34731b57c45d8be3e83f7262">Dev_PwrCtrl_SetEnable</a> (bool enable)</td></tr>
+<tr class="memdesc:gad36bb3ca34731b57c45d8be3e83f7262"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the power control enable bit.  <br /></td></tr>
+<tr class="separator:gad36bb3ca34731b57c45d8be3e83f7262"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga896f23a8b36846c241697d85fe836dd7" id="r_ga896f23a8b36846c241697d85fe836dd7"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga896f23a8b36846c241697d85fe836dd7">Dev_PwrCtrl_GetAdc_Vpri</a> (void)</td></tr>
+<tr class="memdesc:ga896f23a8b36846c241697d85fe836dd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for primary voltage.  <br /></td></tr>
+<tr class="separator:ga896f23a8b36846c241697d85fe836dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96927eaff219e7917b625da4a2846797" id="r_ga96927eaff219e7917b625da4a2846797"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga96927eaff219e7917b625da4a2846797">Dev_PwrCtrl_GetAdc_Vsec</a> (void)</td></tr>
+<tr class="memdesc:ga96927eaff219e7917b625da4a2846797"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for secondary voltage.  <br /></td></tr>
+<tr class="separator:ga96927eaff219e7917b625da4a2846797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4ce0a8e3c687c7466cd2def3e2967589" id="r_ga4ce0a8e3c687c7466cd2def3e2967589"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga4ce0a8e3c687c7466cd2def3e2967589">Dev_PwrCtrl_GetAdc_Ipri_ct</a> (void)</td></tr>
+<tr class="memdesc:ga4ce0a8e3c687c7466cd2def3e2967589"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for primary current transformer current.  <br /></td></tr>
+<tr class="separator:ga4ce0a8e3c687c7466cd2def3e2967589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5df7c5db36f4b904ca397157889a6170" id="r_ga5df7c5db36f4b904ca397157889a6170"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga5df7c5db36f4b904ca397157889a6170">Dev_PwrCtrl_GetAdc_Isec_ct</a> (void)</td></tr>
+<tr class="memdesc:ga5df7c5db36f4b904ca397157889a6170"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for secondary current transformer current.  <br /></td></tr>
+<tr class="separator:ga5df7c5db36f4b904ca397157889a6170"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0407adcdf0cb0fe60bf42aed6a3e854c" id="r_ga0407adcdf0cb0fe60bf42aed6a3e854c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga0407adcdf0cb0fe60bf42aed6a3e854c">Dev_PwrCtrl_GetAdc_Isec_avg</a> (void)</td></tr>
+<tr class="memdesc:ga0407adcdf0cb0fe60bf42aed6a3e854c"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for secondary average current.  <br /></td></tr>
+<tr class="separator:ga0407adcdf0cb0fe60bf42aed6a3e854c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga97590a3e3a8b680b67e206dd91fb8dce" id="r_ga97590a3e3a8b680b67e206dd91fb8dce"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga97590a3e3a8b680b67e206dd91fb8dce">Dev_PwrCtrl_GetAdc_Temperature</a> (void)</td></tr>
+<tr class="memdesc:ga97590a3e3a8b680b67e206dd91fb8dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for temperature.  <br /></td></tr>
+<tr class="separator:ga97590a3e3a8b680b67e206dd91fb8dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga89627f0a37054586c8cd6950ccd6fb09" id="r_ga89627f0a37054586c8cd6950ccd6fb09"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga89627f0a37054586c8cd6950ccd6fb09">Dev_PwrCtrl_GetAdc_Vrail_5V</a> (void)</td></tr>
+<tr class="memdesc:ga89627f0a37054586c8cd6950ccd6fb09"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for 5V rail.  <br /></td></tr>
+<tr class="separator:ga89627f0a37054586c8cd6950ccd6fb09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ea3a7d0d8075757d7dd3fc4ddaca1f5" id="r_ga6ea3a7d0d8075757d7dd3fc4ddaca1f5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga6ea3a7d0d8075757d7dd3fc4ddaca1f5">Dev_PwrCtrl_Get_Period</a> (void)</td></tr>
+<tr class="memdesc:ga6ea3a7d0d8075757d7dd3fc4ddaca1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the PWM period.  <br /></td></tr>
+<tr class="separator:ga6ea3a7d0d8075757d7dd3fc4ddaca1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6514b638a32baed68543a56bedd5c5d" id="r_gad6514b638a32baed68543a56bedd5c5d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#gad6514b638a32baed68543a56bedd5c5d">Dev_PwrCtrl_Get_DutyCycle</a> (void)</td></tr>
+<tr class="memdesc:gad6514b638a32baed68543a56bedd5c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the PWM duty cycle.  <br /></td></tr>
+<tr class="separator:gad6514b638a32baed68543a56bedd5c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0a4bc9ff1027ccd07af11d8bd2865219" id="r_ga0a4bc9ff1027ccd07af11d8bd2865219"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga0a4bc9ff1027ccd07af11d8bd2865219">Dev_PwrCtrl_Get_State</a> (void)</td></tr>
+<tr class="memdesc:ga0a4bc9ff1027ccd07af11d8bd2865219"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the current state of the state machine.  <br /></td></tr>
+<tr class="separator:ga0a4bc9ff1027ccd07af11d8bd2865219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab500c9c4e05b023607a8e72ababe07b3" id="r_gab500c9c4e05b023607a8e72ababe07b3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#gab500c9c4e05b023607a8e72ababe07b3">Dev_PwrCtrl_Get_Status</a> (void)</td></tr>
+<tr class="memdesc:gab500c9c4e05b023607a8e72ababe07b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the power control status.  <br /></td></tr>
+<tr class="separator:gab500c9c4e05b023607a8e72ababe07b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a61c299efe9f39fbddb6d902d4b3adc" id="r_ga7a61c299efe9f39fbddb6d902d4b3adc"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga7a61c299efe9f39fbddb6d902d4b3adc">Dev_PwrCtrl_Get_EnableFlag</a> (void)</td></tr>
+<tr class="memdesc:ga7a61c299efe9f39fbddb6d902d4b3adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the state of the power control enable bit.  <br /></td></tr>
+<tr class="separator:ga7a61c299efe9f39fbddb6d902d4b3adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd921f8c68bb08d611f3fd7ab03e60ee" id="r_gadd921f8c68bb08d611f3fd7ab03e60ee"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#gadd921f8c68bb08d611f3fd7ab03e60ee">Dev_PwrCtrl_Get_PwmprdTarget</a> (void)</td></tr>
+<tr class="memdesc:gadd921f8c68bb08d611f3fd7ab03e60ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the PWM period target.  <br /></td></tr>
+<tr class="separator:gadd921f8c68bb08d611f3fd7ab03e60ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe5653e08d77956b5b4fbbcc4305870e" id="r_gafe5653e08d77956b5b4fbbcc4305870e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#gafe5653e08d77956b5b4fbbcc4305870e">Dev_PwrCtrl_Get_SecPower</a> (void)</td></tr>
+<tr class="memdesc:gafe5653e08d77956b5b4fbbcc4305870e"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the secondary power.  <br /></td></tr>
+<tr class="separator:gafe5653e08d77956b5b4fbbcc4305870e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70a3c74e48285c709f735a499a3024dc" id="r_ga70a3c74e48285c709f735a499a3024dc"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga70a3c74e48285c709f735a499a3024dc">Dev_PwrCtrl_GetAveraging_Vprim</a> (void)</td></tr>
+<tr class="memdesc:ga70a3c74e48285c709f735a499a3024dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the average value of the sampled ADC for primary voltage.  <br /></td></tr>
+<tr class="separator:ga70a3c74e48285c709f735a499a3024dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5178aaea783edff228941c4ecf749a90" id="r_ga5178aaea783edff228941c4ecf749a90"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga5178aaea783edff228941c4ecf749a90">Dev_PwrCtrl_GetAveraging_Vsec</a> (void)</td></tr>
+<tr class="memdesc:ga5178aaea783edff228941c4ecf749a90"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the average value of the sampled ADC for secondary voltage.  <br /></td></tr>
+<tr class="separator:ga5178aaea783edff228941c4ecf749a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga346aaaf8b8cf0266d9873405945c55dd" id="r_ga346aaaf8b8cf0266d9873405945c55dd"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga346aaaf8b8cf0266d9873405945c55dd">Dev_PwrCtrl_GetAveraging_Isec</a> (void)</td></tr>
+<tr class="memdesc:ga346aaaf8b8cf0266d9873405945c55dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the average value of the sampled ADC for secondary current.  <br /></td></tr>
+<tr class="separator:ga346aaaf8b8cf0266d9873405945c55dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document covers some generic power control functions that the user can utilize while developing the application code. </p>
+<p>This document covers the functions that sets or gets the power control properties relevant to the Power Board Visualizer. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gae958b8e13bf04622c6c67ea391639f41" name="gae958b8e13bf04622c6c67ea391639f41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae958b8e13bf04622c6c67ea391639f41">&#9670;&#160;</a></span>Dev_PwrCtrl_RampReference()</h2>
+<a id="gacbd31a3dc73cd77bc06f9064a7c61975" name="gacbd31a3dc73cd77bc06f9064a7c61975"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacbd31a3dc73cd77bc06f9064a7c61975">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_DbgValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Dev_PwrCtrl_RampReference </td>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_DbgValue </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00695.html">START_UP_RAMP_t</a> *&#160;</td>
-          <td class="paramname"><em>rampUp</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rampUp</td><td>Pointer to start-up ramp data object of type START_UP_RAMP_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>RampComplete Indicates if the ramp-up/down is done</dd></dl>
-<p>This function increments or decrements the reference with its defined step size to meet the reference target. Once the value reached the reference target, the RampComplete will be set. </p>
+<dl class="section return"><dt>Returns</dt><dd>true Fault has been detected </dd>
+<dd>
+false Fault is not detected </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00392_source.html#l00067">67</a> of file <a class="el" href="a00392_source.html">dev_pwrctrl_utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00052">52</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gad6514b638a32baed68543a56bedd5c5d" name="gad6514b638a32baed68543a56bedd5c5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad6514b638a32baed68543a56bedd5c5d">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_DutyCycle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_DutyCycle </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00222">222</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga7a61c299efe9f39fbddb6d902d4b3adc" name="ga7a61c299efe9f39fbddb6d902d4b3adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7a61c299efe9f39fbddb6d902d4b3adc">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_EnableFlag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_EnableFlag </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00252">252</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga6ea3a7d0d8075757d7dd3fc4ddaca1f5" name="ga6ea3a7d0d8075757d7dd3fc4ddaca1f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6ea3a7d0d8075757d7dd3fc4ddaca1f5">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_Period()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_Period </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00212">212</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gadd921f8c68bb08d611f3fd7ab03e60ee" name="gadd921f8c68bb08d611f3fd7ab03e60ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadd921f8c68bb08d611f3fd7ab03e60ee">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_PwmprdTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_PwmprdTarget </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00262">262</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gafe5653e08d77956b5b4fbbcc4305870e" name="gafe5653e08d77956b5b4fbbcc4305870e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafe5653e08d77956b5b4fbbcc4305870e">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_SecPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_SecPower </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00272">272</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga0a4bc9ff1027ccd07af11d8bd2865219" name="ga0a4bc9ff1027ccd07af11d8bd2865219"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0a4bc9ff1027ccd07af11d8bd2865219">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_State()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_State </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00232">232</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gab500c9c4e05b023607a8e72ababe07b3" name="gab500c9c4e05b023607a8e72ababe07b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab500c9c4e05b023607a8e72ababe07b3">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_Status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_Status </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00242">242</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga4ce0a8e3c687c7466cd2def3e2967589" name="ga4ce0a8e3c687c7466cd2def3e2967589"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4ce0a8e3c687c7466cd2def3e2967589">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAdc_Ipri_ct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00162">162</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga0407adcdf0cb0fe60bf42aed6a3e854c" name="ga0407adcdf0cb0fe60bf42aed6a3e854c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0407adcdf0cb0fe60bf42aed6a3e854c">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAdc_Isec_avg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAdc_Isec_avg </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00182">182</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga5df7c5db36f4b904ca397157889a6170" name="ga5df7c5db36f4b904ca397157889a6170"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5df7c5db36f4b904ca397157889a6170">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAdc_Isec_ct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAdc_Isec_ct </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00172">172</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga97590a3e3a8b680b67e206dd91fb8dce" name="ga97590a3e3a8b680b67e206dd91fb8dce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga97590a3e3a8b680b67e206dd91fb8dce">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAdc_Temperature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAdc_Temperature </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00192">192</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00494_gae958b8e13bf04622c6c67ea391639f41_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00494_ga97590a3e3a8b680b67e206dd91fb8dce_icgraph.svg" width="607" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ga17c0ec6d113fa9e6e157ad628ad66f74" name="ga17c0ec6d113fa9e6e157ad628ad66f74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga17c0ec6d113fa9e6e157ad628ad66f74">&#9670;&#160;</a></span>Dev_PwrCtrl_UpdateAverage()</h2>
+<a id="ga896f23a8b36846c241697d85fe836dd7" name="ga896f23a8b36846c241697d85fe836dd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga896f23a8b36846c241697d85fe836dd7">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAdc_Vpri()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Dev_PwrCtrl_UpdateAverage </td>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAdc_Vpri </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00395.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a> *&#160;</td>
-          <td class="paramname"><em>data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>sample</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Pointer to averaging data object of type AVERAGING_t </td></tr>
-    <tr><td class="paramname">sample</td><td>data that will be averaged </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>AverageValue Returns the average value</dd></dl>
-<p>This function averages the data over number of samples. </p>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00392_source.html#l00046">46</a> of file <a class="el" href="a00392_source.html">dev_pwrctrl_utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00142">142</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga89627f0a37054586c8cd6950ccd6fb09" name="ga89627f0a37054586c8cd6950ccd6fb09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga89627f0a37054586c8cd6950ccd6fb09">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAdc_Vrail_5V()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00202">202</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga96927eaff219e7917b625da4a2846797" name="ga96927eaff219e7917b625da4a2846797"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga96927eaff219e7917b625da4a2846797">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAdc_Vsec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAdc_Vsec </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00152">152</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga346aaaf8b8cf0266d9873405945c55dd" name="ga346aaaf8b8cf0266d9873405945c55dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga346aaaf8b8cf0266d9873405945c55dd">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAveraging_Isec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAveraging_Isec </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00300">300</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga70a3c74e48285c709f735a499a3024dc" name="ga70a3c74e48285c709f735a499a3024dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga70a3c74e48285c709f735a499a3024dc">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAveraging_Vprim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAveraging_Vprim </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00281">281</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga5178aaea783edff228941c4ecf749a90" name="ga5178aaea783edff228941c4ecf749a90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5178aaea783edff228941c4ecf749a90">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAveraging_Vsec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAveraging_Vsec </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00290">290</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gab7d328bdf259e35fce481dd4c5f74666" name="gab7d328bdf259e35fce481dd4c5f74666"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab7d328bdf259e35fce481dd4c5f74666">&#9670;&#160;</a></span>Dev_PwrCtrl_GetPhase_P2SDegree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetPhase_P2SDegree </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>value Control phase between primary and secondary bridge multiplied by 10 for more degrees resolution </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00041">41</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gad36bb3ca34731b57c45d8be3e83f7262" name="gad36bb3ca34731b57c45d8be3e83f7262"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad36bb3ca34731b57c45d8be3e83f7262">&#9670;&#160;</a></span>Dev_PwrCtrl_SetEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_PwrCtrl_SetEnable </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00132">132</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga6b5c7307a14f59bbfded0ca2dea86163" name="ga6b5c7307a14f59bbfded0ca2dea86163"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6b5c7307a14f59bbfded0ca2dea86163">&#9670;&#160;</a></span>Dev_PwrCtrl_SetIReference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_PwrCtrl_SetIReference </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00073">73</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gab0a12c347c51165427470f4c5b195f71" name="gab0a12c347c51165427470f4c5b195f71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab0a12c347c51165427470f4c5b195f71">&#9670;&#160;</a></span>Dev_PwrCtrl_SetP2SPhaseTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_PwrCtrl_SetP2SPhaseTarget </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00122">122</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga63aaa9b18763533c5603dc4c01f682cd" name="ga63aaa9b18763533c5603dc4c01f682cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga63aaa9b18763533c5603dc4c01f682cd">&#9670;&#160;</a></span>Dev_PwrCtrl_SetPeriodTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_PwrCtrl_SetPeriodTarget </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00103">103</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gab5188428fbb9231a650d8ecca0b2d090" name="gab5188428fbb9231a650d8ecca0b2d090"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab5188428fbb9231a650d8ecca0b2d090">&#9670;&#160;</a></span>Dev_PwrCtrl_SetPhaseTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_PwrCtrl_SetPhaseTarget </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00113">113</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga3007f1498508f49a15d257f2bd02d77a" name="ga3007f1498508f49a15d257f2bd02d77a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3007f1498508f49a15d257f2bd02d77a">&#9670;&#160;</a></span>Dev_PwrCtrl_SetPwrReference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_PwrCtrl_SetPwrReference </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00093">93</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gae5e607ebc1cfbf0fcb8caa5775d5e782" name="gae5e607ebc1cfbf0fcb8caa5775d5e782"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae5e607ebc1cfbf0fcb8caa5775d5e782">&#9670;&#160;</a></span>Dev_PwrCtrl_SetState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_PwrCtrl_SetState </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00063">63</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga4a95f3c8fffe66b8e49b9de93f07f25b" name="ga4a95f3c8fffe66b8e49b9de93f07f25b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4a95f3c8fffe66b8e49b9de93f07f25b">&#9670;&#160;</a></span>Dev_PwrCtrl_SetVSecReference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_PwrCtrl_SetVSecReference </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00365_source.html#l00083">83</a> of file <a class="el" href="a00365_source.html">dev_pwrctrl_comm_interface.c</a>.</p>
 
 </div>
 </div>

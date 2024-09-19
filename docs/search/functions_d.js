@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['xft_5fsmps_5fcontroller2p2zupdate_0',['XFT_SMPS_Controller2P2ZUpdate',['../a00353.html#a4fd6e889896907ceaae34b73435d5627',1,'smps_control.h']]]
+  ['watchdog_5ftimerclear_0',['WATCHDOG_TimerClear',['../a00519.html#ga0709c01950447ea286ea4538174a7a82',1,'watchdog.h']]],
+  ['watchdog_5ftimersoftwaredisable_1',['WATCHDOG_TimerSoftwareDisable',['../a00519.html#ga74fb697367e441a6ac0a56e33794ebc4',1,'watchdog.h']]],
+  ['watchdog_5ftimersoftwareenable_2',['WATCHDOG_TimerSoftwareEnable',['../a00519.html#gaf945fced45ce9cc9a9922d8f31e09e67',1,'watchdog.h']]]
 ];

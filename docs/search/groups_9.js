@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['layer_0',['layer',['../a00479.html',1,'Application Layer'],['../a00485.html',1,'Configuration Layer'],['../a00486.html',1,'Device Layer'],['../a00503.html',1,'Driver Layer'],['../a00505.html',1,'MPLABX Configurator Driver Layer'],['../a00504.html',1,'Operating System Layer']]],
-  ['led_20display_1',['LED Display',['../a00501.html',1,'']]],
-  ['loop_2',['Control Loop',['../a00473.html',1,'']]],
-  ['loop_20configuration_3',['Control Loop Configuration',['../a00492.html',1,'']]]
+  ['interface_0',['interface',['../a00484.html',1,'PBV Interface'],['../a00494.html',1,'Power Control Communication Interface']]],
+  ['interrupt_20driver_1',['Interrupt Driver',['../a00518.html',1,'']]],
+  ['interrupt_20routine_20and_20functions_2',['Interrupt Routine and Functions',['../a00490.html',1,'']]]
 ];

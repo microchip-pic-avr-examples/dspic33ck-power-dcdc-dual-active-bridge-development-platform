@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/config/comms_config.h Source File</title>
+<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/app/app_PBV_UART.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('a00263_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">comms_config.h</div></div>
+  <div class="headertitle"><div class="title">app_PBV_UART.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* Microchip Technology Inc. and its subsidiaries.  You may use this software </span></div>
@@ -161,19 +161,29 @@ $(document).ready(function(){initNavTree('a00263_source.html',''); initResizable
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/* </span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * @file    comms_config.h   </span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * @author  </span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @brief   project configuration</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * @file    app_PBV_UART.h   </span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * @author  M70027</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @brief   Power Board Visualizer UART interface </span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#ifndef COMMS_CONFIG_H</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define COMMS_CONFIG_H</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">// PBV working with CAN OR UART</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="a00477.html#ga3bf2f552a3148e521b11370c78f22121">   35</a></span><span class="preprocessor">#define PBV_UART                0   </span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="a00477.html#ga1151367cf9963cedbb90f4d5940d22b8">   36</a></span><span class="preprocessor">#define PBV_CANFD               1</span></div>
- <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif  </span><span class="comment">/*  COMMS_CONFIG_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">// more than once. </span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#ifndef APP_PBV_UART_INTERFACE_H</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#define APP_PBV_UART_INTERFACE_H</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;app_PBV_interface.h&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keywordtype">void</span> PBV_UART_Init(<a class="code hl_struct" href="a00611.html">PBV_Datatype_TX_t</a> * boardToPBV, <a class="code hl_struct" href="a00611.html">PBV_Datatype_TX_t</a> * boardToPBVAscii, <a class="code hl_struct" href="a00615.html">PBV_Datatype_RX_t</a> *pbvToBoard);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>uint8_t PBV_UART_Receive_from_GUI();</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>uint8_t PBV_UART_Transmit_to_GUI();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>uint8_t PBV_UART_Transmit_Ascii_to_GUI();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keywordtype">void</span> PBV_UART_Reinit(<a class="code hl_struct" href="a00611.html">PBV_Datatype_TX_t</a> * ptr);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">void</span> PBV_UART_Link_Data_TX(<a class="code hl_struct" href="a00611.html">PBV_Datatype_TX_t</a> * ptr);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">void</span> PBV_UART_Link_Data_RX(<a class="code hl_struct" href="a00615.html">PBV_Datatype_RX_t</a> * ptr);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00611_html"><div class="ttname"><a href="a00611.html">PBV_Datatype_TX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00257_source.html#l00094">app_PBV_interface.h:94</a></div></div>
+<div class="ttc" id="aa00615_html"><div class="ttname"><a href="a00615.html">PBV_Datatype_RX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00257_source.html#l00108">app_PBV_interface.h:108</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

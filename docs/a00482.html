@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: UART Communication</title>
+<title>Dual Active Bridge Development Board: CAN Communication</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,9 +137,9 @@ $(document).ready(function(){initNavTree('a00482.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a>  </div>
-  <div class="headertitle"><div class="title">UART Communication<div class="ingroups"><a class="el" href="a00479.html">Application Layer</a> &raquo; <a class="el" href="a00480.html">Power Board Visualizer</a></div></div></div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">CAN Communication<div class="ingroups"><a class="el" href="a00480.html">Application Layer</a> &raquo; <a class="el" href="a00481.html">Power Board Visualizer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -147,152 +147,110 @@ $(document).ready(function(){initNavTree('a00482.html',''); initResizable(); });
   
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for UART Communication:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CAN Communication:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00482.svg" width="364" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00482.svg" width="358" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00603.html">APP_PBV_INTF_API_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure of API function pointers.  <a href="a00603.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00615.html">UART_MSG_RX_OBJ</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART msg receive object.  <a href="a00615.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00619.html">UART_MSG_TX_OBJ</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART msg Transmit object.  <a href="a00619.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00727.html">PBV_UART_Object_TX</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART object for numeric tx.  <a href="a00727.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00731.html">PBV_UART_Object_RX</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART object for numeric rx.  <a href="a00731.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00735.html">PBV_UART_Object_ASCII</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART object for ascii tx.  <a href="a00735.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga5fb4f1d3c69d1871c10a2c0a0ad27f8a" id="r_ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a">PBV_CAN_Receive_from_GUI</a> ()</td></tr>
+<tr class="memdesc:ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <br /></td></tr>
+<tr class="separator:ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ga955beef6a0717d0cee4e6bf929d60175" id="r_ga955beef6a0717d0cee4e6bf929d60175"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#ga955beef6a0717d0cee4e6bf929d60175">PBV_CRC_POLYNOM</a>&#160;&#160;&#160;0x8005</td></tr>
-<tr class="memdesc:ga955beef6a0717d0cee4e6bf929d60175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard PBV CRC Polynomial. For documentation, as it is not used in calculation in this file.  <br /></td></tr>
-<tr class="separator:ga955beef6a0717d0cee4e6bf929d60175"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab7226cbc4f89e6bf061b82459118b9b3" id="r_gab7226cbc4f89e6bf061b82459118b9b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#gab7226cbc4f89e6bf061b82459118b9b3">PBV_CRC_POLYNOM_REV</a>&#160;&#160;&#160;0xA001</td></tr>
-<tr class="memdesc:gab7226cbc4f89e6bf061b82459118b9b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reversed polynomial. needed for odd byte in the data stream.  <br /></td></tr>
-<tr class="separator:gab7226cbc4f89e6bf061b82459118b9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga39ec59e3bcf1e885dd4628be4c4a051d" id="r_ga39ec59e3bcf1e885dd4628be4c4a051d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#ga39ec59e3bcf1e885dd4628be4c4a051d">PBV_ReadyToSend</a>&#160;&#160;&#160;<a class="el" href="a00522.html#gae2fc49fa99787bc951e12bd840b1248c">UART1_IsTxReady</a></td></tr>
-<tr class="memdesc:ga39ec59e3bcf1e885dd4628be4c4a051d"><td class="mdescLeft">&#160;</td><td class="mdescRight">linking functions with UART mcc driver functions  <br /></td></tr>
-<tr class="separator:ga39ec59e3bcf1e885dd4628be4c4a051d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae27af64e723989f0d2ac43575064cac5" id="r_gae27af64e723989f0d2ac43575064cac5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#gae27af64e723989f0d2ac43575064cac5">PBV_Write</a>&#160;&#160;&#160;<a class="el" href="a00522.html#ga6be5aaf3406104a362f3a3438dafe83c">UART1_Write</a></td></tr>
-<tr class="memdesc:gae27af64e723989f0d2ac43575064cac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">linking functions with UART mcc driver functions  <br /></td></tr>
-<tr class="separator:gae27af64e723989f0d2ac43575064cac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaefb5d870608d2bb16fc82ca118733f56" id="r_gaefb5d870608d2bb16fc82ca118733f56"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#gaefb5d870608d2bb16fc82ca118733f56">PBV_IsRxReady</a>&#160;&#160;&#160;<a class="el" href="a00522.html#ga35ebdf043c6e4995ff711ebc13954861">UART1_IsRxReady</a></td></tr>
-<tr class="memdesc:gaefb5d870608d2bb16fc82ca118733f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">linking functions with UART mcc driver functions  <br /></td></tr>
-<tr class="separator:gaefb5d870608d2bb16fc82ca118733f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad6abe24371a852499c00404df02e28b3" id="r_gad6abe24371a852499c00404df02e28b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#gad6abe24371a852499c00404df02e28b3">PBV_Read</a>&#160;&#160;&#160;<a class="el" href="a00522.html#ga4e34071aa3125eb037bd6ae844c7ffbb">UART1_Read</a></td></tr>
-<tr class="memdesc:gad6abe24371a852499c00404df02e28b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">linking functions with UART mcc driver functions  <br /></td></tr>
-<tr class="separator:gad6abe24371a852499c00404df02e28b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gab3e1f18d37c5cf8872a425dc2dc82f01" id="r_gab3e1f18d37c5cf8872a425dc2dc82f01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00547.html">CAN_MSG_OBJ_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#gab3e1f18d37c5cf8872a425dc2dc82f01">pbvCanObjectTx</a></td></tr>
+<tr class="memdesc:gab3e1f18d37c5cf8872a425dc2dc82f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN object for Numeric TX. Initialized by PBV_CAN_Init()  <br /></td></tr>
+<tr class="separator:gab3e1f18d37c5cf8872a425dc2dc82f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9ceb5cc979f0da93465c1599bc5fcd4e" id="r_ga9ceb5cc979f0da93465c1599bc5fcd4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00547.html">CAN_MSG_OBJ_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#ga9ceb5cc979f0da93465c1599bc5fcd4e">pbvCanObjectRx</a></td></tr>
+<tr class="memdesc:ga9ceb5cc979f0da93465c1599bc5fcd4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN object for numeric RX. Does not have to be initialized.  <br /></td></tr>
+<tr class="separator:ga9ceb5cc979f0da93465c1599bc5fcd4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga83ff770dbe2c555914a0a8817520e6ff" id="r_ga83ff770dbe2c555914a0a8817520e6ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00547.html">CAN_MSG_OBJ_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#ga83ff770dbe2c555914a0a8817520e6ff">pbvCanObjectAscii</a></td></tr>
+<tr class="memdesc:ga83ff770dbe2c555914a0a8817520e6ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN object for ascii TX. Initialized by PBV_CAN_Init()  <br /></td></tr>
+<tr class="separator:ga83ff770dbe2c555914a0a8817520e6ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p><br  />
  </p>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga955beef6a0717d0cee4e6bf929d60175" name="ga955beef6a0717d0cee4e6bf929d60175"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga955beef6a0717d0cee4e6bf929d60175">&#9670;&#160;</a></span>PBV_CRC_POLYNOM</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga5fb4f1d3c69d1871c10a2c0a0ad27f8a" name="ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a">&#9670;&#160;</a></span>PBV_CAN_Receive_from_GUI()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PBV_CRC_POLYNOM&#160;&#160;&#160;0x8005</td>
+          <td class="memname">uint8_t PBV_CAN_Receive_from_GUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>int (0 on successful, 1 on unsuccessful)</dd></dl>
+<p>checks the queue and if a message is received then links the data pointer to can object </p>
 
-<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00038">38</a> of file <a class="el" href="a00257_source.html">app_PBV_UART.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00236_source.html#l00084">84</a> of file <a class="el" href="a00236_source.html">app_PBV_CAN.c</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00482_ga5fb4f1d3c69d1871c10a2c0a0ad27f8a_cgraph.svg" width="100%" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
-<a id="gab7226cbc4f89e6bf061b82459118b9b3" name="gab7226cbc4f89e6bf061b82459118b9b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab7226cbc4f89e6bf061b82459118b9b3">&#9670;&#160;</a></span>PBV_CRC_POLYNOM_REV</h2>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ga83ff770dbe2c555914a0a8817520e6ff" name="ga83ff770dbe2c555914a0a8817520e6ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga83ff770dbe2c555914a0a8817520e6ff">&#9670;&#160;</a></span>pbvCanObjectAscii</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PBV_CRC_POLYNOM_REV&#160;&#160;&#160;0xA001</td>
+          <td class="memname"><a class="el" href="a00547.html">CAN_MSG_OBJ_t</a> pbvCanObjectAscii</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00045">45</a> of file <a class="el" href="a00257_source.html">app_PBV_UART.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00236_source.html#l00047">47</a> of file <a class="el" href="a00236_source.html">app_PBV_CAN.c</a>.</p>
 
 </div>
 </div>
-<a id="gaefb5d870608d2bb16fc82ca118733f56" name="gaefb5d870608d2bb16fc82ca118733f56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaefb5d870608d2bb16fc82ca118733f56">&#9670;&#160;</a></span>PBV_IsRxReady</h2>
+<a id="ga9ceb5cc979f0da93465c1599bc5fcd4e" name="ga9ceb5cc979f0da93465c1599bc5fcd4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9ceb5cc979f0da93465c1599bc5fcd4e">&#9670;&#160;</a></span>pbvCanObjectRx</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PBV_IsRxReady&#160;&#160;&#160;<a class="el" href="a00522.html#ga35ebdf043c6e4995ff711ebc13954861">UART1_IsRxReady</a></td>
+          <td class="memname"><a class="el" href="a00547.html">CAN_MSG_OBJ_t</a> pbvCanObjectRx</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00066">66</a> of file <a class="el" href="a00257_source.html">app_PBV_UART.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00236_source.html#l00041">41</a> of file <a class="el" href="a00236_source.html">app_PBV_CAN.c</a>.</p>
 
 </div>
 </div>
-<a id="gad6abe24371a852499c00404df02e28b3" name="gad6abe24371a852499c00404df02e28b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad6abe24371a852499c00404df02e28b3">&#9670;&#160;</a></span>PBV_Read</h2>
+<a id="gab3e1f18d37c5cf8872a425dc2dc82f01" name="gab3e1f18d37c5cf8872a425dc2dc82f01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab3e1f18d37c5cf8872a425dc2dc82f01">&#9670;&#160;</a></span>pbvCanObjectTx</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PBV_Read&#160;&#160;&#160;<a class="el" href="a00522.html#ga4e34071aa3125eb037bd6ae844c7ffbb">UART1_Read</a></td>
+          <td class="memname"><a class="el" href="a00547.html">CAN_MSG_OBJ_t</a> pbvCanObjectTx</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00073">73</a> of file <a class="el" href="a00257_source.html">app_PBV_UART.c</a>.</p>
-
-</div>
-</div>
-<a id="ga39ec59e3bcf1e885dd4628be4c4a051d" name="ga39ec59e3bcf1e885dd4628be4c4a051d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga39ec59e3bcf1e885dd4628be4c4a051d">&#9670;&#160;</a></span>PBV_ReadyToSend</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PBV_ReadyToSend&#160;&#160;&#160;<a class="el" href="a00522.html#gae2fc49fa99787bc951e12bd840b1248c">UART1_IsTxReady</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00052">52</a> of file <a class="el" href="a00257_source.html">app_PBV_UART.c</a>.</p>
-
-</div>
-</div>
-<a id="gae27af64e723989f0d2ac43575064cac5" name="gae27af64e723989f0d2ac43575064cac5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae27af64e723989f0d2ac43575064cac5">&#9670;&#160;</a></span>PBV_Write</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PBV_Write&#160;&#160;&#160;<a class="el" href="a00522.html#ga6be5aaf3406104a362f3a3438dafe83c">UART1_Write</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00059">59</a> of file <a class="el" href="a00257_source.html">app_PBV_UART.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00236_source.html#l00035">35</a> of file <a class="el" href="a00236_source.html">app_PBV_CAN.c</a>.</p>
 
 </div>
 </div>
