@@ -25,7 +25,7 @@
 #include "app_PBV_config.h"
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup APP_PBV_INTERFACE
  * @var     APP_PBV_FUNCS
  * @brief   extern const struct of function pointers
  * @details 
@@ -35,7 +35,7 @@
 extern const APP_PBV_INTF_API_t appPbvFuncs;
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup APP_PBV_INTERFACE
  * @var     App_System_To_PBV_Ptr
  * @brief   
  * @details 
@@ -46,7 +46,7 @@ static PBV_Datatype_TX_t * appSystemToPbvPtr;
 
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup APP_PBV_INTERFACE
  * @var     App_PBV_To_System_Ptr
  * @brief   
  * @details 
@@ -56,7 +56,7 @@ static PBV_Datatype_TX_t * appSystemToPbvPtr;
 static PBV_Datatype_RX_t * appPbvToSystemPtr;
 
 /*********************************************************************************
- * @ingroup App_PBV
+ * @ingroup APP_PBV_INTERFACE
  * @var     App_System_To_PBV_ASCII_Ptr
  * @brief   
  * @details 
@@ -65,7 +65,7 @@ static PBV_Datatype_RX_t * appPbvToSystemPtr;
 static PBV_Datatype_TX_t * appSystemToPbvAsciiPtr;
 
 /*********************************************************************************
- * @ingroup APP_PBV  
+ * @ingroup APP_PBV_INTERFACE  
  * @fn      PBV_Change_from_Sixteen_to_Eight(uint16_t * sixteenPtr, uint8_t * eightPtr)
  * @param   sixteenPtr - ptr to sixteen bit data
  * @param   eightPtr - ptr to eigtht bit data
@@ -85,7 +85,7 @@ void PBV_Change_from_Sixteen_to_Eight(uint16_t * sixteenPtr, uint8_t * eightPtr,
 }
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup APP_PBV_INTERFACE
  * @fn      PBV_Change_from_Sixteen_to_Eight(uint16_t * sixteenPtr, uint8_t * eightPtr)
  * @param   sixteenPtr - ptr to sixteen bit data
  * @param   eightPtr - ptr to eigtht bit data
@@ -122,7 +122,7 @@ void PBV_Change_from_Eight_to_Sixteen(uint8_t * eightPtr, uint16_t * sixteenPtr,
 }
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup APP_PBV_INTERFACE
  * @fn      PBV_init
  * @param   PBV_Datatype_TX_t *  - ptr to numerical data
  * @param   PBV_Datatype_TX_t *  - ptr to ascii data 
@@ -144,7 +144,7 @@ void App_PBV_Init(PBV_Datatype_TX_t * Board_To_PBV, PBV_Datatype_TX_t * Board_To
 }
 
 /*********************************************************************************
- * @ingroup APP_PBV 
+ * @ingroup APP_PBV_INTERFACE 
  * @fn      app_PBV_Re_Init
  * @param   PBV_Datatype_TX_t * - ptr to numerical data
  * @brief   
@@ -161,7 +161,7 @@ void App_PBV_Re_Init(PBV_Datatype_TX_t * ptr)
 }
 
 /*********************************************************************************
- * @ingroup APP_PBV 
+ * @ingroup APP_PBV_INTERFACE 
  * @fn      app_PBV_Receive_From_PBV(PBV_Datatype_RX_t * ptr)
  * @param   PBV_Datatype_RX_t * - ptr to numerical data
  * @brief   
@@ -179,7 +179,7 @@ void App_Receive_From_PBV(PBV_Datatype_RX_t * ptr)
 }
 
 /*********************************************************************************
- * @ingroup APP_PBV 
+ * @ingroup APP_PBV_INTERFACE 
  * @fn      app_Send_To_PBV(PBV_Datatype_TX_t * ptr)
  * @param   PBV_Datatype_TX_t * - ptr
  * @brief   
@@ -205,7 +205,7 @@ void App_Send_To_PBV(PBV_Datatype_TX_t * ptr)
 }
 
 /*********************************************************************************
- * @ingroup APP_PBV 
+ * @ingroup APP_PBV_INTERFACE 
  * @fn      app_Read_Received(PBV_Datatype_RX_t * ptr)
  * @param   PBV_Datatype_RX_t * - ptr
  * @brief   
@@ -220,7 +220,7 @@ int App_Read_Received_From_PBV(PBV_Datatype_RX_t * ptr)
 }
 
 /*********************************************************************************
- * @ingroup APP_PBV 
+ * @ingroup APP_PBV_INTERFACE 
  * @fn      app_PBV_Task
  * @param   none
  * @brief   
@@ -257,7 +257,7 @@ static void App_PBV_Task(void)
 }
 
 /*********************************************************************************
- * @ingroup APP_PBV 
+ * @ingroup APP_PBV_INTERFACE 
  * @fn      app_PBV_Task_10ms()
  * @param   none
  * @brief   task to be executed every 10ms
@@ -274,7 +274,7 @@ void App_PBV_Task_10ms()
 }
 
 /*********************************************************************************
- * @ingroup  
+ * @ingroup  APP_PBV_INTERFACE
  * @fn     app_PBV_Task_100us()
  * @param   
  * @brief   Task to be executed every 100 us

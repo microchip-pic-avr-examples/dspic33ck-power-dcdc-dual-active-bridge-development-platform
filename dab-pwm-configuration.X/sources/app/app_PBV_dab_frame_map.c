@@ -19,6 +19,12 @@
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
  */
+/**
+ * @file    app_PBV_dab_frame_map.h
+ * @brief   app PBV dab Frame map file Example
+ * @author  M70027
+ * @ingroup app-pbv-dab-map
+ */
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdint.h> // include standard integer data types
@@ -39,7 +45,7 @@
 #include "config/version.h"
 
 /*********************************************************************************
- * @ingroup pbv-protocol-ids
+ * @ingroup app-pbv-dab-map
  * @
  * @brief   protocol ids defined. firmware id 0x1000 is fixed. the rest are arbitary
  **********************************************************************************/
@@ -108,7 +114,7 @@ void protocolID(uint16_t protocol_ID, uint16_t length, uint8_t * data);
  **********************************************************************************/
 
 /***********************************************************************************
- * @ingroup app-pbv-public-function
+ * @ingroup app-pbv-dab-map
  * @param   void
  * @return  nothing
  * @brief   this function initializes the local pbv objects. these objects are then
@@ -134,7 +140,7 @@ void App_PBV_DAB_Init()
 }
 
 /***********************************************************************************
- * @ingroup app-pbv-public-function
+ * @ingroup app-pbv-dab-map
  * @param   void
  * @return  nothing
  * @brief   this is high frequency task to simulate sending of high frequency numeric data.
@@ -165,7 +171,7 @@ void App_PBV_DAB_Task_10ms(void)
 }
 
 /***********************************************************************************
- * @ingroup app-pbv-public-function
+ * @ingroup app-pbv-dab-map
  * @param   void
  * @return  nothing
  * @brief   this is a slow task simulating the low speed sending of ascii data
@@ -196,7 +202,7 @@ void App_PBV_DAB_Task_1s(void)
 }
 
 /***********************************************************************************
- * @ingroup app-pbv-public-function
+ * @ingroup app-pbv-dab-map
  * @param   void
  * @return  PBV_Datatype_TX_t *
  * @brief   this function can be used to send log messages from other files.
@@ -261,7 +267,7 @@ void App_PBV_DAB_Build_Frame()
 
 
 /***********************************************************************************
- * @ingroup pbv-private-function
+ * @ingroup app-pbv-dab-map
  * @param   pointer to received data
  * @return  nothing
  * @brief   process received data
@@ -365,7 +371,7 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
 }
 
 /***********************************************************************************
- * @ingroup pbv-private-function
+ * @ingroup app-pbv-dab-map
  * @param   void
  * @return  nothing
  * @brief   default callback

@@ -20,6 +20,13 @@
     TERMS.
  */
 
+/* 
+ * @file    app_PBV_CAN.c  
+ * @author  M70027
+ * @ingroup PBV_CAN
+ * @brief   Power Board Visualizer CAN interface 
+ */
+
 // includes
 #include "app_PBV_CAN.h"
 // MCC header files
@@ -76,7 +83,7 @@ void PBV_CAN_Init(PBV_Datatype_TX_t* boardToPBV, PBV_Datatype_TX_t* boardToPBVAs
 
 /*********************************************************************************
  * @ingroup PBV_CAN 
- * @brief   
+ * @brief   checks the queue and if a message is received then links the data pointer to can object
  * @return  int (0 on successful, 1 on unsuccessful)
  * @details checks the queue and if a message is received then links the data pointer to can object
  **********************************************************************************/
@@ -95,7 +102,7 @@ uint8_t PBV_CAN_Receive_from_GUI()
  * @ingroup PBV_CAN 
  * @fn      PBV_CAN_Transmit_Ascii_to_GUI
  * @param   none
- * @brief   
+ * @brief   transmits the Ascii msg to PBV 
  * @return  0 on successful transmission. 
  * @details transmits the Ascii msg to PBV 
  **********************************************************************************/
@@ -257,7 +264,7 @@ void PBV_CAN_Reinit(PBV_Datatype_TX_t * ptr){
  * @fn      PBV_CAN_Link_Data_TX
  * @param   PBV_Datatype_RX_t *
  * @brief   Links the data from TX PBV datatype to CAN TX object. 
- * @return  
+ * @return  This function links the data (uint_8 *) from the passing struct to the CAN object data (uint_8 *)
  * @details This function links the data (uint_8 *) from the passing struct to the CAN object data (uint_8 *)
  **********************************************************************************/
 

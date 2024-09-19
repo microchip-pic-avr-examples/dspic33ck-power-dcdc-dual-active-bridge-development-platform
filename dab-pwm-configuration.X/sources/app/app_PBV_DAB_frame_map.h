@@ -20,10 +20,10 @@
     TERMS.
 */
 /**
- * @file    app_PBV_cllc_frame_map.h
- * @brief   app PBV cllc Frame map file Example
+ * @file    app_PBV_DAB_frame_map.h
+ * @brief   app PBV DAB Frame map file Example
  * @author  M70027
- * @date    15/02/2024
+ * @ingroup app-pbv-dab-map
  */
 // This is a guard condition so that contents of this file are not included
 // more than once.  

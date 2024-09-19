@@ -19,6 +19,14 @@
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
  */
+
+/* 
+ * @file    app_PBV_config.c   
+ * @author  M70027
+ * @file    app-pbv-config
+ * @brief   Power Board Visualizer application configuration 
+ */
+
 #include "config/comms_config.h"
 
 #include "app_PBV_config.h"
@@ -32,7 +40,7 @@
 #endif
 
 /***********************************************************************************
- * @ingroup PBV_UART
+ * @ingroup app-pbv-config
  * @var     APP_PBV_FUNCS
  * @brief   structure of API function pointers. 
  **********************************************************************************/
