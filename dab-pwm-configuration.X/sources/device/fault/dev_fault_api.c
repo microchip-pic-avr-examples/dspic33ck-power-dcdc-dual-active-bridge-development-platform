@@ -21,7 +21,7 @@
  */
 
 #include "dev_fault_common.h"
-#include "device/pwrctrl/dev_pwrctrl.h"
+#include "pwrctrl/dev_pwrctrl.h"
 
 enum FAULTLOG_FLAGS_e {
     FLT_VPRI_OVP,

@@ -39,7 +39,7 @@
 #include "dev_fault_common.h"
 #include "dev_vin_isolated.h"
 #include "device/dev_temp.h"
-#include "device/pwrctrl/dev_pwrctrl.h"
+#include "pwrctrl/dev_pwrctrl.h"
 #include "dev_fault.h"
 #include "system/pins.h"
 #include "dev_fault_api.h"

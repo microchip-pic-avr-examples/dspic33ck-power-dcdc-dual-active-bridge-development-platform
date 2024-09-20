@@ -99,18 +99,6 @@
             <itemPath>sources/device/fault/dev_fault_api.h</itemPath>
             <itemPath>sources/device/fault/dev_fault_typedef.h</itemPath>
           </logicalFolder>
-          <logicalFolder name="pwrctrl" displayName="pwrctrl" projectFiles="true">
-            <logicalFolder name="dcdt" displayName="dcdt" projectFiles="true">
-              <itemPath>sources/device/pwrctrl/dcdt/smps_control.h</itemPath>
-              <itemPath>sources/device/pwrctrl/dcdt/dev_pwrctrl_dcdt.h</itemPath>
-            </logicalFolder>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl_utils.h</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl.h</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl_isr.h</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl_pwm.h</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl_typedef.h</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl_comm_interface.h</itemPath>
-          </logicalFolder>
           <itemPath>sources/device/dev_current_sensor.h</itemPath>
           <itemPath>sources/device/dev_fan.h</itemPath>
           <itemPath>sources/device/dev_led.h</itemPath>
@@ -136,6 +124,18 @@
           <itemPath>sources/os/os_sys_time.h</itemPath>
           <itemPath>sources/os/os_timer.h</itemPath>
           <itemPath>sources/os/os_watchdog.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="pwrctrl" displayName="pwrctrl" projectFiles="true">
+          <logicalFolder name="dcdt" displayName="dcdt" projectFiles="true">
+            <itemPath>sources/pwrctrl/dcdt/dev_pwrctrl_dcdt.h</itemPath>
+            <itemPath>sources/pwrctrl/dcdt/smps_control.h</itemPath>
+          </logicalFolder>
+          <itemPath>sources/pwrctrl/dev_pwrctrl.h</itemPath>
+          <itemPath>sources/pwrctrl/dev_pwrctrl_comm_interface.h</itemPath>
+          <itemPath>sources/pwrctrl/dev_pwrctrl_isr.h</itemPath>
+          <itemPath>sources/pwrctrl/dev_pwrctrl_pwm.h</itemPath>
+          <itemPath>sources/pwrctrl/dev_pwrctrl_typedef.h</itemPath>
+          <itemPath>sources/pwrctrl/dev_pwrctrl_utils.h</itemPath>
         </logicalFolder>
       </logicalFolder>
     </logicalFolder>
@@ -231,20 +231,6 @@
             <itemPath>sources/device/fault/dev_fault_common.c</itemPath>
             <itemPath>sources/device/fault/dev_fault_api.c</itemPath>
           </logicalFolder>
-          <logicalFolder name="pwrctrl" displayName="pwrctrl" projectFiles="true">
-            <logicalFolder name="dcdt" displayName="dcdt" projectFiles="true">
-              <itemPath>sources/device/pwrctrl/dcdt/XFT_smps_2p2z_dspic.s</itemPath>
-              <itemPath>sources/device/pwrctrl/dcdt/smps_2p2z_dspic.s</itemPath>
-              <itemPath>sources/device/pwrctrl/dcdt/dev_pwrctrl_dcdt.c</itemPath>
-            </logicalFolder>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl_sm.c</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl_utils.c</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl_pwm.c</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl_isr.c</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl.c</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl_isr_extension.c</itemPath>
-            <itemPath>sources/device/pwrctrl/dev_pwrctrl_comm_interface.c</itemPath>
-          </logicalFolder>
           <itemPath>sources/device/dev_current_sensor.c</itemPath>
           <itemPath>sources/device/dev_fan.c</itemPath>
           <itemPath>sources/device/dev_led.c</itemPath>
@@ -265,6 +251,20 @@
           <itemPath>sources/os/os_sys_time.c</itemPath>
           <itemPath>sources/os/os_timer.c</itemPath>
           <itemPath>sources/os/os_watchdog.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="pwrctrl" displayName="pwrctrl" projectFiles="true">
+          <logicalFolder name="dcdt" displayName="dcdt" projectFiles="true">
+            <itemPath>sources/pwrctrl/dcdt/dev_pwrctrl_dcdt.c</itemPath>
+            <itemPath>sources/pwrctrl/dcdt/XFT_smps_2p2z_dspic.s</itemPath>
+            <itemPath>sources/pwrctrl/dcdt/smps_2p2z_dspic.s</itemPath>
+          </logicalFolder>
+          <itemPath>sources/pwrctrl/dev_pwrctrl.c</itemPath>
+          <itemPath>sources/pwrctrl/dev_pwrctrl_comm_interface.c</itemPath>
+          <itemPath>sources/pwrctrl/dev_pwrctrl_isr.c</itemPath>
+          <itemPath>sources/pwrctrl/dev_pwrctrl_isr_extension.c</itemPath>
+          <itemPath>sources/pwrctrl/dev_pwrctrl_pwm.c</itemPath>
+          <itemPath>sources/pwrctrl/dev_pwrctrl_sm.c</itemPath>
+          <itemPath>sources/pwrctrl/dev_pwrctrl_utils.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>

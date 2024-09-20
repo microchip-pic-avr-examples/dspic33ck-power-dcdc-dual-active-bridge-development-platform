@@ -30,9 +30,9 @@
 #include "cmp/cmp3.h"
 
 #include "dev_fault.h"
-#include "device/pwrctrl/dev_pwrctrl_pwm.h"
-#include "device/pwrctrl/dev_pwrctrl_typedef.h"
-#include "device/pwrctrl/dev_pwrctrl_utils.h"
+#include "pwrctrl/dev_pwrctrl_pwm.h"
+#include "pwrctrl/dev_pwrctrl_typedef.h"
+#include "pwrctrl/dev_pwrctrl_utils.h"
 #include "config/config.h"
 
 
