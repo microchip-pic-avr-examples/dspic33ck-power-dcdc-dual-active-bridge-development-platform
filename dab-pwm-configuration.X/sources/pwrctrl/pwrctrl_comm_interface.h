@@ -41,7 +41,7 @@ void Dev_PwrCtrl_SetPwrReference(uint16_t reference);
 
 // "get" APIs
 uint16_t Dev_PwrCtrl_Get_DbgValue(void);
-uint16_t Dev_PwrCtrl_GetPhase_P2SDegree(void);
+uint16_t PwrCtrl_GetPhase_P2SDegree(void);
 uint16_t Dev_PwrCtrl_GetAdc_Vpri(void);
 uint16_t Dev_PwrCtrl_GetAdc_Vsec(void);
 uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct(void);

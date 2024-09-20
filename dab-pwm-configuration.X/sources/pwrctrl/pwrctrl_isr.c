@@ -32,25 +32,25 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "dev_pwrctrl.h"
+#include "pwrctrl.h"
 #include "timer/sccp1.h"
 #include "adc/adc_types.h"
 #include "adc/adc1.h"
 #include "config/macros.h"
 #include "config/config.h"
-#include "dev_pwrctrl_pwm.h"
+#include "pwrctrl_pwm.h"
 #include "device/fault/dev_fault.h"
-#include "dcdt/dev_pwrctrl_dcdt.h"
+#include "dcdt/pwrctrl_dcdt.h"
 #include "system/pins.h"
-#include "dev_pwrctrl_utils.h"
+#include "pwrctrl_utils.h"
 
 // PRIVATE FUNCTIONS
-void Dev_PwrCtrl_PrimToSecPHDegree(void);
-void Dev_PwrCtrl_DeadTimeAdjust(void);
-void Dev_PwrCtrl_PeriodModulator(void);
-void Dev_PwrCtrl_UpdateADConverterData(void);
-void Dev_PwrCtrl_ControlLoopExecute(void);
-void Dev_PwrCtrl_10KHzVPLoopPrepareData(void);
+void PwrCtrl_PrimToSecPHDegree(void);
+void PwrCtrl_DeadTimeAdjust(void);
+void PwrCtrl_PeriodModulator(void);
+void PwrCtrl_UpdateADConverterData(void);
+void PwrCtrl_ControlLoopExecute(void);
+void PwrCtrl_10KHzVPLoopPrepareData(void);
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl-isr
@@ -69,7 +69,7 @@ void ControlLoop_Interrupt_CallBack(void)
     GPIO_1_SetHigh();
     
     // Update the ADC data member
-    Dev_PwrCtrl_UpdateADConverterData();
+    PwrCtrl_UpdateADConverterData();
     
     // Execute the fault detection
     Dev_Fault_Execute();
@@ -77,22 +77,22 @@ void ControlLoop_Interrupt_CallBack(void)
     // Performs data averaging necessary for control loop
     // also Enabling interleaved the Vloop (10KHz execution) 
     // and Ploop (10KHz execution) enable bit  
-    Dev_PwrCtrl_10KHzVPLoopPrepareData();
+    PwrCtrl_10KHzVPLoopPrepareData();
     
     #if(OPEN_LOOP_PBV == false)
  
     if(dab.Status.bits.Running == 1){ 
         // Execute Power Converter Control Loop
-        Dev_PwrCtrl_ControlLoopExecute(); }
+        PwrCtrl_ControlLoopExecute(); }
     
     // Measure Primary to Secondary phase in degrees
-    Dev_PwrCtrl_PrimToSecPHDegree(); 
+    PwrCtrl_PrimToSecPHDegree(); 
     
     // Adjust DeadTime based on Primary to Secondary phase in degrees
-    Dev_PwrCtrl_DeadTimeAdjust();
+    PwrCtrl_DeadTimeAdjust();
     
     #if(PERIOD_MODULATION_DEMO == true)
-    Dev_PwrCtrl_PeriodModulator();
+    PwrCtrl_PeriodModulator();
     #endif   
     
     #endif
@@ -117,7 +117,7 @@ void ControlLoop_Interrupt_CallBack(void)
     #endif
 
     // Update PWM Properties
-    Dev_PwrCtrl_PWM_Update(&dab);
+    PwrCtrl_PWM_Update(&dab);
     
     // Enable the ADC sampling
     ADC1_SoftwareTriggerEnable();

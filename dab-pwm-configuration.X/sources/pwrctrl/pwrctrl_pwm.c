@@ -29,7 +29,7 @@
 #include <xc.h> 
 #include <stdbool.h>
 #include "pwm_hs/pwm.h"
-#include "dev_pwrctrl_typedef.h"
+#include "pwrctrl_typedef.h"
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl-pwm
@@ -41,7 +41,7 @@
  *  half bridges of the DAB converter. PWM1 and PWM3 drives the primary half 
  *  bridges and PWM2 and PWM4 drives the secondary half bridges.
  *********************************************************************************/
-void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
+void PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
 {   
     // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
     // (please refer to Section 4.1.3.3 in High Resolution PWM FRM)
@@ -114,7 +114,7 @@ void Dev_PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
  * @details This function turn on the physical PWM outputs by clearing the
  *  output override of the PWM module. 
  *********************************************************************************/
-void Dev_PwrCtrl_PWM_Enable(void)
+void PwrCtrl_PWM_Enable(void)
 {      
     // Turn-On PWM outputs by disabling the output override 
     // on each high and low PWM output
@@ -144,7 +144,7 @@ void Dev_PwrCtrl_PWM_Enable(void)
  * @details This function disable the physical PWM output by setting the override
  *  bits of the PWM module.
  *********************************************************************************/
-void Dev_PwrCtrl_PWM_Disable(void)
+void PwrCtrl_PWM_Disable(void)
 {   
     // Turn-Off PWM outputs by enabling the output override 
     // on each high and low PWM output

@@ -39,7 +39,7 @@
 #include "dev_fault_common.h"
 #include "dev_vin_isolated.h"
 #include "device/dev_temp.h"
-#include "pwrctrl/dev_pwrctrl.h"
+#include "pwrctrl/pwrctrl.h"
 #include "dev_fault.h"
 #include "system/pins.h"
 #include "dev_fault_api.h"
@@ -64,7 +64,7 @@ void Dev_Fault_Handler(void)
     FAULT_SetLow();
     
     // Turn off PWM output
-    Dev_PwrCtrl_PWM_Disable();
+    PwrCtrl_PWM_Disable();
      
     // set the fault active bit
     dab.Status.bits.FaultActive = 1;

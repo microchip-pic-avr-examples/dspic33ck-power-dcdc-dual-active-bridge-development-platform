@@ -30,7 +30,7 @@
 #include "driver/mcc_extension/drv_mcc_extension.h"
 #include "driver/mcc_extension/drv_custom_config_pwm.h"
 #include "driver/mcc_extension/drv_custom_config_adc.h"
-#include "pwrctrl/dev_pwrctrl.h"
+#include "pwrctrl/pwrctrl.h"
 
 /*******************************************************************************
  * @ingroup driver-layer 

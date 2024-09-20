@@ -31,10 +31,10 @@
 #include "config/macros.h"
 #include "pwm_hs/pwm_hs_types.h"
 #include "pwm_hs/pwm.h"
-#include "dev_pwrctrl_typedef.h"
-#include "dev_pwrctrl_pwm.h"
+#include "pwrctrl_typedef.h"
+#include "pwrctrl_pwm.h"
 #include "device/fault/dev_fault.h"
-#include "dcdt/dev_pwrctrl_dcdt.h"
+#include "dcdt/pwrctrl_dcdt.h"
 
 /******************************************************************************
  * @ingroup dev-pwrctrl
@@ -46,11 +46,11 @@
 POWER_CONTROL_t dab;    // Declare DAB converter data structure
 
 // PRIVATE FUNCTIONS
-static void Dev_PwrCtrl_StartUpInitialize(void);
-static void Dev_PwrCtrl_ControlLoopInitialize(void);
+static void PwrCtrl_StartUpInitialize(void);
+static void PwrCtrl_ControlLoopInitialize(void);
 
 // PUBLIC FUNCTIONS
-extern void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
+extern void PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl
@@ -60,7 +60,7 @@ extern void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
  * @details This function initialize the power control PWM instances, settings, 
  * start-up configuration and control loop configuration. 
  *******************************************************************************/
-void Dev_PwrCtrl_Initialize(void)
+void PwrCtrl_Initialize(void)
 {   
     // Clear dab references
     dab.Properties.VPriReference = 0;
@@ -78,20 +78,20 @@ void Dev_PwrCtrl_Initialize(void)
     dab.PowerDirection = PWR_CTRL_CHARGING;
     
     // Initialize Start-Up ramp settings
-    Dev_PwrCtrl_StartUpInitialize();
+    PwrCtrl_StartUpInitialize();
             
     // Initialize Power Control Loop
-    Dev_PwrCtrl_ControlLoopInitialize();
+    PwrCtrl_ControlLoopInitialize();
     
     // Disable PWM output by setting the PWM override bits to High
-    Dev_PwrCtrl_PWM_Disable(); 
+    PwrCtrl_PWM_Disable(); 
     
     // Enable PWM peripheral
     PWM_Enable();
     
     // Update the Period, Duty Cycle and Phases of the PWMs based on
     // the given Control period and Control Phase
-    Dev_PwrCtrl_PWM_Update(&dab);
+    PwrCtrl_PWM_Update(&dab);
 }
 
 /*******************************************************************************
@@ -103,10 +103,10 @@ void Dev_PwrCtrl_Initialize(void)
  *  constant time base. Each execution step, this function will call the power control
  *  state machine.
  *********************************************************************************/
-void Dev_PwrCtrl_Execute(void)
+void PwrCtrl_Execute(void)
 {
     // Execute the state machine
-    Dev_PwrCtrl_StateMachine(&dab);
+    PwrCtrl_StateMachine(&dab);
 }
 
 /*******************************************************************************
@@ -117,16 +117,16 @@ void Dev_PwrCtrl_Execute(void)
  * @details This function initializes the control loop necessary to run the close loop
  * operation of the converter. 
  *********************************************************************************/
-void Dev_PwrCtrl_ControlLoopInitialize(void)
+void PwrCtrl_ControlLoopInitialize(void)
 {
     // Initialize voltage loop compensator
-    Dev_PwrCtrl_VComp_Initialize();
+    PwrCtrl_VComp_Initialize();
     
     // Initialize current loop compensator
-    Dev_PwrCtrl_IComp_Initialize();
+    PwrCtrl_IComp_Initialize();
     
     // Initialize power loop compensator
-    Dev_PwrCtrl_PComp_Initialize();
+    PwrCtrl_PComp_Initialize();
     
     // Voltage loop properties initialize 
     dab.VLoop.Enable = false;
@@ -162,7 +162,7 @@ void Dev_PwrCtrl_ControlLoopInitialize(void)
  * counter for each execution need to be defined. When the reference becomes equal to 
  * the reference targe, the rampComplete data member will be set. 
  *********************************************************************************/
-static void Dev_PwrCtrl_StartUpInitialize(void)
+static void PwrCtrl_StartUpInitialize(void)
 {
     // Initialize Voltage ramp-up settings
     dab.VRamp.ptrReference = (uint16_t*)&dab.VLoop.Reference;

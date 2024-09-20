@@ -31,8 +31,8 @@
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h>
 
-#include "dev_pwrctrl_typedef.h"
-#include "dev_pwrctrl_utils.h" // include standard definition data types
+#include "pwrctrl_typedef.h"
+#include "pwrctrl_utils.h" // include standard definition data types
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl-utils
@@ -43,7 +43,7 @@
  * 
  * @details This function averages the data over number of samples.
  *********************************************************************************/
-uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t sample)
+uint16_t PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t sample)
 {
     data->Accumulator += sample;
     if(++data->Counter >= data->AveragingCount){    
@@ -64,7 +64,7 @@ uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t sample)
  *  step size to meet the reference target. Once the value reached the reference 
  *  target, the RampComplete will be set. 
  *********************************************************************************/
-bool Dev_PwrCtrl_RampReference(START_UP_RAMP_t* rampUp)
+bool PwrCtrl_RampReference(START_UP_RAMP_t* rampUp)
 { 
     rampUp->RampComplete = false;
     

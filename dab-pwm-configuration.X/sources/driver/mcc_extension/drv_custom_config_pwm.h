@@ -29,7 +29,7 @@
 #ifndef DRV_CONFIG_CUSTOM_PWM_H
 #define	DRV_CONFIG_CUSTOM_PWM_H
 
-#include "pwrctrl/dev_pwrctrl_typedef.h"
+#include "pwrctrl/pwrctrl_typedef.h"
 #include "drv_mcc_extension_pwm.h"
 #include "config/macros.h"
 #include "pwm_hs/pwm.h"

@@ -61,10 +61,10 @@ extern SMPS_2P2Z_T VMC_2p2z;
 extern SMPS_2P2Z_T IMC_2p2z;
 extern SMPS_2P2Z_T PMC_2p2z; 
 
-void Dev_PwrCtrl_IComp_Initialize(void);
-void Dev_PwrCtrl_VComp_Initialize(void);
-void Dev_PwrCtrl_PComp_Initialize(void);
-void Dev_PwrCtrl_ResetControlLoopHistories(void);
+void PwrCtrl_IComp_Initialize(void);
+void PwrCtrl_VComp_Initialize(void);
+void PwrCtrl_PComp_Initialize(void);
+void PwrCtrl_ResetControlLoopHistories(void);
 //------------------------------------------------------------------------------
 // END
 //------------------------------------------------------------------------------

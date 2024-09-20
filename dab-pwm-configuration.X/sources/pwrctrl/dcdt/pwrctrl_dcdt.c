@@ -50,7 +50,7 @@
 
 #include <xc.h>
 
-#include "dev_pwrctrl_dcdt.h"
+#include "pwrctrl_dcdt.h"
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl-dcdt
@@ -183,7 +183,7 @@ int16_t   PMC_2p2zErrorHistory[3] __attribute__((space(ymemory), far));
  *  from the frequencies selected in the DCDT tool. The control and error
  *  histories of the voltage loop is also cleared.
  *********************************************************************************/
-void Dev_PwrCtrl_VComp_Initialize(void)
+void PwrCtrl_VComp_Initialize(void)
 {
   //charger direction  
   VMC_2p2z.aCoefficients =  &VMC_2p2zACoefficients[0]; // Set up pointer to derived coefficients
@@ -222,7 +222,7 @@ void Dev_PwrCtrl_VComp_Initialize(void)
  *  from the frequencies selected in the DCDT tool. The control and error
  *  histories of the current loop is also cleared.
  *********************************************************************************/
-void Dev_PwrCtrl_IComp_Initialize(void)
+void PwrCtrl_IComp_Initialize(void)
 {
    //charger
    IMC_2p2z.aCoefficients =  &IMC_2p2zACoefficients[0]; // Set up pointer to derived coefficients
@@ -262,7 +262,7 @@ void Dev_PwrCtrl_IComp_Initialize(void)
  *  from the frequencies selected in the DCDT tool. The control and error
  *  histories of the power loop is also cleared.
  *********************************************************************************/
-void Dev_PwrCtrl_PComp_Initialize(void)  //only battery has power sense option. should be bidirectional
+void PwrCtrl_PComp_Initialize(void)  //only battery has power sense option. should be bidirectional
 {
     //charger
    PMC_2p2z.aCoefficients =  &PMC_2p2zACoefficients[0]; // Set up pointer to derived coefficients
@@ -300,7 +300,7 @@ void Dev_PwrCtrl_PComp_Initialize(void)  //only battery has power sense option. 
  * @details This function clear the control and error histories of the control 
  *  loops. it is essential to call this function during restart condition.
  *********************************************************************************/
-void Dev_PwrCtrl_ResetControlLoopHistories(void)
+void PwrCtrl_ResetControlLoopHistories(void)
 {
   //explicit clear to 0
   VMC_2p2zControlHistory[0] = 0;

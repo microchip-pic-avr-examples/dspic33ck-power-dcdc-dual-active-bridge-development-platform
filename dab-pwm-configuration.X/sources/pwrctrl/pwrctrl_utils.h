@@ -23,8 +23,8 @@ struct AVERAGING_s
 };
 typedef struct AVERAGING_s AVERAGING_t;
 
-extern uint16_t Dev_PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t adcReading);
-extern bool Dev_PwrCtrl_RampReference(START_UP_RAMP_t* rampUp);
+extern uint16_t PwrCtrl_UpdateAverage(AVERAGING_t* data, uint16_t adcReading);
+extern bool PwrCtrl_RampReference(START_UP_RAMP_t* rampUp);
 
 #endif	/* DEV_PWRCTRL_UTILS_H */
 

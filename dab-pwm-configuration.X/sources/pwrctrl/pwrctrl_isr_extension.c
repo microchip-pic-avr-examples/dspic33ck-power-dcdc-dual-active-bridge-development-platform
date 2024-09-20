@@ -31,14 +31,14 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "dev_pwrctrl.h"
+#include "pwrctrl.h"
 #include "adc/adc_types.h"
 #include "adc/adc1.h"
 #include "config/macros.h"
 #include "config/config.h"
-#include "dev_pwrctrl_pwm.h"
+#include "pwrctrl_pwm.h"
 #include "device/fault/dev_fault.h"
-#include "dcdt/dev_pwrctrl_dcdt.h"
+#include "dcdt/pwrctrl_dcdt.h"
 #include "system/pins.h"
     
 /*******************************************************************************
@@ -67,7 +67,7 @@ AVERAGING_t VsecAveraging;
 AVERAGING_t IsecAveraging;
 
 // STATIC VARIABLES and FUNCTIONS
-static void Dev_PwrCtrl_AdaptiveGainUpdate(void);
+static void PwrCtrl_AdaptiveGainUpdate(void);
 static bool VLoopInterleaveExec = true;
 
 /*******************************************************************************
@@ -79,7 +79,7 @@ static bool VLoopInterleaveExec = true;
  *  also handles the updating of DAB data members with its latest ADC raw values
  *  and collection of data for averaging.
  *********************************************************************************/
-void Dev_PwrCtrl_UpdateADConverterData (void)
+void PwrCtrl_UpdateADConverterData (void)
 {        
     // Enable the ADC sampling
     ADC1_SoftwareTriggerEnable();
@@ -126,7 +126,7 @@ void Dev_PwrCtrl_UpdateADConverterData (void)
  *  loop control. The enable bit of these control loops are manage in this function 
  *  in which the VLoop and PLoop are enabled at 10KHz with 180 degrees phase. 
  *********************************************************************************/
-void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
+void PwrCtrl_10KHzVPLoopPrepareData(void)
 {
     static uint16_t cnt = 0;
     
@@ -153,7 +153,7 @@ void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
             VprimAveraging.Counter = 0;
             
             // Compute the Adaptive Gain 
-            Dev_PwrCtrl_AdaptiveGainUpdate();
+            PwrCtrl_AdaptiveGainUpdate();
         }
  
         #if(OPEN_LOOP_PBV == false)
@@ -197,7 +197,7 @@ void Dev_PwrCtrl_10KHzVPLoopPrepareData(void)
  *  the current loop with interleaved execution while Iloop is executed every time 
  *  this function is called.  
  *********************************************************************************/
-void Dev_PwrCtrl_ControlLoopExecute(void)
+void PwrCtrl_ControlLoopExecute(void)
 {   
     // Execute the Voltage Loop Control
     if((dab.VLoop.Enable == true) && (VLoopInterleaveExec == true))
@@ -285,7 +285,7 @@ void Dev_PwrCtrl_ControlLoopExecute(void)
  * during runtime. This function handles the calculation of the gain at a particular 
  * input voltage. AGC is active when it is above the minimum AGC input voltage.
  *********************************************************************************/
-static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
+static void PwrCtrl_AdaptiveGainUpdate(void)
 {
 
     // Calculate the primary voltage in terms of Volts
@@ -318,7 +318,7 @@ static void Dev_PwrCtrl_AdaptiveGainUpdate(void)
  * @details This function updates the DAB data members with phase values normalized 
  * in degree. The calculated phase is scaled by 10x to have better phase resolution.
  *********************************************************************************/
-void Dev_PwrCtrl_PrimToSecPHDegree(void)
+void PwrCtrl_PrimToSecPHDegree(void)
 {
     // Calculation of Primary and Secondary degrees phase
     // Normalize phase to 0..90.  
@@ -346,7 +346,7 @@ void Dev_PwrCtrl_PrimToSecPHDegree(void)
  * @details This function updates the DAB data members dead time based on load. 
  * The phase and dead-time in this function is based on the actual board test.
  *********************************************************************************/
-void Dev_PwrCtrl_DeadTimeAdjust(void)
+void PwrCtrl_DeadTimeAdjust(void)
 {
         uint16_t NewDT = 0;   
         
@@ -389,7 +389,7 @@ void Dev_PwrCtrl_DeadTimeAdjust(void)
  * 
  * @details Modulates the DAB period when the maximum phase has been reached.
  *********************************************************************************/
-void  Dev_PwrCtrl_PeriodModulator(void)
+void  PwrCtrl_PeriodModulator(void)
 {
     static uint16_t decimPM;
     decimPM++;

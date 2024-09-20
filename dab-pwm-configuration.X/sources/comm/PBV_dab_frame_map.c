@@ -38,7 +38,7 @@
 #include "system/pins.h"
 #include "device/dev_fan.h"
 #include "device/dev_temp.h"
-#include "pwrctrl/dev_pwrctrl_comm_interface.h"
+#include "pwrctrl/pwrctrl_comm_interface.h"
 #include "device/fault/dev_fault_api.h"
 #include "config/macros.h"
 #include "config/version.h"
@@ -251,7 +251,7 @@ void App_PBV_DAB_Build_Frame()
     BufferSixteenTx[6] = Dev_PwrCtrl_GetAveraging_Isec();//Dev_PwrCtrl_GetAdc_Isec_avg();
     BufferSixteenTx[7] = Temperature + 40;//Dev_PwrCtrl_GetAdc_Temperature();
     BufferSixteenTx[8] = Dev_PwrCtrl_GetAdc_Vrail_5V();    
-    BufferSixteenTx[9] =  Dev_PwrCtrl_GetPhase_P2SDegree();//devFanDataPtr->CurrentSpeedRaw;
+    BufferSixteenTx[9] =  PwrCtrl_GetPhase_P2SDegree();//devFanDataPtr->CurrentSpeedRaw;
     BufferSixteenTx[10] = Dev_PwrCtrl_Get_DbgValue();//devFanDataPtr->CurrentSpeedPercent;
     BufferSixteenTx[11] = Temperature;
     BufferSixteenTx[12] = Dev_PwrCtrl_Get_Period();

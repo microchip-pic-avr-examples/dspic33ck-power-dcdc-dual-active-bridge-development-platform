@@ -51,7 +51,7 @@
 #include "device/dev_led.h"
 #include "device/dev_temp.h"
 #include "device/dev_current_sensor.h"
-#include "pwrctrl/dev_pwrctrl.h"
+#include "pwrctrl/pwrctrl.h"
 #include "device/fault/dev_fault.h"
 
 #include "system/pins.h"
@@ -89,7 +89,7 @@
 void Tasks_Realtime_100us(void)
 {    
     // Execute the power control state machine
-    Dev_PwrCtrl_Execute();
+    PwrCtrl_Execute();
     
 }
 #endif /* OS_USE_SCHEDULER_100us */

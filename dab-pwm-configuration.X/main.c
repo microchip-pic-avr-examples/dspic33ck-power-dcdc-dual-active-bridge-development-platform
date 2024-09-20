@@ -32,8 +32,8 @@
 #include "device/dev_fan.h"
 #include "device/dev_led.h"
 #include "device/dev_temp.h"
-#include "pwrctrl/dev_pwrctrl_isr.h"
-#include "pwrctrl/dev_pwrctrl.h"
+#include "pwrctrl/pwrctrl_isr.h"
+#include "pwrctrl/pwrctrl.h"
 #include "device/fault/dev_fault.h"
 #include "comm/PBV_DAB_frame_map.h"
 #include "driver/mcc_extension/mcc_custom_config.h"
@@ -69,7 +69,7 @@ int main(void)
     SYSTEM_Initialize();
     MCC_Custom_User_Config();
     
-    Dev_PwrCtrl_Initialize();
+    PwrCtrl_Initialize();
     Dev_Fault_Initialize();
     
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt_CallBack); 

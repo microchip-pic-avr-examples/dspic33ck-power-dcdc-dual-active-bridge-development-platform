@@ -32,14 +32,14 @@
 #include <stddef.h> // include standard definition data types
                                
 #include "system/interrupt.h"
-#include "dev_pwrctrl.h"
+#include "pwrctrl.h"
 #include "config/macros.h"
-#include "dev_pwrctrl_typedef.h"
-#include "dev_pwrctrl_pwm.h"
-#include "dev_pwrctrl_utils.h"
+#include "pwrctrl_typedef.h"
+#include "pwrctrl_pwm.h"
+#include "pwrctrl_utils.h"
 #include "device/dev_current_sensor.h"
 #include "device/fault/dev_fault.h"
-#include "dcdt/dev_pwrctrl_dcdt.h"
+#include "dcdt/pwrctrl_dcdt.h"
 
 //PRIVATE FUNCTIONS
 static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance);
@@ -47,7 +47,7 @@ static void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance);
 static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance);
 static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance);
 static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance);
-static void Dev_PwrCtrl_Reset(POWER_CONTROL_t* pcInstance);
+static void PwrCtrl_Reset(POWER_CONTROL_t* pcInstance);
 
 /*******************************************************************************
  * @ingroup dev-pwrctrl-sm
@@ -70,7 +70,7 @@ static void Dev_PwrCtrl_Reset(POWER_CONTROL_t* pcInstance);
  *  power control references.
  * 
  *********************************************************************************/
-void Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
+void PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
 { 
     switch (pcInstance->State)
     {
@@ -124,7 +124,7 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
         pcInstance->Data.ISecSensorOffset = Dev_CurrentSensor_Get_Offset();
         
         // Ensure PWM output is disabled
-        Dev_PwrCtrl_PWM_Disable();
+        PwrCtrl_PWM_Disable();
         
         // Reset fault objects status bits
         Dev_Fault_Reset();
@@ -195,7 +195,7 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         Dev_Fault_Reset();
             
         // Reset the power control properties and control loop histories
-        Dev_PwrCtrl_Reset(&dab);
+        PwrCtrl_Reset(&dab);
             
         #if (CURRENT_CALIBRATION == true) 
         // reset the PWM settings in Standby mode
@@ -213,10 +213,10 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
             pcInstance->ILoop.AgcFactor = dab.ILoop.AgcFactor;
 
             // Update PWM distribution
-            Dev_PwrCtrl_PWM_Update(&dab);
+            PwrCtrl_PWM_Update(&dab);
             
             // Enable PWM physical output
-            Dev_PwrCtrl_PWM_Enable();
+            PwrCtrl_PWM_Enable();
             
             // Enable power control running bit
             pcInstance->Status.bits.Running = 1;
@@ -255,7 +255,7 @@ static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     else if (!pcInstance->Properties.Enable) 
     {
         // Disable PWM physical output
-        Dev_PwrCtrl_PWM_Disable();
+        PwrCtrl_PWM_Disable();
         
         // Clear power control running bit
         pcInstance->Status.bits.Running = 0;
@@ -267,9 +267,9 @@ static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     else
     {   
         // Ramp Up the Voltage, Current and Power reference
-        Dev_PwrCtrl_RampReference(&pcInstance->VRamp);
-        Dev_PwrCtrl_RampReference(&pcInstance->IRamp);
-        Dev_PwrCtrl_RampReference(&pcInstance->PRamp);
+        PwrCtrl_RampReference(&pcInstance->VRamp);
+        PwrCtrl_RampReference(&pcInstance->IRamp);
+        PwrCtrl_RampReference(&pcInstance->PRamp);
 
         // Check if ramp up is complete
         if ((pcInstance->VRamp.RampComplete) && (pcInstance->IRamp.RampComplete)
@@ -308,7 +308,7 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
         if (!pcInstance->Properties.Enable) 
         {
             // Disable PWM physical output
-            Dev_PwrCtrl_PWM_Disable();
+            PwrCtrl_PWM_Disable();
 
             // Clear power control running bit
             pcInstance->Status.bits.Running = 0;
@@ -342,7 +342,7 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
  * @details This function resets the power control properties including the 
  *  PWM properties and control loop references.
  *********************************************************************************/
-static void Dev_PwrCtrl_Reset(POWER_CONTROL_t* pcInstance)
+static void PwrCtrl_Reset(POWER_CONTROL_t* pcInstance)
 {
     //set the period to maximum  
     pcInstance->Pwm.ControlPeriod = MAX_PWM_PERIOD;
@@ -369,6 +369,6 @@ static void Dev_PwrCtrl_Reset(POWER_CONTROL_t* pcInstance)
     pcInstance->PLoop.AgcFactor = 0x7FFF;
     
     // Reset Control Loop Histories
-    Dev_PwrCtrl_ResetControlLoopHistories();
+    PwrCtrl_ResetControlLoopHistories();
             
 }

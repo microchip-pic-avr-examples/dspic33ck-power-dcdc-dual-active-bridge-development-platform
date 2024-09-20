@@ -10,8 +10,8 @@
 #include <stdlib.h>
 
 #include "device/fault/dev_fault_common.h"
-#include "pwrctrl/dev_pwrctrl_comm_interface.h"
-#include "pwrctrl/dev_pwrctrl.h"
+#include "pwrctrl/pwrctrl_comm_interface.h"
+#include "pwrctrl/pwrctrl.h"
 
 /*********************************************************************************
  * @ingroup dev-temp

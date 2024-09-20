@@ -26,7 +26,7 @@
  * @brief     Contains power control interface with communication/gui.
  */
 
-#include "dev_pwrctrl.h"
+#include "pwrctrl.h"
 
 extern AVERAGING_t VprimAveraging;
 extern AVERAGING_t VsecAveraging;
@@ -38,7 +38,7 @@ extern AVERAGING_t IsecAveraging;
  * @return  value   Control phase between primary and secondary bridge multiplied 
  *  by 10 for more degrees resolution 
  **********************************************************************************/
-uint16_t Dev_PwrCtrl_GetPhase_P2SDegree(void)
+uint16_t PwrCtrl_GetPhase_P2SDegree(void)
 {
     return(dab.Pwm.ControlPhase_P2S_Degreex10);
 }
