@@ -22,6 +22,7 @@
 /* 
  * @file    app_PBV_config.h   
  * @author  M70027
+ * @file    app-pbv-config
  * @brief   Power Board Visualizer application configuration 
  */
 #ifndef APP_PBV_CONFIG_H_
@@ -30,7 +31,7 @@
 #include "app_PBV_interface.h"
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup app-pbv-config
  * @brief   function pointer typedef for Init
  * @name    PBV_Intf_Init_t
  * @param   PBV_Datatype_TX_t *
@@ -43,7 +44,7 @@ typedef void (*PBV_Intf_Init_t)(PBV_Datatype_TX_t * boardToPBV,
                                 PBV_Datatype_RX_t *App_PBV_To_System_Ptr);
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup app-pbv-config
  * @brief   function pointer typedef for app pbv receiving function
  * @name    PBV_Intf_Receive_from_GUI_t 
  * @details function pointer typedef for app pbv receiving function. in app_PBV_config.c will be linked to UART RX or CAN RX
@@ -51,7 +52,7 @@ typedef void (*PBV_Intf_Init_t)(PBV_Datatype_TX_t * boardToPBV,
 typedef uint8_t (*PBV_Intf_Receive_from_GUI_t)(void);
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup app-pbv-config
  * @brief   function pointer typedef for app pbv transmit function
  * @name    PBV_Intf_Transmit_to_GUI_t 
  * @details function pointer typedef for app pbv transmit function. in app_PBV_config.c will be linked to UART TX or CAN TX
@@ -59,7 +60,7 @@ typedef uint8_t (*PBV_Intf_Receive_from_GUI_t)(void);
 typedef uint8_t (*PBV_Intf_Transmit_to_GUI_t)(void);
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup app-pbv-config
  * @brief   function pointer typedef for app pbv transmit ascii function
  * @name    PBV_Intf_Transmit_Ascii_to_GUI_t 
  * @details function pointer typedef for app pbv transmit function. in app_PBV_config.c will be linked to UART ascii TX or CAN ascii TX
@@ -67,7 +68,7 @@ typedef uint8_t (*PBV_Intf_Transmit_to_GUI_t)(void);
 typedef uint8_t (*PBV_Intf_Transmit_Ascii_to_GUI_t)(void);
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup app-pbv-config
  * @brief   function pointer typedef for app pbv re init function
  * @name    PBV_Intf_Reinit_t 
  * @param   PBV_Datatype_TX_t * 
@@ -78,7 +79,7 @@ typedef uint8_t (*PBV_Intf_Transmit_Ascii_to_GUI_t)(void);
 typedef void (*PBV_Intf_Reinit_t)(PBV_Datatype_TX_t * ptr);
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup app-pbv-config
  * @brief   function pointer typedef for app pbv link data TX function
  * @name    PBV_Intf_Reinit_t 
  * @param   PBV_Datatype_TX_t * 
@@ -89,7 +90,7 @@ typedef void (*PBV_Intf_Reinit_t)(PBV_Datatype_TX_t * ptr);
 typedef void (*PBV_Intf_Link_Data_TX_t)(PBV_Datatype_TX_t * ptr);
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup app-pbv-config
  * @brief   function pointer typedef for app pbv link data RX function
  * @name    PBV_Intf_Reinit_t 
  * @param   PBV_Datatype_RX_t * 
@@ -100,7 +101,7 @@ typedef void (*PBV_Intf_Link_Data_TX_t)(PBV_Datatype_TX_t * ptr);
 typedef int (*PBV_Intf_Link_Data_RX_t)(PBV_Datatype_RX_t * ptr);
 
 /***********************************************************************************
- * @ingroup PBV_UART
+ * @ingroup app-pbv-config
  * @struct  APP_PBV_INTF_API_s
  * @brief   structure of API function pointers. 
  **********************************************************************************/

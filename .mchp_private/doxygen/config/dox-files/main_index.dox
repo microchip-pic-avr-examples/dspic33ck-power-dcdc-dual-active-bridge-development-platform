@@ -10,35 +10,43 @@
 /**
 @defgroup   pbv-layer Power Board Visualizer
 @ingroup    apps-layer
-@brief      
+@brief      Driver for Power Board Visualizer
 @details    
 */
 	/**
 	@defgroup   PBV_CAN CAN Communication
 	@ingroup    pbv-layer
-	@brief      
-	@details    
+	@brief      This abstracts the MCC driver api.
+	@details    This layer abstracts the MCC driver api to have the same interface as the UART.
 	*/
 	
 	/**
 	@defgroup   PBV_UART UART Communication
 	@ingroup    pbv-layer
-	@brief      
-	@details    
+	@brief      This is where the framing/deframing and transmission happens for UART frames.
+	@details    This is where the framing/deframing and transmission happens for UART frames. The fundamental difference between this and CAN-FD frames is that CAN-FD defines a strategy for framing and deframing data, and PBV follows that strategy. UART is a point to point byte by byte transfer of data. 
+	To build a frame on top of it, another layer is needed where the data is framed/deframed and trasnmitted. It defines an additional statemachine
 	*/
 	
 	/**
-	@defgroup   APP_PBV PBV Interface
+	@defgroup   APP_PBV_INTERFACE PBV Interface
 	@ingroup    pbv-layer
-	@brief      
-	@details    
+	@brief      These implement the PBV state machine of RX and TX, as well as link data that is received by peripherals to application.
+	@details    These implement the PBV state machine of RX and TX, as well as link data that is received by peripherals to application.
 	*/
 	
 	/**
-	@defgroup   app-pbv-public-function User Configuration
+	@defgroup   app-pbv-config User Configuration
 	@ingroup    pbv-layer
-	@brief      
-	@details    
+	@brief      This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected.
+	@details    This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected.
+	*/
+
+	/**
+	@defgroup   app-pbv-dab-map PBV Data DAB App
+	@ingroup    pbv-layer
+	@brief      This is the main application file.
+	@details    This is the main application file. Here there are tasks that run at different frequencies checking for any received messages and triggering sending of messages.
 	*/
 
 

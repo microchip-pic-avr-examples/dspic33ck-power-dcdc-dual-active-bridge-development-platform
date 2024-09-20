@@ -19,6 +19,13 @@
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
  */
+
+/* 
+ * @file    app_PBV_UART.c
+ * @ingroup PBV_UART
+ * @brief   Power Board Visualizer UART interface 
+ */
+
 //includes
 #include <stdint.h>
 #include <stdbool.h>
@@ -184,7 +191,7 @@ UART_MSG_TX_OBJ_t pbvUartObjectAscii;
  * @param   PBV_Datatype_TX_t * - ptr to numerical data
  * @param   PBV_Datatype_TX_t * - ptr to ascii data
  * @param   PBV_Datatype_TX_t * - ptr to received data ( for completeness, not used now)
- * @brief   
+ * @brief   initializes UART objects
  * @return  void
  * @details initializes UART objects with application objects. Also initializes uartActiveTx and uartActiveTxAscii
  **********************************************************************************/
@@ -221,7 +228,7 @@ uint8_t PBV_UART_Receive_from_GUI()
     static uint16_t rcv_data_index = 0;
     static uint16_t rcv_CRC = 0;
     static uint16_t rcv_timeout = 0;
-    static  uint8_t rcv_copy_for_CRC[PBV_RCV_DATABUFFER_SIZE + PBV_HEADER_SIZE];     ///< local copy created to pass to CRC function. TODO: could use the UART RX object, i.e. data, and header as they are stored regardless. but the CRC implementation would then require some work.
+    static  uint8_t rcv_copy_for_CRC[PBV_RCV_DATABUFFER_SIZE + PBV_HEADER_SIZE];     ///< local copy created to pass to CRC function. 
     uint8_t data;
 
     while (1)
@@ -340,12 +347,12 @@ uint8_t PBV_UART_Receive_from_GUI()
 }
 
 /*********************************************************************************
- * @ingroup  
+ * @ingroup PBV_UART 
  * @fn      PBV_UART_Transmit_Ascii_to_GUI
  * @param
- * @brief   
+ * @brief   implements the state machine for UART ascii TX
  * @return  int
- * @details implements the state machine for ascii  TX 
+ * @details implements the state machine for UART ascii TX
  **********************************************************************************/
 
 uint8_t PBV_UART_Transmit_Ascii_to_GUI()
@@ -446,12 +453,12 @@ uint8_t PBV_UART_Transmit_Ascii_to_GUI()
 }
 
 /*********************************************************************************
- * @ingroup  
+ * @ingroup PBV_UART 
  * @fn      PBV_UART_Transmit_to_GUI
  * @param
- * @brief   
+ * @brief   implements the state machine for UART numerical TX
  * @return  int
- * @details implements the state machine for numerical TX 
+ * @details implements the state machine for UART numerical TX 
  **********************************************************************************/
 
 uint8_t PBV_UART_Transmit_to_GUI()
@@ -553,10 +560,10 @@ uint8_t PBV_UART_Transmit_to_GUI()
 /*********************************************************************************
  * @ingroup PBV_UART
  * @fn      PBV_UART_Reniit
- * @param   
- * @brief   
+ * @param   PBV_Datatype_TX_t
+ * @brief   reinitializes the UART object with new protocol id. 
  * @return  
- * @details reinitializes the UART object with new can id. 
+ * @details reinitializes the UART object with new protocol id. 
  **********************************************************************************/
 
 void PBV_UART_Reinit(PBV_Datatype_TX_t * ptr)
@@ -609,7 +616,7 @@ void PBV_UART_Link_Data_RX(PBV_Datatype_RX_t * ptr)
 }
 
 /*********************************************************************************
- * @ingroup PBV_UART_
+ * @ingroup PBV_UART
  * @fn      PBV_Calculate_CRC
  * @param   uint8_t * pointer to data. 
  * @param   uint16_t length of data in bytes
@@ -617,7 +624,7 @@ void PBV_UART_Link_Data_RX(PBV_Datatype_RX_t * ptr)
  * @return  calculated CRC
  * @details calculates the 16 bit CRC on an incoming stream of bytes. the data 
  * for CRC is [header][data]. odd byte processed seperately. 
- * MAnually cleared shift registers in the end. Ticket has been raised to fix this.
+ * Manually cleared shift registers in the end. Ticket has been raised to fix this.
  * uses the CRC peripheral 
  **********************************************************************************/
 
@@ -630,7 +637,7 @@ uint16_t PBV_Calculate_CRC(uint8_t *message, uint16_t length)
     //uint16_t * message16bit;
     uint32_t trycount = 0;
     uint16_t resultCRC = 0;
-    uint16_t message16bit[PBV_RCV_DATABUFFER_SIZE]; /// TODO: FIX THIS
+    uint16_t message16bit[PBV_RCV_DATABUFFER_SIZE]; 
 
     //calCRCTEMP = 0; //
 

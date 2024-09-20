@@ -22,6 +22,7 @@
 /* 
  * @file    app_PBV_interface.h   
  * @author  M70027
+ * @group   APP_PBV_INTERFACE
  * @brief   Power Board Visualizer application interface 
  */
 
@@ -33,7 +34,7 @@
 #include "config/comms_config.h"
 
 /***********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup APP_PBV_INTERFACE
  * @brief   Power Board Visualizer TX type
  * @details This type defines if the TX Object is transmitting numbers or ASCII
  **********************************************************************************/
@@ -44,7 +45,7 @@ enum PBV_SIGNAL_ASCII_MODE
 } ;
 
 /***********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup APP_PBV_INTERFACE
  * @brief   Power Board Visualizer TX Object transmission states
  * @details 
  *      These states are used to keep track of the transmission of message
@@ -60,7 +61,7 @@ enum PBV_MESSAGE_TX_STATE
 typedef enum PBV_MESSAGE_TX_STATE PBV_MESSAGE_TX_STATE_t;
 
 /***********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup APP_PBV_INTERFACE
  * @brief   Power Board Visualizer RX Object Receiving states
  * @details 
  *      These states are used to keep track of the receiving of messages
@@ -75,7 +76,7 @@ enum PBV_MESSAGE_RX_STATE
 typedef enum PBV_MESSAGE_RX_STATE PBV_MESSAGE_RX_STATE_t;
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup APP_PBV_INTERFACE
  * @var     func_p
  * @brief   function pointer typedef for callbacks
  * @param   length - length of passed eight bit buffer
@@ -85,7 +86,7 @@ typedef enum PBV_MESSAGE_RX_STATE PBV_MESSAGE_RX_STATE_t;
 typedef void (*func_p)(uint16_t, uint8_t *);    
 
 /*********************************************************************************
- * @ingroup APP_PBV
+ * @ingroup APP_PBV_INTERFACE
  * @struct PBV_Datatype_TX_t
  * @brief   
  * @details pbv App TX data type definition structure   
@@ -100,7 +101,7 @@ typedef struct {
 }PBV_Datatype_TX_t;
 
 /*********************************************************************************
- * @ingroup 
+ * @ingroup    APP_PBV_INTERFACE
  * @struct     PBV_Datatype_RX_t
  * @brief   
  * @details pbv App RX data type definition structure 

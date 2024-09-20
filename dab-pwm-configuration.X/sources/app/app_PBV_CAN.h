@@ -22,6 +22,7 @@
 /* 
  * @file    app_PBV_CAN.h   
  * @author  M70027
+ * @ingroup PBV_CAN
  * @brief   Power Board Visualizer CAN interface 
  */
 
