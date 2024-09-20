@@ -35,7 +35,7 @@
 #include "device/pwrctrl/dev_pwrctrl_isr.h"
 #include "device/pwrctrl/dev_pwrctrl.h"
 #include "device/fault/dev_fault.h"
-#include "app/app_PBV_DAB_frame_map.h"
+#include "comm/PBV_DAB_frame_map.h"
 #include "driver/mcc_extension/mcc_custom_config.h"
 #include "system/pins.h"
 

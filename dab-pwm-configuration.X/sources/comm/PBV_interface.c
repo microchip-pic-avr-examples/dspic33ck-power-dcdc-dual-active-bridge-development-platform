@@ -21,8 +21,8 @@
  */
 ///< Includes
 #include "config/comms_config.h"
-#include "app_PBV_interface.h"
-#include "app_PBV_config.h"
+#include "PBV_interface.h"
+#include "PBV_config.h"
 
 /*********************************************************************************
  * @ingroup APP_PBV_INTERFACE

@@ -18,51 +18,29 @@
 
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
- */
-
-/* 
- * @file    app_PBV_config.c   
+*/
+/**
+ * @file    app_PBV_DAB_frame_map.h
+ * @brief   app PBV DAB Frame map file Example
  * @author  M70027
- * @file    app-pbv-config
- * @brief   Power Board Visualizer application configuration 
+ * @ingroup app-pbv-dab-map
  */
+// This is a guard condition so that contents of this file are not included
+// more than once.  
+#ifndef APP_PBV_DAB_FRAME_MAP_H
+#define	APP_PBV_DAB_FRAME_MAP_H
 
-#include "config/comms_config.h"
+#include <xc.h> // include processor files - each processor file is guarded.  
+#include "PBV_interface.h"
 
-#include "app_PBV_config.h"
-
-#if (PBV_UART == 1)
-#include "app_PBV_UART.h"
-#endif
-
-#if (PBV_CANFD == 1)
-#include "app_PBV_CAN.h"
-#endif
 
 /***********************************************************************************
- * @ingroup app-pbv-config
- * @var     APP_PBV_FUNCS
- * @brief   structure of API function pointers. 
+ * Public Function Call Prototypes
  **********************************************************************************/
-const APP_PBV_INTF_API_t appPbvFuncs = {
+void App_PBV_DAB_Init(void);
+void App_PBV_DAB_Task_10ms(void);
+void App_PBV_DAB_Task_1s(void);
+PBV_Datatype_TX_t * App_PBV_DAB_Get_TX_Log_ptr(void);
 
-#if (PBV_UART == 1)
-    PBV_UART_Init,
-    PBV_UART_Receive_from_GUI,
-    PBV_UART_Transmit_to_GUI,
-    PBV_UART_Transmit_Ascii_to_GUI,
-    PBV_UART_Reinit,
-    PBV_UART_Link_Data_TX,
-    PBV_UART_Link_Data_RX
-#endif
+#endif	/* APP_PBV_DAB_FRAME_MAP_H */
 
-#if (PBV_CANFD == 1)
-    PBV_CAN_Init,
-    PBV_CAN_Receive_from_GUI,
-    PBV_CAN_Transmit_to_GUI,
-    PBV_CAN_Transmit_Ascii_to_GUI,
-    PBV_CAN_Reinit,
-    PBV_CAN_Link_Data_TX,
-    PBV_CAN_Link_Data_RX
-#endif
-};

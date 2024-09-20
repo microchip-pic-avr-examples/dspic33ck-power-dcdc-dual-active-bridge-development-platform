@@ -28,7 +28,7 @@
 #ifndef APP_PBV_CONFIG_H_
 #define	APP_PBV_CONFIG_H_
 
-#include "app_PBV_interface.h"
+#include "PBV_interface.h"
 
 /*********************************************************************************
  * @ingroup app-pbv-config

@@ -34,8 +34,7 @@
 // MCC header files
 
 // other header files
-#include "App_PBV_DAB_frame_map.h"
-
+#include "PBV_interface.h"
 #include "system/pins.h"
 #include "device/dev_fan.h"
 #include "device/dev_temp.h"

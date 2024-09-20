@@ -28,7 +28,7 @@
  */
 
 // includes
-#include "app_PBV_CAN.h"
+#include "PBV_CAN.h"
 // MCC header files
 #include "can/can1.h"
 

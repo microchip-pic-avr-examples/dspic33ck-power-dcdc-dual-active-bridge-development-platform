@@ -45,8 +45,8 @@
 #include "os/os_sys_time.h"
 #include "os/os_scheduler.h"
 
-#include "app/app_PBV_DAB_frame_map.h"
-#include "app/app_PBV_interface.h"
+#include "comm/PBV_DAB_frame_map.h"
+#include "comm/PBV_interface.h"
 #include "device/dev_fan.h"
 #include "device/dev_led.h"
 #include "device/dev_temp.h"
