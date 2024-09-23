@@ -39,7 +39,7 @@
 #include "device/dev_fan.h"
 #include "device/dev_temp.h"
 #include "pwrctrl/pwrctrl_comm_interface.h"
-#include "device/fault/dev_fault_api.h"
+#include "fault/dev_fault_api.h"
 #include "config/macros.h"
 #include "config/version.h"
 

@@ -28,7 +28,7 @@
 
 #include "dev_vin_isolated.h"
 #include "dev_fault_common.h"
-#include "device/pwrctrl/dev_pwrctrl_typedef.h"
+#include "pwrctrl/dev_pwrctrl_typedef.h"
 
 
 /*********************************************************************************

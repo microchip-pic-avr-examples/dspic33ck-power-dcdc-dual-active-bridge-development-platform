@@ -93,12 +93,6 @@
           <itemPath>sources/config/version.h</itemPath>
         </logicalFolder>
         <logicalFolder name="device" displayName="device" projectFiles="true">
-          <logicalFolder name="fault" displayName="fault" projectFiles="true">
-            <itemPath>sources/device/fault/dev_fault.h</itemPath>
-            <itemPath>sources/device/fault/dev_fault_common.h</itemPath>
-            <itemPath>sources/device/fault/dev_fault_api.h</itemPath>
-            <itemPath>sources/device/fault/dev_fault_typedef.h</itemPath>
-          </logicalFolder>
           <itemPath>sources/device/dev_current_sensor.h</itemPath>
           <itemPath>sources/device/dev_fan.h</itemPath>
           <itemPath>sources/device/dev_led.h</itemPath>
@@ -115,6 +109,12 @@
             <itemPath>sources/driver/mcc_extension/drv_custom_config_adc.h</itemPath>
             <itemPath>sources/driver/mcc_extension/drv_custom_config_pwm.h</itemPath>
           </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="fault" displayName="fault" projectFiles="true">
+          <itemPath>sources/fault/dev_fault.h</itemPath>
+          <itemPath>sources/fault/dev_fault_api.h</itemPath>
+          <itemPath>sources/fault/dev_fault_common.h</itemPath>
+          <itemPath>sources/fault/dev_fault_typedef.h</itemPath>
         </logicalFolder>
         <logicalFolder name="os" displayName="os" projectFiles="true">
           <itemPath>sources/os/os.h</itemPath>
@@ -226,11 +226,6 @@
           <itemPath>sources/comm/PBV_UART.c</itemPath>
         </logicalFolder>
         <logicalFolder name="device" displayName="device" projectFiles="true">
-          <logicalFolder name="fault" displayName="fault" projectFiles="true">
-            <itemPath>sources/device/fault/dev_fault.c</itemPath>
-            <itemPath>sources/device/fault/dev_fault_common.c</itemPath>
-            <itemPath>sources/device/fault/dev_fault_api.c</itemPath>
-          </logicalFolder>
           <itemPath>sources/device/dev_current_sensor.c</itemPath>
           <itemPath>sources/device/dev_fan.c</itemPath>
           <itemPath>sources/device/dev_led.c</itemPath>
@@ -242,6 +237,11 @@
                          projectFiles="true">
             <itemPath>sources/driver/mcc_extension/mcc_custom_config.c</itemPath>
           </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="fault" displayName="fault" projectFiles="true">
+          <itemPath>sources/fault/dev_fault.c</itemPath>
+          <itemPath>sources/fault/dev_fault_api.c</itemPath>
+          <itemPath>sources/fault/dev_fault_common.c</itemPath>
         </logicalFolder>
         <logicalFolder name="os" displayName="os" projectFiles="true">
           <itemPath>sources/os/os.c</itemPath>

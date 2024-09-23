@@ -27,7 +27,7 @@
 #ifndef DEV_PWRCTRL_TYPEDEF_H
 #define	DEV_PWRCTRL_TYPEDEF_H
 
-#include "device/fault/dev_fault_typedef.h"
+#include "fault/dev_fault_typedef.h"
 
 /***********************************************************************************
  * @ingroup dev-pwrctrl-data-types

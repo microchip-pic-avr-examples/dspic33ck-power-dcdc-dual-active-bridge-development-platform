@@ -9,7 +9,7 @@
 #include "dev_temp.h"
 #include <stdlib.h>
 
-#include "device/fault/dev_fault_common.h"
+#include "fault/dev_fault_common.h"
 #include "pwrctrl/pwrctrl_comm_interface.h"
 #include "pwrctrl/pwrctrl.h"
 

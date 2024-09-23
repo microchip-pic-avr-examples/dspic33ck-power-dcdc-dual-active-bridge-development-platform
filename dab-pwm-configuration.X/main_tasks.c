@@ -52,7 +52,7 @@
 #include "device/dev_temp.h"
 #include "device/dev_current_sensor.h"
 #include "pwrctrl/pwrctrl.h"
-#include "device/fault/dev_fault.h"
+#include "fault/dev_fault.h"
 
 #include "system/pins.h"
 

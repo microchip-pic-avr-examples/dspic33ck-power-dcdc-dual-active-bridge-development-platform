@@ -209,10 +209,6 @@
         <PageName>11kW DAB</PageName>
       </TableViewItem>
       <TableViewItem>
-        <SignalChannelIndex>10</SignalChannelIndex>
-        <PageName>11kW DAB</PageName>
-      </TableViewItem>
-      <TableViewItem>
         <SignalChannelIndex>12</SignalChannelIndex>
         <PageName>11kW DAB</PageName>
       </TableViewItem>
@@ -227,7 +223,7 @@
     </TableView>
     <OutputValues>
       <OutputValue>
-        <Name>VREF</Name>
+        <Name>V REF</Name>
         <Unit>V</Unit>
         <Scaling>3.947</Scaling>
         <Offset>0</Offset>
@@ -241,7 +237,7 @@
         <PageName>11kW DAB</PageName>
       </OutputValue>
       <OutputValue>
-        <Name>IREF</Name>
+        <Name>I REF</Name>
         <Unit>A</Unit>
         <Scaling>31.03</Scaling>
         <Offset>0</Offset>
@@ -255,7 +251,7 @@
         <PageName>11kW DAB</PageName>
       </OutputValue>
       <OutputValue>
-        <Name>PREF</Name>
+        <Name>P REF</Name>
         <Unit>W</Unit>
         <Scaling>1</Scaling>
         <Offset>0</Offset>
@@ -293,7 +289,6 @@
         <ButtonText>Update</ButtonText>
         <Data>0202 0004 EE02 [value]</Data>
         <AutoSendAfterChange>true</AutoSendAfterChange>
-        <PageName>11kW DAB</PageName>
       </OutputValue>
       <OutputValue>
         <Name>DeadTime High (ns)</Name>
@@ -333,7 +328,6 @@
         <ButtonText>Update</ButtonText>
         <Data>0202 0004 EE 10 [value]</Data>
         <AutoSendAfterChange>true</AutoSendAfterChange>
-        <PageName>11kW DAB</PageName>
       </OutputValue>
       <OutputValue>
         <Name>Pri OVP Threshold (V)</Name>
@@ -347,7 +341,6 @@
         <ButtonText>Update</ButtonText>
         <Data>0202 0004 EE 11 [value]</Data>
         <AutoSendAfterChange>true</AutoSendAfterChange>
-        <PageName>11kW DAB</PageName>
       </OutputValue>
       <OutputValue>
         <Name>Primary OCP (A)</Name>
@@ -361,7 +354,6 @@
         <ButtonText>Update</ButtonText>
         <Data>0202 0004 EE20 [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
-        <PageName>11kW DAB</PageName>
       </OutputValue>
       <OutputValue>
         <Name>Secondary OCP (A)</Name>
@@ -375,7 +367,6 @@
         <ButtonText>Update</ButtonText>
         <Data>0202 0004 EE30 [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
-        <PageName>11kW DAB</PageName>
       </OutputValue>
       <OutputValue>
         <Name>Fan Speed (%)</Name>
@@ -399,26 +390,31 @@
             <Name>PCS_INIT</Name>
             <BitIndex>0</BitIndex>
             <ControlType>radio</ControlType>
+            <ActiveColor>0000FF</ActiveColor>
           </StatusBit>
           <StatusBit>
             <Name>PCS_WAIT_IF_FAULT_ACTIVE</Name>
             <BitIndex>1</BitIndex>
             <ControlType>radio</ControlType>
+            <ActiveColor>FF0000</ActiveColor>
           </StatusBit>
           <StatusBit>
             <Name>PCS_STANDBY</Name>
             <BitIndex>2</BitIndex>
             <ControlType>radio</ControlType>
+            <ActiveColor>FFA500</ActiveColor>
           </StatusBit>
           <StatusBit>
             <Name>PCS_SOFT_START</Name>
             <BitIndex>3</BitIndex>
             <ControlType>radio</ControlType>
+            <ActiveColor>0000FF</ActiveColor>
           </StatusBit>
           <StatusBit>
             <Name>PCS_UP_AND_RUNNING</Name>
             <BitIndex>4</BitIndex>
             <ControlType>radio</ControlType>
+            <ActiveColor>008000</ActiveColor>
           </StatusBit>
         </StatusBits>
         <PageName>11kW DAB</PageName>
@@ -430,11 +426,13 @@
             <Name>Enabled</Name>
             <BitIndex>0</BitIndex>
             <ControlType>radio</ControlType>
+            <ActiveColor>008000</ActiveColor>
           </StatusBit>
           <StatusBit>
             <Name>Running</Name>
             <BitIndex>1</BitIndex>
             <ControlType>radio</ControlType>
+            <ActiveColor>008000</ActiveColor>
           </StatusBit>
           <StatusBit>
             <Name>Fault</Name>
@@ -445,21 +443,13 @@
             <Name>Fault: Vprimary OV</Name>
             <BitIndex>3</BitIndex>
             <ControlType>radio</ControlType>
-          </StatusBit>
-          <StatusBit>
-            <Name>Fault: Vprimary UV</Name>
-            <BitIndex>4</BitIndex>
-            <ControlType>radio</ControlType>
+            <ActiveColor>FF0000</ActiveColor>
           </StatusBit>
           <StatusBit>
             <Name>Fault: Vsecondary OV</Name>
             <BitIndex>5</BitIndex>
             <ControlType>radio</ControlType>
-          </StatusBit>
-          <StatusBit>
-            <Name>Fault: Vsecondary UV</Name>
-            <BitIndex>6</BitIndex>
-            <ControlType>radio</ControlType>
+            <ActiveColor>FF0000</ActiveColor>
           </StatusBit>
           <StatusBit>
             <Name>Fault: Iprimary OC</Name>
@@ -470,28 +460,27 @@
             <Name>Fault: Isecondary OC</Name>
             <BitIndex>8</BitIndex>
             <ControlType>radio</ControlType>
+            <ActiveColor>FF0000</ActiveColor>
           </StatusBit>
           <StatusBit>
             <Name>Fault: Short Circuit</Name>
             <BitIndex>9</BitIndex>
             <ControlType>radio</ControlType>
+            <ActiveColor>FF0000</ActiveColor>
           </StatusBit>
           <StatusBit>
             <Name>Fault: Over Temperature</Name>
             <BitIndex>10</BitIndex>
             <ControlType>radio</ControlType>
+            <ActiveColor>FF0000</ActiveColor>
           </StatusBit>
           <StatusBit>
             <Name>Fault: 5V Rail</Name>
             <BitIndex>11</BitIndex>
             <ControlType>radio</ControlType>
+            <ActiveColor>FF0000</ActiveColor>
           </StatusBit>
         </StatusBits>
-        <PageName>11kW DAB</PageName>
-      </StatusGroup>
-      <StatusGroup>
-        <SignalChannelIndex>10</SignalChannelIndex>
-        <StatusBits xsi:nil="true" />
         <PageName>11kW DAB</PageName>
       </StatusGroup>
     </StatusGroups>

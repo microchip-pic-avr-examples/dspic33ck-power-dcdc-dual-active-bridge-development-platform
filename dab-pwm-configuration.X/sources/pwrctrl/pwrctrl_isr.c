@@ -39,7 +39,7 @@
 #include "config/macros.h"
 #include "config/config.h"
 #include "pwrctrl_pwm.h"
-#include "device/fault/dev_fault.h"
+#include "fault/dev_fault.h"
 #include "dcdt/pwrctrl_dcdt.h"
 #include "system/pins.h"
 #include "pwrctrl_utils.h"

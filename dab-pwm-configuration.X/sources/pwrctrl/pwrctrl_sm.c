@@ -38,7 +38,7 @@
 #include "pwrctrl_pwm.h"
 #include "pwrctrl_utils.h"
 #include "device/dev_current_sensor.h"
-#include "device/fault/dev_fault.h"
+#include "fault/dev_fault.h"
 #include "dcdt/pwrctrl_dcdt.h"
 
 //PRIVATE FUNCTIONS

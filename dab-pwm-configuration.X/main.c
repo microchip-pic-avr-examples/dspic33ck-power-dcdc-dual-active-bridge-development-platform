@@ -28,13 +28,12 @@
 
 #include "os/os.h"
 
-#include "device/fault/dev_vin_isolated.h"
 #include "device/dev_fan.h"
 #include "device/dev_led.h"
 #include "device/dev_temp.h"
 #include "pwrctrl/pwrctrl_isr.h"
 #include "pwrctrl/pwrctrl.h"
-#include "device/fault/dev_fault.h"
+#include "fault/dev_fault.h"
 #include "comm/PBV_DAB_frame_map.h"
 #include "driver/mcc_extension/mcc_custom_config.h"
 #include "system/pins.h"
