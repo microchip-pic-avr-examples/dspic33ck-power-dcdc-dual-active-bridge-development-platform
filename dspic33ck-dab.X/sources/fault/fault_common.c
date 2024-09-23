@@ -1,5 +1,5 @@
 
-#include "dev_fault_common.h"
+#include "fault_common.h"
 #include "system/pins.h"
 #include <stdbool.h>
 #include <stddef.h>

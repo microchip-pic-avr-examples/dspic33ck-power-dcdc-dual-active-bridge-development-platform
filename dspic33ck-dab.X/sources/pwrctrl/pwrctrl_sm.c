@@ -38,7 +38,7 @@
 #include "pwrctrl_pwm.h"
 #include "pwrctrl_utils.h"
 #include "device/dev_current_sensor.h"
-#include "fault/dev_fault.h"
+#include "fault/fault.h"
 #include "dcdt/pwrctrl_dcdt.h"
 
 //PRIVATE FUNCTIONS
@@ -127,7 +127,7 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
         PwrCtrl_PWM_Disable();
         
         // Reset fault objects status bits
-        Dev_Fault_Reset();
+        Fault_Reset();
         
         // Clear power control fault active bit
         pcInstance->Status.bits.FaultActive = 0;
@@ -192,7 +192,7 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
     else if (pcInstance->Properties.Enable)
     {
         // Reset fault objects status bits
-        Dev_Fault_Reset();
+        Fault_Reset();
             
         // Reset the power control properties and control loop histories
         PwrCtrl_Reset(&dab);

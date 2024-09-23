@@ -39,7 +39,7 @@
 #include "device/dev_fan.h"
 #include "device/dev_temp.h"
 #include "pwrctrl/pwrctrl_comm_interface.h"
-#include "fault/dev_fault_api.h"
+#include "fault/fault_api.h"
 #include "config/macros.h"
 #include "config/version.h"
 
@@ -239,7 +239,7 @@ void App_PBV_DAB_Build_Frame()
     
     // send back one "flag word" which combines fault and status and enable control flag
     uint16_t enabled = Dev_PwrCtrl_Get_EnableFlag();
-    uint16_t fault_flags = Dev_Fault_GetFlags();
+    uint16_t fault_flags = Fault_GetFlags();
     uint16_t status_flags = Dev_PwrCtrl_Get_Status();
     uint16_t flag_word = enabled + ((status_flags & 0x0003)<<1) + (fault_flags<<3);
     

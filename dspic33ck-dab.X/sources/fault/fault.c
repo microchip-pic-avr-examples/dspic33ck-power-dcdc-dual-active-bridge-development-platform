@@ -36,16 +36,16 @@
 #include "pwm_hs/pwm.h"
 
 #include "config/macros.h"
-#include "dev_fault_common.h"
+#include "fault_common.h"
 #include "dev_vin_isolated.h"
 #include "device/dev_temp.h"
 #include "pwrctrl/pwrctrl.h"
-#include "dev_fault.h"
+#include "fault.h"
 #include "system/pins.h"
-#include "dev_fault_api.h"
+#include "fault_api.h"
 
 // PRIVATE FUNCTIONS
-static void Dev_Fault_EnableShortCircuitProtection(void);
+static void Fault_EnableShortCircuitProtection(void);
 
 /*******************************************************************************
  * @ingroup dev-fault
@@ -58,7 +58,7 @@ static void Dev_Fault_EnableShortCircuitProtection(void);
  *  has been turned-off. A fault pin is also set to low to blocked the PWM signal
  *  as a hardware protection.  
  *********************************************************************************/
-void Dev_Fault_Handler(void)
+void Fault_Handler(void)
 {
     // Drive the fault pin to Low when Fault trips
     FAULT_SetLow();
@@ -74,7 +74,6 @@ void Dev_Fault_Handler(void)
     
 }
 
-
 /*******************************************************************************
  * @ingroup dev-fault
  * @brief   Initialize the fault objects
@@ -83,7 +82,7 @@ void Dev_Fault_Handler(void)
  * @details This function initializes the fault objects following each respective
  *  fault thresholds. 
  *********************************************************************************/
-void Dev_Fault_Initialize(void)
+void Fault_Initialize(void)
 {
     // Initialize Primary Over Current Protection
     FAULT_Init(&dab.Fault.Object.IPrimaryOCP, IPRI_OC_THRES_TRIG, 
@@ -111,11 +110,11 @@ void Dev_Fault_Initialize(void)
     
 #if (FAULT_SHORT_CCT == true)
     // Initialize short circuit fault protection with comparators
-    Dev_Fault_EnableShortCircuitProtection();
+    Fault_EnableShortCircuitProtection();
 #endif 
     // Hardware Fault Initialize
-    CMP1_EventCallbackRegister(&Dev_Fault_Handler);
-    CMP3_EventCallbackRegister(&Dev_Fault_Handler);
+    CMP1_EventCallbackRegister(&Fault_Handler);
+    CMP3_EventCallbackRegister(&Fault_Handler);
     
 }
 
@@ -128,31 +127,31 @@ void Dev_Fault_Initialize(void)
  *  When fault detection occurs, the power converter will shutdown thus turn-off
  *  the power converter. 
  *********************************************************************************/
-void Dev_Fault_Execute(void)
+void Fault_Execute(void)
 {
     // secondary over current fault handler
     #if (FAULT_ISEC_OC)      
-    FAULT_CheckMax(&dab.Fault.Object.ISecondaryOCP, dab.Data.ISenseSecondary, &Dev_Fault_Handler);
+    FAULT_CheckMax(&dab.Fault.Object.ISecondaryOCP, dab.Data.ISenseSecondary, &Fault_Handler);
     #endif 
     
     // secondary over voltage fault handler
     #if (FAULT_VSEC_OV)            
-    FAULT_CheckMax(&dab.Fault.Object.VSecondaryOVP, dab.Data.VSecVoltage, &Dev_Fault_Handler);
+    FAULT_CheckMax(&dab.Fault.Object.VSecondaryOVP, dab.Data.VSecVoltage, &Fault_Handler);
     #endif    
     
     // primary over current fault handler
     #if(FAULT_IPRI_OC)
-    FAULT_CheckMax(&dab.Fault.Object.IPrimaryOCP, dab.Data.ISensePrimary, &Dev_Fault_Handler);
+    FAULT_CheckMax(&dab.Fault.Object.IPrimaryOCP, dab.Data.ISensePrimary, &Fault_Handler);
     #endif 
     
     // primary over voltage fault handler
     #if (FAULT_VPRI_OV)      
-    FAULT_CheckMax(&dab.Fault.Object.VPrimaryOVP, dab.Data.VPriVoltage, &Dev_Fault_Handler);
+    FAULT_CheckMax(&dab.Fault.Object.VPrimaryOVP, dab.Data.VPriVoltage, &Fault_Handler);
     #endif  
 
     // primary over voltage fault handler
     #if (FAULT_VRAIL_5V)                
-    FAULT_CheckMin(&dab.Fault.Object.VRail_5V, dab.Data.VRail_5V, &Dev_Fault_Handler);
+    FAULT_CheckMin(&dab.Fault.Object.VRail_5V, dab.Data.VRail_5V, &Fault_Handler);
     #endif  
     
     // Hardware short circuit
@@ -163,7 +162,7 @@ void Dev_Fault_Execute(void)
     }
     
     // Identify the fault that trips
-    dab.Fault.FaultDetected = Dev_Fault_GetFlags();
+    dab.Fault.FaultDetected = Fault_GetFlags();
 }
 
 
@@ -175,7 +174,7 @@ void Dev_Fault_Execute(void)
  * @details This function clears the fault status bits for Fault Active and 
  *  Fault Latched. A fault pin is also drive to high to allow PWM signal drive. 
  *********************************************************************************/
-void Dev_Fault_Reset(void)
+void Fault_Reset(void)
 {
     // Drive the fault pin to high to allow PWM signal drive
     FAULT_SetHigh();
@@ -209,7 +208,7 @@ void Dev_Fault_Reset(void)
  *  turns on the DAC (Digital-to-Analog) module. This hardware protection use
  *  Comparator DACs to detect short circuit.   
  *********************************************************************************/
-static void Dev_Fault_EnableShortCircuitProtection(void)
+static void Fault_EnableShortCircuitProtection(void)
 {
   // on dsPIC33CK DP-PIM:
   // CMP1B used for short circuit protection on the secondary side 
@@ -234,12 +233,12 @@ static void Dev_Fault_EnableShortCircuitProtection(void)
  *  temperature range. When temperature exceeds the limit, the power control
  *  can trip or perform temperature derating. 
  *********************************************************************************/
-void Dev_Fault_Temp_100ms(void) 
+void Fault_Temp_100ms(void) 
 {
     Dev_Temp_Get_ADC_Sample();
     
     #if(FAULT_PS_OTP)
-    if(FAULT_CheckMin(&dab.Fault.Object.PowerSupplyOTP, devTempData.AdcReading, &Dev_Fault_Handler))
+    if(FAULT_CheckMin(&dab.Fault.Object.PowerSupplyOTP, devTempData.AdcReading, &Fault_Handler))
     {
        devTempData.OverTemperatureFlag = 1; //for over temperature
     }

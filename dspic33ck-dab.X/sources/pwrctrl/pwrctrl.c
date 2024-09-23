@@ -33,7 +33,7 @@
 #include "pwm_hs/pwm.h"
 #include "pwrctrl_typedef.h"
 #include "pwrctrl_pwm.h"
-#include "fault/dev_fault.h"
+#include "fault/fault.h"
 #include "dcdt/pwrctrl_dcdt.h"
 
 /******************************************************************************

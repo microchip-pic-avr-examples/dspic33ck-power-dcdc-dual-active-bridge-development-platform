@@ -39,7 +39,7 @@
 #include "config/macros.h"
 #include "config/config.h"
 #include "pwrctrl_pwm.h"
-#include "fault/dev_fault.h"
+#include "fault/fault.h"
 #include "dcdt/pwrctrl_dcdt.h"
 #include "system/pins.h"
 #include "pwrctrl_utils.h"
@@ -72,7 +72,7 @@ void ControlLoop_Interrupt_CallBack(void)
     PwrCtrl_UpdateADConverterData();
     
     // Execute the fault detection
-    Dev_Fault_Execute();
+    Fault_Execute();
     
     // Performs data averaging necessary for control loop
     // also Enabling interleaved the Vloop (10KHz execution) 

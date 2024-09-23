@@ -20,7 +20,7 @@
     TERMS.
  */
 
-#include "dev_fault_common.h"
+#include "fault_common.h"
 #include "pwrctrl/pwrctrl.h"
 
 enum FAULTLOG_FLAGS_e {
@@ -37,7 +37,7 @@ enum FAULTLOG_FLAGS_e {
 };
 typedef enum FAULTLOG_FLAGS_e FAULTLOG_FLAGS_t;
 
-uint16_t Dev_Fault_GetFlags(void)
+uint16_t Fault_GetFlags(void)
 {
     uint16_t fault = 0;
     

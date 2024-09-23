@@ -20,32 +20,15 @@
     TERMS.
 */
 
-#ifndef DRV_PWRCTL_FAULT_H
-#define	DRV_PWRCTL_FAULT_H
+#ifndef DEV_FAULT_API_H
+#define	DEV_FAULT_API_H
 
+void Dev_Fault_SetPriOVPThreshold(uint16_t reference);
+void Dev_Fault_SetSecOVPThreshold(uint16_t reference);
+void Dev_Fault_SetIPrimaryThreshold(uint16_t reference);
+void Dev_Fault_SetISecondaryThreshold(uint16_t reference);
 
-#include <stddef.h>
+extern uint16_t Fault_GetFlags(void);
 
-#include "cmp/cmp1.h"
-#include "cmp/cmp3.h"
-
-#include "dev_fault.h"
-#include "pwrctrl/pwrctrl_pwm.h"
-#include "pwrctrl/pwrctrl_typedef.h"
-#include "pwrctrl/pwrctrl_utils.h"
-#include "config/config.h"
-
-
-//------------------------------------------------------------------------------
-// functions with external linkage
-//------------------------------------------------------------------------------
-void Dev_Fault_Initialize(void);
-void Dev_Fault_Execute(void);
-
-void Dev_Fault_ClearHardwareFaults(void);
-void Dev_Fault_Reset(void);
-void Dev_Fault_Handler(void);
-void Dev_Fault_Temp_100ms(void); 
-
-#endif	/* DRV_PWRCTL_FAULT_H */
+#endif	/* DEV_FAULT_API_H */
 

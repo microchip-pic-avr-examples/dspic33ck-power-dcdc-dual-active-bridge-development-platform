@@ -8,7 +8,7 @@
 #ifndef DEV_FAULT_TYPEDEF_H
 #define	DEV_FAULT_TYPEDEF_H
 
-#include "dev_fault_common.h"
+#include "fault_common.h"
 
 
 /*******************************************************************************

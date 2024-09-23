@@ -52,7 +52,7 @@
 #include "device/dev_temp.h"
 #include "device/dev_current_sensor.h"
 #include "pwrctrl/pwrctrl.h"
-#include "fault/dev_fault.h"
+#include "fault/fault.h"
 
 #include "system/pins.h"
 
@@ -157,7 +157,7 @@ void Tasks_100ms(void)
 {
     Dev_LED_Task_100ms();
     Dev_Fan_Task_100ms();
-    Dev_Fault_Temp_100ms();
+    Fault_Temp_100ms();
 }
 
 //=======================================================================================================

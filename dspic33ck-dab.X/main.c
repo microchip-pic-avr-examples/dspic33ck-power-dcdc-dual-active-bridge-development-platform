@@ -33,7 +33,7 @@
 #include "device/dev_temp.h"
 #include "pwrctrl/pwrctrl_isr.h"
 #include "pwrctrl/pwrctrl.h"
-#include "fault/dev_fault.h"
+#include "fault/fault.h"
 #include "comm/PBV_DAB_frame_map.h"
 #include "driver/mcc_extension/mcc_custom_config.h"
 #include "system/pins.h"
@@ -69,7 +69,7 @@ int main(void)
     MCC_Custom_User_Config();
     
     PwrCtrl_Initialize();
-    Dev_Fault_Initialize();
+    Fault_Initialize();
     
     SCCP1_Timer_TimeoutCallbackRegister(&ControlLoop_Interrupt_CallBack); 
     
