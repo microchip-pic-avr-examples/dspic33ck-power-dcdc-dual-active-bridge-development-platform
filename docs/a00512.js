@@ -1,27 +1,7 @@
 var a00512 =
 [
-    [ "clc1.h", "a00080.html", null ],
-    [ "clc1.c", "a00086.html", null ],
-    [ "CLC_INTERFACE", "a00559.html", [
-      [ "Deinitialize", "a00559.html#ab6aa2863d2196e9f95f70fde91049ee6", null ],
-      [ "Disable", "a00559.html#a7fd5c6c55c6a76c4d35e3f81609fab87", null ],
-      [ "EdgeCallbackRegister", "a00559.html#a608c4bc40a85b436b4094a7fc88a22e8", null ],
-      [ "Enable", "a00559.html#a04c571590cd163f474c876943a39e0f1", null ],
-      [ "Initialize", "a00559.html#afea2a7e78ccb7643d694c4bd7fa2ed5f", null ],
-      [ "NegativeEdgeCallbackRegister", "a00559.html#ab860ba9f294d7c8826db45ba1d5640d5", null ],
-      [ "OutputStatusGet", "a00559.html#a01d0f5300c488764a1090a869cfa92a0", null ],
-      [ "PositiveEdgeCallbackRegister", "a00559.html#ab6dcbda8f44087989855f4463221516d", null ],
-      [ "Tasks", "a00559.html#a1cd6ba5da58bb0185a3939d1fdcd25f5", null ]
-    ] ],
-    [ "CLC1_Deinitialize", "a00512.html#ga01516d04dce352de74ae123cf553cb30", null ],
-    [ "CLC1_Disable", "a00512.html#ga278c795208d6f58fb1b0c1bf2739f883", null ],
-    [ "CLC1_Enable", "a00512.html#ga7c85f3e09616a9a2855839d4b45c0e43", null ],
-    [ "CLC1_Initialize", "a00512.html#gaaa42a5ba0915a962cd75964a4dcde3b4", null ],
-    [ "CLC1_NegativeEdgeCallback", "a00512.html#gaf25cf35f34affb5c7832814688a02873", null ],
-    [ "CLC1_NegativeEdgeCallbackRegister", "a00512.html#gab37490b9172b07cf29c311b7501d04f6", null ],
-    [ "CLC1_OutputStatusGet", "a00512.html#gaf3af7f12e3d269fdc409d1a279736b27", null ],
-    [ "CLC1_PositiveEdgeCallback", "a00512.html#ga055481a146c113692385b653e64331f8", null ],
-    [ "CLC1_PositiveEdgeCallbackRegister", "a00512.html#gaecad61896990ca955aab640a8609a74d", null ],
-    [ "CLC1_Tasks", "a00512.html#gaac6c1a14b3589b2c967b9a1b6bb01551", null ],
-    [ "CLC1", "a00512.html#gaf313a644645eaeb160dd1eba82ff4506", null ]
+    [ "pwrctrl_common.c", "a00437.html", null ],
+    [ "pwrctrl_common.h", "a00440.html", null ],
+    [ "PwrCtrl_RampReference", "a00512.html#ga59bb2fab32dc783d76f800283b4c7e2b", null ],
+    [ "PwrCtrl_UpdateAverage", "a00512.html#gad68ead20ade98451df7ea1e4e923cbaa", null ]
 ];

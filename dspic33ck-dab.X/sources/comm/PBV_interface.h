@@ -22,7 +22,7 @@
 /* 
  * @file    app_PBV_interface.h   
  * @author  M70027
- * @group   APP_PBV_INTERFACE
+ * @ingroup   APP_PBV_INTERFACE
  * @brief   Power Board Visualizer application interface 
  */
 

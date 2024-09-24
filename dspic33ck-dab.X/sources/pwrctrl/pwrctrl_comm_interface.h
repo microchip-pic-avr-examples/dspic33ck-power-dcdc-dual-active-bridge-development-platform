@@ -21,8 +21,8 @@
  */
 
 /**
- * @file dev_pwrctrl_comm_interface.h     
- * @ingroup dev-pwrctrl-comm   
+ * @file pwrctrl_comm_interface.h     
+ * @ingroup pwrctrl-comm   
  * @brief Contains public functions relevant for power control communication interface.    
  */
 
@@ -31,24 +31,24 @@
 
 // "set" APIs
 void Dev_PwrCtrl_SetState(uint16_t reference);
-void Dev_PwrCtrl_SetPeriodTarget(uint16_t reference);
-void Dev_PwrCtrl_SetPhaseTarget(uint16_t reference);
-void Dev_PwrCtrl_SetP2SPhaseTarget(uint16_t reference);
-void Dev_PwrCtrl_SetEnable(bool enable);
-void Dev_PwrCtrl_SetVSecReference(uint16_t reference);
-void Dev_PwrCtrl_SetIReference(uint16_t reference);
-void Dev_PwrCtrl_SetPwrReference(uint16_t reference);
+void PwrCtrl_SetPeriodTarget(uint16_t reference);
+void PwrCtrl_SetPhaseTarget(uint16_t reference);
+void PwrCtrl_SetP2SPhaseTarget(uint16_t reference);
+void PwrCtrl_SetEnable(bool enable);
+void PwrCtrl_SetVSecReference(uint16_t reference);
+void PwrCtrl_SetIReference(uint16_t reference);
+void PwrCtrl_SetPwrReference(uint16_t reference);
 
 // "get" APIs
-uint16_t Dev_PwrCtrl_Get_DbgValue(void);
+uint16_t PwrCtrl_Get_DbgValue(void);
 uint16_t PwrCtrl_GetPhase_P2SDegree(void);
 uint16_t Dev_PwrCtrl_GetAdc_Vpri(void);
 uint16_t Dev_PwrCtrl_GetAdc_Vsec(void);
-uint16_t Dev_PwrCtrl_GetAdc_Ipri_ct(void);
-uint16_t Dev_PwrCtrl_GetAdc_Isec_ct(void);
-uint16_t Dev_PwrCtrl_GetAdc_Isec_avg(void);
-uint16_t Dev_PwrCtrl_GetAdc_Temperature(void);
-uint16_t Dev_PwrCtrl_GetAdc_Vrail_5V(void);
+uint16_t PwrCtrl_GetAdc_Ipri_ct(void);
+uint16_t PwrCtrl_GetAdc_Isec_ct(void);
+uint16_t PwrCtrl_GetAdc_Isec_avg(void);
+uint16_t PwrCtrl_GetAdc_Temperature(void);
+uint16_t PwrCtrl_GetAdc_Vrail_5V(void);
 uint16_t Dev_PwrCtrl_Get_Period(void);
 uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void);
 uint16_t Dev_PwrCtrl_Get_State(void);

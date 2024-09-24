@@ -1,20 +1,14 @@
 var a00478 =
 [
-    [ "_max", "a00478.html#ga7742fa23cad0b81a56daae0c5ad63c8b", null ],
-    [ "_min", "a00478.html#gad8a68cbc825e50630b93047279a32718", null ],
-    [ "_rnd", "a00478.html#gaa3c2bb84c225cf77ab67824f886de487", null ],
-    [ "_rnd_int32_t", "a00478.html#ga1c75b371213fc3a62a8bb5fbc799cfc3", null ],
-    [ "AVG_TO_RMS", "a00478.html#gaec140a01387ddcbb23059abeb73d163e", null ],
-    [ "PWM_HR_EDGE_ALIGNED_PGxDC", "a00478.html#ga1651dc9a22fef1ab2af194db866dd73f", null ],
-    [ "PWM_HR_EDGE_ALIGNED_PGxPER", "a00478.html#ga67a05b5f54847bdcf3a4f8505a8ddf5d", null ],
-    [ "PWM_HR_PGxDTy", "a00478.html#gae9dd7d65ec0c724eb6a3a944f9b60ec0", null ],
-    [ "PWM_HR_PGxTRIGy", "a00478.html#ga788298696055df15aab198a429d96ed3", null ],
-    [ "QFORMAT_SHIFT", "a00478.html#gafae5fd95c828eb48279a0cbf470d1b45", null ],
-    [ "RMS_TO_AVG", "a00478.html#gada5ead94c63caa7198833caee45bcd9a", null ],
-    [ "RMS_TO_PEAK", "a00478.html#gac24ae161523eadceef352918d1ebb0c8", null ],
-    [ "TIME_TO_TICKS", "a00478.html#gaa1550b4b116085f90e0cd704f1b078b9", null ],
-    [ "UNITS_FROM_ADC_TO_ENG", "a00478.html#ga5032cd832e55c41df8dc512000cc9c0d", null ],
-    [ "UNITS_FROM_ENG_TO_ADC", "a00478.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00", null ],
-    [ "WordHighByte", "a00478.html#ga6f8b8bc288578b9150234364ccb5a6f0", null ],
-    [ "WordLowByte", "a00478.html#gad7e3572e4f8ef715cd1e722691f87b54", null ]
+    [ "Conversion Macros", "a00479.html", "a00479" ],
+    [ "ISEC_AVG_SNS_GAIN", "a00478.html#gaa04f0731e5ca53dd3034155ddec2fb51", null ],
+    [ "ISEC_AVG_SNS_OFS", "a00478.html#ga3ddd48524fd57578569ad30b31317bee", null ],
+    [ "ISEC_CT_SNS_GAIN", "a00478.html#gad565ee56fd67a47693480901f73b5e2c", null ],
+    [ "ISEC_CT_SNS_OFS", "a00478.html#ga167708b374334a691b34a153fc97ded0", null ],
+    [ "ISEC_OC_T_BLANK_CLEAR_SEC", "a00478.html#ga80ef2d060cb2e0d45398358f08401976", null ],
+    [ "ISEC_OC_T_BLANK_TRIG_SEC", "a00478.html#ga9dd78aa25c054cc00c115cd70169dcda", null ],
+    [ "ISEC_OC_THRES_CLEAR_AMPS", "a00478.html#gacdbe9002c178691c914b1043a7c070ce", null ],
+    [ "ISEC_OC_THRES_TRIG_AMPS", "a00478.html#ga61571a56765f2041df1adffb0e127623", null ],
+    [ "ISEC_OC_TICK_SEC", "a00478.html#gaf7a4bcd753b1270a1745bc3fe4c403e9", null ],
+    [ "ISEC_SC_THRES_TRIG_AMPS", "a00478.html#ga5f4043a3b61439e7695829b39102281c", null ]
 ];

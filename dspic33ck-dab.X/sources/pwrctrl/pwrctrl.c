@@ -20,24 +20,26 @@
  */
 
 /**
- * @file      dev_pwrctrl.c
- * @ingroup   dev-pwrctrl   
+ * @file      pwrctrl.c
+ * @ingroup   pwrctrl   
  * @brief     Contains power control initialization including control loop 
  *  initialization and start-up initialization, and the power control execution.
  */
 
 #include <xc.h>
 
-#include "config/macros.h"
+//MCC header files
 #include "pwm_hs/pwm_hs_types.h"
 #include "pwm_hs/pwm.h"
-#include "pwrctrl_typedef.h"
-#include "pwrctrl_pwm.h"
+
+//DAB header files
+#include "config/macros.h"
+#include "pwrctrl.h"
 #include "fault/fault.h"
 #include "dcdt/pwrctrl_dcdt.h"
 
 /******************************************************************************
- * @ingroup dev-pwrctrl
+ * @ingroup pwrctrl
  * @brief Global data object for a DAB Converter
  * 
  * @details The 'dab' data object holds all status, control and monitoring values 
@@ -53,7 +55,7 @@ static void PwrCtrl_ControlLoopInitialize(void);
 extern void PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance);
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl
+ * @ingroup pwrctrl
  * @brief  Initialize the power control parameters
  * @return void
  * 
@@ -95,7 +97,7 @@ void PwrCtrl_Initialize(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl
+ * @ingroup pwrctrl
  * @brief  Executes the power control state machine
  * @return void
  * 
@@ -110,7 +112,7 @@ void PwrCtrl_Execute(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl
+ * @ingroup pwrctrl
  * @brief  Initializes the control loop
  * @return void
  * 
@@ -152,7 +154,7 @@ void PwrCtrl_ControlLoopInitialize(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl
+ * @ingroup pwrctrl
  * @brief  Initialize the StartUp Ramp configuration
  * @return void
  * 

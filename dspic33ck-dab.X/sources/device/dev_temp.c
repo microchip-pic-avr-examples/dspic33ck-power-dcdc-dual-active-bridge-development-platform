@@ -170,7 +170,7 @@ void Dev_Temp_Get_ADC_Sample(void)
     }
         
     // use API from power controller to read temperature
-    devTempData.AdcReading = Dev_PwrCtrl_GetAdc_Temperature();            
+    devTempData.AdcReading = PwrCtrl_GetAdc_Temperature();            
     devTempData.TempBuffer[devTempData.BufferIndex++] = devTempData.AdcReading;
     
 }

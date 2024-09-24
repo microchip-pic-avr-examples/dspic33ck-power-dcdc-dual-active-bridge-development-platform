@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: CAN Communication</title>
+<title>Dual Active Bridge Development Board: Control Loop</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,120 +137,66 @@ $(document).ready(function(){initNavTree('a00482.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">CAN Communication<div class="ingroups"><a class="el" href="a00480.html">Application Layer</a> &raquo; <a class="el" href="a00481.html">Power Board Visualizer</a></div></div></div>
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Control Loop<div class="ingroups"><a class="el" href="a00496.html">Configuration Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><br  />
-  
+<p>Declaration of macros calculating additional parameters for Control Loop.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CAN Communication:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Control Loop:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00482.svg" width="358" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00482.svg" width="466" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga5fb4f1d3c69d1871c10a2c0a0ad27f8a" id="r_ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a">PBV_CAN_Receive_from_GUI</a> ()</td></tr>
-<tr class="memdesc:ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00483" id="r_a00483"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html">Conversion Macros</a></td></tr>
+<tr class="memdesc:a00483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of Adaptive Gain Modulation parameters. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43edf0d1b9579419b244048d67b8744c" id="r_ga43edf0d1b9579419b244048d67b8744c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#ga43edf0d1b9579419b244048d67b8744c">VPLOOP_ILOOP_EXE_RATIO</a>&#160;&#160;&#160;(uint16_t)(10 / 2)</td></tr>
+<tr class="memdesc:ga43edf0d1b9579419b244048d67b8744c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ratio of ILOOP /VPLOOP execution [100KHz / 10KHz], the divide 2 is for interleaved VLoop and PLoop  <br /></td></tr>
+<tr class="separator:ga43edf0d1b9579419b244048d67b8744c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe9bc7e554222335c9b10bda87709883" id="r_gafe9bc7e554222335c9b10bda87709883"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a>&#160;&#160;&#160;160u</td></tr>
+<tr class="memdesc:gafe9bc7e554222335c9b10bda87709883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum VIN threshold to activate AGC in [V] <br  />
   <br /></td></tr>
-<tr class="separator:ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:gab3e1f18d37c5cf8872a425dc2dc82f01" id="r_gab3e1f18d37c5cf8872a425dc2dc82f01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00547.html">CAN_MSG_OBJ_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#gab3e1f18d37c5cf8872a425dc2dc82f01">pbvCanObjectTx</a></td></tr>
-<tr class="memdesc:gab3e1f18d37c5cf8872a425dc2dc82f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN object for Numeric TX. Initialized by PBV_CAN_Init()  <br /></td></tr>
-<tr class="separator:gab3e1f18d37c5cf8872a425dc2dc82f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9ceb5cc979f0da93465c1599bc5fcd4e" id="r_ga9ceb5cc979f0da93465c1599bc5fcd4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00547.html">CAN_MSG_OBJ_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#ga9ceb5cc979f0da93465c1599bc5fcd4e">pbvCanObjectRx</a></td></tr>
-<tr class="memdesc:ga9ceb5cc979f0da93465c1599bc5fcd4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN object for numeric RX. Does not have to be initialized.  <br /></td></tr>
-<tr class="separator:ga9ceb5cc979f0da93465c1599bc5fcd4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga83ff770dbe2c555914a0a8817520e6ff" id="r_ga83ff770dbe2c555914a0a8817520e6ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00547.html">CAN_MSG_OBJ_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#ga83ff770dbe2c555914a0a8817520e6ff">pbvCanObjectAscii</a></td></tr>
-<tr class="memdesc:ga83ff770dbe2c555914a0a8817520e6ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN object for ascii TX. Initialized by PBV_CAN_Init()  <br /></td></tr>
-<tr class="separator:ga83ff770dbe2c555914a0a8817520e6ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:gafe9bc7e554222335c9b10bda87709883"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p><br  />
- </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ga5fb4f1d3c69d1871c10a2c0a0ad27f8a" name="ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a">&#9670;&#160;</a></span>PBV_CAN_Receive_from_GUI()</h2>
+<dl class="section note"><dt>Note</dt><dd>The Control Loop Declarations only contain user settings and conversion macros. </dd></dl>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="gafe9bc7e554222335c9b10bda87709883" name="gafe9bc7e554222335c9b10bda87709883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafe9bc7e554222335c9b10bda87709883">&#9670;&#160;</a></span>AGC_MINIMUM_VIN_THRESHOLD</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t PBV_CAN_Receive_from_GUI </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">#define AGC_MINIMUM_VIN_THRESHOLD&#160;&#160;&#160;160u</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>int (0 on successful, 1 on unsuccessful)</dd></dl>
-<p>checks the queue and if a message is received then links the data pointer to can object </p>
 
-<p class="definition">Definition at line <a class="el" href="a00236_source.html#l00084">84</a> of file <a class="el" href="a00236_source.html">app_PBV_CAN.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00482_ga5fb4f1d3c69d1871c10a2c0a0ad27f8a_cgraph.svg" width="100%" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00134">134</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ga83ff770dbe2c555914a0a8817520e6ff" name="ga83ff770dbe2c555914a0a8817520e6ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga83ff770dbe2c555914a0a8817520e6ff">&#9670;&#160;</a></span>pbvCanObjectAscii</h2>
+<a id="ga43edf0d1b9579419b244048d67b8744c" name="ga43edf0d1b9579419b244048d67b8744c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga43edf0d1b9579419b244048d67b8744c">&#9670;&#160;</a></span>VPLOOP_ILOOP_EXE_RATIO</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00547.html">CAN_MSG_OBJ_t</a> pbvCanObjectAscii</td>
+          <td class="memname">#define VPLOOP_ILOOP_EXE_RATIO&#160;&#160;&#160;(uint16_t)(10 / 2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00236_source.html#l00047">47</a> of file <a class="el" href="a00236_source.html">app_PBV_CAN.c</a>.</p>
-
-</div>
-</div>
-<a id="ga9ceb5cc979f0da93465c1599bc5fcd4e" name="ga9ceb5cc979f0da93465c1599bc5fcd4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9ceb5cc979f0da93465c1599bc5fcd4e">&#9670;&#160;</a></span>pbvCanObjectRx</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00547.html">CAN_MSG_OBJ_t</a> pbvCanObjectRx</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00236_source.html#l00041">41</a> of file <a class="el" href="a00236_source.html">app_PBV_CAN.c</a>.</p>
-
-</div>
-</div>
-<a id="gab3e1f18d37c5cf8872a425dc2dc82f01" name="gab3e1f18d37c5cf8872a425dc2dc82f01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab3e1f18d37c5cf8872a425dc2dc82f01">&#9670;&#160;</a></span>pbvCanObjectTx</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00547.html">CAN_MSG_OBJ_t</a> pbvCanObjectTx</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00236_source.html#l00035">35</a> of file <a class="el" href="a00236_source.html">app_PBV_CAN.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00133">133</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>

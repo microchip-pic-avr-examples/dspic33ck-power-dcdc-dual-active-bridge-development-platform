@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Generic Fault Driver</title>
+<title>Dual Active Bridge Development Board: Fan Control</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,503 +137,365 @@ $(document).ready(function(){initNavTree('a00499.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Generic Fault Driver<div class="ingroups"><a class="el" href="a00487.html">Device Layer</a> &raquo; <a class="el" href="a00497.html">Fault Monitor</a></div></div></div>
+<a href="#files">Files</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Fan Control<div class="ingroups"><a class="el" href="a00497.html">Device Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains generic fault functions.  
+<p>The Fan control device layer is a proprietary user code utilized for configuring the fan control properties.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Generic Fault Driver:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Fan Control:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499.svg" width="292" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00499.svg" width="243" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00647.html">FAULT_OBJ_T</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Fault object data structure contains a list of elements/variables that are used to detect/check a fault.  <a href="a00647.html#details">More...</a><br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:a00299" id="r_a00299"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00299.html">dev_fan.c</a></td></tr>
+<tr class="memdesc:a00299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains fan initialization and execution functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gae9aa4b1a3733fa6ee5fb7778bdf74103" id="r_gae9aa4b1a3733fa6ee5fb7778bdf74103"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a> (<a class="el" href="a00647.html">FAULT_OBJ_T</a> *faultInput, int16_t threshold, int16_t hysLimit, uint16_t thresholdCnt, uint32_t hysCnt)</td></tr>
-<tr class="memdesc:gae9aa4b1a3733fa6ee5fb7778bdf74103"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the fault object data structure with the values that required to detect a fault. <br  />
-  <br /></td></tr>
-<tr class="separator:gae9aa4b1a3733fa6ee5fb7778bdf74103"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5feed023da8938178c78afe29ca8d2cb" id="r_ga5feed023da8938178c78afe29ca8d2cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga5feed023da8938178c78afe29ca8d2cb">FAULT_InitRange</a> (<a class="el" href="a00647.html">FAULT_OBJ_T</a> *faultInput, int16_t thresholdMin, int16_t hysLimitMin, int16_t thresholdMax, int16_t hysLimitMax, uint16_t thresholdCnt, uint32_t hysCnt)</td></tr>
-<tr class="memdesc:ga5feed023da8938178c78afe29ca8d2cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the fault object data structure with the values that required to detect a fault at a particular range. <br  />
-  <br /></td></tr>
-<tr class="separator:ga5feed023da8938178c78afe29ca8d2cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga81272ffd00652b2dbe00bfa8594be05f" id="r_ga81272ffd00652b2dbe00bfa8594be05f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga81272ffd00652b2dbe00bfa8594be05f">FAULT_SetCounters</a> (<a class="el" href="a00647.html">FAULT_OBJ_T</a> *faultInput, uint16_t fltThresholdCnt, uint32_t fltHysCnt)</td></tr>
-<tr class="memdesc:ga81272ffd00652b2dbe00bfa8594be05f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes/sets the fault structure with the counter limits.  <br /></td></tr>
-<tr class="separator:ga81272ffd00652b2dbe00bfa8594be05f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9814ba400be29bb6b3d2372c26252850" id="r_ga9814ba400be29bb6b3d2372c26252850"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga9814ba400be29bb6b3d2372c26252850">FAULT_SetThresholds</a> (<a class="el" href="a00647.html">FAULT_OBJ_T</a> *faultInput, int16_t fltThreshold, int16_t fltHysLimit)</td></tr>
-<tr class="memdesc:ga9814ba400be29bb6b3d2372c26252850"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes/sets the fault structure with the threshold limits.  <br /></td></tr>
-<tr class="separator:ga9814ba400be29bb6b3d2372c26252850"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1a12d5b7c5b1f234c50ea2214e91fcfc" id="r_ga1a12d5b7c5b1f234c50ea2214e91fcfc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a> (<a class="el" href="a00647.html">FAULT_OBJ_T</a> *faultInput, int16_t faultSource, FAULT_CALLBACK callback)</td></tr>
-<tr class="memdesc:ga1a12d5b7c5b1f234c50ea2214e91fcfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function compares the fault source value with the threshold limits and sets (or) resets the fault active state accordingly.  <br /></td></tr>
-<tr class="separator:ga1a12d5b7c5b1f234c50ea2214e91fcfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabe4788eb1b8be3ad755eb7daf6bba295" id="r_gabe4788eb1b8be3ad755eb7daf6bba295"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gabe4788eb1b8be3ad755eb7daf6bba295">FAULT_CheckMin</a> (<a class="el" href="a00647.html">FAULT_OBJ_T</a> *faultInput, int16_t faultSource, FAULT_CALLBACK callback)</td></tr>
-<tr class="memdesc:gabe4788eb1b8be3ad755eb7daf6bba295"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function compares the fault source value with the threshold limits and sets (or) resets the fault active state accordingly.  <br /></td></tr>
-<tr class="separator:gabe4788eb1b8be3ad755eb7daf6bba295"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4d793923449f4e03992bcbdda147a3ec" id="r_ga4d793923449f4e03992bcbdda147a3ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga4d793923449f4e03992bcbdda147a3ec">FAULT_CheckBit</a> (<a class="el" href="a00647.html">FAULT_OBJ_T</a> *faultInput, bool faultBit, FAULT_CALLBACK callback)</td></tr>
-<tr class="separator:ga4d793923449f4e03992bcbdda147a3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1eb8f7e7cab65ed3eb87edd0b076f695" id="r_ga1eb8f7e7cab65ed3eb87edd0b076f695"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga1eb8f7e7cab65ed3eb87edd0b076f695">FAULT_CheckRange</a> (<a class="el" href="a00647.html">FAULT_OBJ_T</a> *faultInput, int16_t inputValue, FAULT_CALLBACK callback)</td></tr>
-<tr class="separator:ga1eb8f7e7cab65ed3eb87edd0b076f695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4274efc956bcca058565b186c2fd1a0" id="r_gad4274efc956bcca058565b186c2fd1a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gad4274efc956bcca058565b186c2fd1a0">Dev_Fan_Initialize</a> (void)</td></tr>
+<tr class="memdesc:gad4274efc956bcca058565b186c2fd1a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the fan object.  <br /></td></tr>
+<tr class="separator:gad4274efc956bcca058565b186c2fd1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bd7dce99469a41bbb705d939ea512ad" id="r_ga1bd7dce99469a41bbb705d939ea512ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga1bd7dce99469a41bbb705d939ea512ad">Dev_Fan_Task_100ms</a> (void)</td></tr>
+<tr class="memdesc:ga1bd7dce99469a41bbb705d939ea512ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">this function needs to be called every 100ms it contains the code to update the status of the fan  <br /></td></tr>
+<tr class="separator:ga1bd7dce99469a41bbb705d939ea512ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf5c734c9834b070c4adf1af69e9f048" id="r_gabf5c734c9834b070c4adf1af69e9f048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gabf5c734c9834b070c4adf1af69e9f048">Dev_Fan_Set_Override</a> (void)</td></tr>
+<tr class="memdesc:gabf5c734c9834b070c4adf1af69e9f048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fan override bit and the fan speed.  <br /></td></tr>
+<tr class="separator:gabf5c734c9834b070c4adf1af69e9f048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cfd61659ae6b17ad25e51bfc211723b" id="r_ga5cfd61659ae6b17ad25e51bfc211723b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a> (uint8_t target_speed_percent)</td></tr>
+<tr class="memdesc:ga5cfd61659ae6b17ad25e51bfc211723b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fan speed.  <br /></td></tr>
+<tr class="separator:ga5cfd61659ae6b17ad25e51bfc211723b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ba0ef09cbd1274a9c325fc04cab411d" id="r_ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga3ba0ef09cbd1274a9c325fc04cab411d">Convert_From_Percentage</a> (uint8_t percentage_value)</td></tr>
+<tr class="memdesc:ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the percentage value to number of ticks.  <br /></td></tr>
+<tr class="separator:ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d2b426f7411623a821415f02956aac8" id="r_ga0d2b426f7411623a821415f02956aac8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga0d2b426f7411623a821415f02956aac8">Override_Speed</a> (void)</td></tr>
+<tr class="memdesc:ga0d2b426f7411623a821415f02956aac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override the fan speed with maximum speed.  <br /></td></tr>
+<tr class="separator:ga0d2b426f7411623a821415f02956aac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66c5db181798514534d7f97b622ca35e" id="r_ga66c5db181798514534d7f97b622ca35e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga66c5db181798514534d7f97b622ca35e">Calculate_Speed</a> (void)</td></tr>
+<tr class="memdesc:ga66c5db181798514534d7f97b622ca35e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the fan speed.  <br /></td></tr>
+<tr class="separator:ga66c5db181798514534d7f97b622ca35e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7e38e334c2209a2a296bf3f573fed78" id="r_gad7e38e334c2209a2a296bf3f573fed78"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gad7e38e334c2209a2a296bf3f573fed78">Update_Speed</a> (void)</td></tr>
+<tr class="memdesc:gad7e38e334c2209a2a296bf3f573fed78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the fan speed.  <br /></td></tr>
+<tr class="separator:gad7e38e334c2209a2a296bf3f573fed78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga52debd393de750722aca541b24b1bc6d" id="r_ga52debd393de750722aca541b24b1bc6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00641.html">FAN_DATA_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a></td></tr>
+<tr class="memdesc:ga52debd393de750722aca541b24b1bc6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of fan.  <br /></td></tr>
+<tr class="separator:ga52debd393de750722aca541b24b1bc6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document contains fault functions that handles different fault conditions and threshold. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga4d793923449f4e03992bcbdda147a3ec" name="ga4d793923449f4e03992bcbdda147a3ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4d793923449f4e03992bcbdda147a3ec">&#9670;&#160;</a></span>FAULT_CheckBit()</h2>
+<a id="ga66c5db181798514534d7f97b622ca35e" name="ga66c5db181798514534d7f97b622ca35e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga66c5db181798514534d7f97b622ca35e">&#9670;&#160;</a></span>Calculate_Speed()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool FAULT_CheckBit </td>
+          <td class="memname">static void Calculate_Speed </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00647.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>faultBit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">FAULT_CALLBACK&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00647.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">faultBit</td><td>bit being checked by fault function </td></tr>
-    <tr><td class="paramname">callback</td><td>function executed when fault trips </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>1 when fault is active </dd>
-<dd>
-0 when fault is not active</dd></dl>
-<p>This function returns fault active state to TRUE, if the fault bit is set for a time equivalent to set_counter value. Also, after the fault active state becomes TRUE, if callback function pointer is non-null, then the routine will call the callback function which quickly shutdown the system, If needed. Also the function returns fault active state to FALSE, if the fault bit is reset for a time equivalent to reset_counter value. </p>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function calculates the fan speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00230">230</a> of file <a class="el" href="a00326_source.html">dev_fault_common.c</a>.</p>
-
-</div>
-</div>
-<a id="ga1a12d5b7c5b1f234c50ea2214e91fcfc" name="ga1a12d5b7c5b1f234c50ea2214e91fcfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1a12d5b7c5b1f234c50ea2214e91fcfc">&#9670;&#160;</a></span>FAULT_CheckMax()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool FAULT_CheckMax </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00647.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>faultSource</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">FAULT_CALLBACK&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00647.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">faultSource</td><td>value being evaluated for fault limits </td></tr>
-    <tr><td class="paramname">callback</td><td>function executed when fault trips </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>1 when fault is active </dd>
-<dd>
-0 when fault is not active</dd></dl>
-<p>This function returns fault active state to TRUE, if input fault source is greater than the set threshold limit for a time equivalent to set_counter value. Also, after the fault active state becomes TRUE, if callback function pointer is non-null, then the routine will call the callback function which quickly shutdown the system, if needed. Also the function returns fault active state to FALSE, if input fault source is less than the hysteresis limit value for a time equivalent to reset_counter value. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00120">120</a> of file <a class="el" href="a00326_source.html">dev_fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00183">183</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_ga1a12d5b7c5b1f234c50ea2214e91fcfc_icgraph.svg" width="515" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_ga66c5db181798514534d7f97b622ca35e_cgraph.svg" width="352" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="gabe4788eb1b8be3ad755eb7daf6bba295" name="gabe4788eb1b8be3ad755eb7daf6bba295"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabe4788eb1b8be3ad755eb7daf6bba295">&#9670;&#160;</a></span>FAULT_CheckMin()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool FAULT_CheckMin </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00647.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>faultSource</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">FAULT_CALLBACK&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00647.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">faultSource</td><td>value being evaluated for fault limits </td></tr>
-    <tr><td class="paramname">callback</td><td>function executed when fault trips </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>1 when fault is active </dd>
-<dd>
-0 when fault is not active</dd></dl>
-<p>This function returns fault active state to TRUE, if input fault source is less than the set threshold limit for a time equivalent to set_counter value. Also, after the fault active state becomes TRUE, if callback function pointer is non-null, then the routine will call the callback function which quickly shutdown the system, if needed. Also the function returns fault active state to FALSE, if input fault source is greater than the hysteresis limit value for a time equivalent to reset_counter value. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00178">178</a> of file <a class="el" href="a00326_source.html">dev_fault_common.c</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_gabe4788eb1b8be3ad755eb7daf6bba295_icgraph.svg" width="542" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_ga66c5db181798514534d7f97b622ca35e_icgraph.svg" width="482" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ga1eb8f7e7cab65ed3eb87edd0b076f695" name="ga1eb8f7e7cab65ed3eb87edd0b076f695"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1eb8f7e7cab65ed3eb87edd0b076f695">&#9670;&#160;</a></span>FAULT_CheckRange()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool FAULT_CheckRange </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00647.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>inputValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">FAULT_CALLBACK&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00647.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">inputValue</td><td>value being evaluated by the function </td></tr>
-    <tr><td class="paramname">callback</td><td>function executed when fault trips </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>1 when fault is active </dd>
-<dd>
-0 when fault is not active</dd></dl>
-<p>This function returns fault active state to TRUE, if the input value is out of threshold limits range for a time equivalent to set_counter value. Also, after the fault active state becomes TRUE, if callback function pointer is non-null, then the routine will call the callback function which quickly shutdown the system, If needed. Also the function returns fault active state to FALSE, if the input value is within the hysteresis limits range for a time equivalent to reset_counter value. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00281">281</a> of file <a class="el" href="a00326_source.html">dev_fault_common.c</a>.</p>
-
-</div>
-</div>
-<a id="gae9aa4b1a3733fa6ee5fb7778bdf74103" name="gae9aa4b1a3733fa6ee5fb7778bdf74103"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae9aa4b1a3733fa6ee5fb7778bdf74103">&#9670;&#160;</a></span>FAULT_Init()</h2>
+<a id="ga3ba0ef09cbd1274a9c325fc04cab411d" name="ga3ba0ef09cbd1274a9c325fc04cab411d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3ba0ef09cbd1274a9c325fc04cab411d">&#9670;&#160;</a></span>Convert_From_Percentage()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void FAULT_Init </td>
+          <td class="memname">static uint16_t Convert_From_Percentage </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00647.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>percentage_value</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>threshold</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>hysLimit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>thresholdCnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>hysCnt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00647.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">threshold</td><td>sets the fault allowed limit </td></tr>
-    <tr><td class="paramname">hysLimit</td><td>hysteresis limit values </td></tr>
-    <tr><td class="paramname">thresholdCnt</td><td>threshold counter (increments when threshold limit is reached) <br  />
- </td></tr>
-    <tr><td class="paramname">hysCnt</td><td>hysteresis counter increments when hysteresis limit is reached <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p><br  />
- This function initializes the fault structure with the thresholds and counter limits which are required to detect a fault. </p>
+<p>This function converts the percent value to the duty cycle value as per MULTIPLIER. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00021">21</a> of file <a class="el" href="a00326_source.html">dev_fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00149">149</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_gae9aa4b1a3733fa6ee5fb7778bdf74103_icgraph.svg" width="276" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00499_ga3ba0ef09cbd1274a9c325fc04cab411d_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="ga5feed023da8938178c78afe29ca8d2cb" name="ga5feed023da8938178c78afe29ca8d2cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5feed023da8938178c78afe29ca8d2cb">&#9670;&#160;</a></span>FAULT_InitRange()</h2>
+<a id="gad4274efc956bcca058565b186c2fd1a0" name="gad4274efc956bcca058565b186c2fd1a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad4274efc956bcca058565b186c2fd1a0">&#9670;&#160;</a></span>Dev_Fan_Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void FAULT_InitRange </td>
+          <td class="memname">void Dev_Fan_Initialize </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00647.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>thresholdMin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>hysLimitMin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>thresholdMax</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>hysLimitMax</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>thresholdCnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>hysCnt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00647.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">thresholdMin</td><td>sets the fault allowed minimum limit </td></tr>
-    <tr><td class="paramname">thresholdMax</td><td>sets the fault allowed maximum limit </td></tr>
-    <tr><td class="paramname">hysLimitMin</td><td>minimum hysteresis limit value </td></tr>
-    <tr><td class="paramname">hysLimitMax</td><td>maximum hysteresis limit values </td></tr>
-    <tr><td class="paramname">thresholdCnt</td><td>threshold counter (increments when threshold limit is reached) <br  />
- </td></tr>
-    <tr><td class="paramname">hysCnt</td><td>hysteresis counter increments when hysteresis limit is reached <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the fault structure with the thresholds <br  />
- and counter limits which are required to detect a fault. </p>
+<p>This function initializes fan data objects including the initial fan speed, the maximum allowable speed, and the increment/decrement step of the fan speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00049">49</a> of file <a class="el" href="a00326_source.html">dev_fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00066">66</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_gad4274efc956bcca058565b186c2fd1a0_cgraph.svg" width="359" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="ga81272ffd00652b2dbe00bfa8594be05f" name="ga81272ffd00652b2dbe00bfa8594be05f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga81272ffd00652b2dbe00bfa8594be05f">&#9670;&#160;</a></span>FAULT_SetCounters()</h2>
+<a id="gabf5c734c9834b070c4adf1af69e9f048" name="gabf5c734c9834b070c4adf1af69e9f048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabf5c734c9834b070c4adf1af69e9f048">&#9670;&#160;</a></span>Dev_Fan_Set_Override()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void FAULT_SetCounters </td>
+          <td class="memname">void Dev_Fan_Set_Override </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00647.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>fltThresholdCnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>fltHysCnt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00647.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">fltThresholdCnt</td><td>threshold counter (increments when threshold limit is reached) <br  />
- </td></tr>
-    <tr><td class="paramname">fltHysCnt</td><td>hysteresis counter increments when hysteresis limit is reached <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the CounterSet, CounterReset variables of the fault object data structure. These counter values together with thresholds are used to set and reset the fault. </p>
+<p>This function sets the fan override flag bit to true and sets the fan target speed to maximum speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00077">77</a> of file <a class="el" href="a00326_source.html">dev_fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00119">119</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_gabf5c734c9834b070c4adf1af69e9f048_cgraph.svg" width="324" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="ga9814ba400be29bb6b3d2372c26252850" name="ga9814ba400be29bb6b3d2372c26252850"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9814ba400be29bb6b3d2372c26252850">&#9670;&#160;</a></span>FAULT_SetThresholds()</h2>
+<a id="ga5cfd61659ae6b17ad25e51bfc211723b" name="ga5cfd61659ae6b17ad25e51bfc211723b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5cfd61659ae6b17ad25e51bfc211723b">&#9670;&#160;</a></span>Dev_Fan_Set_Speed()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void FAULT_SetThresholds </td>
+          <td class="memname">void Dev_Fan_Set_Speed </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00647.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>target_speed_percent</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>fltThreshold</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>fltHysLimit</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00647.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">fltThreshold</td><td>sets the fault allowed limit </td></tr>
-    <tr><td class="paramname">fltHysLimit</td><td>hysteresis limit values <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes/sets the val1_Threshold, val1_Hysteresis variables of the fault object data structure. These threshold values together with counter limits are used to set and reset the fault. </p>
+<p>This function sets the fan speed when the target speed does not exceed the maximum fan speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00095">95</a> of file <a class="el" href="a00326_source.html">dev_fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00133">133</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00499_ga5cfd61659ae6b17ad25e51bfc211723b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ga1bd7dce99469a41bbb705d939ea512ad" name="ga1bd7dce99469a41bbb705d939ea512ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1bd7dce99469a41bbb705d939ea512ad">&#9670;&#160;</a></span>Dev_Fan_Task_100ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_Fan_Task_100ms </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function needs to be called every 100ms. This modulates the speed of fan depending on the initialized parameters in the fan object.</p>
+<dl class="section note"><dt>Note</dt><dd>This is called in a rather slow 100ms object, as the speed modulation is not so critical. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00093">93</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_ga1bd7dce99469a41bbb705d939ea512ad_cgraph.svg" width="554" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_ga1bd7dce99469a41bbb705d939ea512ad_icgraph.svg" width="314" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga0d2b426f7411623a821415f02956aac8" name="ga0d2b426f7411623a821415f02956aac8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0d2b426f7411623a821415f02956aac8">&#9670;&#160;</a></span>Override_Speed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Override_Speed </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function changes the target speed value to maximum. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00161">161</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_ga0d2b426f7411623a821415f02956aac8_icgraph.svg" width="474" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gad7e38e334c2209a2a296bf3f573fed78" name="gad7e38e334c2209a2a296bf3f573fed78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad7e38e334c2209a2a296bf3f573fed78">&#9670;&#160;</a></span>Update_Speed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Update_Speed </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This functions updates the fan speed. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00213">213</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_gad7e38e334c2209a2a296bf3f573fed78_cgraph.svg" width="299" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_gad7e38e334c2209a2a296bf3f573fed78_icgraph.svg" width="468" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ga52debd393de750722aca541b24b1bc6d" name="ga52debd393de750722aca541b24b1bc6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga52debd393de750722aca541b24b1bc6d">&#9670;&#160;</a></span>devFanData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00641.html">FAN_DATA_t</a> devFanData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The 'FAN_DATA_t' data object holds the access to all the fan control and monitoring values. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00037">37</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
 
 </div>
 </div>

@@ -1,15 +1,27 @@
 var a00522 =
 [
-    [ "reset_types.h", "a00167.html", null ],
-    [ "reset.c", "a00188.html", null ],
-    [ "RESET_CauseClear", "a00522.html#ga0174a76fda8d92f242395a797470b7b1", null ],
-    [ "RESET_CauseClearAll", "a00522.html#gab767709d3fa8a3900d01d4bd65158049", null ],
-    [ "RESET_CauseFromConfigurationMismatch", "a00522.html#gad6caf79bbee9b33bf903c186fd824059", null ],
-    [ "RESET_CauseFromExternal", "a00522.html#ga32b316332402fc7d3660d63a7fff528f", null ],
-    [ "RESET_CauseFromIllegalOpcode", "a00522.html#gae9bed7f7c62488a1a1e1aa053665a46d", null ],
-    [ "RESET_CauseFromSoftware", "a00522.html#ga7f962e95fa6bd2864091df4cf882eee7", null ],
-    [ "RESET_CauseFromTrap", "a00522.html#ga36c739c4dcee0f773bc467be47c87722", null ],
-    [ "RESET_CauseFromWatchdogTimer", "a00522.html#ga6283f56ec3cae6da1145799ddcc9b44a", null ],
-    [ "RESET_CauseGet", "a00522.html#gaa218141dacf762880dc162a2f499657c", null ],
-    [ "RESET_CauseHandler", "a00522.html#ga40e7771ae89212f587dfacec87076438", null ]
+    [ "clc1.h", "a00086.html", null ],
+    [ "clc1.c", "a00092.html", null ],
+    [ "CLC_INTERFACE", "a00569.html", [
+      [ "Deinitialize", "a00569.html#ab6aa2863d2196e9f95f70fde91049ee6", null ],
+      [ "Disable", "a00569.html#a7fd5c6c55c6a76c4d35e3f81609fab87", null ],
+      [ "EdgeCallbackRegister", "a00569.html#a608c4bc40a85b436b4094a7fc88a22e8", null ],
+      [ "Enable", "a00569.html#a04c571590cd163f474c876943a39e0f1", null ],
+      [ "Initialize", "a00569.html#afea2a7e78ccb7643d694c4bd7fa2ed5f", null ],
+      [ "NegativeEdgeCallbackRegister", "a00569.html#ab860ba9f294d7c8826db45ba1d5640d5", null ],
+      [ "OutputStatusGet", "a00569.html#a01d0f5300c488764a1090a869cfa92a0", null ],
+      [ "PositiveEdgeCallbackRegister", "a00569.html#ab6dcbda8f44087989855f4463221516d", null ],
+      [ "Tasks", "a00569.html#a1cd6ba5da58bb0185a3939d1fdcd25f5", null ]
+    ] ],
+    [ "CLC1_Deinitialize", "a00522.html#ga01516d04dce352de74ae123cf553cb30", null ],
+    [ "CLC1_Disable", "a00522.html#ga278c795208d6f58fb1b0c1bf2739f883", null ],
+    [ "CLC1_Enable", "a00522.html#ga7c85f3e09616a9a2855839d4b45c0e43", null ],
+    [ "CLC1_Initialize", "a00522.html#gaaa42a5ba0915a962cd75964a4dcde3b4", null ],
+    [ "CLC1_NegativeEdgeCallback", "a00522.html#gaf25cf35f34affb5c7832814688a02873", null ],
+    [ "CLC1_NegativeEdgeCallbackRegister", "a00522.html#gab37490b9172b07cf29c311b7501d04f6", null ],
+    [ "CLC1_OutputStatusGet", "a00522.html#gaf3af7f12e3d269fdc409d1a279736b27", null ],
+    [ "CLC1_PositiveEdgeCallback", "a00522.html#ga055481a146c113692385b653e64331f8", null ],
+    [ "CLC1_PositiveEdgeCallbackRegister", "a00522.html#gaecad61896990ca955aab640a8609a74d", null ],
+    [ "CLC1_Tasks", "a00522.html#gaac6c1a14b3589b2c967b9a1b6bb01551", null ],
+    [ "CLC1", "a00522.html#gaf313a644645eaeb160dd1eba82ff4506", null ]
 ];

@@ -41,8 +41,8 @@
  */
 
 /**
- * @file dev_pwrctrl_dcdt.h     
- * @ingroup dev-pwrctrl-dcdt   
+ * @file pwrctrl_dcdt.h     
+ * @ingroup pwrctrl-dcdt   
  * @brief Contains public functions and data types relevant for DCDT file interface.
  */
 

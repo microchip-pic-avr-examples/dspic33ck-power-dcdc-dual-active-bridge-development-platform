@@ -57,7 +57,7 @@
 
 /**
  * @file smps_control.h     
- * @ingroup dev-pwrctrl-dcdt   
+ * @ingroup pwrctrl-dcdt   
  * @brief Contains the DCDT generated functions and data types.    
  */
 

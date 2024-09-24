@@ -18,7 +18,13 @@
 
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
-*/
+ */
+
+/**
+ * @file      fault.h
+ * @ingroup   fault 
+ * @brief     Contains public fault functions.
+ */
 
 #ifndef DRV_PWRCTL_FAULT_H
 #define	DRV_PWRCTL_FAULT_H
@@ -32,7 +38,7 @@
 #include "fault.h"
 #include "pwrctrl/pwrctrl_pwm.h"
 #include "pwrctrl/pwrctrl_typedef.h"
-#include "pwrctrl/pwrctrl_utils.h"
+#include "pwrctrl/pwrctrl_common.h"
 #include "config/config.h"
 
 

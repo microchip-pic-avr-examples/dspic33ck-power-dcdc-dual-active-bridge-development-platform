@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/mcc_generated_files/system/src/system.c File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/src/pins.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,51 +138,35 @@ $(document).ready(function(){initNavTree('a00191.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">system.c File Reference<div class="ingroups"><a class="el" href="a00508.html">MPLABX Configurator Driver Layer</a> &raquo; <a class="el" href="a00521.html">System Driver</a></div></div></div>
+  <div class="headertitle"><div class="title">pins.c File Reference<div class="ingroups"><a class="el" href="a00518.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00530.html">Pins Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the generated driver header file for the System driver.  
+<p>This is the generated driver source file for PINS driver.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;../system.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00200_source.html">../system_types.h</a>&quot;</code><br />
-<code>#include &quot;../clock.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
 <code>#include &quot;../pins.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00050_source.html">../../adc/adc1.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00065_source.html">../../can/can1.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00080_source.html">../../clc/clc1.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00089_source.html">../../cmp/cmp1.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00092_source.html">../../cmp/cmp2.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00095_source.html">../../cmp/cmp3.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00110_source.html">../../crc/crc.h</a>&quot;</code><br />
-<code>#include &quot;../dmt.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00134_source.html">../../pwm_hs/pwm.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00209_source.html">../../timer/sccp1.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00128_source.html">../../pwm/sccp3.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00221_source.html">../../timer/tmr1.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00227_source.html">../../uart/uart1.h</a>&quot;</code><br />
-<code>#include &quot;../interrupt.h&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for system.c:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pins.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00192.svg" width="100%" height="588"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00192.svg" width="219" height="219"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00191_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga5e8391114a0cf91ac20002be25e3d352" id="r_ga5e8391114a0cf91ac20002be25e3d352"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00521.html#ga5e8391114a0cf91ac20002be25e3d352">SYSTEM_Initialize</a> (void)</td></tr>
-<tr class="memdesc:ga5e8391114a0cf91ac20002be25e3d352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the System module.  <br /></td></tr>
-<tr class="separator:ga5e8391114a0cf91ac20002be25e3d352"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6f767603dec823a33d6b0aceea97e27" id="r_gad6f767603dec823a33d6b0aceea97e27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00530.html#gad6f767603dec823a33d6b0aceea97e27">PINS_Initialize</a> (void)</td></tr>
+<tr class="memdesc:gad6f767603dec823a33d6b0aceea97e27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the PINS module.  <br /></td></tr>
+<tr class="separator:gad6f767603dec823a33d6b0aceea97e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>MAIN Generated Driver Header File</p>
-<dl class="section version"><dt>Version</dt><dd>Driver Version 1.0.1</dd></dl>
+<div class="textblock"><p>PINS Generated Driver Source File</p>
 <div class="fragment"></div><!-- fragment -->
-<p class="definition">Definition in file <a class="el" href="a00191_source.html">system.c</a>.</p>
+<p class="definition">Definition in file <a class="el" href="a00191_source.html">pins.c</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: State Machine</title>
+<title>Dual Active Bridge Development Board: UART Communication</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,397 +137,157 @@ $(document).ready(function(){initNavTree('a00492.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">State Machine<div class="ingroups"><a class="el" href="a00487.html">Device Layer</a> &raquo; <a class="el" href="a00488.html">Power Control</a></div></div></div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle"><div class="title">UART Communication<div class="ingroups"><a class="el" href="a00489.html">Communication Layer</a> &raquo; <a class="el" href="a00490.html">Power Board Visualizer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains the state machine of the power control.  
+<p>This is where the framing/deframing and transmission happens for UART frames.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for State Machine:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for UART Communication:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00492.svg" width="267" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00492.svg" width="364" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00386" id="r_a00386"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html">dev_pwrctrl_sm.c</a></td></tr>
-<tr class="memdesc:a00386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains power control state machine functions that is executed every 100us. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00629.html">UART_MSG_RX_OBJ</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART msg receive object.  <a href="a00629.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html">UART_MSG_TX_OBJ</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART msg Transmit object.  <a href="a00633.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00741.html">PBV_UART_Object_TX</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART object for numeric tx.  <a href="a00741.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00745.html">PBV_UART_Object_RX</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART object for numeric rx.  <a href="a00745.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00749.html">PBV_UART_Object_ASCII</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART object for ascii tx.  <a href="a00749.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gaebef55c78d9df043c293ffcf8a06b63f" id="r_gaebef55c78d9df043c293ffcf8a06b63f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#gaebef55c78d9df043c293ffcf8a06b63f">Dev_PwrCtrl_StateMachine</a> (<a class="el" href="a00711.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:gaebef55c78d9df043c293ffcf8a06b63f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages the power control state machine.  <br /></td></tr>
-<tr class="separator:gaebef55c78d9df043c293ffcf8a06b63f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8307344d190a5459682d315fc7bfe198" id="r_ga8307344d190a5459682d315fc7bfe198"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#ga8307344d190a5459682d315fc7bfe198">PCS_INIT_handler</a> (<a class="el" href="a00711.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:ga8307344d190a5459682d315fc7bfe198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes function for initialze state machine.  <br /></td></tr>
-<tr class="separator:ga8307344d190a5459682d315fc7bfe198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaad6ef2378120876a621b349c1380aef7" id="r_gaad6ef2378120876a621b349c1380aef7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#gaad6ef2378120876a621b349c1380aef7">PCS_WAIT_IF_FAULT_ACTIVE_handler</a> (<a class="el" href="a00711.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:gaad6ef2378120876a621b349c1380aef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the fault handler state machine.  <br /></td></tr>
-<tr class="separator:gaad6ef2378120876a621b349c1380aef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga42f7c8f65745b2f81bb6dbd381ea8121" id="r_ga42f7c8f65745b2f81bb6dbd381ea8121"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#ga42f7c8f65745b2f81bb6dbd381ea8121">PCS_STANDBY_handler</a> (<a class="el" href="a00711.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:ga42f7c8f65745b2f81bb6dbd381ea8121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes Standby State machine.  <br /></td></tr>
-<tr class="separator:ga42f7c8f65745b2f81bb6dbd381ea8121"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabda6b853bb6547821acd0ec87e0a4842" id="r_gabda6b853bb6547821acd0ec87e0a4842"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#gabda6b853bb6547821acd0ec87e0a4842">PCS_SOFT_START_handler</a> (<a class="el" href="a00711.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:gabda6b853bb6547821acd0ec87e0a4842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power control soft start state machine.  <br /></td></tr>
-<tr class="separator:gabda6b853bb6547821acd0ec87e0a4842"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8752fbb48416e60141e205f1cbda0f98" id="r_ga8752fbb48416e60141e205f1cbda0f98"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#ga8752fbb48416e60141e205f1cbda0f98">PCS_UP_AND_RUNNING_handler</a> (<a class="el" href="a00711.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:ga8752fbb48416e60141e205f1cbda0f98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the Online state.  <br /></td></tr>
-<tr class="separator:ga8752fbb48416e60141e205f1cbda0f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga89ec53d01888c9648d6e9588e5be082f" id="r_ga89ec53d01888c9648d6e9588e5be082f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#ga89ec53d01888c9648d6e9588e5be082f">Dev_PwrCtrl_Reset</a> (<a class="el" href="a00711.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:ga89ec53d01888c9648d6e9588e5be082f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the power control properties.  <br /></td></tr>
-<tr class="separator:ga89ec53d01888c9648d6e9588e5be082f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ga955beef6a0717d0cee4e6bf929d60175" id="r_ga955beef6a0717d0cee4e6bf929d60175"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#ga955beef6a0717d0cee4e6bf929d60175">PBV_CRC_POLYNOM</a>&#160;&#160;&#160;0x8005</td></tr>
+<tr class="memdesc:ga955beef6a0717d0cee4e6bf929d60175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard PBV CRC Polynomial. For documentation, as it is not used in calculation in this file.  <br /></td></tr>
+<tr class="separator:ga955beef6a0717d0cee4e6bf929d60175"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab7226cbc4f89e6bf061b82459118b9b3" id="r_gab7226cbc4f89e6bf061b82459118b9b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#gab7226cbc4f89e6bf061b82459118b9b3">PBV_CRC_POLYNOM_REV</a>&#160;&#160;&#160;0xA001</td></tr>
+<tr class="memdesc:gab7226cbc4f89e6bf061b82459118b9b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reversed polynomial. needed for odd byte in the data stream.  <br /></td></tr>
+<tr class="separator:gab7226cbc4f89e6bf061b82459118b9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39ec59e3bcf1e885dd4628be4c4a051d" id="r_ga39ec59e3bcf1e885dd4628be4c4a051d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#ga39ec59e3bcf1e885dd4628be4c4a051d">PBV_ReadyToSend</a>&#160;&#160;&#160;<a class="el" href="a00536.html#gae2fc49fa99787bc951e12bd840b1248c">UART1_IsTxReady</a></td></tr>
+<tr class="memdesc:ga39ec59e3bcf1e885dd4628be4c4a051d"><td class="mdescLeft">&#160;</td><td class="mdescRight">linking functions with UART mcc driver functions  <br /></td></tr>
+<tr class="separator:ga39ec59e3bcf1e885dd4628be4c4a051d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae27af64e723989f0d2ac43575064cac5" id="r_gae27af64e723989f0d2ac43575064cac5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#gae27af64e723989f0d2ac43575064cac5">PBV_Write</a>&#160;&#160;&#160;<a class="el" href="a00536.html#ga6be5aaf3406104a362f3a3438dafe83c">UART1_Write</a></td></tr>
+<tr class="memdesc:gae27af64e723989f0d2ac43575064cac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">linking functions with UART mcc driver functions  <br /></td></tr>
+<tr class="separator:gae27af64e723989f0d2ac43575064cac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaefb5d870608d2bb16fc82ca118733f56" id="r_gaefb5d870608d2bb16fc82ca118733f56"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#gaefb5d870608d2bb16fc82ca118733f56">PBV_IsRxReady</a>&#160;&#160;&#160;<a class="el" href="a00536.html#ga35ebdf043c6e4995ff711ebc13954861">UART1_IsRxReady</a></td></tr>
+<tr class="memdesc:gaefb5d870608d2bb16fc82ca118733f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">linking functions with UART mcc driver functions  <br /></td></tr>
+<tr class="separator:gaefb5d870608d2bb16fc82ca118733f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6abe24371a852499c00404df02e28b3" id="r_gad6abe24371a852499c00404df02e28b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html#gad6abe24371a852499c00404df02e28b3">PBV_Read</a>&#160;&#160;&#160;<a class="el" href="a00536.html#ga4e34071aa3125eb037bd6ae844c7ffbb">UART1_Read</a></td></tr>
+<tr class="memdesc:gad6abe24371a852499c00404df02e28b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">linking functions with UART mcc driver functions  <br /></td></tr>
+<tr class="separator:gad6abe24371a852499c00404df02e28b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document covers the state machine execution. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ga89ec53d01888c9648d6e9588e5be082f" name="ga89ec53d01888c9648d6e9588e5be082f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga89ec53d01888c9648d6e9588e5be082f">&#9670;&#160;</a></span>Dev_PwrCtrl_Reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void Dev_PwrCtrl_Reset </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00711.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function resets the power control properties including the PWM properties and control loop references. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00386_source.html#l00345">345</a> of file <a class="el" href="a00386_source.html">dev_pwrctrl_sm.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00492_ga89ec53d01888c9648d6e9588e5be082f_cgraph.svg" width="364" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00492_ga89ec53d01888c9648d6e9588e5be082f_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="gaebef55c78d9df043c293ffcf8a06b63f" name="gaebef55c78d9df043c293ffcf8a06b63f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaebef55c78d9df043c293ffcf8a06b63f">&#9670;&#160;</a></span>Dev_PwrCtrl_StateMachine()</h2>
+<p>This is where the framing/deframing and transmission happens for UART frames. The fundamental difference between this and CAN-FD frames is that CAN-FD defines a strategy for framing and deframing data, and PBV follows that strategy. UART is a point to point byte by byte transfer of data. To build a frame on top of it, another layer is needed where the data is framed/deframed and trasnmitted. It defines an additional statemachine </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga955beef6a0717d0cee4e6bf929d60175" name="ga955beef6a0717d0cee4e6bf929d60175"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga955beef6a0717d0cee4e6bf929d60175">&#9670;&#160;</a></span>PBV_CRC_POLYNOM</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_PwrCtrl_StateMachine </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00711.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
+          <td class="memname">#define PBV_CRC_POLYNOM&#160;&#160;&#160;0x8005</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function manages the state machine of the converter. There are five states in this function as follows:</p><ul>
-<li>STATE_INITIALIZE - This state resets the conditional flag bits, ensures PWM output is disabled and run the initial current calibration offset.</li>
-<li>STATE_FAULT_DETECTION - This state checks if there is fault event that occurred.</li>
-<li>STATE_STANDBY This state waits until there is no fault event that has occurred and when the power control enable bit is set.</li>
-<li>STATE_SOFT_START - This state gradually ramps up the references of the power control. The control loop references are gradually incremented until in reached the desired power control reference.</li>
-<li>STATE_ONLINE - This state keeps checks if there is fault event that occurred, if power control Enable has been disabled and if there is changes in the power control references. </li>
-</ul>
 
-<p class="definition">Definition at line <a class="el" href="a00386_source.html#l00073">73</a> of file <a class="el" href="a00386_source.html">dev_pwrctrl_sm.c</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00492_gaebef55c78d9df043c293ffcf8a06b63f_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00492_gaebef55c78d9df043c293ffcf8a06b63f_icgraph.svg" width="588" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00266_source.html#l00045">45</a> of file <a class="el" href="a00266_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="ga8307344d190a5459682d315fc7bfe198" name="ga8307344d190a5459682d315fc7bfe198"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8307344d190a5459682d315fc7bfe198">&#9670;&#160;</a></span>PCS_INIT_handler()</h2>
+<a id="gab7226cbc4f89e6bf061b82459118b9b3" name="gab7226cbc4f89e6bf061b82459118b9b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab7226cbc4f89e6bf061b82459118b9b3">&#9670;&#160;</a></span>PBV_CRC_POLYNOM_REV</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void PCS_INIT_handler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00711.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
+          <td class="memname">#define PBV_CRC_POLYNOM_REV&#160;&#160;&#160;0xA001</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function resets the conditional flag bits, ensures PWM output is disabled and run the initial current calibration offset. After this, the state machine moves to checking the fault handler. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00386_source.html#l00113">113</a> of file <a class="el" href="a00386_source.html">dev_pwrctrl_sm.c</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00492_ga8307344d190a5459682d315fc7bfe198_cgraph.svg" width="619" height="323"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00492_ga8307344d190a5459682d315fc7bfe198_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00266_source.html#l00052">52</a> of file <a class="el" href="a00266_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="gabda6b853bb6547821acd0ec87e0a4842" name="gabda6b853bb6547821acd0ec87e0a4842"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabda6b853bb6547821acd0ec87e0a4842">&#9670;&#160;</a></span>PCS_SOFT_START_handler()</h2>
+<a id="gaefb5d870608d2bb16fc82ca118733f56" name="gaefb5d870608d2bb16fc82ca118733f56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaefb5d870608d2bb16fc82ca118733f56">&#9670;&#160;</a></span>PBV_IsRxReady</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void PCS_SOFT_START_handler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00711.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
+          <td class="memname">#define PBV_IsRxReady&#160;&#160;&#160;<a class="el" href="a00536.html#ga35ebdf043c6e4995ff711ebc13954861">UART1_IsRxReady</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function gradually ramps up the references of the power control. The control loop references are gradually incremented until in reached the desired power control reference. When this is achieved, the next state will <br  />
- be assigned to STATE_ONLINE. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00386_source.html#l00242">242</a> of file <a class="el" href="a00386_source.html">dev_pwrctrl_sm.c</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00492_gabda6b853bb6547821acd0ec87e0a4842_cgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00492_gabda6b853bb6547821acd0ec87e0a4842_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00266_source.html#l00073">73</a> of file <a class="el" href="a00266_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="ga42f7c8f65745b2f81bb6dbd381ea8121" name="ga42f7c8f65745b2f81bb6dbd381ea8121"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga42f7c8f65745b2f81bb6dbd381ea8121">&#9670;&#160;</a></span>PCS_STANDBY_handler()</h2>
+<a id="gad6abe24371a852499c00404df02e28b3" name="gad6abe24371a852499c00404df02e28b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad6abe24371a852499c00404df02e28b3">&#9670;&#160;</a></span>PBV_Read</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void PCS_STANDBY_handler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00711.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
+          <td class="memname">#define PBV_Read&#160;&#160;&#160;<a class="el" href="a00536.html#ga4e34071aa3125eb037bd6ae844c7ffbb">UART1_Read</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function waits until there is no fault event that has occurred and when the power control enable bit is set. When Enable bit is set, <br  />
- reset the fault objects status bits, reset PWM control settings, enable the power control running bit, enable PWM physical output, initialize control loop references and then move to the next state STATE_SOFT_START.</p>
-<dl class="section note"><dt>Note</dt><dd>In this application the power control enable bit is controlled externally by Power Board Visualizer. <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00386_source.html#l00179">179</a> of file <a class="el" href="a00386_source.html">dev_pwrctrl_sm.c</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00492_ga42f7c8f65745b2f81bb6dbd381ea8121_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00492_ga42f7c8f65745b2f81bb6dbd381ea8121_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00266_source.html#l00080">80</a> of file <a class="el" href="a00266_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="ga8752fbb48416e60141e205f1cbda0f98" name="ga8752fbb48416e60141e205f1cbda0f98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8752fbb48416e60141e205f1cbda0f98">&#9670;&#160;</a></span>PCS_UP_AND_RUNNING_handler()</h2>
+<a id="ga39ec59e3bcf1e885dd4628be4c4a051d" name="ga39ec59e3bcf1e885dd4628be4c4a051d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga39ec59e3bcf1e885dd4628be4c4a051d">&#9670;&#160;</a></span>PBV_ReadyToSend</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void PCS_UP_AND_RUNNING_handler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00711.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
+          <td class="memname">#define PBV_ReadyToSend&#160;&#160;&#160;<a class="el" href="a00536.html#gae2fc49fa99787bc951e12bd840b1248c">UART1_IsTxReady</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function keeps checks if there is fault event that occurred, if power control Enable has been disabled and if there is changes in the power control references. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00386_source.html#l00293">293</a> of file <a class="el" href="a00386_source.html">dev_pwrctrl_sm.c</a>.</p>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00492_ga8752fbb48416e60141e205f1cbda0f98_cgraph.svg" width="662" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00492_ga8752fbb48416e60141e205f1cbda0f98_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00266_source.html#l00059">59</a> of file <a class="el" href="a00266_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="gaad6ef2378120876a621b349c1380aef7" name="gaad6ef2378120876a621b349c1380aef7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaad6ef2378120876a621b349c1380aef7">&#9670;&#160;</a></span>PCS_WAIT_IF_FAULT_ACTIVE_handler()</h2>
+<a id="gae27af64e723989f0d2ac43575064cac5" name="gae27af64e723989f0d2ac43575064cac5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae27af64e723989f0d2ac43575064cac5">&#9670;&#160;</a></span>PBV_Write</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void PCS_WAIT_IF_FAULT_ACTIVE_handler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00711.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
+          <td class="memname">#define PBV_Write&#160;&#160;&#160;<a class="el" href="a00536.html#ga6be5aaf3406104a362f3a3438dafe83c">UART1_Write</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function checks if there is fault event that occurred. When there is no fault event, the state machine moves to StandBy state. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00386_source.html#l00154">154</a> of file <a class="el" href="a00386_source.html">dev_pwrctrl_sm.c</a>.</p>
-<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00492_gaad6ef2378120876a621b349c1380aef7_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00266_source.html#l00066">66</a> of file <a class="el" href="a00266_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>

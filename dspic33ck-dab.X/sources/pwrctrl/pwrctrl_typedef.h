@@ -19,8 +19,8 @@
  * TERMS. 
  */
 /**
- * @file dev_pwrctrl_typedefs.h     
- * @ingroup dev-pwrctrl-data-types   
+ * @file pwrctrl_typedefs.h     
+ * @ingroup pwrctrl-data-types   
  * @brief Contains the power control data structure.    
  */
 
@@ -30,7 +30,7 @@
 #include "fault/fault_typedef.h"
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-data-types
+ * @ingroup pwrctrl-data-types
  * @brief   Enumeration of power controller state machine states
  * @details
  * These are all of the states for the power controller state machine
@@ -46,7 +46,7 @@ enum  PWR_CTRL_STATES_e
 typedef enum PWR_CTRL_STATES_e PWR_CTRL_STATE_t;
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-data-types
+ * @ingroup pwrctrl-data-types
  * @brief   Power converter switch-node specifications
  * @details
  *   This data structure is used to set the converter switch-node specifications declaring which
@@ -68,7 +68,7 @@ struct SWITCH_NODE_s
 typedef struct SWITCH_NODE_s SWITCH_NODE_t;
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-data-types
+ * @ingroup pwrctrl-data-types
  * @brief   Publicly accessible data buffer of most recent runtime data values
  * @details
  *   This data structure is used to store the feedback values of the most 
@@ -90,7 +90,7 @@ struct FEEDBACK_SETTINGS_s
 typedef struct FEEDBACK_SETTINGS_s FEEDBACK_SETTINGS_t;
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-data-types
+ * @ingroup pwrctrl-data-types
  * @brief Power converter status flags
  * @details
  *      This data structure is used to indicate when the there is a fault or
@@ -109,7 +109,7 @@ struct STATUS_FLAGS_s {
 typedef struct STATUS_FLAGS_s STATUS_FLAGS_t;
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-data-types
+ * @ingroup pwrctrl-data-types
  * @brief Stores data related to the ramping up/down of the reference
  * @details This data structure manages the ramping up/down of the reference depending 
  *  on the target. "reference" is the actual reference currently being used while
@@ -128,7 +128,7 @@ typedef struct START_UP_RAMP_s START_UP_RAMP_t;
 
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-data-types
+ * @ingroup pwrctrl-data-types
  * @brief Stores data related to the control loop properties
  * @details This data structure manages the control loop properties. The 
  * "output" is the output of the controller, "reference" is the actual reference 
@@ -146,7 +146,7 @@ struct CONTROLLER_s
 typedef struct CONTROLLER_s CONTROLLER_t;
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-data-types
+ * @ingroup pwrctrl-data-types
  * @brief   Enumeration of power controller charging state
  * @details
  * These is the enumeration of the DAB's charging state
@@ -159,7 +159,7 @@ enum  PWR_CTRL_CHARGE_STATE_e
 typedef enum PWR_CTRL_CHARGE_STATE_e PWR_CTRL_CHARGE_STATE_t;
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-data-types
+ * @ingroup pwrctrl-data-types
  * @brief   Collection of power control properties
  * @details This data structure can be use to initialize the desired output voltage,
  *  current and power. THe bits like charging state and if the power supply 
@@ -179,7 +179,7 @@ struct PWR_CTRL_PROPERTIES_s
 typedef struct PWR_CTRL_PROPERTIES_s PWR_CTRL_PROPERTIES_t;  
 
 /***********************************************************************************
- * @ingroup dev-pwrctrl-data-types
+ * @ingroup pwrctrl-data-types
  * @brief   Power control API structure
  * @details This data structure contains all the properties of the power control.  
  ***********************************************************************************/

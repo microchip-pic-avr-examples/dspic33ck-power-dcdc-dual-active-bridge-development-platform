@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/device/pwrctrl/dcdt/smps_3p3z_dspic.s Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/fault/fault.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,361 +136,292 @@ $(document).ready(function(){initNavTree('a00350_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">smps_3p3z_dspic.s</div></div>
+  <div class="headertitle"><div class="title">fault.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span>; (c) 2013 Microchip Technology Inc.</div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span>;</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>; MICROCHIP SOFTWARE NOTICE AND DISCLAIMER:  You may use this software, and any</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>; derivatives created by any person or entity by or on your behalf, exclusively with</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>; Microchip?s products.  Microchip and its licensors retain all ownership and intellectual</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>; property rights in the accompanying software and in all derivatives here to.</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>; This software and any accompanying information is for suggestion only.  It does not</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>; modify Microchip?s standard warranty for its products.  You agree that you are solely</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>; responsible for testing the software and determining its suitability.  Microchip has</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>; no obligation to modify, test, certify, or support the software.</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>; THIS SOFTWARE IS SUPPLIED BY MICROCHIP &quot;AS IS&quot;.  NO WARRANTIES, WHETHER EXPRESS, IMPLIED</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>; OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF NON-INFRINGEMENT,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>; MERCHANTABILITY, AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE, ITS INTERACTION</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>; WITH MICROCHIP?S PRODUCTS, COMBINATION WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>; IN NO EVENT, WILL MICROCHIP BE LIABLE, WHETHER IN CONTRACT, WARRANTY, TORT</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>; (INCLUDING NEGLIGENCE OR BREACH OF STATUTORY DUTY), STRICT LIABILITY, INDEMNITY,</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>; CONTRIBUTION, OR OTHERWISE, FOR ANY INDIRECT, SPECIAL, PUNITIVE, EXEMPLARY, INCIDENTAL</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>; OR CONSEQUENTIAL LOSS, DAMAGE, FOR COST OR EXPENSE OF ANY KIND WHATSOEVER RELATED TO THE</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>; SOFTWARE, HOWSOEVER CAUSED, EVEN IF MICROCHIP HAS BEEN ADVISED OF THE POSSIBILITY OR</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>; THE DAMAGES ARE FORESEEABLE.  TO THE FULLEST EXTENT ALLOWABLE BY LAW, MICROCHIP&#39;S TOTAL</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>; LIABILITY ON ALL CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>; IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>; MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE TERMS.</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>; Local inclusions.</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    .nolist</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    .list</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>; Define data structure address offsets</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    .equ    offsetACoefficients,    0</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    .equ    offsetBCoefficients,    2</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    .equ    offsetControlHistory,   4</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    .equ    offsetErrorHistory,     6</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    .equ    offsetPreShift,     8</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    .equ    offsetPostShift,        10</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    .equ    offsetPostScaler,   12</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    .equ    offsetMinOutput,        14</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    .equ    offsetMaxOutput,        16</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<a href="a00350.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">    (c) 2024 Microchip Technology Inc. and its subsidiaries. You may use this</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">    software and any derivatives exclusively with Microchip products.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">    THIS SOFTWARE IS SUPPLIED BY MICROCHIP &quot;AS IS&quot;. NO WARRANTIES, WHETHER</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"></span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP&#39;S TOTAL LIABILITY ON ALL CLAIMS IN</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">    TERMS.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;xc.h&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;<a class="code" href="a00095.html">cmp/cmp1.h</a>&quot;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;<a class="code" href="a00101.html">cmp/cmp3.h</a>&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;<a class="code" href="a00140.html">pwm_hs/pwm.h</a>&quot;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;system/pins.h&quot;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;config/macros.h&quot;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;<a class="code" href="a00290.html">device/device.h</a>&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;pwrctrl/pwrctrl.h&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &quot;<a class="code" href="a00359.html">fault_common.h</a>&quot;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &quot;<a class="code" href="a00353.html">fault.h</a>&quot;</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &quot;<a class="code" href="a00365.html">fault_comm_interface.h</a>&quot;</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">// PRIVATE FUNCTIONS</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00515.html#gaa8479905c2a8b34126d4fe56c1882b1b">Fault_EnableShortCircuitProtection</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> ;     .section .libdsp, code       ; use this section type when used as hidden library file</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>       .section .text           ; use this section type for debugging</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>; _SMPS_Controller3P3ZUpdate:</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>; Prototype:</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>;   void SMPS_Controller3P3ZUpdate(SMPS_3P3Z_T* controllerData,</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>;                                  volatile uint16_t* controllerInputRegister,</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>;                                  int16_t reference,</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>;                                  volatile uint16_t* controllerOutputRegister);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>; Operation:</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>;                                          Wcp0   ( S + Wcz1 )( S + Wcz2 )</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>;  Calculate the transfer function Hc(s) = ---- X ------------------------</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>;                                           S     ( S + Wcp1 )( S + Wcp2 )</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>;    Error Normalization</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>;      ------------</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>;     |   prsft    |</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>;      ------------</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>;Reference   |       e(n)          e(n-1)        e(n-2)        e(n-3)</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>;Input       |             --------      --------      --------</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>;        -   -   -        |        |    |        |    |        |</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>;  o----|-|-|x|-|x|----o-&gt;| z^(-1) |-o-&gt;| z^(-1) |-o-&gt;| z^(-1) |--o       Post</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>;        -   -   -     |  |        | |  |        | |  |        |  |      Scaling</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>;        |      NORM   |   --------  |   --------  |   --------   |</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>;        |             |             |             |              |       --------</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>;Measured|            ---           ---           ---            ---     |        |   - - - - - - - - - -</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>;Input   |       B0=&gt;| X |     B1=&gt;| X |     B2=&gt;| X |      B3=&gt;| X |    |posft   |  |                   |</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>;        |            ---           ---           ---            ---     |postScalar |     P O W E R     |</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>;        |             |             |             |              |       --------   |     P L A N T     |</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>;        |            ----------------------------------------------        |        |                   |</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>;        |           |                                              | U[n] ---       |                   |</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>;        |           |            A C C U M U L A T O R             |--o--| X |------O Duty Ratio=&gt;PWM   |</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>;        |           |                                              |  |   ---       |                   |</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>;        |            ----------------------------------------------   |             |   Voltage/Current |</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>;        |             |              |             |                  |             |      Feedback     |</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>;        |            ---            ---           ---                 |             |         O         |</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>;        |       A3=&gt;| X |      A2=&gt;| X |     A1=&gt;| X |                |             |         |         |</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>;        |            ---            ---           ---                 |              - - - - - - - - - -</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>;        |             |              |             |                  |                       |</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>;        |             |   --------   |  --------   |  --------        |                       | A/D</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>;        |             |  |        |  | |        |  | |        |       |                       | Input</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>;        |             o--| z^(-1) |&lt;-o-| z^(-1) |&lt;-o-| z^(-1) |-------                        |</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>;        |                |        |    |        |    |        |                               |</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>;        |                 --------      --------      --------                                |</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>;        |                  u[n-3]        u[n-2]        u[n-1]                                 |</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>;        |                                                                                     |</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>;        |                                                                                     |</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>;         -------------------------------------------------------------------------------------</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>;   controlHistory[n] =</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>;                   (   errorHistory[n]   * bCoefficients[0]</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>;                     + errorHistory[n-1] * bCoefficients[1]</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>;                     + errorHistory[n-2] * bCoefficients[2]</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>;                     + errorHistory[n-3] * bCoefficients[3]</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>;                     + controlHistory[n-1] * aCoefficients[0]</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>;                     + controlHistory[n-2] * aCoefficients[1]</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>;                     + controlHistory[n-3] * aCoefficients[2]</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>;                   )</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>;  where:</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>;   aCoefficients[0]  = A1</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>;   aCoefficients[1]  = A2</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>;   aCoefficients[2]  = A3</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>;   bCoefficients[0]  = B0</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>;   bCoefficients[1]  = B1</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>;   bCoefficients[2]  = B2</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>;   bCoefficients[3]  = B3</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>;   controlHistory[0] = u(n)</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>;   controlHistory[1] = u(n-1)</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>;   controlHistory[2] = u(n-2)</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>;   errorHistory[0]   = e(n)    =&gt; most recent error {(Reference) - (inputSource)}</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>;   errorHistory[1]   = e(n-1)</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>;   errorHistory[2]   = e(n-2)</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>;   errorHistory[3]   = e(n-3)</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>;   preShift          = prsft   =&gt; pre scaling factor for Q15 normalization purposes</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>;   postShift         = posft   =&gt; post scaling factor for normalization purposes</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>;   postScaler        = postScaler =&gt; post scaling coefficient for normalization purpose</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>;   Function call inputs:</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>;   sourceRegister    = ADBUFx  =&gt; measured feedback input</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>;   controlReference  = v_ref   =&gt; reference voltage</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>;   targetRegister = PDCx =&gt; output duty cycle</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>;</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>;  where:</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>;</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>;   aCoefficients, bCoefficients, controlHistory, errorHistory,</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>;   preShift and postShift are all members of the data structure SMPS_3P3Z_T.</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>; Input:</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>;       w0 = Address of SMPS_3P3Z_T data structure</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>;       w1 = Address of the Source Register (Input)</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>;       w2 = Control Reference</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>;       w3 = Address of the Target Register (Output)</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>; Return:</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>;       w0 = Address of SMPS_3P3Z_T data structure</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>;       w1 = Address of the Source Register (Input)</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>;       w2 = Control Reference</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>;       w3 = Address of the Target Register (Output)</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>; System resources usage:</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>;       {w4..w5}        saved, used, restored</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>;       {w8,w10}        saved, used, restored</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>;        AccA           used, not restored</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>;        CORCON         saved, used, restored</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>; Note</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>;  This function requires CORCON register to be setup in a certain state</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>;  in order to operate correctly. Due to this requirement, this function</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>;  will save the CORCON register on the stack in the beginning of the</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>;  function and restore it before the function return.</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>;  After saving the CORCON register, this function writes to all bits of</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>;  the CORCON register. Thus, for the brief duration when this function is</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>;  executing, the state of CORCON register may be different from its state</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>;  as set by the function caller. This may change the CPU core behaviour with</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>;  respect to exception processing latency, DO loop termination, CPU interrupt</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>;  priority level and DSP-engine behaviour.</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>;............................................................................</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>       .global _SMPS_Controller3P3ZUpdate           ; provide global scope to routine</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>_SMPS_Controller3P3ZUpdate:</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        ; Save working registers.</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        push    w4                      ; Save register W4</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        push    w5                      ; Save register W5</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        push    w8                      ; Save register W8</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        push    w10                     ; Save register W10</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        push    CORCON                      ; Save CORCON as it will be modified for fractional computation</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        ; Set up DSP core for signed fractional operation, saturation on accumulator A</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        ; and for write-back instructions from ACCx to WREGx,</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        ; accumulator saturation mode is 1.31</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        mov  #0x00A0, w4                    ; Load literal value 0x00A0 to CORCON register: 0b 0000 0000 1010 0000</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        mov  w4, _CORCON</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>        ; Initialize source input, reference, error history and normalization variables</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        mov [w0 + #offsetErrorHistory], w10         ; w10 = Base Address of _ErrorHistory array  (e[n], e[n-1], e[n-2], e[n-3])</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        mov [w0 + #offsetPreShift], w8              ; Load error amplifier normalization bit-shift step</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        ; Update the error history</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        mov     [w10 + #4], w5              ; W5 = ErrorHistory[n-2]</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        mov     w5, [w10 + #6]              ; ErrorHistory[n-3] = W5</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        mov     [w10 + #2], w5              ; W5 = ErrorHistory[n-1]</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        mov     w5, [w10 + #4]              ; ErrorHistory[n-2] = W5</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        mov     [w10 + #0], w5              ; W5 = ErrorHistory[n]</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        mov     w5, [w10 + #2]              ; ErrorHistory[n-1] = W5</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        ; Calculate most recent error with normalization,</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        sub w2, [w1], w5                        ; w5 = Reference - inputSource</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        sl  w5, w8, w5              ; shift error by PRE_SHIFT bit to the left (Q15 scaling)</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        ; Store most recent error to error history array</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        mov     w5, [w10]               ; controller3P3Z.errorHistory[n] = w5</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        ; Initialize B coefficients array</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        mov [w0 + #offsetBCoefficients], w8         ; w8  = Base Address of _BCoefficients array (B0, B1, B2, B3)</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        ; Calculate first section of 2P2Z controller -&gt; Error History</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        clr     a, [w8]+=2, w4, [w10]+=2, w5            ; ACCA = EMPTY</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                                    ; w4   = B0, w5   = e[0]</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        mac     w4*w5, a, [w8]+=2, w4, [w10]+=2, w5     ; ACCA = B0 * e[n]</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                                ; w4   = B1, w5 = e[n-1]</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        mac     w4*w5, a, [w8]+=2, w4, [w10]+=2, w5     ; ACCA = B0 * e[n] + B1 * e[n-1]</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                                ; w4   = B2, w5 = e[n-2]</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        mac     w4*w5, a, [w8]+=2, w4, [w10]+=2, w5     ; ACCA = B0 * e[n] + B1 * e[n-1] + B2 * e[n-2]</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                                ; w4   = B3, w5 = e[n-3]</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        mac     w4*w5, a                    ; ACCA = B0 * e[n] + B1 * e[n-1] + B2 * e[n-2] + B3 * e[n-3]</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    ; Initialize A coefficients and control history arrays</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        mov     [w0 + #offsetACoefficients],  w8    ; w8  = Base Address of _ACoefficients array  (A1, A2, A3)</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        mov     [w0 + #offsetControlHistory], w10   ; w10 = Base Address of _ControlHistory array (y[n-1], y[n-2], y[n-3])</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        ; Calculate second section of 2P2Z controller - Controller History</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        movsac  a, [w8]+=2, w4, [w10]+=2, w5        ; w4  = A1, w5 = y[n-1]</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        mac     w4*w5, a, [w8]+=2, w4, [w10]+=2, w5     ; ACCA = A1 * y[n-1] + B0 * e[n] + B1 * e[n-1] + B2 * e[n-2] + B3 * e[n-3]</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                                ; w4   = A2, w5 = y[n-2]</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        mac     w4*w5, a, [w8], w4, [w10], w5           ; ACCA = A1 * y[n-1] + A2 * y[n-2] + B0 * e[n] + B1 * e[n-1] + B2 * e[n-2] + B3 * e[n-3]</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                                ; w4   = A3, w5 = y[n-3]</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        mac     w4*w5, a                ; ACCA = A1 * y[n-1] + A2 * y[n-2] + A3 * y[n-3] + B0 * e[n] + B1 * e[n-1] + B2 * e[n-2] + B3 * e[n-3]</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        ; Initialize Scale-factor and multiply</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        sac.r   a, w4                                   ; w4 = Sat(Rnd(ACCAH))</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        mov     [w0 + #offsetPostScaler],  w5       ; w5 = postScaler</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        mpy w4*w5, a                ; Multiply control output and scale-factor</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        ; Backwards normalization &amp; write back</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        mov [w0 + #offsetPostShift], w5     ; w5 = Normalization Shift to compensate coefficient scaling</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        sftac   a, w5                   ; Backward normalization to compensate coefficient scaling</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        sac.r   a, #0, w4                               ; w4 = Sat(Rnd(ACCAH))</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        </div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                ; Clamp controller output to min/max values if needed</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>        mov     [w0 + #offsetMinOutput], w5</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    cpsgt   w4, w5</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        mov.w   w5, w4</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        mov     [w0 + #offsetMaxOutput], w5</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    cpslt   w4, w5</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        mov.w   w5, w4</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        </div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        ; Update the controller output history on the delay line</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>        mov     [w10 + #-2], w5             ; W5 = ControlHistory[n-2]</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        mov     w5, [w10]               ; ControlHistory[n-3] = W5</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        mov     [w10 + #-4], w5             ; W5 = ControlHistory[n-1]</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        mov     w5, [w10 + #-2]             ; ControlHistory[n-2] = W5</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        mov     w4, [w10 + #-4]             ; ControlHistory[n]   = w2</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>;       ; Clamp controller output to min/max values if needed</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>;        mov    [w0 + #offsetMinOutput], w5</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>;   cpsgt   w4, w5</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>;        mov.w   w5, w4</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>;        mov    [w0 + #offsetMaxOutput], w5</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>;   cpslt   w4, w5</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>;        mov.w   w5, w4</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        ; Controller write back into target register</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        mov w4, [w3]                    ; write result into target register</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        ; restore registers</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        pop     CORCON                      ; restore CORCON.</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        pop     w10                     ; restore working register W10</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        pop     w8                      ; restore working register W8</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        pop     w5                      ; restore working register W5</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        pop     w4                      ; restore working register W4</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>        return</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>; _SMPS_Controller3P3ZInitialize:</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>;</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>; Prototype:</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>; void SMPS_Controller3P3ZInitialize ( SMPS_3P3Z_T *controller3P3ZStruct )</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>;</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>; Operation: This routine clears the delay line elements in the arrays</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>;            _ControlHistory and _ErrorHistory.</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>;</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>; Input:</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>;       w0 = Address of data structure SMPS_3P3Z_T (type defined in smps_control.h)</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>;</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>; Return:</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>;       (void)</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>;</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>; System resources usage:</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>;       w0      saved, used, restored</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>;</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>;............................................................................</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    .global _SMPS_Controller3P3ZInitialize      ; provide global scope to routine</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>_SMPS_Controller3P3ZInitialize:</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        ; Clean up controlHistory variables</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        push    w0                  ; Save w0</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>        mov     [w0 + #offsetControlHistory], w0    ; Set up pointer to the base of</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>                                                ; controlHistory variables within SMPS_3P3Z_T</div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        clr     [w0++]                  ; ControlHistory[n-1] = 0</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        clr     [w0++]                  ; ControlHistory[n-2] = 0</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        clr     [w0]                    ; ControlHistory[n-3] = 0</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    pop w0                  ; Restore pointer to base of SMPS_3P3Z_T</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        ; Clean up errorHistory variables</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        push    w0                  ; Save w0</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        mov [w0 + #offsetErrorHistory], w0      ; w0 = Address of _ErrorHistory array (e[n], e[n-1], e[n-2], e[n-3])</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        clr     [w0++]                  ; ErrorHistory[n]   = 0</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        clr     [w0++]                  ; ErrorHistory[n-1] = 0</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        clr     [w0++]                  ; ErrorHistory[n-2] = 0</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        clr     [w0]                    ; ErrorHistory[n-3] = 0</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        pop     w0                  ; Restore pointer to base of SMPS_3P3Z_T</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        return</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        .end</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>; EOF</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="a00515.html#gaf27f2f24932cec222273df148f8765cb">   60</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00515.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">// Drive the fault pin to Low when Fault trips</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <a class="code hl_define" href="a00530.html#ga368d77dcce7f6c02a4a3c28f378832a3">FAULT_SetLow</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">// Turn off PWM output</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_function" href="a00508.html#ga79ec0c0e524a03b3a3d423308b89bb99">PwrCtrl_PWM_Disable</a>();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>     </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="comment">// set the fault active bit</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#ae5b4ae59c620ed360f0cb1c66ea0cd4e">Status</a>.<a class="code hl_variable" href="a00709.html#a8d28902dd676709c4c9f6053fd176b1d">bits</a>.<a class="code hl_variable" href="a00709.html#ab17555f3ee595c55c595050bf51ef37b">FaultActive</a> = 1;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">// clear the running bit</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#ae5b4ae59c620ed360f0cb1c66ea0cd4e">Status</a>.<a class="code hl_variable" href="a00709.html#a8d28902dd676709c4c9f6053fd176b1d">bits</a>.<a class="code hl_variable" href="a00709.html#aa54b2d19226054f61f2998337cebcb5a">Running</a> = 0;    </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
+</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="a00515.html#gaaa5a7a6dc7ce982dec4f07edcd73e874">   84</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00515.html#gaaa5a7a6dc7ce982dec4f07edcd73e874">Fault_Initialize</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>{</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="comment">// Initialize Primary Over Current Protection</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_function" href="a00516.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(&amp;<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a9aa55289e8d0d3f1cd2c1b979707653a">IPrimaryOCP</a>, <a class="code hl_define" href="a00477.html#gaf8034f2a9a60a8cab6eab35481d514d1">IPRI_OC_THRES_TRIG</a>, </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <a class="code hl_define" href="a00477.html#ga69d668edae652db23814a4d1bbf0c3f2">IPRI_OC_THRES_CLEAR</a>, <a class="code hl_define" href="a00477.html#gafb965e297429b01ecde0a9399f302d26">IPRI_OC_T_BLANK_TRIG</a>, <a class="code hl_define" href="a00477.html#gad15d6e4434542fae730a4c9b1981a82c">IPRI_OC_T_BLANK_CLEAR</a>); </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">// Initialize Secondary Over Current Protection</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <a class="code hl_function" href="a00516.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(&amp;<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a5c0ebb178553b28679126e15448f3680">ISecondaryOCP</a>, <a class="code hl_define" href="a00479.html#gac6376b7fb30da56ecf5719bad64079b7">ISEC_OC_THRES_TRIG</a>, </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <a class="code hl_define" href="a00479.html#ga2a0efa36638d988404f55a254a4c62fe">ISEC_OC_THRES_CLEAR</a>, <a class="code hl_define" href="a00479.html#gaf082faecd5f7c3303a4c765d8d8b0472">ISEC_OC_T_BLANK_TRIG</a>, <a class="code hl_define" href="a00479.html#ga5699b0f92b1002c48afde85f493ef541">ISEC_OC_T_BLANK_CLEAR</a>);  </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">// Initialize Primary Over Voltage Protection</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_function" href="a00516.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(&amp;<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a67a6d7934156a505fe648c5a895795ed">VPrimaryOVP</a>, <a class="code hl_define" href="a00473.html#ga3746b4dd49ef223031e563ac1621ac04">VPRI_OV_THRES_TRIG</a>, </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <a class="code hl_define" href="a00473.html#gaff26d74d808582c963415a071cdd5e0a">VPRI_OV_THRES_CLEAR</a>, <a class="code hl_define" href="a00473.html#ga1184157d3e57ef49b0e628fa46030981">VPRI_OV_T_BLANK_TRIG</a>, <a class="code hl_define" href="a00473.html#ga9a9b09ee6494d1465749a8e9fb0c8567">VPRI_OV_T_BLANK_CLEAR</a>);   </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">// Initialize Secondary Over Voltage Protection</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_function" href="a00516.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(&amp;<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a4a4096da1c84272a28022842417dc638">VSecondaryOVP</a>, <a class="code hl_define" href="a00475.html#ga2cedf2c418fcc28d45db230262989756">VSEC_OV_THRES_TRIG</a>, </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <a class="code hl_define" href="a00475.html#gacefdf0fe6bfec783e2318f5470f4aa2f">VSEC_OV_THRES_CLEAR</a>, <a class="code hl_define" href="a00475.html#ga5a408a256fc1b9b921330828dea28789">VSEC_OV_T_BLANK_TRIG</a>, <a class="code hl_define" href="a00475.html#gafa2427e85d2f9ac0723ed0ed23af656d">VSEC_OV_T_BLANK_CLEAR</a>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// Initialize 5V Rail instability Protection</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <a class="code hl_function" href="a00516.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(&amp;<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a0c6c9adf47adaed77dbc76be05305b1d">VRail_5V</a>, <a class="code hl_define" href="a00481.html#gae66c69a25a09bf23a8542f9e2ca4b016">VRAIL_5V_UV_THRES_TRIG</a>, </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            <a class="code hl_define" href="a00481.html#gaeffd832d63247c37746ec9a51023126f">VRAIL_5V_UV_THRES_CLEAR</a>, <a class="code hl_define" href="a00481.html#ga573c9325062416430b7fdc8f41a93988">VRAIL_5V_UV_T_BLANK_TRIG</a>, <a class="code hl_define" href="a00481.html#ga197548e0249065a587df067bb2b6bfb6">VRAIL_5V_UV_T_BLANK_CLEAR</a>);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="comment">// Initialize Over Temperature Protection</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_function" href="a00516.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(&amp;<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a480a8e0249740ab8759aeee1c804ba5c">PowerSupplyOTP</a>, MAX_TEMPERATURE_THRESHOLD_RAW,         </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            OVER_TEMP_UPPER_THRESHOLD_WITH_HYST,FAULT_PERSISTENCE_COUNT_TEMP, FAULT_PERSISTENCE_COUNT_TEMP); </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#if (FAULT_SHORT_CCT == true)</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="comment">// Initialize short circuit fault protection with comparators</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <a class="code hl_function" href="a00515.html#gaa8479905c2a8b34126d4fe56c1882b1b">Fault_EnableShortCircuitProtection</a>();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif </span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">// Hardware Fault Initialize</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <a class="code hl_function" href="a00523.html#gada13a4830178c3947f7df4fdfafc7d07">CMP1_EventCallbackRegister</a>(&amp;<a class="code hl_function" href="a00515.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a>);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <a class="code hl_function" href="a00523.html#ga0d7c1a0ccd35767078e0a677eff7e5d9">CMP3_EventCallbackRegister</a>(&amp;<a class="code hl_function" href="a00515.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>}</div>
+</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="foldopen" id="foldopen00129" data-start="{" data-end="}">
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="a00515.html#gacd1ca209275dae0bc2388ac954858d83">  129</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00515.html#gacd1ca209275dae0bc2388ac954858d83">Fault_Execute</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>{</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="comment">// secondary over current fault handler</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="preprocessor">    #if (FAULT_ISEC_OC)      </span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <a class="code hl_function" href="a00516.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a>(&amp;<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a5c0ebb178553b28679126e15448f3680">ISecondaryOCP</a>, <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a9961eac6798b52736528d9d4aa30d922">Data</a>.<a class="code hl_variable" href="a00705.html#ab69cdd1acf7db7e5e2521d1afe46d8f9">ISenseSecondary</a>, &amp;<a class="code hl_function" href="a00515.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a>);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="preprocessor">    #endif </span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="comment">// secondary over voltage fault handler</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">    #if (FAULT_VSEC_OV)            </span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <a class="code hl_function" href="a00516.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a>(&amp;<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a4a4096da1c84272a28022842417dc638">VSecondaryOVP</a>, <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a9961eac6798b52736528d9d4aa30d922">Data</a>.<a class="code hl_variable" href="a00705.html#a4e6e0db2e515990bc32d13435a75b50e">VSecVoltage</a>, &amp;<a class="code hl_function" href="a00515.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a>);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="preprocessor">    #endif    </span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="comment">// primary over current fault handler</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="preprocessor">    #if(FAULT_IPRI_OC)</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <a class="code hl_function" href="a00516.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a>(&amp;<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a9aa55289e8d0d3f1cd2c1b979707653a">IPrimaryOCP</a>, <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a9961eac6798b52736528d9d4aa30d922">Data</a>.<a class="code hl_variable" href="a00705.html#a4bb8d9e45d3b1791b7597c46356d6f7f">ISensePrimary</a>, &amp;<a class="code hl_function" href="a00515.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a>);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="preprocessor">    #endif </span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="comment">// primary over voltage fault handler</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="preprocessor">    #if (FAULT_VPRI_OV)      </span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <a class="code hl_function" href="a00516.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a>(&amp;<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a67a6d7934156a505fe648c5a895795ed">VPrimaryOVP</a>, <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a9961eac6798b52736528d9d4aa30d922">Data</a>.<a class="code hl_variable" href="a00705.html#a05578776f684221691f412d73de487ea">VPriVoltage</a>, &amp;<a class="code hl_function" href="a00515.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a>);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="preprocessor">    #endif  </span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="comment">// primary over voltage fault handler</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="preprocessor">    #if (FAULT_VRAIL_5V)                </span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <a class="code hl_function" href="a00516.html#gabe4788eb1b8be3ad755eb7daf6bba295">FAULT_CheckMin</a>(&amp;<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a0c6c9adf47adaed77dbc76be05305b1d">VRail_5V</a>, <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a9961eac6798b52736528d9d4aa30d922">Data</a>.<a class="code hl_variable" href="a00705.html#acc72d884c453d1343c8e836369311454">VRail_5V</a>, &amp;<a class="code hl_function" href="a00515.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a>);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">    #endif  </span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="comment">// Hardware short circuit</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="a00523.html#ga568e6ce9c8d08361412894ce59c8d1c2">CMP1_StatusGet</a>() || <a class="code hl_function" href="a00523.html#ga1f8da3d5ca79eeff2f2d0af0cfe7964a">CMP3_StatusGet</a>()){</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#af268179095dc26cb1a693ef5621c70c6">ISenseSCP</a>.<a class="code hl_variable" href="a00657.html#a1f8690ab82873811964f062a76d15fe7">FaultActive</a> = 1;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#af268179095dc26cb1a693ef5621c70c6">ISenseSCP</a>.<a class="code hl_variable" href="a00657.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> = 1;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#ae5b4ae59c620ed360f0cb1c66ea0cd4e">Status</a>.<a class="code hl_variable" href="a00709.html#a8d28902dd676709c4c9f6053fd176b1d">bits</a>.<a class="code hl_variable" href="a00709.html#ab17555f3ee595c55c595050bf51ef37b">FaultActive</a> = 1;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="comment">// Identify the fault that trips</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#ac82d4f674edd9ce4e697f25d9039a3e0">FaultDetected</a> = <a class="code hl_function" href="a00362.html#a525a7d54ffe10a34fc0de37c1d43aa6a">Fault_GetFlags</a>();</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>}</div>
+</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="foldopen" id="foldopen00176" data-start="{" data-end="}">
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="a00515.html#ga8ed0fee0d3aff71d49470aab1728a6ae">  176</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00515.html#ga8ed0fee0d3aff71d49470aab1728a6ae">Fault_Reset</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>{</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="comment">// Drive the fault pin to high to allow PWM signal drive</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <a class="code hl_define" href="a00530.html#gac99ec8d8525a9698c252ae0e5edb70f3">FAULT_SetHigh</a>();</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="comment">// Clear fault Objects FaultActive bit</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a67a6d7934156a505fe648c5a895795ed">VPrimaryOVP</a>.<a class="code hl_variable" href="a00657.html#a1f8690ab82873811964f062a76d15fe7">FaultActive</a> = 0;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a4a4096da1c84272a28022842417dc638">VSecondaryOVP</a>.<a class="code hl_variable" href="a00657.html#a1f8690ab82873811964f062a76d15fe7">FaultActive</a> = 0;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a9aa55289e8d0d3f1cd2c1b979707653a">IPrimaryOCP</a>.<a class="code hl_variable" href="a00657.html#a1f8690ab82873811964f062a76d15fe7">FaultActive</a> = 0;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a5c0ebb178553b28679126e15448f3680">ISecondaryOCP</a>.<a class="code hl_variable" href="a00657.html#a1f8690ab82873811964f062a76d15fe7">FaultActive</a> = 0;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#af268179095dc26cb1a693ef5621c70c6">ISenseSCP</a>.<a class="code hl_variable" href="a00657.html#a1f8690ab82873811964f062a76d15fe7">FaultActive</a> = 0;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a480a8e0249740ab8759aeee1c804ba5c">PowerSupplyOTP</a>.<a class="code hl_variable" href="a00657.html#a1f8690ab82873811964f062a76d15fe7">FaultActive</a> = 0;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a0c6c9adf47adaed77dbc76be05305b1d">VRail_5V</a>.<a class="code hl_variable" href="a00657.html#a1f8690ab82873811964f062a76d15fe7">FaultActive</a> = 0;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="comment">// Clear fault Objects FaultLatch bit</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a67a6d7934156a505fe648c5a895795ed">VPrimaryOVP</a>.<a class="code hl_variable" href="a00657.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> = 0;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a4a4096da1c84272a28022842417dc638">VSecondaryOVP</a>.<a class="code hl_variable" href="a00657.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> = 0;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a9aa55289e8d0d3f1cd2c1b979707653a">IPrimaryOCP</a>.<a class="code hl_variable" href="a00657.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> = 0;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a5c0ebb178553b28679126e15448f3680">ISecondaryOCP</a>.<a class="code hl_variable" href="a00657.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> = 0;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#af268179095dc26cb1a693ef5621c70c6">ISenseSCP</a>.<a class="code hl_variable" href="a00657.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> = 0;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a0c6c9adf47adaed77dbc76be05305b1d">VRail_5V</a>.<a class="code hl_variable" href="a00657.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a> = 0;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a480a8e0249740ab8759aeee1c804ba5c">PowerSupplyOTP</a>.<a class="code hl_variable" href="a00657.html#a1f8690ab82873811964f062a76d15fe7">FaultActive</a> = 0;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>}</div>
+</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="foldopen" id="foldopen00210" data-start="{" data-end="}">
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="a00515.html#gaa8479905c2a8b34126d4fe56c1882b1b">  210</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00515.html#gaa8479905c2a8b34126d4fe56c1882b1b">Fault_EnableShortCircuitProtection</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>{</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>  <span class="comment">// on dsPIC33CK DP-PIM:</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>  <span class="comment">// CMP1B used for short circuit protection on the secondary side </span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>  <span class="comment">// CMP3B used for short circuit protection on the primary side</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>  <span class="comment">// initialize thresholds of comparators used for short circuit protection</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>  <a class="code hl_define" href="a00523.html#ga7f158b81caafe069aa2b7c1254e1027c">CMP_ISEC_SC_DACDataWrite</a>(<a class="code hl_define" href="a00479.html#ga4ceda5524d91a9e630c2da6a209c2662">ISEC_SC_THRES_TRIG</a>);   </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>  <a class="code hl_define" href="a00523.html#ga427c1e93b73f03b0f62bc6c4fb252dd0">CMP_IPRI_SC_DACDataWrite</a>(<a class="code hl_define" href="a00477.html#ga6ccef35604a0ba6693e0f56b6cd30de6">IPRI_SC_THRES_TRIG</a>);   </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>  </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>  <span class="comment">// turn on comparator DACs </span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>  <a class="code hl_define" href="a00523.html#ga596f523f69486e7c350097edc2ccce89">CMP_IPRI_SC_DACEnable</a>();</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>  <a class="code hl_define" href="a00523.html#gaf9f384155703e0397d7872981f38a0e7">CMP_ISEC_SC_DACEnable</a>();</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>  </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>}</div>
+</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="foldopen" id="foldopen00235" data-start="{" data-end="}">
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="a00515.html#ga5ba282b74826532870235580973f788e">  235</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00515.html#ga5ba282b74826532870235580973f788e">Fault_Temp_100ms</a>(<span class="keywordtype">void</span>) </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>{</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <a class="code hl_function" href="a00501.html#ga6ce3446cb43022df6a5a96c90ec70a17">Dev_Temp_Get_ADC_Sample</a>();</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="preprocessor">    #if(FAULT_PS_OTP)</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="a00516.html#gabe4788eb1b8be3ad755eb7daf6bba295">FAULT_CheckMin</a>(&amp;<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#aec432521ca331df364eb6aa8a74422a2">Object</a>.<a class="code hl_variable" href="a00661.html#a480a8e0249740ab8759aeee1c804ba5c">PowerSupplyOTP</a>, <a class="code hl_variable" href="a00501.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00649.html#aadb6f8d669172a241150025a40fcf44d">AdcReading</a>, &amp;<a class="code hl_function" href="a00515.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a>))</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    {</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>       <a class="code hl_variable" href="a00501.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00649.html#a4905336182a9fec2c6e219631604c50f">OverTemperatureFlag</a> = 1; <span class="comment">//for over temperature</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    }</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    {</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <a class="code hl_variable" href="a00501.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a>.<a class="code hl_variable" href="a00649.html#a4905336182a9fec2c6e219631604c50f">OverTemperatureFlag</a> = 0; <span class="comment">//for over temperature</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    }</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>}</div>
+</div>
+<div class="ttc" id="aa00095_html"><div class="ttname"><a href="a00095.html">cmp1.h</a></div><div class="ttdoc">This is the generated driver header file for the CMP1 driver.</div></div>
+<div class="ttc" id="aa00101_html"><div class="ttname"><a href="a00101.html">cmp3.h</a></div><div class="ttdoc">This is the generated driver header file for the CMP3 driver.</div></div>
+<div class="ttc" id="aa00140_html"><div class="ttname"><a href="a00140.html">pwm.h</a></div><div class="ttdoc">This is the generated driver header file for the PWM driver.</div></div>
+<div class="ttc" id="aa00290_html"><div class="ttname"><a href="a00290.html">device.h</a></div><div class="ttdoc">Contains h files that are part of device layer.</div></div>
+<div class="ttc" id="aa00353_html"><div class="ttname"><a href="a00353.html">fault.h</a></div><div class="ttdoc">Contains public fault functions.</div></div>
+<div class="ttc" id="aa00359_html"><div class="ttname"><a href="a00359.html">fault_common.h</a></div><div class="ttdoc">Contains fault generic public functions.</div></div>
+<div class="ttc" id="aa00362_html_a525a7d54ffe10a34fc0de37c1d43aa6a"><div class="ttname"><a href="a00362.html#a525a7d54ffe10a34fc0de37c1d43aa6a">Fault_GetFlags</a></div><div class="ttdeci">uint16_t Fault_GetFlags(void)</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00047">fault_comm_interface.c:47</a></div></div>
+<div class="ttc" id="aa00365_html"><div class="ttname"><a href="a00365.html">fault_comm_interface.h</a></div><div class="ttdoc">Contains API functions for fault protection.</div></div>
+<div class="ttc" id="aa00473_html_ga1184157d3e57ef49b0e628fa46030981"><div class="ttname"><a href="a00473.html#ga1184157d3e57ef49b0e628fa46030981">VPRI_OV_T_BLANK_TRIG</a></div><div class="ttdeci">#define VPRI_OV_T_BLANK_TRIG</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00126">macros.h:126</a></div></div>
+<div class="ttc" id="aa00473_html_ga3746b4dd49ef223031e563ac1621ac04"><div class="ttname"><a href="a00473.html#ga3746b4dd49ef223031e563ac1621ac04">VPRI_OV_THRES_TRIG</a></div><div class="ttdeci">#define VPRI_OV_THRES_TRIG</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00124">macros.h:124</a></div></div>
+<div class="ttc" id="aa00473_html_ga9a9b09ee6494d1465749a8e9fb0c8567"><div class="ttname"><a href="a00473.html#ga9a9b09ee6494d1465749a8e9fb0c8567">VPRI_OV_T_BLANK_CLEAR</a></div><div class="ttdeci">#define VPRI_OV_T_BLANK_CLEAR</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00127">macros.h:127</a></div></div>
+<div class="ttc" id="aa00473_html_gaff26d74d808582c963415a071cdd5e0a"><div class="ttname"><a href="a00473.html#gaff26d74d808582c963415a071cdd5e0a">VPRI_OV_THRES_CLEAR</a></div><div class="ttdeci">#define VPRI_OV_THRES_CLEAR</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00125">macros.h:125</a></div></div>
+<div class="ttc" id="aa00475_html_ga2cedf2c418fcc28d45db230262989756"><div class="ttname"><a href="a00475.html#ga2cedf2c418fcc28d45db230262989756">VSEC_OV_THRES_TRIG</a></div><div class="ttdeci">#define VSEC_OV_THRES_TRIG</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00109">macros.h:109</a></div></div>
+<div class="ttc" id="aa00475_html_ga5a408a256fc1b9b921330828dea28789"><div class="ttname"><a href="a00475.html#ga5a408a256fc1b9b921330828dea28789">VSEC_OV_T_BLANK_TRIG</a></div><div class="ttdeci">#define VSEC_OV_T_BLANK_TRIG</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00111">macros.h:111</a></div></div>
+<div class="ttc" id="aa00475_html_gacefdf0fe6bfec783e2318f5470f4aa2f"><div class="ttname"><a href="a00475.html#gacefdf0fe6bfec783e2318f5470f4aa2f">VSEC_OV_THRES_CLEAR</a></div><div class="ttdeci">#define VSEC_OV_THRES_CLEAR</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00110">macros.h:110</a></div></div>
+<div class="ttc" id="aa00475_html_gafa2427e85d2f9ac0723ed0ed23af656d"><div class="ttname"><a href="a00475.html#gafa2427e85d2f9ac0723ed0ed23af656d">VSEC_OV_T_BLANK_CLEAR</a></div><div class="ttdeci">#define VSEC_OV_T_BLANK_CLEAR</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00112">macros.h:112</a></div></div>
+<div class="ttc" id="aa00477_html_ga69d668edae652db23814a4d1bbf0c3f2"><div class="ttname"><a href="a00477.html#ga69d668edae652db23814a4d1bbf0c3f2">IPRI_OC_THRES_CLEAR</a></div><div class="ttdeci">#define IPRI_OC_THRES_CLEAR</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00097">macros.h:97</a></div></div>
+<div class="ttc" id="aa00477_html_ga6ccef35604a0ba6693e0f56b6cd30de6"><div class="ttname"><a href="a00477.html#ga6ccef35604a0ba6693e0f56b6cd30de6">IPRI_SC_THRES_TRIG</a></div><div class="ttdeci">#define IPRI_SC_THRES_TRIG</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00101">macros.h:101</a></div></div>
+<div class="ttc" id="aa00477_html_gad15d6e4434542fae730a4c9b1981a82c"><div class="ttname"><a href="a00477.html#gad15d6e4434542fae730a4c9b1981a82c">IPRI_OC_T_BLANK_CLEAR</a></div><div class="ttdeci">#define IPRI_OC_T_BLANK_CLEAR</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00099">macros.h:99</a></div></div>
+<div class="ttc" id="aa00477_html_gaf8034f2a9a60a8cab6eab35481d514d1"><div class="ttname"><a href="a00477.html#gaf8034f2a9a60a8cab6eab35481d514d1">IPRI_OC_THRES_TRIG</a></div><div class="ttdeci">#define IPRI_OC_THRES_TRIG</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00096">macros.h:96</a></div></div>
+<div class="ttc" id="aa00477_html_gafb965e297429b01ecde0a9399f302d26"><div class="ttname"><a href="a00477.html#gafb965e297429b01ecde0a9399f302d26">IPRI_OC_T_BLANK_TRIG</a></div><div class="ttdeci">#define IPRI_OC_T_BLANK_TRIG</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00098">macros.h:98</a></div></div>
+<div class="ttc" id="aa00479_html_ga2a0efa36638d988404f55a254a4c62fe"><div class="ttname"><a href="a00479.html#ga2a0efa36638d988404f55a254a4c62fe">ISEC_OC_THRES_CLEAR</a></div><div class="ttdeci">#define ISEC_OC_THRES_CLEAR</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00078">macros.h:78</a></div></div>
+<div class="ttc" id="aa00479_html_ga4ceda5524d91a9e630c2da6a209c2662"><div class="ttname"><a href="a00479.html#ga4ceda5524d91a9e630c2da6a209c2662">ISEC_SC_THRES_TRIG</a></div><div class="ttdeci">#define ISEC_SC_THRES_TRIG</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00082">macros.h:82</a></div></div>
+<div class="ttc" id="aa00479_html_ga5699b0f92b1002c48afde85f493ef541"><div class="ttname"><a href="a00479.html#ga5699b0f92b1002c48afde85f493ef541">ISEC_OC_T_BLANK_CLEAR</a></div><div class="ttdeci">#define ISEC_OC_T_BLANK_CLEAR</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00080">macros.h:80</a></div></div>
+<div class="ttc" id="aa00479_html_gac6376b7fb30da56ecf5719bad64079b7"><div class="ttname"><a href="a00479.html#gac6376b7fb30da56ecf5719bad64079b7">ISEC_OC_THRES_TRIG</a></div><div class="ttdeci">#define ISEC_OC_THRES_TRIG</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00077">macros.h:77</a></div></div>
+<div class="ttc" id="aa00479_html_gaf082faecd5f7c3303a4c765d8d8b0472"><div class="ttname"><a href="a00479.html#gaf082faecd5f7c3303a4c765d8d8b0472">ISEC_OC_T_BLANK_TRIG</a></div><div class="ttdeci">#define ISEC_OC_T_BLANK_TRIG</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00079">macros.h:79</a></div></div>
+<div class="ttc" id="aa00481_html_ga197548e0249065a587df067bb2b6bfb6"><div class="ttname"><a href="a00481.html#ga197548e0249065a587df067bb2b6bfb6">VRAIL_5V_UV_T_BLANK_CLEAR</a></div><div class="ttdeci">#define VRAIL_5V_UV_T_BLANK_CLEAR</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00141">macros.h:141</a></div></div>
+<div class="ttc" id="aa00481_html_ga573c9325062416430b7fdc8f41a93988"><div class="ttname"><a href="a00481.html#ga573c9325062416430b7fdc8f41a93988">VRAIL_5V_UV_T_BLANK_TRIG</a></div><div class="ttdeci">#define VRAIL_5V_UV_T_BLANK_TRIG</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00140">macros.h:140</a></div></div>
+<div class="ttc" id="aa00481_html_gae66c69a25a09bf23a8542f9e2ca4b016"><div class="ttname"><a href="a00481.html#gae66c69a25a09bf23a8542f9e2ca4b016">VRAIL_5V_UV_THRES_TRIG</a></div><div class="ttdeci">#define VRAIL_5V_UV_THRES_TRIG</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00138">macros.h:138</a></div></div>
+<div class="ttc" id="aa00481_html_gaeffd832d63247c37746ec9a51023126f"><div class="ttname"><a href="a00481.html#gaeffd832d63247c37746ec9a51023126f">VRAIL_5V_UV_THRES_CLEAR</a></div><div class="ttdeci">#define VRAIL_5V_UV_THRES_CLEAR</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00139">macros.h:139</a></div></div>
+<div class="ttc" id="aa00501_html_ga6ce3446cb43022df6a5a96c90ec70a17"><div class="ttname"><a href="a00501.html#ga6ce3446cb43022df6a5a96c90ec70a17">Dev_Temp_Get_ADC_Sample</a></div><div class="ttdeci">void Dev_Temp_Get_ADC_Sample(void)</div><div class="ttdoc">Gets the temperature ADC sample.</div><div class="ttdef"><b>Definition</b> <a href="a00317_source.html#l00163">dev_temp.c:163</a></div></div>
+<div class="ttc" id="aa00501_html_gac4362e7ed233e3ac6e62b7f6f49a80d0"><div class="ttname"><a href="a00501.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a></div><div class="ttdeci">TEMP_SETTINGS_t devTempData</div><div class="ttdoc">Data Object of temperature settings.</div><div class="ttdef"><b>Definition</b> <a href="a00317_source.html#l00074">dev_temp.c:74</a></div></div>
+<div class="ttc" id="aa00506_html_ga5762de26b3d1b822c6a4b9c1605cd387"><div class="ttname"><a href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a></div><div class="ttdeci">POWER_CONTROL_t dab</div><div class="ttdoc">Global data object for a DAB Converter.</div><div class="ttdef"><b>Definition</b> <a href="a00431_source.html#l00048">pwrctrl.c:48</a></div></div>
+<div class="ttc" id="aa00508_html_ga79ec0c0e524a03b3a3d423308b89bb99"><div class="ttname"><a href="a00508.html#ga79ec0c0e524a03b3a3d423308b89bb99">PwrCtrl_PWM_Disable</a></div><div class="ttdeci">void PwrCtrl_PWM_Disable(void)</div><div class="ttdoc">Disable the PWM output.</div><div class="ttdef"><b>Definition</b> <a href="a00458_source.html#l00147">pwrctrl_pwm.c:147</a></div></div>
+<div class="ttc" id="aa00515_html_ga5ba282b74826532870235580973f788e"><div class="ttname"><a href="a00515.html#ga5ba282b74826532870235580973f788e">Fault_Temp_100ms</a></div><div class="ttdeci">void Fault_Temp_100ms(void)</div><div class="ttdoc">Fault evaluation for Temperature.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00235">fault.c:235</a></div></div>
+<div class="ttc" id="aa00515_html_ga8ed0fee0d3aff71d49470aab1728a6ae"><div class="ttname"><a href="a00515.html#ga8ed0fee0d3aff71d49470aab1728a6ae">Fault_Reset</a></div><div class="ttdeci">void Fault_Reset(void)</div><div class="ttdoc">Clears the fault object flag bits.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00176">fault.c:176</a></div></div>
+<div class="ttc" id="aa00515_html_gaa8479905c2a8b34126d4fe56c1882b1b"><div class="ttname"><a href="a00515.html#gaa8479905c2a8b34126d4fe56c1882b1b">Fault_EnableShortCircuitProtection</a></div><div class="ttdeci">static void Fault_EnableShortCircuitProtection(void)</div><div class="ttdoc">Enable Short circuit hardware protection.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00210">fault.c:210</a></div></div>
+<div class="ttc" id="aa00515_html_gaaa5a7a6dc7ce982dec4f07edcd73e874"><div class="ttname"><a href="a00515.html#gaaa5a7a6dc7ce982dec4f07edcd73e874">Fault_Initialize</a></div><div class="ttdeci">void Fault_Initialize(void)</div><div class="ttdoc">Initialize the fault objects.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00084">fault.c:84</a></div></div>
+<div class="ttc" id="aa00515_html_gacd1ca209275dae0bc2388ac954858d83"><div class="ttname"><a href="a00515.html#gacd1ca209275dae0bc2388ac954858d83">Fault_Execute</a></div><div class="ttdeci">void Fault_Execute(void)</div><div class="ttdoc">Executes the fault handlers.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00129">fault.c:129</a></div></div>
+<div class="ttc" id="aa00515_html_gaf27f2f24932cec222273df148f8765cb"><div class="ttname"><a href="a00515.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a></div><div class="ttdeci">void Fault_Handler(void)</div><div class="ttdoc">Handles the fault trip by turning off the power control switching.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00060">fault.c:60</a></div></div>
+<div class="ttc" id="aa00516_html_ga1a12d5b7c5b1f234c50ea2214e91fcfc"><div class="ttname"><a href="a00516.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a></div><div class="ttdeci">bool FAULT_CheckMax(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK callback)</div><div class="ttdoc">This function compares the fault source value with the threshold limits and sets (or) resets the faul...</div><div class="ttdef"><b>Definition</b> <a href="a00356_source.html#l00147">fault_common.c:147</a></div></div>
+<div class="ttc" id="aa00516_html_gabe4788eb1b8be3ad755eb7daf6bba295"><div class="ttname"><a href="a00516.html#gabe4788eb1b8be3ad755eb7daf6bba295">FAULT_CheckMin</a></div><div class="ttdeci">bool FAULT_CheckMin(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK callback)</div><div class="ttdoc">This function compares the fault source value with the threshold limits and sets (or) resets the faul...</div><div class="ttdef"><b>Definition</b> <a href="a00356_source.html#l00205">fault_common.c:205</a></div></div>
+<div class="ttc" id="aa00516_html_gae9aa4b1a3733fa6ee5fb7778bdf74103"><div class="ttname"><a href="a00516.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a></div><div class="ttdeci">void FAULT_Init(FAULT_OBJ_T *faultInput, int16_t threshold, int16_t hysLimit, uint16_t thresholdCnt, uint32_t hysCnt)</div><div class="ttdoc">This function initializes the fault object data structure with the values that required to detect a f...</div><div class="ttdef"><b>Definition</b> <a href="a00356_source.html#l00048">fault_common.c:48</a></div></div>
+<div class="ttc" id="aa00523_html_ga0d7c1a0ccd35767078e0a677eff7e5d9"><div class="ttname"><a href="a00523.html#ga0d7c1a0ccd35767078e0a677eff7e5d9">CMP3_EventCallbackRegister</a></div><div class="ttdeci">void CMP3_EventCallbackRegister(void(*handler)(void))</div><div class="ttdoc">This function can be used to override default callback and to define custom callback for CMP3 Event e...</div><div class="ttdef"><b>Definition</b> <a href="a00113_source.html#l00147">cmp3.c:147</a></div></div>
+<div class="ttc" id="aa00523_html_ga1f8da3d5ca79eeff2f2d0af0cfe7964a"><div class="ttname"><a href="a00523.html#ga1f8da3d5ca79eeff2f2d0af0cfe7964a">CMP3_StatusGet</a></div><div class="ttdeci">bool CMP3_StatusGet(void)</div><div class="ttdoc">Returns the comparator output status.</div><div class="ttdef"><b>Definition</b> <a href="a00113_source.html#l00117">cmp3.c:117</a></div></div>
+<div class="ttc" id="aa00523_html_ga427c1e93b73f03b0f62bc6c4fb252dd0"><div class="ttname"><a href="a00523.html#ga427c1e93b73f03b0f62bc6c4fb252dd0">CMP_IPRI_SC_DACDataWrite</a></div><div class="ttdeci">#define CMP_IPRI_SC_DACDataWrite</div><div class="ttdoc">This macro defines the Custom Name for CMP3_DACDataWrite API.</div><div class="ttdef"><b>Definition</b> <a href="a00101_source.html#l00100">cmp3.h:100</a></div></div>
+<div class="ttc" id="aa00523_html_ga568e6ce9c8d08361412894ce59c8d1c2"><div class="ttname"><a href="a00523.html#ga568e6ce9c8d08361412894ce59c8d1c2">CMP1_StatusGet</a></div><div class="ttdeci">bool CMP1_StatusGet(void)</div><div class="ttdoc">Returns the comparator output status.</div><div class="ttdef"><b>Definition</b> <a href="a00107_source.html#l00117">cmp1.c:117</a></div></div>
+<div class="ttc" id="aa00523_html_ga596f523f69486e7c350097edc2ccce89"><div class="ttname"><a href="a00523.html#ga596f523f69486e7c350097edc2ccce89">CMP_IPRI_SC_DACEnable</a></div><div class="ttdeci">#define CMP_IPRI_SC_DACEnable</div><div class="ttdoc">This macro defines the Custom Name for CMP3_DACEnable API.</div><div class="ttdef"><b>Definition</b> <a href="a00101_source.html#l00090">cmp3.h:90</a></div></div>
+<div class="ttc" id="aa00523_html_ga7f158b81caafe069aa2b7c1254e1027c"><div class="ttname"><a href="a00523.html#ga7f158b81caafe069aa2b7c1254e1027c">CMP_ISEC_SC_DACDataWrite</a></div><div class="ttdeci">#define CMP_ISEC_SC_DACDataWrite</div><div class="ttdoc">This macro defines the Custom Name for CMP1_DACDataWrite API.</div><div class="ttdef"><b>Definition</b> <a href="a00095_source.html#l00100">cmp1.h:100</a></div></div>
+<div class="ttc" id="aa00523_html_gada13a4830178c3947f7df4fdfafc7d07"><div class="ttname"><a href="a00523.html#gada13a4830178c3947f7df4fdfafc7d07">CMP1_EventCallbackRegister</a></div><div class="ttdeci">void CMP1_EventCallbackRegister(void(*handler)(void))</div><div class="ttdoc">This function can be used to override default callback and to define custom callback for CMP1 Event e...</div><div class="ttdef"><b>Definition</b> <a href="a00107_source.html#l00147">cmp1.c:147</a></div></div>
+<div class="ttc" id="aa00523_html_gaf9f384155703e0397d7872981f38a0e7"><div class="ttname"><a href="a00523.html#gaf9f384155703e0397d7872981f38a0e7">CMP_ISEC_SC_DACEnable</a></div><div class="ttdeci">#define CMP_ISEC_SC_DACEnable</div><div class="ttdoc">This macro defines the Custom Name for CMP1_DACEnable API.</div><div class="ttdef"><b>Definition</b> <a href="a00095_source.html#l00090">cmp1.h:90</a></div></div>
+<div class="ttc" id="aa00530_html_ga368d77dcce7f6c02a4a3c28f378832a3"><div class="ttname"><a href="a00530.html#ga368d77dcce7f6c02a4a3c28f378832a3">FAULT_SetLow</a></div><div class="ttdeci">#define FAULT_SetLow()</div><div class="ttdoc">Sets the RD9 GPIO Pin which has a custom name of FAULT to Low.</div><div class="ttdef"><b>Definition</b> <a href="a00167_source.html#l00368">pins.h:368</a></div></div>
+<div class="ttc" id="aa00530_html_gac99ec8d8525a9698c252ae0e5edb70f3"><div class="ttname"><a href="a00530.html#gac99ec8d8525a9698c252ae0e5edb70f3">FAULT_SetHigh</a></div><div class="ttdeci">#define FAULT_SetHigh()</div><div class="ttdoc">Sets the RD9 GPIO Pin which has a custom name of FAULT to High.</div><div class="ttdef"><b>Definition</b> <a href="a00167_source.html#l00359">pins.h:359</a></div></div>
+<div class="ttc" id="aa00649_html_a4905336182a9fec2c6e219631604c50f"><div class="ttname"><a href="a00649.html#a4905336182a9fec2c6e219631604c50f">TEMP_SETTINGS_s::OverTemperatureFlag</a></div><div class="ttdeci">uint8_t OverTemperatureFlag</div><div class="ttdoc">Over temperature flag.</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00066">dev_temp.h:66</a></div></div>
+<div class="ttc" id="aa00649_html_aadb6f8d669172a241150025a40fcf44d"><div class="ttname"><a href="a00649.html#aadb6f8d669172a241150025a40fcf44d">TEMP_SETTINGS_s::AdcReading</a></div><div class="ttdeci">uint16_t AdcReading</div><div class="ttdoc">temperature value raw sampled from ADC</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00068">dev_temp.h:68</a></div></div>
+<div class="ttc" id="aa00657_html_a1f8690ab82873811964f062a76d15fe7"><div class="ttname"><a href="a00657.html#a1f8690ab82873811964f062a76d15fe7">FAULT_OBJ_T::FaultActive</a></div><div class="ttdeci">uint8_t FaultActive</div><div class="ttdoc">Set/Cleared inside flt check loop</div><div class="ttdef"><b>Definition</b> <a href="a00359_source.html#l00053">fault_common.h:53</a></div></div>
+<div class="ttc" id="aa00657_html_a4789222e3347d2016dd8af50cabd4b14"><div class="ttname"><a href="a00657.html#a4789222e3347d2016dd8af50cabd4b14">FAULT_OBJ_T::FaultLatch</a></div><div class="ttdeci">uint8_t FaultLatch</div><div class="ttdoc">Flag indicating if FAULT has been tripped.</div><div class="ttdef"><b>Definition</b> <a href="a00359_source.html#l00054">fault_common.h:54</a></div></div>
+<div class="ttc" id="aa00661_html_a0c6c9adf47adaed77dbc76be05305b1d"><div class="ttname"><a href="a00661.html#a0c6c9adf47adaed77dbc76be05305b1d">FAULT_s::VRail_5V</a></div><div class="ttdeci">FAULT_OBJ_T VRail_5V</div><div class="ttdoc">Fault object for 5V rail.</div><div class="ttdef"><b>Definition</b> <a href="a00368_source.html#l00049">fault_typedef.h:49</a></div></div>
+<div class="ttc" id="aa00661_html_a480a8e0249740ab8759aeee1c804ba5c"><div class="ttname"><a href="a00661.html#a480a8e0249740ab8759aeee1c804ba5c">FAULT_s::PowerSupplyOTP</a></div><div class="ttdeci">FAULT_OBJ_T PowerSupplyOTP</div><div class="ttdoc">Fault object for Power Supply Temperature.</div><div class="ttdef"><b>Definition</b> <a href="a00368_source.html#l00048">fault_typedef.h:48</a></div></div>
+<div class="ttc" id="aa00661_html_a4a4096da1c84272a28022842417dc638"><div class="ttname"><a href="a00661.html#a4a4096da1c84272a28022842417dc638">FAULT_s::VSecondaryOVP</a></div><div class="ttdeci">FAULT_OBJ_T VSecondaryOVP</div><div class="ttdoc">Fault object for Secondary over voltage protection.</div><div class="ttdef"><b>Definition</b> <a href="a00368_source.html#l00046">fault_typedef.h:46</a></div></div>
+<div class="ttc" id="aa00661_html_a5c0ebb178553b28679126e15448f3680"><div class="ttname"><a href="a00661.html#a5c0ebb178553b28679126e15448f3680">FAULT_s::ISecondaryOCP</a></div><div class="ttdeci">FAULT_OBJ_T ISecondaryOCP</div><div class="ttdoc">Fault object for Secondary over current protection.</div><div class="ttdef"><b>Definition</b> <a href="a00368_source.html#l00044">fault_typedef.h:44</a></div></div>
+<div class="ttc" id="aa00661_html_a67a6d7934156a505fe648c5a895795ed"><div class="ttname"><a href="a00661.html#a67a6d7934156a505fe648c5a895795ed">FAULT_s::VPrimaryOVP</a></div><div class="ttdeci">FAULT_OBJ_T VPrimaryOVP</div><div class="ttdoc">Fault object for Primary over voltage protection.</div><div class="ttdef"><b>Definition</b> <a href="a00368_source.html#l00045">fault_typedef.h:45</a></div></div>
+<div class="ttc" id="aa00661_html_a9aa55289e8d0d3f1cd2c1b979707653a"><div class="ttname"><a href="a00661.html#a9aa55289e8d0d3f1cd2c1b979707653a">FAULT_s::IPrimaryOCP</a></div><div class="ttdeci">FAULT_OBJ_T IPrimaryOCP</div><div class="ttdoc">Fault object for Primary over current protection.</div><div class="ttdef"><b>Definition</b> <a href="a00368_source.html#l00043">fault_typedef.h:43</a></div></div>
+<div class="ttc" id="aa00661_html_af268179095dc26cb1a693ef5621c70c6"><div class="ttname"><a href="a00661.html#af268179095dc26cb1a693ef5621c70c6">FAULT_s::ISenseSCP</a></div><div class="ttdeci">FAULT_OBJ_T ISenseSCP</div><div class="ttdoc">Fault object for Short circuit protection.</div><div class="ttdef"><b>Definition</b> <a href="a00368_source.html#l00047">fault_typedef.h:47</a></div></div>
+<div class="ttc" id="aa00665_html_ac82d4f674edd9ce4e697f25d9039a3e0"><div class="ttname"><a href="a00665.html#ac82d4f674edd9ce4e697f25d9039a3e0">FAULT_SETTINGS_s::FaultDetected</a></div><div class="ttdeci">uint16_t FaultDetected</div><div class="ttdoc">Fault indication for fault occurrence.</div><div class="ttdef"><b>Definition</b> <a href="a00368_source.html#l00060">fault_typedef.h:60</a></div></div>
+<div class="ttc" id="aa00665_html_aec432521ca331df364eb6aa8a74422a2"><div class="ttname"><a href="a00665.html#aec432521ca331df364eb6aa8a74422a2">FAULT_SETTINGS_s::Object</a></div><div class="ttdeci">FAULT_t Object</div><div class="ttdoc">Fault Objects.</div><div class="ttdef"><b>Definition</b> <a href="a00368_source.html#l00061">fault_typedef.h:61</a></div></div>
+<div class="ttc" id="aa00705_html_a05578776f684221691f412d73de487ea"><div class="ttname"><a href="a00705.html#a05578776f684221691f412d73de487ea">FEEDBACK_SETTINGS_s::VPriVoltage</a></div><div class="ttdeci">uint16_t VPriVoltage</div><div class="ttdoc">Data value for input voltage.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00080">pwrctrl_typedef.h:80</a></div></div>
+<div class="ttc" id="aa00705_html_a4bb8d9e45d3b1791b7597c46356d6f7f"><div class="ttname"><a href="a00705.html#a4bb8d9e45d3b1791b7597c46356d6f7f">FEEDBACK_SETTINGS_s::ISensePrimary</a></div><div class="ttdeci">uint16_t ISensePrimary</div><div class="ttdoc">Data value for primary current as measured with CT.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00082">pwrctrl_typedef.h:82</a></div></div>
+<div class="ttc" id="aa00705_html_a4e6e0db2e515990bc32d13435a75b50e"><div class="ttname"><a href="a00705.html#a4e6e0db2e515990bc32d13435a75b50e">FEEDBACK_SETTINGS_s::VSecVoltage</a></div><div class="ttdeci">uint16_t VSecVoltage</div><div class="ttdoc">Data value for output voltage.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00081">pwrctrl_typedef.h:81</a></div></div>
+<div class="ttc" id="aa00705_html_ab69cdd1acf7db7e5e2521d1afe46d8f9"><div class="ttname"><a href="a00705.html#ab69cdd1acf7db7e5e2521d1afe46d8f9">FEEDBACK_SETTINGS_s::ISenseSecondary</a></div><div class="ttdeci">uint16_t ISenseSecondary</div><div class="ttdoc">Data value for secondary current as measured with CT.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00083">pwrctrl_typedef.h:83</a></div></div>
+<div class="ttc" id="aa00705_html_acc72d884c453d1343c8e836369311454"><div class="ttname"><a href="a00705.html#acc72d884c453d1343c8e836369311454">FEEDBACK_SETTINGS_s::VRail_5V</a></div><div class="ttdeci">uint16_t VRail_5V</div><div class="ttdoc">Data value for 5V auxiliary rail.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00088">pwrctrl_typedef.h:88</a></div></div>
+<div class="ttc" id="aa00709_html_a8d28902dd676709c4c9f6053fd176b1d"><div class="ttname"><a href="a00709.html#a8d28902dd676709c4c9f6053fd176b1d">STATUS_FLAGS_s::bits</a></div><div class="ttdeci">struct STATUS_FLAGS_s::@4::@6 bits</div></div>
+<div class="ttc" id="aa00709_html_aa54b2d19226054f61f2998337cebcb5a"><div class="ttname"><a href="a00709.html#aa54b2d19226054f61f2998337cebcb5a">STATUS_FLAGS_s::Running</a></div><div class="ttdeci">unsigned Running</div><div class="ttdoc">Bit 0: Power converter is running.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00103">pwrctrl_typedef.h:103</a></div></div>
+<div class="ttc" id="aa00709_html_ab17555f3ee595c55c595050bf51ef37b"><div class="ttname"><a href="a00709.html#ab17555f3ee595c55c595050bf51ef37b">STATUS_FLAGS_s::FaultActive</a></div><div class="ttdeci">unsigned FaultActive</div><div class="ttdoc">Bit 1: Power converter fault is active.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00104">pwrctrl_typedef.h:104</a></div></div>
+<div class="ttc" id="aa00733_html_a9961eac6798b52736528d9d4aa30d922"><div class="ttname"><a href="a00733.html#a9961eac6798b52736528d9d4aa30d922">POWER_CONTROL_s::Data</a></div><div class="ttdeci">FEEDBACK_SETTINGS_t Data</div><div class="ttdoc">Feedback channel settings.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00193">pwrctrl_typedef.h:193</a></div></div>
+<div class="ttc" id="aa00733_html_ae5b4ae59c620ed360f0cb1c66ea0cd4e"><div class="ttname"><a href="a00733.html#ae5b4ae59c620ed360f0cb1c66ea0cd4e">POWER_CONTROL_s::Status</a></div><div class="ttdeci">STATUS_FLAGS_t Status</div><div class="ttdoc">Power Supply status flags.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00189">pwrctrl_typedef.h:189</a></div></div>
+<div class="ttc" id="aa00733_html_aead2ae6cfabf4831af21d23684e19d1f"><div class="ttname"><a href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">POWER_CONTROL_s::Fault</a></div><div class="ttdeci">FAULT_SETTINGS_t Fault</div><div class="ttdoc">Fault flags and settings.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00194">pwrctrl_typedef.h:194</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

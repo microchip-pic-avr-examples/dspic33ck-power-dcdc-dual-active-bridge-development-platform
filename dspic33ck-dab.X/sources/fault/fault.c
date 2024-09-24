@@ -21,8 +21,8 @@
  */
 
 /**
- * @file      dev_fault.c
- * @ingroup   dev-fault  
+ * @file      fault.c
+ * @ingroup   fault  
  * @brief     Contains fault functions including the fault handler, fault 
  *  object initialization and fault execution. 
  */
@@ -34,21 +34,20 @@
 #include "cmp/cmp1.h"
 #include "cmp/cmp3.h"
 #include "pwm_hs/pwm.h"
+#include "system/pins.h"
 
 #include "config/macros.h"
-#include "fault_common.h"
-#include "dev_vin_isolated.h"
-#include "device/dev_temp.h"
+#include "device/device.h"
 #include "pwrctrl/pwrctrl.h"
+#include "fault_common.h"
 #include "fault.h"
-#include "system/pins.h"
-#include "fault_api.h"
+#include "fault_comm_interface.h"
 
 // PRIVATE FUNCTIONS
 static void Fault_EnableShortCircuitProtection(void);
 
 /*******************************************************************************
- * @ingroup dev-fault
+ * @ingroup fault
  * @brief  Handles the fault trip by turning off the power control switching
  * @return void
  * 
@@ -75,7 +74,7 @@ void Fault_Handler(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-fault
+ * @ingroup fault
  * @brief   Initialize the fault objects
  * @return void
  * 
@@ -119,7 +118,7 @@ void Fault_Initialize(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-fault
+ * @ingroup fault
  * @brief   Executes the fault handlers
  * @return void
  * 
@@ -167,7 +166,7 @@ void Fault_Execute(void)
 
 
 /*******************************************************************************
- * @ingroup dev-fault
+ * @ingroup fault
  * @brief   Clears the fault object flag bits
  * @return void
  * 
@@ -200,7 +199,7 @@ void Fault_Reset(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-fault
+ * @ingroup fault
  * @brief   Enable Short circuit hardware protection
  * @return void
  * 
@@ -225,7 +224,7 @@ static void Fault_EnableShortCircuitProtection(void)
 }
 
 /*******************************************************************************
- * @ingroup dev-fault
+ * @ingroup fault
  * @brief   Fault evaluation for Temperature
  * @return void
  * 

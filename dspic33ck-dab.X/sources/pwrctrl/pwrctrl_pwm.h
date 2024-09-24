@@ -1,6 +1,6 @@
 /**
- * @file dev_pwrctrl_pwm.h     
- * @ingroup dev-pwrctrl-pwm   
+ * @file pwrctrl_pwm.h     
+ * @ingroup pwrctrl-pwm   
  * @brief Contains public functions for PWM.    
  */
 

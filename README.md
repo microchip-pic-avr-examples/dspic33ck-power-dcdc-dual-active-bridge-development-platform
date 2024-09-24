@@ -27,11 +27,9 @@ dsPIC33C DAB Development Board
 
 ## Summary
 
-This solution showcases the implementation of a Dual Active Bridge (DAB) application demonstration utilizing Microchip's dsPIC33C device, primarily aimed at automotive On-Board Charger applications.
+This solution showcases the implementation of a Dual Active Bridge (DAB) application demonstration utilizing Microchip's dsPIC33C device, primarily aimed at automotive On-Board Charger applications. The DC-DC Dual Active Bridge Development Platform is a versatile development board featuring well-organized components, including an input filter, power stage, auxiliary supply, and a socket compatible with Microchip's latest Digital Power Plug-In Modules (DP PIMs).
 
-The DC-DC Dual Active Bridge Development Platform is a versatile development board featuring well-organized components, including an input filter, power stage, auxiliary supply, and a socket compatible with Microchip's latest Digital Power Plug-In Modules (DP PIMs). It also includes a Human Machine Interface (HMI) and test points for comprehensive evaluation and debugging.
-
-The platform is designed to handle safe voltage levels of up to 700 VDC on the primary side and up to 400 VDC on the secondary side. Additionally, it includes a socket for dsPIC33 plug-in modules, enabling the system to be tested with various controllers. The pinout is compatible with EP, CK, and CH dsPIC® DSC DP PIMs, ensuring flexibility and ease of use.
+The platform is designed to handle safe voltage levels of up to 700 VDC on the primary side and up to 400 VDC on the secondary side. Additionally, it includes a socket for dsPIC33 plug-in modules, enabling the system to be tested with various controllers. The pinout is compatible with EP, CK, and CH dsPIC DSC DP PIMs, ensuring flexibility and ease of use.
 
 ---
 
@@ -46,11 +44,11 @@ The platform is designed to handle safe voltage levels of up to 700 VDC on the p
 
 __Firmware documentation__
 
-- [Online Firmware Documentation of this Code Example]()
+- [Online Firmware Documentation of this Code Example](https://microchip-pic-avr-examples.github.io/dspic33ck-power-dcdc-dual-active-bridge-development-platform/)
 
 __Hardware Documentation__
 
-- ADD HERE HARDWARE DOCUMENTATION
+- Will be available soon
 
 __Target Device Documentation__
 
@@ -67,8 +65,8 @@ __Please always check for the latest data sheets on the respective product websi
 ## Software Used
 
 - [Power Board Visualizer GUI](https://www.microchip.com/en-us/software-library/power_board_visualizer)
-- [MPLAB&reg; X IDE v6.20](https://www.microchip.com/mplabx-ide-windows-installer)
-- [MPLAB&reg; XC-DSC Compiler v3.10](https://www.microchip.com/mplabxc16windows)
+- [MPLAB&reg; X IDE v6.20](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide)
+- [MPLAB&reg; XC-DSC Compiler v3.10](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/xc-dsc)
 - [Microchip Code Configurator v5.5.1](https://www.microchip.com/mplab/mplab-code-configurator)
 - [Digital Compensator Design Tool](https://www.microchip.com/developmenttools/ProductDetails/DCDT)
 
@@ -76,7 +74,7 @@ __Please always check for the latest data sheets on the respective product websi
 
 ## Hardware Used
 
-- [dsPIC33C DAB Development Board]()
+- Will be available soon
 
 ---
 

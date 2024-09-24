@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Current Sensor Calibration</title>
+<title>Dual Active Bridge Development Board: LED Display</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,206 +138,249 @@ $(document).ready(function(){initNavTree('a00500.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">Current Sensor Calibration<div class="ingroups"><a class="el" href="a00487.html">Device Layer</a></div></div></div>
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">LED Display<div class="ingroups"><a class="el" href="a00497.html">Device Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The Current Sensor Calibration device layer is a proprietary user code utilized for configuring the sensor properties.  
+<p>The LED device layer is the proprietary user code used to configure and drive the on-board debugging LED.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Current Sensor Calibration:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for LED Display:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00500.svg" width="328" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00500.svg" width="248" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00284" id="r_a00284"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00284.html">dev_current_sensor.c</a></td></tr>
-<tr class="memdesc:a00284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains current sensor initialization and calibration evaluation. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00287" id="r_a00287"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00287.html">dev_current_sensor.h</a></td></tr>
-<tr class="memdesc:a00287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains current sensor public functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00627.html">SENSOR_OFFSET_CAL_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores data related to sensor calibration, including data related to sensor offset.  <a href="a00627.html#details">More...</a><br /></td></tr>
+<tr class="memitem:a00311" id="r_a00311"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html">dev_led.c</a></td></tr>
+<tr class="memdesc:a00311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains LED initialization and execution functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga03e8d61bbc0f4b686c400440f80dcf69" id="r_ga03e8d61bbc0f4b686c400440f80dcf69"><td class="memItemLeft" align="right" valign="top">static void __inline__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#ga03e8d61bbc0f4b686c400440f80dcf69">Dev_SensorOffsetCal</a> (<a class="el" href="a00284.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> *sensor, uint16_t adcReading)</td></tr>
-<tr class="memdesc:ga03e8d61bbc0f4b686c400440f80dcf69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the sensor offset.  <br /></td></tr>
-<tr class="separator:ga03e8d61bbc0f4b686c400440f80dcf69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaa75855922e60913d443c6203475256f" id="r_gaaa75855922e60913d443c6203475256f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a> (void)</td></tr>
-<tr class="memdesc:gaaa75855922e60913d443c6203475256f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measures the currents sensor offset.  <br /></td></tr>
-<tr class="separator:gaaa75855922e60913d443c6203475256f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga218632f9814c3bf20c40cea0794ffc7d" id="r_ga218632f9814c3bf20c40cea0794ffc7d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a> (void)</td></tr>
-<tr class="memdesc:ga218632f9814c3bf20c40cea0794ffc7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the calibration status.  <br /></td></tr>
-<tr class="separator:ga218632f9814c3bf20c40cea0794ffc7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9f581abf52dc00ba320faafa189fafb9" id="r_ga9f581abf52dc00ba320faafa189fafb9"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a> (void)</td></tr>
-<tr class="memdesc:ga9f581abf52dc00ba320faafa189fafb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the sensor offset.  <br /></td></tr>
-<tr class="separator:ga9f581abf52dc00ba320faafa189fafb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga494b4a948891fd5757ccc647f9962529" id="r_ga494b4a948891fd5757ccc647f9962529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a> (void)</td></tr>
-<tr class="memdesc:ga494b4a948891fd5757ccc647f9962529"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to clear the sensor offset.  <br /></td></tr>
-<tr class="separator:ga494b4a948891fd5757ccc647f9962529"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:gaf2e1ab5706d4b7e1a47eea25ce323c5f" id="r_gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00284.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">isecAvgCurrentSensor</a></td></tr>
-<tr class="memdesc:gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of sensor offset calibration.  <br /></td></tr>
-<tr class="separator:gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d2db02502e7b576a9149d114f303daa" id="r_ga2d2db02502e7b576a9149d114f303daa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga2d2db02502e7b576a9149d114f303daa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function contains the LED initialization.  <br /></td></tr>
+<tr class="separator:ga2d2db02502e7b576a9149d114f303daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6fc0416c8ff212d938628b290a18a390" id="r_ga6fc0416c8ff212d938628b290a18a390"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#ga6fc0416c8ff212d938628b290a18a390">Dev_LED_On</a> (uint8_t led_id)</td></tr>
+<tr class="memdesc:ga6fc0416c8ff212d938628b290a18a390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch on the LED.  <br /></td></tr>
+<tr class="separator:ga6fc0416c8ff212d938628b290a18a390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga645c25dba273dcf25dc202d31f441154" id="r_ga645c25dba273dcf25dc202d31f441154"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#ga645c25dba273dcf25dc202d31f441154">Dev_LED_Off</a> (uint8_t led_id)</td></tr>
+<tr class="memdesc:ga645c25dba273dcf25dc202d31f441154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch off the LED.  <br /></td></tr>
+<tr class="separator:ga645c25dba273dcf25dc202d31f441154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf12fda3f7d99f77a0e68b846273984f" id="r_gacf12fda3f7d99f77a0e68b846273984f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#gacf12fda3f7d99f77a0e68b846273984f">Dev_LED_Toggle</a> (uint8_t led_id)</td></tr>
+<tr class="memdesc:gacf12fda3f7d99f77a0e68b846273984f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the LED state.  <br /></td></tr>
+<tr class="separator:gacf12fda3f7d99f77a0e68b846273984f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf44b310330b9dbf4597275fdade9b5f7" id="r_gaf44b310330b9dbf4597275fdade9b5f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#gaf44b310330b9dbf4597275fdade9b5f7">Dev_LED_Blink</a> (uint8_t led_id)</td></tr>
+<tr class="memdesc:gaf44b310330b9dbf4597275fdade9b5f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED in blinking mode.  <br /></td></tr>
+<tr class="separator:gaf44b310330b9dbf4597275fdade9b5f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab8abb73dda8dc3829d57da8c681f4931" id="r_gab8abb73dda8dc3829d57da8c681f4931"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#gab8abb73dda8dc3829d57da8c681f4931">Dev_LED_Blink_Iter</a> (uint8_t led_id, uint8_t count)</td></tr>
+<tr class="memdesc:gab8abb73dda8dc3829d57da8c681f4931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED in blinking mode in number of LED iterations.  <br /></td></tr>
+<tr class="separator:gab8abb73dda8dc3829d57da8c681f4931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga371fdb6009ec0f15b00e75ad4ef4d177" id="r_ga371fdb6009ec0f15b00e75ad4ef4d177"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#ga371fdb6009ec0f15b00e75ad4ef4d177">Dev_LED_Blink_Slow</a> (uint8_t led_id)</td></tr>
+<tr class="memdesc:ga371fdb6009ec0f15b00e75ad4ef4d177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED in SLOW blinking mode.  <br /></td></tr>
+<tr class="separator:ga371fdb6009ec0f15b00e75ad4ef4d177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a710b93c9efd76f1c850ee4415f736c" id="r_ga9a710b93c9efd76f1c850ee4415f736c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#ga9a710b93c9efd76f1c850ee4415f736c">Dev_LED_Blink_Fast</a> (uint8_t led_id)</td></tr>
+<tr class="memdesc:ga9a710b93c9efd76f1c850ee4415f736c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED in FAST blinking mode.  <br /></td></tr>
+<tr class="separator:ga9a710b93c9efd76f1c850ee4415f736c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad26b3effecb0675aad3bcba8993a0bb2" id="r_gad26b3effecb0675aad3bcba8993a0bb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#gad26b3effecb0675aad3bcba8993a0bb2">Dev_LED_Task_100ms</a> ()</td></tr>
+<tr class="memdesc:gad26b3effecb0675aad3bcba8993a0bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function needs to be called every 100ms and contains the code to update the status of the LEDs.  <br /></td></tr>
+<tr class="separator:gad26b3effecb0675aad3bcba8993a0bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga900bdeb2c6d6ab966bad8f4fd78e8cd2" id="r_ga900bdeb2c6d6ab966bad8f4fd78e8cd2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#ga900bdeb2c6d6ab966bad8f4fd78e8cd2">LED_STATE_OFF</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ga900bdeb2c6d6ab966bad8f4fd78e8cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">These are the macros indicating the status of the LED.  <br /></td></tr>
+<tr class="separator:ga900bdeb2c6d6ab966bad8f4fd78e8cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga04ba0e3f7ea33a087f01b2745a2de63b" id="r_ga04ba0e3f7ea33a087f01b2745a2de63b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#ga04ba0e3f7ea33a087f01b2745a2de63b">LED_STATE_ON</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ga04ba0e3f7ea33a087f01b2745a2de63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae7328822ca8e2fd16a638854eeae068b" id="r_gae7328822ca8e2fd16a638854eeae068b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#gae7328822ca8e2fd16a638854eeae068b">LED_STATE_BLINK</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:gae7328822ca8e2fd16a638854eeae068b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac387d5ec1a81ff6058b9bf31e5809e9d" id="r_gac387d5ec1a81ff6058b9bf31e5809e9d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#gac387d5ec1a81ff6058b9bf31e5809e9d">LED_STATE_BLINK_SLOW</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:gac387d5ec1a81ff6058b9bf31e5809e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga065311bdf1ad091dc6f4aa643bd59f48" id="r_ga065311bdf1ad091dc6f4aa643bd59f48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#ga065311bdf1ad091dc6f4aa643bd59f48">LED_STATE_BLINK_FAST</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:ga065311bdf1ad091dc6f4aa643bd59f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa38f6cc3eb9957214f94466dd2650cc" id="r_gaaa38f6cc3eb9957214f94466dd2650cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html#gaaa38f6cc3eb9957214f94466dd2650cc">LED_STATE_BLINK_COUNT</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:gaaa38f6cc3eb9957214f94466dd2650cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ga494b4a948891fd5757ccc647f9962529" name="ga494b4a948891fd5757ccc647f9962529"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga494b4a948891fd5757ccc647f9962529">&#9670;&#160;</a></span>Dev_CurrentSensor_Clr_Offset()</h2>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="gae7328822ca8e2fd16a638854eeae068b" name="gae7328822ca8e2fd16a638854eeae068b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae7328822ca8e2fd16a638854eeae068b">&#9670;&#160;</a></span>LED_STATE_BLINK</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_CurrentSensor_Clr_Offset </td>
+          <td class="memname">#define LED_STATE_BLINK&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00051">51</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
+
+</div>
+</div>
+<a id="gaaa38f6cc3eb9957214f94466dd2650cc" name="gaaa38f6cc3eb9957214f94466dd2650cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaa38f6cc3eb9957214f94466dd2650cc">&#9670;&#160;</a></span>LED_STATE_BLINK_COUNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_STATE_BLINK_COUNT&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00054">54</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
+
+</div>
+</div>
+<a id="ga065311bdf1ad091dc6f4aa643bd59f48" name="ga065311bdf1ad091dc6f4aa643bd59f48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga065311bdf1ad091dc6f4aa643bd59f48">&#9670;&#160;</a></span>LED_STATE_BLINK_FAST</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_STATE_BLINK_FAST&#160;&#160;&#160;4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00053">53</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
+
+</div>
+</div>
+<a id="gac387d5ec1a81ff6058b9bf31e5809e9d" name="gac387d5ec1a81ff6058b9bf31e5809e9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac387d5ec1a81ff6058b9bf31e5809e9d">&#9670;&#160;</a></span>LED_STATE_BLINK_SLOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_STATE_BLINK_SLOW&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00052">52</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
+
+</div>
+</div>
+<a id="ga900bdeb2c6d6ab966bad8f4fd78e8cd2" name="ga900bdeb2c6d6ab966bad8f4fd78e8cd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga900bdeb2c6d6ab966bad8f4fd78e8cd2">&#9670;&#160;</a></span>LED_STATE_OFF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_STATE_OFF&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00049">49</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
+
+</div>
+</div>
+<a id="ga04ba0e3f7ea33a087f01b2745a2de63b" name="ga04ba0e3f7ea33a087f01b2745a2de63b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga04ba0e3f7ea33a087f01b2745a2de63b">&#9670;&#160;</a></span>LED_STATE_ON</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LED_STATE_ON&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00050">50</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gaf44b310330b9dbf4597275fdade9b5f7" name="gaf44b310330b9dbf4597275fdade9b5f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf44b310330b9dbf4597275fdade9b5f7">&#9670;&#160;</a></span>Dev_LED_Blink()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_LED_Blink </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>led_id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function makes the LED blink. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00284_source.html#l00141">141</a> of file <a class="el" href="a00284_source.html">dev_current_sensor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00159">159</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00500_ga494b4a948891fd5757ccc647f9962529_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00500_gaf44b310330b9dbf4597275fdade9b5f7_icgraph.svg" width="298" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ga218632f9814c3bf20c40cea0794ffc7d" name="ga218632f9814c3bf20c40cea0794ffc7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga218632f9814c3bf20c40cea0794ffc7d">&#9670;&#160;</a></span>Dev_CurrentSensor_Get_CalibrationStatus()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t Dev_CurrentSensor_Get_CalibrationStatus </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>true calibration complete </dd>
-<dd>
-false calibration is not complete </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00284_source.html#l00121">121</a> of file <a class="el" href="a00284_source.html">dev_current_sensor.c</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00500_ga218632f9814c3bf20c40cea0794ffc7d_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ga9f581abf52dc00ba320faafa189fafb9" name="ga9f581abf52dc00ba320faafa189fafb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9f581abf52dc00ba320faafa189fafb9">&#9670;&#160;</a></span>Dev_CurrentSensor_Get_Offset()</h2>
+<a id="ga9a710b93c9efd76f1c850ee4415f736c" name="ga9a710b93c9efd76f1c850ee4415f736c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9a710b93c9efd76f1c850ee4415f736c">&#9670;&#160;</a></span>Dev_LED_Blink_Fast()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Dev_CurrentSensor_Get_Offset </td>
+          <td class="memname">void Dev_LED_Blink_Fast </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>led_id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>value current sensor offset value </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00284_source.html#l00131">131</a> of file <a class="el" href="a00284_source.html">dev_current_sensor.c</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00500_ga9f581abf52dc00ba320faafa189fafb9_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="gaaa75855922e60913d443c6203475256f" name="gaaa75855922e60913d443c6203475256f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaaa75855922e60913d443c6203475256f">&#9670;&#160;</a></span>Dev_CurrentSensorOffsetCal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_CurrentSensorOffsetCal </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function continuously evaluate the current sensor ADC value until the calibration has been completed. </p>
+<p>This function makes the LED blink in fast mode. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00284_source.html#l00107">107</a> of file <a class="el" href="a00284_source.html">dev_current_sensor.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00500_gaaa75855922e60913d443c6203475256f_cgraph.svg" width="428" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00500_gaaa75855922e60913d443c6203475256f_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00205">205</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
 
 </div>
 </div>
-<a id="ga03e8d61bbc0f4b686c400440f80dcf69" name="ga03e8d61bbc0f4b686c400440f80dcf69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga03e8d61bbc0f4b686c400440f80dcf69">&#9670;&#160;</a></span>Dev_SensorOffsetCal()</h2>
+<a id="gab8abb73dda8dc3829d57da8c681f4931" name="gab8abb73dda8dc3829d57da8c681f4931"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab8abb73dda8dc3829d57da8c681f4931">&#9670;&#160;</a></span>Dev_LED_Blink_Iter()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void __inline__ Dev_SensorOffsetCal </td>
+          <td class="memname">void Dev_LED_Blink_Iter </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00284.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> *&#160;</td>
-          <td class="paramname"><em>sensor</em>, </td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>led_id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>adcReading</em>&#160;</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -345,55 +388,186 @@ false calibration is not complete </dd></dl>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sensor</td><td>pointer to object of type SENSOR_OFFSET_CAL_t </td></tr>
-    <tr><td class="paramname">adcReading</td><td>most recent ADC reading </td></tr>
+    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function takes number of samples of adc sample for averaging before acquiring the sensor offset value and checks if it is in the acceptable range before setting the calibration bit complete. </p>
+<p>This function blinks the LED instance in a particular number of blink counts </p>
 
-<p class="definition">Definition at line <a class="el" href="a00284_source.html#l00077">77</a> of file <a class="el" href="a00284_source.html">dev_current_sensor.c</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00500_ga03e8d61bbc0f4b686c400440f80dcf69_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00174">174</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="gaf2e1ab5706d4b7e1a47eea25ce323c5f" name="gaf2e1ab5706d4b7e1a47eea25ce323c5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf2e1ab5706d4b7e1a47eea25ce323c5f">&#9670;&#160;</a></span>isecAvgCurrentSensor</h2>
+<a id="ga371fdb6009ec0f15b00e75ad4ef4d177" name="ga371fdb6009ec0f15b00e75ad4ef4d177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga371fdb6009ec0f15b00e75ad4ef4d177">&#9670;&#160;</a></span>Dev_LED_Blink_Slow()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00284.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> isecAvgCurrentSensor</td>
+          <td class="memname">void Dev_LED_Blink_Slow </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>led_id</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {.CalibrationComplete = <span class="keyword">false</span>,</div>
-<div class="line">                                               .Accumulator = 0,</div>
-<div class="line">                                               .MeasurementCounter = 0,</div>
-<div class="line">                                               .LimitHigh = <a class="code hl_define" href="a00470.html#ga32693322c9fff62a2374fd3de9d0f5e8">ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</a>,</div>
-<div class="line">                                               .LimitLow = <a class="code hl_define" href="a00470.html#ga0ed005156ed4fc2064d588f00d44223d">ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</a>}</div>
-<div class="ttc" id="aa00470_html_ga0ed005156ed4fc2064d588f00d44223d"><div class="ttname"><a href="a00470.html#ga0ed005156ed4fc2064d588f00d44223d">ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</a></div><div class="ttdeci">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</div><div class="ttdef"><b>Definition</b> <a href="a00275_source.html#l00088">macros.h:88</a></div></div>
-<div class="ttc" id="aa00470_html_ga32693322c9fff62a2374fd3de9d0f5e8"><div class="ttname"><a href="a00470.html#ga32693322c9fff62a2374fd3de9d0f5e8">ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</a></div><div class="ttdeci">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</div><div class="ttdef"><b>Definition</b> <a href="a00275_source.html#l00087">macros.h:87</a></div></div>
-</div><!-- fragment --><p>The 'isecAvgCurrentSensor' data object holds the averaging parameter of the sensor offset calibration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function makes the LED blink in slow mode. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00284_source.html#l00060">60</a> of file <a class="el" href="a00284_source.html">dev_current_sensor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00190">190</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
+
+</div>
+</div>
+<a id="ga2d2db02502e7b576a9149d114f303daa" name="ga2d2db02502e7b576a9149d114f303daa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d2db02502e7b576a9149d114f303daa">&#9670;&#160;</a></span>Dev_LED_Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_LED_Initialize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function initializes the LED to normal blink interval. </p><dl class="section note"><dt>Note</dt><dd>Not really needed to be called at startup, but its nice be consistent </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00076">76</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00500_ga2d2db02502e7b576a9149d114f303daa_cgraph.svg" width="298" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga645c25dba273dcf25dc202d31f441154" name="ga645c25dba273dcf25dc202d31f441154"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga645c25dba273dcf25dc202d31f441154">&#9670;&#160;</a></span>Dev_LED_Off()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_LED_Off </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>led_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function turns off the led with the ID defined in the header file </p>
+
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00116">116</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
+
+</div>
+</div>
+<a id="ga6fc0416c8ff212d938628b290a18a390" name="ga6fc0416c8ff212d938628b290a18a390"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6fc0416c8ff212d938628b290a18a390">&#9670;&#160;</a></span>Dev_LED_On()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_LED_On </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>led_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function turns on the led with the ID defined in the header file </p>
+
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00092">92</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
+
+</div>
+</div>
+<a id="gad26b3effecb0675aad3bcba8993a0bb2" name="gad26b3effecb0675aad3bcba8993a0bb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad26b3effecb0675aad3bcba8993a0bb2">&#9670;&#160;</a></span>Dev_LED_Task_100ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_LED_Task_100ms </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function needs to be called every 100ms. This updates the status of the LED. The intervals defined in the header file are used to determine the frequency of blinky LED. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00222">222</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00500_gad26b3effecb0675aad3bcba8993a0bb2_icgraph.svg" width="316" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gacf12fda3f7d99f77a0e68b846273984f" name="gacf12fda3f7d99f77a0e68b846273984f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacf12fda3f7d99f77a0e68b846273984f">&#9670;&#160;</a></span>Dev_LED_Toggle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_LED_Toggle </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>led_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">led_id</td><td>LED ID instance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function toggles the led with the ID defined in the header file </p>
+
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00140">140</a> of file <a class="el" href="a00311_source.html">dev_led.c</a>.</p>
 
 </div>
 </div>

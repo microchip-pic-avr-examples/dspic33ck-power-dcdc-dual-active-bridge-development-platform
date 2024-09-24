@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Fault Configuration</title>
+<title>Dual Active Bridge Development Board: Current Sensor Calibration</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -139,62 +139,187 @@ $(document).ready(function(){initNavTree('a00498.html',''); initResizable(); });
   <div class="summary">
 <a href="#files">Files</a> &#124;
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Fault Configuration<div class="ingroups"><a class="el" href="a00487.html">Device Layer</a> &raquo; <a class="el" href="a00497.html">Fault Monitor</a></div></div></div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Current Sensor Calibration<div class="ingroups"><a class="el" href="a00497.html">Device Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains functions that initialize, execute and handles the power supply fault.  
+<p>The Current Sensor Calibration device layer is a proprietary user code utilized for configuring the sensor properties.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Fault Configuration:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Current Sensor Calibration:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00498.svg" width="286" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00498.svg" width="328" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00314" id="r_a00314"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00314.html">dev_fault.c</a></td></tr>
-<tr class="memdesc:a00314"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains fault functions including the fault handler, fault object initialization and fault execution. <br /></td></tr>
+<tr class="memitem:a00293" id="r_a00293"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00293.html">dev_current_sensor.c</a></td></tr>
+<tr class="memdesc:a00293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains current sensor initialization and calibration evaluation. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00296" id="r_a00296"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html">dev_current_sensor.h</a></td></tr>
+<tr class="memdesc:a00296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains current sensor public functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00651.html">FAULT_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of faults to be monitored.  <a href="a00651.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00655.html">FAULT_SETTINGS_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains Fault settings.  <a href="a00655.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html">SENSOR_OFFSET_CAL_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores data related to sensor calibration, including data related to sensor offset.  <a href="a00637.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga49e1c9ea3a6a543de5e0db0328595ab4" id="r_ga49e1c9ea3a6a543de5e0db0328595ab4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html#ga49e1c9ea3a6a543de5e0db0328595ab4">Dev_Fault_Handler</a> (void)</td></tr>
-<tr class="memdesc:ga49e1c9ea3a6a543de5e0db0328595ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the fault trip by turning off the power control switching.  <br /></td></tr>
-<tr class="separator:ga49e1c9ea3a6a543de5e0db0328595ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf5d210df8b3540e4dd911cb3d8c77fcd" id="r_gaf5d210df8b3540e4dd911cb3d8c77fcd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html#gaf5d210df8b3540e4dd911cb3d8c77fcd">Dev_Fault_Initialize</a> (void)</td></tr>
-<tr class="memdesc:gaf5d210df8b3540e4dd911cb3d8c77fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the fault objects.  <br /></td></tr>
-<tr class="separator:gaf5d210df8b3540e4dd911cb3d8c77fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7ca815f0afe45529a572a517f5d5e03e" id="r_ga7ca815f0afe45529a572a517f5d5e03e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html#ga7ca815f0afe45529a572a517f5d5e03e">Dev_Fault_Execute</a> (void)</td></tr>
-<tr class="memdesc:ga7ca815f0afe45529a572a517f5d5e03e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the fault handlers.  <br /></td></tr>
-<tr class="separator:ga7ca815f0afe45529a572a517f5d5e03e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga81e895976c1ee1cb678be1d5b5c3505b" id="r_ga81e895976c1ee1cb678be1d5b5c3505b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html#ga81e895976c1ee1cb678be1d5b5c3505b">Dev_Fault_Reset</a> (void)</td></tr>
-<tr class="memdesc:ga81e895976c1ee1cb678be1d5b5c3505b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the fault object flag bits.  <br /></td></tr>
-<tr class="separator:ga81e895976c1ee1cb678be1d5b5c3505b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab9d1f964731d7386aa8a61fb6b04453f" id="r_gab9d1f964731d7386aa8a61fb6b04453f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html#gab9d1f964731d7386aa8a61fb6b04453f">Dev_Fault_EnableShortCircuitProtection</a> (void)</td></tr>
-<tr class="memdesc:gab9d1f964731d7386aa8a61fb6b04453f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable Short circuit hardware protection.  <br /></td></tr>
-<tr class="separator:gab9d1f964731d7386aa8a61fb6b04453f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga86410f4477516eb5de88e12c3108162d" id="r_ga86410f4477516eb5de88e12c3108162d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html#ga86410f4477516eb5de88e12c3108162d">Dev_Fault_Temp_100ms</a> (void)</td></tr>
-<tr class="memdesc:ga86410f4477516eb5de88e12c3108162d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault evaluation for Temperature.  <br /></td></tr>
-<tr class="separator:ga86410f4477516eb5de88e12c3108162d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga03e8d61bbc0f4b686c400440f80dcf69" id="r_ga03e8d61bbc0f4b686c400440f80dcf69"><td class="memItemLeft" align="right" valign="top">static void __inline__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html#ga03e8d61bbc0f4b686c400440f80dcf69">Dev_SensorOffsetCal</a> (<a class="el" href="a00293.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> *sensor, uint16_t adcReading)</td></tr>
+<tr class="memdesc:ga03e8d61bbc0f4b686c400440f80dcf69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the sensor offset.  <br /></td></tr>
+<tr class="separator:ga03e8d61bbc0f4b686c400440f80dcf69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa75855922e60913d443c6203475256f" id="r_gaaa75855922e60913d443c6203475256f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a> (void)</td></tr>
+<tr class="memdesc:gaaa75855922e60913d443c6203475256f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measures the currents sensor offset.  <br /></td></tr>
+<tr class="separator:gaaa75855922e60913d443c6203475256f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga218632f9814c3bf20c40cea0794ffc7d" id="r_ga218632f9814c3bf20c40cea0794ffc7d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a> (void)</td></tr>
+<tr class="memdesc:ga218632f9814c3bf20c40cea0794ffc7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the calibration status.  <br /></td></tr>
+<tr class="separator:ga218632f9814c3bf20c40cea0794ffc7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f581abf52dc00ba320faafa189fafb9" id="r_ga9f581abf52dc00ba320faafa189fafb9"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a> (void)</td></tr>
+<tr class="memdesc:ga9f581abf52dc00ba320faafa189fafb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the sensor offset.  <br /></td></tr>
+<tr class="separator:ga9f581abf52dc00ba320faafa189fafb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga494b4a948891fd5757ccc647f9962529" id="r_ga494b4a948891fd5757ccc647f9962529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a> (void)</td></tr>
+<tr class="memdesc:ga494b4a948891fd5757ccc647f9962529"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to clear the sensor offset.  <br /></td></tr>
+<tr class="separator:ga494b4a948891fd5757ccc647f9962529"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gaf2e1ab5706d4b7e1a47eea25ce323c5f" id="r_gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00293.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">isecAvgCurrentSensor</a></td></tr>
+<tr class="memdesc:gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of sensor offset calibration.  <br /></td></tr>
+<tr class="separator:gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document covers the fault initialization, the fault execute function, and the fault handler. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gab9d1f964731d7386aa8a61fb6b04453f" name="gab9d1f964731d7386aa8a61fb6b04453f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab9d1f964731d7386aa8a61fb6b04453f">&#9670;&#160;</a></span>Dev_Fault_EnableShortCircuitProtection()</h2>
+<a id="ga494b4a948891fd5757ccc647f9962529" name="ga494b4a948891fd5757ccc647f9962529"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga494b4a948891fd5757ccc647f9962529">&#9670;&#160;</a></span>Dev_CurrentSensor_Clr_Offset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_CurrentSensor_Clr_Offset </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00141">141</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00498_ga494b4a948891fd5757ccc647f9962529_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ga218632f9814c3bf20c40cea0794ffc7d" name="ga218632f9814c3bf20c40cea0794ffc7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga218632f9814c3bf20c40cea0794ffc7d">&#9670;&#160;</a></span>Dev_CurrentSensor_Get_CalibrationStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_CurrentSensor_Get_CalibrationStatus </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true calibration complete </dd>
+<dd>
+false calibration is not complete </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00121">121</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00498_ga218632f9814c3bf20c40cea0794ffc7d_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ga9f581abf52dc00ba320faafa189fafb9" name="ga9f581abf52dc00ba320faafa189fafb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9f581abf52dc00ba320faafa189fafb9">&#9670;&#160;</a></span>Dev_CurrentSensor_Get_Offset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_CurrentSensor_Get_Offset </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>value current sensor offset value </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00131">131</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00498_ga9f581abf52dc00ba320faafa189fafb9_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="gaaa75855922e60913d443c6203475256f" name="gaaa75855922e60913d443c6203475256f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaa75855922e60913d443c6203475256f">&#9670;&#160;</a></span>Dev_CurrentSensorOffsetCal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_CurrentSensorOffsetCal </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function continuously evaluate the current sensor ADC value until the calibration has been completed. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00107">107</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00498_gaaa75855922e60913d443c6203475256f_cgraph.svg" width="428" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00498_gaaa75855922e60913d443c6203475256f_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ga03e8d61bbc0f4b686c400440f80dcf69" name="ga03e8d61bbc0f4b686c400440f80dcf69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga03e8d61bbc0f4b686c400440f80dcf69">&#9670;&#160;</a></span>Dev_SensorOffsetCal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,11 +328,21 @@ Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void Dev_Fault_EnableShortCircuitProtection </td>
+          <td class="memname">static void __inline__ Dev_SensorOffsetCal </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00293.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> *&#160;</td>
+          <td class="paramname"><em>sensor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>adcReading</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -216,185 +351,49 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>pointer to object of type SENSOR_OFFSET_CAL_t </td></tr>
+    <tr><td class="paramname">adcReading</td><td>most recent ADC reading </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function setup the short circuit protection threshold and turns on the DAC (Digital-to-Analog) module. This hardware protection use Comparator DACs to detect short circuit. <br  />
- </p>
+<p>This function takes number of samples of adc sample for averaging before acquiring the sensor offset value and checks if it is in the acceptable range before setting the calibration bit complete. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00212">212</a> of file <a class="el" href="a00314_source.html">dev_fault.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00498_gab9d1f964731d7386aa8a61fb6b04453f_icgraph.svg" width="384" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga7ca815f0afe45529a572a517f5d5e03e" name="ga7ca815f0afe45529a572a517f5d5e03e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7ca815f0afe45529a572a517f5d5e03e">&#9670;&#160;</a></span>Dev_Fault_Execute()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_Fault_Execute </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function evaluates if any of the fault objects has been tripped. When fault detection occurs, the power converter will shutdown thus turn-off the power converter. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00131">131</a> of file <a class="el" href="a00314_source.html">dev_fault.c</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00498_ga7ca815f0afe45529a572a517f5d5e03e_cgraph.svg" width="100%" height="480"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00498_ga7ca815f0afe45529a572a517f5d5e03e_icgraph.svg" width="336" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga49e1c9ea3a6a543de5e0db0328595ab4" name="ga49e1c9ea3a6a543de5e0db0328595ab4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga49e1c9ea3a6a543de5e0db0328595ab4">&#9670;&#160;</a></span>Dev_Fault_Handler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_Fault_Handler </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function handles the occurence of fault when one of the fault condition trips. It shuts down the operation of the power control, set the FaultActive bit and clear the Running bit indicating that power converter has been turned-off. A fault pin is also set to low to blocked the PWM signal as a hardware protection. <br  />
- </p>
-
-<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00061">61</a> of file <a class="el" href="a00314_source.html">dev_fault.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00498_ga49e1c9ea3a6a543de5e0db0328595ab4_cgraph.svg" width="618" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00498_ga49e1c9ea3a6a543de5e0db0328595ab4_icgraph.svg" width="544" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gaf5d210df8b3540e4dd911cb3d8c77fcd" name="gaf5d210df8b3540e4dd911cb3d8c77fcd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf5d210df8b3540e4dd911cb3d8c77fcd">&#9670;&#160;</a></span>Dev_Fault_Initialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_Fault_Initialize </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the fault objects following each respective fault thresholds. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00086">86</a> of file <a class="el" href="a00314_source.html">dev_fault.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00077">77</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00498_gaf5d210df8b3540e4dd911cb3d8c77fcd_cgraph.svg" width="100%" height="492"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00498_ga03e8d61bbc0f4b686c400440f80dcf69_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="ga81e895976c1ee1cb678be1d5b5c3505b" name="ga81e895976c1ee1cb678be1d5b5c3505b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga81e895976c1ee1cb678be1d5b5c3505b">&#9670;&#160;</a></span>Dev_Fault_Reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_Fault_Reset </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function clears the fault status bits for Fault Active and Fault Latched. A fault pin is also drive to high to allow PWM signal drive. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00178">178</a> of file <a class="el" href="a00314_source.html">dev_fault.c</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00498_ga81e895976c1ee1cb678be1d5b5c3505b_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ga86410f4477516eb5de88e12c3108162d" name="ga86410f4477516eb5de88e12c3108162d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga86410f4477516eb5de88e12c3108162d">&#9670;&#160;</a></span>Dev_Fault_Temp_100ms()</h2>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="gaf2e1ab5706d4b7e1a47eea25ce323c5f" name="gaf2e1ab5706d4b7e1a47eea25ce323c5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf2e1ab5706d4b7e1a47eea25ce323c5f">&#9670;&#160;</a></span>isecAvgCurrentSensor</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_Fault_Temp_100ms </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="a00293.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> isecAvgCurrentSensor</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function checks if the board temperature is within the nominal temperature range. When temperature exceeds the limit, the power control can trip or perform temperature derating. </p>
+<b>Initial value:</b><div class="fragment"><div class="line">= {.CalibrationComplete = <span class="keyword">false</span>,</div>
+<div class="line">                                               .Accumulator = 0,</div>
+<div class="line">                                               .MeasurementCounter = 0,</div>
+<div class="line">                                               .LimitHigh = <a class="code hl_define" href="a00479.html#ga32693322c9fff62a2374fd3de9d0f5e8">ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</a>,</div>
+<div class="line">                                               .LimitLow = <a class="code hl_define" href="a00479.html#ga0ed005156ed4fc2064d588f00d44223d">ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</a>}</div>
+<div class="ttc" id="aa00479_html_ga0ed005156ed4fc2064d588f00d44223d"><div class="ttname"><a href="a00479.html#ga0ed005156ed4fc2064d588f00d44223d">ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</a></div><div class="ttdeci">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00088">macros.h:88</a></div></div>
+<div class="ttc" id="aa00479_html_ga32693322c9fff62a2374fd3de9d0f5e8"><div class="ttname"><a href="a00479.html#ga32693322c9fff62a2374fd3de9d0f5e8">ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</a></div><div class="ttdeci">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00087">macros.h:87</a></div></div>
+</div><!-- fragment --><p>The 'isecAvgCurrentSensor' data object holds the averaging parameter of the sensor offset calibration. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00237">237</a> of file <a class="el" href="a00314_source.html">dev_fault.c</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00498_ga86410f4477516eb5de88e12c3108162d_cgraph.svg" width="100%" height="446"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00498_ga86410f4477516eb5de88e12c3108162d_icgraph.svg" width="324" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00060">60</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
 
 </div>
 </div>

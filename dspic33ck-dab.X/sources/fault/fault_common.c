@@ -1,3 +1,30 @@
+/*
+    (c) 2024 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
+
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
+ */
+
+/**
+ * @file      fault_common.h
+ * @ingroup   fault-common 
+ * @brief     Contains fault generic public functions.
+ */
 
 #include "fault_common.h"
 #include "system/pins.h"
@@ -5,7 +32,7 @@
 #include <stddef.h>
 
 /*******************************************************************************
- * @ingroup  dev-fault-common
+ * @ingroup  fault-common
  * @brief    This function initializes the fault object data structure with the 
  *   values that required to detect a fault.  
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
@@ -31,7 +58,7 @@ void FAULT_Init(FAULT_OBJ_T *faultInput,
 }
 
 /*******************************************************************************
- * @ingroup  dev-fault-common
+ * @ingroup  fault-common
  * @brief    This function initializes the fault object data structure with the 
  *   values that required to detect a fault at a particular range.  
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
@@ -63,7 +90,7 @@ void FAULT_InitRange(FAULT_OBJ_T *faultInput,
 }
 
 /*******************************************************************************
- * @ingroup  dev-fault-common
+ * @ingroup  fault-common
  * @brief    This function initializes/sets the fault structure with the counter limits.
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
  * @param    fltThresholdCnt  threshold counter (increments when threshold limit is reached)    
@@ -81,7 +108,7 @@ void FAULT_SetCounters(FAULT_OBJ_T *faultInput, uint16_t fltThresholdCnt, uint32
 }
 
 /*******************************************************************************
- * @ingroup  dev-fault-common
+ * @ingroup  fault-common
  * @brief    This function initializes/sets the fault structure with the threshold limits.
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
  * @param    fltThreshold  sets the fault allowed limit
@@ -99,7 +126,7 @@ void FAULT_SetThresholds(FAULT_OBJ_T *faultInput, int16_t fltThreshold, int16_t 
 }
 
 /*******************************************************************************
- * @ingroup  dev-fault-common
+ * @ingroup  fault-common
  * @brief    This function compares the fault source value with the threshold 
  *  limits and sets (or) resets the fault active state accordingly.
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
@@ -156,7 +183,7 @@ bool FAULT_CheckMax(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK
 }
 
 /*******************************************************************************
- * @ingroup  dev-fault-common
+ * @ingroup  fault-common
  * @brief    This function compares the fault source value with the threshold 
  *  limits and sets (or) resets the fault active state accordingly.
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
@@ -213,7 +240,7 @@ bool FAULT_CheckMin(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK
 }
 
 /*******************************************************************************
- * @ingroup  dev-fault-common
+ * @ingroup  fault-common
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
  * @param    faultBit   bit being checked by fault function
  * @param    callback   function executed when fault trips 
@@ -263,7 +290,7 @@ bool FAULT_CheckBit(FAULT_OBJ_T *faultInput, bool faultBit, FAULT_CALLBACK callb
 }
 
 /*******************************************************************************
- * @ingroup  dev-fault-common
+ * @ingroup  fault-common
  * @param    faultInput Pointer to a fault data object of type FAULT_OBJ_T
  * @param    inputValue value being evaluated by the function
  * @param    callback   function executed when fault trips 

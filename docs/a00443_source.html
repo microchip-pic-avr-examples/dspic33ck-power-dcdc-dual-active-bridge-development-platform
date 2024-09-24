@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dab-pwm-configuration.X/sources/os/os_sys_time.c Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_comm_interface.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,129 +136,291 @@ $(document).ready(function(){initNavTree('a00443_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">os_sys_time.c</div></div>
+  <div class="headertitle"><div class="title">pwrctrl_comm_interface.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Copyright(c) 2019 Microchip Technology Inc. and its subsidiaries.</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Subject to your compliance with these terms, you may use Microchip software and any derivatives</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// exclusively with Microchip products. It is your responsibility to comply with third party license</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// terms applicable to your use of third-party software (including open source software) that may</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// accompany Microchip software.</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// THIS SOFTWARE IS SUPPLIED BY MICROCHIP &quot;AS IS&quot;. NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY,</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// FITNESS FOR A PARTICULAR PURPOSE.</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, INCIDENTAL OR CONSEQUENTIAL</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// MICROCHIP HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE FULLEST EXTENT</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">// ALLOWED BY LAW, MICROCHIP&#39;S TOTAL LIABILITY ON ALL CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// EXCEED THE AMOUNT OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">// @file os_sys_time.c</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// @brief contains the function for the system time</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">//</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">// @note    counting up the time can/should be done in the interrupt routine of the scheduler</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">//          reading the time can also be done outside of the interrupt without any conflicts</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">//</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">// @author M52409</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">//</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">// @date 2019-08-09</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;os/os_sys_time.h&quot;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;os_config.h&quot;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#if OS_USE_SYSTIME == 1</span></div>
+<a href="a00443.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">    (c) 2024 Microchip Technology Inc. and its subsidiaries. You may use this</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">    software and any derivatives exclusively with Microchip products.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">    THIS SOFTWARE IS SUPPLIED BY MICROCHIP &quot;AS IS&quot;. NO WARRANTIES, WHETHER</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"></span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP&#39;S TOTAL LIABILITY ON ALL CLAIMS IN</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">    TERMS.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;pwrctrl.h&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00697.html">AVERAGING_t</a> <a class="code hl_variable" href="a00507.html#ga393c2e2ce4284c384b4002688e4d4426">VprimAveraging</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00697.html">AVERAGING_t</a> <a class="code hl_variable" href="a00507.html#gab32442553cb7f7f3a3cd4a022e2a02ab">VsecAveraging</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00697.html">AVERAGING_t</a> <a class="code hl_variable" href="a00507.html#gaed1035188dd736fafeda8cd2d6049791">IsecAveraging</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">static</span> <span class="keyword">volatile</span> <a class="code hl_struct" href="a00723.html">OS_SYSTIME_t</a> os_systime;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">// @brief   call this function every millisecond from the interrupt in your scheduler</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">void</span> OS_SysTime_IncrementTime_1ms(<span class="keywordtype">void</span>)</div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="a00511.html#ga5d7bb399a6595288fdee50a716248786">   41</a></span>uint16_t <a class="code hl_function" href="a00511.html#ga5d7bb399a6595288fdee50a716248786">PwrCtrl_GetPhase_P2SDegree</a>(<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">if</span> (os_systime.<a class="code hl_variable" href="a00723.html#a2c2fc9077af4f9594b4433cd53e39f47">millisecond</a> &lt; 999U)</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        os_systime.<a class="code hl_variable" href="a00723.html#a2c2fc9077af4f9594b4433cd53e39f47">millisecond</a>++;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    }</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        os_systime.<a class="code hl_variable" href="a00723.html#a2c2fc9077af4f9594b4433cd53e39f47">millisecond</a> = 0U;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordflow">if</span> (os_systime.<a class="code hl_variable" href="a00723.html#a8459fc4e94de7eefc74991e41779c8fc">second</a> &lt; 59U)</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        { </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            os_systime.<a class="code hl_variable" href="a00723.html#a8459fc4e94de7eefc74991e41779c8fc">second</a>++;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            os_systime.<a class="code hl_variable" href="a00723.html#a8459fc4e94de7eefc74991e41779c8fc">second</a> = 0U;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">if</span> (os_systime.<a class="code hl_variable" href="a00723.html#a8ff981ec55c945940f4a0da7d8709b3c">minute</a> &lt; 59U)</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                os_systime.<a class="code hl_variable" href="a00723.html#a8ff981ec55c945940f4a0da7d8709b3c">minute</a>++;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                os_systime.<a class="code hl_variable" href="a00723.html#a8ff981ec55c945940f4a0da7d8709b3c">minute</a> = 0U;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                <span class="keywordflow">if</span> (os_systime.<a class="code hl_variable" href="a00723.html#ae5af4ff48939d13d480f87e56a9385d6">hour</a> &lt; 23U)</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                {</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                    os_systime.<a class="code hl_variable" href="a00723.html#ae5af4ff48939d13d480f87e56a9385d6">hour</a>++;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                }</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                    os_systime.<a class="code hl_variable" href="a00723.html#ae5af4ff48939d13d480f87e56a9385d6">hour</a> = 0U;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                }</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            }</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        }</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00701.html#a2f9a96c90798708142be79f979e0e723">ControlPhase_P2S_Degreex10</a>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="a00511.html#ga0bc9e88402b7b147cd7cca62622d496d">   52</a></span>uint16_t <a class="code hl_function" href="a00511.html#ga0bc9e88402b7b147cd7cca62622d496d">PwrCtrl_Get_DbgValue</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a8b530fb6f53d6cde9465d615b2bb5008">dbg</a>=<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>.<a class="code hl_variable" href="a00665.html#ac82d4f674edd9ce4e697f25d9039a3e0">FaultDetected</a>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a8b530fb6f53d6cde9465d615b2bb5008">dbg</a>);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="a00511.html#gae5e607ebc1cfbf0fcb8caa5775d5e782">   63</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00511.html#gae5e607ebc1cfbf0fcb8caa5775d5e782">Dev_PwrCtrl_SetState</a>(uint16_t reference)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>{    </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a8b22029ea33e1bafe7050317294309c2">State</a> = reference;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="a00511.html#ga70c7b962e7df84e7d49fd37a76826059">   73</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00511.html#ga70c7b962e7df84e7d49fd37a76826059">PwrCtrl_SetIReference</a>(uint16_t reference)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{    </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a2c015371f9d53a7ba0131e65634f8129">Properties</a>.<a class="code hl_variable" href="a00729.html#a77adde2f7eb1f326d84f31bf34c99b99">IReference</a> = reference;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
+</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">// @brief   function to reset the time to zero</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">// @ note   use this function at boot up time or in the init function of your scheduler or</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">//          whenever you want to set the system time to zero</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">void</span> OS_SysTime_ResetTime(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    os_systime.<a class="code hl_variable" href="a00723.html#a2c2fc9077af4f9594b4433cd53e39f47">millisecond</a> = 0U; <span class="comment">//starting with milliseconds is important for consistency</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    os_systime.<a class="code hl_variable" href="a00723.html#a8459fc4e94de7eefc74991e41779c8fc">second</a> = 0U;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    os_systime.<a class="code hl_variable" href="a00723.html#a8ff981ec55c945940f4a0da7d8709b3c">minute</a> = 0U;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    os_systime.<a class="code hl_variable" href="a00723.html#ae5af4ff48939d13d480f87e56a9385d6">hour</a> = 0U;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">// @brief   get the time now</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">// @ note   use this function to get a copy of the system time</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> OS_SysTime_GetTime(<a class="code hl_struct" href="a00723.html">OS_SYSTIME_t</a>* retVal)</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>{</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">/* LDRA_EXCLUDE 45 D */</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="comment">/* The void* returned by memcpy is not required in this function */</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="comment">/* LDRA_EXCLUDE 382 S */</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    memcpy (retVal, (<span class="keywordtype">void</span>*) &amp;os_systime, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="a00723.html">OS_SYSTIME_t</a>));</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// if the 1ms interrupt changed the system time during this copy operation, the copy is not valid</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// so we have to check for that with a simple while loop and copy again in such a case</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">/* We are comparing the right sizes between the structure pointers and the </span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">     return from memcmp is an int, which is being rightly checked*/</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="comment">/* LDRA_EXCLUDE 618 S */</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="comment">/* LDRA_EXCLUDE 114 S */</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordflow">while</span> (memcmp(retVal, (<span class="keywordtype">void</span>*) &amp;os_systime, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="a00723.html">OS_SYSTIME_t</a>) != 0U))</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="comment">/* LDRA_EXCLUDE 382 S */</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        memcpy (retVal, (<span class="keywordtype">void</span>*) &amp;os_systime, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="a00723.html">OS_SYSTIME_t</a>));</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    }</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#endif  </span><span class="comment">//OS_USE_SYSTIME</span></div>
-<div class="ttc" id="aa00723_html"><div class="ttname"><a href="a00723.html">OS_SYSTIME_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00446_source.html#l00040">os_sys_time.h:41</a></div></div>
-<div class="ttc" id="aa00723_html_a2c2fc9077af4f9594b4433cd53e39f47"><div class="ttname"><a href="a00723.html#a2c2fc9077af4f9594b4433cd53e39f47">OS_SYSTIME_t::millisecond</a></div><div class="ttdeci">uint16_t millisecond</div><div class="ttdef"><b>Definition</b> <a href="a00446_source.html#l00042">os_sys_time.h:42</a></div></div>
-<div class="ttc" id="aa00723_html_a8459fc4e94de7eefc74991e41779c8fc"><div class="ttname"><a href="a00723.html#a8459fc4e94de7eefc74991e41779c8fc">OS_SYSTIME_t::second</a></div><div class="ttdeci">uint8_t second</div><div class="ttdef"><b>Definition</b> <a href="a00446_source.html#l00043">os_sys_time.h:43</a></div></div>
-<div class="ttc" id="aa00723_html_a8ff981ec55c945940f4a0da7d8709b3c"><div class="ttname"><a href="a00723.html#a8ff981ec55c945940f4a0da7d8709b3c">OS_SYSTIME_t::minute</a></div><div class="ttdeci">uint8_t minute</div><div class="ttdef"><b>Definition</b> <a href="a00446_source.html#l00044">os_sys_time.h:44</a></div></div>
-<div class="ttc" id="aa00723_html_ae5af4ff48939d13d480f87e56a9385d6"><div class="ttname"><a href="a00723.html#ae5af4ff48939d13d480f87e56a9385d6">OS_SYSTIME_t::hour</a></div><div class="ttdeci">uint8_t hour</div><div class="ttdef"><b>Definition</b> <a href="a00446_source.html#l00045">os_sys_time.h:45</a></div></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="a00511.html#ga919933b7bef6f9fa8094848c413e7881">   83</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00511.html#ga919933b7bef6f9fa8094848c413e7881">PwrCtrl_SetVSecReference</a>(uint16_t reference)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{    </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a2c015371f9d53a7ba0131e65634f8129">Properties</a>.<a class="code hl_variable" href="a00729.html#aa9713a077db135ad061aae799db7be2c">VSecReference</a> = reference;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="a00511.html#ga574faff7b911d52ae6d2cf53b68a8963">   93</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00511.html#ga574faff7b911d52ae6d2cf53b68a8963">PwrCtrl_SetPwrReference</a>(uint16_t reference)</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>{    </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a2c015371f9d53a7ba0131e65634f8129">Properties</a>.<a class="code hl_variable" href="a00729.html#a19c96c8c63b39d18db0eae64f208dcf7">PwrReference</a> = reference;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
+</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="a00511.html#ga75fdd46231baccc4830fa08d2b39a3d2">  103</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00511.html#ga75fdd46231baccc4830fa08d2b39a3d2">PwrCtrl_SetPeriodTarget</a>(uint16_t reference)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>{    </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00701.html#aa9fe0fb976db533a369cd12c3589765e">PBVPeriodTarget</a> = reference;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="a00511.html#gae62d241af8152bb7989d448f30adc55e">  113</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00511.html#gae62d241af8152bb7989d448f30adc55e">PwrCtrl_SetPhaseTarget</a>(uint16_t reference)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>{    </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00701.html#afe456845608e185d7666f1e8db9f118e">PBVControlPhaseTarget</a> = reference;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>}</div>
+</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="a00511.html#ga80737f595e2855e9361772d2c1a9852d">  122</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00511.html#ga80737f595e2855e9361772d2c1a9852d">PwrCtrl_SetP2SPhaseTarget</a>(uint16_t reference)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>{    </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00701.html#a1b2f921d9eb1d364246e97c1f0d00b99">ControlPhase_P2S_Target</a> = reference;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>}</div>
+</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="}">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="a00511.html#ga071b955cb9687b27b8ce895a29febc66">  132</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00511.html#ga071b955cb9687b27b8ce895a29febc66">PwrCtrl_SetEnable</a>(<span class="keywordtype">bool</span> enable)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>{ </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  <a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a2c015371f9d53a7ba0131e65634f8129">Properties</a>.<a class="code hl_variable" href="a00729.html#a3348c072797d519fa8f99e521ab65a69">Enable</a> = enable; </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
+</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="a00511.html#ga6450795c316e2284ae94eb16f0da1fe8">  143</a></span>uint16_t <a class="code hl_function" href="a00511.html#ga6450795c316e2284ae94eb16f0da1fe8">PwrCtrl_GetAdc_Ipri_ct</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>{</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a9961eac6798b52736528d9d4aa30d922">Data</a>.<a class="code hl_variable" href="a00705.html#a4bb8d9e45d3b1791b7597c46356d6f7f">ISensePrimary</a>);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>}</div>
+</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="foldopen" id="foldopen00153" data-start="{" data-end="}">
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="a00511.html#gab6b145022a1725eaf38c5d0b1864983f">  153</a></span>uint16_t <a class="code hl_function" href="a00511.html#gab6b145022a1725eaf38c5d0b1864983f">PwrCtrl_GetAdc_Isec_ct</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>{</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a9961eac6798b52736528d9d4aa30d922">Data</a>.<a class="code hl_variable" href="a00705.html#ab69cdd1acf7db7e5e2521d1afe46d8f9">ISenseSecondary</a>);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>}</div>
+</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="foldopen" id="foldopen00163" data-start="{" data-end="}">
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="a00511.html#ga641e888682922358719d9a3c62b37634">  163</a></span>uint16_t <a class="code hl_function" href="a00511.html#ga641e888682922358719d9a3c62b37634">PwrCtrl_GetAdc_Isec_avg</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>{</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a9961eac6798b52736528d9d4aa30d922">Data</a>.<a class="code hl_variable" href="a00705.html#a2ebeb1daee42d50afad2f53cfe8f8548">ISecAverageRectified</a>);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>}</div>
+</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="foldopen" id="foldopen00173" data-start="{" data-end="}">
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="a00511.html#gac82d4ab7cf3f3ca8180033a4d17d789f">  173</a></span>uint16_t <a class="code hl_function" href="a00511.html#gac82d4ab7cf3f3ca8180033a4d17d789f">PwrCtrl_GetAdc_Temperature</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>{</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a9961eac6798b52736528d9d4aa30d922">Data</a>.<a class="code hl_variable" href="a00705.html#ad389e5a23077ca8d6548dffd7f5ec1c1">Temperature</a>);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>}</div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="foldopen" id="foldopen00183" data-start="{" data-end="}">
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="a00511.html#gaf0b0a68f7829d9f898c6f0840a77c065">  183</a></span>uint16_t <a class="code hl_function" href="a00511.html#gaf0b0a68f7829d9f898c6f0840a77c065">PwrCtrl_GetAdc_Vrail_5V</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>{</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a9961eac6798b52736528d9d4aa30d922">Data</a>.<a class="code hl_variable" href="a00705.html#acc72d884c453d1343c8e836369311454">VRail_5V</a>);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>}</div>
+</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="foldopen" id="foldopen00193" data-start="{" data-end="}">
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="a00511.html#ga6ea3a7d0d8075757d7dd3fc4ddaca1f5">  193</a></span>uint16_t <a class="code hl_function" href="a00511.html#ga6ea3a7d0d8075757d7dd3fc4ddaca1f5">Dev_PwrCtrl_Get_Period</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>{</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00701.html#a2b3122d0cc562492b079305016344571">ControlPeriod</a>);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
+</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="foldopen" id="foldopen00203" data-start="{" data-end="}">
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="a00511.html#gad6514b638a32baed68543a56bedd5c5d">  203</a></span>uint16_t <a class="code hl_function" href="a00511.html#gad6514b638a32baed68543a56bedd5c5d">Dev_PwrCtrl_Get_DutyCycle</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>{</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00701.html#a5eb08d6bfe077124da067795181f03a2">ControlDutyCycle</a>);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>}</div>
+</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="foldopen" id="foldopen00213" data-start="{" data-end="}">
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="a00511.html#ga0a4bc9ff1027ccd07af11d8bd2865219">  213</a></span>uint16_t <a class="code hl_function" href="a00511.html#ga0a4bc9ff1027ccd07af11d8bd2865219">Dev_PwrCtrl_Get_State</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>{</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a8b22029ea33e1bafe7050317294309c2">State</a>);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>}</div>
+</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="foldopen" id="foldopen00223" data-start="{" data-end="}">
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="a00511.html#gab500c9c4e05b023607a8e72ababe07b3">  223</a></span>uint16_t <a class="code hl_function" href="a00511.html#gab500c9c4e05b023607a8e72ababe07b3">Dev_PwrCtrl_Get_Status</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>{</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#ae5b4ae59c620ed360f0cb1c66ea0cd4e">Status</a>.<a class="code hl_variable" href="a00709.html#a900b69af7d674b8db3bceae754b4955a">value</a>);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>}</div>
+</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="foldopen" id="foldopen00234" data-start="{" data-end="}">
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="a00511.html#ga7a61c299efe9f39fbddb6d902d4b3adc">  234</a></span>uint16_t <a class="code hl_function" href="a00511.html#ga7a61c299efe9f39fbddb6d902d4b3adc">Dev_PwrCtrl_Get_EnableFlag</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>{</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a2c015371f9d53a7ba0131e65634f8129">Properties</a>.<a class="code hl_variable" href="a00729.html#a3348c072797d519fa8f99e521ab65a69">Enable</a>);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>}</div>
+</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="foldopen" id="foldopen00244" data-start="{" data-end="}">
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="a00511.html#gadd921f8c68bb08d611f3fd7ab03e60ee">  244</a></span>uint16_t <a class="code hl_function" href="a00511.html#gadd921f8c68bb08d611f3fd7ab03e60ee">Dev_PwrCtrl_Get_PwmprdTarget</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>{</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>.<a class="code hl_variable" href="a00701.html#aa9fe0fb976db533a369cd12c3589765e">PBVPeriodTarget</a>);</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>}</div>
+</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="foldopen" id="foldopen00254" data-start="{" data-end="}">
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="a00511.html#gafe5653e08d77956b5b4fbbcc4305870e">  254</a></span>uint16_t <a class="code hl_function" href="a00511.html#gafe5653e08d77956b5b4fbbcc4305870e">Dev_PwrCtrl_Get_SecPower</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>{</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00733.html#a9961eac6798b52736528d9d4aa30d922">Data</a>.<a class="code hl_variable" href="a00705.html#a6961d340d23b02e801410da9d41e9c20">SecPower</a>);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>}</div>
+</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="foldopen" id="foldopen00263" data-start="{" data-end="}">
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="a00511.html#ga70a3c74e48285c709f735a499a3024dc">  263</a></span>uint16_t <a class="code hl_function" href="a00511.html#ga70a3c74e48285c709f735a499a3024dc">Dev_PwrCtrl_GetAveraging_Vprim</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>{</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00507.html#ga393c2e2ce4284c384b4002688e4d4426">VprimAveraging</a>.<a class="code hl_variable" href="a00697.html#ababc9b3b062bdea79c71035d651fbe79">AverageValue</a>);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>}</div>
+</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="foldopen" id="foldopen00272" data-start="{" data-end="}">
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno"><a class="line" href="a00511.html#ga5178aaea783edff228941c4ecf749a90">  272</a></span>uint16_t <a class="code hl_function" href="a00511.html#ga5178aaea783edff228941c4ecf749a90">Dev_PwrCtrl_GetAveraging_Vsec</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>{</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00507.html#gab32442553cb7f7f3a3cd4a022e2a02ab">VsecAveraging</a>.<a class="code hl_variable" href="a00697.html#ababc9b3b062bdea79c71035d651fbe79">AverageValue</a>);</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>}</div>
+</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="foldopen" id="foldopen00282" data-start="{" data-end="}">
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno"><a class="line" href="a00511.html#ga346aaaf8b8cf0266d9873405945c55dd">  282</a></span>uint16_t <a class="code hl_function" href="a00511.html#ga346aaaf8b8cf0266d9873405945c55dd">Dev_PwrCtrl_GetAveraging_Isec</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>{</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00507.html#gaed1035188dd736fafeda8cd2d6049791">IsecAveraging</a>.<a class="code hl_variable" href="a00697.html#ababc9b3b062bdea79c71035d651fbe79">AverageValue</a>);</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>}</div>
+</div>
+<div class="ttc" id="aa00506_html_ga5762de26b3d1b822c6a4b9c1605cd387"><div class="ttname"><a href="a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a></div><div class="ttdeci">POWER_CONTROL_t dab</div><div class="ttdoc">Global data object for a DAB Converter.</div><div class="ttdef"><b>Definition</b> <a href="a00431_source.html#l00048">pwrctrl.c:48</a></div></div>
+<div class="ttc" id="aa00507_html_ga393c2e2ce4284c384b4002688e4d4426"><div class="ttname"><a href="a00507.html#ga393c2e2ce4284c384b4002688e4d4426">VprimAveraging</a></div><div class="ttdeci">AVERAGING_t VprimAveraging</div><div class="ttdoc">Data Object of primary voltage averaging.</div><div class="ttdef"><b>Definition</b> <a href="a00455_source.html#l00055">pwrctrl_isr_extension.c:55</a></div></div>
+<div class="ttc" id="aa00507_html_gab32442553cb7f7f3a3cd4a022e2a02ab"><div class="ttname"><a href="a00507.html#gab32442553cb7f7f3a3cd4a022e2a02ab">VsecAveraging</a></div><div class="ttdeci">AVERAGING_t VsecAveraging</div><div class="ttdoc">Data Object of secondary voltage averaging.</div><div class="ttdef"><b>Definition</b> <a href="a00455_source.html#l00063">pwrctrl_isr_extension.c:63</a></div></div>
+<div class="ttc" id="aa00507_html_gaed1035188dd736fafeda8cd2d6049791"><div class="ttname"><a href="a00507.html#gaed1035188dd736fafeda8cd2d6049791">IsecAveraging</a></div><div class="ttdeci">AVERAGING_t IsecAveraging</div><div class="ttdoc">Data Object of secondary current averaging.</div><div class="ttdef"><b>Definition</b> <a href="a00455_source.html#l00071">pwrctrl_isr_extension.c:71</a></div></div>
+<div class="ttc" id="aa00511_html_ga071b955cb9687b27b8ce895a29febc66"><div class="ttname"><a href="a00511.html#ga071b955cb9687b27b8ce895a29febc66">PwrCtrl_SetEnable</a></div><div class="ttdeci">void PwrCtrl_SetEnable(bool enable)</div><div class="ttdoc">API function to set the power control enable bit.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00132">pwrctrl_comm_interface.c:132</a></div></div>
+<div class="ttc" id="aa00511_html_ga0a4bc9ff1027ccd07af11d8bd2865219"><div class="ttname"><a href="a00511.html#ga0a4bc9ff1027ccd07af11d8bd2865219">Dev_PwrCtrl_Get_State</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_State(void)</div><div class="ttdoc">API function to get the current state of the state machine.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00213">pwrctrl_comm_interface.c:213</a></div></div>
+<div class="ttc" id="aa00511_html_ga0bc9e88402b7b147cd7cca62622d496d"><div class="ttname"><a href="a00511.html#ga0bc9e88402b7b147cd7cca62622d496d">PwrCtrl_Get_DbgValue</a></div><div class="ttdeci">uint16_t PwrCtrl_Get_DbgValue(void)</div><div class="ttdoc">API function to get some unit test debug purpose value. Do not use otherwise.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00052">pwrctrl_comm_interface.c:52</a></div></div>
+<div class="ttc" id="aa00511_html_ga346aaaf8b8cf0266d9873405945c55dd"><div class="ttname"><a href="a00511.html#ga346aaaf8b8cf0266d9873405945c55dd">Dev_PwrCtrl_GetAveraging_Isec</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_GetAveraging_Isec(void)</div><div class="ttdoc">API function to get the average value of the sampled ADC for secondary current.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00282">pwrctrl_comm_interface.c:282</a></div></div>
+<div class="ttc" id="aa00511_html_ga5178aaea783edff228941c4ecf749a90"><div class="ttname"><a href="a00511.html#ga5178aaea783edff228941c4ecf749a90">Dev_PwrCtrl_GetAveraging_Vsec</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_GetAveraging_Vsec(void)</div><div class="ttdoc">API function to get the average value of the sampled ADC for secondary voltage.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00272">pwrctrl_comm_interface.c:272</a></div></div>
+<div class="ttc" id="aa00511_html_ga574faff7b911d52ae6d2cf53b68a8963"><div class="ttname"><a href="a00511.html#ga574faff7b911d52ae6d2cf53b68a8963">PwrCtrl_SetPwrReference</a></div><div class="ttdeci">void PwrCtrl_SetPwrReference(uint16_t reference)</div><div class="ttdoc">API function to set the power controller reference.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00093">pwrctrl_comm_interface.c:93</a></div></div>
+<div class="ttc" id="aa00511_html_ga5d7bb399a6595288fdee50a716248786"><div class="ttname"><a href="a00511.html#ga5d7bb399a6595288fdee50a716248786">PwrCtrl_GetPhase_P2SDegree</a></div><div class="ttdeci">uint16_t PwrCtrl_GetPhase_P2SDegree(void)</div><div class="ttdoc">API function to set the power control State.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00041">pwrctrl_comm_interface.c:41</a></div></div>
+<div class="ttc" id="aa00511_html_ga641e888682922358719d9a3c62b37634"><div class="ttname"><a href="a00511.html#ga641e888682922358719d9a3c62b37634">PwrCtrl_GetAdc_Isec_avg</a></div><div class="ttdeci">uint16_t PwrCtrl_GetAdc_Isec_avg(void)</div><div class="ttdoc">API function to get the raw ADC value for secondary average current.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00163">pwrctrl_comm_interface.c:163</a></div></div>
+<div class="ttc" id="aa00511_html_ga6450795c316e2284ae94eb16f0da1fe8"><div class="ttname"><a href="a00511.html#ga6450795c316e2284ae94eb16f0da1fe8">PwrCtrl_GetAdc_Ipri_ct</a></div><div class="ttdeci">uint16_t PwrCtrl_GetAdc_Ipri_ct(void)</div><div class="ttdoc">API function to get the raw ADC value for primary current transformer current.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00143">pwrctrl_comm_interface.c:143</a></div></div>
+<div class="ttc" id="aa00511_html_ga6ea3a7d0d8075757d7dd3fc4ddaca1f5"><div class="ttname"><a href="a00511.html#ga6ea3a7d0d8075757d7dd3fc4ddaca1f5">Dev_PwrCtrl_Get_Period</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_Period(void)</div><div class="ttdoc">API function to get the PWM period.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00193">pwrctrl_comm_interface.c:193</a></div></div>
+<div class="ttc" id="aa00511_html_ga70a3c74e48285c709f735a499a3024dc"><div class="ttname"><a href="a00511.html#ga70a3c74e48285c709f735a499a3024dc">Dev_PwrCtrl_GetAveraging_Vprim</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_GetAveraging_Vprim(void)</div><div class="ttdoc">API function to get the average value of the sampled ADC for primary voltage.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00263">pwrctrl_comm_interface.c:263</a></div></div>
+<div class="ttc" id="aa00511_html_ga70c7b962e7df84e7d49fd37a76826059"><div class="ttname"><a href="a00511.html#ga70c7b962e7df84e7d49fd37a76826059">PwrCtrl_SetIReference</a></div><div class="ttdeci">void PwrCtrl_SetIReference(uint16_t reference)</div><div class="ttdoc">API function to set the current controller reference.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00073">pwrctrl_comm_interface.c:73</a></div></div>
+<div class="ttc" id="aa00511_html_ga75fdd46231baccc4830fa08d2b39a3d2"><div class="ttname"><a href="a00511.html#ga75fdd46231baccc4830fa08d2b39a3d2">PwrCtrl_SetPeriodTarget</a></div><div class="ttdeci">void PwrCtrl_SetPeriodTarget(uint16_t reference)</div><div class="ttdoc">API function to set the target period.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00103">pwrctrl_comm_interface.c:103</a></div></div>
+<div class="ttc" id="aa00511_html_ga7a61c299efe9f39fbddb6d902d4b3adc"><div class="ttname"><a href="a00511.html#ga7a61c299efe9f39fbddb6d902d4b3adc">Dev_PwrCtrl_Get_EnableFlag</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_EnableFlag(void)</div><div class="ttdoc">API function to get the state of the power control enable bit.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00234">pwrctrl_comm_interface.c:234</a></div></div>
+<div class="ttc" id="aa00511_html_ga80737f595e2855e9361772d2c1a9852d"><div class="ttname"><a href="a00511.html#ga80737f595e2855e9361772d2c1a9852d">PwrCtrl_SetP2SPhaseTarget</a></div><div class="ttdeci">void PwrCtrl_SetP2SPhaseTarget(uint16_t reference)</div><div class="ttdoc">API function to set the target prim to sec phase which will steer other modulation.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00122">pwrctrl_comm_interface.c:122</a></div></div>
+<div class="ttc" id="aa00511_html_ga919933b7bef6f9fa8094848c413e7881"><div class="ttname"><a href="a00511.html#ga919933b7bef6f9fa8094848c413e7881">PwrCtrl_SetVSecReference</a></div><div class="ttdeci">void PwrCtrl_SetVSecReference(uint16_t reference)</div><div class="ttdoc">API function to set the secondary voltage controller reference.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00083">pwrctrl_comm_interface.c:83</a></div></div>
+<div class="ttc" id="aa00511_html_gab500c9c4e05b023607a8e72ababe07b3"><div class="ttname"><a href="a00511.html#gab500c9c4e05b023607a8e72ababe07b3">Dev_PwrCtrl_Get_Status</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_Status(void)</div><div class="ttdoc">API function to get the power control status.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00223">pwrctrl_comm_interface.c:223</a></div></div>
+<div class="ttc" id="aa00511_html_gab6b145022a1725eaf38c5d0b1864983f"><div class="ttname"><a href="a00511.html#gab6b145022a1725eaf38c5d0b1864983f">PwrCtrl_GetAdc_Isec_ct</a></div><div class="ttdeci">uint16_t PwrCtrl_GetAdc_Isec_ct(void)</div><div class="ttdoc">API function to get the raw ADC value for secondary current transformer current.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00153">pwrctrl_comm_interface.c:153</a></div></div>
+<div class="ttc" id="aa00511_html_gac82d4ab7cf3f3ca8180033a4d17d789f"><div class="ttname"><a href="a00511.html#gac82d4ab7cf3f3ca8180033a4d17d789f">PwrCtrl_GetAdc_Temperature</a></div><div class="ttdeci">uint16_t PwrCtrl_GetAdc_Temperature(void)</div><div class="ttdoc">API function to get the raw ADC value for temperature.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00173">pwrctrl_comm_interface.c:173</a></div></div>
+<div class="ttc" id="aa00511_html_gad6514b638a32baed68543a56bedd5c5d"><div class="ttname"><a href="a00511.html#gad6514b638a32baed68543a56bedd5c5d">Dev_PwrCtrl_Get_DutyCycle</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_DutyCycle(void)</div><div class="ttdoc">API function to get the PWM duty cycle.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00203">pwrctrl_comm_interface.c:203</a></div></div>
+<div class="ttc" id="aa00511_html_gadd921f8c68bb08d611f3fd7ab03e60ee"><div class="ttname"><a href="a00511.html#gadd921f8c68bb08d611f3fd7ab03e60ee">Dev_PwrCtrl_Get_PwmprdTarget</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_PwmprdTarget(void)</div><div class="ttdoc">API function to get the PWM period target.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00244">pwrctrl_comm_interface.c:244</a></div></div>
+<div class="ttc" id="aa00511_html_gae5e607ebc1cfbf0fcb8caa5775d5e782"><div class="ttname"><a href="a00511.html#gae5e607ebc1cfbf0fcb8caa5775d5e782">Dev_PwrCtrl_SetState</a></div><div class="ttdeci">void Dev_PwrCtrl_SetState(uint16_t reference)</div><div class="ttdoc">API function to set the power control State.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00063">pwrctrl_comm_interface.c:63</a></div></div>
+<div class="ttc" id="aa00511_html_gae62d241af8152bb7989d448f30adc55e"><div class="ttname"><a href="a00511.html#gae62d241af8152bb7989d448f30adc55e">PwrCtrl_SetPhaseTarget</a></div><div class="ttdeci">void PwrCtrl_SetPhaseTarget(uint16_t reference)</div><div class="ttdoc">API function to set the target PWM phase.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00113">pwrctrl_comm_interface.c:113</a></div></div>
+<div class="ttc" id="aa00511_html_gaf0b0a68f7829d9f898c6f0840a77c065"><div class="ttname"><a href="a00511.html#gaf0b0a68f7829d9f898c6f0840a77c065">PwrCtrl_GetAdc_Vrail_5V</a></div><div class="ttdeci">uint16_t PwrCtrl_GetAdc_Vrail_5V(void)</div><div class="ttdoc">API function to get the raw ADC value for 5V rail.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00183">pwrctrl_comm_interface.c:183</a></div></div>
+<div class="ttc" id="aa00511_html_gafe5653e08d77956b5b4fbbcc4305870e"><div class="ttname"><a href="a00511.html#gafe5653e08d77956b5b4fbbcc4305870e">Dev_PwrCtrl_Get_SecPower</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_SecPower(void)</div><div class="ttdoc">API function to get the secondary power.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00254">pwrctrl_comm_interface.c:254</a></div></div>
+<div class="ttc" id="aa00665_html_ac82d4f674edd9ce4e697f25d9039a3e0"><div class="ttname"><a href="a00665.html#ac82d4f674edd9ce4e697f25d9039a3e0">FAULT_SETTINGS_s::FaultDetected</a></div><div class="ttdeci">uint16_t FaultDetected</div><div class="ttdoc">Fault indication for fault occurrence.</div><div class="ttdef"><b>Definition</b> <a href="a00368_source.html#l00060">fault_typedef.h:60</a></div></div>
+<div class="ttc" id="aa00697_html"><div class="ttname"><a href="a00697.html">AVERAGING_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00017">pwrctrl_common.h:18</a></div></div>
+<div class="ttc" id="aa00697_html_ababc9b3b062bdea79c71035d651fbe79"><div class="ttname"><a href="a00697.html#ababc9b3b062bdea79c71035d651fbe79">AVERAGING_s::AverageValue</a></div><div class="ttdeci">uint16_t AverageValue</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00022">pwrctrl_common.h:22</a></div></div>
+<div class="ttc" id="aa00701_html_a1b2f921d9eb1d364246e97c1f0d00b99"><div class="ttname"><a href="a00701.html#a1b2f921d9eb1d364246e97c1f0d00b99">SWITCH_NODE_s::ControlPhase_P2S_Target</a></div><div class="ttdeci">uint16_t ControlPhase_P2S_Target</div><div class="ttdoc">Control phase value from control loop in degrees.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00062">pwrctrl_typedef.h:62</a></div></div>
+<div class="ttc" id="aa00701_html_a2b3122d0cc562492b079305016344571"><div class="ttname"><a href="a00701.html#a2b3122d0cc562492b079305016344571">SWITCH_NODE_s::ControlPeriod</a></div><div class="ttdeci">uint16_t ControlPeriod</div><div class="ttdoc">Control period value from control loop.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00058">pwrctrl_typedef.h:58</a></div></div>
+<div class="ttc" id="aa00701_html_a2f9a96c90798708142be79f979e0e723"><div class="ttname"><a href="a00701.html#a2f9a96c90798708142be79f979e0e723">SWITCH_NODE_s::ControlPhase_P2S_Degreex10</a></div><div class="ttdeci">uint16_t ControlPhase_P2S_Degreex10</div><div class="ttdoc">Control phase value from control loop in 10 x degree, integer.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00061">pwrctrl_typedef.h:61</a></div></div>
+<div class="ttc" id="aa00701_html_a5eb08d6bfe077124da067795181f03a2"><div class="ttname"><a href="a00701.html#a5eb08d6bfe077124da067795181f03a2">SWITCH_NODE_s::ControlDutyCycle</a></div><div class="ttdeci">uint16_t ControlDutyCycle</div><div class="ttdoc">Control Duty Cycle calculation based on Control Period.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00059">pwrctrl_typedef.h:59</a></div></div>
+<div class="ttc" id="aa00701_html_aa9fe0fb976db533a369cd12c3589765e"><div class="ttname"><a href="a00701.html#aa9fe0fb976db533a369cd12c3589765e">SWITCH_NODE_s::PBVPeriodTarget</a></div><div class="ttdeci">uint16_t PBVPeriodTarget</div><div class="ttdoc">Power Board Visualizer Set Control target.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00065">pwrctrl_typedef.h:65</a></div></div>
+<div class="ttc" id="aa00701_html_afe456845608e185d7666f1e8db9f118e"><div class="ttname"><a href="a00701.html#afe456845608e185d7666f1e8db9f118e">SWITCH_NODE_s::PBVControlPhaseTarget</a></div><div class="ttdeci">uint16_t PBVControlPhaseTarget</div><div class="ttdoc">Power Board Visualizer Set Control phase.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00066">pwrctrl_typedef.h:66</a></div></div>
+<div class="ttc" id="aa00705_html_a2ebeb1daee42d50afad2f53cfe8f8548"><div class="ttname"><a href="a00705.html#a2ebeb1daee42d50afad2f53cfe8f8548">FEEDBACK_SETTINGS_s::ISecAverageRectified</a></div><div class="ttdeci">uint16_t ISecAverageRectified</div><div class="ttdoc">Data value for average secondary current rectified.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00085">pwrctrl_typedef.h:85</a></div></div>
+<div class="ttc" id="aa00705_html_a4bb8d9e45d3b1791b7597c46356d6f7f"><div class="ttname"><a href="a00705.html#a4bb8d9e45d3b1791b7597c46356d6f7f">FEEDBACK_SETTINGS_s::ISensePrimary</a></div><div class="ttdeci">uint16_t ISensePrimary</div><div class="ttdoc">Data value for primary current as measured with CT.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00082">pwrctrl_typedef.h:82</a></div></div>
+<div class="ttc" id="aa00705_html_a6961d340d23b02e801410da9d41e9c20"><div class="ttname"><a href="a00705.html#a6961d340d23b02e801410da9d41e9c20">FEEDBACK_SETTINGS_s::SecPower</a></div><div class="ttdeci">int16_t SecPower</div><div class="ttdoc">Data value for Secondary power (Watt)</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00086">pwrctrl_typedef.h:86</a></div></div>
+<div class="ttc" id="aa00705_html_ab69cdd1acf7db7e5e2521d1afe46d8f9"><div class="ttname"><a href="a00705.html#ab69cdd1acf7db7e5e2521d1afe46d8f9">FEEDBACK_SETTINGS_s::ISenseSecondary</a></div><div class="ttdeci">uint16_t ISenseSecondary</div><div class="ttdoc">Data value for secondary current as measured with CT.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00083">pwrctrl_typedef.h:83</a></div></div>
+<div class="ttc" id="aa00705_html_acc72d884c453d1343c8e836369311454"><div class="ttname"><a href="a00705.html#acc72d884c453d1343c8e836369311454">FEEDBACK_SETTINGS_s::VRail_5V</a></div><div class="ttdeci">uint16_t VRail_5V</div><div class="ttdoc">Data value for 5V auxiliary rail.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00088">pwrctrl_typedef.h:88</a></div></div>
+<div class="ttc" id="aa00705_html_ad389e5a23077ca8d6548dffd7f5ec1c1"><div class="ttname"><a href="a00705.html#ad389e5a23077ca8d6548dffd7f5ec1c1">FEEDBACK_SETTINGS_s::Temperature</a></div><div class="ttdeci">uint16_t Temperature</div><div class="ttdoc">Data value for temperature.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00087">pwrctrl_typedef.h:87</a></div></div>
+<div class="ttc" id="aa00709_html_a900b69af7d674b8db3bceae754b4955a"><div class="ttname"><a href="a00709.html#a900b69af7d674b8db3bceae754b4955a">STATUS_FLAGS_s::value</a></div><div class="ttdeci">uint16_t value</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00107">pwrctrl_typedef.h:107</a></div></div>
+<div class="ttc" id="aa00729_html_a19c96c8c63b39d18db0eae64f208dcf7"><div class="ttname"><a href="a00729.html#a19c96c8c63b39d18db0eae64f208dcf7">PWR_CTRL_PROPERTIES_s::PwrReference</a></div><div class="ttdeci">uint16_t PwrReference</div><div class="ttdoc">User power reference setting used to control the converter controller.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00174">pwrctrl_typedef.h:174</a></div></div>
+<div class="ttc" id="aa00729_html_a3348c072797d519fa8f99e521ab65a69"><div class="ttname"><a href="a00729.html#a3348c072797d519fa8f99e521ab65a69">PWR_CTRL_PROPERTIES_s::Enable</a></div><div class="ttdeci">bool Enable</div><div class="ttdoc">Control Flag: When set, enables the converter triggering a startup sequence; When cleared,...</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00177">pwrctrl_typedef.h:177</a></div></div>
+<div class="ttc" id="aa00729_html_a77adde2f7eb1f326d84f31bf34c99b99"><div class="ttname"><a href="a00729.html#a77adde2f7eb1f326d84f31bf34c99b99">PWR_CTRL_PROPERTIES_s::IReference</a></div><div class="ttdeci">int16_t IReference</div><div class="ttdoc">User current reference setting used to control the converter controller.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00173">pwrctrl_typedef.h:173</a></div></div>
+<div class="ttc" id="aa00729_html_aa9713a077db135ad061aae799db7be2c"><div class="ttname"><a href="a00729.html#aa9713a077db135ad061aae799db7be2c">PWR_CTRL_PROPERTIES_s::VSecReference</a></div><div class="ttdeci">uint16_t VSecReference</div><div class="ttdoc">User secondary-voltage port reference setting used to control the power converter output voltage in b...</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00171">pwrctrl_typedef.h:171</a></div></div>
+<div class="ttc" id="aa00733_html_a133fe9da595a11547aacc8e4f1ae3b8a"><div class="ttname"><a href="a00733.html#a133fe9da595a11547aacc8e4f1ae3b8a">POWER_CONTROL_s::Pwm</a></div><div class="ttdeci">SWITCH_NODE_t Pwm</div><div class="ttdoc">Switch node settings.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00192">pwrctrl_typedef.h:192</a></div></div>
+<div class="ttc" id="aa00733_html_a2c015371f9d53a7ba0131e65634f8129"><div class="ttname"><a href="a00733.html#a2c015371f9d53a7ba0131e65634f8129">POWER_CONTROL_s::Properties</a></div><div class="ttdeci">PWR_CTRL_PROPERTIES_t Properties</div><div class="ttdoc">Power Control properties</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00191">pwrctrl_typedef.h:191</a></div></div>
+<div class="ttc" id="aa00733_html_a8b22029ea33e1bafe7050317294309c2"><div class="ttname"><a href="a00733.html#a8b22029ea33e1bafe7050317294309c2">POWER_CONTROL_s::State</a></div><div class="ttdeci">PWR_CTRL_STATE_t State</div><div class="ttdoc">Power Control State ID.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00190">pwrctrl_typedef.h:190</a></div></div>
+<div class="ttc" id="aa00733_html_a8b530fb6f53d6cde9465d615b2bb5008"><div class="ttname"><a href="a00733.html#a8b530fb6f53d6cde9465d615b2bb5008">POWER_CONTROL_s::dbg</a></div><div class="ttdeci">uint16_t dbg</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00202">pwrctrl_typedef.h:202</a></div></div>
+<div class="ttc" id="aa00733_html_a9961eac6798b52736528d9d4aa30d922"><div class="ttname"><a href="a00733.html#a9961eac6798b52736528d9d4aa30d922">POWER_CONTROL_s::Data</a></div><div class="ttdeci">FEEDBACK_SETTINGS_t Data</div><div class="ttdoc">Feedback channel settings.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00193">pwrctrl_typedef.h:193</a></div></div>
+<div class="ttc" id="aa00733_html_ae5b4ae59c620ed360f0cb1c66ea0cd4e"><div class="ttname"><a href="a00733.html#ae5b4ae59c620ed360f0cb1c66ea0cd4e">POWER_CONTROL_s::Status</a></div><div class="ttdeci">STATUS_FLAGS_t Status</div><div class="ttdoc">Power Supply status flags.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00189">pwrctrl_typedef.h:189</a></div></div>
+<div class="ttc" id="aa00733_html_aead2ae6cfabf4831af21d23684e19d1f"><div class="ttname"><a href="a00733.html#aead2ae6cfabf4831af21d23684e19d1f">POWER_CONTROL_s::Fault</a></div><div class="ttdeci">FAULT_SETTINGS_t Fault</div><div class="ttdoc">Fault flags and settings.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00194">pwrctrl_typedef.h:194</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

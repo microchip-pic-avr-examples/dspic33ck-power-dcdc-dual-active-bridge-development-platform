@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Conversion Macros</title>
+<title>Dual Active Bridge Development Board: PWM Settings</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,147 +136,199 @@ $(document).ready(function(){initNavTree('a00470.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Conversion Macros<div class="ingroups"><a class="el" href="a00486.html">Configuration Layer</a> &raquo; <a class="el" href="a00469.html">Secondary Current Feedback</a></div></div></div>
+  <div class="summary">
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">PWM Settings<div class="ingroups"><a class="el" href="a00496.html">Configuration Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Conversion macros for user-declarations of Secondary Current Feedback parameters.  
+<p>User-declaration of global defines for PWM signal generator settings.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Conversion Macros:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for PWM Settings:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00470.svg" width="320" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00470.svg" width="478" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="memitem:gac6376b7fb30da56ecf5719bad64079b7" id="r_gac6376b7fb30da56ecf5719bad64079b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gac6376b7fb30da56ecf5719bad64079b7">ISEC_OC_THRES_TRIG</a>&#160;&#160;&#160;(<a class="el" href="a00478.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00469.html#ga61571a56765f2041df1adffb0e127623">ISEC_OC_THRES_TRIG_AMPS</a>,<a class="el" href="a00469.html#gad565ee56fd67a47693480901f73b5e2c">ISEC_CT_SNS_GAIN</a>,<a class="el" href="a00469.html#ga167708b374334a691b34a153fc97ded0">ISEC_CT_SNS_OFS</a>))</td></tr>
-<tr class="separator:gac6376b7fb30da56ecf5719bad64079b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2a0efa36638d988404f55a254a4c62fe" id="r_ga2a0efa36638d988404f55a254a4c62fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#ga2a0efa36638d988404f55a254a4c62fe">ISEC_OC_THRES_CLEAR</a>&#160;&#160;&#160;(<a class="el" href="a00478.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00469.html#gacdbe9002c178691c914b1043a7c070ce">ISEC_OC_THRES_CLEAR_AMPS</a>,<a class="el" href="a00469.html#gad565ee56fd67a47693480901f73b5e2c">ISEC_CT_SNS_GAIN</a>,<a class="el" href="a00469.html#ga167708b374334a691b34a153fc97ded0">ISEC_CT_SNS_OFS</a>))</td></tr>
-<tr class="separator:ga2a0efa36638d988404f55a254a4c62fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf082faecd5f7c3303a4c765d8d8b0472" id="r_gaf082faecd5f7c3303a4c765d8d8b0472"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gaf082faecd5f7c3303a4c765d8d8b0472">ISEC_OC_T_BLANK_TRIG</a>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00478.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00469.html#ga9dd78aa25c054cc00c115cd70169dcda">ISEC_OC_T_BLANK_TRIG_SEC</a> / <a class="el" href="a00469.html#gaf7a4bcd753b1270a1745bc3fe4c403e9">ISEC_OC_TICK_SEC</a>)))</td></tr>
-<tr class="separator:gaf082faecd5f7c3303a4c765d8d8b0472"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5699b0f92b1002c48afde85f493ef541" id="r_ga5699b0f92b1002c48afde85f493ef541"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#ga5699b0f92b1002c48afde85f493ef541">ISEC_OC_T_BLANK_CLEAR</a>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00478.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00469.html#ga80ef2d060cb2e0d45398358f08401976">ISEC_OC_T_BLANK_CLEAR_SEC</a> / <a class="el" href="a00469.html#gaf7a4bcd753b1270a1745bc3fe4c403e9">ISEC_OC_TICK_SEC</a>)))</td></tr>
-<tr class="separator:ga5699b0f92b1002c48afde85f493ef541"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4ceda5524d91a9e630c2da6a209c2662" id="r_ga4ceda5524d91a9e630c2da6a209c2662"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#ga4ceda5524d91a9e630c2da6a209c2662">ISEC_SC_THRES_TRIG</a>&#160;&#160;&#160;(<a class="el" href="a00478.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00469.html#ga5f4043a3b61439e7695829b39102281c">ISEC_SC_THRES_TRIG_AMPS</a>,<a class="el" href="a00469.html#gad565ee56fd67a47693480901f73b5e2c">ISEC_CT_SNS_GAIN</a>,<a class="el" href="a00469.html#ga167708b374334a691b34a153fc97ded0">ISEC_CT_SNS_OFS</a>))</td></tr>
-<tr class="separator:ga4ceda5524d91a9e630c2da6a209c2662"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga32693322c9fff62a2374fd3de9d0f5e8" id="r_ga32693322c9fff62a2374fd3de9d0f5e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#ga32693322c9fff62a2374fd3de9d0f5e8">ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</a>&#160;&#160;&#160;(<a class="el" href="a00478.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((<a class="el" href="a00469.html#ga3ddd48524fd57578569ad30b31317bee">ISEC_AVG_SNS_OFS</a>*1.05)/3.3*4096.0))</td></tr>
-<tr class="separator:ga32693322c9fff62a2374fd3de9d0f5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0ed005156ed4fc2064d588f00d44223d" id="r_ga0ed005156ed4fc2064d588f00d44223d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#ga0ed005156ed4fc2064d588f00d44223d">ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</a>&#160;&#160;&#160;(<a class="el" href="a00478.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((<a class="el" href="a00469.html#ga3ddd48524fd57578569ad30b31317bee">ISEC_AVG_SNS_OFS</a>*0.95)/3.3*4096.0))</td></tr>
-<tr class="separator:ga0ed005156ed4fc2064d588f00d44223d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00471" id="r_a00471"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00471.html">Conversion Macros</a></td></tr>
+<tr class="memdesc:a00471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user declarations of PWM peripheral. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga99b5526b36699f6f8c57ed94954a9b77" id="r_ga99b5526b36699f6f8c57ed94954a9b77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#ga99b5526b36699f6f8c57ed94954a9b77">MAXIMUM_SWITCHING_FREQUENCY</a>&#160;&#160;&#160;(float)230.0e+3</td></tr>
+<tr class="memdesc:ga99b5526b36699f6f8c57ed94954a9b77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum Switching frequency in [Hz].  <br /></td></tr>
+<tr class="separator:ga99b5526b36699f6f8c57ed94954a9b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8f8211058cb5c9a0691fbf041d32043" id="r_gae8f8211058cb5c9a0691fbf041d32043"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gae8f8211058cb5c9a0691fbf041d32043">MINIMUM_SWITCHING_FREQUENCY</a>&#160;&#160;&#160;(float) 65.0e+3</td></tr>
+<tr class="memdesc:gae8f8211058cb5c9a0691fbf041d32043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum Switching frequency in [Hz].  <br /></td></tr>
+<tr class="separator:gae8f8211058cb5c9a0691fbf041d32043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8b5e420d5663a13bb68f6883cad64c8" id="r_gad8b5e420d5663a13bb68f6883cad64c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gad8b5e420d5663a13bb68f6883cad64c8">MINIMUM_DEADTIME</a>&#160;&#160;&#160;(float)150e-9</td></tr>
+<tr class="memdesc:gad8b5e420d5663a13bb68f6883cad64c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum Deadtime in seconds [sec].  <br /></td></tr>
+<tr class="separator:gad8b5e420d5663a13bb68f6883cad64c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac6d318c94c201374c73969ce117024a8" id="r_gac6d318c94c201374c73969ce117024a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gac6d318c94c201374c73969ce117024a8">MAXIMUM_DEADTIME</a>&#160;&#160;&#160;(float)500e-9</td></tr>
+<tr class="memdesc:gac6d318c94c201374c73969ce117024a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum Deadtime in seconds [sec].  <br /></td></tr>
+<tr class="separator:gac6d318c94c201374c73969ce117024a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10e0f079254bb242838a78371205ca1a" id="r_ga10e0f079254bb242838a78371205ca1a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#ga10e0f079254bb242838a78371205ca1a">MINIMUM_PHASESHIFTED_PULSE</a>&#160;&#160;&#160;(float) 80e-9</td></tr>
+<tr class="memdesc:ga10e0f079254bb242838a78371205ca1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum phase shifted pulse in seconds [sec].  <br /></td></tr>
+<tr class="separator:ga10e0f079254bb242838a78371205ca1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga14f8c324344d8c244db7c1ffc95daacc" id="r_ga14f8c324344d8c244db7c1ffc95daacc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#ga14f8c324344d8c244db7c1ffc95daacc">PRI_TO_SEC_PHASE_DEGREES_LIMIT</a>&#160;&#160;&#160;90u</td></tr>
+<tr class="memdesc:ga14f8c324344d8c244db7c1ffc95daacc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum Limit for primary to secondary phase in degrees [deg].  <br /></td></tr>
+<tr class="separator:ga14f8c324344d8c244db7c1ffc95daacc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad98508b79a9e1e8c4841dbf9816c7deb" id="r_gad98508b79a9e1e8c4841dbf9816c7deb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gad98508b79a9e1e8c4841dbf9816c7deb">PRI_TO_SEC_PHASE_TARGET</a>&#160;&#160;&#160;830u</td></tr>
+<tr class="memdesc:gad98508b79a9e1e8c4841dbf9816c7deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Primary to Secondary phase target before switching to period modulation.  <br /></td></tr>
+<tr class="separator:gad98508b79a9e1e8c4841dbf9816c7deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1ca6d03eb3a85cc6d07ac9196ccc466" id="r_gab1ca6d03eb3a85cc6d07ac9196ccc466"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gab1ca6d03eb3a85cc6d07ac9196ccc466">PERIODSTEP</a>&#160;&#160;&#160;(2&lt;&lt;3)</td></tr>
+<tr class="memdesc:gab1ca6d03eb3a85cc6d07ac9196ccc466"><td class="mdescLeft">&#160;</td><td class="mdescRight">period increment with 3LSBs needs to be 0 based from PWM FRM with cascaded PWM  <br /></td></tr>
+<tr class="separator:gab1ca6d03eb3a85cc6d07ac9196ccc466"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad09c14122e0caaaa2fcf393c2b74588f" id="r_gad09c14122e0caaaa2fcf393c2b74588f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gad09c14122e0caaaa2fcf393c2b74588f">PHASETIMESTEP</a>&#160;&#160;&#160;(1&lt;&lt;3)</td></tr>
+<tr class="memdesc:gad09c14122e0caaaa2fcf393c2b74588f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phase increment with 3LSBs needs to be 0 based from PWM FRM with cascaded PWM.  <br /></td></tr>
+<tr class="separator:gad09c14122e0caaaa2fcf393c2b74588f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>These conversion macros are used to convert user settings defined as physical quantities into binary (integer) numbers, which will be written to registers and variables and used in calculations throughout the firmware. </p>
+<p>This section defines fundamental PWM settings required for the Dual Active Bridge development board. These settings are determined by hardware and defined using physical quantities. Pre-compiler macros are used to convert physical values into binary (integer) numbers to be written to Special Function Registers (SFR). </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga32693322c9fff62a2374fd3de9d0f5e8" name="ga32693322c9fff62a2374fd3de9d0f5e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga32693322c9fff62a2374fd3de9d0f5e8">&#9670;&#160;</a></span>ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</h2>
+<a id="gac6d318c94c201374c73969ce117024a8" name="gac6d318c94c201374c73969ce117024a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac6d318c94c201374c73969ce117024a8">&#9670;&#160;</a></span>MAXIMUM_DEADTIME</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH&#160;&#160;&#160;(<a class="el" href="a00478.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((<a class="el" href="a00469.html#ga3ddd48524fd57578569ad30b31317bee">ISEC_AVG_SNS_OFS</a>*1.05)/3.3*4096.0))</td>
+          <td class="memname">#define MAXIMUM_DEADTIME&#160;&#160;&#160;(float)500e-9</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00087">87</a> of file <a class="el" href="a00275_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00033">33</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga0ed005156ed4fc2064d588f00d44223d" name="ga0ed005156ed4fc2064d588f00d44223d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0ed005156ed4fc2064d588f00d44223d">&#9670;&#160;</a></span>ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</h2>
+<a id="ga99b5526b36699f6f8c57ed94954a9b77" name="ga99b5526b36699f6f8c57ed94954a9b77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga99b5526b36699f6f8c57ed94954a9b77">&#9670;&#160;</a></span>MAXIMUM_SWITCHING_FREQUENCY</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW&#160;&#160;&#160;(<a class="el" href="a00478.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((<a class="el" href="a00469.html#ga3ddd48524fd57578569ad30b31317bee">ISEC_AVG_SNS_OFS</a>*0.95)/3.3*4096.0))</td>
+          <td class="memname">#define MAXIMUM_SWITCHING_FREQUENCY&#160;&#160;&#160;(float)230.0e+3</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00088">88</a> of file <a class="el" href="a00275_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00029">29</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga5699b0f92b1002c48afde85f493ef541" name="ga5699b0f92b1002c48afde85f493ef541"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5699b0f92b1002c48afde85f493ef541">&#9670;&#160;</a></span>ISEC_OC_T_BLANK_CLEAR</h2>
+<a id="gad8b5e420d5663a13bb68f6883cad64c8" name="gad8b5e420d5663a13bb68f6883cad64c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad8b5e420d5663a13bb68f6883cad64c8">&#9670;&#160;</a></span>MINIMUM_DEADTIME</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ISEC_OC_T_BLANK_CLEAR&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00478.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00469.html#ga80ef2d060cb2e0d45398358f08401976">ISEC_OC_T_BLANK_CLEAR_SEC</a> / <a class="el" href="a00469.html#gaf7a4bcd753b1270a1745bc3fe4c403e9">ISEC_OC_TICK_SEC</a>)))</td>
+          <td class="memname">#define MINIMUM_DEADTIME&#160;&#160;&#160;(float)150e-9</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00080">80</a> of file <a class="el" href="a00275_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00032">32</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gaf082faecd5f7c3303a4c765d8d8b0472" name="gaf082faecd5f7c3303a4c765d8d8b0472"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf082faecd5f7c3303a4c765d8d8b0472">&#9670;&#160;</a></span>ISEC_OC_T_BLANK_TRIG</h2>
+<a id="ga10e0f079254bb242838a78371205ca1a" name="ga10e0f079254bb242838a78371205ca1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga10e0f079254bb242838a78371205ca1a">&#9670;&#160;</a></span>MINIMUM_PHASESHIFTED_PULSE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ISEC_OC_T_BLANK_TRIG&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00478.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00469.html#ga9dd78aa25c054cc00c115cd70169dcda">ISEC_OC_T_BLANK_TRIG_SEC</a> / <a class="el" href="a00469.html#gaf7a4bcd753b1270a1745bc3fe4c403e9">ISEC_OC_TICK_SEC</a>)))</td>
+          <td class="memname">#define MINIMUM_PHASESHIFTED_PULSE&#160;&#160;&#160;(float) 80e-9</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00079">79</a> of file <a class="el" href="a00275_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00034">34</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga2a0efa36638d988404f55a254a4c62fe" name="ga2a0efa36638d988404f55a254a4c62fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2a0efa36638d988404f55a254a4c62fe">&#9670;&#160;</a></span>ISEC_OC_THRES_CLEAR</h2>
+<a id="gae8f8211058cb5c9a0691fbf041d32043" name="gae8f8211058cb5c9a0691fbf041d32043"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae8f8211058cb5c9a0691fbf041d32043">&#9670;&#160;</a></span>MINIMUM_SWITCHING_FREQUENCY</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ISEC_OC_THRES_CLEAR&#160;&#160;&#160;(<a class="el" href="a00478.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00469.html#gacdbe9002c178691c914b1043a7c070ce">ISEC_OC_THRES_CLEAR_AMPS</a>,<a class="el" href="a00469.html#gad565ee56fd67a47693480901f73b5e2c">ISEC_CT_SNS_GAIN</a>,<a class="el" href="a00469.html#ga167708b374334a691b34a153fc97ded0">ISEC_CT_SNS_OFS</a>))</td>
+          <td class="memname">#define MINIMUM_SWITCHING_FREQUENCY&#160;&#160;&#160;(float) 65.0e+3</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00078">78</a> of file <a class="el" href="a00275_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00030">30</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gac6376b7fb30da56ecf5719bad64079b7" name="gac6376b7fb30da56ecf5719bad64079b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac6376b7fb30da56ecf5719bad64079b7">&#9670;&#160;</a></span>ISEC_OC_THRES_TRIG</h2>
+<a id="gab1ca6d03eb3a85cc6d07ac9196ccc466" name="gab1ca6d03eb3a85cc6d07ac9196ccc466"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab1ca6d03eb3a85cc6d07ac9196ccc466">&#9670;&#160;</a></span>PERIODSTEP</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ISEC_OC_THRES_TRIG&#160;&#160;&#160;(<a class="el" href="a00478.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00469.html#ga61571a56765f2041df1adffb0e127623">ISEC_OC_THRES_TRIG_AMPS</a>,<a class="el" href="a00469.html#gad565ee56fd67a47693480901f73b5e2c">ISEC_CT_SNS_GAIN</a>,<a class="el" href="a00469.html#ga167708b374334a691b34a153fc97ded0">ISEC_CT_SNS_OFS</a>))</td>
+          <td class="memname">#define PERIODSTEP&#160;&#160;&#160;(2&lt;&lt;3)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00077">77</a> of file <a class="el" href="a00275_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00040">40</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga4ceda5524d91a9e630c2da6a209c2662" name="ga4ceda5524d91a9e630c2da6a209c2662"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4ceda5524d91a9e630c2da6a209c2662">&#9670;&#160;</a></span>ISEC_SC_THRES_TRIG</h2>
+<a id="gad09c14122e0caaaa2fcf393c2b74588f" name="gad09c14122e0caaaa2fcf393c2b74588f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad09c14122e0caaaa2fcf393c2b74588f">&#9670;&#160;</a></span>PHASETIMESTEP</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ISEC_SC_THRES_TRIG&#160;&#160;&#160;(<a class="el" href="a00478.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00469.html#ga5f4043a3b61439e7695829b39102281c">ISEC_SC_THRES_TRIG_AMPS</a>,<a class="el" href="a00469.html#gad565ee56fd67a47693480901f73b5e2c">ISEC_CT_SNS_GAIN</a>,<a class="el" href="a00469.html#ga167708b374334a691b34a153fc97ded0">ISEC_CT_SNS_OFS</a>))</td>
+          <td class="memname">#define PHASETIMESTEP&#160;&#160;&#160;(1&lt;&lt;3)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00082">82</a> of file <a class="el" href="a00275_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00041">41</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga14f8c324344d8c244db7c1ffc95daacc" name="ga14f8c324344d8c244db7c1ffc95daacc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga14f8c324344d8c244db7c1ffc95daacc">&#9670;&#160;</a></span>PRI_TO_SEC_PHASE_DEGREES_LIMIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRI_TO_SEC_PHASE_DEGREES_LIMIT&#160;&#160;&#160;90u</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00036">36</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gad98508b79a9e1e8c4841dbf9816c7deb" name="gad98508b79a9e1e8c4841dbf9816c7deb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad98508b79a9e1e8c4841dbf9816c7deb">&#9670;&#160;</a></span>PRI_TO_SEC_PHASE_TARGET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PRI_TO_SEC_PHASE_TARGET&#160;&#160;&#160;830u</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00039">39</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>

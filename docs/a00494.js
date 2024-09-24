@@ -1,32 +1,12 @@
 var a00494 =
 [
-    [ "dev_pwrctrl_comm_interface.c", "a00365.html", null ],
-    [ "dev_pwrctrl_comm_interface.h", "a00368.html", null ],
-    [ "Dev_PwrCtrl_Get_DbgValue", "a00494.html#gacbd31a3dc73cd77bc06f9064a7c61975", null ],
-    [ "Dev_PwrCtrl_Get_DutyCycle", "a00494.html#gad6514b638a32baed68543a56bedd5c5d", null ],
-    [ "Dev_PwrCtrl_Get_EnableFlag", "a00494.html#ga7a61c299efe9f39fbddb6d902d4b3adc", null ],
-    [ "Dev_PwrCtrl_Get_Period", "a00494.html#ga6ea3a7d0d8075757d7dd3fc4ddaca1f5", null ],
-    [ "Dev_PwrCtrl_Get_PwmprdTarget", "a00494.html#gadd921f8c68bb08d611f3fd7ab03e60ee", null ],
-    [ "Dev_PwrCtrl_Get_SecPower", "a00494.html#gafe5653e08d77956b5b4fbbcc4305870e", null ],
-    [ "Dev_PwrCtrl_Get_State", "a00494.html#ga0a4bc9ff1027ccd07af11d8bd2865219", null ],
-    [ "Dev_PwrCtrl_Get_Status", "a00494.html#gab500c9c4e05b023607a8e72ababe07b3", null ],
-    [ "Dev_PwrCtrl_GetAdc_Ipri_ct", "a00494.html#ga4ce0a8e3c687c7466cd2def3e2967589", null ],
-    [ "Dev_PwrCtrl_GetAdc_Isec_avg", "a00494.html#ga0407adcdf0cb0fe60bf42aed6a3e854c", null ],
-    [ "Dev_PwrCtrl_GetAdc_Isec_ct", "a00494.html#ga5df7c5db36f4b904ca397157889a6170", null ],
-    [ "Dev_PwrCtrl_GetAdc_Temperature", "a00494.html#ga97590a3e3a8b680b67e206dd91fb8dce", null ],
-    [ "Dev_PwrCtrl_GetAdc_Vpri", "a00494.html#ga896f23a8b36846c241697d85fe836dd7", null ],
-    [ "Dev_PwrCtrl_GetAdc_Vrail_5V", "a00494.html#ga89627f0a37054586c8cd6950ccd6fb09", null ],
-    [ "Dev_PwrCtrl_GetAdc_Vsec", "a00494.html#ga96927eaff219e7917b625da4a2846797", null ],
-    [ "Dev_PwrCtrl_GetAveraging_Isec", "a00494.html#ga346aaaf8b8cf0266d9873405945c55dd", null ],
-    [ "Dev_PwrCtrl_GetAveraging_Vprim", "a00494.html#ga70a3c74e48285c709f735a499a3024dc", null ],
-    [ "Dev_PwrCtrl_GetAveraging_Vsec", "a00494.html#ga5178aaea783edff228941c4ecf749a90", null ],
-    [ "Dev_PwrCtrl_GetPhase_P2SDegree", "a00494.html#gab7d328bdf259e35fce481dd4c5f74666", null ],
-    [ "Dev_PwrCtrl_SetEnable", "a00494.html#gad36bb3ca34731b57c45d8be3e83f7262", null ],
-    [ "Dev_PwrCtrl_SetIReference", "a00494.html#ga6b5c7307a14f59bbfded0ca2dea86163", null ],
-    [ "Dev_PwrCtrl_SetP2SPhaseTarget", "a00494.html#gab0a12c347c51165427470f4c5b195f71", null ],
-    [ "Dev_PwrCtrl_SetPeriodTarget", "a00494.html#ga63aaa9b18763533c5603dc4c01f682cd", null ],
-    [ "Dev_PwrCtrl_SetPhaseTarget", "a00494.html#gab5188428fbb9231a650d8ecca0b2d090", null ],
-    [ "Dev_PwrCtrl_SetPwrReference", "a00494.html#ga3007f1498508f49a15d257f2bd02d77a", null ],
-    [ "Dev_PwrCtrl_SetState", "a00494.html#gae5e607ebc1cfbf0fcb8caa5775d5e782", null ],
-    [ "Dev_PwrCtrl_SetVSecReference", "a00494.html#ga4a95f3c8fffe66b8e49b9de93f07f25b", null ]
+    [ "APP_PBV_INTF_API_s", "a00617.html", [
+      [ "init", "a00617.html#a2349c43259a9d3c23a516c9b4ad6baaa", null ],
+      [ "linkDataRX", "a00617.html#acf3107157116c08f212dafb02c8128f5", null ],
+      [ "linkDataTX", "a00617.html#a4156ff07130f03dfbd50bf7c30493bfb", null ],
+      [ "reinit", "a00617.html#aad1488054aade0d9770cbae5597a8db9", null ],
+      [ "rxGui", "a00617.html#add9801b083b7d6f3f7bbb0f1d9a55773", null ],
+      [ "txGui", "a00617.html#adca8b72baa17241a6989f96a073cc51c", null ],
+      [ "txGuiAscii", "a00617.html#a8ee94030daa6ae1784d3a4c1efd446eb", null ]
+    ] ]
 ];

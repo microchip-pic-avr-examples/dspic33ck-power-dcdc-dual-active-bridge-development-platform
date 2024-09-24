@@ -20,8 +20,8 @@
  */
 
 /**
- * @file      dev_pwrctrl_sm.c
- * @ingroup   dev-pwrctrl-sm   
+ * @file      pwrctrl_sm.c
+ * @ingroup   pwrctrl-sm   
  * @brief     Contains power control state machine functions that is 
  *  executed every 100us.
  */
@@ -31,13 +31,10 @@
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h> // include standard definition data types
                                
-#include "system/interrupt.h"
+// DAB header files
 #include "pwrctrl.h"
 #include "config/macros.h"
-#include "pwrctrl_typedef.h"
-#include "pwrctrl_pwm.h"
-#include "pwrctrl_utils.h"
-#include "device/dev_current_sensor.h"
+#include "device/device.h"
 #include "fault/fault.h"
 #include "dcdt/pwrctrl_dcdt.h"
 
@@ -50,7 +47,7 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance);
 static void PwrCtrl_Reset(POWER_CONTROL_t* pcInstance);
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm
+ * @ingroup pwrctrl-sm
  * @brief  Manages the power control state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -101,7 +98,7 @@ void PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm
+ * @ingroup pwrctrl-sm
  * @brief  Executes function for initialze state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -142,7 +139,7 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm
+ * @ingroup pwrctrl-sm
  * @brief  Executes the fault handler state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -161,7 +158,7 @@ static void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm
+ * @ingroup pwrctrl-sm
  * @brief  Executes Standby State machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -228,7 +225,7 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm
+ * @ingroup pwrctrl-sm
  * @brief  Executes the power control soft start state machine
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -281,7 +278,7 @@ static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm
+ * @ingroup pwrctrl-sm
  * @brief  Executes the Online state
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -334,7 +331,7 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
 } 
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-sm
+ * @ingroup pwrctrl-sm
  * @brief  Resets the power control properties
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void

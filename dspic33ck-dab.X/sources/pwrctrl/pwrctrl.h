@@ -1,7 +1,7 @@
 
 /**
  * @file dev_pwrctrl.h     
- * @ingroup dev-pwrctrl   
+ * @ingroup pwrctrl   
  * @brief Contains public functions and data types relevant for power control interface.    
  */
 
@@ -9,7 +9,10 @@
 #define	APP_PWRCTRL_H
 
 #include "pwrctrl_typedef.h"
-#include "pwrctrl_utils.h"
+#include "pwrctrl_common.h"
+#include "pwrctrl_comm_interface.h"
+#include "pwrctrl_isr.h"
+#include "pwrctrl_pwm.h"
 
 extern POWER_CONTROL_t dab;
 

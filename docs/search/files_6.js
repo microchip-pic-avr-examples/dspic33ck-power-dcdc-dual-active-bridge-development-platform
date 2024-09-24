@@ -1,5 +1,22 @@
 var searchData=
 [
-  ['reset_2ec_0',['reset.c',['../a00188.html',1,'']]],
-  ['reset_5ftypes_2eh_1',['reset_types.h',['../a00167.html',1,'']]]
+  ['pins_2ec_0',['pins.c',['../a00191.html',1,'']]],
+  ['pwm_2ec_1',['pwm.c',['../a00152.html',1,'']]],
+  ['pwm_2eh_2',['pwm.h',['../a00140.html',1,'']]],
+  ['pwm_5ffeatures_2eh_3',['pwm_features.h',['../a00143.html',1,'']]],
+  ['pwm_5fhs_5ftypes_2eh_4',['pwm_hs_types.h',['../a00149.html',1,'']]],
+  ['pwm_5ftypes_2eh_5',['pwm_types.h',['../a00131.html',1,'']]],
+  ['pwrctrl_2ec_6',['pwrctrl.c',['../a00431.html',1,'']]],
+  ['pwrctrl_5fcomm_5finterface_2ec_7',['pwrctrl_comm_interface.c',['../a00443.html',1,'']]],
+  ['pwrctrl_5fcomm_5finterface_2eh_8',['pwrctrl_comm_interface.h',['../a00446.html',1,'']]],
+  ['pwrctrl_5fcommon_2ec_9',['pwrctrl_common.c',['../a00437.html',1,'']]],
+  ['pwrctrl_5fcommon_2eh_10',['pwrctrl_common.h',['../a00440.html',1,'']]],
+  ['pwrctrl_5fdcdt_2ec_11',['pwrctrl_dcdt.c',['../a00413.html',1,'']]],
+  ['pwrctrl_5fdcdt_2eh_12',['pwrctrl_dcdt.h',['../a00416.html',1,'']]],
+  ['pwrctrl_5fisr_2ec_13',['pwrctrl_isr.c',['../a00449.html',1,'']]],
+  ['pwrctrl_5fisr_2eh_14',['pwrctrl_isr.h',['../a00452.html',1,'']]],
+  ['pwrctrl_5fisr_5fextension_2ec_15',['pwrctrl_isr_extension.c',['../a00455.html',1,'']]],
+  ['pwrctrl_5fpwm_2ec_16',['pwrctrl_pwm.c',['../a00458.html',1,'']]],
+  ['pwrctrl_5fpwm_2eh_17',['pwrctrl_pwm.h',['../a00461.html',1,'']]],
+  ['pwrctrl_5fsm_2ec_18',['pwrctrl_sm.c',['../a00464.html',1,'']]]
 ];

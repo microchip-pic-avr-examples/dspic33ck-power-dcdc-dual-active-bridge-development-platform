@@ -1,8 +1,7 @@
 var a00491 =
 [
-    [ "dev_pwrctrl_pwm.c", "a00380.html", null ],
-    [ "dev_pwrctrl_pwm.h", "a00383.html", null ],
-    [ "Dev_PwrCtrl_PWM_Disable", "a00491.html#ga209e7835d32aaf5a402b470b61284bdf", null ],
-    [ "Dev_PwrCtrl_PWM_Enable", "a00491.html#gaff82d75556566202a8dd302e0a7fde8b", null ],
-    [ "Dev_PwrCtrl_PWM_Update", "a00491.html#ga2da42ebbee6a24170cd69c0c798a572e", null ]
+    [ "PBV_CAN_Receive_from_GUI", "a00491.html#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a", null ],
+    [ "pbvCanObjectAscii", "a00491.html#ga83ff770dbe2c555914a0a8817520e6ff", null ],
+    [ "pbvCanObjectRx", "a00491.html#ga9ceb5cc979f0da93465c1599bc5fcd4e", null ],
+    [ "pbvCanObjectTx", "a00491.html#gab3e1f18d37c5cf8872a425dc2dc82f01", null ]
 ];

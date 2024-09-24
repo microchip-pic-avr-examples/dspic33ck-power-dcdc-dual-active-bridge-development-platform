@@ -1,9 +1,21 @@
 var a00518 =
 [
-    [ "interrupt.c", "a00182.html", null ],
-    [ "INTERRUPT_Deinitialize", "a00518.html#ga2b6583be540877d43388113fdc5bd110", null ],
-    [ "INTERRUPT_GlobalDisable", "a00518.html#gac2f23c6185e515ff80fb2f2549b0f10d", null ],
-    [ "INTERRUPT_GlobalEnable", "a00518.html#ga0e88e5f65ed34a762b4f9059e2a033ed", null ],
-    [ "INTERRUPT_Initialize", "a00518.html#ga5c526129ee879458dff6755f5768a6e3", null ],
-    [ "INTERRUPT_VectorNumberGet", "a00518.html#ga4f2787d36434a2df6c0c6009108da708", null ]
+    [ "ADC Multicore Driver", "a00520.html", "a00520" ],
+    [ "CAN FD Driver", "a00521.html", "a00521" ],
+    [ "CLC Driver", "a00522.html", "a00522" ],
+    [ "CMP DAC Driver", "a00523.html", "a00523" ],
+    [ "CRC Driver", "a00524.html", "a00524" ],
+    [ "PWM Driver", "a00525.html", "a00525" ],
+    [ "PWM HS Driver", "a00526.html", "a00526" ],
+    [ "DMT Driver", "a00527.html", "a00527" ],
+    [ "Interrupt Driver", "a00528.html", "a00528" ],
+    [ "WDT Driver", "a00529.html", "a00529" ],
+    [ "Pins Driver", "a00530.html", "a00530" ],
+    [ "System Driver", "a00531.html", "a00531" ],
+    [ "Reset Driver", "a00532.html", "a00532" ],
+    [ "Clock Driver", "a00533.html", "a00533" ],
+    [ "Traps Driver", "a00534.html", "a00534" ],
+    [ "Timer Driver", "a00535.html", "a00535" ],
+    [ "UART Driver", "a00536.html", "a00536" ],
+    [ "CONFIGBITS Driver", "a00537.html", null ]
 ];

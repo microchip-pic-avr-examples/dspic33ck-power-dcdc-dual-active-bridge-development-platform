@@ -20,8 +20,8 @@
  */
 
 /**
- * @file      dev_pwrctrl_pwm.c
- * @ingroup   dev-pwrctrl-pwm   
+ * @file      pwrctrl_pwm.c
+ * @ingroup   pwrctrl-pwm   
  * @brief     Contains DAB control phase calculation between primary and 
  *  secondary, and the PWM distribution.
  */
@@ -32,7 +32,7 @@
 #include "pwrctrl_typedef.h"
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-pwm
+ * @ingroup pwrctrl-pwm
  * @brief  PWM distribution for DAB converter
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void
@@ -106,7 +106,7 @@ void PwrCtrl_PWM_Update(POWER_CONTROL_t* pcInstance)
 }
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-pwm
+ * @ingroup pwrctrl-pwm
  * @brief  Enable the PWM output
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t 
  * @return void
@@ -136,7 +136,7 @@ void PwrCtrl_PWM_Enable(void)
 
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-pwm
+ * @ingroup pwrctrl-pwm
  * @brief  Disable the PWM output
  * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
  * @return void

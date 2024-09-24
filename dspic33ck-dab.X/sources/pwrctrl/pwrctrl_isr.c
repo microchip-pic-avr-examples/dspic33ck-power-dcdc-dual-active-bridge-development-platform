@@ -21,8 +21,8 @@
  */
 
 /**
- * @file      dev_pwrctrl_isr.c
- * @ingroup   dev-pwrctrl-isr   
+ * @file      pwrctrl_isr.c
+ * @ingroup   pwrctrl-isr   
  * @brief     Contains Control loop interrupt Callback that acquires the ADC raw 
  *  data and process it in the control loop, and use the control output for the 
  *  PWM distribution for this converter
@@ -32,17 +32,17 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "pwrctrl.h"
+
+// MCC header files
 #include "timer/sccp1.h"
-#include "adc/adc_types.h"
 #include "adc/adc1.h"
+#include "system/pins.h"
+
+// DAB header files
 #include "config/macros.h"
 #include "config/config.h"
-#include "pwrctrl_pwm.h"
+#include "pwrctrl.h"
 #include "fault/fault.h"
-#include "dcdt/pwrctrl_dcdt.h"
-#include "system/pins.h"
-#include "pwrctrl_utils.h"
 
 // PRIVATE FUNCTIONS
 void PwrCtrl_PrimToSecPHDegree(void);
@@ -53,8 +53,8 @@ void PwrCtrl_ControlLoopExecute(void);
 void PwrCtrl_10KHzVPLoopPrepareData(void);
 
 /*******************************************************************************
- * @ingroup dev-pwrctrl-isr
- * @brief  Executes the power conveter's control loop
+ * @ingroup pwrctrl-isr
+ * @brief  Executes the power converter control loop
  * @return void
  * 
  * @details This interrupt function is a timing interrupt executed every 100KHz

@@ -23,20 +23,19 @@
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h> // include standard definition data types
 
+// MCC header files
 #include "system/system.h"
 #include "timer/sccp1.h"
+#include "system/pins.h"
 
+// Other header files
 #include "os/os.h"
-
-#include "device/dev_fan.h"
-#include "device/dev_led.h"
-#include "device/dev_temp.h"
-#include "pwrctrl/pwrctrl_isr.h"
+#include "device/device.h"
 #include "pwrctrl/pwrctrl.h"
 #include "fault/fault.h"
 #include "comm/PBV_DAB_frame_map.h"
 #include "driver/mcc_extension/mcc_custom_config.h"
-#include "system/pins.h"
+
 
 /*
     Main application
@@ -51,18 +50,6 @@
  * device is coming out of RESET, starting to execute code. 
  * 
  *********************************************************************************/
-
-/**
- * TP45_H/47_L - PWM1
- * TP42_H/40_L - PWM2 
- * TP37_L/41_H - PWM3 (output swap)
- * TP43_L/44_H - PWM4 (output swap)
- * TP11-Pot1 /Isec_AVG
- * TP12-Pot2 /Isec_CT
- * TP6 -Isec
- * 
- * 
- */
 int main(void)
 {
     SYSTEM_Initialize();

@@ -1,11 +1,17 @@
 var a00507 =
 [
-    [ "Tasks_100ms", "a00507.html#ga6d5c487ee3f418e6d0432867d11adaed", null ],
-    [ "Tasks_100us", "a00507.html#ga97fda594ad396d08b6a833ebb3b04538", null ],
-    [ "Tasks_10ms", "a00507.html#ga05751024e03719cbe14d88fb0af408dd", null ],
-    [ "Tasks_1ms", "a00507.html#ga3644aab65c940684125864b9f6fd1d47", null ],
-    [ "Tasks_1s", "a00507.html#gac181d28cf7f396a9ee79b7c8b76b97ad", null ],
-    [ "Tasks_Background", "a00507.html#ga77974d0a54f4172e2867de5980fc598f", null ],
-    [ "Tasks_Realtime_100us", "a00507.html#gad258f19a1b6a855fef3c71f54bb5539e", null ],
-    [ "Tasks_Realtime_1ms", "a00507.html#ga4bcf2a4c1b64471da77bdd8bb7ebf77d", null ]
+    [ "pwrctrl_isr.c", "a00449.html", null ],
+    [ "pwrctrl_isr.h", "a00452.html", null ],
+    [ "pwrctrl_isr_extension.c", "a00455.html", null ],
+    [ "ControlLoop_Interrupt_CallBack", "a00507.html#gae32c9e5ed4d1fb98fc13b26601782c10", null ],
+    [ "PwrCtrl_10KHzVPLoopPrepareData", "a00507.html#gaaf49f142990b8dc3f750e88365bf8fed", null ],
+    [ "PwrCtrl_AdaptiveGainUpdate", "a00507.html#ga8e52f74dc17c38d13a3980af0968fc2f", null ],
+    [ "PwrCtrl_ControlLoopExecute", "a00507.html#ga2eeebdb0cef4bbfeed446752525dd879", null ],
+    [ "PwrCtrl_DeadTimeAdjust", "a00507.html#ga80c3a681fbe9c0d7041146d82134f0cb", null ],
+    [ "PwrCtrl_PeriodModulator", "a00507.html#gac4d366f40ad4926202db3d6334f0cc41", null ],
+    [ "PwrCtrl_PrimToSecPHDegree", "a00507.html#gabda1b0b4f44a931cc725c3f5fa45be7b", null ],
+    [ "PwrCtrl_UpdateADConverterData", "a00507.html#gaa34c5b66d8f20f01daef50d0e88cf20e", null ],
+    [ "IsecAveraging", "a00507.html#gaed1035188dd736fafeda8cd2d6049791", null ],
+    [ "VprimAveraging", "a00507.html#ga393c2e2ce4284c384b4002688e4d4426", null ],
+    [ "VsecAveraging", "a00507.html#gab32442553cb7f7f3a3cd4a022e2a02ab", null ]
 ];

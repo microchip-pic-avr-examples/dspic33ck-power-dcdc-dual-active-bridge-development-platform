@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: UART Communication</title>
+<title>Dual Active Bridge Development Board: Conversion Macros</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,163 +136,75 @@ $(document).ready(function(){initNavTree('a00483.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a>  </div>
-  <div class="headertitle"><div class="title">UART Communication<div class="ingroups"><a class="el" href="a00480.html">Application Layer</a> &raquo; <a class="el" href="a00481.html">Power Board Visualizer</a></div></div></div>
+  <div class="headertitle"><div class="title">Conversion Macros<div class="ingroups"><a class="el" href="a00496.html">Configuration Layer</a> &raquo; <a class="el" href="a00482.html">Control Loop</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><br  />
-  
+<p>Conversion macros for user-declarations of Adaptive Gain Modulation parameters.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for UART Communication:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Conversion Macros:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00483.svg" width="364" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00483.svg" width="284" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00607.html">APP_PBV_INTF_API_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure of API function pointers.  <a href="a00607.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00619.html">UART_MSG_RX_OBJ</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART msg receive object.  <a href="a00619.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00623.html">UART_MSG_TX_OBJ</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART msg Transmit object.  <a href="a00623.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00731.html">PBV_UART_Object_TX</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART object for numeric tx.  <a href="a00731.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00735.html">PBV_UART_Object_RX</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART object for numeric rx.  <a href="a00735.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00739.html">PBV_UART_Object_ASCII</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART object for ascii tx.  <a href="a00739.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ga955beef6a0717d0cee4e6bf929d60175" id="r_ga955beef6a0717d0cee4e6bf929d60175"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga955beef6a0717d0cee4e6bf929d60175">PBV_CRC_POLYNOM</a>&#160;&#160;&#160;0x8005</td></tr>
-<tr class="memdesc:ga955beef6a0717d0cee4e6bf929d60175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard PBV CRC Polynomial. For documentation, as it is not used in calculation in this file.  <br /></td></tr>
-<tr class="separator:ga955beef6a0717d0cee4e6bf929d60175"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab7226cbc4f89e6bf061b82459118b9b3" id="r_gab7226cbc4f89e6bf061b82459118b9b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#gab7226cbc4f89e6bf061b82459118b9b3">PBV_CRC_POLYNOM_REV</a>&#160;&#160;&#160;0xA001</td></tr>
-<tr class="memdesc:gab7226cbc4f89e6bf061b82459118b9b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reversed polynomial. needed for odd byte in the data stream.  <br /></td></tr>
-<tr class="separator:gab7226cbc4f89e6bf061b82459118b9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga39ec59e3bcf1e885dd4628be4c4a051d" id="r_ga39ec59e3bcf1e885dd4628be4c4a051d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga39ec59e3bcf1e885dd4628be4c4a051d">PBV_ReadyToSend</a>&#160;&#160;&#160;<a class="el" href="a00526.html#gae2fc49fa99787bc951e12bd840b1248c">UART1_IsTxReady</a></td></tr>
-<tr class="memdesc:ga39ec59e3bcf1e885dd4628be4c4a051d"><td class="mdescLeft">&#160;</td><td class="mdescRight">linking functions with UART mcc driver functions  <br /></td></tr>
-<tr class="separator:ga39ec59e3bcf1e885dd4628be4c4a051d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae27af64e723989f0d2ac43575064cac5" id="r_gae27af64e723989f0d2ac43575064cac5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#gae27af64e723989f0d2ac43575064cac5">PBV_Write</a>&#160;&#160;&#160;<a class="el" href="a00526.html#ga6be5aaf3406104a362f3a3438dafe83c">UART1_Write</a></td></tr>
-<tr class="memdesc:gae27af64e723989f0d2ac43575064cac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">linking functions with UART mcc driver functions  <br /></td></tr>
-<tr class="separator:gae27af64e723989f0d2ac43575064cac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaefb5d870608d2bb16fc82ca118733f56" id="r_gaefb5d870608d2bb16fc82ca118733f56"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#gaefb5d870608d2bb16fc82ca118733f56">PBV_IsRxReady</a>&#160;&#160;&#160;<a class="el" href="a00526.html#ga35ebdf043c6e4995ff711ebc13954861">UART1_IsRxReady</a></td></tr>
-<tr class="memdesc:gaefb5d870608d2bb16fc82ca118733f56"><td class="mdescLeft">&#160;</td><td class="mdescRight">linking functions with UART mcc driver functions  <br /></td></tr>
-<tr class="separator:gaefb5d870608d2bb16fc82ca118733f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad6abe24371a852499c00404df02e28b3" id="r_gad6abe24371a852499c00404df02e28b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#gad6abe24371a852499c00404df02e28b3">PBV_Read</a>&#160;&#160;&#160;<a class="el" href="a00526.html#ga4e34071aa3125eb037bd6ae844c7ffbb">UART1_Read</a></td></tr>
-<tr class="memdesc:gad6abe24371a852499c00404df02e28b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">linking functions with UART mcc driver functions  <br /></td></tr>
-<tr class="separator:gad6abe24371a852499c00404df02e28b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80914760246c425bc1536e1d809a071b" id="r_ga80914760246c425bc1536e1d809a071b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga80914760246c425bc1536e1d809a071b">POWER_SCALER</a>&#160;&#160;&#160;14u</td></tr>
+<tr class="separator:ga80914760246c425bc1536e1d809a071b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d5113c068bc70c6666522402aa59bcf" id="r_ga5d5113c068bc70c6666522402aa59bcf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga5d5113c068bc70c6666522402aa59bcf">POWER_FACTOR</a>&#160;&#160;&#160;(uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, <a class="el" href="a00483.html#ga80914760246c425bc1536e1d809a071b">POWER_SCALER</a>))) / ((ADC_RESOLUTION * <a class="el" href="a00474.html#gadbb92791a446721a3d4af49d713520ca">VSEC_SNS_GAIN</a>) * (ADC_RESOLUTION * <a class="el" href="a00478.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>)))</td></tr>
+<tr class="separator:ga5d5113c068bc70c6666522402aa59bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga18c45d9462f101712539c69b1492a159" id="r_ga18c45d9462f101712539c69b1492a159"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga18c45d9462f101712539c69b1492a159">AGC_DAB_FACTOR</a>&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00482.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a> * pow(2.0, 15))</td></tr>
+<tr class="separator:ga18c45d9462f101712539c69b1492a159"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p><br  />
- </p>
+<p>Conversion macros converting physical quantities of parameters into binary (integer) numbers for registers and variables </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga955beef6a0717d0cee4e6bf929d60175" name="ga955beef6a0717d0cee4e6bf929d60175"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga955beef6a0717d0cee4e6bf929d60175">&#9670;&#160;</a></span>PBV_CRC_POLYNOM</h2>
+<a id="ga18c45d9462f101712539c69b1492a159" name="ga18c45d9462f101712539c69b1492a159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga18c45d9462f101712539c69b1492a159">&#9670;&#160;</a></span>AGC_DAB_FACTOR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PBV_CRC_POLYNOM&#160;&#160;&#160;0x8005</td>
+          <td class="memname">#define AGC_DAB_FACTOR&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00482.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a> * pow(2.0, 15))</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00038">38</a> of file <a class="el" href="a00260_source.html">app_PBV_UART.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00152">152</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>
-<a id="gab7226cbc4f89e6bf061b82459118b9b3" name="gab7226cbc4f89e6bf061b82459118b9b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab7226cbc4f89e6bf061b82459118b9b3">&#9670;&#160;</a></span>PBV_CRC_POLYNOM_REV</h2>
+<a id="ga5d5113c068bc70c6666522402aa59bcf" name="ga5d5113c068bc70c6666522402aa59bcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5d5113c068bc70c6666522402aa59bcf">&#9670;&#160;</a></span>POWER_FACTOR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PBV_CRC_POLYNOM_REV&#160;&#160;&#160;0xA001</td>
+          <td class="memname">#define POWER_FACTOR&#160;&#160;&#160;(uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, <a class="el" href="a00483.html#ga80914760246c425bc1536e1d809a071b">POWER_SCALER</a>))) / ((ADC_RESOLUTION * <a class="el" href="a00474.html#gadbb92791a446721a3d4af49d713520ca">VSEC_SNS_GAIN</a>) * (ADC_RESOLUTION * <a class="el" href="a00478.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>)))</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00045">45</a> of file <a class="el" href="a00260_source.html">app_PBV_UART.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00150">150</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>
-<a id="gaefb5d870608d2bb16fc82ca118733f56" name="gaefb5d870608d2bb16fc82ca118733f56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaefb5d870608d2bb16fc82ca118733f56">&#9670;&#160;</a></span>PBV_IsRxReady</h2>
+<a id="ga80914760246c425bc1536e1d809a071b" name="ga80914760246c425bc1536e1d809a071b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga80914760246c425bc1536e1d809a071b">&#9670;&#160;</a></span>POWER_SCALER</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PBV_IsRxReady&#160;&#160;&#160;<a class="el" href="a00526.html#ga35ebdf043c6e4995ff711ebc13954861">UART1_IsRxReady</a></td>
+          <td class="memname">#define POWER_SCALER&#160;&#160;&#160;14u</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00066">66</a> of file <a class="el" href="a00260_source.html">app_PBV_UART.c</a>.</p>
-
-</div>
-</div>
-<a id="gad6abe24371a852499c00404df02e28b3" name="gad6abe24371a852499c00404df02e28b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad6abe24371a852499c00404df02e28b3">&#9670;&#160;</a></span>PBV_Read</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PBV_Read&#160;&#160;&#160;<a class="el" href="a00526.html#ga4e34071aa3125eb037bd6ae844c7ffbb">UART1_Read</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00073">73</a> of file <a class="el" href="a00260_source.html">app_PBV_UART.c</a>.</p>
-
-</div>
-</div>
-<a id="ga39ec59e3bcf1e885dd4628be4c4a051d" name="ga39ec59e3bcf1e885dd4628be4c4a051d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga39ec59e3bcf1e885dd4628be4c4a051d">&#9670;&#160;</a></span>PBV_ReadyToSend</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PBV_ReadyToSend&#160;&#160;&#160;<a class="el" href="a00526.html#gae2fc49fa99787bc951e12bd840b1248c">UART1_IsTxReady</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00052">52</a> of file <a class="el" href="a00260_source.html">app_PBV_UART.c</a>.</p>
-
-</div>
-</div>
-<a id="gae27af64e723989f0d2ac43575064cac5" name="gae27af64e723989f0d2ac43575064cac5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae27af64e723989f0d2ac43575064cac5">&#9670;&#160;</a></span>PBV_Write</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PBV_Write&#160;&#160;&#160;<a class="el" href="a00526.html#ga6be5aaf3406104a362f3a3438dafe83c">UART1_Write</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00059">59</a> of file <a class="el" href="a00260_source.html">app_PBV_UART.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00149">149</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>

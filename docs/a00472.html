@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Conversion Macros</title>
+<title>Dual Active Bridge Development Board: Primary Voltage Feedback</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,93 +136,172 @@ $(document).ready(function(){initNavTree('a00472.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Conversion Macros<div class="ingroups"><a class="el" href="a00486.html">Configuration Layer</a> &raquo; <a class="el" href="a00471.html">5V Voltage Feedback</a></div></div></div>
+  <div class="summary">
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Primary Voltage Feedback<div class="ingroups"><a class="el" href="a00496.html">Configuration Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Conversion macros for user-declarations of 5V Voltage Feedback parameters.  
+<p>Declaration of Primary Voltage Feedback parameters, fault configuration and macros.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Conversion Macros:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Primary Voltage Feedback:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00472.svg" width="336" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00472.svg" width="546" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="memitem:gae66c69a25a09bf23a8542f9e2ca4b016" id="r_gae66c69a25a09bf23a8542f9e2ca4b016"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00472.html#gae66c69a25a09bf23a8542f9e2ca4b016">VRAIL_5V_UV_THRES_TRIG</a>&#160;&#160;&#160;(<a class="el" href="a00478.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00471.html#gaba5f233c7bfbdad7b608b9f2a515b9bd">VRAIL_5V_UV_THRES_TRIG_VOLTS</a>,<a class="el" href="a00471.html#ga69d0570890525bf6e42a39e93cd23541">VRAIL_5V_SNS_GAIN</a>,0.0))</td></tr>
-<tr class="separator:gae66c69a25a09bf23a8542f9e2ca4b016"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaeffd832d63247c37746ec9a51023126f" id="r_gaeffd832d63247c37746ec9a51023126f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00472.html#gaeffd832d63247c37746ec9a51023126f">VRAIL_5V_UV_THRES_CLEAR</a>&#160;&#160;&#160;(<a class="el" href="a00478.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00471.html#gac1a611be9e2c0b9d3512c7b7514770e6">VRAIL_5V_UV_THRES_CLEAR_VOLTS</a>,<a class="el" href="a00471.html#ga69d0570890525bf6e42a39e93cd23541">VRAIL_5V_SNS_GAIN</a>,0.0))</td></tr>
-<tr class="separator:gaeffd832d63247c37746ec9a51023126f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga573c9325062416430b7fdc8f41a93988" id="r_ga573c9325062416430b7fdc8f41a93988"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00472.html#ga573c9325062416430b7fdc8f41a93988">VRAIL_5V_UV_T_BLANK_TRIG</a>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00478.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00471.html#gaddc96909e18ab0c1df48af9dea887ea7">VRAIL_5V_UV_T_BLANK_TRIG_SEC</a> / <a class="el" href="a00471.html#ga5a1db9df5280bf9d6904fdfa187f62e0">VRAIL_5V_UV_TICK_SEC</a>)))</td></tr>
-<tr class="separator:ga573c9325062416430b7fdc8f41a93988"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga197548e0249065a587df067bb2b6bfb6" id="r_ga197548e0249065a587df067bb2b6bfb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00472.html#ga197548e0249065a587df067bb2b6bfb6">VRAIL_5V_UV_T_BLANK_CLEAR</a>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00478.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00471.html#ga02e85cdd81dc5896359be594d65fba76">VRAIL_5V_UV_T_BLANK_CLEAR_SEC</a> / <a class="el" href="a00471.html#ga5a1db9df5280bf9d6904fdfa187f62e0">VRAIL_5V_UV_TICK_SEC</a>)))</td></tr>
-<tr class="separator:ga197548e0249065a587df067bb2b6bfb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00473" id="r_a00473"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00473.html">Conversion Macros</a></td></tr>
+<tr class="memdesc:a00473"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of Primary Voltage Feedback parameters. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3de0595efbf0659d33138d8f32e9e34e" id="r_ga3de0595efbf0659d33138d8f32e9e34e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00472.html#ga3de0595efbf0659d33138d8f32e9e34e">VPRI_OV_THRES_TRIG_VOLTS</a>&#160;&#160;&#160;(700.0)</td></tr>
+<tr class="separator:ga3de0595efbf0659d33138d8f32e9e34e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8ebc2c2c94c46d6bfbdc05ac7ffdecb" id="r_gae8ebc2c2c94c46d6bfbdc05ac7ffdecb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00472.html#gae8ebc2c2c94c46d6bfbdc05ac7ffdecb">VPRI_OV_THRES_CLEAR_VOLTS</a>&#160;&#160;&#160;(600.0)</td></tr>
+<tr class="separator:gae8ebc2c2c94c46d6bfbdc05ac7ffdecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf81643989e826fa9c4349f4184a56a0d" id="r_gaf81643989e826fa9c4349f4184a56a0d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00472.html#gaf81643989e826fa9c4349f4184a56a0d">VPRI_OV_T_BLANK_TRIG_SEC</a>&#160;&#160;&#160;(0.0)</td></tr>
+<tr class="separator:gaf81643989e826fa9c4349f4184a56a0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae45b4bac6339131a7cb30567551a2cd5" id="r_gae45b4bac6339131a7cb30567551a2cd5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00472.html#gae45b4bac6339131a7cb30567551a2cd5">VPRI_OV_T_BLANK_CLEAR_SEC</a>&#160;&#160;&#160;(0.0)</td></tr>
+<tr class="separator:gae45b4bac6339131a7cb30567551a2cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab881ac722074c5a0c9a96b33737b44f2" id="r_gab881ac722074c5a0c9a96b33737b44f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00472.html#gab881ac722074c5a0c9a96b33737b44f2">VPRI_OV_TICK_SEC</a>&#160;&#160;&#160;(<a class="el" href="a00476.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td></tr>
+<tr class="separator:gab881ac722074c5a0c9a96b33737b44f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae3dffcdc110b55af6c257bfc0748cf81" id="r_gae3dffcdc110b55af6c257bfc0748cf81"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00472.html#gae3dffcdc110b55af6c257bfc0748cf81">VPRI_SNS_GAIN</a>&#160;&#160;&#160;(float)(3.600e-3)</td></tr>
+<tr class="separator:gae3dffcdc110b55af6c257bfc0748cf81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35eab816332f1b3d80d161f125c5044a" id="r_ga35eab816332f1b3d80d161f125c5044a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00472.html#ga35eab816332f1b3d80d161f125c5044a">VPRI_SNS_OFS</a>&#160;&#160;&#160;(0.0)</td></tr>
+<tr class="separator:ga35eab816332f1b3d80d161f125c5044a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab88335efd29659386531beabaffdf660" id="r_gab88335efd29659386531beabaffdf660"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00472.html#gab88335efd29659386531beabaffdf660">VPRI_VOLTAGE_GAIN</a>&#160;&#160;&#160;(float)0.2229</td></tr>
+<tr class="separator:gab88335efd29659386531beabaffdf660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>These conversion macros are used to convert user settings defined as physical quantities into binary (integer) numbers, which will be written to registers and variables and used in calculations throughout the firmware. </p>
+<p>Declaration of Primary Voltage Feedback parameters, fault configuration and macros </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga197548e0249065a587df067bb2b6bfb6" name="ga197548e0249065a587df067bb2b6bfb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga197548e0249065a587df067bb2b6bfb6">&#9670;&#160;</a></span>VRAIL_5V_UV_T_BLANK_CLEAR</h2>
+<a id="gae45b4bac6339131a7cb30567551a2cd5" name="gae45b4bac6339131a7cb30567551a2cd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae45b4bac6339131a7cb30567551a2cd5">&#9670;&#160;</a></span>VPRI_OV_T_BLANK_CLEAR_SEC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define VRAIL_5V_UV_T_BLANK_CLEAR&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00478.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00471.html#ga02e85cdd81dc5896359be594d65fba76">VRAIL_5V_UV_T_BLANK_CLEAR_SEC</a> / <a class="el" href="a00471.html#ga5a1db9df5280bf9d6904fdfa187f62e0">VRAIL_5V_UV_TICK_SEC</a>)))</td>
+          <td class="memname">#define VPRI_OV_T_BLANK_CLEAR_SEC&#160;&#160;&#160;(0.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00141">141</a> of file <a class="el" href="a00275_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00097">97</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga573c9325062416430b7fdc8f41a93988" name="ga573c9325062416430b7fdc8f41a93988"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga573c9325062416430b7fdc8f41a93988">&#9670;&#160;</a></span>VRAIL_5V_UV_T_BLANK_TRIG</h2>
+<a id="gaf81643989e826fa9c4349f4184a56a0d" name="gaf81643989e826fa9c4349f4184a56a0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf81643989e826fa9c4349f4184a56a0d">&#9670;&#160;</a></span>VPRI_OV_T_BLANK_TRIG_SEC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define VRAIL_5V_UV_T_BLANK_TRIG&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00478.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00471.html#gaddc96909e18ab0c1df48af9dea887ea7">VRAIL_5V_UV_T_BLANK_TRIG_SEC</a> / <a class="el" href="a00471.html#ga5a1db9df5280bf9d6904fdfa187f62e0">VRAIL_5V_UV_TICK_SEC</a>)))</td>
+          <td class="memname">#define VPRI_OV_T_BLANK_TRIG_SEC&#160;&#160;&#160;(0.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00140">140</a> of file <a class="el" href="a00275_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00096">96</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gaeffd832d63247c37746ec9a51023126f" name="gaeffd832d63247c37746ec9a51023126f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaeffd832d63247c37746ec9a51023126f">&#9670;&#160;</a></span>VRAIL_5V_UV_THRES_CLEAR</h2>
+<a id="gae8ebc2c2c94c46d6bfbdc05ac7ffdecb" name="gae8ebc2c2c94c46d6bfbdc05ac7ffdecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae8ebc2c2c94c46d6bfbdc05ac7ffdecb">&#9670;&#160;</a></span>VPRI_OV_THRES_CLEAR_VOLTS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define VRAIL_5V_UV_THRES_CLEAR&#160;&#160;&#160;(<a class="el" href="a00478.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00471.html#gac1a611be9e2c0b9d3512c7b7514770e6">VRAIL_5V_UV_THRES_CLEAR_VOLTS</a>,<a class="el" href="a00471.html#ga69d0570890525bf6e42a39e93cd23541">VRAIL_5V_SNS_GAIN</a>,0.0))</td>
+          <td class="memname">#define VPRI_OV_THRES_CLEAR_VOLTS&#160;&#160;&#160;(600.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00139">139</a> of file <a class="el" href="a00275_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00095">95</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gae66c69a25a09bf23a8542f9e2ca4b016" name="gae66c69a25a09bf23a8542f9e2ca4b016"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae66c69a25a09bf23a8542f9e2ca4b016">&#9670;&#160;</a></span>VRAIL_5V_UV_THRES_TRIG</h2>
+<a id="ga3de0595efbf0659d33138d8f32e9e34e" name="ga3de0595efbf0659d33138d8f32e9e34e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3de0595efbf0659d33138d8f32e9e34e">&#9670;&#160;</a></span>VPRI_OV_THRES_TRIG_VOLTS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define VRAIL_5V_UV_THRES_TRIG&#160;&#160;&#160;(<a class="el" href="a00478.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00471.html#gaba5f233c7bfbdad7b608b9f2a515b9bd">VRAIL_5V_UV_THRES_TRIG_VOLTS</a>,<a class="el" href="a00471.html#ga69d0570890525bf6e42a39e93cd23541">VRAIL_5V_SNS_GAIN</a>,0.0))</td>
+          <td class="memname">#define VPRI_OV_THRES_TRIG_VOLTS&#160;&#160;&#160;(700.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00138">138</a> of file <a class="el" href="a00275_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00094">94</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gab881ac722074c5a0c9a96b33737b44f2" name="gab881ac722074c5a0c9a96b33737b44f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab881ac722074c5a0c9a96b33737b44f2">&#9670;&#160;</a></span>VPRI_OV_TICK_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VPRI_OV_TICK_SEC&#160;&#160;&#160;(<a class="el" href="a00476.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00098">98</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gae3dffcdc110b55af6c257bfc0748cf81" name="gae3dffcdc110b55af6c257bfc0748cf81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae3dffcdc110b55af6c257bfc0748cf81">&#9670;&#160;</a></span>VPRI_SNS_GAIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VPRI_SNS_GAIN&#160;&#160;&#160;(float)(3.600e-3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00039">39</a> of file <a class="el" href="a00278_source.html">hardware.h</a>.</p>
+
+</div>
+</div>
+<a id="ga35eab816332f1b3d80d161f125c5044a" name="ga35eab816332f1b3d80d161f125c5044a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga35eab816332f1b3d80d161f125c5044a">&#9670;&#160;</a></span>VPRI_SNS_OFS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VPRI_SNS_OFS&#160;&#160;&#160;(0.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00040">40</a> of file <a class="el" href="a00278_source.html">hardware.h</a>.</p>
+
+</div>
+</div>
+<a id="gab88335efd29659386531beabaffdf660" name="gab88335efd29659386531beabaffdf660"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab88335efd29659386531beabaffdf660">&#9670;&#160;</a></span>VPRI_VOLTAGE_GAIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VPRI_VOLTAGE_GAIN&#160;&#160;&#160;(float)0.2229</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00043">43</a> of file <a class="el" href="a00278_source.html">hardware.h</a>.</p>
 
 </div>
 </div>

@@ -61,7 +61,7 @@ CAN_MSG_OBJ_t pbvCanObjectAscii;
  * @param   PBV_Datatype_TX_t * - ptr to rx numerical data. here as a place holder, only needed for completeness
  * @brief   initializes CAN objects with PBV objects ( only CAN IDs for now)
  * @return  void
- * @details 
+ * @details Initialize the CAN communication.
  **********************************************************************************/
 
 void PBV_CAN_Init(PBV_Datatype_TX_t* boardToPBV, PBV_Datatype_TX_t* boardToPBVAscii, PBV_Datatype_RX_t *pbvToBoard)
@@ -85,7 +85,7 @@ void PBV_CAN_Init(PBV_Datatype_TX_t* boardToPBV, PBV_Datatype_TX_t* boardToPBVAs
  * @ingroup PBV_CAN 
  * @brief   checks the queue and if a message is received then links the data pointer to can object
  * @return  int (0 on successful, 1 on unsuccessful)
- * @details checks the queue and if a message is received then links the data pointer to can object
+ * @details Checks the queue and if a message is received then links the data pointer to can object
  **********************************************************************************/
 
 uint8_t PBV_CAN_Receive_from_GUI()
@@ -104,7 +104,7 @@ uint8_t PBV_CAN_Receive_from_GUI()
  * @param   none
  * @brief   transmits the Ascii msg to PBV 
  * @return  0 on successful transmission. 
- * @details transmits the Ascii msg to PBV 
+ * @details Transmits the Ascii msg to PBV 
  **********************************************************************************/
 
 uint8_t PBV_CAN_Transmit_Ascii_to_GUI()

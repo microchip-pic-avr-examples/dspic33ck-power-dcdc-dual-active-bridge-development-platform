@@ -22,7 +22,7 @@
 /* 
  * @file    app_PBV_config.h   
  * @author  M70027
- * @file    app-pbv-config
+ * @ingroup    app-pbv-config
  * @brief   Power Board Visualizer application configuration 
  */
 #ifndef APP_PBV_CONFIG_H_

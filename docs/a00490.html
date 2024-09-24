@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Interrupt Routine and Functions</title>
+<title>Dual Active Bridge Development Board: Power Board Visualizer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,391 +137,55 @@ $(document).ready(function(){initNavTree('a00490.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">Interrupt Routine and Functions<div class="ingroups"><a class="el" href="a00487.html">Device Layer</a> &raquo; <a class="el" href="a00488.html">Power Control</a></div></div></div>
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Power Board Visualizer<div class="ingroups"><a class="el" href="a00489.html">Communication Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains the interrupt routine and other functions called in the interrupt.  
+<p>Driver for Power Board Visualizer.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Interrupt Routine and Functions:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Power Board Visualizer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00490.svg" width="278" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00490.svg" width="560" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00371" id="r_a00371"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00371.html">dev_pwrctrl_isr.c</a></td></tr>
-<tr class="memdesc:a00371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains Control loop interrupt Callback that acquires the ADC raw data and process it in the control loop, and use the control output for the PWM distribution for this converter. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00491" id="r_a00491"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00491.html">CAN Communication</a></td></tr>
+<tr class="memdesc:a00491"><td class="mdescLeft">&#160;</td><td class="mdescRight">This abstracts the MCC driver api. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00374" id="r_a00374"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00374.html">dev_pwrctrl_isr.h</a></td></tr>
-<tr class="memdesc:a00374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains public function relevant for power control interrupt. <br /></td></tr>
+<tr class="memitem:a00492" id="r_a00492"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00492.html">UART Communication</a></td></tr>
+<tr class="memdesc:a00492"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is where the framing/deframing and transmission happens for UART frames. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00377" id="r_a00377"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00377.html">dev_pwrctrl_isr_extension.c</a></td></tr>
-<tr class="memdesc:a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains some of the functions used in the interrupt service routine of control loop. <br /></td></tr>
+<tr class="memitem:a00493" id="r_a00493"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00493.html">PBV Interface</a></td></tr>
+<tr class="memdesc:a00493"><td class="mdescLeft">&#160;</td><td class="mdescRight">These implement the PBV state machine of RX and TX, as well as link data that is received by peripherals to application. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gae32c9e5ed4d1fb98fc13b26601782c10" id="r_gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00490.html#gae32c9e5ed4d1fb98fc13b26601782c10">ControlLoop_Interrupt_CallBack</a> (void)</td></tr>
-<tr class="memdesc:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power conveter's control loop.  <br /></td></tr>
-<tr class="separator:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4791758659b96e5cc584367e31cd3cc3" id="r_ga4791758659b96e5cc584367e31cd3cc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00490.html#ga4791758659b96e5cc584367e31cd3cc3">Dev_PwrCtrl_UpdateADConverterData</a> (void)</td></tr>
-<tr class="memdesc:ga4791758659b96e5cc584367e31cd3cc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members with ADC raw values.  <br /></td></tr>
-<tr class="separator:ga4791758659b96e5cc584367e31cd3cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga40b097e35c1c4428dc28b411d1162e9b" id="r_ga40b097e35c1c4428dc28b411d1162e9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00490.html#ga40b097e35c1c4428dc28b411d1162e9b">Dev_PwrCtrl_10KHzVPLoopPrepareData</a> (void)</td></tr>
-<tr class="memdesc:ga40b097e35c1c4428dc28b411d1162e9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function prepares the data for control loop and selects which control loop will be executed.  <br /></td></tr>
-<tr class="separator:ga40b097e35c1c4428dc28b411d1162e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9eb3a7eb915671d6fcf8acf2b80872fd" id="r_ga9eb3a7eb915671d6fcf8acf2b80872fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00490.html#ga9eb3a7eb915671d6fcf8acf2b80872fd">Dev_PwrCtrl_ControlLoopExecute</a> (void)</td></tr>
-<tr class="memdesc:ga9eb3a7eb915671d6fcf8acf2b80872fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power converter control loop.  <br /></td></tr>
-<tr class="separator:ga9eb3a7eb915671d6fcf8acf2b80872fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafc6207e90c0346f42233f3136516c27e" id="r_gafc6207e90c0346f42233f3136516c27e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00490.html#gafc6207e90c0346f42233f3136516c27e">Dev_PwrCtrl_AdaptiveGainUpdate</a> (void)</td></tr>
-<tr class="memdesc:gafc6207e90c0346f42233f3136516c27e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Adaptive gain for the power converter control loop.  <br /></td></tr>
-<tr class="separator:gafc6207e90c0346f42233f3136516c27e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0d5826f3e0740fc03614792f748747d9" id="r_ga0d5826f3e0740fc03614792f748747d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00490.html#ga0d5826f3e0740fc03614792f748747d9">Dev_PwrCtrl_PrimToSecPHDegree</a> (void)</td></tr>
-<tr class="memdesc:ga0d5826f3e0740fc03614792f748747d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members with phase values normalized in degree.  <br /></td></tr>
-<tr class="separator:ga0d5826f3e0740fc03614792f748747d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3f1b8c59115cf720971fed6975cdfe68" id="r_ga3f1b8c59115cf720971fed6975cdfe68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00490.html#ga3f1b8c59115cf720971fed6975cdfe68">Dev_PwrCtrl_DeadTimeAdjust</a> (void)</td></tr>
-<tr class="memdesc:ga3f1b8c59115cf720971fed6975cdfe68"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members dead time based on load.  <br /></td></tr>
-<tr class="separator:ga3f1b8c59115cf720971fed6975cdfe68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafa907e54c56615f95c7746d35bddb681" id="r_gafa907e54c56615f95c7746d35bddb681"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00490.html#gafa907e54c56615f95c7746d35bddb681">Dev_PwrCtrl_PeriodModulator</a> (void)</td></tr>
-<tr class="memdesc:gafa907e54c56615f95c7746d35bddb681"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members and modulates PWM period.  <br /></td></tr>
-<tr class="separator:gafa907e54c56615f95c7746d35bddb681"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga393c2e2ce4284c384b4002688e4d4426" id="r_ga393c2e2ce4284c384b4002688e4d4426"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00395.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00490.html#ga393c2e2ce4284c384b4002688e4d4426">VprimAveraging</a></td></tr>
-<tr class="memdesc:ga393c2e2ce4284c384b4002688e4d4426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of primary voltage averaging.  <br /></td></tr>
-<tr class="separator:ga393c2e2ce4284c384b4002688e4d4426"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab32442553cb7f7f3a3cd4a022e2a02ab" id="r_gab32442553cb7f7f3a3cd4a022e2a02ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00395.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00490.html#gab32442553cb7f7f3a3cd4a022e2a02ab">VsecAveraging</a></td></tr>
-<tr class="memdesc:gab32442553cb7f7f3a3cd4a022e2a02ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of secondary voltage averaging.  <br /></td></tr>
-<tr class="separator:gab32442553cb7f7f3a3cd4a022e2a02ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaed1035188dd736fafeda8cd2d6049791" id="r_gaed1035188dd736fafeda8cd2d6049791"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00395.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00490.html#gaed1035188dd736fafeda8cd2d6049791">IsecAveraging</a></td></tr>
-<tr class="memdesc:gaed1035188dd736fafeda8cd2d6049791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of secondary current averaging.  <br /></td></tr>
-<tr class="separator:gaed1035188dd736fafeda8cd2d6049791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00494" id="r_a00494"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html">User Configuration</a></td></tr>
+<tr class="memdesc:a00494"><td class="mdescLeft">&#160;</td><td class="mdescRight">This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00495" id="r_a00495"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html">PBV Data DAB App</a></td></tr>
+<tr class="memdesc:a00495"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main application file. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document includes the interrupt function in power control. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="gae32c9e5ed4d1fb98fc13b26601782c10" name="gae32c9e5ed4d1fb98fc13b26601782c10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae32c9e5ed4d1fb98fc13b26601782c10">&#9670;&#160;</a></span>ControlLoop_Interrupt_CallBack()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ControlLoop_Interrupt_CallBack </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This interrupt function is a timing interrupt executed every 100KHz and calls an ADC function that updates the DAB data member with ADC raw values. The fault check is also called in this function to detect any fault events. It is followed by the control loop execution for Voltage, Current and Power Loop Controllers. The end result of the control loop is handed over to the PWM distribution. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00371_source.html#l00067">67</a> of file <a class="el" href="a00371_source.html">dev_pwrctrl_isr.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00490_gae32c9e5ed4d1fb98fc13b26601782c10_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ga40b097e35c1c4428dc28b411d1162e9b" name="ga40b097e35c1c4428dc28b411d1162e9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga40b097e35c1c4428dc28b411d1162e9b">&#9670;&#160;</a></span>Dev_PwrCtrl_10KHzVPLoopPrepareData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_PwrCtrl_10KHzVPLoopPrepareData </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function prepares the data for Voltage loop control and Power loop control. The enable bit of these control loops are manage in this function in which the VLoop and PLoop are enabled at 10KHz with 180 degrees phase. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00129">129</a> of file <a class="el" href="a00377_source.html">dev_pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00490_ga40b097e35c1c4428dc28b411d1162e9b_cgraph.svg" width="416" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00490_ga40b097e35c1c4428dc28b411d1162e9b_icgraph.svg" width="387" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gafc6207e90c0346f42233f3136516c27e" name="gafc6207e90c0346f42233f3136516c27e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafc6207e90c0346f42233f3136516c27e">&#9670;&#160;</a></span>Dev_PwrCtrl_AdaptiveGainUpdate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void Dev_PwrCtrl_AdaptiveGainUpdate </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>AGC is a specific method for tuning the overall feedback loop gain during runtime. This function handles the calculation of the gain at a particular input voltage. AGC is active when it is above the minimum AGC input voltage. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00288">288</a> of file <a class="el" href="a00377_source.html">dev_pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00490_gafc6207e90c0346f42233f3136516c27e_icgraph.svg" width="610" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga9eb3a7eb915671d6fcf8acf2b80872fd" name="ga9eb3a7eb915671d6fcf8acf2b80872fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9eb3a7eb915671d6fcf8acf2b80872fd">&#9670;&#160;</a></span>Dev_PwrCtrl_ControlLoopExecute()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_PwrCtrl_ControlLoopExecute </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function is called to execute the control loop of the power converter. It comprise of Voltage Loop control (VLoop), Power Loop control (PLoop) and Current Loop Control (ILoop). Vloop and PLoop is ten times slower than the current loop with interleaved execution while Iloop is executed every time this function is called. <br  />
- </p>
-
-<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00200">200</a> of file <a class="el" href="a00377_source.html">dev_pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00490_ga9eb3a7eb915671d6fcf8acf2b80872fd_cgraph.svg" width="448" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00490_ga9eb3a7eb915671d6fcf8acf2b80872fd_icgraph.svg" width="371" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga3f1b8c59115cf720971fed6975cdfe68" name="ga3f1b8c59115cf720971fed6975cdfe68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3f1b8c59115cf720971fed6975cdfe68">&#9670;&#160;</a></span>Dev_PwrCtrl_DeadTimeAdjust()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_PwrCtrl_DeadTimeAdjust </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function updates the DAB data members dead time based on load. The phase and dead-time in this function is based on the actual board test. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00349">349</a> of file <a class="el" href="a00377_source.html">dev_pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00490_ga3f1b8c59115cf720971fed6975cdfe68_icgraph.svg" width="396" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gafa907e54c56615f95c7746d35bddb681" name="gafa907e54c56615f95c7746d35bddb681"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafa907e54c56615f95c7746d35bddb681">&#9670;&#160;</a></span>Dev_PwrCtrl_PeriodModulator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_PwrCtrl_PeriodModulator </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>Modulates the DAB period when the maximum phase has been reached. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00392">392</a> of file <a class="el" href="a00377_source.html">dev_pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00490_gafa907e54c56615f95c7746d35bddb681_icgraph.svg" width="396" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga0d5826f3e0740fc03614792f748747d9" name="ga0d5826f3e0740fc03614792f748747d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0d5826f3e0740fc03614792f748747d9">&#9670;&#160;</a></span>Dev_PwrCtrl_PrimToSecPHDegree()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_PwrCtrl_PrimToSecPHDegree </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function updates the DAB data members with phase values normalized in degree. The calculated phase is scaled by 10x to have better phase resolution. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00321">321</a> of file <a class="el" href="a00377_source.html">dev_pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00490_ga0d5826f3e0740fc03614792f748747d9_icgraph.svg" width="424" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga4791758659b96e5cc584367e31cd3cc3" name="ga4791758659b96e5cc584367e31cd3cc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4791758659b96e5cc584367e31cd3cc3">&#9670;&#160;</a></span>Dev_PwrCtrl_UpdateADConverterData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_PwrCtrl_UpdateADConverterData </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function is called every 100KHz and triggers the ADC module. This also handles the updating of DAB data members with its latest ADC raw values and collection of data for averaging. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00082">82</a> of file <a class="el" href="a00377_source.html">dev_pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00490_ga4791758659b96e5cc584367e31cd3cc3_cgraph.svg" width="488" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00490_ga4791758659b96e5cc584367e31cd3cc3_icgraph.svg" width="442" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="gaed1035188dd736fafeda8cd2d6049791" name="gaed1035188dd736fafeda8cd2d6049791"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaed1035188dd736fafeda8cd2d6049791">&#9670;&#160;</a></span>IsecAveraging</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00395.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a> IsecAveraging</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The 'IsecAveraging' data object holds the averaging parameter of the Secondary Current. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00067">67</a> of file <a class="el" href="a00377_source.html">dev_pwrctrl_isr_extension.c</a>.</p>
-
-</div>
-</div>
-<a id="ga393c2e2ce4284c384b4002688e4d4426" name="ga393c2e2ce4284c384b4002688e4d4426"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga393c2e2ce4284c384b4002688e4d4426">&#9670;&#160;</a></span>VprimAveraging</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00395.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a> VprimAveraging</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The 'VprimAveraging' data object holds the averaging parameter of the Primary Voltage. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00051">51</a> of file <a class="el" href="a00377_source.html">dev_pwrctrl_isr_extension.c</a>.</p>
-
-</div>
-</div>
-<a id="gab32442553cb7f7f3a3cd4a022e2a02ab" name="gab32442553cb7f7f3a3cd4a022e2a02ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab32442553cb7f7f3a3cd4a022e2a02ab">&#9670;&#160;</a></span>VsecAveraging</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00395.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a> VsecAveraging</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The 'VsecAveraging' data object holds the averaging parameter of the Secondary Voltage. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00377_source.html#l00059">59</a> of file <a class="el" href="a00377_source.html">dev_pwrctrl_isr_extension.c</a>.</p>
-
-</div>
-</div>
+<p>The Power Board Visualizer is a tool or system designed to monitor and display the status and performance of a power distribution board. It typically provides real-time data on various parameters such as voltage, current, and power consumption, helping users to manage and optimize power usage effectively.</p>
+<p>Communication with the Power Board Visualizer is often facilitated through two primary protocols:</p>
+<ul>
+<li>CAN (Controller Area Network):<ul>
+<li>Purpose: CAN is a robust vehicle bus standard designed to allow microcontrollers and devices to communicate with each other without a host computer.</li>
+<li>Usage: In the context of the Power Board Visualizer, CAN is used for high-speed, reliable communication between the power board and the visualizer, ensuring that data is transmitted efficiently even in electrically noisy environments.</li>
+</ul>
+</li>
+<li>UART (Universal Asynchronous Receiver-Transmitter):<ul>
+<li>Purpose: UART is a hardware communication protocol that uses asynchronous serial communication with configurable speed.</li>
+<li>Usage: UART is typically used for simpler, point-to-point communication between the power board and the visualizer. It is suitable for lower-speed data transmission and is often used for initial setup, debugging, or communication with peripheral devices.</li>
+</ul>
+</li>
+</ul>
+<p>Together, these communication protocols enable the Power Board Visualizer to effectively gather and display critical power management data, ensuring efficient monitoring and control of power distribution systems. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

@@ -1,13 +1,11 @@
 var a00501 =
 [
-    [ "dev_fan.c", "a00290.html", null ],
-    [ "Calculate_Speed", "a00501.html#ga66c5db181798514534d7f97b622ca35e", null ],
-    [ "Convert_From_Percentage", "a00501.html#ga3ba0ef09cbd1274a9c325fc04cab411d", null ],
-    [ "Dev_Fan_Initialize", "a00501.html#gad4274efc956bcca058565b186c2fd1a0", null ],
-    [ "Dev_Fan_Set_Override", "a00501.html#gabf5c734c9834b070c4adf1af69e9f048", null ],
-    [ "Dev_Fan_Set_Speed", "a00501.html#ga5cfd61659ae6b17ad25e51bfc211723b", null ],
-    [ "Dev_Fan_Task_100ms", "a00501.html#ga1bd7dce99469a41bbb705d939ea512ad", null ],
-    [ "Override_Speed", "a00501.html#ga0d2b426f7411623a821415f02956aac8", null ],
-    [ "Update_Speed", "a00501.html#gad7e38e334c2209a2a296bf3f573fed78", null ],
-    [ "devFanData", "a00501.html#ga52debd393de750722aca541b24b1bc6d", null ]
+    [ "Average_Temp_ADC_Samples", "a00501.html#gaed1c98bc3ba65035d1ac0bdda433d812", null ],
+    [ "Dev_Temp_Get_ADC_Sample", "a00501.html#ga6ce3446cb43022df6a5a96c90ec70a17", null ],
+    [ "Dev_Temp_Get_Temperature_Celcius", "a00501.html#gac9618e1ca87e77920c94cdfdcc80321a", null ],
+    [ "Dev_Temp_Initialize", "a00501.html#ga777c30f75162d97f4e112d1fc8d49f87", null ],
+    [ "Dev_Temp_Is_Over_Temperature", "a00501.html#ga595a5dbd8f35a5e37d5fa77cfcd756a5", null ],
+    [ "Temp_Calculate_Average", "a00501.html#ga87aa48cb3d8848b8dc9bee6ce978b1b1", null ],
+    [ "devTempData", "a00501.html#gac4362e7ed233e3ac6e62b7f6f49a80d0", null ],
+    [ "NTC_lookuptable", "a00501.html#ga251990d0202af5df9ea715fbcac8bbb5", null ]
 ];

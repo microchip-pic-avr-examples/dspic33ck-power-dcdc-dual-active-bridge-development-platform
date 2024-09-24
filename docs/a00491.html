@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: PWM Configuration</title>
+<title>Dual Active Bridge Development Board: CAN Communication</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,170 +137,117 @@ $(document).ready(function(){initNavTree('a00491.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">PWM Configuration<div class="ingroups"><a class="el" href="a00487.html">Device Layer</a> &raquo; <a class="el" href="a00488.html">Power Control</a></div></div></div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">CAN Communication<div class="ingroups"><a class="el" href="a00489.html">Communication Layer</a> &raquo; <a class="el" href="a00490.html">Power Board Visualizer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains functions related to PWM properties.  
+<p>This abstracts the MCC driver api.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for PWM Configuration:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CAN Communication:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00491.svg" width="295" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00491.svg" width="358" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00380" id="r_a00380"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html">dev_pwrctrl_pwm.c</a></td></tr>
-<tr class="memdesc:a00380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains DAB control phase calculation between primary and secondary, and the PWM distribution. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00383" id="r_a00383"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00383.html">dev_pwrctrl_pwm.h</a></td></tr>
-<tr class="memdesc:a00383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains public functions for PWM. <br  />
- <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga2da42ebbee6a24170cd69c0c798a572e" id="r_ga2da42ebbee6a24170cd69c0c798a572e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00491.html#ga2da42ebbee6a24170cd69c0c798a572e">Dev_PwrCtrl_PWM_Update</a> (<a class="el" href="a00711.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:ga2da42ebbee6a24170cd69c0c798a572e"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM distribution for DAB converter.  <br /></td></tr>
-<tr class="separator:ga2da42ebbee6a24170cd69c0c798a572e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaff82d75556566202a8dd302e0a7fde8b" id="r_gaff82d75556566202a8dd302e0a7fde8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00491.html#gaff82d75556566202a8dd302e0a7fde8b">Dev_PwrCtrl_PWM_Enable</a> (void)</td></tr>
-<tr class="memdesc:gaff82d75556566202a8dd302e0a7fde8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the PWM output.  <br /></td></tr>
-<tr class="separator:gaff82d75556566202a8dd302e0a7fde8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga209e7835d32aaf5a402b470b61284bdf" id="r_ga209e7835d32aaf5a402b470b61284bdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00491.html#ga209e7835d32aaf5a402b470b61284bdf">Dev_PwrCtrl_PWM_Disable</a> (void)</td></tr>
-<tr class="memdesc:ga209e7835d32aaf5a402b470b61284bdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the PWM output.  <br /></td></tr>
-<tr class="separator:ga209e7835d32aaf5a402b470b61284bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5fb4f1d3c69d1871c10a2c0a0ad27f8a" id="r_ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00491.html#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a">PBV_CAN_Receive_from_GUI</a> ()</td></tr>
+<tr class="memdesc:ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks the queue and if a message is received then links the data pointer to can object  <br /></td></tr>
+<tr class="separator:ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gab3e1f18d37c5cf8872a425dc2dc82f01" id="r_gab3e1f18d37c5cf8872a425dc2dc82f01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00557.html">CAN_MSG_OBJ_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00491.html#gab3e1f18d37c5cf8872a425dc2dc82f01">pbvCanObjectTx</a></td></tr>
+<tr class="memdesc:gab3e1f18d37c5cf8872a425dc2dc82f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN object for Numeric TX. Initialized by PBV_CAN_Init()  <br /></td></tr>
+<tr class="separator:gab3e1f18d37c5cf8872a425dc2dc82f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9ceb5cc979f0da93465c1599bc5fcd4e" id="r_ga9ceb5cc979f0da93465c1599bc5fcd4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00557.html">CAN_MSG_OBJ_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00491.html#ga9ceb5cc979f0da93465c1599bc5fcd4e">pbvCanObjectRx</a></td></tr>
+<tr class="memdesc:ga9ceb5cc979f0da93465c1599bc5fcd4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN object for numeric RX. Does not have to be initialized.  <br /></td></tr>
+<tr class="separator:ga9ceb5cc979f0da93465c1599bc5fcd4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga83ff770dbe2c555914a0a8817520e6ff" id="r_ga83ff770dbe2c555914a0a8817520e6ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00557.html">CAN_MSG_OBJ_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00491.html#ga83ff770dbe2c555914a0a8817520e6ff">pbvCanObjectAscii</a></td></tr>
+<tr class="memdesc:ga83ff770dbe2c555914a0a8817520e6ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN object for ascii TX. Initialized by PBV_CAN_Init()  <br /></td></tr>
+<tr class="separator:ga83ff770dbe2c555914a0a8817520e6ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document includes the power control PWM distribution and other PWM functionalities relevant to the application. </p>
+<p>This layer abstracts the MCC driver api to have the same interface as the UART. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga209e7835d32aaf5a402b470b61284bdf" name="ga209e7835d32aaf5a402b470b61284bdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga209e7835d32aaf5a402b470b61284bdf">&#9670;&#160;</a></span>Dev_PwrCtrl_PWM_Disable()</h2>
+<a id="ga5fb4f1d3c69d1871c10a2c0a0ad27f8a" name="ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a">&#9670;&#160;</a></span>PBV_CAN_Receive_from_GUI()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_PwrCtrl_PWM_Disable </td>
+          <td class="memname">uint8_t PBV_CAN_Receive_from_GUI </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function disable the physical PWM output by setting the override bits of the PWM module. </p>
+<dl class="section return"><dt>Returns</dt><dd>int (0 on successful, 1 on unsuccessful)</dd></dl>
+<p>Checks the queue and if a message is received then links the data pointer to can object </p>
 
-<p class="definition">Definition at line <a class="el" href="a00380_source.html#l00147">147</a> of file <a class="el" href="a00380_source.html">dev_pwrctrl_pwm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00242_source.html#l00091">91</a> of file <a class="el" href="a00242_source.html">PBV_CAN.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00491_ga209e7835d32aaf5a402b470b61284bdf_cgraph.svg" width="440" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00491_ga209e7835d32aaf5a402b470b61284bdf_icgraph.svg" width="100%" height="536"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00491_ga5fb4f1d3c69d1871c10a2c0a0ad27f8a_cgraph.svg" width="100%" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="gaff82d75556566202a8dd302e0a7fde8b" name="gaff82d75556566202a8dd302e0a7fde8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaff82d75556566202a8dd302e0a7fde8b">&#9670;&#160;</a></span>Dev_PwrCtrl_PWM_Enable()</h2>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ga83ff770dbe2c555914a0a8817520e6ff" name="ga83ff770dbe2c555914a0a8817520e6ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga83ff770dbe2c555914a0a8817520e6ff">&#9670;&#160;</a></span>pbvCanObjectAscii</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_PwrCtrl_PWM_Enable </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="a00557.html">CAN_MSG_OBJ_t</a> pbvCanObjectAscii</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function turn on the physical PWM outputs by clearing the output override of the PWM module. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00380_source.html#l00117">117</a> of file <a class="el" href="a00380_source.html">dev_pwrctrl_pwm.c</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00491_gaff82d75556566202a8dd302e0a7fde8b_cgraph.svg" width="438" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00491_gaff82d75556566202a8dd302e0a7fde8b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00242_source.html#l00054">54</a> of file <a class="el" href="a00242_source.html">PBV_CAN.c</a>.</p>
 
 </div>
 </div>
-<a id="ga2da42ebbee6a24170cd69c0c798a572e" name="ga2da42ebbee6a24170cd69c0c798a572e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2da42ebbee6a24170cd69c0c798a572e">&#9670;&#160;</a></span>Dev_PwrCtrl_PWM_Update()</h2>
+<a id="ga9ceb5cc979f0da93465c1599bc5fcd4e" name="ga9ceb5cc979f0da93465c1599bc5fcd4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9ceb5cc979f0da93465c1599bc5fcd4e">&#9670;&#160;</a></span>pbvCanObjectRx</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_PwrCtrl_PWM_Update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00711.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="a00557.html">CAN_MSG_OBJ_t</a> pbvCanObjectRx</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function distributes the calculated control phase for the half bridges of the DAB converter. PWM1 and PWM3 drives the primary half bridges and PWM2 and PWM4 drives the secondary half bridges. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00380_source.html#l00044">44</a> of file <a class="el" href="a00380_source.html">dev_pwrctrl_pwm.c</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="a00242_source.html#l00048">48</a> of file <a class="el" href="a00242_source.html">PBV_CAN.c</a>.</p>
+
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00491_ga2da42ebbee6a24170cd69c0c798a572e_cgraph.svg" width="452" height="291"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00491_ga2da42ebbee6a24170cd69c0c798a572e_icgraph.svg" width="100%" height="416"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<a id="gab3e1f18d37c5cf8872a425dc2dc82f01" name="gab3e1f18d37c5cf8872a425dc2dc82f01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab3e1f18d37c5cf8872a425dc2dc82f01">&#9670;&#160;</a></span>pbvCanObjectTx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00557.html">CAN_MSG_OBJ_t</a> pbvCanObjectTx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00242_source.html#l00042">42</a> of file <a class="el" href="a00242_source.html">PBV_CAN.c</a>.</p>
 
 </div>
 </div>

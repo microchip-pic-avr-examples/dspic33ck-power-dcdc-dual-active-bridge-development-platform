@@ -32,14 +32,13 @@
 #include <stddef.h> // include standard definition data types
 
 // MCC header files
+#include "system/pins.h"
+#include "device/device.h"
 
 // other header files
 #include "PBV_interface.h"
-#include "system/pins.h"
-#include "device/dev_fan.h"
-#include "device/dev_temp.h"
 #include "pwrctrl/pwrctrl_comm_interface.h"
-#include "fault/fault_api.h"
+#include "fault/fault_comm_interface.h"
 #include "config/macros.h"
 #include "config/version.h"
 
@@ -70,12 +69,6 @@
 
 #define PBV_CMD_ID_PHASE_CHANGE         0xEE01           ///< set control phase
 #define PBV_CMD_ID_P2S_PHASE_TARGET     0xEE02           ///< set control phase
-
-#define PBV_CMD_ID_PRI_OVP_TEST         0xEE11           ///< set over voltage protection threshold
-#define PBV_CMD_ID_SEC_OVP_TEST         0xEE10           ///< set over voltage protection threshold
-#define PBV_CMD_ID_IPRI_TEST            0xEE20           ///< set primary current protection threshold
-#define PBV_CMD_ID_ISEC_TEST            0xEE30           ///< set secondary current protection threshold
-
 
 /** @} */ // end of pbv-protocol-ids
 
@@ -244,15 +237,15 @@ void App_PBV_DAB_Build_Frame()
     uint16_t flag_word = enabled + ((status_flags & 0x0003)<<1) + (fault_flags<<3);
     
     BufferSixteenTx[1] = flag_word;
-    BufferSixteenTx[2] = Dev_PwrCtrl_GetAveraging_Vprim(); //Dev_PwrCtrl_GetAdc_Vpri();
-    BufferSixteenTx[3] = Dev_PwrCtrl_GetAveraging_Vsec();//Dev_PwrCtrl_GetAdc_Vsec();
-    BufferSixteenTx[4] = Dev_PwrCtrl_GetAdc_Ipri_ct();
-    BufferSixteenTx[5] = Dev_PwrCtrl_GetAdc_Isec_ct();
-    BufferSixteenTx[6] = Dev_PwrCtrl_GetAveraging_Isec();//Dev_PwrCtrl_GetAdc_Isec_avg();
-    BufferSixteenTx[7] = Temperature + 40;//Dev_PwrCtrl_GetAdc_Temperature();
-    BufferSixteenTx[8] = Dev_PwrCtrl_GetAdc_Vrail_5V();    
-    BufferSixteenTx[9] =  PwrCtrl_GetPhase_P2SDegree();//devFanDataPtr->CurrentSpeedRaw;
-    BufferSixteenTx[10] = Dev_PwrCtrl_Get_DbgValue();//devFanDataPtr->CurrentSpeedPercent;
+    BufferSixteenTx[2] = Dev_PwrCtrl_GetAveraging_Vprim(); 
+    BufferSixteenTx[3] = Dev_PwrCtrl_GetAveraging_Vsec();
+    BufferSixteenTx[4] = PwrCtrl_GetAdc_Ipri_ct();
+    BufferSixteenTx[5] = PwrCtrl_GetAdc_Isec_ct();
+    BufferSixteenTx[6] = Dev_PwrCtrl_GetAveraging_Isec();
+    BufferSixteenTx[7] = Temperature + 40;
+    BufferSixteenTx[8] = PwrCtrl_GetAdc_Vrail_5V();    
+    BufferSixteenTx[9] =  PwrCtrl_GetPhase_P2SDegree();
+    BufferSixteenTx[10] = devFanDataPtr->CurrentSpeedPercent;
     BufferSixteenTx[11] = Temperature;
     BufferSixteenTx[12] = Dev_PwrCtrl_Get_Period();
     BufferSixteenTx[13] = Dev_PwrCtrl_Get_PwmprdTarget();
@@ -284,7 +277,7 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             if (control_word < 2) {// should be 0 or 1
             
                 bool enable = (bool)control_word;
-                Dev_PwrCtrl_SetEnable(enable);
+                PwrCtrl_SetEnable(enable);
                 
                 if(enable==false)
                 {    
@@ -296,24 +289,24 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         case PBV_CMD_ID_FREQ_CHANGE: {
             // change target frequency
             if ((control_word <= MAX_PWM_PERIOD) && (control_word >= MIN_PWM_PERIOD)) {
-                Dev_PwrCtrl_SetPeriodTarget(control_word);
+                PwrCtrl_SetPeriodTarget(control_word);
                 // when Frequency is changed, control phase will be zero
                 uint16_t controlPhase = 0;
-                Dev_PwrCtrl_SetPhaseTarget(controlPhase);
+                PwrCtrl_SetPhaseTarget(controlPhase);
             }            
             break; 
         }
         case PBV_CMD_ID_ILOOP_REF_SET: {
             if (control_word < 32767) //TODO: put in proper check here!
             {
-                Dev_PwrCtrl_SetIReference(control_word);
+                PwrCtrl_SetIReference(control_word);
             }
             break; 
         }        
         case PBV_CMD_ID_VLOOP_REF_SET: {
             if (control_word < 32767) //TODO: put in proper check here!
             {
-                Dev_PwrCtrl_SetVSecReference(control_word);
+                PwrCtrl_SetVSecReference(control_word);
             }
             break; 
         }  
@@ -321,7 +314,7 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         case PBV_CMD_ID_PLOOP_REF_SET: {
             if (control_word < 32767) //TODO: put in proper check here!
             {
-                Dev_PwrCtrl_SetPwrReference(control_word);
+                PwrCtrl_SetPwrReference(control_word);
             }
             break; 
         }  
@@ -330,7 +323,7 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             // change target phase
             #if(OPEN_LOOP_PBV == false)
             uint16_t controlPhase = (uint16_t)(control_word);
-            Dev_PwrCtrl_SetP2SPhaseTarget(controlPhase);
+            PwrCtrl_SetP2SPhaseTarget(controlPhase);
             #endif
             break; 
         }
@@ -339,29 +332,13 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             // change target phase
             #if(OPEN_LOOP_PBV == true)
             uint16_t controlPhase = (uint16_t)((control_word)* PHASE_180_SCALER * (Dev_PwrCtrl_Get_DutyCycle()));
-            Dev_PwrCtrl_SetPhaseTarget(controlPhase); 
+            PwrCtrl_SetPhaseTarget(controlPhase); 
             #endif
             break; 
         }
         case PBV_CMD_ID_FAN_SPEED: {            
             Dev_Fan_Set_Speed(control_word);
             break; 
-        }
-        case PBV_CMD_ID_PRI_OVP_TEST: {
-            Dev_Fault_SetPriOVPThreshold(control_word);
-            break;
-        }
-        case PBV_CMD_ID_SEC_OVP_TEST: {
-            Dev_Fault_SetSecOVPThreshold(control_word); 
-            break; 
-        }
-        case PBV_CMD_ID_IPRI_TEST: {
-            Dev_Fault_SetIPrimaryThreshold(control_word);
-             break; 
-        }
-        case PBV_CMD_ID_ISEC_TEST:{
-            Dev_Fault_SetISecondaryThreshold(control_word);    
-            break;
         }
                  
         default:
