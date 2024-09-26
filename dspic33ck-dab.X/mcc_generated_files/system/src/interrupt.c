@@ -51,6 +51,10 @@ void INTERRUPT_Initialize(void)
     // Priority: 6
     IPC19bits.CMP1IP = 6;
     
+    // CCT1: CCP1 Timer Event
+    // Priority: 5
+    IPC1bits.CCT1IP = 5;
+    
     // DMT: Dead Man Timer
     // Priority: 1
     IPC11bits.DMTIP = 1;
@@ -59,10 +63,6 @@ void INTERRUPT_Initialize(void)
     // Priority: 3
     IPC0bits.T1IP = 3;
     
-    // CCT1: CCP1 Timer Event
-    // Priority: 5
-    IPC1bits.CCT1IP = 5;
-    
 }
 
 void INTERRUPT_Deinitialize(void)
@@ -70,7 +70,7 @@ void INTERRUPT_Deinitialize(void)
     //POR default value of priority
     IPC19bits.CMP3IP = 4;
     IPC19bits.CMP1IP = 4;
+    IPC1bits.CCT1IP = 4;
     IPC11bits.DMTIP = 4;
     IPC0bits.T1IP = 4;
-    IPC1bits.CCT1IP = 4;
 }

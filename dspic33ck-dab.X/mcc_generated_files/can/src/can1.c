@@ -514,8 +514,8 @@ static void CAN1_RX_FIFO_FilterMaskConfiguration(void)
     
     // message stored in FIFO1
     C1FLTCON0Lbits.F0BP = 1;
-    // EID 0; SID 514; 
-    C1FLTOBJ0L = 0x202;
+    // EID 0; SID 1026; 
+    C1FLTOBJ0L = 0x402;
     // EID 0; EXIDE disabled; SID11 disabled; 
     C1FLTOBJ0H = 0x0;
     // MSID 2047; MEID 0; 
@@ -525,10 +525,10 @@ static void CAN1_RX_FIFO_FilterMaskConfiguration(void)
     // Enable the filter 0
     C1FLTCON0Lbits.FLTEN0 = 1;
     
-    // message stored in FIFO1
-    C1FLTCON0Lbits.F1BP = 1;
-    // EID 0; SID 515; 
-    C1FLTOBJ1L = 0x203;
+    // message stored in FIFO2
+    C1FLTCON0Lbits.F1BP = 2;
+    // EID 0; SID 1027; 
+    C1FLTOBJ1L = 0x403;
     // EID 0; EXIDE disabled; SID11 disabled; 
     C1FLTOBJ1H = 0x0;
     // MSID 2047; MEID 0; 
