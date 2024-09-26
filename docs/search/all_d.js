@@ -47,7 +47,8 @@ var searchData=
   ['limitlow_44',['LimitLow',['../a00637.html#a807559395dd14cc8be15101fbc71677d',1,'SENSOR_OFFSET_CAL_s']]],
   ['linkdatarx_45',['linkDataRX',['../a00617.html#acf3107157116c08f212dafb02c8128f5',1,'APP_PBV_INTF_API_s']]],
   ['linkdatatx_46',['linkDataTX',['../a00617.html#a4156ff07130f03dfbd50bf7c30493bfb',1,'APP_PBV_INTF_API_s']]],
-  ['loop_47',['Control Loop',['../a00482.html',1,'']]],
-  ['loop_20configuration_48',['Control Loop Configuration',['../a00510.html',1,'']]],
-  ['lowpowerslowmode_49',['LowPowerSlowMode',['../a00701.html#aa6105071906dfaff3e2062b6406ceb17',1,'SWITCH_NODE_s']]]
+  ['loaddisconnect_47',['loaddisconnect',['../a00350.html#a0b92b835c70ac5377be52d14b4758422',1,'loadDisconnect:&#160;fault.c'],['../a00362.html#a0b92b835c70ac5377be52d14b4758422',1,'loadDisconnect:&#160;fault.c']]],
+  ['loop_48',['Control Loop',['../a00482.html',1,'']]],
+  ['loop_20configuration_49',['Control Loop Configuration',['../a00510.html',1,'']]],
+  ['lowpowerslowmode_50',['LowPowerSlowMode',['../a00701.html#aa6105071906dfaff3e2062b6406ceb17',1,'SWITCH_NODE_s']]]
 ];

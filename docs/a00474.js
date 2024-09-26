@@ -1,6 +1,7 @@
 var a00474 =
 [
     [ "Conversion Macros", "a00475.html", "a00475" ],
+    [ "VSEC_LOAD_STEP_CLAMPING_VOLTS", "a00474.html#gad65db8b07e7c77b600ab24be46652e8b", null ],
     [ "VSEC_OV_T_BLANK_CLEAR_SEC", "a00474.html#ga5128a30f14a7b25809efe09d606b8055", null ],
     [ "VSEC_OV_T_BLANK_TRIG_SEC", "a00474.html#gaf49c547355152112f9ae4b26555d57e2", null ],
     [ "VSEC_OV_THRES_CLEAR_VOLTS", "a00474.html#gab1003ede83a567c60837872c8542824b", null ],

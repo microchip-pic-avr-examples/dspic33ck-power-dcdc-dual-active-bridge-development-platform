@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Firmware Detail</title>
+<title>Dual Active Bridge Development Board: Firmware Overview</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('a00742.html',''); initResizable(); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Firmware Detail</div></div>
+  <div class="headertitle"><div class="title">Firmware Overview</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md13"></a> The firmware overview indicates that the power controller state machine and fault handler are executed every 100 microseconds by the scheduler. Additionally, the GUI handler operates every 10 milliseconds, while the LED and fan operations, along with temperature checks, are performed every 100 milliseconds.</p>
@@ -145,6 +145,8 @@ $(document).ready(function(){initNavTree('a00742.html',''); initResizable(); });
  Firmware overview. </center> <p>The Microchip Code Configurator (MCC) is utilized to set up peripherals. This configuration occurs at run-time at the beginning of the main() function, prior to the initiation of the background loop.</p>
 <p>The project files are organized as follows:</p>
 <ul>
+<li><a class="el" href="a00050_source.html">main.c</a>: Contains the initialization of the MCC generated code, Operating system (OS) interrupt, power control, fault, and initialization of other the tasks.</li>
+<li><a class="el" href="a00053_source.html">main_tasks.c</a>: Allocates the tasks that needs to be executed in a particular time.</li>
 <li>PBV Communication:<ul>
 <li><a class="el" href="a00242_source.html">PBV_CAN.c</a>: Manages CAN communication objects and functions.</li>
 <li><a class="el" href="a00266_source.html">PBV_UART.c</a>: Manages UART communication objects and functions.</li>
@@ -160,17 +162,24 @@ $(document).ready(function(){initNavTree('a00742.html',''); initResizable(); });
 <li><a class="el" href="a00317_source.html">dev_temp.c</a>: Indicates and calculates the board temperature.</li>
 </ul>
 </li>
+<li>Driver Management:<ul>
+<li><a class="el" href="a00338_source.html">mcc_custom_config.c</a>: Contains peripheral functions that are manually changed.</li>
+</ul>
+</li>
 <li>Fault Handling:<ul>
 <li><a class="el" href="a00350.html" title="Contains fault functions including the fault handler, fault object initialization and fault execution...">fault.c</a>: Manages fault initialization, execution, and handling.</li>
+<li><a class="el" href="a00362.html" title="Contains API functions for fault protection.">fault_comm_interface.c</a>: Contains functions that interfaces to the communication interface</li>
 <li><a class="el" href="a00356_source.html">fault_common.c</a>: Contains generic fault handling functions.</li>
 </ul>
 </li>
 <li>Power Control:<ul>
 <li><a class="el" href="a00431.html" title="Contains power control initialization including control loop initialization and start-up initializati...">pwrctrl.c</a>: Manages power control initialization, control loop, and execution.</li>
+<li><a class="el" href="a00443.html" title="Contains power control interface with communication/gui.">pwrctrl_comm_interface.c</a>: Contains functions that interfaces to the communication interface.</li>
+<li><a class="el" href="a00437.html" title="Contains generic functions that handles power control ramp Up/Down and the averaging generic function...">pwrctrl_common.c</a>: Contains generic functions for power control ramp up/down and averaging.</li>
 <li><a class="el" href="a00449.html" title="Contains Control loop interrupt Callback that acquires the ADC raw data and process it in the control...">pwrctrl_isr.c</a>: Handles control loop interrupt callbacks, ADC data acquisition, and PWM distribution.</li>
+<li><a class="el" href="a00455.html" title="Contains some of the functions used in the interrupt service routine of control loop.">pwrctrl_isr_extension.c</a>: Contains functions that is called in the ISR.</li>
 <li><a class="el" href="a00458.html" title="Contains DAB control phase calculation between primary and secondary, and the PWM distribution.">pwrctrl_pwm.c</a>: Calculates DAB control phase and manages PWM distribution.</li>
 <li><a class="el" href="a00464.html" title="Contains power control state machine functions that is executed every 100us.">pwrctrl_sm.c</a>: Executes the power control state machine every 100 microseconds.</li>
-<li>pwrctrl_utils.c: Contains functions for power control ramp up/down and averaging.</li>
 </ul>
 </li>
 </ul>
@@ -252,13 +261,14 @@ Fault Protection</h1>
 <h2>Hardware fault protection</h2>
 <p>The hardware fault protection system is engineered to avert significant board damage, particularly from input or output overcurrent. It activates instantaneously, setting all PWM drive signals to zero and shutting down the converter. This system functions independently of the dsPIC, ensuring that any drive signals from the dsPIC are overridden by the hardware protection before reaching the FET drivers.</p>
 <p>When the hardware fault protection is triggered, it latches, meaning it will not reset automatically and requires manual intervention to clear.</p>
-<p>To restart the board, follow these steps:</p>
+<p>To restart the board, there is a need to disable all PWMs by either removing the input supply or erasing the dsPIC firmware (the latter is recommended for safety).</p>
+<p>The dsPIC implements output overcurrent protection using comparators and DACs as follows:</p>
 <ul>
-<li>Disable all PWMs by either holding down the RESET push button or erasing the dsPIC firmware (the latter is recommended for safety).</li>
-<li>Briefly press the "RESET protection" push button on the HMI interface. Additionally, the dsPIC implements output overcurrent protection using comparators and DACs as follows:</li>
+<li>The current transformer in the high voltage bridge sense is connected to CMP1DAC.</li>
+<li>The current transformer in the low voltage bridge sense is connected to CMP3DAC.</li>
 </ul>
-<p>The current transformer in the high voltage bridge sense is connected to CMP1DAC. The current transformer in the low voltage bridge sense is connected to CMP3DAC. These comparators has built-in digital filter that could blank the unwanted comparator output transitions due to analog comparator input signals that has been corrupted by the large electromagnetic fields generated by the external switching power transistors.</p>
-<p>If either comparator trips, it triggers the highest priority interrupt, disabling all PWM drive signals and placing the converter in the "FAULT ACTIVE" state. Similar to the hardware fault protection, this fault protection is also latched, necessitating a dsPIC reset to restart the converter. If this fault protection is activated, the RESET flag in the Power Board Visualizer GUI will be set, indicating that the dsPIC needs to be reset to restart the DAB converter.</p>
+<p>These comparators has built-in digital filter that could blank the unwanted comparator output transitions due to analog comparator input signals that has been corrupted by the large electromagnetic fields generated by the external switching power transistors.</p>
+<p>If either comparator trips, it disable all PWM drive signals and placing the converter in the "FAULT ACTIVE" state. Since this is also a hardware fault protection, this fault protection is also latched, necessitating a dsPIC reset to restart the converter. If this fault protection is activated, the RESET flag in the Power Board Visualizer GUI will be set, indicating that the dsPIC needs to be reset to restart the DAB converter.</p>
 <center> <img src="images/fault-protection.jpg" alt="" width="250" class="inline"/></center><center> DAB faults with hardware protection. </center> <hr  />
 <h1><a class="anchor" id="autotoc_md22"></a>
 PWM Setup</h1>

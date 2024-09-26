@@ -200,6 +200,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:ac94c9b7012ae59f2a0f0707959d8b640"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61085d045e57ad748837ab70ba517d57" id="r_a61085d045e57ad748837ab70ba517d57"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00503.html#gadfcb461aa4d8fa0abd28661892fbf8a9">PWM_UPDTRG_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00335.html#a61085d045e57ad748837ab70ba517d57">PWM_UPDTRG_t</a></td></tr>
 <tr class="separator:a61085d045e57ad748837ab70ba517d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8094057dd6a1ba4f444db98f9e166212" id="r_a8094057dd6a1ba4f444db98f9e166212"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00503.html#ga570d0ed080f3f351d98807804b16505b">PWM_LATCH_MODE_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00335.html#a8094057dd6a1ba4f444db98f9e166212">PWM_LATCH_MODE_t</a></td></tr>
+<tr class="separator:a8094057dd6a1ba4f444db98f9e166212"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -485,6 +487,11 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:gadfcb461aa4d8fa0abd28661892fbf8a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Settings for Update Trigger Event.  <a href="a00503.html#gadfcb461aa4d8fa0abd28661892fbf8a9">More...</a><br /></td></tr>
 <tr class="separator:gadfcb461aa4d8fa0abd28661892fbf8a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga570d0ed080f3f351d98807804b16505b" id="r_ga570d0ed080f3f351d98807804b16505b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00503.html#ga570d0ed080f3f351d98807804b16505b">PWM_LATCH_MODE_e</a> { <a class="el" href="a00503.html#gga570d0ed080f3f351d98807804b16505baacd63d6bd39e33ee58d86ebe54f9e992">PWM_SET_DOMINANT_MODE</a> = 0
+, <a class="el" href="a00503.html#gga570d0ed080f3f351d98807804b16505ba4c345786fc281dc224635f0bf08ff856">PWM_RESET_DOMINANT_MODE</a> = 1
+ }</td></tr>
+<tr class="memdesc:ga570d0ed080f3f351d98807804b16505b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM trigger mode.  <a href="a00503.html#ga570d0ed080f3f351d98807804b16505b">More...</a><br /></td></tr>
+<tr class="separator:ga570d0ed080f3f351d98807804b16505b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -542,6 +549,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gaa64683342142d7cbd8c6f3ab696ef606" id="r_gaa64683342142d7cbd8c6f3ab696ef606"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00503.html#gaa64683342142d7cbd8c6f3ab696ef606">PWM_Data_Update_Trigger</a> (uint16_t pwmIndex, <a class="el" href="a00335.html#a61085d045e57ad748837ab70ba517d57">PWM_UPDTRG_t</a> updateTrigger)</td></tr>
 <tr class="memdesc:gaa64683342142d7cbd8c6f3ab696ef606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM Register update trigger.  <br /></td></tr>
 <tr class="separator:gaa64683342142d7cbd8c6f3ab696ef606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c5b3a29c117bbadc07cbe5e6898d10f" id="r_ga3c5b3a29c117bbadc07cbe5e6898d10f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00503.html#ga3c5b3a29c117bbadc07cbe5e6898d10f">PWM_Fault_LatchMode</a> (uint16_t pwmIndex, <a class="el" href="a00335.html#a8094057dd6a1ba4f444db98f9e166212">PWM_LATCH_MODE_t</a> latchMode)</td></tr>
+<tr class="memdesc:ga3c5b3a29c117bbadc07cbe5e6898d10f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the latch mode of fault PCI.  <br /></td></tr>
+<tr class="separator:ga3c5b3a29c117bbadc07cbe5e6898d10f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><br  />
@@ -562,6 +572,22 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="a00335_source.html#l01127">1127</a> of file <a class="el" href="a00335_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="a8094057dd6a1ba4f444db98f9e166212" name="a8094057dd6a1ba4f444db98f9e166212"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8094057dd6a1ba4f444db98f9e166212">&#9670;&#160;</a></span>PWM_LATCH_MODE_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00503.html#ga570d0ed080f3f351d98807804b16505b">PWM_LATCH_MODE_e</a> <a class="el" href="a00335.html#a8094057dd6a1ba4f444db98f9e166212">PWM_LATCH_MODE_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l01226">1226</a> of file <a class="el" href="a00335_source.html">drv_mcc_extension_pwm.h</a>.</p>
 
 </div>
 </div>

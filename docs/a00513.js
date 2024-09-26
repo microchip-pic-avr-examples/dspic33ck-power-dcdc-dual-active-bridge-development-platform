@@ -56,7 +56,6 @@ var a00513 =
     ] ],
     [ "POWER_CONTROL_s", "a00733.html", [
       [ "Data", "a00733.html#a9961eac6798b52736528d9d4aa30d922", null ],
-      [ "dbg", "a00733.html#a8b530fb6f53d6cde9465d615b2bb5008", null ],
       [ "Fault", "a00733.html#aead2ae6cfabf4831af21d23684e19d1f", null ],
       [ "ILoop", "a00733.html#a13383149438802e4c6c08683d6d004db", null ],
       [ "IRamp", "a00733.html#afdaae86371984281bf846fac8b1d918a", null ],

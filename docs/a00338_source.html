@@ -172,18 +172,16 @@ $(document).ready(function(){initNavTree('a00338_source.html',''); initResizable
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="a00502.html#gafe646acf69be10085d651f4561909f69">   45</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00502.html#gafe646acf69be10085d651f4561909f69">MCC_Custom_User_Config</a> (<span class="keywordtype">void</span>)</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// Initialize PWM as re-triggerable for the cascaded PWM scheme</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_function" href="a00503.html#gac779b9d8bce64e8de686bd78be25ea09">DRV_Config_Custom_PWM</a>();</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// Initialize ADC with filtering in Vprimary and VSecondary</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="a00504.html#gae714c168949aee8009c9482933cd85dc">DRV_Config_Custom_ADC</a>();</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment">// and setup the PWM fault PCI for hardware fault</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_function" href="a00503.html#gac779b9d8bce64e8de686bd78be25ea09">DRV_Config_Custom_PWM</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
 </div>
 <div class="ttc" id="aa00323_html"><div class="ttname"><a href="a00323.html">drv_custom_config_adc.h</a></div><div class="ttdoc">Contains ADC initialization that was not supported by MCC generated code.</div></div>
 <div class="ttc" id="aa00326_html"><div class="ttname"><a href="a00326.html">drv_custom_config_pwm.h</a></div><div class="ttdoc">Contains PWM initialization that was not supported by MCC generated code.</div></div>
 <div class="ttc" id="aa00329_html"><div class="ttname"><a href="a00329.html">drv_mcc_extension.h</a></div><div class="ttdoc">Contain the peripheral header files with MCC extension code.</div></div>
 <div class="ttc" id="aa00502_html_gafe646acf69be10085d651f4561909f69"><div class="ttname"><a href="a00502.html#gafe646acf69be10085d651f4561909f69">MCC_Custom_User_Config</a></div><div class="ttdeci">void MCC_Custom_User_Config(void)</div><div class="ttdoc">Contains custom peripheral initialization.</div><div class="ttdef"><b>Definition</b> <a href="a00338_source.html#l00045">mcc_custom_config.c:45</a></div></div>
 <div class="ttc" id="aa00503_html_gac779b9d8bce64e8de686bd78be25ea09"><div class="ttname"><a href="a00503.html#gac779b9d8bce64e8de686bd78be25ea09">DRV_Config_Custom_PWM</a></div><div class="ttdeci">static __inline__ void DRV_Config_Custom_PWM(void)</div><div class="ttdoc">Contains PWM initialization that was not supported by MCC generated code.</div><div class="ttdef"><b>Definition</b> <a href="a00326_source.html#l00046">drv_custom_config_pwm.h:46</a></div></div>
-<div class="ttc" id="aa00504_html_gae714c168949aee8009c9482933cd85dc"><div class="ttname"><a href="a00504.html#gae714c168949aee8009c9482933cd85dc">DRV_Config_Custom_ADC</a></div><div class="ttdeci">static __inline__ void DRV_Config_Custom_ADC(void)</div><div class="ttdoc">Customize configuration for ADC.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00059">drv_custom_config_adc.h:59</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

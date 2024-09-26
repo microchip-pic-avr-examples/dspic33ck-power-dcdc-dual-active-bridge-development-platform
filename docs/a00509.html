@@ -179,9 +179,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ga8752fbb48416e60141e205f1cbda0f98" id="r_ga8752fbb48416e60141e205f1cbda0f98"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00509.html#ga8752fbb48416e60141e205f1cbda0f98">PCS_UP_AND_RUNNING_handler</a> (<a class="el" href="a00733.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
 <tr class="memdesc:ga8752fbb48416e60141e205f1cbda0f98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the Online state.  <br /></td></tr>
 <tr class="separator:ga8752fbb48416e60141e205f1cbda0f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga843ba4773988fd10e4f4d653bb1034dc" id="r_ga843ba4773988fd10e4f4d653bb1034dc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00509.html#ga843ba4773988fd10e4f4d653bb1034dc">PwrCtrl_Reset</a> (<a class="el" href="a00733.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:ga843ba4773988fd10e4f4d653bb1034dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the power control properties.  <br /></td></tr>
-<tr class="separator:ga843ba4773988fd10e4f4d653bb1034dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>This document covers the state machine execution. </p>
@@ -218,7 +215,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This function resets the conditional flag bits, ensures PWM output is disabled and run the initial current calibration offset. After this, the state machine moves to checking the fault handler. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00111">111</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00110">110</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -269,7 +266,7 @@ Functions</h2></td></tr>
 <p>This function gradually ramps up the references of the power control. The control loop references are gradually incremented until in reached the desired power control reference. When this is achieved, the next state will <br  />
  be assigned to STATE_ONLINE. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00240">240</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00238">238</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -322,7 +319,7 @@ Functions</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>In this application the power control enable bit is controlled externally by Power Board Visualizer. <br  />
  </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00177">177</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00176">176</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -372,7 +369,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This function keeps checks if there is fault event that occurred, if power control Enable has been disabled and if there is changes in the power control references. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00291">291</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00289">289</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
@@ -422,63 +419,13 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This function checks if there is fault event that occurred. When there is no fault event, the state machine moves to StandBy state. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00152">152</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00151">151</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00509_gaad6ef2378120876a621b349c1380aef7_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ga843ba4773988fd10e4f4d653bb1034dc" name="ga843ba4773988fd10e4f4d653bb1034dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga843ba4773988fd10e4f4d653bb1034dc">&#9670;&#160;</a></span>PwrCtrl_Reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PwrCtrl_Reset </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00733.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function resets the power control properties including the PWM properties and control loop references. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00343">343</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00509_ga843ba4773988fd10e4f4d653bb1034dc_cgraph.svg" width="336" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00509_ga843ba4773988fd10e4f4d653bb1034dc_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -513,19 +460,19 @@ Functions</h2></td></tr>
 <li>STATE_ONLINE - This state keeps checks if there is fault event that occurred, if power control Enable has been disabled and if there is changes in the power control references. </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00071">71</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
-<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="a00464_source.html#l00070">70</a> of file <a class="el" href="a00464_source.html">pwrctrl_sm.c</a>.</p>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00509_ga2408c0b52cd2c2487f43716f261434e6_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="a00509_ga2408c0b52cd2c2487f43716f261434e6_icgraph.svg" width="532" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 

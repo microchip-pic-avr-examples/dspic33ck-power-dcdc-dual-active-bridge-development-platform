@@ -2,6 +2,7 @@ var a00479 =
 [
     [ "ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH", "a00479.html#ga32693322c9fff62a2374fd3de9d0f5e8", null ],
     [ "ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW", "a00479.html#ga0ed005156ed4fc2064d588f00d44223d", null ],
+    [ "ISEC_LOAD_STEP_CLAMP", "a00479.html#ga9ba7015c9437b2c07790b380a9a48367", null ],
     [ "ISEC_OC_T_BLANK_CLEAR", "a00479.html#ga5699b0f92b1002c48afde85f493ef541", null ],
     [ "ISEC_OC_T_BLANK_TRIG", "a00479.html#gaf082faecd5f7c3303a4c765d8d8b0472", null ],
     [ "ISEC_OC_THRES_CLEAR", "a00479.html#ga2a0efa36638d988404f55a254a4c62fe", null ],

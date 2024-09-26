@@ -5,6 +5,7 @@ var a00478 =
     [ "ISEC_AVG_SNS_OFS", "a00478.html#ga3ddd48524fd57578569ad30b31317bee", null ],
     [ "ISEC_CT_SNS_GAIN", "a00478.html#gad565ee56fd67a47693480901f73b5e2c", null ],
     [ "ISEC_CT_SNS_OFS", "a00478.html#ga167708b374334a691b34a153fc97ded0", null ],
+    [ "ISEC_LOAD_STEP_CLAMPING_AMPS", "a00478.html#ga6ec24bdfc7696657bf7e95dbaf83d5d9", null ],
     [ "ISEC_OC_T_BLANK_CLEAR_SEC", "a00478.html#ga80ef2d060cb2e0d45398358f08401976", null ],
     [ "ISEC_OC_T_BLANK_TRIG_SEC", "a00478.html#ga9dd78aa25c054cc00c115cd70169dcda", null ],
     [ "ISEC_OC_THRES_CLEAR_AMPS", "a00478.html#gacdbe9002c178691c914b1043a7c070ce", null ],

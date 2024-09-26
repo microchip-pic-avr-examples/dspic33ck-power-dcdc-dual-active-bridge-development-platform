@@ -13,7 +13,6 @@ var a00511 =
     [ "Dev_PwrCtrl_GetAveraging_Vprim", "a00511.html#ga70a3c74e48285c709f735a499a3024dc", null ],
     [ "Dev_PwrCtrl_GetAveraging_Vsec", "a00511.html#ga5178aaea783edff228941c4ecf749a90", null ],
     [ "Dev_PwrCtrl_SetState", "a00511.html#gae5e607ebc1cfbf0fcb8caa5775d5e782", null ],
-    [ "PwrCtrl_Get_DbgValue", "a00511.html#ga0bc9e88402b7b147cd7cca62622d496d", null ],
     [ "PwrCtrl_GetAdc_Ipri_ct", "a00511.html#ga6450795c316e2284ae94eb16f0da1fe8", null ],
     [ "PwrCtrl_GetAdc_Isec_avg", "a00511.html#ga641e888682922358719d9a3c62b37634", null ],
     [ "PwrCtrl_GetAdc_Isec_ct", "a00511.html#gab6b145022a1725eaf38c5d0b1864983f", null ],

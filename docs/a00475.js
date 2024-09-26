@@ -1,5 +1,6 @@
 var a00475 =
 [
+    [ "VSEC_LOAD_STEP_CLAMP", "a00475.html#gaf68a4a402cbda8d11a24ba119c2c9aa1", null ],
     [ "VSEC_OV_T_BLANK_CLEAR", "a00475.html#gafa2427e85d2f9ac0723ed0ed23af656d", null ],
     [ "VSEC_OV_T_BLANK_TRIG", "a00475.html#ga5a408a256fc1b9b921330828dea28789", null ],
     [ "VSEC_OV_THRES_CLEAR", "a00475.html#gacefdf0fe6bfec783e2318f5470f4aa2f", null ],

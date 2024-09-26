@@ -154,25 +154,61 @@ $(document).ready(function(){initNavTree('a00483.html',''); initResizable(); });
 <tr class="separator:ga80914760246c425bc1536e1d809a071b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5d5113c068bc70c6666522402aa59bcf" id="r_ga5d5113c068bc70c6666522402aa59bcf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga5d5113c068bc70c6666522402aa59bcf">POWER_FACTOR</a>&#160;&#160;&#160;(uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, <a class="el" href="a00483.html#ga80914760246c425bc1536e1d809a071b">POWER_SCALER</a>))) / ((ADC_RESOLUTION * <a class="el" href="a00474.html#gadbb92791a446721a3d4af49d713520ca">VSEC_SNS_GAIN</a>) * (ADC_RESOLUTION * <a class="el" href="a00478.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>)))</td></tr>
 <tr class="separator:ga5d5113c068bc70c6666522402aa59bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga18c45d9462f101712539c69b1492a159" id="r_ga18c45d9462f101712539c69b1492a159"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga18c45d9462f101712539c69b1492a159">AGC_DAB_FACTOR</a>&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00482.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a> * pow(2.0, 15))</td></tr>
-<tr class="separator:ga18c45d9462f101712539c69b1492a159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacdae5309d1cb67f967c3b5b64b19d3af" id="r_gacdae5309d1cb67f967c3b5b64b19d3af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#gacdae5309d1cb67f967c3b5b64b19d3af">AGC_VOLTAGE_FACTOR</a>&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00482.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a> * pow(2.0, 15))</td></tr>
+<tr class="separator:gacdae5309d1cb67f967c3b5b64b19d3af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5a1b7f3b96ba61a6b0de4a89c5b93f40" id="r_ga5a1b7f3b96ba61a6b0de4a89c5b93f40"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">AGC_MINIMUM_CURRENT_THRESHOLD</a>&#160;&#160;&#160;(<a class="el" href="a00487.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00482.html#ga2d6249446db551d0d518cad5fcd5a0ff">AGC_MINIMUM_ISEC_THRESHOLD</a>,<a class="el" href="a00478.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>,0.0))</td></tr>
+<tr class="separator:ga5a1b7f3b96ba61a6b0de4a89c5b93f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4022c2ca098b410cbcb0f16f2e4cc0ea" id="r_ga4022c2ca098b410cbcb0f16f2e4cc0ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga4022c2ca098b410cbcb0f16f2e4cc0ea">AGC_CURRENT_FACTOR</a>&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00483.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">AGC_MINIMUM_CURRENT_THRESHOLD</a> * pow(2.0, 15))</td></tr>
+<tr class="separator:ga4022c2ca098b410cbcb0f16f2e4cc0ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Conversion macros converting physical quantities of parameters into binary (integer) numbers for registers and variables </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga18c45d9462f101712539c69b1492a159" name="ga18c45d9462f101712539c69b1492a159"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga18c45d9462f101712539c69b1492a159">&#9670;&#160;</a></span>AGC_DAB_FACTOR</h2>
+<a id="ga4022c2ca098b410cbcb0f16f2e4cc0ea" name="ga4022c2ca098b410cbcb0f16f2e4cc0ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4022c2ca098b410cbcb0f16f2e4cc0ea">&#9670;&#160;</a></span>AGC_CURRENT_FACTOR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AGC_DAB_FACTOR&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00482.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a> * pow(2.0, 15))</td>
+          <td class="memname">#define AGC_CURRENT_FACTOR&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00483.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">AGC_MINIMUM_CURRENT_THRESHOLD</a> * pow(2.0, 15))</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00160">160</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00181">181</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="ga5a1b7f3b96ba61a6b0de4a89c5b93f40" name="ga5a1b7f3b96ba61a6b0de4a89c5b93f40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">&#9670;&#160;</a></span>AGC_MINIMUM_CURRENT_THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AGC_MINIMUM_CURRENT_THRESHOLD&#160;&#160;&#160;(<a class="el" href="a00487.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00482.html#ga2d6249446db551d0d518cad5fcd5a0ff">AGC_MINIMUM_ISEC_THRESHOLD</a>,<a class="el" href="a00478.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>,0.0))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00180">180</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gacdae5309d1cb67f967c3b5b64b19d3af" name="gacdae5309d1cb67f967c3b5b64b19d3af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacdae5309d1cb67f967c3b5b64b19d3af">&#9670;&#160;</a></span>AGC_VOLTAGE_FACTOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AGC_VOLTAGE_FACTOR&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00482.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a> * pow(2.0, 15))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00179">179</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>
@@ -188,7 +224,7 @@ $(document).ready(function(){initNavTree('a00483.html',''); initResizable(); });
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00158">158</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00177">177</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>
@@ -204,7 +240,7 @@ $(document).ready(function(){initNavTree('a00483.html',''); initResizable(); });
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00157">157</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00176">176</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>

@@ -160,6 +160,8 @@ $(document).ready(function(){initNavTree('a00479.html',''); initResizable(); });
 <tr class="separator:ga5699b0f92b1002c48afde85f493ef541"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4ceda5524d91a9e630c2da6a209c2662" id="r_ga4ceda5524d91a9e630c2da6a209c2662"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00479.html#ga4ceda5524d91a9e630c2da6a209c2662">ISEC_SC_THRES_TRIG</a>&#160;&#160;&#160;(<a class="el" href="a00487.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00478.html#ga5f4043a3b61439e7695829b39102281c">ISEC_SC_THRES_TRIG_AMPS</a>,<a class="el" href="a00478.html#gad565ee56fd67a47693480901f73b5e2c">ISEC_CT_SNS_GAIN</a>,<a class="el" href="a00478.html#ga167708b374334a691b34a153fc97ded0">ISEC_CT_SNS_OFS</a>))</td></tr>
 <tr class="separator:ga4ceda5524d91a9e630c2da6a209c2662"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9ba7015c9437b2c07790b380a9a48367" id="r_ga9ba7015c9437b2c07790b380a9a48367"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00479.html#ga9ba7015c9437b2c07790b380a9a48367">ISEC_LOAD_STEP_CLAMP</a>&#160;&#160;&#160;(<a class="el" href="a00487.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00478.html#ga6ec24bdfc7696657bf7e95dbaf83d5d9">ISEC_LOAD_STEP_CLAMPING_AMPS</a>,<a class="el" href="a00478.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>,0))</td></tr>
+<tr class="separator:ga9ba7015c9437b2c07790b380a9a48367"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga32693322c9fff62a2374fd3de9d0f5e8" id="r_ga32693322c9fff62a2374fd3de9d0f5e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00479.html#ga32693322c9fff62a2374fd3de9d0f5e8">ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</a>&#160;&#160;&#160;(<a class="el" href="a00487.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((<a class="el" href="a00478.html#ga3ddd48524fd57578569ad30b31317bee">ISEC_AVG_SNS_OFS</a>*1.05)/3.3*4096.0))</td></tr>
 <tr class="separator:ga32693322c9fff62a2374fd3de9d0f5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0ed005156ed4fc2064d588f00d44223d" id="r_ga0ed005156ed4fc2064d588f00d44223d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00479.html#ga0ed005156ed4fc2064d588f00d44223d">ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</a>&#160;&#160;&#160;(<a class="el" href="a00487.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((<a class="el" href="a00478.html#ga3ddd48524fd57578569ad30b31317bee">ISEC_AVG_SNS_OFS</a>*0.95)/3.3*4096.0))</td></tr>
@@ -180,7 +182,7 @@ $(document).ready(function(){initNavTree('a00479.html',''); initResizable(); });
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00087">87</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00104">104</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>
@@ -196,7 +198,23 @@ $(document).ready(function(){initNavTree('a00479.html',''); initResizable(); });
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00088">88</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00105">105</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="ga9ba7015c9437b2c07790b380a9a48367" name="ga9ba7015c9437b2c07790b380a9a48367"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9ba7015c9437b2c07790b380a9a48367">&#9670;&#160;</a></span>ISEC_LOAD_STEP_CLAMP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ISEC_LOAD_STEP_CLAMP&#160;&#160;&#160;(<a class="el" href="a00487.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00478.html#ga6ec24bdfc7696657bf7e95dbaf83d5d9">ISEC_LOAD_STEP_CLAMPING_AMPS</a>,<a class="el" href="a00478.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>,0))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00098">98</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>
@@ -212,7 +230,7 @@ $(document).ready(function(){initNavTree('a00479.html',''); initResizable(); });
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00080">80</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00095">95</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>
@@ -228,7 +246,7 @@ $(document).ready(function(){initNavTree('a00479.html',''); initResizable(); });
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00079">79</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00094">94</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>
@@ -244,7 +262,7 @@ $(document).ready(function(){initNavTree('a00479.html',''); initResizable(); });
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00078">78</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00093">93</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>
@@ -260,7 +278,7 @@ $(document).ready(function(){initNavTree('a00479.html',''); initResizable(); });
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00077">77</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00092">92</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>
@@ -276,7 +294,7 @@ $(document).ready(function(){initNavTree('a00479.html',''); initResizable(); });
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00082">82</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00097">97</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
 
 </div>
 </div>
