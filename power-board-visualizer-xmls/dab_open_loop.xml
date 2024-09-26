@@ -15,7 +15,7 @@
         <SignalChannelIndex>0</SignalChannelIndex>
         <PositionInMessage>0</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
       <SignalChannel>
         <Name>Status Flags</Name>
@@ -28,7 +28,7 @@
         <SignalChannelIndex>1</SignalChannelIndex>
         <PositionInMessage>1</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
       <SignalChannel>
         <Name>Vprimary</Name>
@@ -41,7 +41,7 @@
         <SignalChannelIndex>2</SignalChannelIndex>
         <PositionInMessage>2</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
       <SignalChannel>
         <Name>Vsecondary</Name>
@@ -54,7 +54,7 @@
         <SignalChannelIndex>3</SignalChannelIndex>
         <PositionInMessage>3</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
       <SignalChannel>
         <Name>Iprimary</Name>
@@ -67,7 +67,7 @@
         <SignalChannelIndex>4</SignalChannelIndex>
         <PositionInMessage>4</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
       <SignalChannel>
         <Name>Isecondary (CT)</Name>
@@ -80,7 +80,7 @@
         <SignalChannelIndex>5</SignalChannelIndex>
         <PositionInMessage>5</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
       <SignalChannel>
         <Name>Isecondary (Current Sensor)</Name>
@@ -93,7 +93,7 @@
         <SignalChannelIndex>6</SignalChannelIndex>
         <PositionInMessage>6</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
       <SignalChannel>
         <Name>Temperature</Name>
@@ -106,7 +106,7 @@
         <SignalChannelIndex>7</SignalChannelIndex>
         <PositionInMessage>7</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
       <SignalChannel>
         <Name>5V rail</Name>
@@ -119,7 +119,7 @@
         <SignalChannelIndex>8</SignalChannelIndex>
         <PositionInMessage>8</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
       <SignalChannel>
         <Name>Fan Speed Raw</Name>
@@ -132,7 +132,7 @@
         <SignalChannelIndex>9</SignalChannelIndex>
         <PositionInMessage>9</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
       <SignalChannel>
         <Name>Fan Speed</Name>
@@ -145,7 +145,7 @@
         <SignalChannelIndex>10</SignalChannelIndex>
         <PositionInMessage>10</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
       <SignalChannel>
         <Name>Tsw</Name>
@@ -158,7 +158,7 @@
         <SignalChannelIndex>12</SignalChannelIndex>
         <PositionInMessage>12</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
       <SignalChannel>
         <Name>Tsw Target</Name>
@@ -171,7 +171,7 @@
         <SignalChannelIndex>13</SignalChannelIndex>
         <PositionInMessage>13</PositionInMessage>
         <PageName>4kw</PageName>
-        <ProtocolID>516</ProtocolID>
+        <ProtocolID>1028</ProtocolID>
       </SignalChannel>
     </SignalChannels>
     <TableView>
@@ -223,7 +223,7 @@
         <DefaultValue>10</DefaultValue>
         <Step>0.1</Step>
         <ButtonText>Update</ButtonText>
-        <Data>0202 0004 BB BB [value]</Data>
+        <Data>0402 0004 BB BB [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
         <PageName>4kw</PageName>
       </OutputValue>
@@ -232,12 +232,12 @@
         <Unit>degrees</Unit>
         <Scaling>1</Scaling>
         <Offset>0</Offset>
-        <MinimumValue>0</MinimumValue>
+        <MinimumValue>1</MinimumValue>
         <MaximumValue>360</MaximumValue>
         <DefaultValue>1</DefaultValue>
         <Step>1</Step>
         <ButtonText>Update</ButtonText>
-        <Data>0202 0004 EE01 [value]</Data>
+        <Data>0402 0004 EE01 [value]</Data>
         <AutoSendAfterChange>true</AutoSendAfterChange>
         <PageName>4kw</PageName>
       </OutputValue>
@@ -253,7 +253,6 @@
         <ButtonText>Update</ButtonText>
         <Data>0202 0004 BB BC [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
-        <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
         <Name>DeadTime Low (ns)</Name>
@@ -267,7 +266,6 @@
         <ButtonText>Update</ButtonText>
         <Data>0202 0004 BB BD [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
-        <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
         <Name>Sec OVP Threshold (V)</Name>
@@ -281,7 +279,6 @@
         <ButtonText>Update</ButtonText>
         <Data>0202 0004 EE 10 [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
-        <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
         <Name>Pri OVP Threshold (V)</Name>
@@ -295,7 +292,6 @@
         <ButtonText>Update</ButtonText>
         <Data>0202 0004 EE 11 [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
-        <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
         <Name>Primary OCP (A)</Name>
@@ -309,7 +305,6 @@
         <ButtonText>Update</ButtonText>
         <Data>0202 0004 EE20 [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
-        <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
         <Name>Secondary OCP (A)</Name>
@@ -323,7 +318,6 @@
         <ButtonText>Update</ButtonText>
         <Data>0202 0004 EE30 [value]</Data>
         <AutoSendAfterChange>false</AutoSendAfterChange>
-        <PageName>4kw</PageName>
       </OutputValue>
       <OutputValue>
         <Name>Fan Speed (%)</Name>
@@ -443,14 +437,14 @@
         <Name>Start</Name>
         <Enabled>true</Enabled>
         <RawDataVisible>false</RawDataVisible>
-        <Data>02 02 00 04 AA AA 00 01</Data>
+        <Data>04 02 00 04 AA AA 00 01</Data>
         <PageName>4kw</PageName>
       </SendRawDataButton>
       <SendRawDataButton>
         <Name>Stop</Name>
         <Enabled>true</Enabled>
         <RawDataVisible>false</RawDataVisible>
-        <Data>02 02 00 04 AA AA 00 00</Data>
+        <Data>04 02 00 04 AA AA 00 00</Data>
         <PageName>4kw</PageName>
       </SendRawDataButton>
       <SendRawDataButton>
@@ -470,7 +464,6 @@
         <Enabled>true</Enabled>
         <RawDataVisible>false</RawDataVisible>
         <Data>02 02 00 04 AA AB 00 00</Data>
-        <PageName>4kw</PageName>
       </SendRawDataButton>
       <SendRawDataButton>
         <Name>Reset Vin Buffer</Name>

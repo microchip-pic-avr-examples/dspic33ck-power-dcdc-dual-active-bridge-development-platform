@@ -264,13 +264,13 @@ void PwrCtrl_ControlLoopExecute(void)
 //        XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback,   
 //                ILoopReference, &dab.ILoop.Output);    
 
-        // basic clamping in rising direction, in case of  Iloop or Vlopp overshoot during large load step. 
+        // Basic clamping in rising direction, in case of  Iloop or Vlopp overshoot during large load step. 
         if( dab.Data.ISecAverageRectified >  dab.ILoop.Reference + 46) //1.5A * 31
         {
              XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 0, &dab.ILoop.Output); //force I ref to 0
         }
         else
-        if(VsecAveraging.AverageValue > (dab.VLoop.Reference + 65))// 16V delta
+        if(vSecAveraging.AverageValue > (dab.VLoop.Reference + 65))// 16V delta
         {    
             XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 0, &dab.ILoop.Output);//force I ref to 0
         }

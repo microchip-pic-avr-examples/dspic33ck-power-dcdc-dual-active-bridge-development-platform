@@ -20,6 +20,7 @@ void PwrCtrl_Initialize(void);
 void PwrCtrl_Execute(void);
 void Dev_PwrCtrl_Suspend(void);
 void Dev_PwrCtrl_ControlLoopInitialize(void);
+void PwrCtrl_Reset(void);
 
 #endif	/* APP_PWRCTRL_H */
 

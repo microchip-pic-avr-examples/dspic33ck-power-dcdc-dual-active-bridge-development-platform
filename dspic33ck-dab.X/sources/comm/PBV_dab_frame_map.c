@@ -47,11 +47,7 @@
  * @{
  **********************************************************************************/
 #define FIRMWARE_PROTOCOL_ID            0x1000           ///< Firmware ID
-#define PBV_TX_PROTOCOL_ID              0x204            ///< ID on which data is transmitted by dsPIC33
-
-#define PBV_GUI_BUTTONS                 0x202            ///< ID on which data is received Buttons.         
-#define PBV_GUI_SLIDERS                 0x203            ///< ID on which data is received Sliders. 
-#define PBV_SYSTEM_TO_GUI_ID            0x204            ///< ID on which data is sent
+#define PBV_TX_PROTOCOL_ID              0x404            ///< ID on which data is transmitted by dsPIC33
 #define PBV_LOG_ID                      0x300            ///< ID on which log data is sent. 
 
 // command IDs, first data word in received package

@@ -114,6 +114,45 @@ void PwrCtrl_Execute(void)
 
 /*******************************************************************************
  * @ingroup pwrctrl
+ * @brief  Resets the power control properties
+ * @return void
+ * 
+ * @details This function resets the power control properties including the 
+ *  PWM properties and control loop references.
+ *********************************************************************************/
+void PwrCtrl_Reset(void)
+{
+    //set the period to maximum  
+    dab.Pwm.ControlPeriod = MAX_PWM_PERIOD;
+    dab.Pwm.ControlPhase = dab.Pwm.DeadTimeLow;
+    dab.Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
+    dab.Pwm.PBVControlPhaseTarget = dab.Pwm.DeadTimeLow;
+    
+    // Reset the power control references
+    dab.Properties.VPriReference = 0;
+    dab.Properties.VSecReference = 0;
+    dab.Properties.IReference = 0;
+    dab.Properties.PwrReference = 0;
+
+    // Initialize current loop reference to 0, to be controlled externally
+    dab.ILoop.Reference = 0;
+    // Initialize power loop reference to 0, to be controlled externally
+    dab.PLoop.Reference = 0;
+    // Initialize voltage loop reference to current secondary voltage
+    dab.VLoop.Reference = 0;
+    
+    // Set the AGC to 1
+    dab.VLoop.AgcFactor = 0x7FFF;
+    dab.ILoop.AgcFactor = 0x7FFF;
+    dab.PLoop.AgcFactor = 0x7FFF;
+    
+    // Reset Control Loop Histories
+    PwrCtrl_ResetControlLoopHistories();     
+}
+
+
+/*******************************************************************************
+ * @ingroup pwrctrl
  * @brief  Initializes the control loop
  * @return void
  * 
@@ -202,7 +241,7 @@ static void PwrCtrl_StartUpInitialize(void)
     
     dab.VRamp.ptrReference = &dab.Pwm.ControlPeriod;
     dab.VRamp.ptrReferenceTarget = &dab.Pwm.PBVPeriodTarget;
-    dab.VRamp.StepSize = 0x7;
+    dab.VRamp.StepSize = 0xE;
     dab.VRamp.Delay = 0;
     
     //Initialize Current ramp-up settings for Phase control
@@ -211,8 +250,9 @@ static void PwrCtrl_StartUpInitialize(void)
     
     dab.IRamp.ptrReference = &dab.Pwm.ControlPhase;
     dab.IRamp.ptrReferenceTarget = &dab.Pwm.PBVControlPhaseTarget;
-    dab.IRamp.StepSize = 0x7;
+    dab.IRamp.StepSize = 0xE;
     dab.IRamp.Delay = 0;
     
 #endif
 }
+

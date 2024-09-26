@@ -1,10 +1,24 @@
-/* 
- * File:   config.h
- * Author: M15690
- *
- * Created on July 2, 2024, 10:40 AM
- */
+/*
+    (c) 2024 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
 
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
+ */
 #ifndef CONFIG_H
 #define	CONFIG_H
 
@@ -18,8 +32,7 @@
  * @{
  ******************************************************************************/
 #define PERIOD_MODULATION_DEMO   false  ///< modulates the period; for further development
-#define CURRENT_CALIBRATION     true    ///< Enable current calibration
-#define VPRI_OPTOCOUPLER_POLARITY       false ///< false if not inverted; true if inverted 
+
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
@@ -153,19 +166,27 @@
  ******************************************************************************/
 #define DAC_DEBUG           false    ///< test values with PIM DAC output
 #define OPEN_LOOP_POTI      false    ///< test the code with Digital Power Development Board; runs in openloop using potentiometer
-#define OPEN_LOOP_PBV       false    ///< use Power Board visualizer to change the parameters in Open loop operation
+#define OPEN_LOOP_PBV       true    ///< use Power Board visualizer to change the parameters in Open loop operation
+
+#if(OPEN_LOOP_POTI || OPEN_LOOP_PBV)
+#define CURRENT_CALIBRATION             false  ///< Enable current calibration
+#else
+#define CURRENT_CALIBRATION             true  ///< Enable current calibration
+#endif
+#define VPRI_OPTOCOUPLER_POLARITY       false ///< false if not inverted; true if inverted 
+
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
 //------------------------------------------------------------------------------
-#define FAULT_VPRI_OV   true
-#define FAULT_ISEC_OC   true
-#define FAULT_IPRI_OC   true
-#define FAULT_VSEC_OV   true
-#define FAULT_PS_OTP    true
-#define FAULT_SHORT_CCT true
-#define FAULT_VRAIL_5V  true
+#define FAULT_VPRI_OV   false
+#define FAULT_ISEC_OC   false
+#define FAULT_IPRI_OC   false
+#define FAULT_VSEC_OV   false
+#define FAULT_PS_OTP    false
+#define FAULT_SHORT_CCT false
+#define FAULT_VRAIL_5V  false
 //------------------------------------------------------------------------------
 
 #endif	/* CONFIG_H */

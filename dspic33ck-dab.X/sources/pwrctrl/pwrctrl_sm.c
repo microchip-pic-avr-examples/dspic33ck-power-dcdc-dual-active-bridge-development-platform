@@ -45,7 +45,6 @@ static void PCS_WAIT_IF_FAULT_ACTIVE_handler(POWER_CONTROL_t* pcInstance);
 static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance);
 static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance);
 static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance);
-static void PwrCtrl_Reset(POWER_CONTROL_t* pcInstance);
 
 /*******************************************************************************
  * @ingroup pwrctrl-sm
@@ -193,7 +192,7 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         Fault_Reset();
             
         // Reset the power control properties and control loop histories
-        PwrCtrl_Reset(&dab);
+        PwrCtrl_Reset();
             
         #if (CURRENT_CALIBRATION == true) 
         // reset the PWM settings in Standby mode
@@ -330,43 +329,3 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
             pcInstance->State = PWRCTRL_STATE_SOFT_START;
     }
 } 
-
-/*******************************************************************************
- * @ingroup pwrctrl-sm
- * @brief  Resets the power control properties
- * @param  pcInstance  Pointer to a power control data object of type POWER_CONTROL_t
- * @return void
- * 
- * @details This function resets the power control properties including the 
- *  PWM properties and control loop references.
- *********************************************************************************/
-static void PwrCtrl_Reset(POWER_CONTROL_t* pcInstance)
-{
-    //set the period to maximum  
-    pcInstance->Pwm.ControlPeriod = MAX_PWM_PERIOD;
-    pcInstance->Pwm.ControlPhase = dab.Pwm.DeadTimeLow;
-    pcInstance->Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
-    pcInstance->Pwm.PBVControlPhaseTarget = dab.Pwm.DeadTimeLow;
-    
-    // Reset the power control references
-    pcInstance->Properties.VPriReference = 0;
-    pcInstance->Properties.VSecReference = 0;
-    pcInstance->Properties.IReference = 0;
-    pcInstance->Properties.PwrReference = 0;
-
-    // Initialize current loop reference to 0, to be controlled externally
-    pcInstance->ILoop.Reference = 0;
-    // Initialize power loop reference to 0, to be controlled externally
-    pcInstance->PLoop.Reference = 0;
-    // Initialize voltage loop reference to current secondary voltage
-    pcInstance->VLoop.Reference = 0;
-    
-    // Set the AGC to 1
-    pcInstance->VLoop.AgcFactor = 0x7FFF;
-    pcInstance->ILoop.AgcFactor = 0x7FFF;
-    pcInstance->PLoop.AgcFactor = 0x7FFF;
-    
-    // Reset Control Loop Histories
-    PwrCtrl_ResetControlLoopHistories();
-            
-}
