@@ -26,6 +26,12 @@
  * @date    05/02/2024
  */
 
+/**
+ * @file      dev_fan.h
+ * @ingroup   dev-fan  
+ * @brief     Contains fan public functions.
+ */
+
 // This is a guard condition so that contents of this file are not included
 // more than once.  
 #ifndef DEV_FAN_H

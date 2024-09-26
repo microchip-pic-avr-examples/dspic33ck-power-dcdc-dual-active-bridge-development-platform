@@ -44,8 +44,7 @@
 
 /*********************************************************************************
  * @ingroup app-pbv-dab-map
- * @
- * @brief   protocol ids defined. firmware id 0x1000 is fixed. the rest are arbitary
+ * @{
  **********************************************************************************/
 #define FIRMWARE_PROTOCOL_ID            0x1000           ///< Firmware ID
 
@@ -107,8 +106,7 @@ void protocolID(uint16_t protocol_ID, uint16_t length, uint8_t * data);
 
 /***********************************************************************************
  * @ingroup app-pbv-dab-map
- * @param   void
- * @return  nothing
+ * @return  void
  * @brief   this function initializes the local pbv objects. these objects are then
  *          passed on to the app_PBV_init function to initialize the CAN/UART objects
  * @details
@@ -133,15 +131,13 @@ void App_PBV_DAB_Init()
 
 /***********************************************************************************
  * @ingroup app-pbv-dab-map
- * @param   void
- * @return  nothing
- * @brief   this is high frequency task to simulate sending of high frequency numeric data.
+ * @return  void
+ * @brief   10ms PBV task to be execution
+ * @details This is high frequency task to simulate sending of high frequency numeric data.
  *          Also to check if there are any messages received, must be done at a high enough
  *          rate to ensure that the messages are not dropped.
- * @details
  *   
  **********************************************************************************/
-
 void App_PBV_DAB_Task_10ms(void)
 {
     // RX handler
@@ -166,9 +162,9 @@ void App_PBV_DAB_Task_10ms(void)
  * @ingroup app-pbv-dab-map
  * @param   void
  * @return  nothing
- * @brief   this is a slow task simulating the low speed sending of ascii data
+ * @brief   1 second PBV task to be execution
+ * @details This is a slow task simulating the low speed sending of ascii data
  *           it sends the firmware id, and the switches to the log id.
- * @details
  *   
  **********************************************************************************/
 void App_PBV_DAB_Task_1s(void)
@@ -186,7 +182,7 @@ void App_PBV_DAB_Task_1s(void)
         if (TransmitFirmwareId) App_PBV_Re_Init(appPbvDabAsciiPtr);     ///< reinit to new id
         TransmitFirmwareId = 0; 
     }
-    //ToDo: Check with Cormac
+
     appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)"                 Log Message From Protocol ID 0x300";
     App_Send_To_PBV(appPbvDabAsciiPtr);
    
@@ -195,10 +191,9 @@ void App_PBV_DAB_Task_1s(void)
 
 /***********************************************************************************
  * @ingroup app-pbv-dab-map
- * @param   void
  * @return  PBV_Datatype_TX_t *
- * @brief   this function can be used to send log messages from other files.
- * @details
+ * @brief   This function can be used to send log messages from other files.
+ * @details This function can be used to send log messages from other files.
  *   
  **********************************************************************************/
 PBV_Datatype_TX_t * App_PB_DAB_Get_TX_ASCII_ptr(void)
@@ -216,11 +211,9 @@ PBV_Datatype_TX_t * App_PB_DAB_Get_TX_ASCII_ptr(void)
 
 /***********************************************************************************
  * @ingroup pbv-private-function
- * @param   void
- * @return  nothing
+ * @return  void
  * @brief   this builds frame
  * @details
- * @note
  **********************************************************************************/
 
 void App_PBV_DAB_Build_Frame()

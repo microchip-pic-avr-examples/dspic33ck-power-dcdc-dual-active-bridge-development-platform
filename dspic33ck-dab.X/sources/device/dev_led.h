@@ -26,6 +26,11 @@
  * @date    05/02/2024
  */
  
+/**
+ * @file      dev_led.h
+ * @ingroup   dev-led  
+ * @brief     Contains LED public functions.
+ */
 // This is a guard condition so that contents of this file are not included
 // more than once.  
 #ifndef DEV_LED_H

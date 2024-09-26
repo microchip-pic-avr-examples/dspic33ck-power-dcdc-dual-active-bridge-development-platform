@@ -1,23 +1,25 @@
-/* Microchip Technology Inc. and its subsidiaries.  You may use this software 
- * and any derivatives exclusively with Microchip products. 
- * 
- * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS".  NO WARRANTIES, WHETHER 
- * EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED 
- * WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A 
- * PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION 
- * WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION. 
- *
- * IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
- * INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
- * WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS 
- * BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE.  TO THE 
- * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS 
- * IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF 
- * ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
- *
- * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
- * TERMS. 
+/*
+    (c) 2024 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
+
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
  */
+
 
 /**
  * @file      dev_fan.c
@@ -43,8 +45,8 @@ enum FAN_SETTINGS_e {
 };
 typedef enum FAN_SETTINGS_e FAN_SETTINGS_t;
 
-static FAN_SETTINGS_t ChangeSpeed = CHANGE_SPEED;
-static uint8_t CurrentTickCount;
+static FAN_SETTINGS_t changeSpeed = CHANGE_SPEED;
+static uint8_t currentTickCount;
 
 //Private Function Call Prototypes
 static uint16_t Convert_From_Percentage (uint8_t percentage);
@@ -94,16 +96,16 @@ void Dev_Fan_Task_100ms(void)
 {
     if (devFanData.OverrideFlag == 1) 
     {
-        ChangeSpeed = CHANGE_SPEED;
+        changeSpeed = CHANGE_SPEED;
         Override_Speed();
         Calculate_Speed();
         Update_Speed();     
     }
-    else if (++CurrentTickCount >= devFanData.Tick ) 
+    else if (++currentTickCount >= devFanData.Tick ) 
     {
         Calculate_Speed();
         Update_Speed();
-        CurrentTickCount = 0;
+        currentTickCount = 0;
     }
 }
 
@@ -189,17 +191,17 @@ static void Calculate_Speed(void)
     if (devFanData.CurrentSpeedRaw > (devFanData.TargetSpeedRaw )) // + dev_fan_data.hystersis_raw) )
     {
         devFanData.CurrentSpeedRaw -= Convert_From_Percentage(devFanData.StepSizePercent); 
-        ChangeSpeed = CHANGE_SPEED;
+        changeSpeed = CHANGE_SPEED;
     }
         
     else if (devFanData.CurrentSpeedRaw < (devFanData.TargetSpeedRaw )) // + dev_fan_data.hystersis_raw) )
     {
         devFanData.CurrentSpeedRaw += Convert_From_Percentage(devFanData.StepSizePercent) ;
-        ChangeSpeed = CHANGE_SPEED;
+        changeSpeed = CHANGE_SPEED;
     } 
     else 
     {
-        ChangeSpeed = NO_CHANGE;
+        changeSpeed = NO_CHANGE;
     }
 } 
 
@@ -212,7 +214,7 @@ static void Calculate_Speed(void)
  *********************************************************************************/
 static void Update_Speed(void) 
 {
-    if (ChangeSpeed != NO_CHANGE)
+    if (changeSpeed != NO_CHANGE)
     {
         if (devFanData.CurrentSpeedRaw > devFanData.MaxSpeedRaw)
         {

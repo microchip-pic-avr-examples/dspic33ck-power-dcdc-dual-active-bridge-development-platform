@@ -10,26 +10,28 @@
  * @copyright 
  */
 
-/* Microchip Technology Inc. and its subsidiaries.  You may use this software 
- * and any derivatives exclusively with Microchip products. 
- * 
- * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS".  NO WARRANTIES, WHETHER 
- * EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED 
- * WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A 
- * PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION 
- * WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION. 
- *
- * IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
- * INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
- * WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS 
- * BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE.  TO THE 
- * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS 
- * IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF 
- * ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
- *
- * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE 
- * TERMS. 
+/*
+    (c) 2024 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
+
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
  */
+
 
 /**
  * @file      dev_led.c
@@ -58,11 +60,11 @@
 /***********************************************************************************
  * Private Variables
  **********************************************************************************/
-uint8_t ledstates[NUM_OF_LEDS];     ///< array that stores the led states 
-uint8_t ledtimer[NUM_OF_LEDS];      ///< array that stores led  blink times 
+uint8_t ledStates[NUM_OF_LEDS];     ///< array that stores the led states 
+uint8_t ledTimer[NUM_OF_LEDS];      ///< array that stores led  blink times 
 
 
-uint8_t LEDIterationsCounter[NUM_OF_LEDS];
+uint8_t ledIterationsCounter[NUM_OF_LEDS];
 /***********************************************************************************
  * @ingroup dev-led
  * @brief This function contains the LED initialization
@@ -93,9 +95,9 @@ void Dev_LED_On(uint8_t led_id)
 {
     if (led_id >= NUM_OF_LEDS)
         return;
-    if (ledstates[led_id] == LED_STATE_ON)
+    if (ledStates[led_id] == LED_STATE_ON)
         return;
-    ledstates[led_id] = LED_STATE_ON;
+    ledStates[led_id] = LED_STATE_ON;
     switch(led_id)
     {
         case LED_PIM_RED:           LED_DP_PIM_on(); break;
@@ -117,9 +119,9 @@ void Dev_LED_Off(uint8_t led_id)
 {
     if (led_id >= NUM_OF_LEDS)
         return;
-    if (ledstates[led_id] == LED_STATE_OFF)
+    if (ledStates[led_id] == LED_STATE_OFF)
         return;
-    ledstates[led_id] = LED_STATE_OFF;
+    ledStates[led_id] = LED_STATE_OFF;
     switch(led_id)
     {
         case LED_PIM_RED:           LED_DP_PIM_on(); break;
@@ -160,7 +162,7 @@ void Dev_LED_Blink(uint8_t led_id)
 {
     if (led_id >= NUM_OF_LEDS)
         return;
-    ledstates[led_id] = LED_STATE_BLINK;
+    ledStates[led_id] = LED_STATE_BLINK;
 }
 
 /***********************************************************************************
@@ -175,8 +177,8 @@ void Dev_LED_Blink_Iter(uint8_t led_id, uint8_t count)
 {
     if (led_id >= NUM_OF_LEDS)
         return;
-    ledstates[led_id] = LED_STATE_BLINK_COUNT;
-    LEDIterationsCounter[led_id] = count;
+    ledStates[led_id] = LED_STATE_BLINK_COUNT;
+    ledIterationsCounter[led_id] = count;
 }
 
 /***********************************************************************************
@@ -191,7 +193,7 @@ void Dev_LED_Blink_Slow(uint8_t led_id)
 {
     if (led_id >= NUM_OF_LEDS)
         return;
-    ledstates[led_id] = LED_STATE_BLINK_SLOW;
+    ledStates[led_id] = LED_STATE_BLINK_SLOW;
 }
 
 /***********************************************************************************
@@ -206,7 +208,7 @@ void Dev_LED_Blink_Fast(uint8_t led_id)
 {
     if (led_id >= NUM_OF_LEDS)
         return;
-    ledstates[led_id] = LED_STATE_BLINK_FAST;
+    ledStates[led_id] = LED_STATE_BLINK_FAST;
 }
 
 /***********************************************************************************
@@ -226,17 +228,17 @@ void Dev_LED_Task_100ms()
 
     for (led_index = 0; led_index < NUM_OF_LEDS; led_index++)
     {
-        if (ledstates[led_index] > LED_STATE_ON)
+        if (ledStates[led_index] > LED_STATE_ON)
         {
-            if (ledstates[led_index] == LED_STATE_BLINK_SLOW)
+            if (ledStates[led_index] == LED_STATE_BLINK_SLOW)
                 timermax = BLINK_SLOW_INTERVAL;
-            else if (ledstates[led_index] == LED_STATE_BLINK_FAST)
+            else if (ledStates[led_index] == LED_STATE_BLINK_FAST)
                 timermax = BLINK_FAST_INTERVAL;
             else    // normal speed
                 timermax = BLINK_INTERVAL;
-            if (++ledtimer[led_index] >= timermax)
+            if (++ledTimer[led_index] >= timermax)
             {
-                ledtimer[led_index] = 0;
+                ledTimer[led_index] = 0;
                 switch(led_index)
                 {
                     case LED_PIM_RED:           LED_DP_PIM_Toggle_State(); break;

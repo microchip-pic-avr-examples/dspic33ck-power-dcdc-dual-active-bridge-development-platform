@@ -26,6 +26,12 @@
  * @date    04/03/2024
  */
 
+/**
+ * @file      dev_temp.h
+ * @ingroup   dev-temp  
+ * @brief     Contains temperature public functions and macros.
+ */
+
 // This is a guard condition so that contents of this file are not included
 // more than once.  
 #ifndef DEV_TEMP_H

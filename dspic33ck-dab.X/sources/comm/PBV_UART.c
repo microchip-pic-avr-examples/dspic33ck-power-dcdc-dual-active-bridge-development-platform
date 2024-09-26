@@ -38,7 +38,6 @@
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @def     PBV_CRC_POLYNOM
  * @brief   Standard PBV CRC Polynomial. For documentation, as 
  * it is not used in calculation in this file
  **********************************************************************************/
@@ -46,57 +45,50 @@
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @def     PBV_CRC_POLYNOM_REV
  * @brief   Reversed polynomial. needed for odd byte in the data stream
  **********************************************************************************/
 #define PBV_CRC_POLYNOM_REV         0xA001
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @def     PBV_ReadyToSend
  * @brief   linking functions with UART mcc driver functions
  **********************************************************************************/
 #define PBV_ReadyToSend             UART1_IsTxReady
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @def     PBV_Write
  * @brief   linking functions with UART mcc driver functions
  **********************************************************************************/
 #define PBV_Write                   UART1_Write
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @def     PBV_IsRxReady
  * @brief   linking functions with UART mcc driver functions
  **********************************************************************************/
 #define PBV_IsRxReady               UART1_IsRxReady
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @def     PBV_Read
  * @brief   linking functions with UART mcc driver functions
  **********************************************************************************/
 #define PBV_Read                    UART1_Read
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @def     Start of frame
  * @brief   Standard Start of frame for PBV UART frames 
  **********************************************************************************/
 #define PBV_START_OF_FRAME          0x55
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @def     End of frame
  * @brief   Standard End of frame for PBV UART frames 
  **********************************************************************************/
 #define PBV_END_OF_FRAME            0x0d
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @def     RCV_<STATES>
  * @brief   Internal STATES for RX State machine for PBV UART Frames
+ * @{
  **********************************************************************************/
 ///< STATES for RX State machine for PBV UART Frames
 #define RCV_WAIT_FOR_STARTBYTE		0
@@ -109,24 +101,24 @@
 #define RCV_READ_CRC_LOWBYTE		7
 #define RCV_READ_EOF				8
 #define RCV_MESSAGE_RECEIVED        9
+/** @} */
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @def     Receive Data lenght excluding header (5 bytes) and footer (3 bytes, but not needed in memory allocation for UART arrays.)
  * @brief   Maximum UART buffer. The max data that could be received is 64 bytes
+ * @details     Receive Data lenght excluding header (5 bytes) and footer (3 bytes, but not needed in memory allocation for UART arrays.)
  **********************************************************************************/
 #define PBV_RCV_DATABUFFER_SIZE     64      // MAX.. 
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @def     Receive Data lenght excluding header (5 bytes) and footer (3 bytes, but not needed in memory allocation for UART arrays.)
  * @brief   Maximum UART buffer. The max data that could be received is 64 bytes
+ * @details     Receive Data lenght excluding header (5 bytes) and footer (3 bytes, but not needed in memory allocation for UART arrays.)
  **********************************************************************************/
 #define PBV_HEADER_SIZE             5       // in bytes 0x55 + protocol ID (2 bytes) + length (2 bytes)?
 
 /***********************************************************************************
  * @ingroup PBV_UART
- * @struct  UART_MSG_RX_OBJ
  * @brief   UART msg receive object. 
  **********************************************************************************/
 typedef struct UART_MSG_RX_OBJ
@@ -142,7 +134,6 @@ typedef struct UART_MSG_RX_OBJ
 
 /***********************************************************************************
  * @ingroup PBV_UART
- * @struct  UART_MSG_TX_OBJ
  * @brief   UART msg Transmit object. 
  **********************************************************************************/
 typedef struct UART_MSG_TX_OBJ
@@ -166,28 +157,24 @@ uint16_t PBV_Calculate_CRC(uint8_t *message, uint16_t length);
 
 /***********************************************************************************
  * @ingroup PBV_UART
- * @struct  PBV_UART_Object_TX
  * @brief   UART object for numeric tx
  **********************************************************************************/
 UART_MSG_TX_OBJ_t pbvUartObjectTx;
 
 /***********************************************************************************
  * @ingroup PBV_UART
- * @struct  PBV_UART_Object_RX
  * @brief   UART object for numeric rx
  **********************************************************************************/
 UART_MSG_RX_OBJ_t pbvUartObjectRx;
 
 /***********************************************************************************
  * @ingroup PBV_UART
- * @struct  PBV_UART_Object_ASCII
  * @brief   UART object for ascii tx
  **********************************************************************************/
 UART_MSG_TX_OBJ_t pbvUartObjectAscii; 
 
 /*********************************************************************************
  * @ingroup PBV_UART 
- * @fn      PBV_UART_Init(PBV_Datatype_TX_t * Board_To_PBV, PBV_Datatype_TX_t * Board_To_PBVAscii, PBV_Datatype_RX_t *Pbv_To_Board)
  * @param   PBV_Datatype_TX_t * - ptr to numerical data
  * @param   PBV_Datatype_TX_t * - ptr to ascii data
  * @param   PBV_Datatype_TX_t * - ptr to received data ( for completeness, not used now)
@@ -195,7 +182,6 @@ UART_MSG_TX_OBJ_t pbvUartObjectAscii;
  * @return  void
  * @details initializes UART objects with application objects. Also initializes uartActiveTx and uartActiveTxAscii
  **********************************************************************************/
-
 void PBV_UART_Init(PBV_Datatype_TX_t * boardToPbv, PBV_Datatype_TX_t * boardToPbvAscii, PBV_Datatype_RX_t * pbvToBoard)
 {
     pbvUartObjectTx.Protocol_ID = boardToPbv->PBV_Protcol_ID;
@@ -216,13 +202,10 @@ void PBV_UART_Init(PBV_Datatype_TX_t * boardToPbv, PBV_Datatype_TX_t * boardToPb
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @fn      PBV_UART_Receive_from_GUI
- * @param   none
  * @brief   implements the state machine for UART Frame receiving from PBV.
  * @return  int (1: ready to receive, 2: Receiving, 0: Received successfully, -1: CRC error)
  * @details implements the state machine for message RX. maintains internal state machine states as defined in RCV_<STATES>
  **********************************************************************************/
-
 uint8_t PBV_UART_Receive_from_GUI()
 { 
     static uint16_t rcv_data_index = 0;
@@ -348,13 +331,10 @@ uint8_t PBV_UART_Receive_from_GUI()
 
 /*********************************************************************************
  * @ingroup PBV_UART 
- * @fn      PBV_UART_Transmit_Ascii_to_GUI
- * @param
  * @brief   implements the state machine for UART ascii TX
  * @return  int
  * @details implements the state machine for UART ascii TX
  **********************************************************************************/
-
 uint8_t PBV_UART_Transmit_Ascii_to_GUI()
 {
     uint8_t retval = PBV_MESSAGE_TX_ERROR;
@@ -454,13 +434,10 @@ uint8_t PBV_UART_Transmit_Ascii_to_GUI()
 
 /*********************************************************************************
  * @ingroup PBV_UART 
- * @fn      PBV_UART_Transmit_to_GUI
- * @param
  * @brief   implements the state machine for UART numerical TX
  * @return  int
  * @details implements the state machine for UART numerical TX 
  **********************************************************************************/
-
 uint8_t PBV_UART_Transmit_to_GUI()
 {
     uint16_t temp;
@@ -559,13 +536,11 @@ uint8_t PBV_UART_Transmit_to_GUI()
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @fn      PBV_UART_Reniit
  * @param   PBV_Datatype_TX_t
  * @brief   reinitializes the UART object with new protocol id. 
  * @return  
  * @details reinitializes the UART object with new protocol id. 
  **********************************************************************************/
-
 void PBV_UART_Reinit(PBV_Datatype_TX_t * ptr)
 {
     if (ptr->PBV_Signal_Ascii == PBV_SIGNAL_MODE)
@@ -576,13 +551,11 @@ void PBV_UART_Reinit(PBV_Datatype_TX_t * ptr)
 
 /*********************************************************************************
  * @ingroup PBV_UART 
- * @fn      PBV_UART_Link_Data_TX
  * @param   PBV_Datatype_TX_t *
  * @brief   links the data from the calling application to the UART TX object
  * @return  void
  * @details links the data from the calling application to the UART TX object. 
  **********************************************************************************/
-
 void PBV_UART_Link_Data_TX(PBV_Datatype_TX_t * ptr)
 {
     if (ptr->PBV_Signal_Ascii == PBV_SIGNAL_MODE)
@@ -599,13 +572,11 @@ void PBV_UART_Link_Data_TX(PBV_Datatype_TX_t * ptr)
 
 /*********************************************************************************
  * @ingroup PBV_UART 
- * @fn      PBV_UART_Link_Data_RX
  * @param   PBV_Datatype_RX_t * 
  * @brief   Links the data from received frame to the calling application    
  * @return  void
  * @details Links the data from received frame to the calling application    
  **********************************************************************************/
-
 void PBV_UART_Link_Data_RX(PBV_Datatype_RX_t * ptr)
 {
     if (ptr->PBV_Message_State == PBV_MESSAGE_RECEIVED){
@@ -617,7 +588,6 @@ void PBV_UART_Link_Data_RX(PBV_Datatype_RX_t * ptr)
 
 /*********************************************************************************
  * @ingroup PBV_UART
- * @fn      PBV_Calculate_CRC
  * @param   uint8_t * pointer to data. 
  * @param   uint16_t length of data in bytes
  * @brief   Calculates the CRC on 16 bit stream of data
@@ -627,7 +597,6 @@ void PBV_UART_Link_Data_RX(PBV_Datatype_RX_t * ptr)
  * Manually cleared shift registers in the end. Ticket has been raised to fix this.
  * uses the CRC peripheral 
  **********************************************************************************/
-
 uint16_t PBV_Calculate_CRC(uint8_t *message, uint16_t length)
 {
     //CRC_Initialize();

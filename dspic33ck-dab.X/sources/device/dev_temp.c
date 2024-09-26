@@ -6,6 +6,34 @@
  * Created on Jan 17, 2024, 13:30 PM
  */
 
+/*
+    (c) 2024 Microchip Technology Inc. and its subsidiaries. You may use this
+    software and any derivatives exclusively with Microchip products.
+
+    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
+    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED
+    WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A
+    PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION
+    WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION.
+
+    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE,
+    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND
+    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS
+    BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE
+    FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN
+    ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+    THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
+
+    MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
+    TERMS.
+ */
+
+/**
+ * @file      dev_temp.h
+ * @ingroup   dev-temp  
+ * @brief     Contains temperature initialization and execution functions.
+ */
+
 #include "dev_temp.h"
 #include <stdlib.h>
 
@@ -26,7 +54,7 @@
  *          the temperature. 
  *          from -40 t0 125 . temperature offset by 40 to avoid negative
  **********************************************************************************/
-static TEMP_NTC_LUT_t NTC_lookuptable[34] = 
+static TEMP_NTC_LUT_t ntcLookUpTable[34] = 
 {
     {.ADC_Val = 4056,   .temperature = 0  },
     {.ADC_Val = 4040,   .temperature = 5  },
@@ -125,14 +153,14 @@ int8_t Dev_Temp_Get_Temperature_Celcius(void){
     if (devTempData.AdcAverage == 0)  return 0;
     
     if (devTempData.AdcAverage > 4056) 
-        return NTC_lookuptable[0].temperature - 40; 
+        return ntcLookUpTable[0].temperature - 40; 
     
     if (devTempData.AdcAverage < 379) 
-        return NTC_lookuptable[33].temperature - 40;
+        return ntcLookUpTable[33].temperature - 40;
     
     for (index = 0; index < 32; index++) {
-        if (devTempData.AdcAverage > NTC_lookuptable[index].ADC_Val) {
-            point0 = NTC_lookuptable[index];           
+        if (devTempData.AdcAverage > ntcLookUpTable[index].ADC_Val) {
+            point0 = ntcLookUpTable[index];           
             break;
         } 
     }

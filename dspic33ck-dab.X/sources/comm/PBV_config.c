@@ -21,7 +21,7 @@
  */
 
 /* 
- * @file    app_PBV_config.c   
+ * @file    PBV_config.c   
  * @author  M70027
  * @file    app-pbv-config
  * @brief   Power Board Visualizer application configuration 
@@ -41,7 +41,6 @@
 
 /***********************************************************************************
  * @ingroup app-pbv-config
- * @var     APP_PBV_FUNCS
  * @brief   structure of API function pointers. 
  **********************************************************************************/
 const APP_PBV_INTF_API_t appPbvFuncs = {
