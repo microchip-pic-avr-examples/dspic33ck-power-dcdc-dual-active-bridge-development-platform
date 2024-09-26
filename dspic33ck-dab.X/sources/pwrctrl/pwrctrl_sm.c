@@ -193,34 +193,21 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
             
         // Reset the power control properties and control loop histories
         PwrCtrl_Reset();
-            
-        #if (CURRENT_CALIBRATION == true) 
-        // reset the PWM settings in Standby mode
-        Dev_CurrentSensor_Clr_Offset();
-        // Execute current sensor offset calibration
-        Dev_CurrentSensorOffsetCal();
-        // Checks if the calibration is complete
-        if (Dev_CurrentSensor_Get_CalibrationStatus())
-            #endif
-        {    
-            pcInstance->Data.ISecSensorOffset = Dev_CurrentSensor_Get_Offset();
 
-            // Enable current control loop
-            pcInstance->ILoop.Enable = true;
-            pcInstance->ILoop.AgcFactor = dab.ILoop.AgcFactor;
+        // Enable current control loop
+        pcInstance->ILoop.Enable = true;
 
-            // Update PWM distribution
-            PwrCtrl_PWM_Update(&dab);
-            
-            // Enable PWM physical output
-            PwrCtrl_PWM_Enable();
-            
-            // Enable power control running bit
-            pcInstance->Status.bits.Running = 1;
-            
-            // Next State assigned to STATE_SOFT_START
-            pcInstance->State = PWRCTRL_STATE_SOFT_START;
-        }
+        // Update PWM distribution
+        PwrCtrl_PWM_Update(&dab);
+        
+        // Enable PWM physical output
+        PwrCtrl_PWM_Enable();
+        
+        // Enable power control running bit
+        pcInstance->Status.bits.Running = 1;
+        
+        // Next State assigned to STATE_SOFT_START
+        pcInstance->State = PWRCTRL_STATE_SOFT_START;
     }
 }
 
