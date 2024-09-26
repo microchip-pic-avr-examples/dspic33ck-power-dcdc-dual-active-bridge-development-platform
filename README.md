@@ -8,8 +8,6 @@
 <p><center><a target="_blank" rel="nofollow">
 <p>
 <img src="images/DAB-board-front.jpg" alt="dsPIC33C DAB Development Board" width="400">
-&nbsp; 
-<img src="images/DAB-board-back.jpg" width="400"></p>
 </a>
 </center>
 </p>
