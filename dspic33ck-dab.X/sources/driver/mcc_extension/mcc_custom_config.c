@@ -47,6 +47,4 @@ void MCC_Custom_User_Config (void)
     // Initialize PWM as re-triggerable for the cascaded PWM scheme
     DRV_Config_Custom_PWM();
     
-    // Initialize ADC with filtering in Vprimary and VSecondary
-    DRV_Config_Custom_ADC();
 }
