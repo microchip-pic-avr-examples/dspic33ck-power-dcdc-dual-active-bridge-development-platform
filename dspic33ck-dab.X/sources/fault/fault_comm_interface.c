@@ -40,9 +40,11 @@ enum FAULTLOG_FLAGS_e {
     FLT_ISNS_SCP,
     FLT_DAB_TEMP,
     FLT_RAIL_5V,
-    FLT_FAULT_NUMBER
+    FLT_LOAD_DISCONNECT
 };
 typedef enum FAULTLOG_FLAGS_e FAULTLOG_FLAGS_t;
+
+extern bool loadDisconnect;
 
 uint16_t Fault_GetFlags(void)
 {
@@ -55,7 +57,8 @@ uint16_t Fault_GetFlags(void)
             (dab.Fault.Object.VPrimaryOVP.FaultLatch << FLT_VPRI_OVP) +
             (dab.Fault.Object.VSecondaryOVP.FaultLatch << FLT_VSEC_OVP) +
             (dab.Fault.Object.PowerSupplyOTP.FaultLatch << FLT_DAB_TEMP) +
-            (dab.Fault.Object.VRail_5V.FaultLatch << FLT_RAIL_5V);
+            (dab.Fault.Object.VRail_5V.FaultLatch << FLT_RAIL_5V) +
+            (loadDisconnect << FLT_LOAD_DISCONNECT);
             
     return(fault);        
 }

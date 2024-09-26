@@ -46,6 +46,8 @@
 // PRIVATE FUNCTIONS
 static void Fault_EnableShortCircuitProtection(void);
 
+bool loadDisconnect = false;
+
 /*******************************************************************************
  * @ingroup fault
  * @brief  Handles the fault trip by turning off the power control switching
@@ -170,6 +172,7 @@ void Fault_Execute(void)
     
     // Protection when Load is remove
     if((dab.Data.ISenseSecondary == 0) && (dab.Data.VSecVoltage > dab.Properties.VSecReference)) {
+        loadDisconnect = true;
         Fault_Handler();
     }
     
@@ -208,6 +211,8 @@ void Fault_Reset(void)
     dab.Fault.Object.ISenseSCP.FaultLatch = 0;
     dab.Fault.Object.VRail_5V.FaultLatch = 0;
     dab.Fault.Object.PowerSupplyOTP.FaultActive = 0;
+    
+    loadDisconnect = false;
     
 }
 
