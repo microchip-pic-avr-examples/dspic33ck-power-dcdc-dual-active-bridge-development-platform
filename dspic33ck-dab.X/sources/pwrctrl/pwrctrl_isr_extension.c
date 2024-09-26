@@ -234,7 +234,6 @@ void PwrCtrl_ControlLoopExecute(void)
 
             // Execute the Voltage Loop Control
             XFT_SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
-//            SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
                     dab.VLoop.Reference, &dab.VLoop.Output);
         
             // Reset the Vloop reference to its original scaling
@@ -274,25 +273,22 @@ void PwrCtrl_ControlLoopExecute(void)
 
         // Mixing stage from power loop 10KHz
         RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  
-        ILoopReference = (int16_t)(RefBuf >> 15);    
-         
-//        XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback,   
-//                ILoopReference, &dab.ILoop.Output);    
-
-        // Basic clamping in rising direction, in case of  Iloop or Vlopp overshoot during large load step. 
-        if( dab.Data.ISecAverageRectified >  dab.ILoop.Reference + 46) //1.5A * 31
+        ILoopReference = (int16_t)(RefBuf >> 15);       
+        
+        // Basic clamping in rising direction, in case of  Iloop or Vloop overshoot during large load step. 
+        if( dab.Data.ISecAverageRectified >  dab.ILoop.Reference + ISEC_LOAD_STEP_CLAMP) 
         {
              XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 0, &dab.ILoop.Output); //force I ref to 0
         }
         else
-        if(vSecAveraging.AverageValue > (dab.VLoop.Reference + 65))// 16V delta
-        {    
-            XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 0, &dab.ILoop.Output);//force I ref to 0
-        }
-        else
-        {
-            XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, ILoopReference, &dab.ILoop.Output);   
-        }    
+            if(vSecAveraging.AverageValue > (dab.VLoop.Reference + VSEC_LOAD_STEP_CLAMP))
+            {    
+                XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 0, &dab.ILoop.Output);//force I ref to 0
+            }
+            else
+            {
+                XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, ILoopReference, &dab.ILoop.Output);   
+            }    
         
         
         // Control loop output copied to control phase
@@ -331,14 +327,14 @@ static void PwrCtrl_AdaptiveGainUpdate(void)
         // Apply AGC when primary voltage is greater than the minimum VIN AGC threshold 
         if(DAB_PrimaryVoltage > AGC_MINIMUM_VIN_THRESHOLD)
             dab.ILoop.AgcFactor = (int16_t) (0x7FFF & 
-                    __builtin_divud(AGC_DAB_FACTOR, DAB_PrimaryVoltage));
+                    __builtin_divud(AGC_VOLTAGE_FACTOR, DAB_PrimaryVoltage));
         else // AGC is not active
             dab.ILoop.AgcFactor = 0x7FFF;
         
               
-         if(dab.ILoop.Reference >217)//  217  = 31adcval * 7A
+         if(dab.ILoop.Reference > AGC_MINIMUM_CURRENT_THRESHOLD)
             dab.VLoop.AgcFactor = (int16_t) (0x7FFF & 
-                    __builtin_divud(7110656, dab.ILoop.Reference)); //217 <<15
+                    __builtin_divud(AGC_CURRENT_FACTOR, dab.ILoop.Reference)); 
         else // AGC is not active
             dab.VLoop.AgcFactor = 0x7FFF;
 

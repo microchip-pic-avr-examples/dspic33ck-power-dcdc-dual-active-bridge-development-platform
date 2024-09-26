@@ -32,7 +32,6 @@
  * @{
  ******************************************************************************/
 #define PERIOD_MODULATION_DEMO   false  ///< modulates the period; for further development
-
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
@@ -76,38 +75,39 @@
  * @ingroup primary-current-feedback
  * @{
  ******************************************************************************/
-#define T_ADC_SAMPLE_SECS                   (10.0e-6) ///< ADC sampling rate
+#define T_ADC_SAMPLE_SECS                   (float) 10.0e-6 ///< ADC sampling rate
 
-#define IPRI_OC_THRES_TRIG_AMPS             (39.0) ///< Primary over current trigger threshold
-#define IPRI_OC_THRES_CLEAR_AMPS            (2.0)
-#define IPRI_OC_T_BLANK_TRIG_SEC            (50.0e-6)
-#define IPRI_OC_T_BLANK_CLEAR_SEC           (0.0)
+#define IPRI_OC_THRES_TRIG_AMPS             (float) 39.0 ///< Primary over current trigger threshold
+#define IPRI_OC_THRES_CLEAR_AMPS            (float)  2.0
+#define IPRI_OC_T_BLANK_TRIG_SEC            (float) 50.0e-6
+#define IPRI_OC_T_BLANK_CLEAR_SEC           (float)  0.0
 #define IPRI_OC_TICK_SEC                    (T_ADC_SAMPLE_SECS)
 
-#define IPRI_SC_THRES_TRIG_AMPS             (39.0)
+#define IPRI_SC_THRES_TRIG_AMPS             (float) 39.0
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
  * @ingroup secondary-current-feedback
  * @{
  ******************************************************************************/
-#define ISEC_OC_THRES_TRIG_AMPS             (49.0)
-#define ISEC_OC_THRES_CLEAR_AMPS            (2.0)
-#define ISEC_OC_T_BLANK_TRIG_SEC            (50.0e-6)
-#define ISEC_OC_T_BLANK_CLEAR_SEC           (0.0)
+#define ISEC_OC_THRES_TRIG_AMPS             (float) 49.0
+#define ISEC_OC_THRES_CLEAR_AMPS            (float)  2.0
+#define ISEC_OC_T_BLANK_TRIG_SEC            (float) 50.0e-6
+#define ISEC_OC_T_BLANK_CLEAR_SEC           (float)  0.0
 #define ISEC_OC_TICK_SEC                    (T_ADC_SAMPLE_SECS) 
 
-#define ISEC_SC_THRES_TRIG_AMPS             (49.0)
+#define ISEC_SC_THRES_TRIG_AMPS             (float) 49.0
+#define ISEC_LOAD_STEP_CLAMPING_AMPS        (float) 1.5 
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
  * @ingroup primary-voltage-feedback
  * @{
  ******************************************************************************/
-#define VPRI_OV_THRES_TRIG_VOLTS            (700.0)
-#define VPRI_OV_THRES_CLEAR_VOLTS           (600.0)
-#define VPRI_OV_T_BLANK_TRIG_SEC            (0.0)
-#define VPRI_OV_T_BLANK_CLEAR_SEC           (0.0)
+#define VPRI_OV_THRES_TRIG_VOLTS            (float)700.0
+#define VPRI_OV_THRES_CLEAR_VOLTS           (float)600.0
+#define VPRI_OV_T_BLANK_TRIG_SEC            (float)  0.0
+#define VPRI_OV_T_BLANK_CLEAR_SEC           (float)  0.0
 #define VPRI_OV_TICK_SEC                    (T_ADC_SAMPLE_SECS)
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
@@ -115,27 +115,29 @@
  * @ingroup secondary-voltage-feedback
  * @{
  ******************************************************************************/
-#define VSEC_OV_THRES_TRIG_VOLTS            (490.0)
-#define VSEC_OV_THRES_CLEAR_VOLTS           (20.0)
-#define VSEC_OV_T_BLANK_TRIG_SEC            (1.0e-3)
-#define VSEC_OV_T_BLANK_CLEAR_SEC           (10.0e-3)
+#define VSEC_OV_THRES_TRIG_VOLTS            (float)490.0
+#define VSEC_OV_THRES_CLEAR_VOLTS           (float) 20.0
+#define VSEC_OV_T_BLANK_TRIG_SEC            (float)  1.0e-3
+#define VSEC_OV_T_BLANK_CLEAR_SEC           (float) 10.0e-3
 #define VSEC_OV_TICK_SEC                    (T_ADC_SAMPLE_SECS)
 
-#define VSEC_UV_THRES_TRIG_VOLTS            (100.0)
-#define VSEC_UV_THRES_CLEAR_VOLTS           (50.0)
-#define VSEC_UV_T_BLANK_TRIG_SEC            (0.0)
-#define VSEC_UV_T_BLANK_CLEAR_SEC           (0.0)
+#define VSEC_UV_THRES_TRIG_VOLTS            (float)100.0
+#define VSEC_UV_THRES_CLEAR_VOLTS           (float) 50.0
+#define VSEC_UV_T_BLANK_TRIG_SEC            (float)  0.0
+#define VSEC_UV_T_BLANK_CLEAR_SEC           (float)  0.0
 #define VSEC_UV_TICK_SEC                    (T_ADC_SAMPLE_SECS)
+
+#define VSEC_LOAD_STEP_CLAMPING_VOLTS       (float) 16
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
  * @ingroup vaux-voltage-feedback
  * @{
  ******************************************************************************/
-#define VRAIL_5V_UV_THRES_TRIG_VOLTS        (3.5)
-#define VRAIL_5V_UV_THRES_CLEAR_VOLTS       (3.8)
-#define VRAIL_5V_UV_T_BLANK_TRIG_SEC        (50.0e-6)
-#define VRAIL_5V_UV_T_BLANK_CLEAR_SEC       (0.0)
+#define VRAIL_5V_UV_THRES_TRIG_VOLTS        (float)  3.5
+#define VRAIL_5V_UV_THRES_CLEAR_VOLTS       (float)  3.8
+#define VRAIL_5V_UV_T_BLANK_TRIG_SEC        (float) 50.0e-6
+#define VRAIL_5V_UV_T_BLANK_CLEAR_SEC       (float)  0.0
 #define VRAIL_5V_UV_TICK_SEC                (T_ADC_SAMPLE_SECS)
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
@@ -143,9 +145,9 @@
  * @ingroup temperature-feedback
  * @{
  ******************************************************************************/
-#define MAX_TEMPERATURE_THRESHOLD_RAW           2528      ///< max temperature threshold RAW value equivalent to 80 degrees Celsius
-#define TEMPERATURE_HYSTERISIS_RAW              100       ///< temperature hysteresis threshold RAW value  
-#define FAULT_PERSISTENCE_COUNT_TEMP            4
+#define MAX_TEMPERATURE_THRESHOLD_RAW           2528u      ///< max temperature threshold RAW value equivalent to 80 degrees Celsius
+#define TEMPERATURE_HYSTERISIS_RAW              100u       ///< temperature hysteresis threshold RAW value  
+#define FAULT_PERSISTENCE_COUNT_TEMP            4u
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
@@ -154,6 +156,7 @@
  ******************************************************************************/
 #define VPLOOP_ILOOP_EXE_RATIO           (uint16_t)(10 / 2) ///< ratio of ILOOP /VPLOOP execution [100KHz / 10KHz], the divide 2 is for interleaved VLoop and PLoop
 #define AGC_MINIMUM_VIN_THRESHOLD       160u ///< Minimum VIN threshold to activate AGC in [V]  
+#define AGC_MINIMUM_ISEC_THRESHOLD      7 ///< Minimum current threshold to activate AGC in [A]
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 

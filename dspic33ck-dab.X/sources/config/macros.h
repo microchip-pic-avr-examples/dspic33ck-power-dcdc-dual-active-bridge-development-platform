@@ -95,6 +95,8 @@
 #define ISEC_OC_T_BLANK_CLEAR               ((uint16_t)(_rnd(ISEC_OC_T_BLANK_CLEAR_SEC / ISEC_OC_TICK_SEC)))
 
 #define ISEC_SC_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(ISEC_SC_THRES_TRIG_AMPS,ISEC_CT_SNS_GAIN,ISEC_CT_SNS_OFS))  
+#define ISEC_LOAD_STEP_CLAMP                (UNITS_FROM_ENG_TO_ADC(ISEC_LOAD_STEP_CLAMPING_AMPS,ISEC_AVG_SNS_GAIN,0))
+
 //------------------------------------------------------------------------------
 // parameters related to secondary current sensor calibration
 //------------------------------------------------------------------------------
@@ -126,10 +128,12 @@
 #define VSEC_OV_T_BLANK_TRIG                ((uint16_t)(_rnd(VSEC_OV_T_BLANK_TRIG_SEC / VSEC_OV_TICK_SEC)))  
 #define VSEC_OV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VSEC_OV_T_BLANK_CLEAR_SEC / VSEC_OV_TICK_SEC)))  
 
-#define VSEC_UV_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(VSEC_UV_THRES_TRIG_VOLTS,VPRI_SNS_GAIN,0.0))
-#define VSEC_UV_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(VSEC_UV_THRES_CLEAR_VOLTS,VPRI_SNS_GAIN,0.0))
+#define VSEC_UV_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(VSEC_UV_THRES_TRIG_VOLTS,VSEC_SNS_GAIN,0.0))
+#define VSEC_UV_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(VSEC_UV_THRES_CLEAR_VOLTS,VSEC_SNS_GAIN,0.0))
 #define VSEC_UV_T_BLANK_TRIG                ((uint16_t)(_rnd(VSEC_UV_T_BLANK_TRIG_SEC / VSEC_UV_TICK_SEC)))    
 #define VSEC_UV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VSEC_UV_T_BLANK_CLEAR_SEC / VSEC_UV_TICK_SEC)))    
+
+#define VSEC_LOAD_STEP_CLAMP                (UNITS_FROM_ENG_TO_ADC(VSEC_LOAD_STEP_CLAMPING_VOLTS,VSEC_SNS_GAIN,0.0))
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
@@ -172,7 +176,9 @@
 #define POWER_SCALER                        14u
 #define POWER_FACTOR                        (uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, POWER_SCALER))) / ((ADC_RESOLUTION * VSEC_SNS_GAIN) * (ADC_RESOLUTION * ISEC_AVG_SNS_GAIN))) 
 
-#define AGC_DAB_FACTOR                      (uint32_t)(AGC_MINIMUM_VIN_THRESHOLD * pow(2.0, 15))
+#define AGC_VOLTAGE_FACTOR                      (uint32_t)(AGC_MINIMUM_VIN_THRESHOLD * pow(2.0, 15))
+#define AGC_MINIMUM_CURRENT_THRESHOLD                   (UNITS_FROM_ENG_TO_ADC(AGC_MINIMUM_ISEC_THRESHOLD,ISEC_AVG_SNS_GAIN,0.0))
+#define AGC_CURRENT_FACTOR                      (uint32_t)(AGC_MINIMUM_CURRENT_THRESHOLD * pow(2.0, 15))
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 
