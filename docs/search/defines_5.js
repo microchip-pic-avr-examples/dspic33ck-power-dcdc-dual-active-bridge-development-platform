@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sensor_5foffset_5fnum_5fmeasurements_0',['SENSOR_OFFSET_NUM_MEASUREMENTS',['../a00293.html#a175e2f52c3522e4154a8d21da88426df',1,'dev_current_sensor.c']]]
+  ['init_5fspeed_5fpercent_0',['INIT_SPEED_PERCENT',['../a00302.html#ab079ea0e55d954b22bad8e72f8bf5416',1,'dev_fan.h']]]
 ];

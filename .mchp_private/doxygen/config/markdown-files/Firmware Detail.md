@@ -15,6 +15,9 @@ The Microchip Code Configurator (MCC) is utilized to set up peripherals. This co
 
 The project files are organized as follows:
 
+- main.c: Contains the initialization of the MCC generated code, Operating system (OS) interrupt, power control, fault, and initialization of other the tasks.
+- main_tasks.c: Allocates the tasks that needs to be executed in a particular time.
+
 - PBV Communication:
     - PBV_CAN.c: Manages CAN communication objects and functions.
     - PBV_UART.c: Manages UART communication objects and functions.
@@ -28,16 +31,22 @@ The project files are organized as follows:
     - dev_led.c: Provides LED functions to indicate the power converter's state.
     - dev_temp.c: Indicates and calculates the board temperature.
 
+- Driver Management:
+    - mcc_custom_config.c: Contains peripheral functions that are manually changed.
+
 - Fault Handling:
     - fault.c: Manages fault initialization, execution, and handling.
+    - fault_comm_interface.c: Contains functions that interfaces to the communication interface
     - fault_common.c: Contains generic fault handling functions.
 
 - Power Control:
     - pwrctrl.c: Manages power control initialization, control loop, and execution.
+    - pwrctrl_comm_interface.c: Contains functions that interfaces to the communication interface.
+    - pwrctrl_common.c: Contains generic functions for power control ramp up/down and averaging.
     - pwrctrl_isr.c: Handles control loop interrupt callbacks, ADC data acquisition, and PWM distribution.
+    - pwrctrl_isr_extension.c: Contains functions that is called in the ISR.
     - pwrctrl_pwm.c: Calculates DAB control phase and manages PWM distribution.
     - pwrctrl_sm.c: Executes the power control state machine every 100 microseconds.
-    - pwrctrl_utils.c: Contains functions for power control ramp up/down and averaging.
     
 
 <p>

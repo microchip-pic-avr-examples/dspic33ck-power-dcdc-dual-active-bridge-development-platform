@@ -11,7 +11,7 @@ var a00507 =
     [ "PwrCtrl_PeriodModulator", "a00507.html#gac4d366f40ad4926202db3d6334f0cc41", null ],
     [ "PwrCtrl_PrimToSecPHDegree", "a00507.html#gabda1b0b4f44a931cc725c3f5fa45be7b", null ],
     [ "PwrCtrl_UpdateADConverterData", "a00507.html#gaa34c5b66d8f20f01daef50d0e88cf20e", null ],
-    [ "IsecAveraging", "a00507.html#gaed1035188dd736fafeda8cd2d6049791", null ],
-    [ "VprimAveraging", "a00507.html#ga393c2e2ce4284c384b4002688e4d4426", null ],
-    [ "VsecAveraging", "a00507.html#gab32442553cb7f7f3a3cd4a022e2a02ab", null ]
+    [ "iSecAveraging", "a00507.html#ga672f4741d032387a584ef0444f637cce", null ],
+    [ "vPrimAveraging", "a00507.html#ga963f5607c8862374734b3cc799dedc68", null ],
+    [ "vSecAveraging", "a00507.html#gaef7d489f0d36cd14c2f49022909e01b4", null ]
 ];

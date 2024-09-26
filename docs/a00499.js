@@ -1,6 +1,7 @@
 var a00499 =
 [
     [ "dev_fan.c", "a00299.html", null ],
+    [ "dev_fan.h", "a00302.html", null ],
     [ "Calculate_Speed", "a00499.html#ga66c5db181798514534d7f97b622ca35e", null ],
     [ "Convert_From_Percentage", "a00499.html#ga3ba0ef09cbd1274a9c325fc04cab411d", null ],
     [ "Dev_Fan_Initialize", "a00499.html#gad4274efc956bcca058565b186c2fd1a0", null ],

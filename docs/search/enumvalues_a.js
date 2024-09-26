@@ -142,5 +142,10 @@ var searchData=
   ['pwm_5fupdtrg_5fpgxphase_139',['PWM_UPDTRG_PGxPHASE',['../a00503.html#ggadfcb461aa4d8fa0abd28661892fbf8a9a9ebbaead0002e3bda06e91601f4555f2',1,'drv_mcc_extension_pwm.h']]],
   ['pwm_5fupdtrg_5fpgxtriga_140',['PWM_UPDTRG_PGxTRIGA',['../a00503.html#ggadfcb461aa4d8fa0abd28661892fbf8a9a51317f8a6d3ce5f87a8ef8691b8fdad6',1,'drv_mcc_extension_pwm.h']]],
   ['pwr_5fctrl_5fcharging_141',['PWR_CTRL_CHARGING',['../a00513.html#ggae94eaf60955fa03f484bca0efeb21372a7e93608f89f7322341ebf9cb1de80510',1,'pwrctrl_typedef.h']]],
-  ['pwr_5fctrl_5fdischarging_142',['PWR_CTRL_DISCHARGING',['../a00513.html#ggae94eaf60955fa03f484bca0efeb21372abd8cec55edea529de0821c90b1d9ebeb',1,'pwrctrl_typedef.h']]]
+  ['pwr_5fctrl_5fdischarging_142',['PWR_CTRL_DISCHARGING',['../a00513.html#ggae94eaf60955fa03f484bca0efeb21372abd8cec55edea529de0821c90b1d9ebeb',1,'pwrctrl_typedef.h']]],
+  ['pwrctrl_5fstate_5ffault_5fdetection_143',['PWRCTRL_STATE_FAULT_DETECTION',['../a00513.html#gga6abbf677724014640a3ad06684ff488badc35bd1d52664024d8d8fe1360b7f786',1,'pwrctrl_typedef.h']]],
+  ['pwrctrl_5fstate_5finitialize_144',['PWRCTRL_STATE_INITIALIZE',['../a00513.html#gga6abbf677724014640a3ad06684ff488ba8c956a177c166f90721f74c6d6586c02',1,'pwrctrl_typedef.h']]],
+  ['pwrctrl_5fstate_5fonline_145',['PWRCTRL_STATE_ONLINE',['../a00513.html#gga6abbf677724014640a3ad06684ff488ba08bb03d1d4ff0769adb84e8daf1b0ea5',1,'pwrctrl_typedef.h']]],
+  ['pwrctrl_5fstate_5fsoft_5fstart_146',['PWRCTRL_STATE_SOFT_START',['../a00513.html#gga6abbf677724014640a3ad06684ff488ba97dd8660a6b2331c038a6e0346668c82',1,'pwrctrl_typedef.h']]],
+  ['pwrctrl_5fstate_5fstandby_147',['PWRCTRL_STATE_STANDBY',['../a00513.html#gga6abbf677724014640a3ad06684ff488ba454f037f198f953960eaec16f459104a',1,'pwrctrl_typedef.h']]]
 ];

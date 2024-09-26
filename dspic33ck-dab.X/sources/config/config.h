@@ -127,6 +127,15 @@
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
+ * @ingroup temperature-feedback
+ * @{
+ ******************************************************************************/
+#define MAX_TEMPERATURE_THRESHOLD_RAW           2528      ///< max temperature threshold RAW value equivalent to 80 degrees Celsius
+#define TEMPERATURE_HYSTERISIS_RAW              100       ///< temperature hysteresis threshold RAW value  
+#define FAULT_PERSISTENCE_COUNT_TEMP            4
+/** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
+
+/******************************************************************************
  * @ingroup control-loop
  * @{
  ******************************************************************************/

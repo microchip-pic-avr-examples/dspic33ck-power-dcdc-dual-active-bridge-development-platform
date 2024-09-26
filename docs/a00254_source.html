@@ -177,289 +177,306 @@ $(document).ready(function(){initNavTree('a00254_source.html',''); initResizable
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &quot;config/version.h&quot;</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="a00495.html#ga6cf2376a2bcc430349e1744fc506dbdf">   50</a></span><span class="preprocessor">#define FIRMWARE_PROTOCOL_ID            0x1000           </span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#define PBV_RX_PROTOCOL_ID              0x202            </span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#define PBV_TX_PROTOCOL_ID              0x204            </span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#define PBV_GUI_BUTTONS                 0x202            </span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#define PBV_GUI_SLIDERS                 0x203            </span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#define PBV_SYSTEM_TO_GUI_ID            0x204            </span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#define PBV_LOG_ID                      0x300            </span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">// command IDs, first data word in received package</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">// use this to decide what action to take when data is received</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#define PBV_CMD_ID_DAB_ON_OFF           0xAAAA           </span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#define PBV_CMD_ID_FREQ_CHANGE          0xBBBB           </span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#define PBV_CMD_ID_FAN_SPEED            0xCCCC           </span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#define PBV_CMD_ID_ILOOP_REF_SET        0xDDDD           </span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#define PBV_CMD_ID_VLOOP_REF_SET        0xDDDE           </span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#define PBV_CMD_ID_PLOOP_REF_SET        0xDDDF           </span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#define PBV_CMD_ID_PHASE_CHANGE         0xEE01           </span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#define PBV_CMD_ID_P2S_PHASE_TARGET     0xEE02           </span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
- <span class="comment">// end of pbv-protocol-ids</span><div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">// static because these are private.</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">static</span> <a class="code hl_struct" href="a00621.html">PBV_Datatype_TX_t</a> appPbvDabTx;          </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">static</span> <a class="code hl_struct" href="a00625.html">PBV_Datatype_RX_t</a> appPbvDabRx;          </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">static</span> <a class="code hl_struct" href="a00621.html">PBV_Datatype_TX_t</a> appPbvDabAscii;       </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">static</span> <a class="code hl_struct" href="a00621.html">PBV_Datatype_TX_t</a> * appPbvDabTxPtr = &amp;appPbvDabTx;        </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">static</span> <a class="code hl_struct" href="a00625.html">PBV_Datatype_RX_t</a> * appPbvDabRxPtr = &amp;appPbvDabRx;        </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">static</span> <a class="code hl_struct" href="a00621.html">PBV_Datatype_TX_t</a> * appPbvDabAsciiPtr = &amp;appPbvDabAscii;  </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>uint8_t BufferEightRx[64];</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>uint16_t BufferSixteenRx[32];</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>uint8_t BufferEightTx[64];</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>uint16_t BufferSixteenTx[32];</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">static</span> uint32_t TickCounter = 0;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">static</span> uint8_t TransmitFirmwareId = 1;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">// temporary variables</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">static</span> int16_t Temperature = 0;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="a00495.html#ga6cf2376a2bcc430349e1744fc506dbdf">   49</a></span><span class="preprocessor">#define FIRMWARE_PROTOCOL_ID            0x1000           </span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="a00495.html#gac185fbbee62ae86472eeb2585aa17efe">   51</a></span><span class="preprocessor">#define PBV_RX_PROTOCOL_ID              0x202            </span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="a00495.html#ga75af25c76e9ef3e1ba4bc883a5f6d4f5">   52</a></span><span class="preprocessor">#define PBV_TX_PROTOCOL_ID              0x204            </span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="a00495.html#gaa251b72690a71e735efc47427ec8693d">   54</a></span><span class="preprocessor">#define PBV_GUI_BUTTONS                 0x202            </span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="a00495.html#ga306671baf88153e10f2810edd633a5ac">   55</a></span><span class="preprocessor">#define PBV_GUI_SLIDERS                 0x203            </span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="a00495.html#ga355c9a5a6908a84d585f3307a63e8831">   56</a></span><span class="preprocessor">#define PBV_SYSTEM_TO_GUI_ID            0x204            </span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="a00495.html#ga1e8299e4f0d398aa254b25b863a6d47b">   57</a></span><span class="preprocessor">#define PBV_LOG_ID                      0x300            </span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">// command IDs, first data word in received package</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">// use this to decide what action to take when data is received</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="a00495.html#gad307519e801fbcc504b010b907013c00">   61</a></span><span class="preprocessor">#define PBV_CMD_ID_DAB_ON_OFF           0xAAAA           </span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="a00495.html#gacc02c51548e170216482c9ec63095cbd">   62</a></span><span class="preprocessor">#define PBV_CMD_ID_FREQ_CHANGE          0xBBBB           </span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="a00495.html#ga1a16e205c5cdb5eef74680a430fbf26f">   63</a></span><span class="preprocessor">#define PBV_CMD_ID_FAN_SPEED            0xCCCC           </span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="a00495.html#gae5ba560edfe0a5539560dda1d9b10e8e">   65</a></span><span class="preprocessor">#define PBV_CMD_ID_ILOOP_REF_SET        0xDDDD           </span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="a00495.html#ga9edafe7db394b4dad8369cba7e2b50ce">   66</a></span><span class="preprocessor">#define PBV_CMD_ID_VLOOP_REF_SET        0xDDDE           </span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="a00495.html#ga1d4818470bcd6185d9298b1f57efa854">   67</a></span><span class="preprocessor">#define PBV_CMD_ID_PLOOP_REF_SET        0xDDDF           </span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="a00495.html#ga43cb2ce1ccb1f3605b1f476a803cf899">   69</a></span><span class="preprocessor">#define PBV_CMD_ID_PHASE_CHANGE         0xEE01           </span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="a00495.html#gaa884de9b9e6ecfdfd1b7e184de4f7c7a">   70</a></span><span class="preprocessor">#define PBV_CMD_ID_P2S_PHASE_TARGET     0xEE02           </span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+ <span class="comment">// end of pbv-protocol-ids</span><div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">// static because these are private.</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">static</span> <a class="code hl_struct" href="a00621.html">PBV_Datatype_TX_t</a> appPbvDabTx;          </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keyword">static</span> <a class="code hl_struct" href="a00625.html">PBV_Datatype_RX_t</a> appPbvDabRx;          </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">static</span> <a class="code hl_struct" href="a00621.html">PBV_Datatype_TX_t</a> appPbvDabAscii;       </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">static</span> <a class="code hl_struct" href="a00621.html">PBV_Datatype_TX_t</a> * appPbvDabTxPtr = &amp;appPbvDabTx;        </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">static</span> <a class="code hl_struct" href="a00625.html">PBV_Datatype_RX_t</a> * appPbvDabRxPtr = &amp;appPbvDabRx;        </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">static</span> <a class="code hl_struct" href="a00621.html">PBV_Datatype_TX_t</a> * appPbvDabAsciiPtr = &amp;appPbvDabAscii;  </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>uint8_t bufferEightRx[64];</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>uint16_t bufferSixteenRx[32];</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>uint8_t bufferEightTx[64];</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>uint16_t bufferSixteenTx[32];</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keyword">static</span> uint32_t tickCounter = 0;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword">static</span> uint8_t transmitFirmwareId = 1;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">// temporary variables</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">static</span> int16_t temperature = 0;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">void</span> App_PBV_DAB_Build_Frame(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#gaf2b5ec7aa4bf88b00eaa69cfeba83160">App_PBV_DAB_Process_Rx_Data</a>(uint16_t * data);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#gae7f76d2864d9f99538052487fb4c9570">protocolID</a>(uint16_t protocol_ID, uint16_t length, uint8_t * data);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="a00495.html#ga00307bed276aca52423f1e10365e3334">  117</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#ga00307bed276aca52423f1e10365e3334">App_PBV_DAB_Init</a>()</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>{</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00621.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>        = PBV_TX_PROTOCOL_ID;</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00621.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Signal_Ascii</a>      = <a class="code hl_enumvalue" href="a00493.html#ggabec937769d77285d1b9cc8cd5cae957ba7872ad957b7cdf2a5e1c874a31235dbf">PBV_SIGNAL_MODE</a>;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00621.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a>     = <a class="code hl_enumvalue" href="a00493.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4a4e5a244a7ef71a86c1aeea8b2205c2df">PBV_MESSAGE_INIT</a>;</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00621.html#a930e5a4d8414c0427fe5c636062579db">Length</a>                = 64;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keywordtype">void</span> App_PBV_DAB_Build_Frame(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#gaf2b5ec7aa4bf88b00eaa69cfeba83160">App_PBV_DAB_Process_Rx_Data</a>(uint16_t * data);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#gae7f76d2864d9f99538052487fb4c9570">protocolID</a>(uint16_t protocol_ID, uint16_t length, uint8_t * data);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="foldopen" id="foldopen00115" data-start="{" data-end="}">
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="a00495.html#ga00307bed276aca52423f1e10365e3334">  115</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#ga00307bed276aca52423f1e10365e3334">App_PBV_DAB_Init</a>()</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>{</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00621.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>        = <a class="code hl_define" href="a00495.html#ga75af25c76e9ef3e1ba4bc883a5f6d4f5">PBV_TX_PROTOCOL_ID</a>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00621.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Signal_Ascii</a>      = <a class="code hl_enumvalue" href="a00493.html#ggabec937769d77285d1b9cc8cd5cae957ba7872ad957b7cdf2a5e1c874a31235dbf">PBV_SIGNAL_MODE</a>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00621.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a>     = <a class="code hl_enumvalue" href="a00493.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4a4e5a244a7ef71a86c1aeea8b2205c2df">PBV_MESSAGE_INIT</a>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00621.html#a930e5a4d8414c0427fe5c636062579db">Length</a>                = 64;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00625.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a>     = <a class="code hl_enumvalue" href="a00493.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25a194a96a562c6685141b95b9f70100945">PBV_MESSAGE_READY_TO_RECEIVE</a>;</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00625.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a>     = <a class="code hl_enumvalue" href="a00493.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25a194a96a562c6685141b95b9f70100945">PBV_MESSAGE_READY_TO_RECEIVE</a>;</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>     = <a class="code hl_define" href="a00495.html#ga6cf2376a2bcc430349e1744fc506dbdf">FIRMWARE_PROTOCOL_ID</a>;</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Signal_Ascii</a>   = <a class="code hl_enumvalue" href="a00493.html#ggabec937769d77285d1b9cc8cd5cae957ba709216fec5fab27b5647077bef347b82">PBV_ASCII_MODE</a>;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a>  = <a class="code hl_enumvalue" href="a00493.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4a4e5a244a7ef71a86c1aeea8b2205c2df">PBV_MESSAGE_INIT</a>;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a930e5a4d8414c0427fe5c636062579db">Length</a>             = 64;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    App_PBV_Init(appPbvDabTxPtr, appPbvDabAsciiPtr, appPbvDabRxPtr);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>     = <a class="code hl_define" href="a00495.html#ga6cf2376a2bcc430349e1744fc506dbdf">FIRMWARE_PROTOCOL_ID</a>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a885bf5a8fec6c0b6af1dfc8d6a78c368">PBV_Signal_Ascii</a>   = <a class="code hl_enumvalue" href="a00493.html#ggabec937769d77285d1b9cc8cd5cae957ba709216fec5fab27b5647077bef347b82">PBV_ASCII_MODE</a>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a91c81f1c5a476778f2b9faf3f36cfd7e">PBV_Message_State</a>  = <a class="code hl_enumvalue" href="a00493.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4a4e5a244a7ef71a86c1aeea8b2205c2df">PBV_MESSAGE_INIT</a>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a930e5a4d8414c0427fe5c636062579db">Length</a>             = 64;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_function" href="a00493.html#ga240a50c9b64de11e7ecb765451da38a1">App_PBV_Init</a>(appPbvDabTxPtr, appPbvDabAsciiPtr, appPbvDabRxPtr);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>}</div>
 </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="a00495.html#ga4de477d51ea04cdcfcb1e3eb3ef0053a">  145</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#ga4de477d51ea04cdcfcb1e3eb3ef0053a">App_PBV_DAB_Task_10ms</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>{</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="comment">// RX handler</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordflow">if</span> (appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00625.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a> == <a class="code hl_enumvalue" href="a00493.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25ac36f583a85f8a64d2acbd4d9b448da91">PBV_MESSAGE_RECEIVED</a>)</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    {        </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        App_Read_Received_From_PBV(appPbvDabRxPtr);       </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <a class="code hl_function" href="a00495.html#gae7f76d2864d9f99538052487fb4c9570">protocolID</a>(appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00625.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>, appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00625.html#a930e5a4d8414c0427fe5c636062579db">Length</a>, appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00625.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a>);</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="comment">// msg read. Read another</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        App_Receive_From_PBV(appPbvDabRxPtr); </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    } </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordflow">if</span> (++TickCounter &gt; 11)</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    {</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        App_PBV_DAB_Build_Frame();</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        App_Send_To_PBV(appPbvDabTxPtr);  </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        TickCounter = 0;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    }    </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>}</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="foldopen" id="foldopen00141" data-start="{" data-end="}">
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="a00495.html#ga4de477d51ea04cdcfcb1e3eb3ef0053a">  141</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#ga4de477d51ea04cdcfcb1e3eb3ef0053a">App_PBV_DAB_Task_10ms</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>{</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="comment">// RX handler</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keywordflow">if</span> (appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00625.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a> == <a class="code hl_enumvalue" href="a00493.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25ac36f583a85f8a64d2acbd4d9b448da91">PBV_MESSAGE_RECEIVED</a>)</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    {        </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <a class="code hl_function" href="a00493.html#ga7b078af24577006b714fabf52a93c4f1">App_Read_Received_From_PBV</a>(appPbvDabRxPtr);       </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <a class="code hl_function" href="a00495.html#gae7f76d2864d9f99538052487fb4c9570">protocolID</a>(appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00625.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a>, appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00625.html#a930e5a4d8414c0427fe5c636062579db">Length</a>, appPbvDabRxPtr-&gt;<a class="code hl_variable" href="a00625.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a>);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="comment">// msg read. Read another</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <a class="code hl_function" href="a00493.html#gaf88c754c75b6057cf183685d282a2fe6">App_Receive_From_PBV</a>(appPbvDabRxPtr); </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    } </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordflow">if</span> (++tickCounter &gt; 11)</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        App_PBV_DAB_Build_Frame();</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <a class="code hl_function" href="a00493.html#ga39ed8d2ee366abaf4aa95a424f9108e3">App_Send_To_PBV</a>(appPbvDabTxPtr);  </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        tickCounter = 0;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }    </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>}</div>
 </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="a00495.html#gad255673713bb77bc36791875207a4393">  174</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#gad255673713bb77bc36791875207a4393">App_PBV_DAB_Task_1s</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>{</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordflow">if</span> (appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> == <a class="code hl_define" href="a00495.html#ga6cf2376a2bcc430349e1744fc506dbdf">FIRMWARE_PROTOCOL_ID</a>)</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    {</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = (uint8_t *)FIRMWARE_VERSION_STRING;</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        App_Send_To_PBV(appPbvDabAsciiPtr);</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> = PBV_LOG_ID;</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        TransmitFirmwareId = 1;</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    }</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordflow">if</span> (appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> == PBV_LOG_ID)</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    {</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="keywordflow">if</span> (TransmitFirmwareId) App_PBV_Re_Init(appPbvDabAsciiPtr);     </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        TransmitFirmwareId = 0; </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    }</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="comment">//ToDo: Check with Cormac</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = (uint8_t *)<span class="stringliteral">&quot;                 Log Message From Protocol ID 0x300&quot;</span>;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    App_Send_To_PBV(appPbvDabAsciiPtr);</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>   </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    Temperature = (int16_t)<a class="code hl_function" href="a00501.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a>();</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>}</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="foldopen" id="foldopen00170" data-start="{" data-end="}">
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="a00495.html#gad255673713bb77bc36791875207a4393">  170</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#gad255673713bb77bc36791875207a4393">App_PBV_DAB_Task_1s</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>{</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordflow">if</span> (appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> == <a class="code hl_define" href="a00495.html#ga6cf2376a2bcc430349e1744fc506dbdf">FIRMWARE_PROTOCOL_ID</a>)</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    {</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = (uint8_t *)FIRMWARE_VERSION_STRING;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <a class="code hl_function" href="a00493.html#ga39ed8d2ee366abaf4aa95a424f9108e3">App_Send_To_PBV</a>(appPbvDabAsciiPtr);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> = <a class="code hl_define" href="a00495.html#ga1e8299e4f0d398aa254b25b863a6d47b">PBV_LOG_ID</a>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        transmitFirmwareId = 1;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    }</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">if</span> (appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a> == <a class="code hl_define" href="a00495.html#ga1e8299e4f0d398aa254b25b863a6d47b">PBV_LOG_ID</a>)</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    {</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="keywordflow">if</span> (transmitFirmwareId) <a class="code hl_function" href="a00493.html#gab70a27b3aad7113c3983e82413ca5e4f">App_PBV_Re_Init</a>(appPbvDabAsciiPtr);     </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        transmitFirmwareId = 0; </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    }</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    appPbvDabAsciiPtr-&gt;<a class="code hl_variable" href="a00621.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = (uint8_t *)<span class="stringliteral">&quot;                 Log Message From Protocol ID 0x300&quot;</span>;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <a class="code hl_function" href="a00493.html#ga39ed8d2ee366abaf4aa95a424f9108e3">App_Send_To_PBV</a>(appPbvDabAsciiPtr);</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>   </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    temperature = (int16_t)<a class="code hl_function" href="a00501.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a>();</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>}</div>
 </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
-<div class="foldopen" id="foldopen00204" data-start="{" data-end="}">
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="a00495.html#ga79ec24216fcdceeda0313df0193990ee">  204</a></span><a class="code hl_struct" href="a00621.html">PBV_Datatype_TX_t</a> * <a class="code hl_function" href="a00495.html#ga79ec24216fcdceeda0313df0193990ee">App_PB_DAB_Get_TX_ASCII_ptr</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>{</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">if</span> (appPbvDabAsciiPtr -&gt;PBV_Message_State == <a class="code hl_enumvalue" href="a00493.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4ab499d51ce9c035cda510f8108209d78f">PBV_MESSAGE_TRANSMITTING</a>)</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    {</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    }</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordflow">return</span> appPbvDabAsciiPtr;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>}</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="foldopen" id="foldopen00199" data-start="{" data-end="}">
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="a00495.html#ga79ec24216fcdceeda0313df0193990ee">  199</a></span><a class="code hl_struct" href="a00621.html">PBV_Datatype_TX_t</a> * <a class="code hl_function" href="a00495.html#ga79ec24216fcdceeda0313df0193990ee">App_PB_DAB_Get_TX_ASCII_ptr</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>{</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keywordflow">if</span> (appPbvDabAsciiPtr -&gt;PBV_Message_State == <a class="code hl_enumvalue" href="a00493.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4ab499d51ce9c035cda510f8108209d78f">PBV_MESSAGE_TRANSMITTING</a>)</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    }</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordflow">return</span> appPbvDabAsciiPtr;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>}</div>
 </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
 <div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="keywordtype">void</span> App_PBV_DAB_Build_Frame()</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>{        </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="comment">// Power Board Visualizer can only mask single bits</span></div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="comment">// so create maskable word that can be parsed by GUI by sending the</span></div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="comment">// &quot;2 ^ (state)&quot; instead of &quot;state&quot;</span></div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    BufferSixteenTx[0] = 1&lt;&lt;(<a class="code hl_function" href="a00511.html#ga0a4bc9ff1027ccd07af11d8bd2865219">Dev_PwrCtrl_Get_State</a>());</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    </div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="comment">// send back one &quot;flag word&quot; which combines fault and status and enable control flag</span></div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    uint16_t enabled = <a class="code hl_function" href="a00511.html#ga7a61c299efe9f39fbddb6d902d4b3adc">Dev_PwrCtrl_Get_EnableFlag</a>();</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    uint16_t fault_flags = <a class="code hl_function" href="a00362.html#a525a7d54ffe10a34fc0de37c1d43aa6a">Fault_GetFlags</a>();</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    uint16_t status_flags = <a class="code hl_function" href="a00511.html#gab500c9c4e05b023607a8e72ababe07b3">Dev_PwrCtrl_Get_Status</a>();</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    uint16_t flag_word = enabled + ((status_flags &amp; 0x0003)&lt;&lt;1) + (fault_flags&lt;&lt;3);</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    </div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    BufferSixteenTx[1] = flag_word;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    BufferSixteenTx[2] = <a class="code hl_function" href="a00511.html#ga70a3c74e48285c709f735a499a3024dc">Dev_PwrCtrl_GetAveraging_Vprim</a>(); </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    BufferSixteenTx[3] = <a class="code hl_function" href="a00511.html#ga5178aaea783edff228941c4ecf749a90">Dev_PwrCtrl_GetAveraging_Vsec</a>();</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    BufferSixteenTx[4] = <a class="code hl_function" href="a00511.html#ga6450795c316e2284ae94eb16f0da1fe8">PwrCtrl_GetAdc_Ipri_ct</a>();</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    BufferSixteenTx[5] = <a class="code hl_function" href="a00511.html#gab6b145022a1725eaf38c5d0b1864983f">PwrCtrl_GetAdc_Isec_ct</a>();</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    BufferSixteenTx[6] = <a class="code hl_function" href="a00511.html#ga346aaaf8b8cf0266d9873405945c55dd">Dev_PwrCtrl_GetAveraging_Isec</a>();</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    BufferSixteenTx[7] = Temperature + 40;</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    BufferSixteenTx[8] = <a class="code hl_function" href="a00511.html#gaf0b0a68f7829d9f898c6f0840a77c065">PwrCtrl_GetAdc_Vrail_5V</a>();    </div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    BufferSixteenTx[9] =  <a class="code hl_function" href="a00511.html#ga5d7bb399a6595288fdee50a716248786">PwrCtrl_GetPhase_P2SDegree</a>();</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    BufferSixteenTx[10] = <a class="code hl_variable" href="a00299.html#adaf3c18eacb83f7ffa95a34b90d5ad0d">devFanDataPtr</a>-&gt;<a class="code hl_variable" href="a00641.html#ad5d31528415a4ed9cf81ebfd785128c2">CurrentSpeedPercent</a>;</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    BufferSixteenTx[11] = Temperature;</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    BufferSixteenTx[12] = <a class="code hl_function" href="a00511.html#ga6ea3a7d0d8075757d7dd3fc4ddaca1f5">Dev_PwrCtrl_Get_Period</a>();</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    BufferSixteenTx[13] = <a class="code hl_function" href="a00511.html#gadd921f8c68bb08d611f3fd7ab03e60ee">Dev_PwrCtrl_Get_PwmprdTarget</a>();</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    BufferSixteenTx[14] = <a class="code hl_function" href="a00511.html#gafe5653e08d77956b5b4fbbcc4305870e">Dev_PwrCtrl_Get_SecPower</a>(); </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    PBV_Change_from_Sixteen_to_Eight(BufferSixteenTx, BufferEightTx, 18);</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00621.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = BufferEightTx;</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00621.html#a930e5a4d8414c0427fe5c636062579db">Length</a> = 18 * 2 ;</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>}</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
-<div class="foldopen" id="foldopen00269" data-start="{" data-end="}">
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno"><a class="line" href="a00495.html#gaf2b5ec7aa4bf88b00eaa69cfeba83160">  269</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#gaf2b5ec7aa4bf88b00eaa69cfeba83160">App_PBV_DAB_Process_Rx_Data</a>(uint16_t * data) </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>{</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    uint16_t cmd_id = data[0];</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    uint16_t control_word = data[1];</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    <span class="keywordflow">switch</span> (cmd_id)</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    {</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <span class="keywordflow">case</span> PBV_CMD_ID_DAB_ON_OFF: {</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            <span class="comment">// turn DAB on or off</span></div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>            <span class="keywordflow">if</span> (control_word &lt; 2) {<span class="comment">// should be 0 or 1</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>                <span class="keywordtype">bool</span> enable = (bool)control_word;</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>                <a class="code hl_function" href="a00511.html#ga071b955cb9687b27b8ce895a29febc66">PwrCtrl_SetEnable</a>(enable);</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>                </div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                <span class="keywordflow">if</span>(enable==<span class="keyword">false</span>)</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>                {    </div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>                    <a class="code hl_function" href="a00511.html#gae5e607ebc1cfbf0fcb8caa5775d5e782">Dev_PwrCtrl_SetState</a>(control_word);</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>                }</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>            }</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            <span class="keywordflow">break</span>; </div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        }    </div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        <span class="keywordflow">case</span> PBV_CMD_ID_FREQ_CHANGE: {</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            <span class="comment">// change target frequency</span></div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            <span class="keywordflow">if</span> ((control_word &lt;= <a class="code hl_define" href="a00471.html#ga186594aa5d23f8d898758992a70b2d13">MAX_PWM_PERIOD</a>) &amp;&amp; (control_word &gt;= <a class="code hl_define" href="a00471.html#gaab2f7ae5f2d6809dd3894e30692f30b1">MIN_PWM_PERIOD</a>)) {</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>                <a class="code hl_function" href="a00511.html#ga75fdd46231baccc4830fa08d2b39a3d2">PwrCtrl_SetPeriodTarget</a>(control_word);</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>                <span class="comment">// when Frequency is changed, control phase will be zero</span></div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>                uint16_t controlPhase = 0;</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>                <a class="code hl_function" href="a00511.html#gae62d241af8152bb7989d448f30adc55e">PwrCtrl_SetPhaseTarget</a>(controlPhase);</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>            }            </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="keywordtype">void</span> App_PBV_DAB_Build_Frame()</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>{        </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="comment">// Power Board Visualizer can only mask single bits</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="comment">// so create maskable word that can be parsed by GUI by sending the</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="comment">// &quot;2 ^ (state)&quot; instead of &quot;state&quot;</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    bufferSixteenTx[0] = 1&lt;&lt;(<a class="code hl_function" href="a00511.html#ga0a4bc9ff1027ccd07af11d8bd2865219">Dev_PwrCtrl_Get_State</a>());</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="comment">// send back one &quot;flag word&quot; which combines fault and status and enable control flag</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    uint16_t enabled = <a class="code hl_function" href="a00511.html#ga7a61c299efe9f39fbddb6d902d4b3adc">Dev_PwrCtrl_Get_EnableFlag</a>();</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    uint16_t fault_flags = <a class="code hl_function" href="a00362.html#a525a7d54ffe10a34fc0de37c1d43aa6a">Fault_GetFlags</a>();</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    uint16_t status_flags = <a class="code hl_function" href="a00511.html#gab500c9c4e05b023607a8e72ababe07b3">Dev_PwrCtrl_Get_Status</a>();</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    uint16_t flag_word = enabled + ((status_flags &amp; 0x0003)&lt;&lt;1) + (fault_flags&lt;&lt;3);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    bufferSixteenTx[1] = flag_word;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    bufferSixteenTx[2] = <a class="code hl_function" href="a00511.html#ga70a3c74e48285c709f735a499a3024dc">Dev_PwrCtrl_GetAveraging_Vprim</a>(); </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    bufferSixteenTx[3] = <a class="code hl_function" href="a00511.html#ga5178aaea783edff228941c4ecf749a90">Dev_PwrCtrl_GetAveraging_Vsec</a>();</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    bufferSixteenTx[4] = <a class="code hl_function" href="a00511.html#ga6450795c316e2284ae94eb16f0da1fe8">PwrCtrl_GetAdc_Ipri_ct</a>();</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    bufferSixteenTx[5] = <a class="code hl_function" href="a00511.html#gab6b145022a1725eaf38c5d0b1864983f">PwrCtrl_GetAdc_Isec_ct</a>();</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    bufferSixteenTx[6] = <a class="code hl_function" href="a00511.html#ga346aaaf8b8cf0266d9873405945c55dd">Dev_PwrCtrl_GetAveraging_Isec</a>();</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    bufferSixteenTx[7] = temperature + 40;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    bufferSixteenTx[8] = <a class="code hl_function" href="a00511.html#gaf0b0a68f7829d9f898c6f0840a77c065">PwrCtrl_GetAdc_Vrail_5V</a>();    </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    bufferSixteenTx[9] =  <a class="code hl_function" href="a00511.html#ga5d7bb399a6595288fdee50a716248786">PwrCtrl_GetPhase_P2SDegree</a>();</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    bufferSixteenTx[10] = <a class="code hl_variable" href="a00299.html#adaf3c18eacb83f7ffa95a34b90d5ad0d">devFanDataPtr</a>-&gt;<a class="code hl_variable" href="a00641.html#ad5d31528415a4ed9cf81ebfd785128c2">CurrentSpeedPercent</a>;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    bufferSixteenTx[11] = temperature;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    bufferSixteenTx[12] = <a class="code hl_function" href="a00511.html#ga6ea3a7d0d8075757d7dd3fc4ddaca1f5">Dev_PwrCtrl_Get_Period</a>();</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    bufferSixteenTx[13] = <a class="code hl_function" href="a00511.html#gadd921f8c68bb08d611f3fd7ab03e60ee">Dev_PwrCtrl_Get_PwmprdTarget</a>();</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    bufferSixteenTx[14] = <a class="code hl_function" href="a00511.html#gafe5653e08d77956b5b4fbbcc4305870e">Dev_PwrCtrl_Get_SecPower</a>(); </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <a class="code hl_function" href="a00493.html#ga1e6458a65d5d665835759cfc42280c1b">PBV_Change_from_Sixteen_to_Eight</a>(bufferSixteenTx, bufferEightTx, 18);</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00621.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a> = bufferEightTx;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    appPbvDabTxPtr-&gt;<a class="code hl_variable" href="a00621.html#a930e5a4d8414c0427fe5c636062579db">Length</a> = 18 * 2 ;</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>}</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="foldopen" id="foldopen00262" data-start="{" data-end="}">
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno"><a class="line" href="a00495.html#gaf2b5ec7aa4bf88b00eaa69cfeba83160">  262</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#gaf2b5ec7aa4bf88b00eaa69cfeba83160">App_PBV_DAB_Process_Rx_Data</a>(uint16_t * data) </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>{</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    uint16_t cmd_id = data[0];</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    uint16_t control_word = data[1];</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="keywordflow">switch</span> (cmd_id)</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    {</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="a00495.html#gad307519e801fbcc504b010b907013c00">PBV_CMD_ID_DAB_ON_OFF</a>: {</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            <span class="comment">// turn DAB on or off</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            <span class="keywordflow">if</span> (control_word &lt; 2) {<span class="comment">// should be 0 or 1</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>            </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>                <span class="keywordtype">bool</span> enable = (bool)control_word;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>                <a class="code hl_function" href="a00511.html#ga071b955cb9687b27b8ce895a29febc66">PwrCtrl_SetEnable</a>(enable);</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>                </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>                <span class="keywordflow">if</span>(enable==<span class="keyword">false</span>)</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>                {    </div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>                    <a class="code hl_function" href="a00511.html#gae5e607ebc1cfbf0fcb8caa5775d5e782">Dev_PwrCtrl_SetState</a>(control_word);</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>                }</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>            }</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        }    </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="a00495.html#gacc02c51548e170216482c9ec63095cbd">PBV_CMD_ID_FREQ_CHANGE</a>: {</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>            <span class="comment">// change target frequency</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            <span class="keywordflow">if</span> ((control_word &lt;= <a class="code hl_define" href="a00471.html#ga186594aa5d23f8d898758992a70b2d13">MAX_PWM_PERIOD</a>) &amp;&amp; (control_word &gt;= <a class="code hl_define" href="a00471.html#gaab2f7ae5f2d6809dd3894e30692f30b1">MIN_PWM_PERIOD</a>)) {</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>                <a class="code hl_function" href="a00511.html#ga75fdd46231baccc4830fa08d2b39a3d2">PwrCtrl_SetPeriodTarget</a>(control_word);</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>                <span class="comment">// when Frequency is changed, control phase will be zero</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>                uint16_t controlPhase = 0;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>                <a class="code hl_function" href="a00511.html#gae62d241af8152bb7989d448f30adc55e">PwrCtrl_SetPhaseTarget</a>(controlPhase);</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>            }            </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        }</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="a00495.html#gae5ba560edfe0a5539560dda1d9b10e8e">PBV_CMD_ID_ILOOP_REF_SET</a>: {</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>            <span class="keywordflow">if</span> (control_word &lt; 32767) <span class="comment">//TODO: put in proper check here!</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>            {</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>                <a class="code hl_function" href="a00511.html#ga70c7b962e7df84e7d49fd37a76826059">PwrCtrl_SetIReference</a>(control_word);</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>            }</div>
 <div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>            <span class="keywordflow">break</span>; </div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        }</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        <span class="keywordflow">case</span> PBV_CMD_ID_ILOOP_REF_SET: {</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        }        </div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="a00495.html#ga9edafe7db394b4dad8369cba7e2b50ce">PBV_CMD_ID_VLOOP_REF_SET</a>: {</div>
 <div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>            <span class="keywordflow">if</span> (control_word &lt; 32767) <span class="comment">//TODO: put in proper check here!</span></div>
 <div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            {</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>                <a class="code hl_function" href="a00511.html#ga70c7b962e7df84e7d49fd37a76826059">PwrCtrl_SetIReference</a>(control_word);</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>                <a class="code hl_function" href="a00511.html#ga919933b7bef6f9fa8094848c413e7881">PwrCtrl_SetVSecReference</a>(control_word);</div>
 <div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>            }</div>
 <div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>            <span class="keywordflow">break</span>; </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        }        </div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        <span class="keywordflow">case</span> PBV_CMD_ID_VLOOP_REF_SET: {</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>            <span class="keywordflow">if</span> (control_word &lt; 32767) <span class="comment">//TODO: put in proper check here!</span></div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>            {</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>                <a class="code hl_function" href="a00511.html#ga919933b7bef6f9fa8094848c413e7881">PwrCtrl_SetVSecReference</a>(control_word);</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            }</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>            <span class="keywordflow">break</span>; </div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        }  </div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        </div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        <span class="keywordflow">case</span> PBV_CMD_ID_PLOOP_REF_SET: {</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>            <span class="keywordflow">if</span> (control_word &lt; 32767) <span class="comment">//TODO: put in proper check here!</span></div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>            {</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>                <a class="code hl_function" href="a00511.html#ga574faff7b911d52ae6d2cf53b68a8963">PwrCtrl_SetPwrReference</a>(control_word);</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>            }</div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>            <span class="keywordflow">break</span>; </div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        }  </div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>       </div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <span class="keywordflow">case</span>  PBV_CMD_ID_P2S_PHASE_TARGET: {</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>            <span class="comment">// change target phase</span></div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="preprocessor">            #if(OPEN_LOOP_PBV == false)</span></div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>            uint16_t controlPhase = (uint16_t)(control_word);</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>            <a class="code hl_function" href="a00511.html#ga80737f595e2855e9361772d2c1a9852d">PwrCtrl_SetP2SPhaseTarget</a>(controlPhase);</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span><span class="preprocessor">            #endif</span></div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>            <span class="keywordflow">break</span>; </div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        }</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>                </div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        <span class="keywordflow">case</span> PBV_CMD_ID_PHASE_CHANGE: {</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>            <span class="comment">// change target phase</span></div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span><span class="preprocessor">            #if(OPEN_LOOP_PBV == true)</span></div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>            uint16_t controlPhase = (uint16_t)((control_word)* PHASE_180_SCALER * (<a class="code hl_function" href="a00511.html#gad6514b638a32baed68543a56bedd5c5d">Dev_PwrCtrl_Get_DutyCycle</a>()));</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>            <a class="code hl_function" href="a00511.html#gae62d241af8152bb7989d448f30adc55e">PwrCtrl_SetPhaseTarget</a>(controlPhase); </div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="preprocessor">            #endif</span></div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>            <span class="keywordflow">break</span>; </div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        }</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        <span class="keywordflow">case</span> PBV_CMD_ID_FAN_SPEED: {            </div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>            <a class="code hl_function" href="a00499.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a>(control_word);</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>            <span class="keywordflow">break</span>; </div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        }</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>                 </div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    }</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>}</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        }  </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="a00495.html#ga1d4818470bcd6185d9298b1f57efa854">PBV_CMD_ID_PLOOP_REF_SET</a>: {</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>            <span class="keywordflow">if</span> (control_word &lt; 32767) <span class="comment">//TODO: put in proper check here!</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>            {</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>                <a class="code hl_function" href="a00511.html#ga574faff7b911d52ae6d2cf53b68a8963">PwrCtrl_SetPwrReference</a>(control_word);</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>            }</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        }  </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>       </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <span class="keywordflow">case</span>  <a class="code hl_define" href="a00495.html#gaa884de9b9e6ecfdfd1b7e184de4f7c7a">PBV_CMD_ID_P2S_PHASE_TARGET</a>: {</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>            <span class="comment">// change target phase</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="preprocessor">            #if(OPEN_LOOP_PBV == false)</span></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>            uint16_t controlPhase = (uint16_t)(control_word);</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>            <a class="code hl_function" href="a00511.html#ga80737f595e2855e9361772d2c1a9852d">PwrCtrl_SetP2SPhaseTarget</a>(controlPhase);</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span><span class="preprocessor">            #endif</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        }</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>                </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="a00495.html#ga43cb2ce1ccb1f3605b1f476a803cf899">PBV_CMD_ID_PHASE_CHANGE</a>: {</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>            <span class="comment">// change target phase</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="preprocessor">            #if(OPEN_LOOP_PBV == true)</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>            uint16_t controlPhase = (uint16_t)((control_word)* PHASE_180_SCALER * (<a class="code hl_function" href="a00511.html#gad6514b638a32baed68543a56bedd5c5d">Dev_PwrCtrl_Get_DutyCycle</a>()));</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>            <a class="code hl_function" href="a00511.html#gae62d241af8152bb7989d448f30adc55e">PwrCtrl_SetPhaseTarget</a>(controlPhase); </div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span><span class="preprocessor">            #endif</span></div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        }</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <span class="keywordflow">case</span> <a class="code hl_define" href="a00495.html#ga1a16e205c5cdb5eef74680a430fbf26f">PBV_CMD_ID_FAN_SPEED</a>: {            </div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>            <a class="code hl_function" href="a00499.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a>(control_word);</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>            <span class="keywordflow">break</span>; </div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        }</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>                 </div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    }</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>}</div>
 </div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
-<div class="foldopen" id="foldopen00357" data-start="{" data-end="}">
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno"><a class="line" href="a00495.html#gae7f76d2864d9f99538052487fb4c9570">  357</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#gae7f76d2864d9f99538052487fb4c9570">protocolID</a>(uint16_t protocol_ID, uint16_t length, uint8_t * data)</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>{</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    PBV_Change_from_Eight_to_Sixteen(data, BufferSixteenRx, length);</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    <a class="code hl_function" href="a00495.html#gaf2b5ec7aa4bf88b00eaa69cfeba83160">App_PBV_DAB_Process_Rx_Data</a>(BufferSixteenRx);</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>}</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
+<div class="foldopen" id="foldopen00350" data-start="{" data-end="}">
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno"><a class="line" href="a00495.html#gae7f76d2864d9f99538052487fb4c9570">  350</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#gae7f76d2864d9f99538052487fb4c9570">protocolID</a>(uint16_t protocol_ID, uint16_t length, uint8_t * data)</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>{</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    <a class="code hl_function" href="a00493.html#gaf92cac9156ceacf492c28455ba3c75f5">PBV_Change_from_Eight_to_Sixteen</a>(data, bufferSixteenRx, length);</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <a class="code hl_function" href="a00495.html#gaf2b5ec7aa4bf88b00eaa69cfeba83160">App_PBV_DAB_Process_Rx_Data</a>(bufferSixteenRx);</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>}</div>
 </div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
 <div class="ttc" id="aa00290_html"><div class="ttname"><a href="a00290.html">device.h</a></div><div class="ttdoc">Contains h files that are part of device layer.</div></div>
-<div class="ttc" id="aa00299_html_adaf3c18eacb83f7ffa95a34b90d5ad0d"><div class="ttname"><a href="a00299.html#adaf3c18eacb83f7ffa95a34b90d5ad0d">devFanDataPtr</a></div><div class="ttdeci">FAN_DATA_t * devFanDataPtr</div><div class="ttdef"><b>Definition</b> <a href="a00299_source.html#l00038">dev_fan.c:38</a></div></div>
+<div class="ttc" id="aa00299_html_adaf3c18eacb83f7ffa95a34b90d5ad0d"><div class="ttname"><a href="a00299.html#adaf3c18eacb83f7ffa95a34b90d5ad0d">devFanDataPtr</a></div><div class="ttdeci">FAN_DATA_t * devFanDataPtr</div><div class="ttdef"><b>Definition</b> <a href="a00299_source.html#l00040">dev_fan.c:40</a></div></div>
 <div class="ttc" id="aa00362_html_a525a7d54ffe10a34fc0de37c1d43aa6a"><div class="ttname"><a href="a00362.html#a525a7d54ffe10a34fc0de37c1d43aa6a">Fault_GetFlags</a></div><div class="ttdeci">uint16_t Fault_GetFlags(void)</div><div class="ttdef"><b>Definition</b> <a href="a00362_source.html#l00047">fault_comm_interface.c:47</a></div></div>
 <div class="ttc" id="aa00365_html"><div class="ttname"><a href="a00365.html">fault_comm_interface.h</a></div><div class="ttdoc">Contains API functions for fault protection.</div></div>
 <div class="ttc" id="aa00446_html"><div class="ttname"><a href="a00446.html">pwrctrl_comm_interface.h</a></div><div class="ttdoc">Contains public functions relevant for power control communication interface.</div></div>
 <div class="ttc" id="aa00471_html_ga186594aa5d23f8d898758992a70b2d13"><div class="ttname"><a href="a00471.html#ga186594aa5d23f8d898758992a70b2d13">MAX_PWM_PERIOD</a></div><div class="ttdeci">#define MAX_PWM_PERIOD</div><div class="ttdoc">This sets the switching period of the converter.</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00046">macros.h:46</a></div></div>
 <div class="ttc" id="aa00471_html_gaab2f7ae5f2d6809dd3894e30692f30b1"><div class="ttname"><a href="a00471.html#gaab2f7ae5f2d6809dd3894e30692f30b1">MIN_PWM_PERIOD</a></div><div class="ttdeci">#define MIN_PWM_PERIOD</div><div class="ttdoc">This sets the switching period of the converter.</div><div class="ttdef"><b>Definition</b> <a href="a00281_source.html#l00047">macros.h:47</a></div></div>
+<div class="ttc" id="aa00493_html_ga1e6458a65d5d665835759cfc42280c1b"><div class="ttname"><a href="a00493.html#ga1e6458a65d5d665835759cfc42280c1b">PBV_Change_from_Sixteen_to_Eight</a></div><div class="ttdeci">void PBV_Change_from_Sixteen_to_Eight(uint16_t *sixteenPtr, uint8_t *eightPtr, uint16_t length)</div><div class="ttdef"><b>Definition</b> <a href="a00260_source.html#l00073">PBV_interface.c:73</a></div></div>
+<div class="ttc" id="aa00493_html_ga240a50c9b64de11e7ecb765451da38a1"><div class="ttname"><a href="a00493.html#ga240a50c9b64de11e7ecb765451da38a1">App_PBV_Init</a></div><div class="ttdeci">void App_PBV_Init(PBV_Datatype_TX_t *boardToPbv, PBV_Datatype_TX_t *boardToPpvAscii, PBV_Datatype_RX_t *pbvToBoard)</div><div class="ttdef"><b>Definition</b> <a href="a00260_source.html#l00128">PBV_interface.c:128</a></div></div>
+<div class="ttc" id="aa00493_html_ga39ed8d2ee366abaf4aa95a424f9108e3"><div class="ttname"><a href="a00493.html#ga39ed8d2ee366abaf4aa95a424f9108e3">App_Send_To_PBV</a></div><div class="ttdeci">void App_Send_To_PBV(PBV_Datatype_TX_t *ptr)</div><div class="ttdef"><b>Definition</b> <a href="a00260_source.html#l00180">PBV_interface.c:180</a></div></div>
+<div class="ttc" id="aa00493_html_ga7b078af24577006b714fabf52a93c4f1"><div class="ttname"><a href="a00493.html#ga7b078af24577006b714fabf52a93c4f1">App_Read_Received_From_PBV</a></div><div class="ttdeci">int App_Read_Received_From_PBV(PBV_Datatype_RX_t *ptr)</div><div class="ttdef"><b>Definition</b> <a href="a00260_source.html#l00203">PBV_interface.c:203</a></div></div>
+<div class="ttc" id="aa00493_html_gab70a27b3aad7113c3983e82413ca5e4f"><div class="ttname"><a href="a00493.html#gab70a27b3aad7113c3983e82413ca5e4f">App_PBV_Re_Init</a></div><div class="ttdeci">void App_PBV_Re_Init(PBV_Datatype_TX_t *ptr)</div><div class="ttdef"><b>Definition</b> <a href="a00260_source.html#l00146">PBV_interface.c:146</a></div></div>
+<div class="ttc" id="aa00493_html_gaf88c754c75b6057cf183685d282a2fe6"><div class="ttname"><a href="a00493.html#gaf88c754c75b6057cf183685d282a2fe6">App_Receive_From_PBV</a></div><div class="ttdeci">void App_Receive_From_PBV(PBV_Datatype_RX_t *ptr)</div><div class="ttdef"><b>Definition</b> <a href="a00260_source.html#l00162">PBV_interface.c:162</a></div></div>
+<div class="ttc" id="aa00493_html_gaf92cac9156ceacf492c28455ba3c75f5"><div class="ttname"><a href="a00493.html#gaf92cac9156ceacf492c28455ba3c75f5">PBV_Change_from_Eight_to_Sixteen</a></div><div class="ttdeci">void PBV_Change_from_Eight_to_Sixteen(uint8_t *eightPtr, uint16_t *sixteenPtr, uint16_t length)</div><div class="ttdef"><b>Definition</b> <a href="a00260_source.html#l00090">PBV_interface.c:90</a></div></div>
 <div class="ttc" id="aa00493_html_gga26db6be2cdb24ea5b5c7c70d0a6c3b25a194a96a562c6685141b95b9f70100945"><div class="ttname"><a href="a00493.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25a194a96a562c6685141b95b9f70100945">PBV_MESSAGE_READY_TO_RECEIVE</a></div><div class="ttdeci">@ PBV_MESSAGE_READY_TO_RECEIVE</div><div class="ttdoc">Message Reception triggered.</div><div class="ttdef"><b>Definition</b> <a href="a00263_source.html#l00072">PBV_interface.h:72</a></div></div>
 <div class="ttc" id="aa00493_html_gga26db6be2cdb24ea5b5c7c70d0a6c3b25ac36f583a85f8a64d2acbd4d9b448da91"><div class="ttname"><a href="a00493.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25ac36f583a85f8a64d2acbd4d9b448da91">PBV_MESSAGE_RECEIVED</a></div><div class="ttdeci">@ PBV_MESSAGE_RECEIVED</div><div class="ttdoc">Message Received.</div><div class="ttdef"><b>Definition</b> <a href="a00263_source.html#l00071">PBV_interface.h:71</a></div></div>
 <div class="ttc" id="aa00493_html_ggabec937769d77285d1b9cc8cd5cae957ba709216fec5fab27b5647077bef347b82"><div class="ttname"><a href="a00493.html#ggabec937769d77285d1b9cc8cd5cae957ba709216fec5fab27b5647077bef347b82">PBV_ASCII_MODE</a></div><div class="ttdeci">@ PBV_ASCII_MODE</div><div class="ttdoc">Object will transmit Ascii data.</div><div class="ttdef"><b>Definition</b> <a href="a00263_source.html#l00045">PBV_interface.h:44</a></div></div>
 <div class="ttc" id="aa00493_html_ggabec937769d77285d1b9cc8cd5cae957ba7872ad957b7cdf2a5e1c874a31235dbf"><div class="ttname"><a href="a00493.html#ggabec937769d77285d1b9cc8cd5cae957ba7872ad957b7cdf2a5e1c874a31235dbf">PBV_SIGNAL_MODE</a></div><div class="ttdeci">@ PBV_SIGNAL_MODE</div><div class="ttdoc">Object will transmit/receive signals.</div><div class="ttdef"><b>Definition</b> <a href="a00263_source.html#l00043">PBV_interface.h:43</a></div></div>
 <div class="ttc" id="aa00493_html_ggad6a8f9f019d4804bbaa6370fa9dc74e4a4e5a244a7ef71a86c1aeea8b2205c2df"><div class="ttname"><a href="a00493.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4a4e5a244a7ef71a86c1aeea8b2205c2df">PBV_MESSAGE_INIT</a></div><div class="ttdeci">@ PBV_MESSAGE_INIT</div><div class="ttdoc">Init State. Only Send Messages in this State</div><div class="ttdef"><b>Definition</b> <a href="a00263_source.html#l00056">PBV_interface.h:56</a></div></div>
 <div class="ttc" id="aa00493_html_ggad6a8f9f019d4804bbaa6370fa9dc74e4ab499d51ce9c035cda510f8108209d78f"><div class="ttname"><a href="a00493.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4ab499d51ce9c035cda510f8108209d78f">PBV_MESSAGE_TRANSMITTING</a></div><div class="ttdeci">@ PBV_MESSAGE_TRANSMITTING</div><div class="ttdoc">Transmitting Message.</div><div class="ttdef"><b>Definition</b> <a href="a00263_source.html#l00058">PBV_interface.h:58</a></div></div>
-<div class="ttc" id="aa00495_html_ga00307bed276aca52423f1e10365e3334"><div class="ttname"><a href="a00495.html#ga00307bed276aca52423f1e10365e3334">App_PBV_DAB_Init</a></div><div class="ttdeci">void App_PBV_DAB_Init()</div><div class="ttdoc">this function initializes the local pbv objects. these objects are then passed on to the app_PBV_init...</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00117">PBV_dab_frame_map.c:117</a></div></div>
-<div class="ttc" id="aa00495_html_ga4de477d51ea04cdcfcb1e3eb3ef0053a"><div class="ttname"><a href="a00495.html#ga4de477d51ea04cdcfcb1e3eb3ef0053a">App_PBV_DAB_Task_10ms</a></div><div class="ttdeci">void App_PBV_DAB_Task_10ms(void)</div><div class="ttdoc">this is high frequency task to simulate sending of high frequency numeric data. Also to check if ther...</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00145">PBV_dab_frame_map.c:145</a></div></div>
-<div class="ttc" id="aa00495_html_ga6cf2376a2bcc430349e1744fc506dbdf"><div class="ttname"><a href="a00495.html#ga6cf2376a2bcc430349e1744fc506dbdf">FIRMWARE_PROTOCOL_ID</a></div><div class="ttdeci">#define FIRMWARE_PROTOCOL_ID</div><div class="ttdoc">protocol ids defined. firmware id 0x1000 is fixed. the rest are arbitary</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00050">PBV_dab_frame_map.c:50</a></div></div>
-<div class="ttc" id="aa00495_html_ga79ec24216fcdceeda0313df0193990ee"><div class="ttname"><a href="a00495.html#ga79ec24216fcdceeda0313df0193990ee">App_PB_DAB_Get_TX_ASCII_ptr</a></div><div class="ttdeci">PBV_Datatype_TX_t * App_PB_DAB_Get_TX_ASCII_ptr(void)</div><div class="ttdoc">this function can be used to send log messages from other files.</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00204">PBV_dab_frame_map.c:204</a></div></div>
-<div class="ttc" id="aa00495_html_gad255673713bb77bc36791875207a4393"><div class="ttname"><a href="a00495.html#gad255673713bb77bc36791875207a4393">App_PBV_DAB_Task_1s</a></div><div class="ttdeci">void App_PBV_DAB_Task_1s(void)</div><div class="ttdoc">this is a slow task simulating the low speed sending of ascii data it sends the firmware id,...</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00174">PBV_dab_frame_map.c:174</a></div></div>
-<div class="ttc" id="aa00495_html_gae7f76d2864d9f99538052487fb4c9570"><div class="ttname"><a href="a00495.html#gae7f76d2864d9f99538052487fb4c9570">protocolID</a></div><div class="ttdeci">void protocolID(uint16_t protocol_ID, uint16_t length, uint8_t *data)</div><div class="ttdoc">default callback</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00357">PBV_dab_frame_map.c:357</a></div></div>
-<div class="ttc" id="aa00495_html_gaf2b5ec7aa4bf88b00eaa69cfeba83160"><div class="ttname"><a href="a00495.html#gaf2b5ec7aa4bf88b00eaa69cfeba83160">App_PBV_DAB_Process_Rx_Data</a></div><div class="ttdeci">void App_PBV_DAB_Process_Rx_Data(uint16_t *data)</div><div class="ttdoc">process received data</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00269">PBV_dab_frame_map.c:269</a></div></div>
-<div class="ttc" id="aa00499_html_ga5cfd61659ae6b17ad25e51bfc211723b"><div class="ttname"><a href="a00499.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a></div><div class="ttdeci">void Dev_Fan_Set_Speed(uint8_t target_speed_percent)</div><div class="ttdoc">Sets the fan speed.</div><div class="ttdef"><b>Definition</b> <a href="a00299_source.html#l00133">dev_fan.c:133</a></div></div>
-<div class="ttc" id="aa00501_html_gac9618e1ca87e77920c94cdfdcc80321a"><div class="ttname"><a href="a00501.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a></div><div class="ttdeci">int8_t Dev_Temp_Get_Temperature_Celcius(void)</div><div class="ttdoc">This converts the raw values to temperature celcius as per device lookup table.</div><div class="ttdef"><b>Definition</b> <a href="a00317_source.html#l00117">dev_temp.c:117</a></div></div>
+<div class="ttc" id="aa00495_html_ga00307bed276aca52423f1e10365e3334"><div class="ttname"><a href="a00495.html#ga00307bed276aca52423f1e10365e3334">App_PBV_DAB_Init</a></div><div class="ttdeci">void App_PBV_DAB_Init()</div><div class="ttdoc">this function initializes the local pbv objects. these objects are then passed on to the app_PBV_init...</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00115">PBV_dab_frame_map.c:115</a></div></div>
+<div class="ttc" id="aa00495_html_ga1a16e205c5cdb5eef74680a430fbf26f"><div class="ttname"><a href="a00495.html#ga1a16e205c5cdb5eef74680a430fbf26f">PBV_CMD_ID_FAN_SPEED</a></div><div class="ttdeci">#define PBV_CMD_ID_FAN_SPEED</div><div class="ttdoc">set fan speed</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00063">PBV_dab_frame_map.c:63</a></div></div>
+<div class="ttc" id="aa00495_html_ga1d4818470bcd6185d9298b1f57efa854"><div class="ttname"><a href="a00495.html#ga1d4818470bcd6185d9298b1f57efa854">PBV_CMD_ID_PLOOP_REF_SET</a></div><div class="ttdeci">#define PBV_CMD_ID_PLOOP_REF_SET</div><div class="ttdoc">set voltage loop reference</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00067">PBV_dab_frame_map.c:67</a></div></div>
+<div class="ttc" id="aa00495_html_ga1e8299e4f0d398aa254b25b863a6d47b"><div class="ttname"><a href="a00495.html#ga1e8299e4f0d398aa254b25b863a6d47b">PBV_LOG_ID</a></div><div class="ttdeci">#define PBV_LOG_ID</div><div class="ttdoc">ID on which log data is sent.</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00057">PBV_dab_frame_map.c:57</a></div></div>
+<div class="ttc" id="aa00495_html_ga43cb2ce1ccb1f3605b1f476a803cf899"><div class="ttname"><a href="a00495.html#ga43cb2ce1ccb1f3605b1f476a803cf899">PBV_CMD_ID_PHASE_CHANGE</a></div><div class="ttdeci">#define PBV_CMD_ID_PHASE_CHANGE</div><div class="ttdoc">set control phase</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00069">PBV_dab_frame_map.c:69</a></div></div>
+<div class="ttc" id="aa00495_html_ga4de477d51ea04cdcfcb1e3eb3ef0053a"><div class="ttname"><a href="a00495.html#ga4de477d51ea04cdcfcb1e3eb3ef0053a">App_PBV_DAB_Task_10ms</a></div><div class="ttdeci">void App_PBV_DAB_Task_10ms(void)</div><div class="ttdoc">10ms PBV task to be execution</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00141">PBV_dab_frame_map.c:141</a></div></div>
+<div class="ttc" id="aa00495_html_ga6cf2376a2bcc430349e1744fc506dbdf"><div class="ttname"><a href="a00495.html#ga6cf2376a2bcc430349e1744fc506dbdf">FIRMWARE_PROTOCOL_ID</a></div><div class="ttdeci">#define FIRMWARE_PROTOCOL_ID</div><div class="ttdoc">Firmware ID.</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00049">PBV_dab_frame_map.c:49</a></div></div>
+<div class="ttc" id="aa00495_html_ga75af25c76e9ef3e1ba4bc883a5f6d4f5"><div class="ttname"><a href="a00495.html#ga75af25c76e9ef3e1ba4bc883a5f6d4f5">PBV_TX_PROTOCOL_ID</a></div><div class="ttdeci">#define PBV_TX_PROTOCOL_ID</div><div class="ttdoc">ID on which data is transmitted by dsPIC33.</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00052">PBV_dab_frame_map.c:52</a></div></div>
+<div class="ttc" id="aa00495_html_ga79ec24216fcdceeda0313df0193990ee"><div class="ttname"><a href="a00495.html#ga79ec24216fcdceeda0313df0193990ee">App_PB_DAB_Get_TX_ASCII_ptr</a></div><div class="ttdeci">PBV_Datatype_TX_t * App_PB_DAB_Get_TX_ASCII_ptr(void)</div><div class="ttdoc">This function can be used to send log messages from other files.</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00199">PBV_dab_frame_map.c:199</a></div></div>
+<div class="ttc" id="aa00495_html_ga9edafe7db394b4dad8369cba7e2b50ce"><div class="ttname"><a href="a00495.html#ga9edafe7db394b4dad8369cba7e2b50ce">PBV_CMD_ID_VLOOP_REF_SET</a></div><div class="ttdeci">#define PBV_CMD_ID_VLOOP_REF_SET</div><div class="ttdoc">set voltage loop reference</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00066">PBV_dab_frame_map.c:66</a></div></div>
+<div class="ttc" id="aa00495_html_gaa884de9b9e6ecfdfd1b7e184de4f7c7a"><div class="ttname"><a href="a00495.html#gaa884de9b9e6ecfdfd1b7e184de4f7c7a">PBV_CMD_ID_P2S_PHASE_TARGET</a></div><div class="ttdeci">#define PBV_CMD_ID_P2S_PHASE_TARGET</div><div class="ttdoc">set control phase</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00070">PBV_dab_frame_map.c:70</a></div></div>
+<div class="ttc" id="aa00495_html_gacc02c51548e170216482c9ec63095cbd"><div class="ttname"><a href="a00495.html#gacc02c51548e170216482c9ec63095cbd">PBV_CMD_ID_FREQ_CHANGE</a></div><div class="ttdeci">#define PBV_CMD_ID_FREQ_CHANGE</div><div class="ttdoc">change DAB switching frequency</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00062">PBV_dab_frame_map.c:62</a></div></div>
+<div class="ttc" id="aa00495_html_gad255673713bb77bc36791875207a4393"><div class="ttname"><a href="a00495.html#gad255673713bb77bc36791875207a4393">App_PBV_DAB_Task_1s</a></div><div class="ttdeci">void App_PBV_DAB_Task_1s(void)</div><div class="ttdoc">1 second PBV task to be execution</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00170">PBV_dab_frame_map.c:170</a></div></div>
+<div class="ttc" id="aa00495_html_gad307519e801fbcc504b010b907013c00"><div class="ttname"><a href="a00495.html#gad307519e801fbcc504b010b907013c00">PBV_CMD_ID_DAB_ON_OFF</a></div><div class="ttdeci">#define PBV_CMD_ID_DAB_ON_OFF</div><div class="ttdoc">turn DAB on or off</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00061">PBV_dab_frame_map.c:61</a></div></div>
+<div class="ttc" id="aa00495_html_gae5ba560edfe0a5539560dda1d9b10e8e"><div class="ttname"><a href="a00495.html#gae5ba560edfe0a5539560dda1d9b10e8e">PBV_CMD_ID_ILOOP_REF_SET</a></div><div class="ttdeci">#define PBV_CMD_ID_ILOOP_REF_SET</div><div class="ttdoc">set current loop reference</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00065">PBV_dab_frame_map.c:65</a></div></div>
+<div class="ttc" id="aa00495_html_gae7f76d2864d9f99538052487fb4c9570"><div class="ttname"><a href="a00495.html#gae7f76d2864d9f99538052487fb4c9570">protocolID</a></div><div class="ttdeci">void protocolID(uint16_t protocol_ID, uint16_t length, uint8_t *data)</div><div class="ttdoc">default callback</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00350">PBV_dab_frame_map.c:350</a></div></div>
+<div class="ttc" id="aa00495_html_gaf2b5ec7aa4bf88b00eaa69cfeba83160"><div class="ttname"><a href="a00495.html#gaf2b5ec7aa4bf88b00eaa69cfeba83160">App_PBV_DAB_Process_Rx_Data</a></div><div class="ttdeci">void App_PBV_DAB_Process_Rx_Data(uint16_t *data)</div><div class="ttdoc">process received data</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00262">PBV_dab_frame_map.c:262</a></div></div>
+<div class="ttc" id="aa00499_html_ga5cfd61659ae6b17ad25e51bfc211723b"><div class="ttname"><a href="a00499.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a></div><div class="ttdeci">void Dev_Fan_Set_Speed(uint8_t target_speed_percent)</div><div class="ttdoc">Sets the fan speed.</div><div class="ttdef"><b>Definition</b> <a href="a00299_source.html#l00135">dev_fan.c:135</a></div></div>
+<div class="ttc" id="aa00501_html_gac9618e1ca87e77920c94cdfdcc80321a"><div class="ttname"><a href="a00501.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a></div><div class="ttdeci">int8_t Dev_Temp_Get_Temperature_Celcius(void)</div><div class="ttdoc">This converts the raw values to temperature celcius as per device lookup table.</div><div class="ttdef"><b>Definition</b> <a href="a00317_source.html#l00145">dev_temp.c:145</a></div></div>
 <div class="ttc" id="aa00511_html_ga071b955cb9687b27b8ce895a29febc66"><div class="ttname"><a href="a00511.html#ga071b955cb9687b27b8ce895a29febc66">PwrCtrl_SetEnable</a></div><div class="ttdeci">void PwrCtrl_SetEnable(bool enable)</div><div class="ttdoc">API function to set the power control enable bit.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00132">pwrctrl_comm_interface.c:132</a></div></div>
 <div class="ttc" id="aa00511_html_ga0a4bc9ff1027ccd07af11d8bd2865219"><div class="ttname"><a href="a00511.html#ga0a4bc9ff1027ccd07af11d8bd2865219">Dev_PwrCtrl_Get_State</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_Get_State(void)</div><div class="ttdoc">API function to get the current state of the state machine.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00213">pwrctrl_comm_interface.c:213</a></div></div>
 <div class="ttc" id="aa00511_html_ga346aaaf8b8cf0266d9873405945c55dd"><div class="ttname"><a href="a00511.html#ga346aaaf8b8cf0266d9873405945c55dd">Dev_PwrCtrl_GetAveraging_Isec</a></div><div class="ttdeci">uint16_t Dev_PwrCtrl_GetAveraging_Isec(void)</div><div class="ttdoc">API function to get the average value of the sampled ADC for secondary current.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00282">pwrctrl_comm_interface.c:282</a></div></div>
@@ -493,7 +510,7 @@ $(document).ready(function(){initNavTree('a00254_source.html',''); initResizable
 <div class="ttc" id="aa00625_html_a30afce7d5f8aa2a94029446cfe2f4a36"><div class="ttname"><a href="a00625.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Datatype_RX_t::PBV_Message_State</a></div><div class="ttdeci">PBV_MESSAGE_RX_STATE_t PBV_Message_State</div><div class="ttdoc">State of the received message.</div><div class="ttdef"><b>Definition</b> <a href="a00263_source.html#l00113">PBV_interface.h:113</a></div></div>
 <div class="ttc" id="aa00625_html_a4e589bbf7c5e6c3eb82a0e22fe8e8e50"><div class="ttname"><a href="a00625.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">PBV_Datatype_RX_t::Data_Buffer</a></div><div class="ttdeci">uint8_t * Data_Buffer</div><div class="ttdoc">Received Data pointer.</div><div class="ttdef"><b>Definition</b> <a href="a00263_source.html#l00114">PBV_interface.h:114</a></div></div>
 <div class="ttc" id="aa00625_html_a930e5a4d8414c0427fe5c636062579db"><div class="ttname"><a href="a00625.html#a930e5a4d8414c0427fe5c636062579db">PBV_Datatype_RX_t::Length</a></div><div class="ttdeci">uint16_t Length</div><div class="ttdoc">Length of received message in Bytes.</div><div class="ttdef"><b>Definition</b> <a href="a00263_source.html#l00110">PBV_interface.h:110</a></div></div>
-<div class="ttc" id="aa00641_html_ad5d31528415a4ed9cf81ebfd785128c2"><div class="ttname"><a href="a00641.html#ad5d31528415a4ed9cf81ebfd785128c2">FAN_DATA_s::CurrentSpeedPercent</a></div><div class="ttdeci">uint8_t CurrentSpeedPercent</div><div class="ttdoc">Current Speed in percentage.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00065">dev_fan.h:65</a></div></div>
+<div class="ttc" id="aa00641_html_ad5d31528415a4ed9cf81ebfd785128c2"><div class="ttname"><a href="a00641.html#ad5d31528415a4ed9cf81ebfd785128c2">FAN_DATA_s::CurrentSpeedPercent</a></div><div class="ttdeci">uint8_t CurrentSpeedPercent</div><div class="ttdoc">Current Speed in percentage.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00071">dev_fan.h:71</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

@@ -20,7 +20,7 @@
     TERMS.
 */
 /**
- * @file    app_PBV_DAB_frame_map.h
+ * @file    PBV_DAB_frame_map.h
  * @brief   app PBV DAB Frame map file Example
  * @author  M70027
  * @ingroup app-pbv-dab-map

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mask_5f32_5fbit_5fhigh_0',['mask_32_bit_high',['../a00218.html#a3e3affedd77bf522f423cdd636f6e90b',1,'MASK_32_BIT_HIGH:&#160;sccp1.c'],['../a00221.html#a3e3affedd77bf522f423cdd636f6e90b',1,'MASK_32_BIT_HIGH:&#160;tmr1.c']]],
-  ['mask_5f32_5fbit_5flow_1',['mask_32_bit_low',['../a00218.html#ab1af98b17905c2c4854e5d9a460a64b5',1,'MASK_32_BIT_LOW:&#160;sccp1.c'],['../a00221.html#ab1af98b17905c2c4854e5d9a460a64b5',1,'MASK_32_BIT_LOW:&#160;tmr1.c']]]
+  ['failsafe_5fstack_5fguardsize_0',['FAILSAFE_STACK_GUARDSIZE',['../a00200.html#a8d6c626527a12311e8a698a87daae6f7',1,'traps.c']]]
 ];

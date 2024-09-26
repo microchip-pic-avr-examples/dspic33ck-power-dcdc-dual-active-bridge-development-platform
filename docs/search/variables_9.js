@@ -25,7 +25,7 @@ var searchData=
   ['isconversioncomplete_22',['IsConversionComplete',['../a00541.html#a88ee9d7b9f1b1b6cbd7d63ada0983b6c',1,'ADC_INTERFACE']]],
   ['isecaverage_23',['ISecAverage',['../a00705.html#a852e1ba399fd7762820a5a48b277e235',1,'FEEDBACK_SETTINGS_s']]],
   ['isecaveragerectified_24',['ISecAverageRectified',['../a00705.html#a2ebeb1daee42d50afad2f53cfe8f8548',1,'FEEDBACK_SETTINGS_s']]],
-  ['isecaveraging_25',['isecaveraging',['../a00507.html#gaed1035188dd736fafeda8cd2d6049791',1,'IsecAveraging:&#160;pwrctrl_isr_extension.c'],['../a00507.html#gaed1035188dd736fafeda8cd2d6049791',1,'IsecAveraging:&#160;pwrctrl_isr_extension.c']]],
+  ['isecaveraging_25',['isecaveraging',['../a00507.html#ga672f4741d032387a584ef0444f637cce',1,'iSecAveraging:&#160;pwrctrl_isr_extension.c'],['../a00507.html#ga672f4741d032387a584ef0444f637cce',1,'iSecAveraging:&#160;pwrctrl_isr_extension.c']]],
   ['isecavgcurrentsensor_26',['isecAvgCurrentSensor',['../a00498.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f',1,'dev_current_sensor.c']]],
   ['isecondaryocp_27',['ISecondaryOCP',['../a00661.html#a5c0ebb178553b28679126e15448f3680',1,'FAULT_s']]],
   ['isecsensoroffset_28',['ISecSensorOffset',['../a00705.html#aad3cd92609bdf3ca099564c676a824cb',1,'FEEDBACK_SETTINGS_s']]],

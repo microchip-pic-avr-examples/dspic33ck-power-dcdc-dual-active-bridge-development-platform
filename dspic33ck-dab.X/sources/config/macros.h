@@ -141,6 +141,14 @@
 #define VRAIL_5V_UV_T_BLANK_CLEAR           ((uint16_t)(_rnd(VRAIL_5V_UV_T_BLANK_CLEAR_SEC / VRAIL_5V_UV_TICK_SEC)))  
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
+/******************************************************************************
+ * @ingroup temperature-feedback-macros
+ * @{
+ ******************************************************************************/
+#define TEMPERATURE_HYSTERISIS_HALF             (TEMPERATURE_HYSTERISIS_RAW/2)
+#define OVER_TEMP_UPPER_THRESHOLD_WITH_HYST     MAX_TEMPERATURE_THRESHOLD_RAW + TEMPERATURE_HYSTERISIS_HALF
+#define OVER_TEMP_LOWER_THRESHOLD_WITH_HYST     MAX_TEMPERATURE_THRESHOLD_RAW - TEMPERATURE_HYSTERISIS_HALF
+/** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
  * @ingroup control-loop-macros

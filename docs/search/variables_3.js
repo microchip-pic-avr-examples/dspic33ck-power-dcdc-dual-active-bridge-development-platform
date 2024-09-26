@@ -20,7 +20,7 @@ var searchData=
   ['can1_5ftxattempthandler_17',['CAN1_TxAttemptHandler',['../a00083.html#af2efbf7fd2f1a5e8089b9f117d929f41',1,'can1.c']]],
   ['can1fifomsg_18',['can1FifoMsg',['../a00083.html#a3e579cf4628fa03708ad98685f7e1138',1,'can1.c']]],
   ['can_5ffd1_19',['can_fd1',['../a00521.html#ga39f25f8e916a1be5aa90b959fe617f5c',1,'CAN_FD1:&#160;can1.c'],['../a00521.html#ga39f25f8e916a1be5aa90b959fe617f5c',1,'CAN_FD1:&#160;can1.c']]],
-  ['changespeed_20',['ChangeSpeed',['../a00299.html#a1084f26df2f8f336031b308f483597aa',1,'dev_fan.c']]],
+  ['changespeed_20',['changeSpeed',['../a00299.html#a8590bb5f278011ec7f33fd6b02e6ba93',1,'dev_fan.c']]],
   ['channel_21',['channel',['../a00561.html#a8e61c8eba37a71deeb3c55a9a18951e1',1,'CAN1_RX_FIFO_MSG']]],
   ['channelcallbackregister_22',['ChannelCallbackRegister',['../a00545.html#abc2510a2a435fd0c5c37a56cfa732e47',1,'ADC_MULTICORE']]],
   ['channelselect_23',['ChannelSelect',['../a00541.html#a34e9e7c166666ac3e8298e735925c288',1,'ADC_INTERFACE']]],
@@ -55,5 +55,5 @@ var searchData=
   ['crc_52',['crc',['../a00629.html#afb8cac113b1a41d1c48d80018ddb6744',1,'UART_MSG_RX_OBJ::CRC'],['../a00633.html#afb8cac113b1a41d1c48d80018ddb6744',1,'UART_MSG_TX_OBJ::CRC'],['../a00524.html#ga1065ec72a69750ea4b5815f6504d8798',1,'CRC:&#160;crc.c'],['../a00524.html#ga1065ec72a69750ea4b5815f6504d8798',1,'CRC:&#160;crc.c']]],
   ['currentspeedpercent_53',['CurrentSpeedPercent',['../a00641.html#ad5d31528415a4ed9cf81ebfd785128c2',1,'FAN_DATA_s']]],
   ['currentspeedraw_54',['CurrentSpeedRaw',['../a00641.html#a833f5d95cb05c7446c9493ce32cd6a4e',1,'FAN_DATA_s']]],
-  ['currenttickcount_55',['CurrentTickCount',['../a00299.html#a4b3337c8dd5c010b43c7795594dbe199',1,'dev_fan.c']]]
+  ['currenttickcount_55',['currentTickCount',['../a00299.html#ac954f25127f258a413ef9982eb371c46',1,'dev_fan.c']]]
 ];

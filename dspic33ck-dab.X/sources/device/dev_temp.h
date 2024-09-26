@@ -47,26 +47,18 @@
  **********************************************************************************/
 #include "adc/adc1.h"   
 
-#define MAX_NUM_SAMPLES_TEMP_BUFFER                         64      ///< average calculated using 64 samples
-#define MAX_NUM_SAMPLES_TEMP_BUFFER_AS_EXP_OF_TWO            6      ///< for bit shifting
-
 /*********************************************************************************
  * @ingroup dev-temp-sys-spec-macros
- * @
+ * @{
  * @brief   defines the temperature threshold raw
  **********************************************************************************/
-#define MAX_TEMPERATURE_THRESHOLD_RAW           2528      ///< max temperature threshold RAW
-#define TEMPERATURE_HYSTERISIS_RAW              100
-#define TEMPERATURE_HYSTERISIS_HALF             (TEMPERATURE_HYSTERISIS_RAW/2)
-#define FAULT_PERSISTENCE_COUNT_TEMP            4
-#define OVER_TEMP_UPPER_THRESHOLD_WITH_HYST     MAX_TEMPERATURE_THRESHOLD_RAW + TEMPERATURE_HYSTERISIS_HALF
-#define OVER_TEMP_LOWER_THRESHOLD_WITH_HYST     MAX_TEMPERATURE_THRESHOLD_RAW - TEMPERATURE_HYSTERISIS_HALF
+#define MAX_NUM_SAMPLES_TEMP_BUFFER                         64      ///< average calculated using 64 samples
+#define MAX_NUM_SAMPLES_TEMP_BUFFER_AS_EXP_OF_TWO            6      ///< for bit shifting
 /** @} */ // end of dev-temp-sys-spec-macros
 
 /***********************************************************************************
  * @ingroup dev-temp-data-type
- * @struct  dev_Temp_data_t
- * @brief   a custom data type for temperature measurement
+ * @brief   A custom data type for temperature measurement
  **********************************************************************************/
 struct TEMP_SETTINGS_s {
     uint8_t     OverTemperatureFlag;          ///< Over temperature flag
@@ -83,8 +75,7 @@ typedef struct TEMP_SETTINGS_s TEMP_SETTINGS_t;
 
 /***********************************************************************************
  * @ingroup dev-temp-data-type
- * @struct  temp_ntc_t
- * @brief   a custom data type for ntc look up table
+ * @brief   A custom data type for ntc look up table
  **********************************************************************************/
 struct TEMP_NTC_LUT_s {
     uint16_t temperature;
@@ -95,7 +86,6 @@ typedef struct TEMP_NTC_LUT_s TEMP_NTC_LUT_t;
 
 /*********************************************************************************
  * @ingroup dev-temp-data-type
- * @var     dev_temp_data_ptr
  * @brief   dev temp data object pointer external
  * @details pointer to the Object 'dev_Temp_data_t', providing access to all control
  *          and monitoring values. To access it, add the header file to the project, and 

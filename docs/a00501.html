@@ -137,6 +137,7 @@ $(document).ready(function(){initNavTree('a00501.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
+<a href="#files">Files</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Temperature Detection<div class="ingroups"><a class="el" href="a00497.html">Device Layer</a></div></div></div>
@@ -153,6 +154,12 @@ $(document).ready(function(){initNavTree('a00501.html',''); initResizable(); });
 <div class="center"><iframe scrolling="no" frameborder="0" src="a00501.svg" width="307" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:a00320" id="r_a00320"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00320.html">dev_temp.h</a></td></tr>
+<tr class="memdesc:a00320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains temperature initialization and execution functions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga777c30f75162d97f4e112d1fc8d49f87" id="r_ga777c30f75162d97f4e112d1fc8d49f87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga777c30f75162d97f4e112d1fc8d49f87">Dev_Temp_Initialize</a> (void)</td></tr>
@@ -176,10 +183,10 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga251990d0202af5df9ea715fbcac8bbb5" id="r_ga251990d0202af5df9ea715fbcac8bbb5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00653.html">TEMP_NTC_LUT_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga251990d0202af5df9ea715fbcac8bbb5">NTC_lookuptable</a> [34]</td></tr>
-<tr class="memdesc:ga251990d0202af5df9ea715fbcac8bbb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lookup table for NTC device measurement.  <br /></td></tr>
-<tr class="separator:ga251990d0202af5df9ea715fbcac8bbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac4362e7ed233e3ac6e62b7f6f49a80d0" id="r_gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00649.html">TEMP_SETTINGS_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a></td></tr>
+<tr class="memitem:ga13d2a72d0b2534cbb4983bfd55f71d08" id="r_ga13d2a72d0b2534cbb4983bfd55f71d08"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00320.html#aaf6892fcff0a4cb057ac0f03311bcf7c">TEMP_NTC_LUT_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga13d2a72d0b2534cbb4983bfd55f71d08">ntcLookUpTable</a> [34]</td></tr>
+<tr class="memdesc:ga13d2a72d0b2534cbb4983bfd55f71d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lookup table for NTC device measurement.  <br /></td></tr>
+<tr class="separator:ga13d2a72d0b2534cbb4983bfd55f71d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac4362e7ed233e3ac6e62b7f6f49a80d0" id="r_gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00320.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a></td></tr>
 <tr class="memdesc:gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of temperature settings.  <br /></td></tr>
 <tr class="separator:gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -211,7 +218,7 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This function returns the average result of the temperature ADC samples. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00185">185</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00213">213</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -249,7 +256,7 @@ Variables</h2></td></tr>
 <p>&lt; store last 128 values and then average</p>
 <p>&lt; flag to monitor if full then do averaging.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00163">163</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00191">191</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -285,7 +292,7 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This function takes in the current adc values and get the closest high temperature value in the lookup table. i.e. if the averaged value is 3195, it will return the temperature value corresponding to 3079 i.e. 65. This value is offset by 40 degrees to avoid working with negative. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00117">117</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00145">145</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -327,7 +334,7 @@ Variables</h2></td></tr>
 <p>&lt; temperature raw</p>
 <p>&lt; temperature celcius.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00098">98</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00126">126</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
 
 </div>
 </div>
@@ -351,7 +358,7 @@ Variables</h2></td></tr>
 false Over temperature is not detected</dd></dl>
 <p>This function returns the status of the Over Temperature flag. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00151">151</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00179">179</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
 
 </div>
 </div>
@@ -391,7 +398,7 @@ false Over temperature is not detected</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This function averages the temperature ADC samples. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00199">199</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00227">227</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
@@ -410,18 +417,18 @@ false Over temperature is not detected</dd></dl>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00649.html">TEMP_SETTINGS_t</a> devTempData</td>
+          <td class="memname"><a class="el" href="a00320.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a> devTempData</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>The 'devTempData' data object holds the settings for temperature sensor. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00074">74</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00102">102</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
 
 </div>
 </div>
-<a id="ga251990d0202af5df9ea715fbcac8bbb5" name="ga251990d0202af5df9ea715fbcac8bbb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga251990d0202af5df9ea715fbcac8bbb5">&#9670;&#160;</a></span>NTC_lookuptable</h2>
+<a id="ga13d2a72d0b2534cbb4983bfd55f71d08" name="ga13d2a72d0b2534cbb4983bfd55f71d08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga13d2a72d0b2534cbb4983bfd55f71d08">&#9670;&#160;</a></span>ntcLookUpTable</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -430,7 +437,7 @@ false Over temperature is not detected</dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00653.html">TEMP_NTC_LUT_t</a> NTC_lookuptable[34]</td>
+          <td class="memname"><a class="el" href="a00320.html#aaf6892fcff0a4cb057ac0f03311bcf7c">TEMP_NTC_LUT_t</a> ntcLookUpTable[34]</td>
         </tr>
       </table>
   </td>
@@ -441,7 +448,7 @@ false Over temperature is not detected</dd></dl>
 </div><div class="memdoc">
 <p>This array contains the loock-up table for a particular temperature device. As an example: NTC device on the DAB board is NTCALUG02A103G. The resistance vs temperature value can be gotten through data sheet. The voltage divider has R1 = 3.3K, and NTC is R2. The ADC reference is also 3.3 volt. From this, the resistance values from the data sheet are transformed into ADC values that would be sampled corresponding to the temperature. from -40 t0 125 . temperature offset by 40 to avoid negative </p>
 
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00029">29</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00057">57</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
 
 </div>
 </div>

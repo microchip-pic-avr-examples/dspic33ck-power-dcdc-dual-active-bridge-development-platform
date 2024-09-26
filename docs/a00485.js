@@ -1,0 +1,6 @@
+var a00485 =
+[
+    [ "OVER_TEMP_LOWER_THRESHOLD_WITH_HYST", "a00485.html#ga91eaf5d11e1e6e3ab001aa52fbd89ff4", null ],
+    [ "OVER_TEMP_UPPER_THRESHOLD_WITH_HYST", "a00485.html#gad98e0769bf6b67c336c0f0b5eace55d9", null ],
+    [ "TEMPERATURE_HYSTERISIS_HALF", "a00485.html#gaa2162010ab4c20b5265f84ca24a4e36f", null ]
+];

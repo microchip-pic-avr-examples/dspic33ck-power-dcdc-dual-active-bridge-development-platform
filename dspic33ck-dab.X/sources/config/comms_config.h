@@ -33,7 +33,7 @@
  ******************************************************************************/
 // PBV working with CAN OR UART
 #define PBV_UART                0   ///< Enable UART interrupts before
-#define PBV_CANFD               1
+#define PBV_CANFD               1   ///< Use CAN communication for PBV
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 #endif	/*  COMMS_CONFIG_H */

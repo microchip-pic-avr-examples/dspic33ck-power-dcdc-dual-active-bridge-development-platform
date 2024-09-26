@@ -139,7 +139,7 @@ $(document).ready(function(){initNavTree('a00314_source.html',''); initResizable
   <div class="headertitle"><div class="title">dev_led.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* Microchip Technology Inc. and its subsidiaries.  You may use this software </span></div>
+<a href="a00314.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* Microchip Technology Inc. and its subsidiaries.  You may use this software </span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * and any derivatives exclusively with Microchip products. </span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * </span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * THIS SOFTWARE IS SUPPLIED BY MICROCHIP &quot;AS IS&quot;.  NO WARRANTIES, WHETHER </span></div>
@@ -160,68 +160,68 @@ $(document).ready(function(){initNavTree('a00314_source.html',''); initResizable
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * TERMS. </span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// more than once.  </span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#ifndef DEV_LED_H</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#define DEV_LED_H</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;xc.h&gt;</span>     <span class="comment">// include processor files - each processor file is guarded.  </span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &lt;stdint.h&gt;</span> <span class="comment">// include standard integer data types</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define NUM_OF_LEDS     3</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
- <span class="comment">//</span><div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">//module API                mapped to   MCC custom labels</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#define LED_Board_Red_On                LED_RED_SetHigh</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#define LED_Board_Red_Off               LED_RED_SetLow</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#define LED_Board_Red_Toggle_State      LED_RED_Toggle</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#define LED_Board_Green_On              LED_GREEN_SetHigh</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#define LED_Board_Green_Off             LED_GREEN_SetLow</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#define LED_Board_Green_Toggle_State    LED_GREEN_Toggle</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#define LED_DP_PIM_on                   LED_DP_PIM_SetHigh</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#define LED_DP_PIM_off                  LED_DP_PIM_SetLow</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#define LED_DP_PIM_Toggle_State         LED_DP_PIM_Toggle</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
- <span class="comment">// end of dev-led-porting-macros</span><div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">#define LED_PIM_RED                 0  </span><span class="comment">//labeling</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#define LED_BOARD_RED               1</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#define LED_BOARD_GREEN             2</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#define BLINK_100ms_INTERVAL       1 </span><span class="comment">//blink is ticked from 100ms Task. Adjust if faster Tick rate is used</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#define BLINK_SLOW_INTERVAL        (BLINK_100ms_INTERVAL*20) </span><span class="comment">//( *100ms)    2 sec</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#define BLINK_FAST_INTERVAL        (BLINK_100ms_INTERVAL*2)  </span><span class="comment">//             0.5</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#define BLINK_INTERVAL             (BLINK_100ms_INTERVAL*5)  </span><span class="comment">//             0.5                      </span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">// more than once.  </span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#ifndef DEV_LED_H</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#define DEV_LED_H</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;xc.h&gt;</span>     <span class="comment">// include processor files - each processor file is guarded.  </span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;stdint.h&gt;</span> <span class="comment">// include standard integer data types</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="a00314.html#a42308849576b2f1ead04e472d38985da">   51</a></span><span class="preprocessor">#define NUM_OF_LEDS     3</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+ <span class="comment">//</span><div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">//module API                mapped to   MCC custom labels</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="a00314.html#a61a32ccd374bf5d2904a973830ca2f7b">   61</a></span><span class="preprocessor">#define LED_Board_Red_On                LED_RED_SetHigh</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="a00314.html#af299247f6c447b7b376ced264d739cc5">   62</a></span><span class="preprocessor">#define LED_Board_Red_Off               LED_RED_SetLow</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="a00314.html#ae0de68d2452e62129bf0d5860dfb27d4">   63</a></span><span class="preprocessor">#define LED_Board_Red_Toggle_State      LED_RED_Toggle</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="a00314.html#aac93fadbf5a22e17126b58efc901e218">   65</a></span><span class="preprocessor">#define LED_Board_Green_On              LED_GREEN_SetHigh</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="a00314.html#ac5ccf337acbae5091e0cbc8148b0bcd7">   66</a></span><span class="preprocessor">#define LED_Board_Green_Off             LED_GREEN_SetLow</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="a00314.html#ad09b82a87c5196dacd7b0d7fb41f2e22">   67</a></span><span class="preprocessor">#define LED_Board_Green_Toggle_State    LED_GREEN_Toggle</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="a00314.html#ab985e272ea5eac0aa414c97b42bedfc6">   69</a></span><span class="preprocessor">#define LED_DP_PIM_on                   LED_DP_PIM_SetHigh</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="a00314.html#aa45b71b36f2f20f80f11eabfb6a696e2">   70</a></span><span class="preprocessor">#define LED_DP_PIM_off                  LED_DP_PIM_SetLow</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="a00314.html#a5f928ddff5ba51f3389a73185e9c856e">   71</a></span><span class="preprocessor">#define LED_DP_PIM_Toggle_State         LED_DP_PIM_Toggle</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+ <span class="comment">// end of dev-led-porting-macros</span><div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="a00314.html#a475de8c8db0474d30041ba8dd09bae62">   80</a></span><span class="preprocessor">#define LED_PIM_RED                 0  </span><span class="comment">//labeling</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="a00314.html#aeb672e6a70610b38fdc98e57cf0dbb1b">   81</a></span><span class="preprocessor">#define LED_BOARD_RED               1</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="a00314.html#a4747e134730e2696f0e8a34f81832b7d">   82</a></span><span class="preprocessor">#define LED_BOARD_GREEN             2</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
- <span class="comment">// end of dev-led-enums-public</span><div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#ga6fc0416c8ff212d938628b290a18a390">Dev_LED_On</a>(uint8_t led_id);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#ga645c25dba273dcf25dc202d31f441154">Dev_LED_Off</a>(uint8_t led_id);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#gacf12fda3f7d99f77a0e68b846273984f">Dev_LED_Toggle</a>(uint8_t led_id);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#gaf44b310330b9dbf4597275fdade9b5f7">Dev_LED_Blink</a>(uint8_t led_id);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#ga371fdb6009ec0f15b00e75ad4ef4d177">Dev_LED_Blink_Slow</a>(uint8_t led_id);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#ga9a710b93c9efd76f1c850ee4415f736c">Dev_LED_Blink_Fast</a>(uint8_t led_id);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">//void Dev_LED_Blink_Iter(uint8_t led_id, uint8_t count);</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#gad26b3effecb0675aad3bcba8993a0bb2">Dev_LED_Task_100ms</a>();</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_LED_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="ttc" id="aa00500_html_ga2d2db02502e7b576a9149d114f303daa"><div class="ttname"><a href="a00500.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a></div><div class="ttdeci">void Dev_LED_Initialize(void)</div><div class="ttdoc">This function contains the LED initialization.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00076">dev_led.c:76</a></div></div>
-<div class="ttc" id="aa00500_html_ga371fdb6009ec0f15b00e75ad4ef4d177"><div class="ttname"><a href="a00500.html#ga371fdb6009ec0f15b00e75ad4ef4d177">Dev_LED_Blink_Slow</a></div><div class="ttdeci">void Dev_LED_Blink_Slow(uint8_t led_id)</div><div class="ttdoc">Set the LED in SLOW blinking mode.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00190">dev_led.c:190</a></div></div>
-<div class="ttc" id="aa00500_html_ga645c25dba273dcf25dc202d31f441154"><div class="ttname"><a href="a00500.html#ga645c25dba273dcf25dc202d31f441154">Dev_LED_Off</a></div><div class="ttdeci">void Dev_LED_Off(uint8_t led_id)</div><div class="ttdoc">Switch off the LED.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00116">dev_led.c:116</a></div></div>
-<div class="ttc" id="aa00500_html_ga6fc0416c8ff212d938628b290a18a390"><div class="ttname"><a href="a00500.html#ga6fc0416c8ff212d938628b290a18a390">Dev_LED_On</a></div><div class="ttdeci">void Dev_LED_On(uint8_t led_id)</div><div class="ttdoc">Switch on the LED.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00092">dev_led.c:92</a></div></div>
-<div class="ttc" id="aa00500_html_ga9a710b93c9efd76f1c850ee4415f736c"><div class="ttname"><a href="a00500.html#ga9a710b93c9efd76f1c850ee4415f736c">Dev_LED_Blink_Fast</a></div><div class="ttdeci">void Dev_LED_Blink_Fast(uint8_t led_id)</div><div class="ttdoc">Set the LED in FAST blinking mode.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00205">dev_led.c:205</a></div></div>
-<div class="ttc" id="aa00500_html_gacf12fda3f7d99f77a0e68b846273984f"><div class="ttname"><a href="a00500.html#gacf12fda3f7d99f77a0e68b846273984f">Dev_LED_Toggle</a></div><div class="ttdeci">void Dev_LED_Toggle(uint8_t led_id)</div><div class="ttdoc">Toggles the LED state.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00140">dev_led.c:140</a></div></div>
-<div class="ttc" id="aa00500_html_gad26b3effecb0675aad3bcba8993a0bb2"><div class="ttname"><a href="a00500.html#gad26b3effecb0675aad3bcba8993a0bb2">Dev_LED_Task_100ms</a></div><div class="ttdeci">void Dev_LED_Task_100ms()</div><div class="ttdoc">This function needs to be called every 100ms and contains the code to update the status of the LEDs.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00222">dev_led.c:222</a></div></div>
-<div class="ttc" id="aa00500_html_gaf44b310330b9dbf4597275fdade9b5f7"><div class="ttname"><a href="a00500.html#gaf44b310330b9dbf4597275fdade9b5f7">Dev_LED_Blink</a></div><div class="ttdeci">void Dev_LED_Blink(uint8_t led_id)</div><div class="ttdoc">Set the LED in blinking mode.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00159">dev_led.c:159</a></div></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="a00314.html#af50bb2f71c69952dc0a1b0a5bf943d60">   85</a></span><span class="preprocessor">#define BLINK_100ms_INTERVAL       1 </span><span class="comment">//blink is ticked from 100ms Task. Adjust if faster Tick rate is used</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="a00314.html#a6b6174d3dbb46d28d4ad20ad4c762e89">   86</a></span><span class="preprocessor">#define BLINK_SLOW_INTERVAL        (BLINK_100ms_INTERVAL*20) </span><span class="comment">//( *100ms)    2 sec</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="a00314.html#aa79ae5803dc1df4832d901732c227b6b">   87</a></span><span class="preprocessor">#define BLINK_FAST_INTERVAL        (BLINK_100ms_INTERVAL*2)  </span><span class="comment">//             0.5</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="a00314.html#ae2ec6c3e936dcaccf4bc733c26bbc32b">   88</a></span><span class="preprocessor">#define BLINK_INTERVAL             (BLINK_100ms_INTERVAL*5)  </span><span class="comment">//             0.5                      </span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+ <span class="comment">// end of dev-led-enums-public</span><div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#ga6fc0416c8ff212d938628b290a18a390">Dev_LED_On</a>(uint8_t led_id);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#ga645c25dba273dcf25dc202d31f441154">Dev_LED_Off</a>(uint8_t led_id);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#gacf12fda3f7d99f77a0e68b846273984f">Dev_LED_Toggle</a>(uint8_t led_id);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#gaf44b310330b9dbf4597275fdade9b5f7">Dev_LED_Blink</a>(uint8_t led_id);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#ga371fdb6009ec0f15b00e75ad4ef4d177">Dev_LED_Blink_Slow</a>(uint8_t led_id);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#ga9a710b93c9efd76f1c850ee4415f736c">Dev_LED_Blink_Fast</a>(uint8_t led_id);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">//void Dev_LED_Blink_Iter(uint8_t led_id, uint8_t count);</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00500.html#gad26b3effecb0675aad3bcba8993a0bb2">Dev_LED_Task_100ms</a>();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_LED_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="ttc" id="aa00500_html_ga2d2db02502e7b576a9149d114f303daa"><div class="ttname"><a href="a00500.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a></div><div class="ttdeci">void Dev_LED_Initialize(void)</div><div class="ttdoc">This function contains the LED initialization.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00078">dev_led.c:78</a></div></div>
+<div class="ttc" id="aa00500_html_ga371fdb6009ec0f15b00e75ad4ef4d177"><div class="ttname"><a href="a00500.html#ga371fdb6009ec0f15b00e75ad4ef4d177">Dev_LED_Blink_Slow</a></div><div class="ttdeci">void Dev_LED_Blink_Slow(uint8_t led_id)</div><div class="ttdoc">Set the LED in SLOW blinking mode.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00192">dev_led.c:192</a></div></div>
+<div class="ttc" id="aa00500_html_ga645c25dba273dcf25dc202d31f441154"><div class="ttname"><a href="a00500.html#ga645c25dba273dcf25dc202d31f441154">Dev_LED_Off</a></div><div class="ttdeci">void Dev_LED_Off(uint8_t led_id)</div><div class="ttdoc">Switch off the LED.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00118">dev_led.c:118</a></div></div>
+<div class="ttc" id="aa00500_html_ga6fc0416c8ff212d938628b290a18a390"><div class="ttname"><a href="a00500.html#ga6fc0416c8ff212d938628b290a18a390">Dev_LED_On</a></div><div class="ttdeci">void Dev_LED_On(uint8_t led_id)</div><div class="ttdoc">Switch on the LED.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00094">dev_led.c:94</a></div></div>
+<div class="ttc" id="aa00500_html_ga9a710b93c9efd76f1c850ee4415f736c"><div class="ttname"><a href="a00500.html#ga9a710b93c9efd76f1c850ee4415f736c">Dev_LED_Blink_Fast</a></div><div class="ttdeci">void Dev_LED_Blink_Fast(uint8_t led_id)</div><div class="ttdoc">Set the LED in FAST blinking mode.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00207">dev_led.c:207</a></div></div>
+<div class="ttc" id="aa00500_html_gacf12fda3f7d99f77a0e68b846273984f"><div class="ttname"><a href="a00500.html#gacf12fda3f7d99f77a0e68b846273984f">Dev_LED_Toggle</a></div><div class="ttdeci">void Dev_LED_Toggle(uint8_t led_id)</div><div class="ttdoc">Toggles the LED state.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00142">dev_led.c:142</a></div></div>
+<div class="ttc" id="aa00500_html_gad26b3effecb0675aad3bcba8993a0bb2"><div class="ttname"><a href="a00500.html#gad26b3effecb0675aad3bcba8993a0bb2">Dev_LED_Task_100ms</a></div><div class="ttdeci">void Dev_LED_Task_100ms()</div><div class="ttdoc">This function needs to be called every 100ms and contains the code to update the status of the LEDs.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00224">dev_led.c:224</a></div></div>
+<div class="ttc" id="aa00500_html_gaf44b310330b9dbf4597275fdade9b5f7"><div class="ttname"><a href="a00500.html#gaf44b310330b9dbf4597275fdade9b5f7">Dev_LED_Blink</a></div><div class="ttdeci">void Dev_LED_Blink(uint8_t led_id)</div><div class="ttdoc">Set the LED in blinking mode.</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00161">dev_led.c:161</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

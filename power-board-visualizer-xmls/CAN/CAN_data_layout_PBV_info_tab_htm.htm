@@ -1,0 +1,2529 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;
+	font-weight:normal;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-top:2.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:13.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;
+	font-weight:normal;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin:0cm;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0cm;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:36.0pt 36.0pt 36.0pt 36.0pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-IE link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span lang=EN-US><img width=254 height=90 id="Picture 3"
+src="CAN_data_layout_PBV_info_tab_htm_files/image001.jpg"
+alt="A picture containing text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><b><u><span lang=EN-US style='font-size:16.0pt;line-height:
+107%'>dsPIC33C TOTEM POLE PFC DEVELOPMENT BOARD: CAN data structure</span></u></b></p>
+
+<h1><span lang=EN-US>Data from dsPIC33CH to PC / Power Board Visualizer</span></h1>
+
+<p class=MsoNoSpacing><span lang=EN-US style='font-size:12.0pt'>The dsPIC33CH
+primary core will send a 64 byte CAN frame to the PC periodically. The data
+contained in each byte is shown in </span><span
+lang=EN-US style='font-size:12.0pt'>Table 1</span><span lang=EN-US
+style='font-size:12.0pt'>. CAN ID 0x202 is used.</span></p>
+
+<p class=MsoNoSpacing><span lang=EN-US style='font-size:12.0pt'>&nbsp;</span></p>
+
+<p class=MsoCaption style='page-break-after:avoid'><a name="_Ref96091027"><span
+lang=EN-US>Table </span></a><span lang=EN-US>1</span><span lang=EN-US>: CAN
+frame data bytes from dsPIC to PC</span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><b><span
+  lang=EN-US style='font-size:10.0pt'>16-bit word</span></b></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><b><span lang=EN-US style='font-size:10.0pt'>description</span></b></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><b><span lang=EN-US style='font-size:10.0pt'>notes</span></b></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><b><span
+  lang=EN-US style='font-size:10.0pt'>scaling for LV hardware</span></b></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><b><span
+  lang=EN-US style='font-size:10.0pt'>scaling for HV hardware</span></b></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><b><span
+  lang=EN-US style='font-size:10.0pt'>Display Units</span></b></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.6pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.6pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>0</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.6pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 1 Vin
+  avg ADC reading</span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.6pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>0.023793723809</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.6pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>0.23714853073</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.6pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>V</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>1</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 2 Vin avg
+  ADC reading</span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>0.023793723809</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>0.23714853073</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>V</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>2</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 3 Vin
+  avg ADC reading</span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>0.023793723809</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>0.23714853073</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>V</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>3</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 1
+  voltage loop feedforward term<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>4</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 2
+  voltage loop feedforward term<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>5</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 3 voltage
+  loop feedforward term<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>6</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Vac status
+  flags<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>see </span><span lang=EN-US style='font-size:10.0pt'>Table 2</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>7</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 1 duty
+  cycle<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>%</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>8</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 2 duty
+  cycle<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>%</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>9</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 3 duty
+  cycle<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>%</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>10</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used</span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>11</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used</span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>12</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:17.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>13</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 1
+  current loop reference</span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:17.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+
+<span lang=EN-US style='font-size:11.0pt;line-height:107%;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><b><span
+  lang=EN-US style='font-size:10.0pt'>byte</span></b></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><b><span lang=EN-US style='font-size:10.0pt'>description</span></b></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><b><span lang=EN-US style='font-size:10.0pt'>notes</span></b></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><b><span lang=EN-US style='font-size:10.0pt'>scaling
+  for LV hardware</span></b></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><b><span lang=EN-US style='font-size:10.0pt'>scaling
+  for HV hardware</span></b></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><b><span lang=EN-US style='font-size:10.0pt'>Display
+  Units</span></b></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:30.5pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>14</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 2
+  current loop reference</span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:30.5pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>15</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 3
+  current loop reference</span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:30.5pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>16</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:30.5pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>17</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:30.5pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>18</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:30.5pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>19</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>PFC
+  controller state<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>see </span><span lang=EN-US style='font-size:10.0pt'>Table 3</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:30.5pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>20</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>PFC status
+  flags<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>see </span><span lang=EN-US style='font-size:10.0pt'>Table 4</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:30.5pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>21</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used</span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:30.5pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>22</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Vout
+  (averaged)<br>
+   </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>0.026810784</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>0.253652597</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>Volts</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:30.5pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>23</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Housekeeping
+  flags<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>See </span><span lang=EN-US style='font-size:10.0pt'>Table 5</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:30.5pt'></td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>24</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>SiC card 1
+  temperature<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'></td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;-128 +
+  value</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;&nbsp;-128
+  + value</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>degC</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>25</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>SiC card 2
+  temperature<br>
+  <br>
+  </span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'></td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;&nbsp;-128
+  + value</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;&nbsp;-128
+  + value</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>degC</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>26</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>SiC card 3
+  temperature</span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'></td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;&nbsp;-128
+  + value</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;&nbsp;-128
+  + value</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>degC</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>27</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>SiC card 4
+  temperature</span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'></td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;&nbsp;-128
+  + value</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;&nbsp;-128
+  + value</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>degC</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=66 nowrap valign=top style='width:49.4pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>28..31</span></p>
+  </td>
+  <td width=197 nowrap valign=top style='width:147.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>empty</span></p>
+  </td>
+  <td width=77 nowrap valign=top style='width:57.95pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=109 nowrap valign=top style='width:81.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=114 nowrap valign=top style='width:85.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+  <td width=66 nowrap valign=top style='width:49.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNoSpacing><span lang=EN-US style='font-size:12.0pt'>&nbsp;</span></p>
+
+<p class=MsoNoSpacing><span
+lang=EN-US style='font-size:12.0pt'>Table 2</span><span lang=EN-US
+style='font-size:12.0pt'> shows the bits in the “Vac status flags” word.</span></p>
+
+<p class=MsoCaption style='page-break-after:avoid'><a name="_Ref96090228"><span
+lang=EN-US>Table </span></a><span lang=EN-US>2</span><span lang=EN-US>: bits in
+the &quot;Vac status&quot; word</span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><b><span lang=EN-US style='font-size:10.0pt'>bit </span></b></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><b><span lang=EN-US style='font-size:10.0pt'>description</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>0</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>1</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 1 DC
+  mode</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>2</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 1 AC OK</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>3</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>4</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>5</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>6</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 2 DC
+  mode</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>7</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 2 AC OK</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>8</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>9</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>10</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>11</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 3 DC
+  mode</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>12</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>phase 3 AC OK</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>13</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>14</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>Not used</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing align=center style='text-align:center'><span
+  lang=EN-US style='font-size:10.0pt'>15</span></p>
+  </td>
+  <td width=142 nowrap valign=top style='width:106.3pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNoSpacing><span lang=EN-US style='font-size:10.0pt'>high voltage</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNoSpacing><span lang=EN-US style='font-size:12.0pt'>&nbsp;</span></p>
+
+<p class=MsoNoSpacing><span
+lang=EN-US style='font-size:12.0pt'>Table 3</span><span lang=EN-US
+style='font-size:12.0pt'> shows the state/value relationship for the PFC state
+machine bytes.</span></p>
+
+<p class=MsoNoSpacing><span lang=EN-US style='font-size:12.0pt'>&nbsp;</span></p>
+
+<p class=MsoCaption style='page-break-after:avoid'><a name="_Ref96090460"><span
+lang=EN-US>Table </span></a><span lang=EN-US>3</span><span lang=EN-US>:
+state/value relationship for PFC controller state word</span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='height:15.0pt'>
+  <td width=87 nowrap valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><b><span lang=EN-US style='font-size:10.0pt'>values</span></b></p>
+  </td>
+  <td width=205 nowrap valign=top style='width:153.8pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><b><span lang=EN-US style='font-size:10.0pt'>state</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=87 nowrap valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>1</span></p>
+  </td>
+  <td width=205 nowrap valign=top style='width:153.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>PCS_INIT</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=87 nowrap valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>2</span></p>
+  </td>
+  <td width=205 nowrap valign=top style='width:153.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>PCS_WAIT_IF_FAULT_ACTIVE</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=87 nowrap valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>4</span></p>
+  </td>
+  <td width=205 nowrap valign=top style='width:153.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>PCS_STANDBY</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=87 nowrap valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>8</span></p>
+  </td>
+  <td width=205 nowrap valign=top style='width:153.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>PCS_VACOK</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=87 nowrap valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>16</span></p>
+  </td>
+  <td width=205 nowrap valign=top style='width:153.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>PCS_RELAYON</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=87 nowrap valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>32</span></p>
+  </td>
+  <td width=205 nowrap valign=top style='width:153.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>PCS_DELAY_AFTER_RELAYON</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=87 nowrap valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>64</span></p>
+  </td>
+  <td width=205 nowrap valign=top style='width:153.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>PCS_START_CONTROL</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=87 nowrap valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>128</span></p>
+  </td>
+  <td width=205 nowrap valign=top style='width:153.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>PCS_SOFT_START</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=87 nowrap valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>256</span></p>
+  </td>
+  <td width=205 nowrap valign=top style='width:153.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>PCS_UP_AND_RUNNING</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=87 nowrap valign=top style='width:65.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>512</span></p>
+  </td>
+  <td width=205 nowrap valign=top style='width:153.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>PCS_STALL_DEBUG</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span
+lang=EN-US style='font-size:12.0pt;line-height:107%'>Table 4</span><span
+lang=EN-US style='font-size:12.0pt;line-height:107%'> shows the PFC status flag
+bit positions in the PFC status flags word.</span></p>
+
+<p class=MsoCaption style='page-break-after:avoid'><a name="_Ref96090957"><span
+lang=EN-US>Table </span></a><span lang=EN-US>4</span><span lang=EN-US>: bit
+positions for flags in the PFC status flags word</span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>bit </span></b></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>description</span></b></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>Display in PBV?</span></b></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>Notes</span></b></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>0</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Run</span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>1</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Stop</span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>2</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Fault</span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>3</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>OC phase 1</span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>4</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>OC phase 2</span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>5</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>OC phase 3</span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>6</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>OV Vout</span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>7</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>VACOK</span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>No</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>8</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>AC PFC, single phase</span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>This is a run mode</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>9</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>AC PFC, three phase</span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>This is a run mode</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>10</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>AC, avgcm, no vloop, single phase </span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>This is a run mode</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>11</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>DC, avgcm, no vloop, single phase </span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>This is a run mode</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>12</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Boost, single phase</span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>This is a run mode</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>13</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>AC, reverse avgcm, no vloop, single phase
+  </span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>This is a run mode</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>14</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>DC, reverse avgcm, no vloop, single phase
+  </span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>This is a run mode</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:15.0pt'>
+  <td width=47 nowrap valign=top style='width:35.2pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>15</span></p>
+  </td>
+  <td width=322 nowrap valign=top style='width:241.8pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>AC, PFC, single phase, interleaved</span></p>
+  </td>
+  <td width=129 nowrap valign=top style='width:97.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+  <td width=137 nowrap valign=top style='width:103.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>This is a run mode</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span
+lang=EN-US style='font-size:12.0pt;line-height:107%'>Table 5</span><span
+lang=EN-US style='font-size:12.0pt;line-height:107%'> shows the bit positions
+of the flags in the housekeeping status word.</span></p>
+
+<p class=MsoCaption style='page-break-after:avoid'><a name="_Ref96090966"><span
+lang=EN-US>Table </span></a><span lang=EN-US>5</span><span lang=EN-US>: bit
+position of flags in the housekeeping status word</span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><b><span lang=EN-US style='font-size:10.0pt'>bit</span></b></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>description</span></b></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><b><span lang=EN-US style='font-size:10.0pt'>Display in
+  PBV?</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>0</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>SiC card 1 5V OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>1</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>SiC card 2 5V OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>2</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>SiC card 3 5V OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>3</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>SiC card 4 5V OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>4</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>SiC card 1 comms OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>5</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>SiC card 2 comms OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>6</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>SiC card 3 comms OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>7</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>SiC card 4 comms OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>8</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Aux 5V OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>9</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Aux 12V OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>10</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Aux 24V OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>11</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Aux comms OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>12</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>SPI checksum OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=56 nowrap valign=top style='width:42.3pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>13</span></p>
+  </td>
+  <td width=253 nowrap valign=top style='width:189.7pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>SPI connection OK</span></p>
+  </td>
+  <td width=143 nowrap valign=top style='width:107.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;text-align:center;
+  line-height:normal'><span lang=EN-US style='font-size:10.0pt'>Yes</span></p>
+  </td>
+ </tr>
+</table>
+
+<h1><span lang=EN-US>Data from PC/Power Board Visualizer to dsPIC33CH</span></h1>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-18.0pt'><span
+lang=EN-US style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:12.0pt;line-height:107%'>A
+button on PBV is required to turn / off the PFC.</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-18.0pt'><span lang=EN-US
+style='font-size:12.0pt;line-height:107%;font-family:Symbol'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=EN-US style='font-size:12.0pt;line-height:107%'>A
+slider on PBV is required to control the output voltage setpoint.</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>CAN
+ID 0x203 is used for both.</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:12.0pt;line-height:107%'>8
+bytes are sent.</span></p>
+
+<h2><span lang=EN-US>Buttons</span></h2>
+
+<p class=MsoCaption style='page-break-after:avoid'><span lang=EN-US>Table </span><span lang=EN-US>6</span><span lang=EN-US>: data sent when certain buttons are
+activated</span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='height:20.0pt'>
+  <td width=64 nowrap valign=top style='width:48.0pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:20.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>Byte 1<br>
+  cmd</span></b></p>
+  </td>
+  <td width=64 nowrap valign=top style='width:48.0pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>Byte 2</span></b></p>
+  </td>
+  <td width=410 nowrap valign=top style='width:307.75pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>description</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=64 nowrap valign=top style='width:48.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>0x55</span></p>
+  </td>
+  <td width=64 nowrap valign=top style='width:48.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>0x00</span></p>
+  </td>
+  <td width=410 nowrap valign=top style='width:307.75pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Stop PFC</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=64 nowrap valign=top style='width:48.0pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>0x55</span></p>
+  </td>
+  <td width=64 nowrap valign=top style='width:48.0pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>0x01</span></p>
+  </td>
+  <td width=410 valign=top style='width:307.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Start PFC</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<h2><span lang=EN-US>Output Voltage Reference Slider</span></h2>
+
+<p class=MsoCaption style='page-break-after:avoid'><span lang=EN-US>Table </span><span lang=EN-US>7</span><span lang=EN-US>: data sent when Vout reference slider is
+activated</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr style='height:20.0pt'>
+  <td width=57 nowrap valign=top style='width:42.75pt;border:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:20.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>Byte 0<br>
+  cmd</span></b></p>
+  </td>
+  <td width=54 nowrap valign=top style='width:40.55pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>Byte 1</span></b></p>
+  </td>
+  <td width=68 valign=top style='width:51.15pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>Byte 2</span></b></p>
+  </td>
+  <td width=76 valign=top style='width:2.0cm;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>Byte 3</span></b></p>
+  </td>
+  <td width=397 nowrap valign=top style='width:297.65pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:20.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><b><span
+  lang=EN-US style='font-size:10.0pt'>description</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt'>
+  <td width=57 nowrap valign=top style='width:42.75pt;border:solid windowtext 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>0xEF</span></p>
+  </td>
+  <td width=54 nowrap valign=top style='width:40.55pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>0x00</span></p>
+  </td>
+  <td width=68 valign=top style='width:51.15pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Vout ref,<br>
+  high byte</span></p>
+  </td>
+  <td width=76 valign=top style='width:2.0cm;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US style='font-size:10.0pt'>Vout ref,<br>
+  low byte</span></p>
+  </td>
+  <td width=397 nowrap valign=top style='width:297.65pt;border-top:none;
+  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.0pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US>Set output voltage reference</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US>LV volt </span><span lang=EN-US style='font-family:Wingdings'>è</span><span
+  lang=EN-US> ADC scaling: 37.29842424</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;line-height:normal'><span
+  lang=EN-US>HV volt </span><span lang=EN-US style='font-family:Wingdings'>è</span><span
+  lang=EN-US> ADC scaling: 3.9424</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

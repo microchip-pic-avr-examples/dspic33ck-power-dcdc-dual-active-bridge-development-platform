@@ -1,7 +1,7 @@
 var searchData=
 [
   ['object_0',['Object',['../a00665.html#aec432521ca331df364eb6aa8a74422a2',1,'FAULT_SETTINGS_s']]],
-  ['offset_1',['offset',['../a00629.html#ac681806181c80437cfab37335f62ff39',1,'UART_MSG_RX_OBJ::offset'],['../a00633.html#ac681806181c80437cfab37335f62ff39',1,'UART_MSG_TX_OBJ::offset'],['../a00637.html#ae6e68acb116dc3b5f8a7354c7f7d4146',1,'SENSOR_OFFSET_CAL_s::Offset']]],
+  ['offset_1',['offset',['../a00629.html#ae6e68acb116dc3b5f8a7354c7f7d4146',1,'UART_MSG_RX_OBJ::Offset'],['../a00633.html#ae6e68acb116dc3b5f8a7354c7f7d4146',1,'UART_MSG_TX_OBJ::Offset'],['../a00637.html#ae6e68acb116dc3b5f8a7354c7f7d4146',1,'SENSOR_OFFSET_CAL_s::Offset']]],
   ['operationmodeget_2',['OperationModeGet',['../a00549.html#ad65d2428ff5e999742c448c5d46b7d1d',1,'CAN_INTERFACE']]],
   ['operationmodeset_3',['OperationModeSet',['../a00549.html#a32ec3b8ce5d102078c95d96c91fb0549',1,'CAN_INTERFACE']]],
   ['output_4',['Output',['../a00725.html#a255356ba374a77c95d307ba0bf811554',1,'CONTROLLER_s']]],

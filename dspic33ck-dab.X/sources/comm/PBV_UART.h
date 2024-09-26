@@ -20,7 +20,7 @@
  */
 
 /* 
- * @file    app_PBV_UART.h
+ * @file    PBV_UART.h
  * @author  M70027
  * @ingroup PBV_UART
  * @brief   Power Board Visualizer UART interface 

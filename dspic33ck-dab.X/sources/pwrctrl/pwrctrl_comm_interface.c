@@ -28,9 +28,9 @@
 
 #include "pwrctrl.h"
 
-extern AVERAGING_t VprimAveraging;
-extern AVERAGING_t VsecAveraging;
-extern AVERAGING_t IsecAveraging;
+extern AVERAGING_t vPrimAveraging;
+extern AVERAGING_t vSecAveraging;
+extern AVERAGING_t iSecAveraging;
 
 /*********************************************************************************
  * @ingroup pwrctrl-comm
@@ -262,7 +262,7 @@ uint16_t Dev_PwrCtrl_Get_SecPower(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAveraging_Vprim(void)
 {
-    return(VprimAveraging.AverageValue);
+    return(vPrimAveraging.AverageValue);
 }
 /*********************************************************************************
  * @ingroup pwrctrl-comm
@@ -271,7 +271,7 @@ uint16_t Dev_PwrCtrl_GetAveraging_Vprim(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAveraging_Vsec(void)
 {
-    return(VsecAveraging.AverageValue);
+    return(vSecAveraging.AverageValue);
 }
 
 /*********************************************************************************
@@ -281,5 +281,5 @@ uint16_t Dev_PwrCtrl_GetAveraging_Vsec(void)
  **********************************************************************************/
 uint16_t Dev_PwrCtrl_GetAveraging_Isec(void)
 {
-    return(IsecAveraging.AverageValue);
+    return(iSecAveraging.AverageValue);
 }

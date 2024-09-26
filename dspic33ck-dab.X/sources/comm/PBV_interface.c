@@ -125,13 +125,13 @@ void PBV_Change_from_Eight_to_Sixteen(uint8_t * eightPtr, uint16_t * sixteenPtr,
  *  initializes the PBV init, by linking the application object pointers from the application to 
  * CAN or UART data types
  **********************************************************************************/
-void App_PBV_Init(PBV_Datatype_TX_t * Board_To_PBV, PBV_Datatype_TX_t * Board_To_PBVAscii, PBV_Datatype_RX_t *PBV_To_Board)
+void App_PBV_Init(PBV_Datatype_TX_t * boardToPbv, PBV_Datatype_TX_t * boardToPpvAscii, PBV_Datatype_RX_t *pbvToBoard)
 {
-    appSystemToPbvPtr = Board_To_PBV;
-    appSystemToPbvAsciiPtr = Board_To_PBVAscii;
-    appPbvToSystemPtr = PBV_To_Board;
+    appSystemToPbvPtr = boardToPbv;
+    appSystemToPbvAsciiPtr = boardToPpvAscii;
+    appPbvToSystemPtr = pbvToBoard;
 
-    appPbvFuncs.init(appSystemToPbvPtr, appSystemToPbvAsciiPtr, PBV_To_Board);
+    appPbvFuncs.init(appSystemToPbvPtr, appSystemToPbvAsciiPtr, pbvToBoard);
 }
 
 /*********************************************************************************
