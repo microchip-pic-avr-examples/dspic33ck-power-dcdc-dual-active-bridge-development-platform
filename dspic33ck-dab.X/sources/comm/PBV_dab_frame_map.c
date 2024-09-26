@@ -52,7 +52,8 @@
 
 // command IDs, first data word in received package
 // use this to decide what action to take when data is received
-#define PBV_CMD_ID_DAB_ON_OFF           0xAAAA           ///< turn DAB on or off
+#define PBV_CMD_ID_DAB_ON               0x5501           ///< turn DAB on
+#define PBV_CMD_ID_DAB_OFF              0x5500           ///< turn DAB off
 #define PBV_CMD_ID_FREQ_CHANGE          0xBBBB           ///< change DAB switching frequency
 #define PBV_CMD_ID_FAN_SPEED            0xCCCC           ///< set fan speed 
 
@@ -259,20 +260,14 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
     uint16_t control_word = data[1];
     switch (cmd_id)
     {
-        case PBV_CMD_ID_DAB_ON_OFF: {
-            // turn DAB on or off
-            if (control_word < 2) {// should be 0 or 1
-            
-                bool enable = (bool)control_word;
-                PwrCtrl_SetEnable(enable);
-                
-                if(enable==false)
-                {    
-                    Dev_PwrCtrl_SetState(control_word);
-                }
-            }
-            break; 
-        }    
+        case PBV_CMD_ID_DAB_ON: {
+            PwrCtrl_SetEnable(true);
+            break;
+        }
+        case PBV_CMD_ID_DAB_OFF: {
+            PwrCtrl_SetEnable(false);
+            break;
+        } 
         case PBV_CMD_ID_FREQ_CHANGE: {
             // change target frequency
             if ((control_word <= MAX_PWM_PERIOD) && (control_word >= MIN_PWM_PERIOD)) {
