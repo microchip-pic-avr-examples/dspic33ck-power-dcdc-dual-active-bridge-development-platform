@@ -168,6 +168,11 @@ void Fault_Execute(void)
         dab.Status.bits.Running = 0;
     }
     
+    // Protection when Load is remove
+    if((dab.Data.ISenseSecondary == 0) && (dab.Data.VSecVoltage > dab.Properties.VSecReference)) {
+        Fault_Handler();
+    }
+    
     // Identify the fault that trips
     dab.Fault.FaultDetected = Fault_GetFlags();
 }
