@@ -198,7 +198,6 @@ struct POWER_CONTROL_s
     CONTROLLER_t        VLoop;  ///< structure for voltage controller data
     CONTROLLER_t        PLoop;  ///< structure for power controller data
     PWR_CTRL_CHARGE_STATE_t    PowerDirection;  ///< defines if the power converter is in charging or discharging mode   
-    uint16_t dbg;
 };
 typedef struct POWER_CONTROL_s POWER_CONTROL_t;
 
