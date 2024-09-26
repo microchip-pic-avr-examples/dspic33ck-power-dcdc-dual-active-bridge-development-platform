@@ -55,6 +55,18 @@ static __inline__ void DRV_Config_Custom_PWM(void)
     PWM_Swap_PWMxL_and_PWMxH(PWM_PRI_2, true);
     PWM_Swap_PWMxL_and_PWMxH(PWM_SEC_2, true);
     
+    // Fault mode is Latched mode
+    PWM_PCI_Fault_AcceptanceCriteria(PWM_PRI_1, PWM_PCI_ACCEPT_LATCHED);     
+    PWM_PCI_Fault_AcceptanceCriteria(PWM_SEC_1, PWM_PCI_ACCEPT_LATCHED);    
+    PWM_PCI_Fault_AcceptanceCriteria(PWM_PRI_2, PWM_PCI_ACCEPT_LATCHED);     
+    PWM_PCI_Fault_AcceptanceCriteria(PWM_SEC_2, PWM_PCI_ACCEPT_LATCHED);    
+    
+    // Stop PWMs straight away upon detection of a fault
+    PWM_PCI_Fault_TimetoTerminateAfterEvent(PWM_PRI_1, PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE);
+    PWM_PCI_Fault_TimetoTerminateAfterEvent(PWM_SEC_1, PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE);
+    PWM_PCI_Fault_TimetoTerminateAfterEvent(PWM_PRI_2, PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE);
+    PWM_PCI_Fault_TimetoTerminateAfterEvent(PWM_SEC_2, PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE);
+    
 }
 
 #endif	/* DRV_MCC_CONFIG_PWM_H */

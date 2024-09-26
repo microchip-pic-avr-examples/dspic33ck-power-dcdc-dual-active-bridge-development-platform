@@ -108,6 +108,11 @@ extern const struct CMP_INTERFACE CMP_IPRI_SC;
  * @brief    This macro defines the Custom Name for \ref CMP3_EventCallbackRegister API
  */
 #define CMP_IPRI_SC_EventCallbackRegister CMP3_EventCallbackRegister
+/**
+ * @ingroup  cmpdriver
+ * @brief    This macro defines the Custom Name for \ref CMP3_Tasks API
+ */
+#define CMP_IPRI_SC_Tasks CMP3_Tasks
 
 // Section: CMP3 Module APIs
 
@@ -197,6 +202,15 @@ void CMP3_EventCallbackRegister(void (*handler)(void));
  */
 void CMP3_EventCallback(void);
 
+/**
+ * @ingroup  cmpdriver
+ * @brief    The Task function can be called in the main application using the High Speed
+ *           Comparator, when interrupts are not used.  This would thus introduce the 
+ *           polling mode feature of the Analog Comparator.
+ * @param    none
+ * @return   none  
+ */
+void CMP3_Tasks(void);
 
 #endif //CMP3_H
 

@@ -60,7 +60,7 @@ const struct CMP_INTERFACE CMP_IPRI_SC = {
     .StatusGet = &CMP3_StatusGet,
     
     .EventCallbackRegister = &CMP3_EventCallbackRegister,
-    .Tasks = NULL,
+    .Tasks = &CMP3_Tasks,
     .cmp_dac_dc_interface = &dac3_dc_interface
 };
 
@@ -73,7 +73,7 @@ void CMP3_Initialize(void)
     DACCTRL2H = 0x8A; //SSTIME 138; 
     DACCTRL2L = 0x55; //TMODTIME 85; 
     DAC3CONH = 0x0; //TMCB 0; 
-    DAC3CONL = 0xA108; //HYSSEL None; HYSPOL Rising Edge; INSEL CMP3B; CMPPOL Non Inverted; FLTREN enabled; DACOEN disabled; CBE disabled; IRQM Rising edge detect; DACEN enabled; 
+    DAC3CONL = 0x8108; //HYSSEL None; HYSPOL Rising Edge; INSEL CMP3B; CMPPOL Non Inverted; FLTREN enabled; DACOEN disabled; CBE disabled; IRQM Interrupts are disabled; DACEN enabled; 
 
     //Slope Settings
     DAC3DATH = 0xF32; //DACDATH 3890; 
@@ -84,10 +84,6 @@ void CMP3_Initialize(void)
     
     CMP3_EventCallbackRegister(&CMP3_EventCallback);
     
-    // Clearing IF flag before enabling the interrupt.
-    IFS4bits.CMP3IF = 0;
-    // Enabling CMP3 interrupt.
-    IEC4bits.CMP3IE = 1;
     
     DACCTRL1Lbits.DACON = 1;
 }
@@ -96,8 +92,6 @@ void CMP3_Deinitialize(void)
 { 
     DACCTRL1Lbits.DACON = 0;
     
-    IFS4bits.CMP3IF = 0;
-    IEC4bits.CMP3IE = 0;
     
     // Comparator Register settings
     DACCTRL1L = 0x0;
@@ -157,16 +151,19 @@ void __attribute__ ((weak)) CMP3_EventCallback(void)
    
 } 
 
-void __attribute__ ( ( interrupt, no_auto_psv ) ) _CMP3Interrupt(void)
+void CMP3_Tasks(void)
 {
-    // CMP3 callback function 
-    if(NULL != CMP3_EventHandler)
+    if(IFS4bits.CMP3IF == 1)
     {
-        (*CMP3_EventHandler)();
-    }
+        // CMP3 callback function 
+        if(NULL != CMP3_EventHandler)
+        {
+            (*CMP3_EventHandler)();
+        }
     
-    // clear the CMP3 interrupt flag
-    IFS4bits.CMP3IF = 0;
+        // clear the CMP3 interrupt flag
+        IFS4bits.CMP3IF = 0;
+    }
 }
 
 /**

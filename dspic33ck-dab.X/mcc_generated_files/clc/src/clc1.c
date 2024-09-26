@@ -64,8 +64,8 @@ void CLC1_Initialize(void)
 {
     // Set the CLC1 to the options selected in the User Interface
 
-    // LCEN enabled; LCINTN disabled; LCPOL non_inverted; LCOUT Low; LCINTP disabled; LCMODE AND-OR; LCOE enabled; 
-    CLC1CONL = 0x8080;
+    // LCEN enabled; LCINTN disabled; LCPOL non_inverted; LCOUT Low; LCINTP disabled; LCMODE OR-XOR; LCOE enabled; 
+    CLC1CONL = 0x8081;
     // LCG1POL non_inverted; LCG2POL non_inverted; LCG3POL non_inverted; LCG4POL non_inverted; 
     CLC1CONH = 0x0;
     // LCD2S CMP1 output; LCD1S CLCINA I/O pin; LCD4S CMP3 output; LCD3S CLCINC I/O pin; 

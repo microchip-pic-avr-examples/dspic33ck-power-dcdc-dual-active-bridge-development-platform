@@ -1214,5 +1214,60 @@ inline static void PWM_Data_Update_Trigger(uint16_t pwmIndex, PWM_UPDTRG_t updat
     }
 }
 
+/*********************************************************************************
+ * @ingroup driver-layer-pwm
+ * @brief  Set PWM trigger mode
+ **********************************************************************************/
+enum PWM_LATCH_MODE_e
+{
+    PWM_SET_DOMINANT_MODE = 0,
+    PWM_RESET_DOMINANT_MODE = 1
+};
+typedef enum PWM_LATCH_MODE_e PWM_LATCH_MODE_t;
+
+/*********************************************************************************
+ * @ingroup driver-layer-pwm
+ * @brief   Set the latch mode of fault PCI
+ * @param   pwmIndex  PWM instance
+ * @param   latch  Pointer to a power control data object of type PWM_LATCH_MODE_t
+ * @return  void
+ * 
+ * @details This function configures the PWM instance latch mode for fault PCI. 
+ **********************************************************************************/
+inline static void PWM_Fault_LatchMode(uint16_t pwmIndex, PWM_LATCH_MODE_t latchMode)
+{
+    switch (pwmIndex)
+    {
+        case 1:
+            PG1FPCIHbits.LATMOD = latchMode;
+            break;
+        case 2:
+            PG1FPCIHbits.LATMOD = latchMode;
+            break;
+        case 3:
+            PG1FPCIHbits.LATMOD = latchMode;
+            break;
+        case 4:
+            PG1FPCIHbits.LATMOD = latchMode;
+            break;
+    #if (PWM_MAX_COUNT == 8)         
+        case 5:
+            PG1FPCIHbits.LATMOD = latchMode;
+            break;
+        case 6:
+            PG1FPCIHbits.LATMOD = latchMode;
+            break;
+        case 7:
+            PG1FPCIHbits.LATMOD = latchMode;
+            break;
+        case 8:
+            PG1FPCIHbits.LATMOD = latchMode;
+            break;   
+    #endif        
+        default:
+            break;
+    };
+}
+
 #endif	/* DRV_MCC_EXTENSION_PWM_H */
 

@@ -45,6 +45,7 @@
 void MCC_Custom_User_Config (void)
 {
     // Initialize PWM as re-triggerable for the cascaded PWM scheme
+    // and setup the PWM fault PCI for hardware fault
     DRV_Config_Custom_PWM();
     
 }

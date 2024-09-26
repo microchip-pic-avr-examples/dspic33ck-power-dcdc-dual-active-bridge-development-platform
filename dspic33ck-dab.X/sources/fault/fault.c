@@ -111,9 +111,6 @@ void Fault_Initialize(void)
     // Initialize short circuit fault protection with comparators
     Fault_EnableShortCircuitProtection();
 #endif 
-    // Hardware Fault Initialize
-    CMP1_EventCallbackRegister(&Fault_Handler);
-    CMP3_EventCallbackRegister(&Fault_Handler);
     
 }
 
@@ -155,9 +152,20 @@ void Fault_Execute(void)
     
     // Hardware short circuit
     if(CMP1_StatusGet() || CMP3_StatusGet()){
+        
+        // Drive the fault pin to Low when Fault trips
+        FAULT_SetLow();
+    
+        // Turn off PWM output
+        PwrCtrl_PWM_Disable();
+    
+        // Set fault bits
         dab.Fault.Object.ISenseSCP.FaultActive = 1;
         dab.Fault.Object.ISenseSCP.FaultLatch = 1;
         dab.Status.bits.FaultActive = 1;
+        
+        // Clear the running bit
+        dab.Status.bits.Running = 0;
     }
     
     // Identify the fault that trips
