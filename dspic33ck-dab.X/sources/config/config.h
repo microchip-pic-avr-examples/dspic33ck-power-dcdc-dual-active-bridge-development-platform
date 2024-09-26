@@ -166,12 +166,12 @@
  ******************************************************************************/
 #define DAC_DEBUG           false    ///< test values with PIM DAC output
 #define OPEN_LOOP_POTI      false    ///< test the code with Digital Power Development Board; runs in openloop using potentiometer
-#define OPEN_LOOP_PBV       true    ///< use Power Board visualizer to change the parameters in Open loop operation
+#define OPEN_LOOP_PBV       false    ///< use Power Board visualizer to change the parameters in Open loop operation
 
 #if(OPEN_LOOP_POTI || OPEN_LOOP_PBV)
 #define CURRENT_CALIBRATION             false  ///< Enable current calibration
 #else
-#define CURRENT_CALIBRATION             true  ///< Enable current calibration
+#define CURRENT_CALIBRATION             false  ///< Enable current calibration
 #endif
 #define VPRI_OPTOCOUPLER_POLARITY       false ///< false if not inverted; true if inverted 
 
@@ -185,7 +185,7 @@
 #define FAULT_IPRI_OC   false
 #define FAULT_VSEC_OV   false
 #define FAULT_PS_OTP    false
-#define FAULT_SHORT_CCT false
+#define FAULT_SHORT_CCT true
 #define FAULT_VRAIL_5V  false
 //------------------------------------------------------------------------------
 

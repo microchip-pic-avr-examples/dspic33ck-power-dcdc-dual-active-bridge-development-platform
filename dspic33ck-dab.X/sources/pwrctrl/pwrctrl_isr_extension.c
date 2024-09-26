@@ -144,7 +144,7 @@ void PwrCtrl_10KHzVPLoopPrepareData(void)
         
         #if(OPEN_LOOP_PBV == false)
         //Condition for control loop execution controlling the loop enable bit
-        if((dab.VLoop.Enable == false) && (VLoopInterleaveExec == true))
+        if((dab.VLoop.Enable == false) && (VLoopInterleaveExec == true) && (dab.Status.bits.Running == 1))
         #endif  
         {
             // Enable Vloop control
@@ -161,7 +161,7 @@ void PwrCtrl_10KHzVPLoopPrepareData(void)
         }
  
         #if(OPEN_LOOP_PBV == false)
-        else if((dab.PLoop.Enable == false) && (VLoopInterleaveExec == false))
+        else if((dab.PLoop.Enable == false) && (VLoopInterleaveExec == false) && (dab.Status.bits.Running == 1))
         #endif
         {
             // Enable PLoop control
@@ -186,6 +186,21 @@ void PwrCtrl_10KHzVPLoopPrepareData(void)
             dab.Data.SecPower = buf;
         
         }
+        
+        // If Power supply is not yet running, the averaging of
+        // primary voltage and secondary voltage continues to display in PBV
+        if(!dab.Status.bits.Running){
+            // Averaging of Primary Voltage
+            vPrimAveraging.AverageValue = (uint16_t)(__builtin_divud(vPrimAveraging.Accumulator, vPrimAveraging.Counter));
+            vPrimAveraging.Accumulator = 0;
+            vPrimAveraging.Counter = 0;
+            
+            // Averaging of Secondary Current
+            iSecAveraging.AverageValue = (uint16_t)(__builtin_divud(iSecAveraging.Accumulator, iSecAveraging.Counter));
+            iSecAveraging.Accumulator = 0;
+            iSecAveraging.Counter = 0;
+        }
+        
         cnt = 0;
     }
 }

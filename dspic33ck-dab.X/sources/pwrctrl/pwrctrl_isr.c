@@ -82,7 +82,7 @@ void ControlLoop_Interrupt_CallBack(void)
     #if(OPEN_LOOP_PBV == false)
  
     if(dab.Status.bits.Running == 1){ 
-        // Execute Power Converter Control Loop
+    // Execute Power Converter Control Loop
         PwrCtrl_ControlLoopExecute(); }
     
     // Measure Primary to Secondary phase in degrees
