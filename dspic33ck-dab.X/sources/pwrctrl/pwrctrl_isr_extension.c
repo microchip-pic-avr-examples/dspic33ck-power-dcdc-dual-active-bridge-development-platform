@@ -218,7 +218,8 @@ void PwrCtrl_ControlLoopExecute(void)
             dab.VLoop.Reference = dab.VLoop.Reference << 3;
 
             // Execute the Voltage Loop Control
-            SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
+            XFT_SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
+//            SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
                     dab.VLoop.Reference, &dab.VLoop.Output);
         
             // Reset the Vloop reference to its original scaling
@@ -260,14 +261,29 @@ void PwrCtrl_ControlLoopExecute(void)
         RefBuf =  (uint32_t)ILoopReference * (uint32_t)(dab.PLoop.Output & 0x7FFF);  
         ILoopReference = (int16_t)(RefBuf >> 15);    
          
-        XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback,   
-                ILoopReference, &dab.ILoop.Output);    
+//        XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback,   
+//                ILoopReference, &dab.ILoop.Output);    
 
+        // basic clamping in rising direction, in case of  Iloop or Vlopp overshoot during large load step. 
+        if( dab.Data.ISecAverageRectified >  dab.ILoop.Reference + 46) //1.5A * 31
+        {
+             XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 0, &dab.ILoop.Output); //force I ref to 0
+        }
+        else
+        if(VsecAveraging.AverageValue > (dab.VLoop.Reference + 65))// 16V delta
+        {    
+            XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 0, &dab.ILoop.Output);//force I ref to 0
+        }
+        else
+        {
+            XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, ILoopReference, &dab.ILoop.Output);   
+        }    
+        
+        
         // Control loop output copied to control phase
         dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle) * 
                 (uint32_t)dab.ILoop.Output) >> 15); //range 0..180
-        
-         dab.Pwm.ControlPhase += dab.Pwm.DeadTimeLow;
+        dab.Pwm.ControlPhase += dab.Pwm.DeadTimeLow;
         
         // Clamping value of control phase
         if(dab.Pwm.ControlPhase > (dab.Pwm.ControlDutyCycle - MIN_PHASE_SHIFTED_PULSE))
@@ -301,9 +317,16 @@ static void PwrCtrl_AdaptiveGainUpdate(void)
         if(DAB_PrimaryVoltage > AGC_MINIMUM_VIN_THRESHOLD)
             dab.ILoop.AgcFactor = (int16_t) (0x7FFF & 
                     __builtin_divud(AGC_DAB_FACTOR, DAB_PrimaryVoltage));
-        
         else // AGC is not active
             dab.ILoop.AgcFactor = 0x7FFF;
+        
+              
+         if(dab.ILoop.Reference >217)//  217  = 31adcval * 7A
+            dab.VLoop.AgcFactor = (int16_t) (0x7FFF & 
+                    __builtin_divud(7110656, dab.ILoop.Reference)); //217 <<15
+        else // AGC is not active
+            dab.VLoop.AgcFactor = 0x7FFF;
+
     }
     
     // Reserved for future Development

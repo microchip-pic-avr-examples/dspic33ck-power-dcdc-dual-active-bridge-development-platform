@@ -37,7 +37,7 @@
 //#define FIRMWARE_VERSION (uint32_t) 0x00010002 ///< from right to left:  digits 5-n: Major,  digits 3-4: Minor,  digits 0-2: Revision, 
 #define FIRMWARE_VERSION_MAJOR    (0x00)
 #define FIRMWARE_VERSION_MINOR    (0x01)
-#define FIRMWARE_VERSION_REVISION (0x0008)
+#define FIRMWARE_VERSION_REVISION (0x0009)
 #define FIRMWARE_VERSION (uint32_t)(FIRMWARE_VERSION_MAJOR << 24)+ (uint32_t)(FIRMWARE_VERSION_MINOR<<16) + (uint32_t)(FIRMWARE_VERSION_REVISION)
 /*********************************************************************************
  * @ingroup apps-layer-properties-public-defines
@@ -58,8 +58,8 @@
 //#define FIRMWARE_VERSION_STRING "00.01.0005" ///< 04.09.2024 period modulation of PWM. Allows regulation with minimizing RMS current amplitude in DAB transformer
 //#define FIRMWARE_VERSION_STRING "00.01.0006" ///< 05.09.2024 adaptive gain for I loop. Average V primary
 //#define FIRMWARE_VERSION_STRING "00.01.0007" ///< 06.09.2024 offset calib I sense at each power control start. Hig Voltage Start Stop. Minimum pulse width adjustment
-#define FIRMWARE_VERSION_STRING "00.01.0008" ///< 11.09.2024 code cleanup, stop button go to Initialize state, separate ISR functions in isr_extension 
-
+//#define FIRMWARE_VERSION_STRING "00.01.0008" ///< 11.09.2024 code cleanup, stop button go to Initialize state, separate ISR functions in isr_extension 
+#define FIRMWARE_VERSION_STRING "00.01.0009" ///< 26.09.2024 folder structure readjusted. Testing a basic I V clamping on rising edge.
 /*********************************************************************************
  * @ingroup apps-layer-properties-public-defines
  * @brief   Start screen string of second line showing firmware name

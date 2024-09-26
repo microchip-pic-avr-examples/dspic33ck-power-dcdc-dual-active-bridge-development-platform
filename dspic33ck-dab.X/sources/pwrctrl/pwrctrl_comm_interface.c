@@ -45,18 +45,6 @@ uint16_t PwrCtrl_GetPhase_P2SDegree(void)
 
 /*********************************************************************************
  * @ingroup pwrctrl-comm
- * @brief   API function to get some unit test debug purpose value. Do not use otherwise
- * @return  true Fault has been detected
- * @return  false Fault is not detected
- **********************************************************************************/
-uint16_t PwrCtrl_Get_DbgValue(void)
-{
-    dab.dbg=dab.Fault.FaultDetected;
-    return(dab.dbg);
-}
-
-/*********************************************************************************
- * @ingroup pwrctrl-comm
  * @brief   API function to set the power control State
  * @return  void
  **********************************************************************************/
