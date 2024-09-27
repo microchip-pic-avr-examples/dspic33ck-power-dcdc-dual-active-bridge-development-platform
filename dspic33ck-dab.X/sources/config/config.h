@@ -31,7 +31,9 @@
  * @ingroup special-options
  * @{
  ******************************************************************************/
-#define PERIOD_MODULATION_DEMO   false  ///< modulates the period; for further development
+#define PERIOD_MODULATION_DEMO   false  ///< Modulates the period; for further development
+#define DCDC400V_SYSTEM           true  ///< When true, operates the DAB with protection thresholds for 400V output
+#define DCDC800V_SYSTEM           false  ///< When true, operates the DAB with protection thresholds for 800V output
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
@@ -104,25 +106,51 @@
  * @ingroup primary-voltage-feedback
  * @{
  ******************************************************************************/
-#define VPRI_OV_THRES_TRIG_VOLTS            (float)700.0
-#define VPRI_OV_THRES_CLEAR_VOLTS           (float)600.0
+#if(DCDC400V_SYSTEM)
+    #define VPRI_OV_THRES_TRIG_VOLTS            (float)700.0
+    #define VPRI_OV_THRES_CLEAR_VOLTS           (float)600.0
+#elif(DCDC800V_SYSTEM)
+    #define VPRI_OV_THRES_TRIG_VOLTS            (float)900.0
+    #define VPRI_OV_THRES_CLEAR_VOLTS           (float)800.0
+#endif
 #define VPRI_OV_T_BLANK_TRIG_SEC            (float)  0.0
 #define VPRI_OV_T_BLANK_CLEAR_SEC           (float)  0.0
 #define VPRI_OV_TICK_SEC                    (T_ADC_SAMPLE_SECS)
+
+#if(DCDC400V_SYSTEM)
+    #define VPRI_UV_THRES_TRIG_VOLTS            (float)300.0
+    #define VPRI_UV_THRES_CLEAR_VOLTS           (float)200.0
+#elif(DCDC800V_SYSTEM)
+    #define VPRI_UV_THRES_TRIG_VOLTS            (float)450.0
+    #define VPRI_UV_THRES_CLEAR_VOLTS           (float)300.0
+#endif
+#define VPRI_UV_T_BLANK_TRIG_SEC            (float)  0.0
+#define VPRI_UV_T_BLANK_CLEAR_SEC           (float)  0.0
+#define VPRI_UV_TICK_SEC                    (T_ADC_SAMPLE_SECS)
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
  * @ingroup secondary-voltage-feedback
  * @{
  ******************************************************************************/
-#define VSEC_OV_THRES_TRIG_VOLTS            (float)490.0
+#if(DCDC400V_SYSTEM)
+#define VSEC_OV_THRES_TRIG_VOLTS            (float)500.0
 #define VSEC_OV_THRES_CLEAR_VOLTS           (float) 20.0
+#elif(DCDC800V_SYSTEM)
+#define VSEC_OV_THRES_TRIG_VOLTS            (float)950.0
+#define VSEC_OV_THRES_CLEAR_VOLTS           (float) 20.0
+#endif
 #define VSEC_OV_T_BLANK_TRIG_SEC            (float)  1.0e-3
 #define VSEC_OV_T_BLANK_CLEAR_SEC           (float) 10.0e-3
 #define VSEC_OV_TICK_SEC                    (T_ADC_SAMPLE_SECS)
 
+#if(DCDC400V_SYSTEM)
 #define VSEC_UV_THRES_TRIG_VOLTS            (float)100.0
 #define VSEC_UV_THRES_CLEAR_VOLTS           (float) 50.0
+#elif(DCDC800V_SYSTEM)
+#define VSEC_UV_THRES_TRIG_VOLTS            (float)550.0
+#define VSEC_UV_THRES_CLEAR_VOLTS           (float) 50.0
+#endif
 #define VSEC_UV_T_BLANK_TRIG_SEC            (float)  0.0
 #define VSEC_UV_T_BLANK_CLEAR_SEC           (float)  0.0
 #define VSEC_UV_TICK_SEC                    (T_ADC_SAMPLE_SECS)
@@ -184,6 +212,7 @@
 // fault disables (for debug only)
 //------------------------------------------------------------------------------
 #define FAULT_VPRI_OV   true
+#define FAULT_VPRI_UV   true
 #define FAULT_ISEC_OC   true
 #define FAULT_IPRI_OC   true
 #define FAULT_VSEC_OV   true

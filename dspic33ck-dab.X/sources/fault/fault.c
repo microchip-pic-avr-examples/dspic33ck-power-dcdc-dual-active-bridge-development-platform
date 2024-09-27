@@ -97,8 +97,16 @@ void Fault_Initialize(void)
     FAULT_Init(&dab.Fault.Object.VPrimaryOVP, VPRI_OV_THRES_TRIG, 
             VPRI_OV_THRES_CLEAR, VPRI_OV_T_BLANK_TRIG, VPRI_OV_T_BLANK_CLEAR);   
     
+    // Initialize Primary Over Voltage Protection
+    FAULT_Init(&dab.Fault.Object.VPrimaryUVP, VPRI_OV_THRES_TRIG, 
+            VPRI_OV_THRES_CLEAR, VPRI_OV_T_BLANK_TRIG, VPRI_OV_T_BLANK_CLEAR);   
+    
     // Initialize Secondary Over Voltage Protection
     FAULT_Init(&dab.Fault.Object.VSecondaryOVP, VSEC_OV_THRES_TRIG, 
+            VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
+    
+    // Initialize Secondary Over Voltage Protection
+    FAULT_Init(&dab.Fault.Object.VSecondaryUVP, VSEC_OV_THRES_TRIG, 
             VSEC_OV_THRES_CLEAR, VSEC_OV_T_BLANK_TRIG, VSEC_OV_T_BLANK_CLEAR);
     
     // Initialize 5V Rail instability Protection
@@ -148,6 +156,11 @@ void Fault_Execute(void)
     #endif  
 
     // primary over voltage fault handler
+    #if (FAULT_VPRI_UV)      
+    FAULT_CheckMin(&dab.Fault.Object.VPrimaryUVP, dab.Data.VPriVoltage, &Fault_Handler);
+    #endif  
+
+    // primary over voltage fault handler
     #if (FAULT_VRAIL_5V)                
     FAULT_CheckMin(&dab.Fault.Object.VRail_5V, dab.Data.VRail_5V, &Fault_Handler);
     #endif  
@@ -155,19 +168,12 @@ void Fault_Execute(void)
     // Hardware short circuit
     if(CMP1_StatusGet() || CMP3_StatusGet()){
         
-        // Drive the fault pin to Low when Fault trips
-        FAULT_SetLow();
-    
-        // Turn off PWM output
-        PwrCtrl_PWM_Disable();
-    
+        Fault_Handler();
+        
         // Set fault bits
         dab.Fault.Object.ISenseSCP.FaultActive = 1;
         dab.Fault.Object.ISenseSCP.FaultLatch = 1;
-        dab.Status.bits.FaultActive = 1;
-        
-        // Clear the running bit
-        dab.Status.bits.Running = 0;
+
     }
     
     #if(LOAD_DISCONNECT)
@@ -245,14 +251,15 @@ static void Fault_EnableShortCircuitProtection(void)
 
 /*******************************************************************************
  * @ingroup fault
- * @brief   Fault evaluation for Temperature
+ * @brief   Fault evaluation for Temperature and other slow fault detection 
+ *  executed every 100ms
  * @return void
  * 
  * @details This function checks if the board temperature is within the nominal
- *  temperature range. When temperature exceeds the limit, the power control
- *  can trip or perform temperature derating. 
+ *  operating range. When value exceeds the limit, the power control
+ *  can trip or perform temperature derating for temperature fault. 
  *********************************************************************************/
-void Fault_Temp_100ms(void) 
+void Fault_Execute_100ms(void) 
 {
     Dev_Temp_Get_ADC_Sample();
     

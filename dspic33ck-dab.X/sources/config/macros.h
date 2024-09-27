@@ -145,6 +145,12 @@
 #define VPRI_OV_T_BLANK_TRIG                ((uint16_t)(_rnd(VPRI_OV_T_BLANK_TRIG_SEC / VSEC_OV_TICK_SEC))) 
 #define VPRI_OV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VPRI_OV_T_BLANK_CLEAR_SEC / VSEC_OV_TICK_SEC))) 
 
+#define VPRI_UV_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(VPRI_UV_THRES_TRIG_VOLTS,VPRI_SNS_GAIN,VPRI_SNS_OFS))
+#define VPRI_UV_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(VPRI_UV_THRES_CLEAR_VOLTS,VPRI_SNS_GAIN,VPRI_SNS_OFS))
+#define VPRI_UV_T_BLANK_TRIG                ((uint16_t)(_rnd(VPRI_UV_T_BLANK_TRIG_SEC / VSEC_UV_TICK_SEC))) 
+#define VPRI_UV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VPRI_UV_T_BLANK_CLEAR_SEC / VSEC_UV_TICK_SEC))) 
+
+
 #define VPRI_SCALER                         10
 #define VPRI_FACTOR                         (uint16_t)((1 / VPRI_VOLTAGE_GAIN) * VPRI_SCALER) 
 

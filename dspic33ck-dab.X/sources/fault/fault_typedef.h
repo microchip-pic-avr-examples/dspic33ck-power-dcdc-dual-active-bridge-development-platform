@@ -43,7 +43,9 @@ struct FAULT_s
     FAULT_OBJ_T IPrimaryOCP;        ///< Fault object for Primary over current protection
     FAULT_OBJ_T ISecondaryOCP;      ///< Fault object for Secondary over current protection
     FAULT_OBJ_T VPrimaryOVP;        ///< Fault object for Primary over voltage protection
+    FAULT_OBJ_T VPrimaryUVP;        ///< Fault object for Primary under voltage protection
     FAULT_OBJ_T VSecondaryOVP;      ///< Fault object for Secondary over voltage protection
+    FAULT_OBJ_T VSecondaryUVP;      ///< Fault object for Secondary under voltage protection
     FAULT_OBJ_T ISenseSCP;          ///< Fault object for Short circuit protection
     FAULT_OBJ_T PowerSupplyOTP;     ///< Fault object for Power Supply Temperature
     FAULT_OBJ_T VRail_5V;            ///< Fault object for 5V rail 

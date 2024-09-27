@@ -51,7 +51,7 @@ void Fault_Execute(void);
 void Dev_Fault_ClearHardwareFaults(void);
 void Fault_Reset(void);
 void Fault_Handler(void);
-void Fault_Temp_100ms(void); 
+void Fault_Execute_100ms(void); 
 
 #endif	/* DRV_PWRCTL_FAULT_H */
 
