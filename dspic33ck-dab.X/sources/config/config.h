@@ -128,6 +128,7 @@
 #define VSEC_UV_TICK_SEC                    (T_ADC_SAMPLE_SECS)
 
 #define VSEC_LOAD_STEP_CLAMPING_VOLTS       (float) 16
+#define VPRIM_LOAD_STEP_CLAMPING_VOLTS       (float) 16
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************

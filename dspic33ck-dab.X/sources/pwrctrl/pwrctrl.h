@@ -15,6 +15,9 @@
 #include "pwrctrl_pwm.h"
 
 extern POWER_CONTROL_t dab;
+extern AVERAGING_t vPrimAveraging;
+extern AVERAGING_t vSecAveraging;
+extern AVERAGING_t iSecAveraging;
 
 void PwrCtrl_Initialize(void);
 void PwrCtrl_Execute(void);

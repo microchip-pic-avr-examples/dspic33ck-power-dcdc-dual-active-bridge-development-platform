@@ -28,9 +28,7 @@
 
 #include "pwrctrl.h"
 
-extern AVERAGING_t vPrimAveraging;
-extern AVERAGING_t vSecAveraging;
-extern AVERAGING_t iSecAveraging;
+
 
 /*********************************************************************************
  * @ingroup pwrctrl-comm

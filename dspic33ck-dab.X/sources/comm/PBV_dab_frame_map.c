@@ -266,6 +266,7 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
         }
         case PBV_CMD_ID_DAB_OFF: {
             PwrCtrl_SetEnable(false);
+            Dev_PwrCtrl_SetState(0);
             break;
         } 
         case PBV_CMD_ID_FREQ_CHANGE: {
