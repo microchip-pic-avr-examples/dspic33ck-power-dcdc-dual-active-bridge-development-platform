@@ -134,6 +134,7 @@
 #define VSEC_UV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VSEC_UV_T_BLANK_CLEAR_SEC / VSEC_UV_TICK_SEC)))    
 
 #define VSEC_LOAD_STEP_CLAMP                (UNITS_FROM_ENG_TO_ADC(VSEC_LOAD_STEP_CLAMPING_VOLTS,VSEC_SNS_GAIN,0.0))
+#define VPRIM_LOAD_STEP_CLAMP                (UNITS_FROM_ENG_TO_ADC( VPRIM_LOAD_STEP_CLAMPING_VOLTS,VPRI_SNS_GAIN,0.0))
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************

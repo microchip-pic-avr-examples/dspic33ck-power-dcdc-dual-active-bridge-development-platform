@@ -51,7 +51,7 @@
  **********************************************************************************/
 #define FIRMWARE_VERSION_MAJOR    (0x00)
 #define FIRMWARE_VERSION_MINOR    (0x01)
-#define FIRMWARE_VERSION_REVISION (0x0010)
+#define FIRMWARE_VERSION_REVISION (0x0011)
 #define FIRMWARE_VERSION (uint32_t)(FIRMWARE_VERSION_MAJOR << 24)+ (uint32_t)(FIRMWARE_VERSION_MINOR<<16) + (uint32_t)(FIRMWARE_VERSION_REVISION)
 /*********************************************************************************
  * @ingroup apps-layer-properties-public-defines
@@ -74,8 +74,8 @@
 //#define FIRMWARE_VERSION_STRING "00.01.0007" ///< 06.09.2024 offset calib I sense at each power control start. Hig Voltage Start Stop. Minimum pulse width adjustment
 //#define FIRMWARE_VERSION_STRING "00.01.0008" ///< 11.09.2024 code cleanup, stop button go to Initialize state, separate ISR functions in isr_extension 
 //#define FIRMWARE_VERSION_STRING "00.01.0009" ///< 26.09.2024 folder structure readjusted. Testing a basic I V clamping on rising edge.
-#define FIRMWARE_VERSION_STRING "00.01.0010" ///< 26.09.2024 final code version for initial release.
-
+//#define FIRMWARE_VERSION_STRING "00.01.0010" ///< 26.09.2024 final code version for initial release.
+#define FIRMWARE_VERSION_STRING "00.01.0011" ///< 27.09.2024 Fault handling fix. Open circuit detection on load side.
 /*********************************************************************************
  * @ingroup apps-layer-properties-public-defines
  * @brief   Start screen string of second line showing firmware name
