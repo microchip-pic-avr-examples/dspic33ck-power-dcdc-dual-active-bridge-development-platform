@@ -1282,12 +1282,12 @@ typedef enum PWM_FAULT_DATA_e PWM_FAULT_DATA_t;
 
 /*********************************************************************************
  * @ingroup driver-layer-pwm
- * @brief   Set the latch mode of fault PCI
+ * @brief   Set the data mode of fault PCI
  * @param   pwmIndex  PWM instance
- * @param   latch  Pointer to a power control data object of type PWM_LATCH_MODE_t
+ * @param   latch  Pointer to a power control data object of type PWM_FAULT_DATA_t
  * @return  void
  * 
- * @details This function configures the PWM instance latch mode for fault PCI. 
+ * @details This function configures the PWM instance data mode for fault PCI. 
  **********************************************************************************/
 inline static void PWM_Fault_DataMode(uint16_t pwmIndex, PWM_FAULT_DATA_t faultDataMode)
 {
