@@ -170,12 +170,14 @@ void Fault_Execute(void)
         dab.Status.bits.Running = 0;
     }
     
+    #if(LOAD_DISCONNECT)
     // Protection when Load is remove
     if((dab.Data.ISenseSecondary == 0) && (dab.Data.VSecVoltage > dab.Properties.VSecReference)) {
         loadDisconnect = true;
         Fault_Handler();
     }
-    
+    #endif
+
     // Identify the fault that trips
     dab.Fault.FaultDetected = Fault_GetFlags();
 }
