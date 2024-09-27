@@ -212,7 +212,7 @@
 // fault disables (for debug only)
 //------------------------------------------------------------------------------
 #define FAULT_VPRI_OV   true
-#define FAULT_VPRI_UV   true
+#define FAULT_VPRI_UV   false
 #define FAULT_ISEC_OC   true
 #define FAULT_IPRI_OC   true
 #define FAULT_VSEC_OV   true
