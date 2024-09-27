@@ -211,6 +211,7 @@
 
 //------------------------------------------------------------------------------
 // fault disables (for debug only)
+// during debug mode, Current calibration needs to be set to false
 //------------------------------------------------------------------------------
 #define FAULT_VPRI_OV   true
 #define FAULT_VPRI_UV   false
@@ -220,6 +221,7 @@
 #define FAULT_PS_OTP    true
 #define FAULT_SHORT_CCT true
 #define FAULT_VRAIL_5V  true
+#define LOAD_DISCONNECT true
 //------------------------------------------------------------------------------
 
 #endif	/* CONFIG_H */

@@ -15,6 +15,10 @@ var a00503 =
       [ "PWM_EVENT_SOURCE_ADC_TRIG2", "a00503.html#ggabe6e603c1cc484cb6d89e8ee62843c1aa96cf7ab689254e451c2d602b0bfe82b4", null ],
       [ "PWM_EVENT_SOURCE_HR_ERROR_EVENT", "a00503.html#ggabe6e603c1cc484cb6d89e8ee62843c1aac01876277ba5a263b3cba74cb9df18f9", null ]
     ] ],
+    [ "PWM_FAULT_DATA_e", "a00503.html#ga75195cbe78445ec1b19dcdf62f17cc0d", [
+      [ "PWM_FAULT_EVENT_PWMH", "a00503.html#gga75195cbe78445ec1b19dcdf62f17cc0da5c022639dbef3bc715cbd6037ae7fc40", null ],
+      [ "PWM_FAULT_EVENT_PWML", "a00503.html#gga75195cbe78445ec1b19dcdf62f17cc0da1011f5d47718e497101be6499bbcf3a9", null ]
+    ] ],
     [ "PWM_LATCH_MODE_e", "a00503.html#ga570d0ed080f3f351d98807804b16505b", [
       [ "PWM_SET_DOMINANT_MODE", "a00503.html#gga570d0ed080f3f351d98807804b16505baacd63d6bd39e33ee58d86ebe54f9e992", null ],
       [ "PWM_RESET_DOMINANT_MODE", "a00503.html#gga570d0ed080f3f351d98807804b16505ba4c345786fc281dc224635f0bf08ff856", null ]
@@ -255,6 +259,7 @@ var a00503 =
     [ "PWM_Data_Update_Mode", "a00503.html#ga0f7a8e0588227a2a6e796a9386b16b96", null ],
     [ "PWM_Data_Update_Trigger", "a00503.html#gaa64683342142d7cbd8c6f3ab696ef606", null ],
     [ "PWM_EVENTA_Configure", "a00503.html#ga49a1745bb548f5687c7bb28d96610fa4", null ],
+    [ "PWM_Fault_DataMode", "a00503.html#gaaf5d1e32e8b272aa4785219fa041b394", null ],
     [ "PWM_Fault_LatchMode", "a00503.html#ga3c5b3a29c117bbadc07cbe5e6898d10f", null ],
     [ "PWM_PCI_Fault_AcceptanceCriteria", "a00503.html#ga30d00d0393fc5b7bef92269fa3662a8f", null ],
     [ "PWM_PCI_Fault_AcceptanceQualiferInvert", "a00503.html#gad5a761c41ee2484186cf1c56c684a980", null ],

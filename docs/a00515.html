@@ -185,9 +185,9 @@ Functions</h2></td></tr>
 <tr class="memitem:gaa8479905c2a8b34126d4fe56c1882b1b" id="r_gaa8479905c2a8b34126d4fe56c1882b1b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00515.html#gaa8479905c2a8b34126d4fe56c1882b1b">Fault_EnableShortCircuitProtection</a> (void)</td></tr>
 <tr class="memdesc:gaa8479905c2a8b34126d4fe56c1882b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable Short circuit hardware protection.  <br /></td></tr>
 <tr class="separator:gaa8479905c2a8b34126d4fe56c1882b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5ba282b74826532870235580973f788e" id="r_ga5ba282b74826532870235580973f788e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00515.html#ga5ba282b74826532870235580973f788e">Fault_Temp_100ms</a> (void)</td></tr>
-<tr class="memdesc:ga5ba282b74826532870235580973f788e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault evaluation for Temperature.  <br /></td></tr>
-<tr class="separator:ga5ba282b74826532870235580973f788e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35608d94d8d76de809bb7588a325abc9" id="r_ga35608d94d8d76de809bb7588a325abc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00515.html#ga35608d94d8d76de809bb7588a325abc9">Fault_Execute_100ms</a> (void)</td></tr>
+<tr class="memdesc:ga35608d94d8d76de809bb7588a325abc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault evaluation for Temperature and other slow fault detection executed every 100ms.  <br /></td></tr>
+<tr class="separator:ga35608d94d8d76de809bb7588a325abc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>This document covers the fault initialization, the fault execute function, and the fault handler. </p>
@@ -219,7 +219,7 @@ Functions</h2></td></tr>
 <p>This function setup the short circuit protection threshold and turns on the DAC (Digital-to-Analog) module. This hardware protection use Comparator DACs to detect short circuit. <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="a00350_source.html#l00228">228</a> of file <a class="el" href="a00350_source.html">fault.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00350_source.html#l00253">253</a> of file <a class="el" href="a00350_source.html">fault.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -248,13 +248,13 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This function evaluates if any of the fault objects has been tripped. When fault detection occurs, the power converter will shutdown thus turn-off the power converter. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00350_source.html#l00128">128</a> of file <a class="el" href="a00350_source.html">fault.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00350_source.html#l00136">136</a> of file <a class="el" href="a00350_source.html">fault.c</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00515_gacd1ca209275dae0bc2388ac954858d83_cgraph.svg" width="100%" height="575"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00515_gacd1ca209275dae0bc2388ac954858d83_cgraph.svg" width="100%" height="556"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
@@ -262,6 +262,42 @@ Functions</h2></td></tr>
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="a00515_gacd1ca209275dae0bc2388ac954858d83_icgraph.svg" width="308" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga35608d94d8d76de809bb7588a325abc9" name="ga35608d94d8d76de809bb7588a325abc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga35608d94d8d76de809bb7588a325abc9">&#9670;&#160;</a></span>Fault_Execute_100ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Fault_Execute_100ms </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function checks if the board temperature is within the nominal operating range. When value exceeds the limit, the power control can trip or perform temperature derating for temperature fault. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00350_source.html#l00279">279</a> of file <a class="el" href="a00350_source.html">fault.c</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00515_ga35608d94d8d76de809bb7588a325abc9_cgraph.svg" width="100%" height="442"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00515_ga35608d94d8d76de809bb7588a325abc9_icgraph.svg" width="312" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -286,19 +322,19 @@ Functions</h2></td></tr>
  </p>
 
 <p class="definition">Definition at line <a class="el" href="a00350_source.html#l00062">62</a> of file <a class="el" href="a00350_source.html">fault.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="a00515_gaf27f2f24932cec222273df148f8765cb_cgraph.svg" width="562" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00515_gaf27f2f24932cec222273df148f8765cb_icgraph.svg" width="488" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00515_gaf27f2f24932cec222273df148f8765cb_icgraph.svg" width="504" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -322,11 +358,11 @@ Functions</h2></td></tr>
 <p>This function initializes the fault objects following each respective fault thresholds. </p>
 
 <p class="definition">Definition at line <a class="el" href="a00350_source.html#l00086">86</a> of file <a class="el" href="a00350_source.html">fault.c</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="a00515_gaaa5a7a6dc7ce982dec4f07edcd73e874_cgraph.svg" width="328" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -350,49 +386,13 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This function clears the fault status bits for Fault Active and Fault Latched. A fault pin is also drive to high to allow PWM signal drive. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00350_source.html#l00192">192</a> of file <a class="el" href="a00350_source.html">fault.c</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00515_ga8ed0fee0d3aff71d49470aab1728a6ae_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ga5ba282b74826532870235580973f788e" name="ga5ba282b74826532870235580973f788e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5ba282b74826532870235580973f788e">&#9670;&#160;</a></span>Fault_Temp_100ms()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Fault_Temp_100ms </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function checks if the board temperature is within the nominal temperature range. When temperature exceeds the limit, the power control can trip or perform temperature derating. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00350_source.html#l00253">253</a> of file <a class="el" href="a00350_source.html">fault.c</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00515_ga5ba282b74826532870235580973f788e_cgraph.svg" width="100%" height="442"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00350_source.html#l00217">217</a> of file <a class="el" href="a00350_source.html">fault.c</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00515_ga5ba282b74826532870235580973f788e_icgraph.svg" width="296" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00515_ga8ed0fee0d3aff71d49470aab1728a6ae_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

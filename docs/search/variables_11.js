@@ -18,7 +18,7 @@ var searchData=
   ['specialeventprimaryinterruptenable_15',['SpecialEventPrimaryInterruptEnable',['../a00597.html#a8bda3cd3a30e39f06177561aafc79e0f',1,'PWM_HS_INTERFACE']]],
   ['specialeventtriggerinterruptflagclear_16',['SpecialEventTriggerInterruptFlagClear',['../a00597.html#abf6e2a8bb48e9d9b6e1ffc09d9dde688',1,'PWM_HS_INTERFACE']]],
   ['start_17',['Start',['../a00601.html#a758d4ba329d806525e4a916f4683cd98',1,'TIMER_INTERFACE']]],
-  ['state_18',['state',['../a00733.html#a8b22029ea33e1bafe7050317294309c2',1,'POWER_CONTROL_s::State'],['../a00585.html#ab225b5a567ae019f7ef3891f51bf94e9',1,'CRC_OBJ::state']]],
+  ['state_18',['state',['../a00585.html#ab225b5a567ae019f7ef3891f51bf94e9',1,'CRC_OBJ::state'],['../a00733.html#a8b22029ea33e1bafe7050317294309c2',1,'POWER_CONTROL_s::State']]],
   ['status_19',['status',['../a00733.html#ae5b4ae59c620ed360f0cb1c66ea0cd4e',1,'POWER_CONTROL_s::Status'],['../a00230.html#a64efe43f4fb2f2da8fdadf1440801df1',1,'status:&#160;uart1.c']]],
   ['statusget_20',['StatusGet',['../a00577.html#a24f27219b70a98575c30c84585a0456c',1,'CMP_INTERFACE']]],
   ['stepsize_21',['StepSize',['../a00721.html#accf24954a61bfc0ab7ca1768da52625a',1,'START_UP_RAMP_s']]],

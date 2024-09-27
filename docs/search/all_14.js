@@ -74,7 +74,7 @@ var searchData=
   ['specialeventtriggerinterruptflagclear_71',['SpecialEventTriggerInterruptFlagClear',['../a00597.html#abf6e2a8bb48e9d9b6e1ffc09d9dde688',1,'PWM_HS_INTERFACE']]],
   ['start_72',['Start',['../a00601.html#a758d4ba329d806525e4a916f4683cd98',1,'TIMER_INTERFACE']]],
   ['start_5fup_5framp_5fs_73',['START_UP_RAMP_s',['../a00721.html',1,'']]],
-  ['state_74',['state',['../a00585.html#ab225b5a567ae019f7ef3891f51bf94e9',1,'CRC_OBJ::state'],['../a00733.html#a8b22029ea33e1bafe7050317294309c2',1,'POWER_CONTROL_s::State']]],
+  ['state_74',['state',['../a00733.html#a8b22029ea33e1bafe7050317294309c2',1,'POWER_CONTROL_s::State'],['../a00585.html#ab225b5a567ae019f7ef3891f51bf94e9',1,'CRC_OBJ::state']]],
   ['state_20machine_75',['state machine',['../a00742.html#autotoc_md15',1,'Converter State Machine'],['../a00509.html',1,'State Machine']]],
   ['status_76',['status',['../a00230.html#a64efe43f4fb2f2da8fdadf1440801df1',1,'status:&#160;uart1.c'],['../a00733.html#ae5b4ae59c620ed360f0cb1c66ea0cd4e',1,'POWER_CONTROL_s::Status']]],
   ['status_5fflags_5fs_77',['STATUS_FLAGS_s',['../a00709.html',1,'']]],

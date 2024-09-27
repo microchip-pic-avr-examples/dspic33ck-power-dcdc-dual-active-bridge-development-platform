@@ -177,13 +177,6 @@ void Fault_Execute(void)
     }
     
     #if(LOAD_DISCONNECT)
-    // Protection when Load is remove
-    if((dab.Data.ISenseSecondary == 0) && (dab.Data.VSecVoltage > dab.Properties.VSecReference)) {
-        loadDisconnect = true;
-        Fault_Handler();
-    }
-    #endif
-
     // Protection when Load is removed by accident. 
     //DAB does not sink power in this modulation. Voltage builds up on output.
     if(dab.PowerDirection==PWR_CTRL_CHARGING)    
@@ -206,7 +199,8 @@ void Fault_Execute(void)
             Fault_Handler();
         } 
     }   
-    
+    #endif
+
     // Identify the fault that trips
     dab.Fault.FaultDetected = Fault_GetFlags();
 }

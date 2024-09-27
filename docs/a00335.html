@@ -202,6 +202,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a61085d045e57ad748837ab70ba517d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8094057dd6a1ba4f444db98f9e166212" id="r_a8094057dd6a1ba4f444db98f9e166212"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00503.html#ga570d0ed080f3f351d98807804b16505b">PWM_LATCH_MODE_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00335.html#a8094057dd6a1ba4f444db98f9e166212">PWM_LATCH_MODE_t</a></td></tr>
 <tr class="separator:a8094057dd6a1ba4f444db98f9e166212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88427135dac5d6391152bd5262e488e6" id="r_a88427135dac5d6391152bd5262e488e6"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00503.html#ga75195cbe78445ec1b19dcdf62f17cc0d">PWM_FAULT_DATA_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00335.html#a88427135dac5d6391152bd5262e488e6">PWM_FAULT_DATA_t</a></td></tr>
+<tr class="separator:a88427135dac5d6391152bd5262e488e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -492,6 +494,11 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:ga570d0ed080f3f351d98807804b16505b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM trigger mode.  <a href="a00503.html#ga570d0ed080f3f351d98807804b16505b">More...</a><br /></td></tr>
 <tr class="separator:ga570d0ed080f3f351d98807804b16505b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga75195cbe78445ec1b19dcdf62f17cc0d" id="r_ga75195cbe78445ec1b19dcdf62f17cc0d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00503.html#ga75195cbe78445ec1b19dcdf62f17cc0d">PWM_FAULT_DATA_e</a> { <a class="el" href="a00503.html#gga75195cbe78445ec1b19dcdf62f17cc0da5c022639dbef3bc715cbd6037ae7fc40">PWM_FAULT_EVENT_PWMH</a> = 0
+, <a class="el" href="a00503.html#gga75195cbe78445ec1b19dcdf62f17cc0da1011f5d47718e497101be6499bbcf3a9">PWM_FAULT_EVENT_PWML</a> = 1
+ }</td></tr>
+<tr class="memdesc:ga75195cbe78445ec1b19dcdf62f17cc0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM fault data.  <a href="a00503.html#ga75195cbe78445ec1b19dcdf62f17cc0d">More...</a><br /></td></tr>
+<tr class="separator:ga75195cbe78445ec1b19dcdf62f17cc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -552,6 +559,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga3c5b3a29c117bbadc07cbe5e6898d10f" id="r_ga3c5b3a29c117bbadc07cbe5e6898d10f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00503.html#ga3c5b3a29c117bbadc07cbe5e6898d10f">PWM_Fault_LatchMode</a> (uint16_t pwmIndex, <a class="el" href="a00335.html#a8094057dd6a1ba4f444db98f9e166212">PWM_LATCH_MODE_t</a> latchMode)</td></tr>
 <tr class="memdesc:ga3c5b3a29c117bbadc07cbe5e6898d10f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the latch mode of fault PCI.  <br /></td></tr>
 <tr class="separator:ga3c5b3a29c117bbadc07cbe5e6898d10f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf5d1e32e8b272aa4785219fa041b394" id="r_gaaf5d1e32e8b272aa4785219fa041b394"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00503.html#gaaf5d1e32e8b272aa4785219fa041b394">PWM_Fault_DataMode</a> (uint16_t pwmIndex, <a class="el" href="a00335.html#a88427135dac5d6391152bd5262e488e6">PWM_FAULT_DATA_t</a> faultDataMode)</td></tr>
+<tr class="memdesc:gaaf5d1e32e8b272aa4785219fa041b394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the data mode of fault PCI.  <br /></td></tr>
+<tr class="separator:gaaf5d1e32e8b272aa4785219fa041b394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><br  />
@@ -572,6 +582,22 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="a00335_source.html#l01127">1127</a> of file <a class="el" href="a00335_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="a88427135dac5d6391152bd5262e488e6" name="a88427135dac5d6391152bd5262e488e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88427135dac5d6391152bd5262e488e6">&#9670;&#160;</a></span>PWM_FAULT_DATA_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00503.html#ga75195cbe78445ec1b19dcdf62f17cc0d">PWM_FAULT_DATA_e</a> <a class="el" href="a00335.html#a88427135dac5d6391152bd5262e488e6">PWM_FAULT_DATA_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l01281">1281</a> of file <a class="el" href="a00335_source.html">drv_mcc_extension_pwm.h</a>.</p>
 
 </div>
 </div>

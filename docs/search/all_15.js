@@ -20,7 +20,7 @@ var searchData=
   ['temp_5fsettings_5fs_17',['TEMP_SETTINGS_s',['../a00649.html',1,'']]],
   ['temp_5fsettings_5ft_18',['TEMP_SETTINGS_t',['../a00320.html#a01967840b431008a1b1a2528d97b612d',1,'dev_temp.h']]],
   ['tempbuffer_19',['TempBuffer',['../a00649.html#a665c9a1e8efc7255becd331cb622ab85',1,'TEMP_SETTINGS_s']]],
-  ['temperature_20',['temperature',['../a00705.html#ad389e5a23077ca8d6548dffd7f5ec1c1',1,'FEEDBACK_SETTINGS_s::Temperature'],['../a00653.html#a6bd95140398cc8f4b44157b17d6ba31e',1,'TEMP_NTC_LUT_s::temperature']]],
+  ['temperature_20',['temperature',['../a00653.html#a6bd95140398cc8f4b44157b17d6ba31e',1,'TEMP_NTC_LUT_s::temperature'],['../a00705.html#ad389e5a23077ca8d6548dffd7f5ec1c1',1,'FEEDBACK_SETTINGS_s::Temperature']]],
   ['temperature_20detection_21',['Temperature Detection',['../a00501.html',1,'']]],
   ['temperature_20feedback_22',['Temperature Feedback',['../a00484.html',1,'']]],
   ['temperature_5fhysterisis_5fhalf_23',['TEMPERATURE_HYSTERISIS_HALF',['../a00485.html#gaa2162010ab4c20b5265f84ca24a4e36f',1,'macros.h']]],
