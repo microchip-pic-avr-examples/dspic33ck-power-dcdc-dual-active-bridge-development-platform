@@ -1242,26 +1242,81 @@ inline static void PWM_Fault_LatchMode(uint16_t pwmIndex, PWM_LATCH_MODE_t latch
             PG1FPCIHbits.LATMOD = latchMode;
             break;
         case 2:
-            PG1FPCIHbits.LATMOD = latchMode;
+            PG2FPCIHbits.LATMOD = latchMode;
             break;
         case 3:
-            PG1FPCIHbits.LATMOD = latchMode;
+            PG3FPCIHbits.LATMOD = latchMode;
             break;
         case 4:
-            PG1FPCIHbits.LATMOD = latchMode;
+            PG4FPCIHbits.LATMOD = latchMode;
             break;
     #if (PWM_MAX_COUNT == 8)         
         case 5:
-            PG1FPCIHbits.LATMOD = latchMode;
+            PG5FPCIHbits.LATMOD = latchMode;
             break;
         case 6:
-            PG1FPCIHbits.LATMOD = latchMode;
+            PG6FPCIHbits.LATMOD = latchMode;
             break;
         case 7:
-            PG1FPCIHbits.LATMOD = latchMode;
+            PG7FPCIHbits.LATMOD = latchMode;
             break;
         case 8:
-            PG1FPCIHbits.LATMOD = latchMode;
+            PG8FPCIHbits.LATMOD = latchMode;
+            break;   
+    #endif        
+        default:
+            break;
+    };
+}
+
+/*********************************************************************************
+ * @ingroup driver-layer-pwm
+ * @brief  Set PWM fault data
+ **********************************************************************************/
+enum PWM_FAULT_DATA_e
+{
+    PWM_FAULT_EVENT_PWMH = 0,
+    PWM_FAULT_EVENT_PWML = 1
+};
+typedef enum PWM_FAULT_DATA_e PWM_FAULT_DATA_t;
+
+/*********************************************************************************
+ * @ingroup driver-layer-pwm
+ * @brief   Set the latch mode of fault PCI
+ * @param   pwmIndex  PWM instance
+ * @param   latch  Pointer to a power control data object of type PWM_LATCH_MODE_t
+ * @return  void
+ * 
+ * @details This function configures the PWM instance latch mode for fault PCI. 
+ **********************************************************************************/
+inline static void PWM_Fault_DataMode(uint16_t pwmIndex, PWM_FAULT_DATA_t faultDataMode)
+{
+    switch (pwmIndex)
+    {
+        case 1:
+            PG1IOCONLbits.FLTDAT = faultDataMode;
+            break;
+        case 2:
+            PG2IOCONLbits.FLTDAT = faultDataMode;
+            break;
+        case 3:
+            PG3IOCONLbits.FLTDAT = faultDataMode;
+            break;
+        case 4:
+            PG4IOCONLbits.FLTDAT= faultDataMode;
+            break;
+    #if (PWM_MAX_COUNT == 8)         
+        case 5:
+            PG5IOCONLbits.FLTDAT = faultDataMode;
+            break;
+        case 6:
+            PG6IOCONLbits.FLTDAT = faultDataMode;
+            break;
+        case 7:
+            PG7IOCONLbits.FLTDAT = faultDataMode;
+            break;
+        case 8:
+            PG8IOCONLbits.FLTDAT = faultDataMode;
             break;   
     #endif        
         default:

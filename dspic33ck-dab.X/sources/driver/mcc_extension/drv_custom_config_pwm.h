@@ -67,6 +67,11 @@ static __inline__ void DRV_Config_Custom_PWM(void)
     PWM_PCI_Fault_TimetoTerminateAfterEvent(PWM_PRI_2, PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE);
     PWM_PCI_Fault_TimetoTerminateAfterEvent(PWM_SEC_2, PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE);
     
+    PWM_Fault_DataMode(PWM_PRI_1, PWM_FAULT_EVENT_PWML);
+    PWM_Fault_DataMode(PWM_SEC_1, PWM_FAULT_EVENT_PWML);
+    PWM_Fault_DataMode(PWM_PRI_2, PWM_FAULT_EVENT_PWML);
+    PWM_Fault_DataMode(PWM_SEC_2, PWM_FAULT_EVENT_PWML);
+    
 }
 
 #endif	/* DRV_MCC_CONFIG_PWM_H */
