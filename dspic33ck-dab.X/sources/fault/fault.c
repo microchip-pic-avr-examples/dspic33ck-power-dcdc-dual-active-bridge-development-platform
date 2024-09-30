@@ -284,7 +284,7 @@ void Fault_Execute_100ms(void)
 {
     Dev_Temp_Get_ADC_Sample();
     
-#if defined (FAULT_PS_OTP) && (FAULT_PS_OTP ==  true)
+    #if defined (FAULT_PS_OTP) && (FAULT_PS_OTP ==  true)
     if(FAULT_CheckMin(&dab.Fault.Object.PowerSupplyOTP, devTempData.AdcReading, &Fault_Handler))
     {
        devTempData.OverTemperatureFlag = 1; //for over temperature

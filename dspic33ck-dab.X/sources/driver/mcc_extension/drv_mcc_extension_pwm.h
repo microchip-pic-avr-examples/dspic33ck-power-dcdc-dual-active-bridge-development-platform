@@ -87,7 +87,7 @@ inline static void PWM_PCI_Fault_AcceptanceCriteria(uint16_t pwmIndex,
         case 4:
             PG4FPCIHbits.ACP = acpSetting;
             break;    
-#if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)
         case 5:
             PG5FPCIHbits.ACP = acpSetting;
             break;          
