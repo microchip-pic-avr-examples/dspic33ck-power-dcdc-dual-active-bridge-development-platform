@@ -117,7 +117,7 @@ void Fault_Initialize(void)
     FAULT_Init(&dab.Fault.Object.PowerSupplyOTP, MAX_TEMPERATURE_THRESHOLD_RAW,         
             OVER_TEMP_UPPER_THRESHOLD_WITH_HYST,FAULT_PERSISTENCE_COUNT_TEMP, FAULT_PERSISTENCE_COUNT_TEMP); 
     
-#if (FAULT_SHORT_CCT == true)
+#if defined (FAULT_SHORT_CCT) && (FAULT_SHORT_CCT == true)
     // Initialize short circuit fault protection with comparators
     Fault_EnableShortCircuitProtection();
 #endif 
@@ -137,32 +137,32 @@ void Fault_Execute(void)
 {
     uint16_t faultCheck = 0;
     // secondary over current fault handler
-    #if (FAULT_ISEC_OC ==  true)      
+    #if defined(FAULT_ISEC_OC) && (FAULT_ISEC_OC ==  true)      
     faultCheck = FAULT_CheckMax(&dab.Fault.Object.ISecondaryOCP, dab.Data.ISenseSecondary, &Fault_Handler);
     #endif 
     
     // secondary over voltage fault handler
-    #if (FAULT_VSEC_OV ==  true)            
+    #if defined(FAULT_VSEC_OV) && (FAULT_VSEC_OV ==  true)            
     faultCheck &= FAULT_CheckMax(&dab.Fault.Object.VSecondaryOVP, dab.Data.VSecVoltage, &Fault_Handler);
     #endif    
     
     // primary over current fault handler
-    #if(FAULT_IPRI_OC ==  true)
+    #if defined (FAULT_IPRI_OC) && (FAULT_IPRI_OC ==  true)
     faultCheck &= FAULT_CheckMax(&dab.Fault.Object.IPrimaryOCP, dab.Data.ISensePrimary, &Fault_Handler);
     #endif 
     
     // primary over voltage fault handler
-    #if (FAULT_VPRI_OV ==  true)      
+    #if defined(FAULT_VPRI_OV) && (FAULT_VPRI_OV ==  true)      
     faultCheck &= FAULT_CheckMax(&dab.Fault.Object.VPrimaryOVP, dab.Data.VPriVoltage, &Fault_Handler);
     #endif  
 
     // primary over voltage fault handler
-    #if (FAULT_VPRI_UV ==  true)      
+    #if defined(FAULT_VPRI_UV) && (FAULT_VPRI_UV ==  true)      
     faultCheck &= FAULT_CheckMin(&dab.Fault.Object.VPrimaryUVP, dab.Data.VPriVoltage, &Fault_Handler);
     #endif  
 
     // primary over voltage fault handler
-    #if (FAULT_VRAIL_5V ==  true)                
+    #if defined(FAULT_VRAIL_5V) && (FAULT_VRAIL_5V ==  true)                
     faultCheck &= FAULT_CheckMin(&dab.Fault.Object.VRail_5V, dab.Data.VRail_5V, &Fault_Handler);
     #endif  
     
@@ -178,7 +178,7 @@ void Fault_Execute(void)
         faultCheck &= dab.Fault.Object.ISenseSCP.FaultActive;
     }
     
-    #if(LOAD_DISCONNECT ==  true)
+    #if defined (LOAD_DISCONNECT) && (LOAD_DISCONNECT ==  true)
     // Protection when Load is removed by accident. 
     //DAB does not sink power in this modulation. Voltage builds up on output.
     if(dab.PowerDirection==PWR_CTRL_CHARGING)    
@@ -284,7 +284,7 @@ void Fault_Execute_100ms(void)
 {
     Dev_Temp_Get_ADC_Sample();
     
-    #if(FAULT_PS_OTP)
+#if defined (FAULT_PS_OTP) && (FAULT_PS_OTP ==  true)
     if(FAULT_CheckMin(&dab.Fault.Object.PowerSupplyOTP, devTempData.AdcReading, &Fault_Handler))
     {
        devTempData.OverTemperatureFlag = 1; //for over temperature

@@ -109,7 +109,7 @@ void PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
  *********************************************************************************/
 static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
 {
-    #if (CURRENT_CALIBRATION == true)    
+    #if defined (CURRENT_CALIBRATION) && (CURRENT_CALIBRATION == true)    
     // Execute current sensor offset calibration
     Dev_CurrentSensorOffsetCal();
     
@@ -194,7 +194,7 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
         // Reset the power control properties and control loop histories
         PwrCtrl_Reset();
             
-        #if (CURRENT_CALIBRATION == true) 
+        #if defined (CURRENT_CALIBRATION) && (CURRENT_CALIBRATION == true) 
         // reset the PWM settings in Standby mode
         Dev_CurrentSensor_Clr_Offset();
         // Execute current sensor offset calibration
@@ -312,7 +312,7 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
             pcInstance->State = PWRCTRL_STATE_INITIALIZE; 
         }
         
-    #if (OPEN_LOOP_PBV == true)
+    #if defined (OPEN_LOOP_PBV) && (OPEN_LOOP_PBV == true)
         else if ((pcInstance->Pwm.ControlPeriod & ~(0x7)) != (pcInstance->Pwm.PBVPeriodTarget& ~(0x7)) || 
                 (pcInstance->Pwm.ControlPhase != pcInstance->Pwm.PBVControlPhaseTarget))
             pcInstance->State = PWRCTRL_STATE_SOFT_START;

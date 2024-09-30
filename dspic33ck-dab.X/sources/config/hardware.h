@@ -33,7 +33,7 @@
  * @{
  ******************************************************************************/
 // VPRI_SNS_GAIN: VPRI_SNS = VPRI * VPRI_SNS_GAIN + VPRI_SNS_OFS
-#if (VPRI_OPTOCOUPLER_POLARITY ==  true)
+#if defined (VPRI_OPTOCOUPLER_POLARITY) && (VPRI_OPTOCOUPLER_POLARITY ==  true)
     #define VPRI_SNS_GAIN               (float)(-3.600e-3)   // V/V  
     #define VPRI_SNS_OFS                (3.3183)   // V
 #else

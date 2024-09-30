@@ -420,7 +420,7 @@ void PwrCtrl_DeadTimeAdjust(void)
         }
 }
 
-#if (PERIOD_MODULATION_DEMO == true)
+#if defined (PERIOD_MODULATION_DEMO) && (PERIOD_MODULATION_DEMO == true)
 /*******************************************************************************
  * @ingroup pwrctrl-isr
  * @brief  This function updates the DAB data members and modulates PWM period

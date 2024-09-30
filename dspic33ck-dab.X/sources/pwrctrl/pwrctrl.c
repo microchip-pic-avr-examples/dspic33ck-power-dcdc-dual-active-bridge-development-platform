@@ -230,7 +230,7 @@ static void PwrCtrl_StartUpInitialize(void)
     dab.PRamp.Counter = 0;
     dab.PRamp.RampComplete = 0;
     
-#if (OPEN_LOOP_PBV == true)
+    #if defined (OPEN_LOOP_PBV) && (OPEN_LOOP_PBV == true)
     // The PWM Period bits [2:0] needs to be mask when using cascaded PWM setup 
     // (please refer to Section 4.1.3.3 in High Resolution PWM FRM)
     uint16_t PeriodMask = 0x7; 

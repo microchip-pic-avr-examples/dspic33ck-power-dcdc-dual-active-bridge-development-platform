@@ -79,7 +79,7 @@ void ControlLoop_Interrupt_CallBack(void)
     // and Ploop (10KHz execution) enable bit  
     PwrCtrl_10KHzVPLoopPrepareData();
     
-    #if(OPEN_LOOP_PBV == false)
+    #if defined (OPEN_LOOP_PBV) && (OPEN_LOOP_PBV == false)
  
     if(dab.Status.bits.Running == 1){ 
     // Execute Power Converter Control Loop
@@ -91,18 +91,18 @@ void ControlLoop_Interrupt_CallBack(void)
     // Adjust DeadTime based on Primary to Secondary phase in degrees
     PwrCtrl_DeadTimeAdjust();
     
-    #if(PERIOD_MODULATION_DEMO == true)
+    #if defined (PERIOD_MODULATION_DEMO) && (PERIOD_MODULATION_DEMO == true)
     PwrCtrl_PeriodModulator();
     #endif   
     
     #endif
 
-    #if(DAC_DEBUG == true)
+    #if defined (DAC_DEBUG) && (DAC_DEBUG == true)
     // This is for DAC debugging purposes
 //    CMP2_DACDataWrite(variable_to_test_here);
     #endif
 
-    #if (OPEN_LOOP_POTI == true)
+    #if defined (OPEN_LOOP_POTI) && (OPEN_LOOP_POTI == true)
 
     // Connect TP11 -> Pot1 & TP12 -> Pot2 in digital Power Development Board
     uint16_t Pot1 = dab.Data.ISecAverage; 

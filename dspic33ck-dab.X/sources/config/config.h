@@ -50,7 +50,7 @@
 
 #define PRI_TO_SEC_PHASE_DEGREES_LIMIT  90u ///< Maximum Limit for primary to secondary phase in degrees [deg]
 
-#if (PERIOD_MODULATION_DEMO == true)
+#if defined(PERIOD_MODULATION_DEMO) && (PERIOD_MODULATION_DEMO == true)
 #define PRI_TO_SEC_PHASE_TARGET         830u ///< Primary to Secondary phase target before switching to period modulation
 #define PERIODSTEP                      (2<<3) ///< period increment with 3LSBs needs to be 0 based from PWM FRM with cascaded PWM 
 #define PHASETIMESTEP                   (1<<3) ///< Phase increment with 3LSBs needs to be 0 based from PWM FRM with cascaded PWM 

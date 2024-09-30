@@ -76,7 +76,7 @@
 //        called functions before
 //=======================================================================================================
 
-#if (OS_USE_SCHEDULER_100us == true)
+#if defined (OS_USE_SCHEDULER_100us) && (OS_USE_SCHEDULER_100us == true)
 //=======================================================================================================
 /**  @ingroup sched-layer
 //  @brief  Tasks_Realtime_100us gets called directly from the timer interrupt every 100 µs
@@ -107,7 +107,7 @@ void Tasks_Realtime_1ms(void)
     
 }
 
-#if (OS_USE_SCHEDULER_100us == true)
+#if defined (OS_USE_SCHEDULER_100us) && (OS_USE_SCHEDULER_100us == true)
 //=======================================================================================================
 /**  @ingroup sched-layer
 //  @brief  Tasks_100us gets called every 100µs, put your things in it that need to be called regularly

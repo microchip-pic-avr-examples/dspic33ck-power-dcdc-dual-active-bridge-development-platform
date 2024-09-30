@@ -163,7 +163,7 @@ void OS_Scheduler_Init(void)
 //          in the main loop take longer than 100µs
 */
 //=======================================================================================================
-#if (OS_USE_MCC_TIMER1 == true)
+#if defined (OS_USE_MCC_TIMER1) && (OS_USE_MCC_TIMER1 == true)
 /* TMR1_CallBack is a weak linked function in the tmr1.c */
 /* LDRA_EXCLUDE 34 D */
 void TMR1_CallBack(void)

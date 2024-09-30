@@ -87,7 +87,7 @@ inline static void PWM_PCI_Fault_AcceptanceCriteria(uint16_t pwmIndex,
         case 4:
             PG4FPCIHbits.ACP = acpSetting;
             break;    
-    #if (PWM_MAX_COUNT == 8)
+#if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)
         case 5:
             PG5FPCIHbits.ACP = acpSetting;
             break;          
@@ -132,7 +132,7 @@ inline static void PWM_PCI_Fault_AcceptanceQualiferInvert(uint16_t pwmIndex, boo
         case 4:
             PG4FPCILbits.AQPS = (uint16_t)invert;
             break;
-    #if (PWM_MAX_COUNT == 8)
+    #if defined(PWM_MAX_COUNT) &&  (PWM_MAX_COUNT == 8)
         case 5:
             PG5FPCILbits.AQPS = (uint16_t)invert;
             break;
@@ -176,7 +176,7 @@ inline static void PWM_PCI_Sync_AcceptanceCriteria(uint16_t pwmIndex, PWM_PCI_AC
         case 4:
             PG4SPCIHbits.ACP = acpSetting;
             break;    
-    #if (PWM_MAX_COUNT == 8)        
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)        
         case 5:
             PG5SPCIHbits.ACP = acpSetting;
             break;    
@@ -233,7 +233,7 @@ inline static void PWM_PCI_Fault_TimetoTerminateAfterEvent(uint16_t pwmIndex, PW
         case 4:
             PG4FPCILbits.TSYNCDIS = faultTerm;
             break;    
-    #if (PWM_MAX_COUNT == 8)    
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)    
         case 5:
             PG5FPCILbits.TSYNCDIS = faultTerm;
             break;    
@@ -279,7 +279,7 @@ inline static void PWM_PCI_Sync_TimetoTerminateAfterEvent(uint16_t pwmIndex, PWM
         case 4:
             PG4SPCILbits.TSYNCDIS = faultTerm;
             break;    
-    #if (PWM_MAX_COUNT == 8)          
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)          
         case 5:
             PG5SPCILbits.TSYNCDIS = faultTerm;
             break;    
@@ -339,7 +339,7 @@ inline static void PWM_StartOfCycleTrigger(uint16_t pwmIndex, PWM_SOCS_t trigger
         case 4:
             PG4CONHbits.SOCS = triggerSource;
             break;
-    #if (PWM_MAX_COUNT == 8)          
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)          
         case 5:
             PG5CONHbits.SOCS = triggerSource;
             break;
@@ -390,7 +390,7 @@ inline static void PWM_UPDREQ_Broadcast_Enable(uint16_t pwmIndex, bool enable)
         case 4:
             PG4CONHbits.MSTEN = enable_;
             break;
-    #if (PWM_MAX_COUNT == 8)         
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)         
         case 5:
             PG5CONHbits.MSTEN = enable_;
             break;
@@ -451,7 +451,7 @@ inline static void PWM_Data_Update_Mode(uint16_t pwmIndex, PWM_UPDMOD_t updateMo
         case 4:
             PG4CONHbits.UPDMOD = updateMode;
             break;
-    #if (PWM_MAX_COUNT == 8)         
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)         
         case 5:
             PG5CONHbits.UPDMOD = updateMode;
             break;
@@ -480,7 +480,7 @@ enum PWM_PCI_SOURCE_e
     PWM_PCI_SOURCE_PWM2 = 1,
     PWM_PCI_SOURCE_PWM3 = 2,
     PWM_PCI_SOURCE_PWM4 = 3,
-    #if (PWM_MAX_COUNT == 8) 
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8) 
     PWM_PCI_SOURCE_PWM5 = 4,
     PWM_PCI_SOURCE_PWM6 = 5,
     PWM_PCI_SOURCE_PWM7 = 6,
@@ -515,7 +515,7 @@ inline static void PWM_PCI_Source1(uint16_t pwmIndex, PWM_PCI_SOURCE_t pciSource
         case 4:
             PG4LEBHbits.PWMPCI = (uint16_t)pciSource;
             break;
-    #if (PWM_MAX_COUNT == 8) 
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8) 
         case 5:
             PG5LEBHbits.PWMPCI = (uint16_t)pciSource;
             break;
@@ -861,7 +861,7 @@ inline static void PWM_PCI_Sync_Source_Select(uint16_t pwmIndex, PWM_PCI_SOURCE_
         case 4:
             PG4SPCILbits.PSS = pciSource;
             break;
-    #if (PWM_MAX_COUNT == 8) 
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8) 
         case 5:
             PG5SPCILbits.PSS = pciSource;
             break;
@@ -926,7 +926,7 @@ inline static void PWM_PCI_Fault_AcceptanceQualifierSource(uint16_t pwmIndex, PW
         case 4:
             PG4FPCILbits.AQSS = source;
             break;
-    #if (PWM_MAX_COUNT == 8)         
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)         
         case 5:
             PG5FPCILbits.AQSS = source;
             break;
@@ -981,7 +981,7 @@ inline static void PWM_Trigger_Mode(uint16_t pwmIndex, PWM_TRIG_MODE_t trigMode)
         case 4:
             PG4CONHbits.TRGMOD = trigMode;
             break;
-    #if (PWM_MAX_COUNT == 8)         
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)         
         case 5:
             PG5CONHbits.TRGMOD = trigMode;
             break;
@@ -1042,7 +1042,7 @@ inline static void PWM_PCI_Sync_TerminationEventSelect(uint16_t pwmIndex, PWM_PC
         case 4:
             PG4SPCILbits.TERM = termEvent;
             break;
-    #if (PWM_MAX_COUNT == 8)         
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)         
         case 5:
             PG5SPCILbits.TERM = termEvent;
             break;
@@ -1087,7 +1087,7 @@ inline static void PWM_Swap_PWMxL_and_PWMxH(uint16_t pwmIndex, bool swapPWMH_PWM
         case 4:
             PG4IOCONLbits.SWAP = swapPWMH_PWML;
             break;
-    #if (PWM_MAX_COUNT == 8)         
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)         
         case 5:
             PG5IOCONLbits.SWAP = swapPWMH_PWML;
             break;
@@ -1195,7 +1195,7 @@ inline static void PWM_Data_Update_Trigger(uint16_t pwmIndex, PWM_UPDTRG_t updat
         case 4:
             PG4EVTLbits.UPDTRG = (uint16_t)updateTrigger;
             break;
-    #if (PWM_MAX_COUNT == 8)         
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)         
         case 5:
             PG5EVTLbits.UPDTRG = (uint16_t)updateTrigger;
             break;
@@ -1250,7 +1250,7 @@ inline static void PWM_Fault_LatchMode(uint16_t pwmIndex, PWM_LATCH_MODE_t latch
         case 4:
             PG4FPCIHbits.LATMOD = latchMode;
             break;
-    #if (PWM_MAX_COUNT == 8)         
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)         
         case 5:
             PG5FPCIHbits.LATMOD = latchMode;
             break;
@@ -1305,7 +1305,7 @@ inline static void PWM_Fault_DataMode(uint16_t pwmIndex, PWM_FAULT_DATA_t faultD
         case 4:
             PG4IOCONLbits.FLTDAT= faultDataMode;
             break;
-    #if (PWM_MAX_COUNT == 8)         
+    #if defined(PWM_MAX_COUNT) && (PWM_MAX_COUNT == 8)         
         case 5:
             PG5IOCONLbits.FLTDAT = faultDataMode;
             break;
