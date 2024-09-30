@@ -46,7 +46,6 @@ enum FAN_SETTINGS_e {
 typedef enum FAN_SETTINGS_e FAN_SETTINGS_t;
 
 static FAN_SETTINGS_t changeSpeed = CHANGE_SPEED;
-static uint8_t currentTickCount;
 
 //Private Function Call Prototypes
 static uint16_t Convert_From_Percentage (uint8_t percentage);
@@ -94,6 +93,8 @@ void Dev_Fan_Initialize(void)
  **********************************************************************************/
 void Dev_Fan_Task_100ms(void) 
 {
+    static uint8_t currentTickCount;
+    
     if (devFanData.OverrideFlag == 1) 
     {
         changeSpeed = CHANGE_SPEED;

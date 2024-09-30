@@ -82,7 +82,6 @@ uint16_t bufferSixteenRx[32];
 uint8_t bufferEightTx[64];
 uint16_t bufferSixteenTx[32];
 
-static uint32_t tickCounter = 0;
 static uint8_t transmitFirmwareId = 1;
 
 // temporary variables
@@ -135,6 +134,7 @@ void App_PBV_DAB_Init()
  **********************************************************************************/
 void App_PBV_DAB_Task_10ms(void)
 {
+    static uint32_t tickCounter = 0;
     // RX handler
     if (appPbvDabRxPtr->PBV_Message_State == PBV_MESSAGE_RECEIVED)
     {        
