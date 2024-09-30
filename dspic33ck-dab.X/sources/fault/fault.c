@@ -135,34 +135,35 @@ void Fault_Initialize(void)
  *********************************************************************************/
 void Fault_Execute(void)
 {
+    uint16_t faultCheck = 0;
     // secondary over current fault handler
     #if (FAULT_ISEC_OC ==  true)      
-    FAULT_CheckMax(&dab.Fault.Object.ISecondaryOCP, dab.Data.ISenseSecondary, &Fault_Handler);
+    faultCheck = FAULT_CheckMax(&dab.Fault.Object.ISecondaryOCP, dab.Data.ISenseSecondary, &Fault_Handler);
     #endif 
     
     // secondary over voltage fault handler
     #if (FAULT_VSEC_OV ==  true)            
-    FAULT_CheckMax(&dab.Fault.Object.VSecondaryOVP, dab.Data.VSecVoltage, &Fault_Handler);
+    faultCheck &= FAULT_CheckMax(&dab.Fault.Object.VSecondaryOVP, dab.Data.VSecVoltage, &Fault_Handler);
     #endif    
     
     // primary over current fault handler
     #if(FAULT_IPRI_OC ==  true)
-    FAULT_CheckMax(&dab.Fault.Object.IPrimaryOCP, dab.Data.ISensePrimary, &Fault_Handler);
+    faultCheck &= FAULT_CheckMax(&dab.Fault.Object.IPrimaryOCP, dab.Data.ISensePrimary, &Fault_Handler);
     #endif 
     
     // primary over voltage fault handler
     #if (FAULT_VPRI_OV ==  true)      
-    FAULT_CheckMax(&dab.Fault.Object.VPrimaryOVP, dab.Data.VPriVoltage, &Fault_Handler);
+    faultCheck &= FAULT_CheckMax(&dab.Fault.Object.VPrimaryOVP, dab.Data.VPriVoltage, &Fault_Handler);
     #endif  
 
     // primary over voltage fault handler
     #if (FAULT_VPRI_UV ==  true)      
-    FAULT_CheckMin(&dab.Fault.Object.VPrimaryUVP, dab.Data.VPriVoltage, &Fault_Handler);
+    faultCheck &= FAULT_CheckMin(&dab.Fault.Object.VPrimaryUVP, dab.Data.VPriVoltage, &Fault_Handler);
     #endif  
 
     // primary over voltage fault handler
     #if (FAULT_VRAIL_5V ==  true)                
-    FAULT_CheckMin(&dab.Fault.Object.VRail_5V, dab.Data.VRail_5V, &Fault_Handler);
+    faultCheck &= FAULT_CheckMin(&dab.Fault.Object.VRail_5V, dab.Data.VRail_5V, &Fault_Handler);
     #endif  
     
     // Hardware short circuit
@@ -174,6 +175,7 @@ void Fault_Execute(void)
         dab.Fault.Object.ISenseSCP.FaultActive = 1;
         dab.Fault.Object.ISenseSCP.FaultLatch = 1;
 
+        faultCheck &= dab.Fault.Object.ISenseSCP.FaultActive;
     }
     
     #if(LOAD_DISCONNECT ==  true)
@@ -201,6 +203,8 @@ void Fault_Execute(void)
     }   
     #endif
 
+    dab.Status.bits.FaultActive = faultCheck;
+    
     // Identify the fault that trips
     dab.Fault.FaultDetected = Fault_GetFlags();
 }
@@ -284,10 +288,12 @@ void Fault_Execute_100ms(void)
     if(FAULT_CheckMin(&dab.Fault.Object.PowerSupplyOTP, devTempData.AdcReading, &Fault_Handler))
     {
        devTempData.OverTemperatureFlag = 1; //for over temperature
+       dab.Status.bits.FaultActive = 1;
     }
     else
     {
         devTempData.OverTemperatureFlag = 0; //for over temperature
+        dab.Status.bits.FaultActive = 0;
     }
     #endif
 }
