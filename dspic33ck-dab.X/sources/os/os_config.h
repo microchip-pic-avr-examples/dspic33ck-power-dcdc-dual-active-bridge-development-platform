@@ -65,7 +65,7 @@
 // USE MCC driver layer if available
 //-------------------------------------------------------------------------------------------------------
 #define OS_USE_MCC_TIMER1 true
-#define OS_USE_MCC_WATCHDOG false
+#define OS_USE_MCC_WATCHDOG true
 //#define OS_USE_MCC_RESET true
 //=======================================================================================================
 

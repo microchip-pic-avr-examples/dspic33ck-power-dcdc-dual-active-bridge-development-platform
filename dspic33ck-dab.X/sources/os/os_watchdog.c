@@ -4,7 +4,7 @@
 
 #if OS_USE_MCC_WATCHDOG == 1
 #include "xc.h"     //workaround, mcc watchdog driver does not include that!
-#include "../../mcc_generated_files/watchdog.h"
+#include "system/watchdog.h"
 #else
 
 //-------------------------------------------------------------------------------------------------------
