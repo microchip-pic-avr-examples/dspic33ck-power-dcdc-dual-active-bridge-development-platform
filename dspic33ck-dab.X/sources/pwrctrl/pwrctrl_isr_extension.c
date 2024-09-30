@@ -332,12 +332,13 @@ static void PwrCtrl_AdaptiveGainUpdate(void)
             dab.ILoop.AgcFactor = 0x7FFF;
         
               
+    #if(ENABLE_VLOOP_AGC == true)
         if(dab.ILoop.Reference > AGC_MINIMUM_CURRENT_THRESHOLD)
             dab.VLoop.AgcFactor = (int16_t) (0x7FFF & 
                     __builtin_divud(AGC_CURRENT_FACTOR, dab.ILoop.Reference)); 
         else // AGC is not active
             dab.VLoop.AgcFactor = 0x7FFF;
-
+    #endif
     }
     
     // Reserved for future Development

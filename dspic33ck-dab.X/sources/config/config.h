@@ -34,6 +34,7 @@
 #define PERIOD_MODULATION_DEMO   false  ///< Modulates the period; for further development
 #define DCDC400V_SYSTEM           true  ///< When true, operates the DAB with protection thresholds for 400V output
 #define DCDC800V_SYSTEM           false  ///< When true, operates the DAB with protection thresholds for 800V output
+#define ENABLE_VLOOP_AGC          false ///< This is an optional feature (not needed for battery application)
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
@@ -200,7 +201,7 @@
 #define OPEN_LOOP_POTI      false    ///< test the code with Digital Power Development Board; runs in openloop using potentiometer
 #define OPEN_LOOP_PBV       false    ///< use Power Board visualizer to change the parameters in Open loop operation
 
-#if(OPEN_LOOP_POTI || OPEN_LOOP_PBV)
+#if((OPEN_LOOP_POTI == true) || (OPEN_LOOP_PBV == true))
 #define CURRENT_CALIBRATION             false  ///< Enable current calibration
 #else
 #define CURRENT_CALIBRATION             true  ///< Enable current calibration

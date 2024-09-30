@@ -136,32 +136,32 @@ void Fault_Initialize(void)
 void Fault_Execute(void)
 {
     // secondary over current fault handler
-    #if (FAULT_ISEC_OC)      
+    #if (FAULT_ISEC_OC ==  true)      
     FAULT_CheckMax(&dab.Fault.Object.ISecondaryOCP, dab.Data.ISenseSecondary, &Fault_Handler);
     #endif 
     
     // secondary over voltage fault handler
-    #if (FAULT_VSEC_OV)            
+    #if (FAULT_VSEC_OV ==  true)            
     FAULT_CheckMax(&dab.Fault.Object.VSecondaryOVP, dab.Data.VSecVoltage, &Fault_Handler);
     #endif    
     
     // primary over current fault handler
-    #if(FAULT_IPRI_OC)
+    #if(FAULT_IPRI_OC ==  true)
     FAULT_CheckMax(&dab.Fault.Object.IPrimaryOCP, dab.Data.ISensePrimary, &Fault_Handler);
     #endif 
     
     // primary over voltage fault handler
-    #if (FAULT_VPRI_OV)      
+    #if (FAULT_VPRI_OV ==  true)      
     FAULT_CheckMax(&dab.Fault.Object.VPrimaryOVP, dab.Data.VPriVoltage, &Fault_Handler);
     #endif  
 
     // primary over voltage fault handler
-    #if (FAULT_VPRI_UV)      
+    #if (FAULT_VPRI_UV ==  true)      
     FAULT_CheckMin(&dab.Fault.Object.VPrimaryUVP, dab.Data.VPriVoltage, &Fault_Handler);
     #endif  
 
     // primary over voltage fault handler
-    #if (FAULT_VRAIL_5V)                
+    #if (FAULT_VRAIL_5V ==  true)                
     FAULT_CheckMin(&dab.Fault.Object.VRail_5V, dab.Data.VRail_5V, &Fault_Handler);
     #endif  
     
@@ -176,7 +176,7 @@ void Fault_Execute(void)
 
     }
     
-    #if(LOAD_DISCONNECT)
+    #if(LOAD_DISCONNECT ==  true)
     // Protection when Load is removed by accident. 
     //DAB does not sink power in this modulation. Voltage builds up on output.
     if(dab.PowerDirection==PWR_CTRL_CHARGING)    

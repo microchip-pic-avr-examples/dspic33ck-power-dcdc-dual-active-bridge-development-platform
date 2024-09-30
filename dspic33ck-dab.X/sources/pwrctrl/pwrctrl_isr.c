@@ -102,7 +102,7 @@ void ControlLoop_Interrupt_CallBack(void)
 //    CMP2_DACDataWrite(variable_to_test_here);
     #endif
 
-    #if (true == OPEN_LOOP_POTI)
+    #if (OPEN_LOOP_POTI == true)
 
     // Connect TP11 -> Pot1 & TP12 -> Pot2 in digital Power Development Board
     uint16_t Pot1 = dab.Data.ISecAverage; 
