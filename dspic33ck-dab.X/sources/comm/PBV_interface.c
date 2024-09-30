@@ -216,24 +216,21 @@ int App_Read_Received_From_PBV(PBV_Datatype_RX_t * ptr)
  * **********************************************************************************/
 static void App_PBV_Task(void)
 {
-    if (appPbvToSystemPtr->PBV_Message_State == PBV_MESSAGE_READY_TO_RECEIVE 
-            ||
+    if (appPbvToSystemPtr->PBV_Message_State == PBV_MESSAGE_READY_TO_RECEIVE ||
         appPbvToSystemPtr->PBV_Message_State == PBV_STATE_RECEIVING
             )
     {
             appPbvToSystemPtr->PBV_Message_State = appPbvFuncs.rxGui();
     }
 
-    if (appSystemToPbvPtr->PBV_Message_State == PBV_MESSAGE_TRANSMIT_START
-            ||
+    if (appSystemToPbvPtr->PBV_Message_State == PBV_MESSAGE_TRANSMIT_START ||
         appSystemToPbvPtr->PBV_Message_State == PBV_MESSAGE_TRANSMITTING
             )
     {
         appSystemToPbvPtr->PBV_Message_State = appPbvFuncs.txGui();
     }
 
-    if (appSystemToPbvAsciiPtr->PBV_Message_State == PBV_MESSAGE_TRANSMIT_START
-            ||
+    if (appSystemToPbvAsciiPtr->PBV_Message_State == PBV_MESSAGE_TRANSMIT_START ||
         appSystemToPbvAsciiPtr->PBV_Message_State == PBV_MESSAGE_TRANSMITTING    
             )
     {

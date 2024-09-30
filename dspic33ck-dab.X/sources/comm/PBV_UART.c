@@ -283,7 +283,7 @@ uint8_t PBV_UART_Receive_from_GUI()
             return PBV_STATE_RECEIVING;
 
         case RCV_READ_DATA:
-            if (pbvUartObjectRx.Offset < PBV_RCV_DATABUFFER_SIZE + PBV_HEADER_SIZE ) // MAX
+            if (pbvUartObjectRx.Offset < (PBV_RCV_DATABUFFER_SIZE + PBV_HEADER_SIZE)) // MAX
             {
                 pbvUartObjectRx.data[pbvUartObjectRx.Offset] = data;
                 pbvUartObjectRx.Offset++;
@@ -325,6 +325,8 @@ uint8_t PBV_UART_Receive_from_GUI()
                     return PBV_MESSAGE_RX_ERROR;
                 }
             }
+        default:
+            break;
         }
     }
 }
@@ -338,7 +340,7 @@ uint8_t PBV_UART_Receive_from_GUI()
 uint8_t PBV_UART_Transmit_Ascii_to_GUI()
 {
     uint8_t retval = PBV_MESSAGE_TX_ERROR;
-    uint8_t temp;
+    
     if (uartActiveTx == true)
     {
         retval = PBV_MESSAGE_TX_ERROR;
@@ -362,7 +364,7 @@ uint8_t PBV_UART_Transmit_Ascii_to_GUI()
             case 1: //transfer header
                 if (PBV_ReadyToSend())//    && (MsCounter_++ > 1)) //@ftx
                 {
-                    temp = pbvUartObjectAscii.PBV_Header[pbvUartObjectAscii.Offset];
+                    uint8_t temp = pbvUartObjectAscii.PBV_Header[pbvUartObjectAscii.Offset];
                     PBV_Write(temp);
                     pbvUartObjectAscii.Offset++;
                     if (pbvUartObjectAscii.Offset > 4)
@@ -440,7 +442,6 @@ uint8_t PBV_UART_Transmit_Ascii_to_GUI()
  **********************************************************************************/
 uint8_t PBV_UART_Transmit_to_GUI()
 {
-    uint16_t temp;
     uint8_t retval = PBV_MESSAGE_TX_ERROR;
     if (uartActiveTxAscii == true)
     {
@@ -465,7 +466,7 @@ uint8_t PBV_UART_Transmit_to_GUI()
             case 1: //transfer header
                 if (PBV_ReadyToSend())//    && (MsCounter_++ > 1)) //@ftx
                 {
-                    temp = pbvUartObjectTx.PBV_Header[pbvUartObjectTx.Offset];
+                    uint16_t temp = pbvUartObjectTx.PBV_Header[pbvUartObjectTx.Offset];
                     PBV_Write(temp);
                     pbvUartObjectTx.Offset++;
                     if (pbvUartObjectTx.Offset > 4)
@@ -525,6 +526,7 @@ uint8_t PBV_UART_Transmit_to_GUI()
                 {
                     retval = PBV_MESSAGE_TRANSMITTING;
                 }
+                break;
             
             default:
                 retval = PBV_MESSAGE_TRANSMITTING;
@@ -623,7 +625,7 @@ uint16_t PBV_Calculate_CRC(uint8_t *message, uint16_t length)
 
     CRC_CalculateBufferStart(message16bit, length_t);
 
-    while (!CRC_CalculationIsDone() && trycount < 2000)
+    while ((!CRC_CalculationIsDone()) && (trycount < 2000))
     {
         CRC_Tasks();
         trycount++;

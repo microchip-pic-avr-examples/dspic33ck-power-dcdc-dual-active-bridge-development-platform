@@ -230,14 +230,14 @@ void PwrCtrl_ControlLoopExecute(void)
 
             // Bit-shift value used to perform input value normalization
             dab.VLoop.Feedback = vSecAveraging.AverageValue << 3;  
-            dab.VLoop.Reference = dab.VLoop.Reference << 3;
+            dab.VLoop.Reference = (dab.VLoop.Reference << 3);
 
             // Execute the Voltage Loop Control
             XFT_SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
                     dab.VLoop.Reference, &dab.VLoop.Output);
         
             // Reset the Vloop reference to its original scaling
-            dab.VLoop.Reference = dab.VLoop.Reference >> 3;
+            dab.VLoop.Reference = (dab.VLoop.Reference >> 3);
         }
     }
 
@@ -276,7 +276,7 @@ void PwrCtrl_ControlLoopExecute(void)
         ILoopReference = (int16_t)(RefBuf >> 15);       
         
         // Basic clamping in rising direction, in case of  Iloop or Vloop overshoot during large load step. 
-        if( dab.Data.ISecAverageRectified >  dab.ILoop.Reference + ISEC_LOAD_STEP_CLAMP) 
+        if( dab.Data.ISecAverageRectified >  (dab.ILoop.Reference + ISEC_LOAD_STEP_CLAMP)) 
         {
              XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 0, &dab.ILoop.Output); //force I ref to 0
         }
@@ -440,7 +440,7 @@ void  PwrCtrl_PeriodModulator(void)
         
     if(decimPM>=8) 
     {
-        if (dab.Pwm.ControlPhase_P2S_Degreex10 < dab.Pwm.ControlPhase_P2S_Target-5)
+        if (dab.Pwm.ControlPhase_P2S_Degreex10 < (dab.Pwm.ControlPhase_P2S_Target-5))
         {
             if((dab.Pwm.ControlPeriod > MIN_PWM_PERIOD) && (dab.Pwm.LowPowerSlowMode == 0))
             {  
@@ -457,7 +457,7 @@ void  PwrCtrl_PeriodModulator(void)
             }
         }
 
-        if (dab.Pwm.ControlPhase_P2S_Degreex10 > dab.Pwm.ControlPhase_P2S_Target + 5)
+        if (dab.Pwm.ControlPhase_P2S_Degreex10 > (dab.Pwm.ControlPhase_P2S_Target + 5))
         {  
             if((dab.Pwm.ControlPeriod < MAX_PWM_PERIOD) && (dab.Pwm.ControlPhase_P2S_Degreex10  > 20))
             {    

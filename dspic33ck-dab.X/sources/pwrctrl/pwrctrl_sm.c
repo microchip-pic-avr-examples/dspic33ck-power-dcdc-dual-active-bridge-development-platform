@@ -263,13 +263,12 @@ static void PCS_SOFT_START_handler(POWER_CONTROL_t* pcInstance)
     else
     {   
         // Ramp Up the Voltage, Current and Power reference
-        PwrCtrl_RampReference(&pcInstance->VRamp);
-        PwrCtrl_RampReference(&pcInstance->IRamp);
-        PwrCtrl_RampReference(&pcInstance->PRamp);
+        uint16_t rampComplete = PwrCtrl_RampReference(&pcInstance->VRamp);
+        rampComplete &= PwrCtrl_RampReference(&pcInstance->IRamp);
+        rampComplete &= PwrCtrl_RampReference(&pcInstance->PRamp);
 
         // Check if ramp up is complete
-        if ((pcInstance->VRamp.RampComplete) && (pcInstance->IRamp.RampComplete)
-              && (pcInstance->PRamp.RampComplete))
+        if (rampComplete)
             // Next State assigned to STATE_ONLINE
             pcInstance->State = PWRCTRL_STATE_ONLINE; 
 

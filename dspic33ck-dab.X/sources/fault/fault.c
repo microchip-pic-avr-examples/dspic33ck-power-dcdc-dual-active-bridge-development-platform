@@ -183,7 +183,7 @@ void Fault_Execute(void)
     //DAB does not sink power in this modulation. Voltage builds up on output.
     if(dab.PowerDirection==PWR_CTRL_CHARGING)    
     {    
-        if((iSecAveraging.AverageValue <=  ISEC_LOAD_STEP_CLAMP>>2) && 
+        if((iSecAveraging.AverageValue <=  (ISEC_LOAD_STEP_CLAMP>>2)) && 
            (vSecAveraging.AverageValue > (dab.VLoop.Reference + VSEC_LOAD_STEP_CLAMP)) && 
            (dab.Properties.IReference >= 1) )
         {
@@ -193,7 +193,7 @@ void Fault_Execute(void)
     }
     if(dab.PowerDirection==PWR_CTRL_DISCHARGING)    
     {
-        if((iSecAveraging.AverageValue <=  ISEC_LOAD_STEP_CLAMP>>2) && 
+        if((iSecAveraging.AverageValue <=  (ISEC_LOAD_STEP_CLAMP>>2)) && 
            (vPrimAveraging.AverageValue > (dab.VLoop.Reference + VPRIM_LOAD_STEP_CLAMP)) && 
            (dab.Properties.IReference >= 1) )
         {
