@@ -114,8 +114,8 @@ void Fault_Initialize(void)
             VRAIL_5V_UV_THRES_CLEAR, VRAIL_5V_UV_T_BLANK_TRIG, VRAIL_5V_UV_T_BLANK_CLEAR);
     
     // Initialize Over Temperature Protection
-    FAULT_Init(&dab.Fault.Object.PowerSupplyOTP, MAX_TEMPERATURE_THRESHOLD_RAW,         
-            OVER_TEMP_UPPER_THRESHOLD_WITH_HYST,FAULT_PERSISTENCE_COUNT_TEMP, FAULT_PERSISTENCE_COUNT_TEMP); 
+    FAULT_Init(&dab.Fault.Object.PowerSupplyOTP, OTP_THRES_TRIG,         
+            OTP_THRES_CLEAR, FAULT_PERSISTENCE_COUNT_TEMP, FAULT_PERSISTENCE_COUNT_TEMP); 
     
 #if defined (FAULT_SHORT_CCT) && (FAULT_SHORT_CCT == true)
     // Initialize short circuit fault protection with comparators

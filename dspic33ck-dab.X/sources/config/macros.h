@@ -171,9 +171,10 @@
  * @ingroup temperature-feedback-macros
  * @{
  ******************************************************************************/
-#define TEMPERATURE_HYSTERISIS_HALF             (TEMPERATURE_HYSTERISIS_RAW/2)
-#define OVER_TEMP_UPPER_THRESHOLD_WITH_HYST     MAX_TEMPERATURE_THRESHOLD_RAW + TEMPERATURE_HYSTERISIS_HALF
-#define OVER_TEMP_LOWER_THRESHOLD_WITH_HYST     MAX_TEMPERATURE_THRESHOLD_RAW - TEMPERATURE_HYSTERISIS_HALF
+
+#define OTP_THRES_TRIG                  (uint16_t)((OTP_THRES_TRIG_CELCIUS - TEMPERATURE_OFFSET)/ TEMPERATURE_GAIN)
+#define OTP_THRES_CLEAR                 (uint16_t)((OTP_THRES_CLEAR_CELCIUS - TEMPERATURE_OFFSET)/ TEMPERATURE_GAIN)
+#define TEMPERATURE_FACTOR              (int16_t)(TEMPERATURE_GAIN * pow(2.0, 15))
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************

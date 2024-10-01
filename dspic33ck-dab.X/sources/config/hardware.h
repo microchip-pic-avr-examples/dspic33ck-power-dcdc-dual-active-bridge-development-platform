@@ -86,5 +86,13 @@
 #define VRAIL_5V_SNS_GAIN           (0.5)       // V/V
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
+/******************************************************************************
+ * @ingroup temperature-feedback
+ * @{
+ ******************************************************************************/
+#define TEMPERATURE_GAIN           (-0.0366)       
+#define TEMPERATURE_OFFSET          168u
+/** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
+
 #endif	/* HARDWARE_H */
 

@@ -175,9 +175,11 @@
  * @ingroup temperature-feedback
  * @{
  ******************************************************************************/
-#define MAX_TEMPERATURE_THRESHOLD_RAW           2528u      ///< max temperature threshold RAW value equivalent to 80 degrees Celsius
-#define TEMPERATURE_HYSTERISIS_RAW              100u       ///< temperature hysteresis threshold RAW value  
+#define TEMPERATURE_PBV_OFFSET_CELCIUS          40u     ///< To allow the PBV to support up to -40C, an offset was added
+#define OTP_THRES_TRIG_CELCIUS             (float) 80.0 + TEMPERATURE_PBV_OFFSET_CELCIUS ///< Degrees Celcius
+#define OTP_THRES_CLEAR_CELCIUS            (float) 70.0 + TEMPERATURE_PBV_OFFSET_CELCIUS  ///< Degrees Celcius
 #define FAULT_PERSISTENCE_COUNT_TEMP            4u
+
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
