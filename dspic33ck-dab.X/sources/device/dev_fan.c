@@ -123,8 +123,8 @@ void Dev_Fan_Task_1s(void)
     else if(tempADCReading > MIN_TEMPERATURE_40C_HYST){
         fanSpeedPercent = fanSpeedPercent - 2;
         // Fan speed minimum clamping value
-        if(fanSpeedPercent == 0){
-            fanSpeedPercent = 1;
+        if(fanSpeedPercent <= 2){
+            fanSpeedPercent = 2;
         } 
         else{}
     }
