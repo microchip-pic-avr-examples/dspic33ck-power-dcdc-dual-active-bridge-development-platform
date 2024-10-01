@@ -80,7 +80,7 @@ extern TEMP_SETTINGS_t devTempData;
 void Dev_Temp_Initialize(void);
 void Dev_Temp_Task_100ms(void);
 int8_t Dev_Temp_Get_Temperature_Celcius();
-uint16_t Dev_Temp_Get_Temperature_Raw();
+uint16_t Dev_Temp_AverageValue(void);
 uint8_t Dev_Temp_Is_Over_Temperature();
 void Dev_Temp_Get_ADC_Sample(void); 
 #endif	/* DEV_TEMP_H */

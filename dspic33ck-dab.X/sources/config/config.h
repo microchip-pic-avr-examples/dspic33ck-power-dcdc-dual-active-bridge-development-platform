@@ -37,6 +37,14 @@
 #endif
 /** @} */ // end of group pwm-fundamentals ~~~~~~~~~~~~~~~~~~~~
 
+/******************************************************************************
+ * @ingroup control-loop
+ * @{
+ ******************************************************************************/
+#define VPLOOP_ILOOP_EXE_RATIO           (uint16_t)(10 / 2) ///< ratio of ILOOP /VPLOOP execution [100KHz / 10KHz], the divide 2 is for interleaved VLoop and PLoop
+#define AGC_MINIMUM_VIN_THRESHOLD       160u ///< Minimum VIN threshold to activate AGC in [V]  
+#define AGC_MINIMUM_ISEC_THRESHOLD      7 ///< Minimum current threshold to activate AGC in [A]
+/** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 //------------------------------------------------------------------------------
 // fault related parameters
@@ -157,18 +165,14 @@
  ******************************************************************************/
 #define TEMPERATURE_PBV_OFFSET_CELCIUS          40u     ///< To allow the PBV to support up to -40C, an offset was added
 #define OTP_THRES_TRIG_CELCIUS             (float) 80.0 + TEMPERATURE_PBV_OFFSET_CELCIUS ///< Degrees Celcius
-#define OTP_THRES_CLEAR_CELCIUS            (float) 70.0 + TEMPERATURE_PBV_OFFSET_CELCIUS  ///< Degrees Celcius
+#define OTP_THRES_CLEAR_CELCIUS            (float) 70.0 + TEMPERATURE_PBV_OFFSET_CELCIUS ///< Degrees Celcius
 #define FAULT_PERSISTENCE_COUNT_TEMP            4u
 
-/** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
+// Stabilize the temperature around 40 degrees C by varying
+// the fan speed
+#define NOMINAL_TEMPERATURE_THRESHOLD       (float) 40.0 + TEMPERATURE_PBV_OFFSET_CELCIUS///< Degrees Celcius
+#define TEMPERATURE_HYSTERESIS               (float) 2.0 ///< Degrees Celcius
 
-/******************************************************************************
- * @ingroup control-loop
- * @{
- ******************************************************************************/
-#define VPLOOP_ILOOP_EXE_RATIO           (uint16_t)(10 / 2) ///< ratio of ILOOP /VPLOOP execution [100KHz / 10KHz], the divide 2 is for interleaved VLoop and PLoop
-#define AGC_MINIMUM_VIN_THRESHOLD       160u ///< Minimum VIN threshold to activate AGC in [V]  
-#define AGC_MINIMUM_ISEC_THRESHOLD      7 ///< Minimum current threshold to activate AGC in [A]
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 

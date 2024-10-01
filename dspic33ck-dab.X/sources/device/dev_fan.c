@@ -9,6 +9,7 @@
 
 #include "dev_fan.h"
 #include "dev_temp.h"
+#include "config/macros.h"
 
 /*******************************************************************************
  * @ingroup dev-fan
@@ -75,14 +76,7 @@ void Dev_Fan_Initialize(void)
 void Dev_Fan_Task_100ms(void) 
 {
     static uint8_t currentTickCount;
-    
-    if((devTempData.OverTemperatureFlag == 1)){
-        Dev_Fan_Set_Speed(50);  // set the fan speed to 50% when Over temperature fault trips
-    }
-    else{
-        Dev_Fan_Set_Speed(20);  // set the fan speed to 10% when Over temperature fault does not trip
-    }
-    
+   
     if (devFanData.OverrideFlag == 1) 
     {
         changeSpeed = CHANGE_SPEED;
@@ -90,13 +84,54 @@ void Dev_Fan_Task_100ms(void)
         Calculate_Speed();
         Update_Speed();     
     }
-    else if (++currentTickCount >= devFanData.Tick ) 
+    else if (++currentTickCount >= devFanData.Tick) 
     {
         Calculate_Speed();
         Update_Speed();
         currentTickCount = 0;
     }
 }
+
+/***********************************************************************************
+ * @ingroup dev-fan
+ * @brief This function needs to be called every 1s to keep the temperature 
+ * of the board at a certain temperature. 
+ * @return void
+ * 
+ * @details This function needs to be called every 1s. This modulates the 
+ * speed of fan depending on the initialized parameters in the fan object. 
+ * To keep the temperature of the board at around 40 degrees Celcius, the 
+ * fan speed is increased/decreased depending on the temperature. 
+ *
+ * @note
+ *    This is called in a rather slow 1s object, as the speed modulation 
+ * is not so critical.
+ **********************************************************************************/
+void Dev_Fan_Task_1s(void) 
+{
+    static uint8_t fanSpeedPercent = 0;
+    uint16_t tempADCReading = Dev_Temp_AverageValue();
+    
+    if(tempADCReading <= MAX_TEMPERATURE_40C_HYST){
+        fanSpeedPercent = fanSpeedPercent + 2;
+        // Fan speed maximum clamping value
+        if(fanSpeedPercent >= MAX_SPEED_PERCENT){
+            fanSpeedPercent = MAX_SPEED_PERCENT;
+        }
+        else{}
+    }
+    else if(tempADCReading > MIN_TEMPERATURE_40C_HYST){
+        fanSpeedPercent = fanSpeedPercent - 2;
+        // Fan speed minimum clamping value
+        if(fanSpeedPercent == 0){
+            fanSpeedPercent = 1;
+        } 
+        else{}
+    }
+    else{}
+        
+    Dev_Fan_Set_Speed(fanSpeedPercent);
+}        
 
 /*******************************************************************************
  * @ingroup dev-fan
@@ -155,15 +190,6 @@ static void Override_Speed(void)
     devFanData.Tick = MIN_TICK;
 }
 
-/*********************************************************************************
- * @ingroup dev-fan-private-functions
- * @fn      Calculate_Speed
- * @param   void
- * @brief   changes the target value
- * @return  nothing
- * @details 
- *  changes the target as per step size
- **********************************************************************************/
 /*******************************************************************************
  * @ingroup dev-fan
  * @brief  Calculates the fan speed
@@ -177,13 +203,13 @@ static void Calculate_Speed(void)
     
     devFanData.TargetSpeedRaw = Convert_From_Percentage(devFanData.TargetSpeedPercent);
     
-    if (devFanData.CurrentSpeedRaw > (devFanData.TargetSpeedRaw )) // + dev_fan_data.hystersis_raw) )
+    if (devFanData.CurrentSpeedRaw > (devFanData.TargetSpeedRaw ))
     {
         devFanData.CurrentSpeedRaw -= Convert_From_Percentage(devFanData.StepSizePercent); 
         changeSpeed = CHANGE_SPEED;
     }
         
-    else if (devFanData.CurrentSpeedRaw < (devFanData.TargetSpeedRaw )) // + dev_fan_data.hystersis_raw) )
+    else if (devFanData.CurrentSpeedRaw < (devFanData.TargetSpeedRaw )) 
     {
         devFanData.CurrentSpeedRaw += Convert_From_Percentage(devFanData.StepSizePercent) ;
         changeSpeed = CHANGE_SPEED;

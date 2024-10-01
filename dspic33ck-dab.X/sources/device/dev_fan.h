@@ -37,9 +37,9 @@
  * @brief   macros defining the speed limits
  **********************************************************************************/
 #define MAX_SPEED_PERCENT       90  ///< limit the speed to 90 percent. done on compile time
-#define INIT_SPEED_PERCENT      10  ///< start fan at 50
+#define INIT_SPEED_PERCENT      1  ///< start fan at 50
 #define MIN_TICK                1   ///< fastest possible tick. needed for override flag. 
-#define STEP_SIZE               5   ///< in percent. needed for overide flag.
+#define STEP_SIZE               1   ///< in percent. needed for overide flag.
 
 /** @} */ // end of dev-fan-speed-limit-macros
 
@@ -77,7 +77,7 @@ extern FAN_DATA_t* devFanDataPtr;
  **********************************************************************************/
 void Dev_Fan_Initialize(void);
 void Dev_Fan_Task_100ms(void);
-
+void Dev_Fan_Task_1s(void); 
 void Dev_Fan_Set_Override(void);           
 void Dev_Fan_Set_Speed(uint8_t TargetSpeedPercent);
 

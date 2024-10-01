@@ -35,15 +35,6 @@ static uint16_t Average_Temp_ADC_Samples(void);
 static uint16_t Temp_Calculate_Average(uint16_t * buffer, uint16_t size);
 
 
-/***********************************************************************************
- * @ingroup dev-temp-public-functions
- * @fn      Dev_Temp_Init
- * @param   void
- * @return  nothing
- * @brief   this function initializes to the dev_temp_data object and fault objects
- * @details
- *   
- **********************************************************************************/
 /*******************************************************************************
  * @ingroup dev-temp
  * @brief  Initializes the temperature data structure
@@ -61,6 +52,29 @@ void Dev_Temp_Initialize(void){
 
 /*******************************************************************************
  * @ingroup dev-temp
+ * @brief  Executes the Temperature reading every 100ms
+ * @return void
+ * 
+ * @details This function executes temperature reading every 100ms
+ *********************************************************************************/
+void Dev_Temp_Task_100ms(void){
+    
+    Dev_Temp_Get_ADC_Sample();
+    devTempData.AdcAverage = Average_Temp_ADC_Samples();
+}
+
+/*******************************************************************************
+ * @ingroup dev-temp
+ * @brief  Returns the average adc temperature reading
+ * @return void
+ * 
+ * @details This function returns the average ADC temperature reading. 
+ *********************************************************************************/
+uint16_t Dev_Temp_AverageValue(void){
+    return (devTempData.AdcAverage);
+}
+/*******************************************************************************
+ * @ingroup dev-temp
  * @brief  This converts the raw values to temperature celcius as per device 
  *          lookup table
  * @return void
@@ -73,8 +87,6 @@ void Dev_Temp_Initialize(void){
 int8_t Dev_Temp_Get_Temperature_Celcius(void){
     
     TEMP_NTC_LUT_t point0;
-        
-    devTempData.AdcAverage = Average_Temp_ADC_Samples();
     
     if (devTempData.AdcAverage == 0)  return 0;
     
@@ -132,7 +144,7 @@ static uint16_t Average_Temp_ADC_Samples(void) {
     if (devTempData.BufferFull)
         return Temp_Calculate_Average(devTempData.TempBuffer, MAX_NUM_SAMPLES_TEMP_BUFFER);
     else 
-        return 0;
+        return devTempData.AdcAverage;
 }
 
 /*******************************************************************************
