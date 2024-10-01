@@ -28,6 +28,7 @@
  */
 
 #include "dev_fan.h"
+#include "dev_temp.h"
 
 /*******************************************************************************
  * @ingroup dev-fan
@@ -94,6 +95,13 @@ void Dev_Fan_Initialize(void)
 void Dev_Fan_Task_100ms(void) 
 {
     static uint8_t currentTickCount;
+    
+    if((devTempData.OverTemperatureFlag == 1)){
+        Dev_Fan_Set_Speed(50);  // set the fan speed to 50% when Over temperature fault trips
+    }
+    else{
+        Dev_Fan_Set_Speed(20);  // set the fan speed to 10% when Over temperature fault does not trip
+    }
     
     if (devFanData.OverrideFlag == 1) 
     {
