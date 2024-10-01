@@ -70,7 +70,7 @@
  * @{
  ******************************************************************************/
 #define TEMPERATURE_GAIN           (-0.0366)       
-#define TEMPERATURE_OFFSET          168u
+#define TEMPERATURE_OFFSET         (136u+40u)//168u
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 #endif	/* HARDWARE_H */
