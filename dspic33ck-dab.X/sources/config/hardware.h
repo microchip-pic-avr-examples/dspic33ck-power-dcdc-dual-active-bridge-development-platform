@@ -69,8 +69,8 @@
  * @ingroup temperature-feedback
  * @{
  ******************************************************************************/
-#define TEMPERATURE_GAIN           (-0.0366)       
-#define TEMPERATURE_OFFSET         (136u+40u)//168u
+#define TEMPERATURE_GAIN           (-0.029)       
+#define TEMPERATURE_OFFSET         (110u+40)//168u
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 #endif	/* HARDWARE_H */
