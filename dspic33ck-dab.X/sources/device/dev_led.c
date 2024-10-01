@@ -124,7 +124,7 @@ void Dev_LED_Off(uint8_t led_id)
     ledStates[led_id] = LED_STATE_OFF;
     switch(led_id)
     {
-        case LED_PIM_RED:           LED_DP_PIM_on(); break;
+        case LED_PIM_RED:           LED_DP_PIM_off(); break;
         case LED_BOARD_RED:         LED_Board_Red_Off(); break;
         case LED_BOARD_GREEN:       LED_Board_Green_Off(); break;
         default: Nop(); break;
