@@ -189,9 +189,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ga80c3a681fbe9c0d7041146d82134f0cb" id="r_ga80c3a681fbe9c0d7041146d82134f0cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#ga80c3a681fbe9c0d7041146d82134f0cb">PwrCtrl_DeadTimeAdjust</a> (void)</td></tr>
 <tr class="memdesc:ga80c3a681fbe9c0d7041146d82134f0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members dead time based on load.  <br /></td></tr>
 <tr class="separator:ga80c3a681fbe9c0d7041146d82134f0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac4d366f40ad4926202db3d6334f0cc41" id="r_gac4d366f40ad4926202db3d6334f0cc41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gac4d366f40ad4926202db3d6334f0cc41">PwrCtrl_PeriodModulator</a> (void)</td></tr>
-<tr class="memdesc:gac4d366f40ad4926202db3d6334f0cc41"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members and modulates PWM period.  <br /></td></tr>
-<tr class="separator:gac4d366f40ad4926202db3d6334f0cc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -226,7 +223,7 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This interrupt function is a timing interrupt executed every 100KHz and calls an ADC function that updates the DAB data member with ADC raw values. The fault check is also called in this function to detect any fault events. It is followed by the control loop execution for Voltage, Current and Power Loop Controllers. The end result of the control loop is handed over to the PWM distribution. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00449_source.html#l00067">67</a> of file <a class="el" href="a00449_source.html">pwrctrl_isr.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00449_source.html#l00046">46</a> of file <a class="el" href="a00449_source.html">pwrctrl_isr.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -255,7 +252,7 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This function prepares the data for Voltage loop control and Power loop control. The enable bit of these control loops are manage in this function in which the VLoop and PLoop are enabled at 10KHz with 180 degrees phase. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00133">133</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00112">112</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -299,7 +296,7 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>AGC is a specific method for tuning the overall feedback loop gain during runtime. This function handles the calculation of the gain at a particular input voltage. AGC is active when it is above the minimum AGC input voltage. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00319">319</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00298">298</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -329,7 +326,7 @@ Variables</h2></td></tr>
 <p>This function is called to execute the control loop of the power converter. It comprise of Voltage Loop control (VLoop), Power Loop control (PLoop) and Current Loop Control (ILoop). Vloop and PLoop is ten times slower than the current loop with interleaved execution while Iloop is executed every time this function is called. <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00219">219</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00198">198</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
@@ -365,42 +362,13 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This function updates the DAB data members dead time based on load. The phase and dead-time in this function is based on the actual board test. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00387">387</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00367">367</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="a00507_ga80c3a681fbe9c0d7041146d82134f0cb_icgraph.svg" width="368" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gac4d366f40ad4926202db3d6334f0cc41" name="gac4d366f40ad4926202db3d6334f0cc41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac4d366f40ad4926202db3d6334f0cc41">&#9670;&#160;</a></span>PwrCtrl_PeriodModulator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PwrCtrl_PeriodModulator </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>Modulates the DAB period when the maximum phase has been reached. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00430">430</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00507_gac4d366f40ad4926202db3d6334f0cc41_icgraph.svg" width="368" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -423,12 +391,12 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This function updates the DAB data members with phase values normalized in degree. The calculated phase is scaled by 10x to have better phase resolution. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00359">359</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00339">339</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="a00507_gabda1b0b4f44a931cc725c3f5fa45be7b_icgraph.svg" width="396" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -452,19 +420,19 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p>This function is called every 100KHz and triggers the ADC module. This also handles the updating of DAB data members with its latest ADC raw values and collection of data for averaging. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00086">86</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00065">65</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00507_gaa34c5b66d8f20f01daef50d0e88cf20e_cgraph.svg" width="460" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00507_gaa34c5b66d8f20f01daef50d0e88cf20e_cgraph.svg" width="460" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="a00507_gaa34c5b66d8f20f01daef50d0e88cf20e_icgraph.svg" width="414" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -484,7 +452,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The 'IsecAveraging' data object holds the averaging parameter of the Secondary Current. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00071">71</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00050">50</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
 
 </div>
 </div>
@@ -501,7 +469,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The 'VprimAveraging' data object holds the averaging parameter of the Primary Voltage. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00055">55</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00034">34</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
 
 </div>
 </div>
@@ -518,7 +486,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>The 'VsecAveraging' data object holds the averaging parameter of the Secondary Voltage. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00063">63</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00455_source.html#l00042">42</a> of file <a class="el" href="a00455_source.html">pwrctrl_isr_extension.c</a>.</p>
 
 </div>
 </div>

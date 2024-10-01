@@ -384,7 +384,6 @@ var searchData=
   ['current_5fcalibration_381',['CURRENT_CALIBRATION',['../a00486.html#ga4dac1dfb10918e33515fd140e62a247e',1,'config.h']]],
   ['currentspeedpercent_382',['CurrentSpeedPercent',['../a00641.html#ad5d31528415a4ed9cf81ebfd785128c2',1,'FAN_DATA_s']]],
   ['currentspeedraw_383',['CurrentSpeedRaw',['../a00641.html#a833f5d95cb05c7446c9493ce32cd6a4e',1,'FAN_DATA_s']]],
-  ['currenttickcount_384',['currentTickCount',['../a00299.html#ac954f25127f258a413ef9982eb371c46',1,'dev_fan.c']]],
-  ['custom_20code_20adc_385',['MCC Custom Code ADC',['../a00504.html',1,'']]],
-  ['custom_20code_20pwm_386',['MCC Custom Code PWM',['../a00503.html',1,'']]]
+  ['custom_20code_20adc_384',['MCC Custom Code ADC',['../a00504.html',1,'']]],
+  ['custom_20code_20pwm_385',['MCC Custom Code PWM',['../a00503.html',1,'']]]
 ];

@@ -183,13 +183,13 @@ Macros</h2></td></tr>
 <tr class="memitem:aaf9063e8b26414fdf46b844a1b8a8a88" id="r_aaf9063e8b26414fdf46b844a1b8a8a88"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00302.html#aaf9063e8b26414fdf46b844a1b8a8a88">MAX_SPEED_PERCENT</a>&#160;&#160;&#160;90</td></tr>
 <tr class="memdesc:aaf9063e8b26414fdf46b844a1b8a8a88"><td class="mdescLeft">&#160;</td><td class="mdescRight">macros defining the speed limits  <br /></td></tr>
 <tr class="separator:aaf9063e8b26414fdf46b844a1b8a8a88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab079ea0e55d954b22bad8e72f8bf5416" id="r_ab079ea0e55d954b22bad8e72f8bf5416"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00302.html#ab079ea0e55d954b22bad8e72f8bf5416">INIT_SPEED_PERCENT</a>&#160;&#160;&#160;10</td></tr>
+<tr class="memitem:ab079ea0e55d954b22bad8e72f8bf5416" id="r_ab079ea0e55d954b22bad8e72f8bf5416"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00302.html#ab079ea0e55d954b22bad8e72f8bf5416">INIT_SPEED_PERCENT</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:ab079ea0e55d954b22bad8e72f8bf5416"><td class="mdescLeft">&#160;</td><td class="mdescRight">start fan at 50  <br /></td></tr>
 <tr class="separator:ab079ea0e55d954b22bad8e72f8bf5416"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0131e7060ad24ede5f578cfd8afb841b" id="r_a0131e7060ad24ede5f578cfd8afb841b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00302.html#a0131e7060ad24ede5f578cfd8afb841b">MIN_TICK</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:a0131e7060ad24ede5f578cfd8afb841b"><td class="mdescLeft">&#160;</td><td class="mdescRight">fastest possible tick. needed for override flag.  <br /></td></tr>
 <tr class="separator:a0131e7060ad24ede5f578cfd8afb841b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47024204d8ea2cdcc3154f63677b3832" id="r_a47024204d8ea2cdcc3154f63677b3832"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00302.html#a47024204d8ea2cdcc3154f63677b3832">STEP_SIZE</a>&#160;&#160;&#160;5</td></tr>
+<tr class="memitem:a47024204d8ea2cdcc3154f63677b3832" id="r_a47024204d8ea2cdcc3154f63677b3832"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00302.html#a47024204d8ea2cdcc3154f63677b3832">STEP_SIZE</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:a47024204d8ea2cdcc3154f63677b3832"><td class="mdescLeft">&#160;</td><td class="mdescRight">in percent. needed for overide flag.  <br /></td></tr>
 <tr class="separator:a47024204d8ea2cdcc3154f63677b3832"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -206,6 +206,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga1bd7dce99469a41bbb705d939ea512ad" id="r_ga1bd7dce99469a41bbb705d939ea512ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga1bd7dce99469a41bbb705d939ea512ad">Dev_Fan_Task_100ms</a> (void)</td></tr>
 <tr class="memdesc:ga1bd7dce99469a41bbb705d939ea512ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">this function needs to be called every 100ms it contains the code to update the status of the fan  <br /></td></tr>
 <tr class="separator:ga1bd7dce99469a41bbb705d939ea512ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd7dde7baca2e1dd3a745bf5f8258da7" id="r_gafd7dde7baca2e1dd3a745bf5f8258da7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gafd7dde7baca2e1dd3a745bf5f8258da7">Dev_Fan_Task_1s</a> (void)</td></tr>
+<tr class="memdesc:gafd7dde7baca2e1dd3a745bf5f8258da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function needs to be called every 1s to keep the temperature of the board at a certain temperature.  <br /></td></tr>
+<tr class="separator:gafd7dde7baca2e1dd3a745bf5f8258da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabf5c734c9834b070c4adf1af69e9f048" id="r_gabf5c734c9834b070c4adf1af69e9f048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gabf5c734c9834b070c4adf1af69e9f048">Dev_Fan_Set_Override</a> (void)</td></tr>
 <tr class="memdesc:gabf5c734c9834b070c4adf1af69e9f048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fan override bit and the fan speed.  <br /></td></tr>
 <tr class="separator:gabf5c734c9834b070c4adf1af69e9f048"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -233,12 +236,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define INIT_SPEED_PERCENT&#160;&#160;&#160;10</td>
+          <td class="memname">#define INIT_SPEED_PERCENT&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00061">61</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00040">40</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
@@ -255,7 +258,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>limit the speed to 90 percent. done on compile time </p>
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00060">60</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00039">39</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
@@ -271,7 +274,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00062">62</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00041">41</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
@@ -288,7 +291,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 <p>1 percent equals to max period / 100 </p>
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00051">51</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00030">30</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
@@ -299,12 +302,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define STEP_SIZE&#160;&#160;&#160;5</td>
+          <td class="memname">#define STEP_SIZE&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00063">63</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00042">42</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
@@ -321,7 +324,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00082">82</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00061">61</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
@@ -346,7 +349,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00040">40</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00022">22</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
 
 </div>
 </div>

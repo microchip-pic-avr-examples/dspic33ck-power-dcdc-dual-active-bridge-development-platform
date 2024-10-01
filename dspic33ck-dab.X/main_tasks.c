@@ -142,6 +142,7 @@ void Tasks_100ms(void)
 {
     Dev_LED_Task_100ms();
     Dev_Fan_Task_100ms();
+    Dev_Temp_Task_100ms();
     Fault_Execute_100ms();
 }
 
@@ -154,6 +155,7 @@ void Tasks_100ms(void)
 void Tasks_1s(void)
 {
     App_PBV_DAB_Task_1s();
+    Dev_Fan_Task_1s();
 }
 
 //=======================================================================================================

@@ -157,15 +157,27 @@ Modules</h2></td></tr>
 <tr class="memitem:a00485" id="r_a00485"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html">Conversion Macros</a></td></tr>
 <tr class="memdesc:a00485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of Temperature Feedback parameters details Conversion macros converting physical quantities of parameters into binary (integer) numbers for registers and variables. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga16ad582ab55d527942e212edd953ec70" id="r_ga16ad582ab55d527942e212edd953ec70"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#ga16ad582ab55d527942e212edd953ec70">MAX_TEMPERATURE_THRESHOLD_RAW</a>&#160;&#160;&#160;2528u</td></tr>
-<tr class="memdesc:ga16ad582ab55d527942e212edd953ec70"><td class="mdescLeft">&#160;</td><td class="mdescRight">max temperature threshold RAW value equivalent to 80 degrees Celsius  <br /></td></tr>
-<tr class="separator:ga16ad582ab55d527942e212edd953ec70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga79fc18d321ed24ea3b529a5d787c45e3" id="r_ga79fc18d321ed24ea3b529a5d787c45e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#ga79fc18d321ed24ea3b529a5d787c45e3">TEMPERATURE_HYSTERISIS_RAW</a>&#160;&#160;&#160;100u</td></tr>
-<tr class="memdesc:ga79fc18d321ed24ea3b529a5d787c45e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">temperature hysteresis threshold RAW value <br  />
-  <br /></td></tr>
-<tr class="separator:ga79fc18d321ed24ea3b529a5d787c45e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga732703e42208195be1ac578d4b31a3a3" id="r_ga732703e42208195be1ac578d4b31a3a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#ga732703e42208195be1ac578d4b31a3a3">TEMPERATURE_PBV_OFFSET_CELCIUS</a>&#160;&#160;&#160;40u</td></tr>
+<tr class="memdesc:ga732703e42208195be1ac578d4b31a3a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">To allow the PBV to support up to -40C, an offset was added.  <br /></td></tr>
+<tr class="separator:ga732703e42208195be1ac578d4b31a3a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad1f727c2e9b6350745777aca9f272169" id="r_gad1f727c2e9b6350745777aca9f272169"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gad1f727c2e9b6350745777aca9f272169">OTP_THRES_TRIG_CELCIUS</a>&#160;&#160;&#160;(float) 80.0 + <a class="el" href="a00484.html#ga732703e42208195be1ac578d4b31a3a3">TEMPERATURE_PBV_OFFSET_CELCIUS</a></td></tr>
+<tr class="memdesc:gad1f727c2e9b6350745777aca9f272169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees Celcius.  <br /></td></tr>
+<tr class="separator:gad1f727c2e9b6350745777aca9f272169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadc3762a54e017c4db8ad9b6e83dc071d" id="r_gadc3762a54e017c4db8ad9b6e83dc071d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gadc3762a54e017c4db8ad9b6e83dc071d">OTP_THRES_CLEAR_CELCIUS</a>&#160;&#160;&#160;(float) 70.0 + <a class="el" href="a00484.html#ga732703e42208195be1ac578d4b31a3a3">TEMPERATURE_PBV_OFFSET_CELCIUS</a></td></tr>
+<tr class="memdesc:gadc3762a54e017c4db8ad9b6e83dc071d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees Celcius.  <br /></td></tr>
+<tr class="separator:gadc3762a54e017c4db8ad9b6e83dc071d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa584ad6b0df4394fb8a954091913a713" id="r_gaa584ad6b0df4394fb8a954091913a713"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gaa584ad6b0df4394fb8a954091913a713">FAULT_PERSISTENCE_COUNT_TEMP</a>&#160;&#160;&#160;4u</td></tr>
 <tr class="separator:gaa584ad6b0df4394fb8a954091913a713"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf96b37309868a2ca71aec09e1d2180bc" id="r_gaf96b37309868a2ca71aec09e1d2180bc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gaf96b37309868a2ca71aec09e1d2180bc">NOMINAL_TEMPERATURE_THRESHOLD</a>&#160;&#160;&#160;(float) 40.0 + <a class="el" href="a00484.html#ga732703e42208195be1ac578d4b31a3a3">TEMPERATURE_PBV_OFFSET_CELCIUS</a></td></tr>
+<tr class="memdesc:gaf96b37309868a2ca71aec09e1d2180bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees Celcius.  <br /></td></tr>
+<tr class="separator:gaf96b37309868a2ca71aec09e1d2180bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46b916cf898ceb2557a12f208380c5d5" id="r_ga46b916cf898ceb2557a12f208380c5d5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#ga46b916cf898ceb2557a12f208380c5d5">TEMPERATURE_HYSTERESIS</a>&#160;&#160;&#160;(float) 2.0</td></tr>
+<tr class="memdesc:ga46b916cf898ceb2557a12f208380c5d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees Celcius.  <br /></td></tr>
+<tr class="separator:ga46b916cf898ceb2557a12f208380c5d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab586eaca5d59d97c5a098f782633d74c" id="r_gab586eaca5d59d97c5a098f782633d74c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gab586eaca5d59d97c5a098f782633d74c">TEMPERATURE_GAIN</a>&#160;&#160;&#160;(-0.0366)</td></tr>
+<tr class="separator:gab586eaca5d59d97c5a098f782633d74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac02a5a67e0612d6cb90e61cc23398701" id="r_gac02a5a67e0612d6cb90e61cc23398701"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gac02a5a67e0612d6cb90e61cc23398701">TEMPERATURE_OFFSET</a>&#160;&#160;&#160;168u</td></tr>
+<tr class="separator:gac02a5a67e0612d6cb90e61cc23398701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Declaration of Temperature Feedback parameters </p>
@@ -182,39 +194,119 @@ Modules</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00179">179</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00169">169</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga16ad582ab55d527942e212edd953ec70" name="ga16ad582ab55d527942e212edd953ec70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga16ad582ab55d527942e212edd953ec70">&#9670;&#160;</a></span>MAX_TEMPERATURE_THRESHOLD_RAW</h2>
+<a id="gaf96b37309868a2ca71aec09e1d2180bc" name="gaf96b37309868a2ca71aec09e1d2180bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf96b37309868a2ca71aec09e1d2180bc">&#9670;&#160;</a></span>NOMINAL_TEMPERATURE_THRESHOLD</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAX_TEMPERATURE_THRESHOLD_RAW&#160;&#160;&#160;2528u</td>
+          <td class="memname">#define NOMINAL_TEMPERATURE_THRESHOLD&#160;&#160;&#160;(float) 40.0 + <a class="el" href="a00484.html#ga732703e42208195be1ac578d4b31a3a3">TEMPERATURE_PBV_OFFSET_CELCIUS</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00177">177</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00173">173</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga79fc18d321ed24ea3b529a5d787c45e3" name="ga79fc18d321ed24ea3b529a5d787c45e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga79fc18d321ed24ea3b529a5d787c45e3">&#9670;&#160;</a></span>TEMPERATURE_HYSTERISIS_RAW</h2>
+<a id="gadc3762a54e017c4db8ad9b6e83dc071d" name="gadc3762a54e017c4db8ad9b6e83dc071d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadc3762a54e017c4db8ad9b6e83dc071d">&#9670;&#160;</a></span>OTP_THRES_CLEAR_CELCIUS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TEMPERATURE_HYSTERISIS_RAW&#160;&#160;&#160;100u</td>
+          <td class="memname">#define OTP_THRES_CLEAR_CELCIUS&#160;&#160;&#160;(float) 70.0 + <a class="el" href="a00484.html#ga732703e42208195be1ac578d4b31a3a3">TEMPERATURE_PBV_OFFSET_CELCIUS</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00178">178</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00168">168</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gad1f727c2e9b6350745777aca9f272169" name="gad1f727c2e9b6350745777aca9f272169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad1f727c2e9b6350745777aca9f272169">&#9670;&#160;</a></span>OTP_THRES_TRIG_CELCIUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OTP_THRES_TRIG_CELCIUS&#160;&#160;&#160;(float) 80.0 + <a class="el" href="a00484.html#ga732703e42208195be1ac578d4b31a3a3">TEMPERATURE_PBV_OFFSET_CELCIUS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00167">167</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gab586eaca5d59d97c5a098f782633d74c" name="gab586eaca5d59d97c5a098f782633d74c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab586eaca5d59d97c5a098f782633d74c">&#9670;&#160;</a></span>TEMPERATURE_GAIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEMPERATURE_GAIN&#160;&#160;&#160;(-0.0366)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00072">72</a> of file <a class="el" href="a00278_source.html">hardware.h</a>.</p>
+
+</div>
+</div>
+<a id="ga46b916cf898ceb2557a12f208380c5d5" name="ga46b916cf898ceb2557a12f208380c5d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga46b916cf898ceb2557a12f208380c5d5">&#9670;&#160;</a></span>TEMPERATURE_HYSTERESIS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEMPERATURE_HYSTERESIS&#160;&#160;&#160;(float) 2.0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00174">174</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gac02a5a67e0612d6cb90e61cc23398701" name="gac02a5a67e0612d6cb90e61cc23398701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac02a5a67e0612d6cb90e61cc23398701">&#9670;&#160;</a></span>TEMPERATURE_OFFSET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEMPERATURE_OFFSET&#160;&#160;&#160;168u</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00073">73</a> of file <a class="el" href="a00278_source.html">hardware.h</a>.</p>
+
+</div>
+</div>
+<a id="ga732703e42208195be1ac578d4b31a3a3" name="ga732703e42208195be1ac578d4b31a3a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga732703e42208195be1ac578d4b31a3a3">&#9670;&#160;</a></span>TEMPERATURE_PBV_OFFSET_CELCIUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEMPERATURE_PBV_OFFSET_CELCIUS&#160;&#160;&#160;40u</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00166">166</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
 
 </div>
 </div>

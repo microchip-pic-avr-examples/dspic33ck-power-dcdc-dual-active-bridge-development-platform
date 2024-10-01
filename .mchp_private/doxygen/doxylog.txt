@@ -737,6 +737,7 @@ Generating docs for file dspic33ck-dab.X/sources/pwrctrl/pwrctrl_comm_interface.
 Generating docs for file dspic33ck-dab.X/sources/pwrctrl/pwrctrl_common.c...
 Generating docs for file dspic33ck-dab.X/sources/pwrctrl/pwrctrl_common.h...
 Generating docs for file dspic33ck-dab.X/sources/pwrctrl/pwrctrl_isr.c...
+Generating caller graph for function PwrCtrl_PeriodModulator
 Generating docs for file dspic33ck-dab.X/sources/pwrctrl/pwrctrl_isr.h...
 Generating docs for file dspic33ck-dab.X/sources/pwrctrl/pwrctrl_isr_extension.c...
 Generating docs for file dspic33ck-dab.X/sources/pwrctrl/pwrctrl_pwm.c...
@@ -779,7 +780,6 @@ Generating caller graph for function App_PBV_Init
 Generating caller graph for function App_PBV_Re_Init
 Generating caller graph for function App_PBV_Task
 Generating call graph for function App_PBV_Task_100us
-Generating caller graph for function App_PBV_Task_100us
 Generating call graph for function App_PBV_Task_10ms
 Generating caller graph for function App_PBV_Task_10ms
 Generating caller graph for function App_Read_Received_From_PBV
@@ -815,6 +815,8 @@ Generating call graph for function Dev_Fan_Set_Override
 Generating caller graph for function Dev_Fan_Set_Speed
 Generating call graph for function Dev_Fan_Task_100ms
 Generating caller graph for function Dev_Fan_Task_100ms
+Generating call graph for function Dev_Fan_Task_1s
+Generating caller graph for function Dev_Fan_Task_1s
 Generating caller graph for function Override_Speed
 Generating call graph for function Update_Speed
 Generating caller graph for function Update_Speed
@@ -825,10 +827,12 @@ Generating caller graph for function Dev_LED_Task_100ms
 Generating dependency graph for group dev-temp
 Generating call graph for function Average_Temp_ADC_Samples
 Generating caller graph for function Average_Temp_ADC_Samples
+Generating caller graph for function Dev_Temp_AverageValue
 Generating call graph for function Dev_Temp_Get_ADC_Sample
 Generating caller graph for function Dev_Temp_Get_ADC_Sample
-Generating call graph for function Dev_Temp_Get_Temperature_Celcius
 Generating caller graph for function Dev_Temp_Get_Temperature_Celcius
+Generating call graph for function Dev_Temp_Task_100ms
+Generating caller graph for function Dev_Temp_Task_100ms
 Generating caller graph for function Temp_Calculate_Average
 Generating dependency graph for group driver-layer
 Generating call graph for function MCC_Custom_User_Config
@@ -851,7 +855,6 @@ Generating dependency graph for group pwrctrl
 Generating call graph for function PwrCtrl_ControlLoopInitialize
 Generating caller graph for function PwrCtrl_ControlLoopInitialize
 Generating call graph for function PwrCtrl_Execute
-Generating caller graph for function PwrCtrl_Execute
 Generating call graph for function PwrCtrl_Initialize
 Generating call graph for function PwrCtrl_Reset
 Generating caller graph for function PwrCtrl_Reset
@@ -864,7 +867,6 @@ Generating caller graph for function PwrCtrl_AdaptiveGainUpdate
 Generating call graph for function PwrCtrl_ControlLoopExecute
 Generating caller graph for function PwrCtrl_ControlLoopExecute
 Generating caller graph for function PwrCtrl_DeadTimeAdjust
-Generating caller graph for function PwrCtrl_PeriodModulator
 Generating caller graph for function PwrCtrl_PrimToSecPHDegree
 Generating call graph for function PwrCtrl_UpdateADConverterData
 Generating caller graph for function PwrCtrl_UpdateADConverterData
@@ -925,10 +927,8 @@ Generating caller graph for function FAULT_CheckMax
 Generating caller graph for function FAULT_CheckMin
 Generating caller graph for function FAULT_Init
 Generating call graph for function Tasks_100ms
-Generating call graph for function Tasks_100us
 Generating call graph for function Tasks_10ms
 Generating call graph for function Tasks_1s
-Generating call graph for function Tasks_Realtime_100us
 Generating dependency graph for group mcc-layer
 Generating dependency graph for group hide-content
 Generating dependency graph for group adcdriver
@@ -2580,6 +2580,6 @@ Patching output file 796/799
 Patching output file 797/799
 Patching output file 798/799
 Patching output file 799/799
-type lookup cache used 3030/65536 hits=18597 misses=3056
-symbol lookup cache used 5292/65536 hits=21264 misses=5292
+type lookup cache used 3039/65536 hits=18679 misses=3065
+symbol lookup cache used 5309/65536 hits=21336 misses=5309
 finished...

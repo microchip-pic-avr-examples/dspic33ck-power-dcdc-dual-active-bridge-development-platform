@@ -139,268 +139,251 @@ $(document).ready(function(){initNavTree('a00389_source.html',''); initResizable
   <div class="headertitle"><div class="title">os_scheduler_100us.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Copyright(c) 2018 Microchip Technology Inc. and its subsidiaries.</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Subject to your compliance with these terms, you may use Microchip software and any derivatives</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// exclusively with Microchip products. It is your responsibility to comply with third party license</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// terms applicable to your use of third-party software (including open source software) that may</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">// accompany Microchip software.</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// THIS SOFTWARE IS SUPPLIED BY MICROCHIP &quot;AS IS&quot;. NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY,</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// FITNESS FOR A PARTICULAR PURPOSE.</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, INCIDENTAL OR CONSEQUENTIAL</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">// LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// MICROCHIP HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO THE FULLEST EXTENT</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">// ALLOWED BY LAW, MICROCHIP&#39;S TOTAL LIABILITY ON ALL CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// EXCEED THE AMOUNT OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">// @file os_scheduler_100us.c</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">// @ingroup sched-layer</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">// @brief contains the 100탎 scheduler that calls all the tasks that need to be called regularly</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">//        two different timing priorities are available:</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">//          1. 100탎 and 1ms Tasks called from the scheduler interrupt</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">//              the jitter that you will have in the 100탎 realtime tasks called by the interrupt depends</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">//              on other interrupts that have a higher interrupt priority</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">//              the jitter that you will have in the 1ms realtime tasks called by the interrupt depends</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">//              on other interrupts that have a higher interrupt priority amd by the duration of the</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">//              100탎 realtime task</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">//          2. 100탎, 1ms, 10ms, 100ms, 1s Tasks called from the main loop</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">//              these tasks are for soft realtime and not for hard realtime</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">//              so in average they are called with the required timing but the jitter can be very huge,</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">//              depending on the calls before.</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">//              use this for your non-timing critical application state machines</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">//</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">//  @note   put your application specific code in main/main_scheduler.c</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">//</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">// @version v1.0</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">// @date 2019-08-29</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// @author M52409</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">//</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &quot;os_config.h&quot;</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &quot;os/os_sys_time.h&quot;</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#if OS_FEATURE_WATCHDOG_ENABLED == 1</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#include &quot;os_watchdog.h&quot;</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#if OS_USE_SCHEDULER_100us == 1</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#ifndef OS_TIMER_NUMBER_OF_TIMERS</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#warning OS_TIMER_NUMBER_OF_TIMERS needs to be defined in main/project_setting.h</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#ifndef OS_USE_SYSTIME</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#warning OS_USE_SYSTIME needs to be defined in main/project_setting.h</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#include &quot;os/os_scheduler.h&quot;</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#include &quot;<a class="code" href="a00227.html">timer/tmr1.h</a>&quot;</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// @file os_scheduler_100us.c</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// @ingroup sched-layer</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// @brief contains the 100탎 scheduler that calls all the tasks that need to be called regularly</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//        two different timing priorities are available:</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//          1. 100탎 and 1ms Tasks called from the scheduler interrupt</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">//              the jitter that you will have in the 100탎 realtime tasks called by the interrupt depends</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//              on other interrupts that have a higher interrupt priority</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">//              the jitter that you will have in the 1ms realtime tasks called by the interrupt depends</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//              on other interrupts that have a higher interrupt priority amd by the duration of the</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//              100탎 realtime task</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//          2. 100탎, 1ms, 10ms, 100ms, 1s Tasks called from the main loop</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">//              these tasks are for soft realtime and not for hard realtime</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//              so in average they are called with the required timing but the jitter can be very huge,</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">//              depending on the calls before.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">//              use this for your non-timing critical application state machines</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">//</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//  @note   put your application specific code in main/main_scheduler.c</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">//</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">// @version v1.0</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">// @date 2019-08-29</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// @author M52409</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">//</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;os_config.h&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;os/os_sys_time.h&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#if OS_FEATURE_WATCHDOG_ENABLED == 1</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;os_watchdog.h&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#if OS_USE_SCHEDULER_100us == 1</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#ifndef OS_TIMER_NUMBER_OF_TIMERS</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#warning OS_TIMER_NUMBER_OF_TIMERS needs to be defined in main/project_setting.h</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#ifndef OS_USE_SYSTIME</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#warning OS_USE_SYSTIME needs to be defined in main/project_setting.h</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &quot;os/os_scheduler.h&quot;</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &quot;<a class="code" href="a00227.html">timer/tmr1.h</a>&quot;</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">//  The following extern Tasks_... functions should be placed in the file main/main_tasks.c</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">//  call OS_Scheduler_Run() in the main loop or call OS_Scheduler_RunForever() in main.c</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">//void Tasks_Realtime_100us(void);</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">//void Tasks_Realtime_1ms(void);</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">//void Tasks_100us(void);</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">//void Tasks_1ms(void);</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">//void Tasks_10ms(void);</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">//void Tasks_100ms(void);</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">//void Tasks_1s(void);</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">//void Tasks_Background(void);</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">void</span> TMR1_CallBack(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">//  The following extern Tasks_... functions should be placed in the file main/main_tasks.c</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">//  call OS_Scheduler_Run() in the main loop or call OS_Scheduler_RunForever() in main.c</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">//void Tasks_Realtime_100us(void);</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">//void Tasks_Realtime_1ms(void);</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">//void Tasks_100us(void);</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">//void Tasks_1ms(void);</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">//void Tasks_10ms(void);</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">//void Tasks_100ms(void);</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">//void Tasks_1s(void);</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">//void Tasks_Background(void);</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">void</span> TMR1_CallBack(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">//</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">//  put your application specific code in the file main/main_scheduler.c in the following functions:</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">//                              choose wisely between real-time and non-realtime!</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">//</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">//  Interrupt Realtime Functions:</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">//  Tasks_Realtime_100us:   is called by the 100탎 interrupt    - for time critical low jitter stuff</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">//  Tasks_Realtime_1ms  :   is called by the interrupt every ms - for time critical low jitter stuff</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">//</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">//</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">//  Mainloop Non-Realtime Functions:</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">//  Tasks_100us         :   function is called by the main loop in average every 100탎</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">//  Tasks_1ms           :   function is called by the main loop in average every 1ms</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">//  Tasks_10ms          :   function is called by the main loop in average every 10ms</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">//  Tasks_100ms         :   function is called by the main loop in average every 100ms</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">//  Tasks_1s            :   function is called by the main loop in average every second</span></div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">//</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">//  put your application specific code in the file main/main_scheduler.c in the following functions:</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">//                              choose wisely between real-time and non-realtime!</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">//</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">//  Interrupt Realtime Functions:</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">//  Tasks_Realtime_100us:   is called by the 100탎 interrupt    - for time critical low jitter stuff</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">//  Tasks_Realtime_1ms  :   is called by the interrupt every ms - for time critical low jitter stuff</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">//</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">//</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">//  Mainloop Non-Realtime Functions:</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">//  Tasks_100us         :   function is called by the main loop in average every 100탎</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">//  Tasks_1ms           :   function is called by the main loop in average every 1ms</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">//  Tasks_10ms          :   function is called by the main loop in average every 10ms</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">//  Tasks_100ms         :   function is called by the main loop in average every 100ms</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">//  Tasks_1s            :   function is called by the main loop in average every second</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">//</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">//  @note there could be some jitter here because it is not called directly by a timer interrupt</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">//        the timing in average is exact (keep in mind: in average), the jitter depends on the</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">//        called functions before</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">//  @note there could be some jitter here because it is not called directly by a timer interrupt</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">//        the timing in average is exact (keep in mind: in average), the jitter depends on the</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">//        called functions before</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#if OS_TIMER_NUMBER_OF_TIMERS &gt; 0</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> OS_Timer_Tick(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">static</span> <span class="keyword">volatile</span> uint16_t   scheduler_interrupt_leader_100us = 0;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">static</span> <span class="keyword">volatile</span> uint16_t   scheduler_interrupt_follower_100us = 0;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keyword">static</span> <span class="keyword">volatile</span> uint8_t    scheduler_interrupt_realtime_counter_1ms = 0;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#if OS_USE_MCC_TIMER1 == 0</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> OS_Scheduler_Init_Timer1_100us(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>{</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="comment">//Switch off Timer 1</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    T1CONbits.TON = 0;      <span class="comment">// Disable Timer1</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    IEC0bits.T1IE = 0;      <span class="comment">// Disable Timer1 interrupt</span></div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#if OS_TIMER_NUMBER_OF_TIMERS &gt; 0</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">void</span> OS_Timer_Tick(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keyword">static</span> <span class="keyword">volatile</span> uint16_t   scheduler_interrupt_leader_100us = 0;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">static</span> <span class="keyword">volatile</span> uint16_t   scheduler_interrupt_follower_100us = 0;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">static</span> <span class="keyword">volatile</span> uint8_t    scheduler_interrupt_realtime_counter_1ms = 0;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#if OS_USE_MCC_TIMER1 == 0</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> OS_Scheduler_Init_Timer1_100us(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>{</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">//Switch off Timer 1</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    T1CONbits.TON = 0;      <span class="comment">// Disable Timer1</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    IEC0bits.T1IE = 0;      <span class="comment">// Disable Timer1 interrupt</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">//Configure Timer 1</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    T1CONbits.TSIDL = 0;    <span class="comment">// Timer1 Stop in Idle Mode: Continues module operation in Idle mode</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    T1CONbits.TMWDIS = 0;   <span class="comment">// Asynchronous Timer1 Write Disable: Back-to-back writes are enabled in Asynchronous mode</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    T1CONbits.TMWIP = 0;    <span class="comment">// Asynchronous Timer1 Write in Progress: Write to the timer in Asynchronous mode is complete</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    T1CONbits.PRWIP = 0;    <span class="comment">// Asynchronous Period Write in Progress: Write to the Period register in Asynchronous mode is complete</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    T1CONbits.TECS = 0b11;  <span class="comment">// Timer1 Extended Clock Select: FRC clock</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    T1CONbits.TGATE = 0;    <span class="comment">// Timer1 Gated Time Accumulation Enable: Gated time accumulation is disabled when TCS = 0</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    T1CONbits.TCKPS = 0;    <span class="comment">// Timer1 Input Clock Prescale Select: 1:1</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    T1CONbits.TCKPS = 0; <span class="comment">// Timer1 Input Clock Prescale Select: 1:1</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    T1CONbits.TSYNC = 0;    <span class="comment">// Timer1 External Clock Input Synchronization Select: Does not synchronize the External Clock input</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    T1CONbits.TCS = 0;      <span class="comment">// Timer1 Clock Source Select: Internal peripheral clock</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    TMR1 = 0x00;            <span class="comment">// Reset Timer Counter Register TMR to Zero; </span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    PR1 = 9999;             <span class="comment">// Period = 0.0001 s; Frequency = 100000000 Hz; PR 9999</span></div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="comment">//Configure Timer 1</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    T1CONbits.TSIDL = 0;    <span class="comment">// Timer1 Stop in Idle Mode: Continues module operation in Idle mode</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    T1CONbits.TMWDIS = 0;   <span class="comment">// Asynchronous Timer1 Write Disable: Back-to-back writes are enabled in Asynchronous mode</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    T1CONbits.TMWIP = 0;    <span class="comment">// Asynchronous Timer1 Write in Progress: Write to the timer in Asynchronous mode is complete</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    T1CONbits.PRWIP = 0;    <span class="comment">// Asynchronous Period Write in Progress: Write to the Period register in Asynchronous mode is complete</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    T1CONbits.TECS = 0b11;  <span class="comment">// Timer1 Extended Clock Select: FRC clock</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    T1CONbits.TGATE = 0;    <span class="comment">// Timer1 Gated Time Accumulation Enable: Gated time accumulation is disabled when TCS = 0</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    T1CONbits.TCKPS = 0;    <span class="comment">// Timer1 Input Clock Prescale Select: 1:1</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    T1CONbits.TCKPS = 0; <span class="comment">// Timer1 Input Clock Prescale Select: 1:1</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    T1CONbits.TSYNC = 0;    <span class="comment">// Timer1 External Clock Input Synchronization Select: Does not synchronize the External Clock input</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    T1CONbits.TCS = 0;      <span class="comment">// Timer1 Clock Source Select: Internal peripheral clock</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    TMR1 = 0x00;            <span class="comment">// Reset Timer Counter Register TMR to Zero; </span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    PR1 = 9999;             <span class="comment">// Period = 0.0001 s; Frequency = 100000000 Hz; PR 9999</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    IPC0bits.T1IP = 1;      <span class="comment">// Set interrupt priority to one (cpu is running on ip zero)</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    IFS0bits.T1IF = 0;      <span class="comment">// Reset interrupt flag bit</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="comment">//Switch on Timer 1</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    IEC0bits.T1IE = 1;      <span class="comment">// Enable Timer1 interrupt</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    T1CONbits.TON = 1;      <span class="comment">// Enable Timer1</span></div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="keywordtype">void</span> OS_Scheduler_Init(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>{</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="preprocessor">    #if OS_USE_MCC_TIMER1 == 0</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    OS_Scheduler_Init_Timer1_100us();</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="preprocessor">    #endif</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="preprocessor">#if OS_USE_SYSTIME == 1</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    OS_SysTime_ResetTime();</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">#endif  </span><span class="comment">//OS_USE_SYSTIME</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    scheduler_interrupt_leader_100us = 0U;   <span class="comment">// reset directly before calling the Scheduler Loop</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    scheduler_interrupt_follower_100us = 0U; <span class="comment">// reset directly before calling the Scheduler Loop</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_function" href="a00535.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a> (TMR1_CallBack);       <span class="comment">// melody breaks the naming convention, therefore manually registering the name.</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>}</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="preprocessor">#if (OS_USE_MCC_TIMER1 == true)</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">/* TMR1_CallBack is a weak linked function in the tmr1.c */</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">/* LDRA_EXCLUDE 34 D */</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="keywordtype">void</span> TMR1_CallBack(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="keywordtype">void</span> __attribute__((__interrupt__,no_auto_psv)) <a class="code hl_function" href="a00221.html#a3b9d4f7573499d6acdb1ffd1064a9077">_T1Interrupt</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>{</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    scheduler_interrupt_leader_100us++; <span class="comment">//increment our counter for the scheduler, no tick gets lost</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    _T1IF = 0;                          <span class="comment">//clear Timer1 interrupt flag</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">#if OS_TIMER_NUMBER_OF_TIMERS &gt; 0</span></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    OS_Timer_Tick();</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <a class="code hl_function" href="a00517.html#gad258f19a1b6a855fef3c71f54bb5539e">Tasks_Realtime_100us</a>();</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    scheduler_interrupt_realtime_counter_1ms += 1U;</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordflow">if</span> (scheduler_interrupt_realtime_counter_1ms &gt;= 10U)</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    {</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">#if OS_USE_SYSTIME == 1</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        OS_SysTime_IncrementTime_1ms();</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="preprocessor">#endif  </span><span class="comment">//OS_USE_SYSTIME</span></div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <a class="code hl_function" href="a00517.html#ga4bcf2a4c1b64471da77bdd8bb7ebf77d">Tasks_Realtime_1ms</a>();</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        scheduler_interrupt_realtime_counter_1ms = 0U;</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    }</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>}</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">/* OS_Scheduler_RunOnce() is not called in this application, but is </span></div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment"> available to do so */</span></div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment">/* LDRA_EXCLUDE 61 D */</span> </div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="keywordtype">void</span> OS_Scheduler_RunOnce(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>{</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keyword">volatile</span> <span class="keyword">static</span> uint16_t scheduler_1ms_timer = 0U;       <span class="comment">// local counter for 1ms tasks</span></div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keyword">volatile</span> <span class="keyword">static</span> uint16_t scheduler_10ms_timer = 0U;      <span class="comment">// local counter for 10ms tasks</span></div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keyword">volatile</span> <span class="keyword">static</span> uint16_t scheduler_100ms_timer = 0U;     <span class="comment">// local counter for 100ms tasks</span></div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keyword">volatile</span> <span class="keyword">static</span> uint16_t scheduler_1s_timer = 0U;        <span class="comment">// local counter for 1s tasks</span></div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="comment">//TODO: should we implement a Watchdog that gets triggered in one of the Task-Routines?</span></div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordflow">if</span> (scheduler_interrupt_follower_100us != scheduler_interrupt_leader_100us)</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    {</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        scheduler_interrupt_follower_100us += 1U;</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <a class="code hl_function" href="a00517.html#ga97fda594ad396d08b6a833ebb3b04538">Tasks_100us</a>();                              <span class="comment">//call 100탎 tasks</span></div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        scheduler_1ms_timer += 1U;</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keywordflow">if</span> (scheduler_1ms_timer &gt;= 10U)</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>        {</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            scheduler_1ms_timer = 0U;                <span class="comment">//reset 1 ms timer</span></div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>            <a class="code hl_function" href="a00517.html#ga3644aab65c940684125864b9f6fd1d47">Tasks_1ms</a>();                            <span class="comment">//call 1 ms tasks</span></div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>            scheduler_10ms_timer += 1U;</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>            <span class="keywordflow">if</span> (scheduler_10ms_timer &gt;= 10U)</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            {</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                scheduler_10ms_timer = 0U;           <span class="comment">//reset 10 ms timer</span></div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                <a class="code hl_function" href="a00517.html#ga05751024e03719cbe14d88fb0af408dd">Tasks_10ms</a>();                       <span class="comment">//call 10 ms tasks</span></div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                scheduler_100ms_timer += 1U;</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                <span class="keywordflow">if</span> (scheduler_100ms_timer &gt;= 10U)</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                {</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                    scheduler_100ms_timer = 0U;      <span class="comment">//reset 100 ms timer</span></div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                    <a class="code hl_function" href="a00517.html#ga6d5c487ee3f418e6d0432867d11adaed">Tasks_100ms</a>();                  <span class="comment">//call 100 ms tasks</span></div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                    scheduler_1s_timer += 1U;</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>                    <span class="keywordflow">if</span> (scheduler_1s_timer &gt;= 10U)</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                    {</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                        scheduler_1s_timer = 0U;</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="preprocessor">                        #if OS_FEATURE_WATCHDOG_ENABLED == 1</span></div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                            OS_Watchdog_KeepAlivePing();</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="preprocessor">                        #endif  </span></div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>                        <a class="code hl_function" href="a00517.html#gac181d28cf7f396a9ee79b7c8b76b97ad">Tasks_1s</a>();                  <span class="comment">//call 1 s tasks</span></div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                    }</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                }</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            }</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        }</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    }</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    {</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <a class="code hl_function" href="a00517.html#ga77974d0a54f4172e2867de5980fc598f">Tasks_Background</a>();                         <span class="comment">// run the background tasks with their own timing</span></div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    }</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>}</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="keywordtype">void</span> OS_Scheduler_RunForever(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>{</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="comment">// do some initialization</span></div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    scheduler_interrupt_leader_100us = 0U;   <span class="comment">// reset directly before calling the Scheduler Loop</span></div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    scheduler_interrupt_follower_100us = 0U; <span class="comment">// reset directly before calling the Scheduler Loop</span></div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="comment">/*The while loop below is intended to run forever therefore 28 D is </span></div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="comment">     excluded */</span></div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="comment">/* LDRA_EXCLUDE 28 D */</span></div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordflow">while</span> (1)                       <span class="comment">// run that loop forever</span></div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    {       </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        OS_Scheduler_RunOnce();        </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    }</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>}</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="preprocessor">#endif  </span><span class="comment">//OS_USE_SCHEDULER_100us</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    IPC0bits.T1IP = 1;      <span class="comment">// Set interrupt priority to one (cpu is running on ip zero)</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    IFS0bits.T1IF = 0;      <span class="comment">// Reset interrupt flag bit</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="comment">//Switch on Timer 1</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    IEC0bits.T1IE = 1;      <span class="comment">// Enable Timer1 interrupt</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    T1CONbits.TON = 1;      <span class="comment">// Enable Timer1</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keywordtype">void</span> OS_Scheduler_Init(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>{</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">    #if OS_USE_MCC_TIMER1 == 0</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    OS_Scheduler_Init_Timer1_100us();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="preprocessor">#if OS_USE_SYSTIME == 1</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    OS_SysTime_ResetTime();</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="preprocessor">#endif  </span><span class="comment">//OS_USE_SYSTIME</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    scheduler_interrupt_leader_100us = 0U;   <span class="comment">// reset directly before calling the Scheduler Loop</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    scheduler_interrupt_follower_100us = 0U; <span class="comment">// reset directly before calling the Scheduler Loop</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <a class="code hl_function" href="a00535.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a> (TMR1_CallBack);       <span class="comment">// melody breaks the naming convention, therefore manually registering the name.</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>}</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">#if defined (OS_USE_MCC_TIMER1) &amp;&amp; (OS_USE_MCC_TIMER1 == true)</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">/* TMR1_CallBack is a weak linked function in the tmr1.c */</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">/* LDRA_EXCLUDE 34 D */</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keywordtype">void</span> TMR1_CallBack(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keywordtype">void</span> __attribute__((__interrupt__,no_auto_psv)) <a class="code hl_function" href="a00221.html#a3b9d4f7573499d6acdb1ffd1064a9077">_T1Interrupt</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>{</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    scheduler_interrupt_leader_100us++; <span class="comment">//increment our counter for the scheduler, no tick gets lost</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    _T1IF = 0;                          <span class="comment">//clear Timer1 interrupt flag</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="preprocessor">#if OS_TIMER_NUMBER_OF_TIMERS &gt; 0</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    OS_Timer_Tick();</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    Tasks_Realtime_100us();</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    scheduler_interrupt_realtime_counter_1ms += 1U;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordflow">if</span> (scheduler_interrupt_realtime_counter_1ms &gt;= 10U)</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    {</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#if OS_USE_SYSTIME == 1</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        OS_SysTime_IncrementTime_1ms();</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">#endif  </span><span class="comment">//OS_USE_SYSTIME</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <a class="code hl_function" href="a00517.html#ga4bcf2a4c1b64471da77bdd8bb7ebf77d">Tasks_Realtime_1ms</a>();</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        scheduler_interrupt_realtime_counter_1ms = 0U;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    }</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>}</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">/* OS_Scheduler_RunOnce() is not called in this application, but is </span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment"> available to do so */</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">/* LDRA_EXCLUDE 61 D */</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="keywordtype">void</span> OS_Scheduler_RunOnce(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>{</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keyword">volatile</span> <span class="keyword">static</span> uint16_t scheduler_1ms_timer = 0U;       <span class="comment">// local counter for 1ms tasks</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keyword">volatile</span> <span class="keyword">static</span> uint16_t scheduler_10ms_timer = 0U;      <span class="comment">// local counter for 10ms tasks</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keyword">volatile</span> <span class="keyword">static</span> uint16_t scheduler_100ms_timer = 0U;     <span class="comment">// local counter for 100ms tasks</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keyword">volatile</span> <span class="keyword">static</span> uint16_t scheduler_1s_timer = 0U;        <span class="comment">// local counter for 1s tasks</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="comment">//TODO: should we implement a Watchdog that gets triggered in one of the Task-Routines?</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordflow">if</span> (scheduler_interrupt_follower_100us != scheduler_interrupt_leader_100us)</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        scheduler_interrupt_follower_100us += 1U;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        Tasks_100us();                              <span class="comment">//call 100탎 tasks</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        scheduler_1ms_timer += 1U;</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="keywordflow">if</span> (scheduler_1ms_timer &gt;= 10U)</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>            scheduler_1ms_timer = 0U;                <span class="comment">//reset 1 ms timer</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>            <a class="code hl_function" href="a00517.html#ga3644aab65c940684125864b9f6fd1d47">Tasks_1ms</a>();                            <span class="comment">//call 1 ms tasks</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            scheduler_10ms_timer += 1U;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            <span class="keywordflow">if</span> (scheduler_10ms_timer &gt;= 10U)</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            {</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                scheduler_10ms_timer = 0U;           <span class="comment">//reset 10 ms timer</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                <a class="code hl_function" href="a00517.html#ga05751024e03719cbe14d88fb0af408dd">Tasks_10ms</a>();                       <span class="comment">//call 10 ms tasks</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                scheduler_100ms_timer += 1U;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                <span class="keywordflow">if</span> (scheduler_100ms_timer &gt;= 10U)</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                {</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                    scheduler_100ms_timer = 0U;      <span class="comment">//reset 100 ms timer</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                    <a class="code hl_function" href="a00517.html#ga6d5c487ee3f418e6d0432867d11adaed">Tasks_100ms</a>();                  <span class="comment">//call 100 ms tasks</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                    scheduler_1s_timer += 1U;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                    <span class="keywordflow">if</span> (scheduler_1s_timer &gt;= 10U)</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                    {</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                        scheduler_1s_timer = 0U;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="preprocessor">                        #if OS_FEATURE_WATCHDOG_ENABLED == 1</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                            OS_Watchdog_KeepAlivePing();</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="preprocessor">                        #endif  </span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                        <a class="code hl_function" href="a00517.html#gac181d28cf7f396a9ee79b7c8b76b97ad">Tasks_1s</a>();                  <span class="comment">//call 1 s tasks</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                    }</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                }</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>            }</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        }</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    }</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <a class="code hl_function" href="a00517.html#ga77974d0a54f4172e2867de5980fc598f">Tasks_Background</a>();                         <span class="comment">// run the background tasks with their own timing</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>}</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment">//=======================================================================================================</span></div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="keywordtype">void</span> OS_Scheduler_RunForever(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>{</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="comment">// do some initialization</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    scheduler_interrupt_leader_100us = 0U;   <span class="comment">// reset directly before calling the Scheduler Loop</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    scheduler_interrupt_follower_100us = 0U; <span class="comment">// reset directly before calling the Scheduler Loop</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="comment">/*The while loop below is intended to run forever therefore 28 D is </span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment">     excluded */</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="comment">/* LDRA_EXCLUDE 28 D */</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    <span class="keywordflow">while</span> (1)                       <span class="comment">// run that loop forever</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    {       </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        OS_Scheduler_RunOnce();        </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    }</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>}</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="preprocessor">#endif  </span><span class="comment">//OS_USE_SCHEDULER_100us</span></div>
 <div class="ttc" id="aa00221_html_a3b9d4f7573499d6acdb1ffd1064a9077"><div class="ttname"><a href="a00221.html#a3b9d4f7573499d6acdb1ffd1064a9077">_T1Interrupt</a></div><div class="ttdeci">void _T1Interrupt(void)</div><div class="ttdef"><b>Definition</b> <a href="a00221_source.html#l00137">tmr1.c:137</a></div></div>
 <div class="ttc" id="aa00227_html"><div class="ttname"><a href="a00227.html">tmr1.h</a></div><div class="ttdoc">This is the generated driver header file for the TMR1 driver.</div></div>
-<div class="ttc" id="aa00517_html_ga05751024e03719cbe14d88fb0af408dd"><div class="ttname"><a href="a00517.html#ga05751024e03719cbe14d88fb0af408dd">Tasks_10ms</a></div><div class="ttdeci">void Tasks_10ms(void)</div><div class="ttdoc">Tasks_10ms gets called every 10ms, put your things in it that need to be called regularly.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00142">main_tasks.c:142</a></div></div>
-<div class="ttc" id="aa00517_html_ga3644aab65c940684125864b9f6fd1d47"><div class="ttname"><a href="a00517.html#ga3644aab65c940684125864b9f6fd1d47">Tasks_1ms</a></div><div class="ttdeci">void Tasks_1ms(void)</div><div class="ttdoc">Tasks_1ms gets called every millisecond, put your things in it that need to be called regularly.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00130">main_tasks.c:130</a></div></div>
-<div class="ttc" id="aa00517_html_ga4bcf2a4c1b64471da77bdd8bb7ebf77d"><div class="ttname"><a href="a00517.html#ga4bcf2a4c1b64471da77bdd8bb7ebf77d">Tasks_Realtime_1ms</a></div><div class="ttdeci">void Tasks_Realtime_1ms(void)</div><div class="ttdoc">Tasks_Realtime_1ms gets called directly from the timer interrupt every millisecond.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00105">main_tasks.c:105</a></div></div>
-<div class="ttc" id="aa00517_html_ga6d5c487ee3f418e6d0432867d11adaed"><div class="ttname"><a href="a00517.html#ga6d5c487ee3f418e6d0432867d11adaed">Tasks_100ms</a></div><div class="ttdeci">void Tasks_100ms(void)</div><div class="ttdoc">Tasks_100ms gets called every 100 ms, put your things in it that need to be called regularly.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00156">main_tasks.c:156</a></div></div>
-<div class="ttc" id="aa00517_html_ga77974d0a54f4172e2867de5980fc598f"><div class="ttname"><a href="a00517.html#ga77974d0a54f4172e2867de5980fc598f">Tasks_Background</a></div><div class="ttdeci">void Tasks_Background(void)</div><div class="ttdoc">Tasks_Background gets called all the time when no other of the above tasks are being called.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00183">main_tasks.c:183</a></div></div>
-<div class="ttc" id="aa00517_html_ga97fda594ad396d08b6a833ebb3b04538"><div class="ttname"><a href="a00517.html#ga97fda594ad396d08b6a833ebb3b04538">Tasks_100us</a></div><div class="ttdeci">void Tasks_100us(void)</div><div class="ttdoc">Tasks_100us gets called every 100탎, put your things in it that need to be called regularly.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00118">main_tasks.c:118</a></div></div>
-<div class="ttc" id="aa00517_html_gac181d28cf7f396a9ee79b7c8b76b97ad"><div class="ttname"><a href="a00517.html#gac181d28cf7f396a9ee79b7c8b76b97ad">Tasks_1s</a></div><div class="ttdeci">void Tasks_1s(void)</div><div class="ttdoc">Tasks_1s gets called every second, put your things in it that need to be called regularly.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00169">main_tasks.c:169</a></div></div>
-<div class="ttc" id="aa00517_html_gad258f19a1b6a855fef3c71f54bb5539e"><div class="ttname"><a href="a00517.html#gad258f19a1b6a855fef3c71f54bb5539e">Tasks_Realtime_100us</a></div><div class="ttdeci">void Tasks_Realtime_100us(void)</div><div class="ttdoc">Tasks_Realtime_100us gets called directly from the timer interrupt every 100 탎.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00089">main_tasks.c:89</a></div></div>
+<div class="ttc" id="aa00517_html_ga05751024e03719cbe14d88fb0af408dd"><div class="ttname"><a href="a00517.html#ga05751024e03719cbe14d88fb0af408dd">Tasks_10ms</a></div><div class="ttdeci">void Tasks_10ms(void)</div><div class="ttdoc">Tasks_10ms gets called every 10ms, put your things in it that need to be called regularly.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00127">main_tasks.c:127</a></div></div>
+<div class="ttc" id="aa00517_html_ga3644aab65c940684125864b9f6fd1d47"><div class="ttname"><a href="a00517.html#ga3644aab65c940684125864b9f6fd1d47">Tasks_1ms</a></div><div class="ttdeci">void Tasks_1ms(void)</div><div class="ttdoc">Tasks_1ms gets called every millisecond, put your things in it that need to be called regularly.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00115">main_tasks.c:115</a></div></div>
+<div class="ttc" id="aa00517_html_ga4bcf2a4c1b64471da77bdd8bb7ebf77d"><div class="ttname"><a href="a00517.html#ga4bcf2a4c1b64471da77bdd8bb7ebf77d">Tasks_Realtime_1ms</a></div><div class="ttdeci">void Tasks_Realtime_1ms(void)</div><div class="ttdoc">Tasks_Realtime_1ms gets called directly from the timer interrupt every millisecond.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00090">main_tasks.c:90</a></div></div>
+<div class="ttc" id="aa00517_html_ga6d5c487ee3f418e6d0432867d11adaed"><div class="ttname"><a href="a00517.html#ga6d5c487ee3f418e6d0432867d11adaed">Tasks_100ms</a></div><div class="ttdeci">void Tasks_100ms(void)</div><div class="ttdoc">Tasks_100ms gets called every 100 ms, put your things in it that need to be called regularly.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00141">main_tasks.c:141</a></div></div>
+<div class="ttc" id="aa00517_html_ga77974d0a54f4172e2867de5980fc598f"><div class="ttname"><a href="a00517.html#ga77974d0a54f4172e2867de5980fc598f">Tasks_Background</a></div><div class="ttdeci">void Tasks_Background(void)</div><div class="ttdoc">Tasks_Background gets called all the time when no other of the above tasks are being called.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00170">main_tasks.c:170</a></div></div>
+<div class="ttc" id="aa00517_html_gac181d28cf7f396a9ee79b7c8b76b97ad"><div class="ttname"><a href="a00517.html#gac181d28cf7f396a9ee79b7c8b76b97ad">Tasks_1s</a></div><div class="ttdeci">void Tasks_1s(void)</div><div class="ttdoc">Tasks_1s gets called every second, put your things in it that need to be called regularly.</div><div class="ttdef"><b>Definition</b> <a href="a00053_source.html#l00155">main_tasks.c:155</a></div></div>
 <div class="ttc" id="aa00535_html_gacf9de8f06456af5b10227545089697ff"><div class="ttname"><a href="a00535.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a></div><div class="ttdeci">void TMR1_TimeoutCallbackRegister(void(*handler)(void))</div><div class="ttdoc">This function can be used to override default callback and to define custom callback for TMR1 Timeout...</div><div class="ttdef"><b>Definition</b> <a href="a00221_source.html#l00124">tmr1.c:124</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

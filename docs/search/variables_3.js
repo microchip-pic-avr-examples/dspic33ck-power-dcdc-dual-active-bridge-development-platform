@@ -48,13 +48,12 @@ var searchData=
   ['controlphase_5fp2s_5ftarget_45',['ControlPhase_P2S_Target',['../a00701.html#a1b2f921d9eb1d364246e97c1f0d00b99',1,'SWITCH_NODE_s']]],
   ['conversionresultget_46',['ConversionResultGet',['../a00541.html#a43a7b9627f6354ec9372f61d7541acbd',1,'ADC_INTERFACE']]],
   ['corepowerenable_47',['CorePowerEnable',['../a00545.html#a415ad59e4b8144f1c758db5556932abf',1,'ADC_MULTICORE']]],
-  ['counter_48',['counter',['../a00721.html#ac73dde33a2be13416f717c1ab8954227',1,'START_UP_RAMP_s::Counter'],['../a00697.html#ac73dde33a2be13416f717c1ab8954227',1,'AVERAGING_s::Counter']]],
+  ['counter_48',['counter',['../a00697.html#ac73dde33a2be13416f717c1ab8954227',1,'AVERAGING_s::Counter'],['../a00721.html#ac73dde33a2be13416f717c1ab8954227',1,'START_UP_RAMP_s::Counter']]],
   ['counterget_49',['CounterGet',['../a00601.html#a3bfca0e3c07096d3729aa5718e498b05',1,'TIMER_INTERFACE']]],
   ['counterreset_50',['CounterReset',['../a00657.html#aa0edd97925490e413dd660faa944ac2d',1,'FAULT_OBJ_T']]],
   ['counterset_51',['CounterSet',['../a00657.html#abd60c5f6c857aba89b79ed3912e92561',1,'FAULT_OBJ_T']]],
   ['crc_52',['crc',['../a00629.html#afb8cac113b1a41d1c48d80018ddb6744',1,'UART_MSG_RX_OBJ::CRC'],['../a00633.html#afb8cac113b1a41d1c48d80018ddb6744',1,'UART_MSG_TX_OBJ::CRC'],['../a00524.html#ga1065ec72a69750ea4b5815f6504d8798',1,'CRC:&#160;crc.c'],['../a00524.html#ga1065ec72a69750ea4b5815f6504d8798',1,'CRC:&#160;crc.c']]],
   ['ctrlloop_5fexe_53',['ctrlloop_exe',['../a00535.html#ga56d847de2589dfb5bbce07a29fd5ef15',1,'CTRLLOOP_EXE:&#160;sccp1.c'],['../a00535.html#ga56d847de2589dfb5bbce07a29fd5ef15',1,'CTRLLOOP_EXE:&#160;sccp1.c']]],
   ['currentspeedpercent_54',['CurrentSpeedPercent',['../a00641.html#ad5d31528415a4ed9cf81ebfd785128c2',1,'FAN_DATA_s']]],
-  ['currentspeedraw_55',['CurrentSpeedRaw',['../a00641.html#a833f5d95cb05c7446c9493ce32cd6a4e',1,'FAN_DATA_s']]],
-  ['currenttickcount_56',['currentTickCount',['../a00299.html#ac954f25127f258a413ef9982eb371c46',1,'dev_fan.c']]]
+  ['currentspeedraw_55',['CurrentSpeedRaw',['../a00641.html#a833f5d95cb05c7446c9493ce32cd6a4e',1,'FAN_DATA_s']]]
 ];

@@ -8,7 +8,6 @@ var a00507 =
     [ "PwrCtrl_AdaptiveGainUpdate", "a00507.html#ga8e52f74dc17c38d13a3980af0968fc2f", null ],
     [ "PwrCtrl_ControlLoopExecute", "a00507.html#ga2eeebdb0cef4bbfeed446752525dd879", null ],
     [ "PwrCtrl_DeadTimeAdjust", "a00507.html#ga80c3a681fbe9c0d7041146d82134f0cb", null ],
-    [ "PwrCtrl_PeriodModulator", "a00507.html#gac4d366f40ad4926202db3d6334f0cc41", null ],
     [ "PwrCtrl_PrimToSecPHDegree", "a00507.html#gabda1b0b4f44a931cc725c3f5fa45be7b", null ],
     [ "PwrCtrl_UpdateADConverterData", "a00507.html#gaa34c5b66d8f20f01daef50d0e88cf20e", null ],
     [ "iSecAveraging", "a00507.html#ga672f4741d032387a584ef0444f637cce", null ],
