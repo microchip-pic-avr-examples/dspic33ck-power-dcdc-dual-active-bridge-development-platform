@@ -163,14 +163,14 @@
  * @ingroup temperature-feedback
  * @{
  ******************************************************************************/
-#define TEMPERATURE_PBV_OFFSET_CELCIUS          40u     ///< To allow the PBV to support up to -40C, an offset was added
-#define OTP_THRES_TRIG_CELCIUS             (float) 80.0 + TEMPERATURE_PBV_OFFSET_CELCIUS ///< Degrees Celcius
-#define OTP_THRES_CLEAR_CELCIUS            (float) 70.0 + TEMPERATURE_PBV_OFFSET_CELCIUS ///< Degrees Celcius
+#define TEMPERATURE_PBV_OFFSET_CELSIUS          40u     ///< To allow the PBV to support up to -40C, an offset was added
+#define OTP_THRES_TRIG_CELCIUS             (float) 80.0 + TEMPERATURE_PBV_OFFSET_CELSIUS ///< Degrees Celcius
+#define OTP_THRES_CLEAR_CELCIUS            (float) 70.0 + TEMPERATURE_PBV_OFFSET_CELSIUS ///< Degrees Celcius
 #define FAULT_PERSISTENCE_COUNT_TEMP            4u
 
 // Stabilize the temperature around 40 degrees C by varying
 // the fan speed
-#define NOMINAL_TEMPERATURE_THRESHOLD       (float) 40.0 + TEMPERATURE_PBV_OFFSET_CELCIUS///< Degrees Celcius
+#define NOMINAL_TEMPERATURE_THRESHOLD       (float) 40.0 + TEMPERATURE_PBV_OFFSET_CELSIUS///< Degrees Celcius
 #define TEMPERATURE_HYSTERESIS               (float) 2.0 ///< Degrees Celcius
 
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~

@@ -93,7 +93,7 @@ int8_t Dev_Temp_Get_Temperature_Celcius(void){
     if (devTempData.BufferFull)
         point0.temperature =  (__builtin_mulsu(TEMPERATURE_FACTOR, devTempData.AdcAverage) >> 15) + TEMPERATURE_OFFSET;
     
-    point0.temperatureCelsius = point0.temperature - TEMPERATURE_PBV_OFFSET_CELCIUS;
+    point0.temperatureCelsius = point0.temperature - TEMPERATURE_PBV_OFFSET_CELSIUS;
     
     return point0.temperatureCelsius;
 }
