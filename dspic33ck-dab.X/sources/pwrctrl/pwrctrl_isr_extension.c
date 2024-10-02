@@ -178,6 +178,18 @@ void PwrCtrl_10KHzVPLoopPrepareData(void)
             iSecAveraging.AverageValue = (uint16_t)(__builtin_divud(iSecAveraging.Accumulator, iSecAveraging.Counter));
             iSecAveraging.Accumulator = 0;
             iSecAveraging.Counter = 0;
+            
+            // Bit-shift value used to perform input value normalization
+            // Scaled the feedback to Power (Watts in units)
+            uint32_t buf = (uint32_t)iSecAveraging.AverageValue * 
+                    (uint32_t)vSecAveraging.AverageValue * POWER_FACTOR; 
+
+            // scale back the 14 bit from the POWER_RESOLUTION calculation 
+            // to get the Watts value for Power Loop
+            buf >>= POWER_SCALER;
+
+            // Transfer to SecPower data member the power computation in [Watts] 
+            dab.Data.SecPower = buf;
         }
         
         cnt = 0;
