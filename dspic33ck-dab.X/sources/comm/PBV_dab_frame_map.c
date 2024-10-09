@@ -8,6 +8,11 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdint.h> // include standard integer data types
+
+#include <stdio.h>
+#include <string.h>
+//#include <stdlib.h>
+
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h> // include standard definition data types
 
@@ -144,26 +149,48 @@ void App_PBV_DAB_Task_10ms(void)
  **********************************************************************************/
 void App_PBV_DAB_Task_1s(void)
 {
+    static uint16_t OneSecCounter;//debug log print demo purpose. Sporadic Resets can be detected by checking this number
+    static uint8_t PBVBuffer[64<<1];//PBV msg buffer. Take care of 64B length boundary when creating messages. 
+
+    for(uint16_t i=0; i<(64); i++) PBVBuffer[i]=0;//clear to 0 all 64 bytes
+    
     if (appPbvDabAsciiPtr->PBV_Protcol_ID == FIRMWARE_PROTOCOL_ID)
     {
-        appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)FIRMWARE_VERSION_STRING;
+        strcpy(&PBVBuffer[0], (uint8_t *)FIRMWARE_VERSION_STRING);
+        strcpy(&PBVBuffer[10], (uint8_t *)FIRMWARE_NAME);
+        appPbvDabAsciiPtr->Data_Buffer = &PBVBuffer[0];
+                
         App_Send_To_PBV(appPbvDabAsciiPtr);
         appPbvDabAsciiPtr->PBV_Protcol_ID = PBV_LOG_ID;
         transmitFirmwareId = 1;
         return;
     }
+    
     if (appPbvDabAsciiPtr->PBV_Protcol_ID == PBV_LOG_ID)
     {
         if (transmitFirmwareId) App_PBV_Re_Init(appPbvDabAsciiPtr);     ///< reinit to new id
         transmitFirmwareId = 0; 
-    }
+        
+        if(OneSecCounter)
+        {
+            if(!(OneSecCounter%20))
+            {
+ //                                    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef";   
+                sprintf(&PBVBuffer[0], "\rDAB board heat sink Temperature is %d degree Celsius  ", temperature);
+            }
+            else
+            sprintf(&PBVBuffer[0], "\r Dual Active Bridge. 64B fixed length Log. MsgNo %d ", OneSecCounter); 
+        }
+        else
+        {   
+            sprintf(&PBVBuffer[0], "\r Dual Active Bridge. AFTER RESET SYSTEM STARTUP  " ); 
+        }
 
-    //appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)"                 Log Message From Protocol ID 0x300";
-    //appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcde\n";
-    appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)"Dual Active Bridge fixed length Log. 64byte. Future reserved   \n";
-    
-    App_Send_To_PBV(appPbvDabAsciiPtr);
-   
+        appPbvDabAsciiPtr->Data_Buffer =&PBVBuffer[0];
+        App_Send_To_PBV(appPbvDabAsciiPtr);//64B fixed frame
+        
+        OneSecCounter++;
+    }
     temperature = (int16_t)Dev_Temp_Get_Temperature_Celcius();
 }
 
