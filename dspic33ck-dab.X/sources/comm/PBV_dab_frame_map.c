@@ -158,7 +158,10 @@ void App_PBV_DAB_Task_1s(void)
         transmitFirmwareId = 0; 
     }
 
-    appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)"                 Log Message From Protocol ID 0x300";
+    //appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)"                 Log Message From Protocol ID 0x300";
+    //appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcde\n";
+    appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)"Dual Active Bridge fixed length Log. 64byte. Future reserved   \n";
+    
     App_Send_To_PBV(appPbvDabAsciiPtr);
    
     temperature = (int16_t)Dev_Temp_Get_Temperature_Celcius();
