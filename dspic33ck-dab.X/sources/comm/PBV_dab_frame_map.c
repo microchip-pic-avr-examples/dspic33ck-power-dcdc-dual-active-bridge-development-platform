@@ -69,8 +69,7 @@ uint16_t bufferSixteenTx[32];
 
 static uint8_t transmitFirmwareId = 1;
 
-// temporary variables
-static int16_t temperature = 0;
+
 
 /***********************************************************************************
  * Private Functions Prototypes
@@ -176,10 +175,10 @@ void App_PBV_DAB_Task_1s(void)
             if(!(OneSecCounter%20))
             {
  //                                    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef";   
-                sprintf(&PBVBuffer[0], "\rDAB board heat sink Temperature is %d degree Celsius  ", temperature);
+                sprintf(&PBVBuffer[0], "\rDAB board heat sink Temperature is %d degree Celsius  ", Dev_Temp_Get_Temperature_Celcius() );
             }
             else
-            sprintf(&PBVBuffer[0], "\r Dual Active Bridge. 64B fixed length Log. MsgNo %d ", OneSecCounter); 
+            sprintf(&PBVBuffer[0], "\r Dual Active Bridge. 64B fixed length Log. MsgNo %d ", OTP_THRES_CLEAR_CELCIUS );//OneSecCounter);
         }
         else
         {   
@@ -191,7 +190,6 @@ void App_PBV_DAB_Task_1s(void)
         
         OneSecCounter++;
     }
-    temperature = (int16_t)Dev_Temp_Get_Temperature_Celcius();
 }
 
 /***********************************************************************************
@@ -240,11 +238,11 @@ void App_PBV_DAB_Build_Frame()
     bufferSixteenTx[4] = PwrCtrl_GetAdc_Ipri_ct();
     bufferSixteenTx[5] = PwrCtrl_GetAdc_Isec_ct();
     bufferSixteenTx[6] = Dev_PwrCtrl_GetAveraging_Isec();
-    bufferSixteenTx[7] = temperature + 40;
+    bufferSixteenTx[7] = (uint16_t)(TEMPERATURE_PBV_OFFSET_CELSIUS + (int16_t)Dev_Temp_Get_Temperature_Celcius());
     bufferSixteenTx[8] = PwrCtrl_GetAdc_Vrail_5V();    
     bufferSixteenTx[9] =  PwrCtrl_GetPhase_P2SDegree();
-    bufferSixteenTx[10] = devFanDataPtr->CurrentSpeedPercent;
-    bufferSixteenTx[11] = temperature;
+    bufferSixteenTx[10] = 0;//devFanDataPtr->CurrentSpeedPercent;
+    bufferSixteenTx[11] = 0;//(uint16_t)(TEMPERATURE_PBV_OFFSET_CELSIUS + (int16_t)Dev_Temp_Get_Temperature_Celcius());
     bufferSixteenTx[12] = Dev_PwrCtrl_Get_Period();
     bufferSixteenTx[13] = Dev_PwrCtrl_Get_PwmprdTarget();
     bufferSixteenTx[14] = Dev_PwrCtrl_Get_SecPower(); 

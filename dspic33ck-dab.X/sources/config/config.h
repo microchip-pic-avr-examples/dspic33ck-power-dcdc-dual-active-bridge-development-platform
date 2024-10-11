@@ -66,29 +66,29 @@
  * @ingroup primary-current-feedback
  * @{
  ******************************************************************************/
-#define T_ADC_SAMPLE_SECS                   (float) 10.0e-6 ///< ADC sampling rate
+#define T_ADC_SAMPLE_SECS                   (float) (10.0e-6) ///< ADC sampling rate
 
-#define IPRI_OC_THRES_TRIG_AMPS             (float) 39.0 ///< Primary over current trigger threshold
-#define IPRI_OC_THRES_CLEAR_AMPS            (float)  2.0
-#define IPRI_OC_T_BLANK_TRIG_SEC            (float) 50.0e-6
-#define IPRI_OC_T_BLANK_CLEAR_SEC           (float)  0.0
+#define IPRI_OC_THRES_TRIG_AMPS             (float) (39.0) ///< Primary over current trigger threshold
+#define IPRI_OC_THRES_CLEAR_AMPS            (float) (2.0)
+#define IPRI_OC_T_BLANK_TRIG_SEC            (float) (50.0e-6)
+#define IPRI_OC_T_BLANK_CLEAR_SEC           (float) (0.0)
 #define IPRI_OC_TICK_SEC                    (T_ADC_SAMPLE_SECS)
 
-#define IPRI_SC_THRES_TRIG_AMPS             (float) 39.0
+#define IPRI_SC_THRES_TRIG_AMPS             (float) (39.0)
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
  * @ingroup secondary-current-feedback
  * @{
  ******************************************************************************/
-#define ISEC_OC_THRES_TRIG_AMPS             (float) 49.0
-#define ISEC_OC_THRES_CLEAR_AMPS            (float)  2.0
-#define ISEC_OC_T_BLANK_TRIG_SEC            (float) 50.0e-6
-#define ISEC_OC_T_BLANK_CLEAR_SEC           (float)  0.0
+#define ISEC_OC_THRES_TRIG_AMPS             (float) (49.0)
+#define ISEC_OC_THRES_CLEAR_AMPS            (float)  (2.0)
+#define ISEC_OC_T_BLANK_TRIG_SEC            (float) (50.0e-6)
+#define ISEC_OC_T_BLANK_CLEAR_SEC           (float)  (0.0)
 #define ISEC_OC_TICK_SEC                    (T_ADC_SAMPLE_SECS) 
 
-#define ISEC_SC_THRES_TRIG_AMPS             (float) 49.0
-#define ISEC_LOAD_STEP_CLAMPING_AMPS        (float) 1.5 
+#define ISEC_SC_THRES_TRIG_AMPS             (float) (49.0)
+#define ISEC_LOAD_STEP_CLAMPING_AMPS        (float) (1.5) 
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
@@ -96,25 +96,25 @@
  * @{
  ******************************************************************************/
 #if(DCDC400V_SYSTEM)
-    #define VPRI_OV_THRES_TRIG_VOLTS            (float)700.0
-    #define VPRI_OV_THRES_CLEAR_VOLTS           (float)600.0
+    #define VPRI_OV_THRES_TRIG_VOLTS            (float)(700.0)
+    #define VPRI_OV_THRES_CLEAR_VOLTS           (float)(600.0)
 #elif(DCDC800V_SYSTEM)
     #define VPRI_OV_THRES_TRIG_VOLTS            (float)900.0
     #define VPRI_OV_THRES_CLEAR_VOLTS           (float)800.0
 #endif
-#define VPRI_OV_T_BLANK_TRIG_SEC            (float)  0.0
-#define VPRI_OV_T_BLANK_CLEAR_SEC           (float)  0.0
+#define VPRI_OV_T_BLANK_TRIG_SEC            (float)  (0.0)
+#define VPRI_OV_T_BLANK_CLEAR_SEC           (float)  (0.0)
 #define VPRI_OV_TICK_SEC                    (T_ADC_SAMPLE_SECS)
 
 #if(DCDC400V_SYSTEM)
-    #define VPRI_UV_THRES_TRIG_VOLTS            (float)300.0
-    #define VPRI_UV_THRES_CLEAR_VOLTS           (float)200.0
+    #define VPRI_UV_THRES_TRIG_VOLTS            (float)(300.0)
+    #define VPRI_UV_THRES_CLEAR_VOLTS           (float)(200.0)
 #elif(DCDC800V_SYSTEM)
     #define VPRI_UV_THRES_TRIG_VOLTS            (float)450.0
     #define VPRI_UV_THRES_CLEAR_VOLTS           (float)300.0
 #endif
-#define VPRI_UV_T_BLANK_TRIG_SEC            (float)  0.0
-#define VPRI_UV_T_BLANK_CLEAR_SEC           (float)  0.0
+#define VPRI_UV_T_BLANK_TRIG_SEC            (float)  (0.0)
+#define VPRI_UV_T_BLANK_CLEAR_SEC           (float)  (0.0)
 #define VPRI_UV_TICK_SEC                    (T_ADC_SAMPLE_SECS)
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
@@ -123,39 +123,39 @@
  * @{
  ******************************************************************************/
 #if(DCDC400V_SYSTEM)
-#define VSEC_OV_THRES_TRIG_VOLTS            (float)500.0
-#define VSEC_OV_THRES_CLEAR_VOLTS           (float) 20.0
+#define VSEC_OV_THRES_TRIG_VOLTS            (float)(500.0)
+#define VSEC_OV_THRES_CLEAR_VOLTS           (float) (20.0)
 #elif(DCDC800V_SYSTEM)
 #define VSEC_OV_THRES_TRIG_VOLTS            (float)950.0
 #define VSEC_OV_THRES_CLEAR_VOLTS           (float) 20.0
 #endif
-#define VSEC_OV_T_BLANK_TRIG_SEC            (float)  1.0e-3
-#define VSEC_OV_T_BLANK_CLEAR_SEC           (float) 10.0e-3
+#define VSEC_OV_T_BLANK_TRIG_SEC            (float)  (1.0e-3)
+#define VSEC_OV_T_BLANK_CLEAR_SEC           (float) (10.0e-3)
 #define VSEC_OV_TICK_SEC                    (T_ADC_SAMPLE_SECS)
 
 #if(DCDC400V_SYSTEM)
-#define VSEC_UV_THRES_TRIG_VOLTS            (float)100.0
-#define VSEC_UV_THRES_CLEAR_VOLTS           (float) 50.0
+#define VSEC_UV_THRES_TRIG_VOLTS            (float)(100.0)
+#define VSEC_UV_THRES_CLEAR_VOLTS           (float) (50.0)
 #elif(DCDC800V_SYSTEM)
 #define VSEC_UV_THRES_TRIG_VOLTS            (float)550.0
 #define VSEC_UV_THRES_CLEAR_VOLTS           (float) 50.0
 #endif
-#define VSEC_UV_T_BLANK_TRIG_SEC            (float)  0.0
-#define VSEC_UV_T_BLANK_CLEAR_SEC           (float)  0.0
+#define VSEC_UV_T_BLANK_TRIG_SEC            (float)  (0.0)
+#define VSEC_UV_T_BLANK_CLEAR_SEC           (float)  (0.0)
 #define VSEC_UV_TICK_SEC                    (T_ADC_SAMPLE_SECS)
 
-#define VSEC_LOAD_STEP_CLAMPING_VOLTS       (float) 16
-#define VPRIM_LOAD_STEP_CLAMPING_VOLTS       (float) 16
+#define VSEC_LOAD_STEP_CLAMPING_VOLTS       (float) (16)
+#define VPRIM_LOAD_STEP_CLAMPING_VOLTS       (float) (16)
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
  * @ingroup vaux-voltage-feedback
  * @{
  ******************************************************************************/
-#define VRAIL_5V_UV_THRES_TRIG_VOLTS        (float)  3.5
-#define VRAIL_5V_UV_THRES_CLEAR_VOLTS       (float)  3.8
-#define VRAIL_5V_UV_T_BLANK_TRIG_SEC        (float) 50.0e-6
-#define VRAIL_5V_UV_T_BLANK_CLEAR_SEC       (float)  0.0
+#define VRAIL_5V_UV_THRES_TRIG_VOLTS        (float) (3.5)
+#define VRAIL_5V_UV_THRES_CLEAR_VOLTS       (float) (3.8)
+#define VRAIL_5V_UV_T_BLANK_TRIG_SEC        (float) (50.0e-6)
+#define VRAIL_5V_UV_T_BLANK_CLEAR_SEC       (float) (0.0)
 #define VRAIL_5V_UV_TICK_SEC                (T_ADC_SAMPLE_SECS)
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
@@ -163,15 +163,15 @@
  * @ingroup temperature-feedback
  * @{
  ******************************************************************************/
-#define TEMPERATURE_PBV_OFFSET_CELSIUS          40u     ///< To allow the PBV to support up to -40C, an offset was added
-#define OTP_THRES_TRIG_CELCIUS             (float) 80.0 + TEMPERATURE_PBV_OFFSET_CELSIUS ///< Degrees Celcius
-#define OTP_THRES_CLEAR_CELCIUS            (float) 70.0 + TEMPERATURE_PBV_OFFSET_CELSIUS ///< Degrees Celcius
-#define FAULT_PERSISTENCE_COUNT_TEMP            4u
+#define TEMPERATURE_PBV_OFFSET_CELSIUS         (40u)     ///< To allow the PBV to support up to -40C, an offset was added
+#define OTP_THRES_TRIG_CELCIUS                 (80u)  ///< Degrees Celcius
+#define OTP_THRES_CLEAR_CELCIUS                (70u)  ///< Degrees Celcius
+#define FAULT_PERSISTENCE_COUNT_TEMP           (4u)
 
 // Stabilize the temperature around 40 degrees C by varying
 // the fan speed
-#define NOMINAL_TEMPERATURE_THRESHOLD       (float) 40.0 + TEMPERATURE_PBV_OFFSET_CELSIUS///< Degrees Celcius
-#define TEMPERATURE_HYSTERESIS               (float) 2.0 ///< Degrees Celcius
+#define NOMINAL_TEMPERATURE_THRESHOLD       (float) (40.0) //< Degrees Celcius
+#define TEMPERATURE_HYSTERESIS               (float) (1.0) ///< Degrees Celcius
 
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 

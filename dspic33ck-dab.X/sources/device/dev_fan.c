@@ -110,21 +110,21 @@ void Dev_Fan_Task_100ms(void)
 void Dev_Fan_Task_1s(void) 
 {
     static uint8_t fanSpeedPercent = 0;
-    uint16_t tempADCReading = Dev_Temp_AverageValue();
+    uint16_t TCelsiusNTC = Dev_Temp_Get_Temperature_Celcius();//
     
-    if(tempADCReading <= MAX_TEMPERATURE_40C_HYST){
-        fanSpeedPercent = fanSpeedPercent + 2;
+    if(TCelsiusNTC > H_TEMPERATURE_THRESHOLD){
+        fanSpeedPercent += 2;
         // Fan speed maximum clamping value
         if(fanSpeedPercent >= MAX_SPEED_PERCENT){
             fanSpeedPercent = MAX_SPEED_PERCENT;
         }
         else{}
     }
-    else if(tempADCReading > MIN_TEMPERATURE_40C_HYST){
-        fanSpeedPercent = fanSpeedPercent - 2;
+    else if(TCelsiusNTC < L_TEMPERATURE_THRESHOLD){
+        fanSpeedPercent -= 2;
         // Fan speed minimum clamping value
-        if(fanSpeedPercent <= 2){
-            fanSpeedPercent = 2;
+        if(fanSpeedPercent <= 10){
+            fanSpeedPercent = 10;//hw request to have a minimum load on auxiliary supply
         } 
         else{}
     }
