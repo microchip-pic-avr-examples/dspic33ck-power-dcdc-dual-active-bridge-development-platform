@@ -178,7 +178,7 @@ void App_PBV_DAB_Task_1s(void)
                 sprintf(&PBVBuffer[0], "\rDAB board heat sink Temperature is %d degree Celsius  ", Dev_Temp_Get_Temperature_Celcius() );
             }
             else
-            sprintf(&PBVBuffer[0], "\r Dual Active Bridge. 64B fixed length Log. MsgNo %d ", OTP_THRES_CLEAR_CELCIUS );//OneSecCounter);
+            sprintf(&PBVBuffer[0], "\r Dual Active Bridge. 64B fixed length Log. MsgNo %d ", OneSecCounter);
         }
         else
         {   
