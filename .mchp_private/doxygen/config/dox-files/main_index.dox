@@ -1,0 +1,317 @@
+/*----------------------------------------------------------------------------*/
+/* COMMUNICATION LAYER */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup    comm-layer Communication Layer
+@brief      The communication layer establish the data to be displayed and the communication connection between the device and the application board to display in the GUI.
+@details	The communication layer facilitates the display of data and the connection between a device and an application board to show metrics like voltage, current, and energy consumption in the GUI. It employs tools or software to graphically represent power distribution and consumption, offering real-time monitoring, data logging, and analytics to help users manage the power supply effectively. 
+*/
+
+/**
+@defgroup   pbv-layer Power Board Visualizer
+@ingroup    comm-layer
+@brief      Driver for Power Board Visualizer
+@details    The Power Board Visualizer is a tool or system designed to monitor and display the status and performance of a power distribution board. It typically provides real-time data on various parameters such as voltage, current, and power consumption, helping users to manage and optimize power usage effectively.
+
+Communication with the Power Board Visualizer is often facilitated through two primary protocols:
+
+- CAN (Controller Area Network):
+		- Purpose: CAN is a robust vehicle bus standard designed to allow microcontrollers and devices to communicate with each other without a host computer.
+		- Usage: In the context of the Power Board Visualizer, CAN is used for high-speed, reliable communication between the power board and the visualizer, ensuring that data is transmitted efficiently even in electrically noisy environments.
+- UART (Universal Asynchronous Receiver-Transmitter):
+		- Purpose: UART is a hardware communication protocol that uses asynchronous serial communication with configurable speed.
+		- Usage: UART is typically used for simpler, point-to-point communication between the power board and the visualizer. It is suitable for lower-speed data transmission and is often used for initial setup, debugging, or communication with peripheral devices.
+
+Together, these communication protocols enable the Power Board Visualizer to effectively gather and display critical power management data, ensuring efficient monitoring and control of power distribution systems.
+*/
+	/**
+	@defgroup   PBV_CAN CAN Communication
+	@ingroup    pbv-layer
+	@brief      This abstracts the MCC driver api.
+	@details    This layer abstracts the MCC driver api to have the same interface as the UART.
+	*/
+	
+	/**
+	@defgroup   PBV_UART UART Communication
+	@ingroup    pbv-layer
+	@brief      This is where the framing/deframing and transmission happens for UART frames.
+	@details    This is where the framing/deframing and transmission happens for UART frames. The fundamental difference between this and CAN-FD frames is that CAN-FD defines a strategy for framing and deframing data, and PBV follows that strategy. UART is a point to point byte by byte transfer of data. 
+	To build a frame on top of it, another layer is needed where the data is framed/deframed and trasnmitted. It defines an additional statemachine
+	*/
+	
+	/**
+	@defgroup   APP_PBV_INTERFACE PBV Interface
+	@ingroup    pbv-layer
+	@brief      These implement the PBV state machine of RX and TX, as well as link data that is received by peripherals to application.
+	@details    These implement the PBV state machine of RX and TX, as well as link data that is received by peripherals to application.
+	*/
+	
+	/**
+	@defgroup   app-pbv-config User Configuration
+	@ingroup    pbv-layer
+	@brief      This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected.
+	@details    This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected.
+	*/
+
+	/**
+	@defgroup   app-pbv-dab-map PBV Data DAB App
+	@ingroup    pbv-layer
+	@brief      This is the main application file.
+	@details    This is the main application file. Here there are tasks that run at different frequencies checking for any received messages and triggering sending of messages.
+	*/
+
+
+/*----------------------------------------------------------------------------*/
+/* CONFIGURATION LAYER */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup	config-layer Configuration Layer
+@brief		Allow user to quickly change fundamental system parameters, hardware changes and 
+			even migrating the firmware across different designs wiht minimal modification 
+			in the actual source code.
+
+@details The main purpose of a configuration layer is to provide one central point 
+			in the firmware architecture where hardware dependencies can be specified, 
+			signal scalings can be defined and specific chip resources can be assigned to support/
+			connect generic software functions to the hardware. 
+
+			This central definitions allow fast modifications and optimizations but also support 
+			fast code migration between different hardware platforms. Thus, fast adaptation of new 
+			hardware can be achieved by modifying this set of centralized definitions.			
+*/
+
+/*----------------------------------------------------------------------------*/
+/* DEVICE LAYER */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup    dev-layer Device Layer
+@brief       Contains all the application tasks that will be executed
+@details
+
+  The device layer covers all user tasks executed by the task scheduler. Each task is an independent entity 
+  called on its respective timing defined by the user. Tasks are proprietary user code modules 
+  representing specific functions of the application or end-product. <br>
+*/
+	
+	/*----------------------------------------------------------------------------*/
+	/* CURRENT SENSOR */
+	/*----------------------------------------------------------------------------*/
+	/**
+	@defgroup	dev-current-sensor Current Sensor Calibration
+	@ingroup	dev-layer
+	@brief		The Current Sensor Calibration device layer is a proprietary user code utilized for configuring the sensor properties.
+	*/
+	
+	/*----------------------------------------------------------------------------*/
+	/* FAN */
+	/*----------------------------------------------------------------------------*/
+	/**
+	@defgroup	dev-fan Fan Control
+	@ingroup	dev-layer
+	@brief		The Fan control device layer is a proprietary user code utilized for configuring the fan control properties.
+	*/
+
+	/*----------------------------------------------------------------------------*/
+	/* LED */
+	/*----------------------------------------------------------------------------*/
+	/**
+	@defgroup	dev-led LED Display
+	@ingroup	dev-layer
+	@brief		The LED device layer is the proprietary user code used to configure 
+				and drive the on-board debugging LED.
+	*/
+	
+	/*----------------------------------------------------------------------------*/
+	/* TEMPERATURE */
+	/*----------------------------------------------------------------------------*/
+	/**
+	@defgroup	dev-temp Temperature Detection
+	@ingroup	dev-layer
+	@brief		The Temperature device layer is the proprietary user code used to configure 
+				and detect the board temperature.
+	*/
+
+/*----------------------------------------------------------------------------*/
+/* DRIVER LAYER */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup	driver-layer Driver Layer
+@brief		Contain functions and properties of the Driver layer
+@details 	The driver layer includes peripheral drivers managed by the MPLABX MCC Melody tool. 
+			It is essential to initialize certain peripheral functionalities to enable specific 
+			features required for the application.
+*/
+
+/**
+@defgroup	driver-layer-pwm MCC Custom Code PWM
+@ingroup	driver-layer
+@brief		Contain functions and data types as MCC extension for PWM
+@details 	This documentation includes functions and data types for the PWM peripheral as an enhancement to the MCC Code Configurator. It provides application-specific PWM functions and includes essential PWM initialization that is not supported by the code generated by MCC.
+*/
+
+/**
+@defgroup	driver-layer-adc MCC Custom Code ADC
+@ingroup	driver-layer
+@brief		Contain functions and data types as MCC extension for ADC
+@details 	This documentation includes functions and data types for the ADC peripheral as an enhancement to the MCC Code Configurator. It provides application-specific ADC functions and includes essential ADC initialization that is not supported by the code generated by MCC.
+*/
+
+/*----------------------------------------------------------------------------*/
+/* Power Control */
+/*----------------------------------------------------------------------------*/
+	/**
+	@defgroup	layer-pcontrol Power Control
+	@brief		The Power Control layer contains the state machine managing the power converter.
+	@details	Power control layer provides a wide function in power supply applications. 
+	 It has something to do with the control, regulation and monitoring of the power supply. 
+	 Moreover, it sets the peripheral configurations needed for a particular power supply topology 
+	 as required by the application, as well as sets parameters and performs operations for digital 
+	 power control. 
+	*/
+
+		/**
+		@defgroup   pwrctrl Power Control Configuration
+		@ingroup    layer-pcontrol
+		@brief      Contains Power Control Configuration 
+		@details    This document includes the power control initialization and execution functions.
+		*/
+
+		/**
+		@defgroup   pwrctrl-isr Interrupt Routine and Functions
+		@ingroup    layer-pcontrol
+		@brief      Contains the interrupt routine and other functions called in the interrupt
+		@details    This document includes the interrupt function in power control.
+		*/
+
+		/**
+		@defgroup   pwrctrl-pwm PWM Configuration
+		@ingroup    layer-pcontrol
+		@brief      Contains functions related to PWM properties
+		@details    This document includes the power control PWM distribution and other PWM functionalities 
+		 relevant to the application.
+		*/
+		
+		/**
+		@defgroup   pwrctrl-sm State Machine
+		@ingroup    layer-pcontrol
+		@brief      Contains the state machine of the power control 
+		@details    This document covers the state machine execution.
+		*/
+		
+		/**
+		@defgroup   pwrctrl-dcdt Control Loop Configuration
+		@ingroup    layer-pcontrol
+		@brief      Contains the control loop configuration and initialization functions. 
+		@details    This document covers the functions that initialize the control loop using DCDT tool. 
+		*/
+		
+			/**
+			@file   		smps_2p2z_dspic.s
+			@ingroup    	pwrctrl-dcdt
+			@brief      	Contains the dcdt generated assembly code for 2p2z control type. 
+			@copydoc 	smps-2p2z-dspic-description
+			*/
+					
+			/**
+			@file   		XFT_smps_2p2z_dspic.s
+			@ingroup    	pwrctrl-dcdt
+			@brief      	Contains the dcdt generated assembly code for 2p2z control type with modified code for Adaptive Gain control.
+			@copydoc 	smps-2p2z-dspic-description
+			*/
+			
+			/**
+			@file   		dab_psio_dcdt.h
+			@ingroup    	pwrctrl-dcdt
+			@brief      	Generated by the Microchip Digital Compensator Design Tool (DCDT), contains system summaries and digital compensator coefficients.
+			*/
+			
+			/**
+			@file   		dab_pspo_dcdt.h
+			@ingroup    	pwrctrl-dcdt
+			@brief      	Generated by the Microchip Digital Compensator Design Tool (DCDT), contains system summaries and digital compensator coefficients.
+			*/
+			
+			/**
+			@file   		dab_spvo_dcdt.h
+			@ingroup    	pwrctrl-dcdt
+			@brief      	Generated by the Microchip Digital Compensator Design Tool (DCDT), contains system summaries and digital compensator coefficients.
+			*/
+			
+
+		/**
+		@defgroup   pwrctrl-comm Power Control Communication Interface
+		@ingroup    layer-pcontrol
+		@brief      Contains functions use to interface to Graphical User Interface or Power Board Visualizer 
+		@details    This document covers the functions that sets or gets the power control properties relevant 
+		 to the Power Board Visualizer.
+		*/
+
+		/**
+		@defgroup   pwrctrl-common Useful Functions
+		@ingroup    layer-pcontrol
+		@brief      Contains generic functions that is usable to the application
+		@details    This document covers some generic power control functions that the user can utilize while developing the application code.
+		*/
+    	
+		/**
+		@defgroup   pwrctrl-data-types Power Control Data Types
+		@ingroup    layer-pcontrol
+		@brief      Contains the collection of power control data types
+		@details    This document covers all the data types used in power control application.
+		*/
+
+	/*----------------------------------------------------------------------------*/
+	/* Fault Monitor */
+	/*----------------------------------------------------------------------------*/
+	/**
+	@defgroup 	layer-fault Fault Monitor
+	@brief 		The Fault Handler is an independent firmware task which is used to define certain so-called Fault Objects
+	@details    Fault monitor is one of the vital components in creating different power supply applications. 
+	 It is responsible for the protection of power supply including the monitoring and handling of faults that 
+	 may be encountered while power supply is in operation. It is implemented as high-priority task included 
+	 in the real-time operating system. Thresholds are being set for voltage, current, and temperature level 
+	 that are being monitored if user-defined fault objects violate the minimum and maximum input and output 
+	 voltage and current, and maximum temperature level allowed. Once the fault monitor objects detect a fault, 
+	 this will trigger the fault responses and respond immediately.
+	*/
+	
+		/**
+		@defgroup   fault Fault Configuration
+		@ingroup    layer-fault
+		@brief      Contains functions that initialize, execute and handles the power supply fault.
+		@details    This document covers the fault initialization, the fault execute function, and the fault handler. 
+		*/
+
+		/**
+		@defgroup   fault-common Generic Fault Driver
+		@ingroup    layer-fault
+		@brief      Contains generic fault functions
+		@details    This document contains fault functions that handles different fault conditions and threshold.
+		*/
+
+/*----------------------------------------------------------------------------*/
+/* TASK SCHEDULER LAYER */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup	sched-layer Task Scheduler Layer
+@brief		Contain functions and properties necessary to schedule a task.
+@details	A firmware task scheduler with a 100 microsecond (µs) execution interval is a critical component in real-time embedded systems, where precise timing and deterministic behavior are paramount. This scheduler is designed to manage and execute a series of tasks or operations at a highly granular time resolution, ensuring that each task is initiated every 100 µs. Such a high-frequency task scheduler is typically implemented using a hardware timer or interrupt service routine (ISR) to maintain strict timing accuracy. The scheduler must be optimized for minimal overhead to ensure that the majority of the 100 µs window is available for task execution rather than administrative functions.
+*/
+
+/*----------------------------------------------------------------------------*/
+/* MCC LAYER */
+/*----------------------------------------------------------------------------*/
+/**
+@defgroup    mcc-layer MPLABX MCC Melody Code Generator
+@brief       Contains all the module generated by MCC for this application
+@details	MPLAB X MCC (Microchip Code Configurator) Melody is a graphical programming tool integrated into the MPLAB X Integrated Development Environment (IDE). It simplifies the process of configuring and generating code for Microchip microcontrollers. With MCC Melody, users can visually select and configure peripherals, middleware, and libraries, and then automatically generate the corresponding C code. This tool enhances productivity by reducing the need for manual coding and ensuring that the generated code is optimized and compatible with the selected microcontroller. It is particularly useful for both novice and experienced developers looking to streamline their development process.
+*/
+
+
+// PLace holder when you want to hide content in the documentation generated by 
+// doxygen but used as description in other ID tags
+/**
+	@defgroup	hide-content
+*/
+
+	
