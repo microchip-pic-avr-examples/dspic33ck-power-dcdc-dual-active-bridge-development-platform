@@ -11,7 +11,7 @@
  * @ingroup special-options
  * @{
  ******************************************************************************/
-#define PERIOD_MODULATION_DEMO   false  ///< Modulates the period; for further development
+#define PERIOD_MODULATION_DEMO    false  ///< Modulates the period; for further development
 #define DCDC400V_SYSTEM           true  ///< When true, operates the DAB with protection thresholds for 400V output
 #define DCDC800V_SYSTEM           false  ///< When true, operates the DAB with protection thresholds for 800V output
 #define ENABLE_VLOOP_AGC          false ///< This is an optional feature (not needed for battery application)
@@ -21,7 +21,7 @@
  * @ingroup pwm-fundamentals
  * @{
  ******************************************************************************/
-#define MAXIMUM_SWITCHING_FREQUENCY     (float)230.0e+3 ///< Maximum Switching frequency in [Hz]
+#define MAXIMUM_SWITCHING_FREQUENCY     (float)170.0e+3//230.0e+3 ///< Maximum Switching frequency in [Hz]
 #define MINIMUM_SWITCHING_FREQUENCY     (float) 65.0e+3 ///< Minimum Switching frequency in [Hz]
 
 #define MINIMUM_DEADTIME                (float)150e-9 ///< Minimum Deadtime in seconds [sec]
