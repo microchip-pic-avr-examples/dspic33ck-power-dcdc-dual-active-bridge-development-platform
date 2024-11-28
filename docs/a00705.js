@@ -1,13 +1,8 @@
 var a00705 =
 [
-    [ "ISecAverage", "a00705.html#a852e1ba399fd7762820a5a48b277e235", null ],
-    [ "ISecAverageRectified", "a00705.html#a2ebeb1daee42d50afad2f53cfe8f8548", null ],
-    [ "ISecSensorOffset", "a00705.html#aad3cd92609bdf3ca099564c676a824cb", null ],
-    [ "ISensePrimary", "a00705.html#a4bb8d9e45d3b1791b7597c46356d6f7f", null ],
-    [ "ISenseSecondary", "a00705.html#ab69cdd1acf7db7e5e2521d1afe46d8f9", null ],
-    [ "SecPower", "a00705.html#a6961d340d23b02e801410da9d41e9c20", null ],
-    [ "Temperature", "a00705.html#ad389e5a23077ca8d6548dffd7f5ec1c1", null ],
-    [ "VPriVoltage", "a00705.html#a05578776f684221691f412d73de487ea", null ],
-    [ "VRail_5V", "a00705.html#acc72d884c453d1343c8e836369311454", null ],
-    [ "VSecVoltage", "a00705.html#a4e6e0db2e515990bc32d13435a75b50e", null ]
+    [ "bits", "a00705.html#a8d28902dd676709c4c9f6053fd176b1d", null ],
+    [ "FaultActive", "a00705.html#ab17555f3ee595c55c595050bf51ef37b", null ],
+    [ "notUsed", "a00705.html#a180e365a3f5a6999428d31f218afae4d", null ],
+    [ "Running", "a00705.html#aa54b2d19226054f61f2998337cebcb5a", null ],
+    [ "value", "a00705.html#a900b69af7d674b8db3bceae754b4955a", null ]
 ];

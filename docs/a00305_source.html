@@ -150,24 +150,24 @@ $(document).ready(function(){initNavTree('a00305_source.html',''); initResizable
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../sources/fault/fault_common.h&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><a class="code hl_struct" href="a00741.html">dev_iso_voltage_data_t</a>  dev_iso_voltage_data;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><a class="code hl_struct" href="a00741.html">dev_iso_voltage_data_t</a>* dev_iso_voltage_data_ptr = &amp;dev_iso_voltage_data;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><a class="code hl_struct" href="a00737.html">dev_iso_voltage_data_t</a>  dev_iso_voltage_data;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><a class="code hl_struct" href="a00737.html">dev_iso_voltage_data_t</a>* dev_iso_voltage_data_ptr = &amp;dev_iso_voltage_data;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">static</span> uint16_t interrupt_counter = 0;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><a class="code hl_struct" href="a00657.html">FAULT_OBJ_T</a> Vin_Fault_Min;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><a class="code hl_struct" href="a00653.html">FAULT_OBJ_T</a> Vin_Fault_Min;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><a class="code hl_struct" href="a00657.html">FAULT_OBJ_T</a> Vin_Fault_Max;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><a class="code hl_struct" href="a00653.html">FAULT_OBJ_T</a> Vin_Fault_Max;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">void</span> Dev_Iso_Voltage_Sens_Callback(<span class="keywordtype">void</span>);   </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">void</span> Dev_Iso_Voltage_Sens_Calculate_Average(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>uint16_t Iso_Calculate_Average(uint16_t * buffer, uint16_t length);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">void</span> default_faultcallback_max(<a class="code hl_struct" href="a00657.html">FAULT_OBJ_T</a>* faultInput); </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">void</span> default_faultcallback_min(<a class="code hl_struct" href="a00657.html">FAULT_OBJ_T</a>* faultInput);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">void</span> default_faultcallback_max(<a class="code hl_struct" href="a00653.html">FAULT_OBJ_T</a>* faultInput); </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">void</span> default_faultcallback_min(<a class="code hl_struct" href="a00653.html">FAULT_OBJ_T</a>* faultInput);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
@@ -300,8 +300,8 @@ $(document).ready(function(){initNavTree('a00305_source.html',''); initResizable
 <div class="ttc" id="aa00516_html_ga1a12d5b7c5b1f234c50ea2214e91fcfc"><div class="ttname"><a href="a00516.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a></div><div class="ttdeci">bool FAULT_CheckMax(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK callback)</div><div class="ttdoc">This function compares the fault source value with the threshold limits and sets (or) resets the faul...</div><div class="ttdef"><b>Definition</b> <a href="a00356_source.html#l00126">fault_common.c:126</a></div></div>
 <div class="ttc" id="aa00516_html_gabe4788eb1b8be3ad755eb7daf6bba295"><div class="ttname"><a href="a00516.html#gabe4788eb1b8be3ad755eb7daf6bba295">FAULT_CheckMin</a></div><div class="ttdeci">bool FAULT_CheckMin(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK callback)</div><div class="ttdoc">This function compares the fault source value with the threshold limits and sets (or) resets the faul...</div><div class="ttdef"><b>Definition</b> <a href="a00356_source.html#l00184">fault_common.c:184</a></div></div>
 <div class="ttc" id="aa00516_html_gae9aa4b1a3733fa6ee5fb7778bdf74103"><div class="ttname"><a href="a00516.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a></div><div class="ttdeci">void FAULT_Init(FAULT_OBJ_T *faultInput, int16_t threshold, int16_t hysLimit, uint16_t thresholdCnt, uint32_t hysCnt)</div><div class="ttdoc">This function initializes the fault object data structure with the values that required to detect a f...</div><div class="ttdef"><b>Definition</b> <a href="a00356_source.html#l00027">fault_common.c:27</a></div></div>
-<div class="ttc" id="aa00657_html"><div class="ttname"><a href="a00657.html">FAULT_OBJ_T</a></div><div class="ttdoc">The Fault object data structure contains a list of elements/variables that are used to detect/check a...</div><div class="ttdef"><b>Definition</b> <a href="a00359_source.html#l00022">fault_common.h:23</a></div></div>
-<div class="ttc" id="aa00741_html"><div class="ttname"><a href="a00741.html">dev_iso_voltage_data_t</a></div><div class="ttdoc">a custom data type for isolated voltage measurement</div></div>
+<div class="ttc" id="aa00653_html"><div class="ttname"><a href="a00653.html">FAULT_OBJ_T</a></div><div class="ttdoc">The Fault object data structure contains a list of elements/variables that are used to detect/check a...</div><div class="ttdef"><b>Definition</b> <a href="a00359_source.html#l00022">fault_common.h:23</a></div></div>
+<div class="ttc" id="aa00737_html"><div class="ttname"><a href="a00737.html">dev_iso_voltage_data_t</a></div><div class="ttdoc">a custom data type for isolated voltage measurement</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

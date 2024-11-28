@@ -1,5 +1,5 @@
 var a00665 =
 [
-    [ "FaultDetected", "a00665.html#ac82d4f674edd9ce4e697f25d9039a3e0", null ],
-    [ "Object", "a00665.html#aec432521ca331df364eb6aa8a74422a2", null ]
+    [ "__pad0__", "a00665.html#adf71f3d8410c1f1dbbc96680a92c49af", null ],
+    [ "reset_by_watchdog", "a00665.html#af7905814a554a97a8db48d413ca5aa21", null ]
 ];

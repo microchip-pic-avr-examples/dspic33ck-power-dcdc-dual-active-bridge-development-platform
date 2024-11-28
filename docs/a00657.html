@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: FAULT_OBJ_T Struct Reference</title>
+<title>Dual Active Bridge Development Board: FAULT_s Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,224 +138,203 @@ $(document).ready(function(){initNavTree('a00657.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">FAULT_OBJ_T Struct Reference<div class="ingroups"><a class="el" href="a00514.html">Fault Monitor</a> &raquo; <a class="el" href="a00516.html">Generic Fault Driver</a></div></div></div>
+  <div class="headertitle"><div class="title">FAULT_s Struct Reference<div class="ingroups"><a class="el" href="a00514.html">Fault Monitor</a> &raquo; <a class="el" href="a00516.html">Generic Fault Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The Fault object data structure contains a list of elements/variables that are used to detect/check a fault.  
+<p>Collection of faults to be monitored.  
  <a href="a00657.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00359_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/sources/fault/fault_common.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00368_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/sources/fault/fault_typedef.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for FAULT_OBJ_T:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for FAULT_s:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00655.svg" width="130" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00655.svg" width="180" height="534"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a5edf921fa44db4fc0b59e47bb5fd0dfd" id="r_a5edf921fa44db4fc0b59e47bb5fd0dfd"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a5edf921fa44db4fc0b59e47bb5fd0dfd">Val1_Threshold</a></td></tr>
-<tr class="memdesc:a5edf921fa44db4fc0b59e47bb5fd0dfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault threshold limit: Range of -32768 to 32767.  <br /></td></tr>
-<tr class="separator:a5edf921fa44db4fc0b59e47bb5fd0dfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a3b491ddd84f3397021f935033f3aa2" id="r_a2a3b491ddd84f3397021f935033f3aa2"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a2a3b491ddd84f3397021f935033f3aa2">Val1_Hysteresis</a></td></tr>
-<tr class="memdesc:a2a3b491ddd84f3397021f935033f3aa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault hysteresis limit. If hysteresis is not needed, fltThreshold = fltHysLimit.  <br /></td></tr>
-<tr class="separator:a2a3b491ddd84f3397021f935033f3aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad968f59d734c469b74fb82587f59e07a" id="r_ad968f59d734c469b74fb82587f59e07a"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#ad968f59d734c469b74fb82587f59e07a">Val2_Threshold</a></td></tr>
-<tr class="memdesc:ad968f59d734c469b74fb82587f59e07a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault threshold limit: Range of -32768 to 32767.  <br /></td></tr>
-<tr class="separator:ad968f59d734c469b74fb82587f59e07a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e9aca4cd2e220497c2dc9aee4278e12" id="r_a8e9aca4cd2e220497c2dc9aee4278e12"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a8e9aca4cd2e220497c2dc9aee4278e12">Val2_Hysteresis</a></td></tr>
-<tr class="memdesc:a8e9aca4cd2e220497c2dc9aee4278e12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault hysteresis limit. If hysteresis is not needed, fltThreshold = fltHysLimit.  <br /></td></tr>
-<tr class="separator:a8e9aca4cd2e220497c2dc9aee4278e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd60c5f6c857aba89b79ed3912e92561" id="r_abd60c5f6c857aba89b79ed3912e92561"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#abd60c5f6c857aba89b79ed3912e92561">CounterSet</a></td></tr>
-<tr class="memdesc:abd60c5f6c857aba89b79ed3912e92561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of consecutive fault events before fault becomes active. <br  />
-  <br /></td></tr>
-<tr class="separator:abd60c5f6c857aba89b79ed3912e92561"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa0edd97925490e413dd660faa944ac2d" id="r_aa0edd97925490e413dd660faa944ac2d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#aa0edd97925490e413dd660faa944ac2d">CounterReset</a></td></tr>
-<tr class="memdesc:aa0edd97925490e413dd660faa944ac2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of consecutive events when input outside hysteresis limit in order to remove fault, set to 0 to disable Hys.  <br /></td></tr>
-<tr class="separator:aa0edd97925490e413dd660faa944ac2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ab3fa6c23f578b903365ceac7d6924a" id="r_a1ab3fa6c23f578b903365ceac7d6924a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a1ab3fa6c23f578b903365ceac7d6924a">FaultCounter</a></td></tr>
-<tr class="memdesc:a1ab3fa6c23f578b903365ceac7d6924a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal counter for activating/removing fault.  <br /></td></tr>
-<tr class="separator:a1ab3fa6c23f578b903365ceac7d6924a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48d214f48d00e2178310f94faf613b2a" id="r_a48d214f48d00e2178310f94faf613b2a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a48d214f48d00e2178310f94faf613b2a">FaultCode</a></td></tr>
-<tr class="memdesc:a48d214f48d00e2178310f94faf613b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Code that can be used to display fault (1st fault occurred) to global variable.  <br /></td></tr>
-<tr class="separator:a48d214f48d00e2178310f94faf613b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f8690ab82873811964f062a76d15fe7" id="r_a1f8690ab82873811964f062a76d15fe7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a1f8690ab82873811964f062a76d15fe7">FaultActive</a></td></tr>
-<tr class="memdesc:a1f8690ab82873811964f062a76d15fe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set/Cleared inside flt check loop <br  />
-  <br /></td></tr>
-<tr class="separator:a1f8690ab82873811964f062a76d15fe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4789222e3347d2016dd8af50cabd4b14" id="r_a4789222e3347d2016dd8af50cabd4b14"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a4789222e3347d2016dd8af50cabd4b14">FaultLatch</a></td></tr>
-<tr class="memdesc:a4789222e3347d2016dd8af50cabd4b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag indicating if FAULT has been tripped.  <br /></td></tr>
-<tr class="separator:a4789222e3347d2016dd8af50cabd4b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aa55289e8d0d3f1cd2c1b979707653a" id="r_a9aa55289e8d0d3f1cd2c1b979707653a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00653.html">FAULT_OBJ_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a9aa55289e8d0d3f1cd2c1b979707653a">IPrimaryOCP</a></td></tr>
+<tr class="memdesc:a9aa55289e8d0d3f1cd2c1b979707653a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault object for Primary over current protection.  <br /></td></tr>
+<tr class="separator:a9aa55289e8d0d3f1cd2c1b979707653a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c0ebb178553b28679126e15448f3680" id="r_a5c0ebb178553b28679126e15448f3680"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00653.html">FAULT_OBJ_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a5c0ebb178553b28679126e15448f3680">ISecondaryOCP</a></td></tr>
+<tr class="memdesc:a5c0ebb178553b28679126e15448f3680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault object for Secondary over current protection.  <br /></td></tr>
+<tr class="separator:a5c0ebb178553b28679126e15448f3680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67a6d7934156a505fe648c5a895795ed" id="r_a67a6d7934156a505fe648c5a895795ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00653.html">FAULT_OBJ_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a67a6d7934156a505fe648c5a895795ed">VPrimaryOVP</a></td></tr>
+<tr class="memdesc:a67a6d7934156a505fe648c5a895795ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault object for Primary over voltage protection.  <br /></td></tr>
+<tr class="separator:a67a6d7934156a505fe648c5a895795ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b578aa818e3a0cd2e97b1f83d9243b6" id="r_a6b578aa818e3a0cd2e97b1f83d9243b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00653.html">FAULT_OBJ_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a6b578aa818e3a0cd2e97b1f83d9243b6">VPrimaryUVP</a></td></tr>
+<tr class="memdesc:a6b578aa818e3a0cd2e97b1f83d9243b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault object for Primary under voltage protection.  <br /></td></tr>
+<tr class="separator:a6b578aa818e3a0cd2e97b1f83d9243b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a4096da1c84272a28022842417dc638" id="r_a4a4096da1c84272a28022842417dc638"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00653.html">FAULT_OBJ_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a4a4096da1c84272a28022842417dc638">VSecondaryOVP</a></td></tr>
+<tr class="memdesc:a4a4096da1c84272a28022842417dc638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault object for Secondary over voltage protection.  <br /></td></tr>
+<tr class="separator:a4a4096da1c84272a28022842417dc638"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d333978582de1786722d8740564ea3c" id="r_a2d333978582de1786722d8740564ea3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00653.html">FAULT_OBJ_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a2d333978582de1786722d8740564ea3c">VSecondaryUVP</a></td></tr>
+<tr class="memdesc:a2d333978582de1786722d8740564ea3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault object for Secondary under voltage protection.  <br /></td></tr>
+<tr class="separator:a2d333978582de1786722d8740564ea3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af268179095dc26cb1a693ef5621c70c6" id="r_af268179095dc26cb1a693ef5621c70c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00653.html">FAULT_OBJ_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#af268179095dc26cb1a693ef5621c70c6">ISenseSCP</a></td></tr>
+<tr class="memdesc:af268179095dc26cb1a693ef5621c70c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault object for Short circuit protection.  <br /></td></tr>
+<tr class="separator:af268179095dc26cb1a693ef5621c70c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a480a8e0249740ab8759aeee1c804ba5c" id="r_a480a8e0249740ab8759aeee1c804ba5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00653.html">FAULT_OBJ_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a480a8e0249740ab8759aeee1c804ba5c">PowerSupplyOTP</a></td></tr>
+<tr class="memdesc:a480a8e0249740ab8759aeee1c804ba5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault object for Power Supply Temperature.  <br /></td></tr>
+<tr class="separator:a480a8e0249740ab8759aeee1c804ba5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c6c9adf47adaed77dbc76be05305b1d" id="r_a0c6c9adf47adaed77dbc76be05305b1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00653.html">FAULT_OBJ_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html#a0c6c9adf47adaed77dbc76be05305b1d">VRail_5V</a></td></tr>
+<tr class="memdesc:a0c6c9adf47adaed77dbc76be05305b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault object for 5V rail.  <br /></td></tr>
+<tr class="separator:a0c6c9adf47adaed77dbc76be05305b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>These fault object data structure variables are initialized in the power controller initialization source file. The address of this structure variable is passed as an argument into the fault handler functions which are called by the power controller system state machine. These fault handler functions are defined in the <a class="el" href="a00356_source.html">fault_common.c</a> file. </p>
+<div class="textblock"><p>This data structure in a collection of fault data objects that needs to be monitored by the fault tasks. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00359_source.html#l00022">22</a> of file <a class="el" href="a00359_source.html">fault_common.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00368_source.html#l00020">20</a> of file <a class="el" href="a00368_source.html">fault_typedef.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="aa0edd97925490e413dd660faa944ac2d" name="aa0edd97925490e413dd660faa944ac2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0edd97925490e413dd660faa944ac2d">&#9670;&#160;</a></span>CounterReset</h2>
+<a id="a9aa55289e8d0d3f1cd2c1b979707653a" name="a9aa55289e8d0d3f1cd2c1b979707653a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aa55289e8d0d3f1cd2c1b979707653a">&#9670;&#160;</a></span>IPrimaryOCP</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t CounterReset</td>
+          <td class="memname"><a class="el" href="a00653.html">FAULT_OBJ_T</a> IPrimaryOCP</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00359_source.html#l00029">29</a> of file <a class="el" href="a00359_source.html">fault_common.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00368_source.html#l00022">22</a> of file <a class="el" href="a00368_source.html">fault_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="abd60c5f6c857aba89b79ed3912e92561" name="abd60c5f6c857aba89b79ed3912e92561"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd60c5f6c857aba89b79ed3912e92561">&#9670;&#160;</a></span>CounterSet</h2>
+<a id="a5c0ebb178553b28679126e15448f3680" name="a5c0ebb178553b28679126e15448f3680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c0ebb178553b28679126e15448f3680">&#9670;&#160;</a></span>ISecondaryOCP</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t CounterSet</td>
+          <td class="memname"><a class="el" href="a00653.html">FAULT_OBJ_T</a> ISecondaryOCP</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00359_source.html#l00028">28</a> of file <a class="el" href="a00359_source.html">fault_common.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00368_source.html#l00023">23</a> of file <a class="el" href="a00368_source.html">fault_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="a1f8690ab82873811964f062a76d15fe7" name="a1f8690ab82873811964f062a76d15fe7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f8690ab82873811964f062a76d15fe7">&#9670;&#160;</a></span>FaultActive</h2>
+<a id="af268179095dc26cb1a693ef5621c70c6" name="af268179095dc26cb1a693ef5621c70c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af268179095dc26cb1a693ef5621c70c6">&#9670;&#160;</a></span>ISenseSCP</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t FaultActive</td>
+          <td class="memname"><a class="el" href="a00653.html">FAULT_OBJ_T</a> ISenseSCP</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00359_source.html#l00032">32</a> of file <a class="el" href="a00359_source.html">fault_common.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00368_source.html#l00028">28</a> of file <a class="el" href="a00368_source.html">fault_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="a48d214f48d00e2178310f94faf613b2a" name="a48d214f48d00e2178310f94faf613b2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48d214f48d00e2178310f94faf613b2a">&#9670;&#160;</a></span>FaultCode</h2>
+<a id="a480a8e0249740ab8759aeee1c804ba5c" name="a480a8e0249740ab8759aeee1c804ba5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a480a8e0249740ab8759aeee1c804ba5c">&#9670;&#160;</a></span>PowerSupplyOTP</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t FaultCode</td>
+          <td class="memname"><a class="el" href="a00653.html">FAULT_OBJ_T</a> PowerSupplyOTP</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00359_source.html#l00031">31</a> of file <a class="el" href="a00359_source.html">fault_common.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00368_source.html#l00029">29</a> of file <a class="el" href="a00368_source.html">fault_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="a1ab3fa6c23f578b903365ceac7d6924a" name="a1ab3fa6c23f578b903365ceac7d6924a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ab3fa6c23f578b903365ceac7d6924a">&#9670;&#160;</a></span>FaultCounter</h2>
+<a id="a67a6d7934156a505fe648c5a895795ed" name="a67a6d7934156a505fe648c5a895795ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67a6d7934156a505fe648c5a895795ed">&#9670;&#160;</a></span>VPrimaryOVP</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t FaultCounter</td>
+          <td class="memname"><a class="el" href="a00653.html">FAULT_OBJ_T</a> VPrimaryOVP</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00359_source.html#l00030">30</a> of file <a class="el" href="a00359_source.html">fault_common.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00368_source.html#l00024">24</a> of file <a class="el" href="a00368_source.html">fault_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="a4789222e3347d2016dd8af50cabd4b14" name="a4789222e3347d2016dd8af50cabd4b14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4789222e3347d2016dd8af50cabd4b14">&#9670;&#160;</a></span>FaultLatch</h2>
+<a id="a6b578aa818e3a0cd2e97b1f83d9243b6" name="a6b578aa818e3a0cd2e97b1f83d9243b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b578aa818e3a0cd2e97b1f83d9243b6">&#9670;&#160;</a></span>VPrimaryUVP</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t FaultLatch</td>
+          <td class="memname"><a class="el" href="a00653.html">FAULT_OBJ_T</a> VPrimaryUVP</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00359_source.html#l00033">33</a> of file <a class="el" href="a00359_source.html">fault_common.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00368_source.html#l00025">25</a> of file <a class="el" href="a00368_source.html">fault_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="a2a3b491ddd84f3397021f935033f3aa2" name="a2a3b491ddd84f3397021f935033f3aa2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a3b491ddd84f3397021f935033f3aa2">&#9670;&#160;</a></span>Val1_Hysteresis</h2>
+<a id="a0c6c9adf47adaed77dbc76be05305b1d" name="a0c6c9adf47adaed77dbc76be05305b1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c6c9adf47adaed77dbc76be05305b1d">&#9670;&#160;</a></span>VRail_5V</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int16_t Val1_Hysteresis</td>
+          <td class="memname"><a class="el" href="a00653.html">FAULT_OBJ_T</a> VRail_5V</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00359_source.html#l00025">25</a> of file <a class="el" href="a00359_source.html">fault_common.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00368_source.html#l00030">30</a> of file <a class="el" href="a00368_source.html">fault_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="a5edf921fa44db4fc0b59e47bb5fd0dfd" name="a5edf921fa44db4fc0b59e47bb5fd0dfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5edf921fa44db4fc0b59e47bb5fd0dfd">&#9670;&#160;</a></span>Val1_Threshold</h2>
+<a id="a4a4096da1c84272a28022842417dc638" name="a4a4096da1c84272a28022842417dc638"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a4096da1c84272a28022842417dc638">&#9670;&#160;</a></span>VSecondaryOVP</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int16_t Val1_Threshold</td>
+          <td class="memname"><a class="el" href="a00653.html">FAULT_OBJ_T</a> VSecondaryOVP</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00359_source.html#l00024">24</a> of file <a class="el" href="a00359_source.html">fault_common.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00368_source.html#l00026">26</a> of file <a class="el" href="a00368_source.html">fault_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="a8e9aca4cd2e220497c2dc9aee4278e12" name="a8e9aca4cd2e220497c2dc9aee4278e12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e9aca4cd2e220497c2dc9aee4278e12">&#9670;&#160;</a></span>Val2_Hysteresis</h2>
+<a id="a2d333978582de1786722d8740564ea3c" name="a2d333978582de1786722d8740564ea3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d333978582de1786722d8740564ea3c">&#9670;&#160;</a></span>VSecondaryUVP</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int16_t Val2_Hysteresis</td>
+          <td class="memname"><a class="el" href="a00653.html">FAULT_OBJ_T</a> VSecondaryUVP</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00359_source.html#l00027">27</a> of file <a class="el" href="a00359_source.html">fault_common.h</a>.</p>
-
-</div>
-</div>
-<a id="ad968f59d734c469b74fb82587f59e07a" name="ad968f59d734c469b74fb82587f59e07a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad968f59d734c469b74fb82587f59e07a">&#9670;&#160;</a></span>Val2_Threshold</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int16_t Val2_Threshold</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00359_source.html#l00026">26</a> of file <a class="el" href="a00359_source.html">fault_common.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00368_source.html#l00027">27</a> of file <a class="el" href="a00368_source.html">fault_typedef.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dspic33ck-dab.X/sources/fault/<a class="el" href="a00359_source.html">fault_common.h</a></li>
+<li>dspic33ck-dab.X/sources/fault/<a class="el" href="a00368_source.html">fault_typedef.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

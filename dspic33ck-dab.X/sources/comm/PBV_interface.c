@@ -6,18 +6,14 @@
 
 /*********************************************************************************
  * @ingroup APP_PBV_INTERFACE
- * @brief   extern const struct of function pointers
- * @details 
- *      this structure has the function pointers that links to the interfaces from CAN 
- * or UART. depending upon the selection in config.h
+ * @brief   This structure has the function pointers that links to the interfaces from CAN 
+ * or UART depending upon the selection in config.h
  **********************************************************************************/
 extern const APP_PBV_INTF_API_t appPbvFuncs;
 
 /*********************************************************************************
  * @ingroup APP_PBV_INTERFACE
- * @brief   extern const struct of function pointers
- * @details 
- *      pointer to the PBV_Datatype_TX_t object that will be passed from the application. 
+ * @brief  pointer to the PBV_Datatype_TX_t object that will be passed from the application. 
  * 
  **********************************************************************************/
 static PBV_Datatype_TX_t * appSystemToPbvPtr;
@@ -25,9 +21,7 @@ static PBV_Datatype_TX_t * appSystemToPbvPtr;
 
 /*********************************************************************************
  * @ingroup APP_PBV_INTERFACE
- * @brief   
- * @details 
- *      pointer to the PBV_Datatype_RX_t object that will be passed from the application. 
+ * @brief   pointer to the PBV_Datatype_RX_t object that will be passed from the application. 
  * 
  **********************************************************************************/
 static PBV_Datatype_RX_t * appPbvToSystemPtr;
@@ -35,9 +29,7 @@ static PBV_Datatype_RX_t * appPbvToSystemPtr;
 /*********************************************************************************
  * @ingroup APP_PBV_INTERFACE
  * @var     App_System_To_PBV_ASCII_Ptr
- * @brief   
- * @details 
- *      pointer to the PBV_Datatype_TX_t object that will be passed from the application. 
+ * @brief  pointer to the PBV_Datatype_TX_t object that will be passed from the application. 
  **********************************************************************************/
 static PBV_Datatype_TX_t * appSystemToPbvAsciiPtr;
 
@@ -47,6 +39,7 @@ static PBV_Datatype_TX_t * appSystemToPbvAsciiPtr;
  * @param   eightPtr - ptr to eigtht bit data
  * @param   length - length of sixteen bit
  * @return  void
+ * @brief   This function changes 16 bit data to 8 bit data
  * @details 
  *  This function changes 16 bit data to 8 bit data
  **********************************************************************************/
@@ -64,6 +57,7 @@ void PBV_Change_from_Sixteen_to_Eight(uint16_t * sixteenPtr, uint8_t * eightPtr,
  * @param   sixteenPtr - ptr to sixteen bit data
  * @param   eightPtr - ptr to eigtht bit data
  * @param   length - length of eight bit 
+ * @brief   This function changes 8 bit data to sixteen bit data
  * @details 
  *  This function changes 8 bit data to sixteen bit data
  **********************************************************************************/
@@ -99,10 +93,11 @@ void PBV_Change_from_Eight_to_Sixteen(uint8_t * eightPtr, uint16_t * sixteenPtr,
  * @param   PBV_Datatype_TX_t *  - ptr to numerical data
  * @param   PBV_Datatype_TX_t *  - ptr to ascii data 
  * @param   PBV_Datatype_RX_t *  - ptr to data from pbv
- * @brief   
+ * @brief   Initializes the PBV init, by linking the application object pointers from the application to 
+ * CAN or UART data types.
  * @return  void
  * @details 
- *  initializes the PBV init, by linking the application object pointers from the application to 
+ *  Initializes the PBV init, by linking the application object pointers from the application to 
  * CAN or UART data types
  **********************************************************************************/
 void App_PBV_Init(PBV_Datatype_TX_t * boardToPbv, PBV_Datatype_TX_t * boardToPpvAscii, PBV_Datatype_RX_t *pbvToBoard)
@@ -117,10 +112,11 @@ void App_PBV_Init(PBV_Datatype_TX_t * boardToPbv, PBV_Datatype_TX_t * boardToPpv
 /*********************************************************************************
  * @ingroup APP_PBV_INTERFACE 
  * @param   PBV_Datatype_TX_t * - ptr to numerical data
- * @brief   
+ * @brief   Reinitializes the objects if any parameters( ID, length, etc) are to be changed 
+ * to the CAN or UART objects.
  * @return  void
  * @details 
- *      reinitializes the objects if any parameters( ID, length, etc) are to be changed 
+ *      Reinitializes the objects if any parameters( ID, length, etc) are to be changed 
  * to the CAN or UART objects. 
  **********************************************************************************/
 void App_PBV_Re_Init(PBV_Datatype_TX_t * ptr)
@@ -133,10 +129,11 @@ void App_PBV_Re_Init(PBV_Datatype_TX_t * ptr)
 /*********************************************************************************
  * @ingroup APP_PBV_INTERFACE 
  * @param   PBV_Datatype_RX_t * - ptr to numerical data
- * @brief   
+ * @brief   This function changes the state of the application object. this acts as a trigger 
+ * for the periodic task to receive data
  * @return  void
  * @details 
- *      this function changes the state of the application object. this acts as a trigger 
+ *      This function changes the state of the application object. this acts as a trigger 
  * for the periodic task to receive data
  **********************************************************************************/
 void App_Receive_From_PBV(PBV_Datatype_RX_t * ptr)
@@ -150,7 +147,8 @@ void App_Receive_From_PBV(PBV_Datatype_RX_t * ptr)
 /*********************************************************************************
  * @ingroup APP_PBV_INTERFACE 
  * @param   PBV_Datatype_TX_t * - ptr
- * @brief   
+ * @brief   This function links the data from application object to the CAN or UART object and     
+ * This function changes the state of the application object.
  * @return  void
  * @details 
  *      This function links the data from application object to the CAN or UART object and     
@@ -174,7 +172,8 @@ void App_Send_To_PBV(PBV_Datatype_TX_t * ptr)
 /*********************************************************************************
  * @ingroup APP_PBV_INTERFACE 
  * @param   PBV_Datatype_RX_t * - ptr
- * @brief   
+ * @brief   This function links the data received by CAN or UART objects to the application
+ * object
  * @return  void
  * @details 
  *         This function links the data received by CAN or UART objects to the application
@@ -188,10 +187,10 @@ int App_Read_Received_From_PBV(PBV_Datatype_RX_t * ptr)
 /*********************************************************************************
  * @ingroup APP_PBV_INTERFACE 
  * @param   none
- * @brief   
+ * @brief   Main application task for Power Board Visualizer
  * @return  void
  * @details 
- *      main application task. this looks at the states of the TX and RX pointers, and 
+ *      Main application task. this looks at the states of the TX and RX pointers, and 
  * if the states are changed for RX/TX then executes TX and RX.
  * **********************************************************************************/
 static void App_PBV_Task(void)
@@ -236,7 +235,6 @@ void App_PBV_Task_10ms()
 
 /*********************************************************************************
  * @ingroup  APP_PBV_INTERFACE
- * @param   
  * @brief   Task to be executed every 100 us
  * @return  void
  * @details 

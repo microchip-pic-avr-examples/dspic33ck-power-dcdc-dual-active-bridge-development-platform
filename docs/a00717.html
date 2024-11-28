@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: STATUS_FLAGS_s Struct Reference</title>
+<title>Dual Active Bridge Development Board: START_UP_RAMP_s Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -110,7 +110,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('a00709.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('a00717.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -138,138 +138,141 @@ $(document).ready(function(){initNavTree('a00709.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">STATUS_FLAGS_s Struct Reference<div class="ingroups"><a class="el" href="a00505.html">Power Control</a> &raquo; <a class="el" href="a00513.html">Power Control Data Types</a></div></div></div>
+  <div class="headertitle"><div class="title">START_UP_RAMP_s Struct Reference<div class="ingroups"><a class="el" href="a00505.html">Power Control</a> &raquo; <a class="el" href="a00513.html">Power Control Data Types</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Power converter status flags.  
- <a href="a00709.html#details">More...</a></p>
+<p>Stores data related to the ramping up/down of the reference.  
+ <a href="a00717.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="a00467_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/sources/pwrctrl/pwrctrl_typedef.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for STATUS_FLAGS_s:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for START_UP_RAMP_s:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00707.svg" width="138" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00715.svg" width="148" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a0c93560c24f1a0a5f8e916b88596571b" id="r_a0c93560c24f1a0a5f8e916b88596571b"><td class="memItemLeft" >union {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d28902dd676709c4c9f6053fd176b1d" id="r_a8d28902dd676709c4c9f6053fd176b1d"><td class="memItemLeft" >&#160;&#160;&#160;struct {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="separator:a8d28902dd676709c4c9f6053fd176b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa54b2d19226054f61f2998337cebcb5a" id="r_aa54b2d19226054f61f2998337cebcb5a"><td class="memItemLeft" >&#160;&#160;&#160;&#160;&#160;&#160;unsigned&#160;&#160;&#160;<a class="el" href="a00709.html#aa54b2d19226054f61f2998337cebcb5a">Running</a>: 1&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="memdesc:aa54b2d19226054f61f2998337cebcb5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit 0: Power converter is running.  <a href="a00709.html#aa54b2d19226054f61f2998337cebcb5a">More...</a><br /></td></tr>
-<tr class="separator:aa54b2d19226054f61f2998337cebcb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab17555f3ee595c55c595050bf51ef37b" id="r_ab17555f3ee595c55c595050bf51ef37b"><td class="memItemLeft" >&#160;&#160;&#160;&#160;&#160;&#160;unsigned&#160;&#160;&#160;<a class="el" href="a00709.html#ab17555f3ee595c55c595050bf51ef37b">FaultActive</a>: 1&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="memdesc:ab17555f3ee595c55c595050bf51ef37b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit 1: Power converter fault is active.  <a href="a00709.html#ab17555f3ee595c55c595050bf51ef37b">More...</a><br /></td></tr>
-<tr class="separator:ab17555f3ee595c55c595050bf51ef37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a180e365a3f5a6999428d31f218afae4d" id="r_a180e365a3f5a6999428d31f218afae4d"><td class="memItemLeft" >&#160;&#160;&#160;&#160;&#160;&#160;unsigned&#160;&#160;&#160;<a class="el" href="a00709.html#a180e365a3f5a6999428d31f218afae4d">notUsed</a>: 13&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="memdesc:a180e365a3f5a6999428d31f218afae4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit 2 - 15: Not used.  <a href="a00709.html#a180e365a3f5a6999428d31f218afae4d">More...</a><br /></td></tr>
-<tr class="separator:a180e365a3f5a6999428d31f218afae4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d28902dd676709c4c9f6053fd176b1d" id="r_a8d28902dd676709c4c9f6053fd176b1d"><td class="memItemLeft" valign="top">&#160;&#160;&#160;}&#160;&#160;&#160;<a class="el" href="a00709.html#a8d28902dd676709c4c9f6053fd176b1d">bits</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="separator:a8d28902dd676709c4c9f6053fd176b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a900b69af7d674b8db3bceae754b4955a" id="r_a900b69af7d674b8db3bceae754b4955a"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="a00709.html#a900b69af7d674b8db3bceae754b4955a">value</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="separator:a900b69af7d674b8db3bceae754b4955a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c93560c24f1a0a5f8e916b88596571b" id="r_a0c93560c24f1a0a5f8e916b88596571b"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom">&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="separator:a0c93560c24f1a0a5f8e916b88596571b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac73dde33a2be13416f717c1ab8954227" id="r_ac73dde33a2be13416f717c1ab8954227"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00717.html#ac73dde33a2be13416f717c1ab8954227">Counter</a></td></tr>
+<tr class="memdesc:ac73dde33a2be13416f717c1ab8954227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soft-Start Execution Counter. This setting is set/cleared by the device driver and is 'read only'.  <br /></td></tr>
+<tr class="separator:ac73dde33a2be13416f717c1ab8954227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a366f1914db6923e6f49ba15572ea2" id="r_a16a366f1914db6923e6f49ba15572ea2"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00717.html#a16a366f1914db6923e6f49ba15572ea2">Delay</a></td></tr>
+<tr class="memdesc:a16a366f1914db6923e6f49ba15572ea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soft-Start Period (POD, RAMP PERIOD, PGD, etc.)  <br /></td></tr>
+<tr class="separator:a16a366f1914db6923e6f49ba15572ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf24954a61bfc0ab7ca1768da52625a" id="r_accf24954a61bfc0ab7ca1768da52625a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00717.html#accf24954a61bfc0ab7ca1768da52625a">StepSize</a></td></tr>
+<tr class="memdesc:accf24954a61bfc0ab7ca1768da52625a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size/value of one reference increment/decrement or this period.  <br /></td></tr>
+<tr class="separator:accf24954a61bfc0ab7ca1768da52625a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a910c9c759d95750a76fb660bf8325e6c" id="r_a910c9c759d95750a76fb660bf8325e6c"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00717.html#a910c9c759d95750a76fb660bf8325e6c">ptrReference</a></td></tr>
+<tr class="memdesc:a910c9c759d95750a76fb660bf8325e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer the reference variable  <br /></td></tr>
+<tr class="separator:a910c9c759d95750a76fb660bf8325e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7738d75eba1234a8928245eae64a01a7" id="r_a7738d75eba1234a8928245eae64a01a7"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00717.html#a7738d75eba1234a8928245eae64a01a7">ptrReferenceTarget</a></td></tr>
+<tr class="memdesc:a7738d75eba1234a8928245eae64a01a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the ramp-up reference target  <br /></td></tr>
+<tr class="separator:a7738d75eba1234a8928245eae64a01a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13025badec30c52baf766e745d4c699f" id="r_a13025badec30c52baf766e745d4c699f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00717.html#a13025badec30c52baf766e745d4c699f">RampComplete</a></td></tr>
+<tr class="memdesc:a13025badec30c52baf766e745d4c699f"><td class="mdescLeft">&#160;</td><td class="mdescRight">indicates when ramp-up is complete  <br /></td></tr>
+<tr class="separator:a13025badec30c52baf766e745d4c699f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This data structure is used to indicate when the there is a fault or running power supply. </p>
+<div class="textblock"><p>This data structure manages the ramping up/down of the reference depending on the target. "reference" is the actual reference currently being used while "targetReference" can be different that reference during soft-start. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00079">79</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00098">98</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="a0c93560c24f1a0a5f8e916b88596571b" name="a0c93560c24f1a0a5f8e916b88596571b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c93560c24f1a0a5f8e916b88596571b">&#9670;&#160;</a></span>[union]</h2>
+<a id="ac73dde33a2be13416f717c1ab8954227" name="ac73dde33a2be13416f717c1ab8954227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac73dde33a2be13416f717c1ab8954227">&#9670;&#160;</a></span>Counter</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">union  { ... } </td>
+          <td class="memname">uint16_t Counter</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00100">100</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+
 </div>
 </div>
-<a id="a8d28902dd676709c4c9f6053fd176b1d" name="a8d28902dd676709c4c9f6053fd176b1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d28902dd676709c4c9f6053fd176b1d">&#9670;&#160;</a></span>[struct]</h2>
+<a id="a16a366f1914db6923e6f49ba15572ea2" name="a16a366f1914db6923e6f49ba15572ea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16a366f1914db6923e6f49ba15572ea2">&#9670;&#160;</a></span>Delay</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct  { ... }  bits</td>
+          <td class="memname">uint16_t Delay</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00101">101</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+
 </div>
 </div>
-<a id="ab17555f3ee595c55c595050bf51ef37b" name="ab17555f3ee595c55c595050bf51ef37b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab17555f3ee595c55c595050bf51ef37b">&#9670;&#160;</a></span>FaultActive</h2>
+<a id="a910c9c759d95750a76fb660bf8325e6c" name="a910c9c759d95750a76fb660bf8325e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a910c9c759d95750a76fb660bf8325e6c">&#9670;&#160;</a></span>ptrReference</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned FaultActive</td>
+          <td class="memname">uint16_t* ptrReference</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00083">83</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00103">103</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="a180e365a3f5a6999428d31f218afae4d" name="a180e365a3f5a6999428d31f218afae4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a180e365a3f5a6999428d31f218afae4d">&#9670;&#160;</a></span>notUsed</h2>
+<a id="a7738d75eba1234a8928245eae64a01a7" name="a7738d75eba1234a8928245eae64a01a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7738d75eba1234a8928245eae64a01a7">&#9670;&#160;</a></span>ptrReferenceTarget</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned notUsed</td>
+          <td class="memname">uint16_t* ptrReferenceTarget</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00084">84</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00104">104</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="aa54b2d19226054f61f2998337cebcb5a" name="aa54b2d19226054f61f2998337cebcb5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa54b2d19226054f61f2998337cebcb5a">&#9670;&#160;</a></span>Running</h2>
+<a id="a13025badec30c52baf766e745d4c699f" name="a13025badec30c52baf766e745d4c699f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13025badec30c52baf766e745d4c699f">&#9670;&#160;</a></span>RampComplete</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned Running</td>
+          <td class="memname">bool RampComplete</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00082">82</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00105">105</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="a900b69af7d674b8db3bceae754b4955a" name="a900b69af7d674b8db3bceae754b4955a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a900b69af7d674b8db3bceae754b4955a">&#9670;&#160;</a></span>value</h2>
+<a id="accf24954a61bfc0ab7ca1768da52625a" name="accf24954a61bfc0ab7ca1768da52625a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accf24954a61bfc0ab7ca1768da52625a">&#9670;&#160;</a></span>StepSize</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t value</td>
+          <td class="memname">uint16_t StepSize</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00086">86</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00102">102</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
 
 </div>
 </div>

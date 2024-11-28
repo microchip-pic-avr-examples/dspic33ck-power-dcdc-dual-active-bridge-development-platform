@@ -8,5 +8,5 @@ var a00484 =
     [ "TEMPERATURE_GAIN", "a00484.html#gab586eaca5d59d97c5a098f782633d74c", null ],
     [ "TEMPERATURE_HYSTERESIS", "a00484.html#ga46b916cf898ceb2557a12f208380c5d5", null ],
     [ "TEMPERATURE_OFFSET", "a00484.html#gac02a5a67e0612d6cb90e61cc23398701", null ],
-    [ "TEMPERATURE_PBV_OFFSET_CELCIUS", "a00484.html#ga732703e42208195be1ac578d4b31a3a3", null ]
+    [ "TEMPERATURE_PBV_OFFSET_CELSIUS", "a00484.html#gadaf56c98b4dc5aeee1231153c378af0e", null ]
 ];

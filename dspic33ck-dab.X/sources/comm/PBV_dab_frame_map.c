@@ -85,9 +85,11 @@ void protocolID(uint16_t protocol_ID, uint16_t length, uint8_t * data);
 /***********************************************************************************
  * @ingroup app-pbv-dab-map
  * @return  void
- * @brief   this function initializes the local pbv objects. these objects are then
+ * @brief   This function initializes the local pbv objects. these objects are then
  *          passed on to the app_PBV_init function to initialize the CAN/UART objects
  * @details
+ *          This function initializes the local pbv objects. these objects are then
+ *          passed on to the app_PBV_init function to initialize the CAN/UART objects.
  *          RX object just needs state change. 
  **********************************************************************************/
 void App_PBV_DAB_Init()
@@ -140,7 +142,6 @@ void App_PBV_DAB_Task_10ms(void)
 /***********************************************************************************
  * @ingroup app-pbv-dab-map
  * @param   void
- * @return  nothing
  * @brief   1 second PBV task to be execution
  * @details This is a slow task simulating the low speed sending of ascii data
  *           it sends the firmware id, and the switches to the log id.
@@ -215,8 +216,9 @@ PBV_Datatype_TX_t * App_PB_DAB_Get_TX_ASCII_ptr(void)
 /***********************************************************************************
  * @ingroup pbv-private-function
  * @return  void
- * @brief   this builds frame
- * @details
+ * @brief   This builds application frame
+ * @details This function builds the frame of the Power board visualizer for
+ *  the dual active bridge application. 
  **********************************************************************************/
 
 void App_PBV_DAB_Build_Frame()
@@ -256,11 +258,10 @@ void App_PBV_DAB_Build_Frame()
 
 /***********************************************************************************
  * @ingroup app-pbv-dab-map
- * @param   pointer to received data
- * @return  nothing
+ * @param   data pointer to received data
  * @brief   process received data
- * @details
- * @note
+ * @details This function transfer the data coming from the Power Board Visualizer 
+ *  to the MCU to process the action taken by the user in the Dual active Bridge Board. 
  **********************************************************************************/
 void App_PBV_DAB_Process_Rx_Data(uint16_t * data) 
 {
@@ -339,11 +340,12 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
 
 /***********************************************************************************
  * @ingroup app-pbv-dab-map
- * @param   void
- * @return  nothing
+ * @param   protocal_ID indicates the protocol ID for the PBV
+ * @param   length  length of the data
+ * @param   data    pointer to the data
  * @brief   default callback
- * @details
- * @note
+ * @details This function defines the PBV protocol ID for specific data received. 
+ * @note    This function defines the PBV protocol ID for specific data received. 
  **********************************************************************************/
 void protocolID(uint16_t protocol_ID, uint16_t length, uint8_t * data)
 {

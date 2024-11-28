@@ -2,8 +2,8 @@ var searchData=
 [
   ['baudrateget_0',['BaudRateGet',['../a00613.html#a3fa2dd8d91ef2c2b822a88efbe5bcf4a',1,'UART_INTERFACE']]],
   ['baudrateset_1',['BaudRateSet',['../a00613.html#a47a817bc0da8a0c4630446222934df93',1,'UART_INTERFACE']]],
-  ['bcoefficients_2',['bcoefficients',['../a00677.html#ad1355dec3eb324d2eab4aeec3949315b',1,'SMPS_3P3Z_T::bCoefficients'],['../a00681.html#ad1355dec3eb324d2eab4aeec3949315b',1,'SMPS_2P2Z_T::bCoefficients'],['../a00693.html#ad1355dec3eb324d2eab4aeec3949315b',1,'XFT_SMPS_2P2Z_T::bCoefficients']]],
-  ['bits_3',['bits',['../a00709.html#a8d28902dd676709c4c9f6053fd176b1d',1,'STATUS_FLAGS_s']]],
+  ['bcoefficients_2',['bcoefficients',['../a00673.html#ad1355dec3eb324d2eab4aeec3949315b',1,'SMPS_3P3Z_T::bCoefficients'],['../a00677.html#ad1355dec3eb324d2eab4aeec3949315b',1,'SMPS_2P2Z_T::bCoefficients'],['../a00689.html#ad1355dec3eb324d2eab4aeec3949315b',1,'XFT_SMPS_2P2Z_T::bCoefficients']]],
+  ['bits_3',['bits',['../a00705.html#a8d28902dd676709c4c9f6053fd176b1d',1,'STATUS_FLAGS_s']]],
   ['bprecleared_4',['bPreCleared',['../a00182.html#a49a190356cf3428a5e70abc1628505ae',1,'dmt.c']]],
   ['brgcountget_5',['BRGCountGet',['../a00613.html#a6fecc22255ba1fecfebe200b50ee2823',1,'UART_INTERFACE']]],
   ['brgcountset_6',['BRGCountSet',['../a00613.html#a2bf48b3c1d7330e8d23e388021f56dcd',1,'UART_INTERFACE']]],

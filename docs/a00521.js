@@ -44,7 +44,7 @@ var a00521 =
       [ "field", "a00557.html#a3db823a278f5d389e9b29a698d10ee68", null ],
       [ "msgId", "a00557.html#a92de58c41afbd447b2536d5c9eb7b0f2", null ]
     ] ],
-    [ "CAN1", "a00737.html", null ],
+    [ "CAN1", "a00733.html", null ],
     [ "CAN1_RX_FIFO1", "a00521.html#ga53d15680586c09f0d89297ea3c2c2429", null ],
     [ "CAN1_RX_FIFO2", "a00521.html#ga18a45b3a95bdd30d6d8fe5a2be86f920", null ],
     [ "CAN1_TX_TXQ", "a00521.html#ga5167210cc3dc3cf8d2bbe97a2451acf9", null ],

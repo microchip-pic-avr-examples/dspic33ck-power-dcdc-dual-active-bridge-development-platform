@@ -34,10 +34,10 @@ CAN_MSG_OBJ_t pbvCanObjectAscii;
 
 /*********************************************************************************
  * @ingroup PBV_CAN 
- * @param   PBV_Datatype_TX_t * - ptr to numerical data
- * @param   PBV_Datatype_TX_t * - ptr to ascii data
- * @param   PBV_Datatype_TX_t * - ptr to rx numerical data. here as a place holder, only needed for completeness
- * @brief   initializes CAN objects with PBV objects ( only CAN IDs for now)
+ * @param   PBV_Datatype_TX_t *  ptr to numerical data
+ * @param   PBV_Datatype_TX_t *  ptr to ascii data
+ * @param   PBV_Datatype_TX_t *  ptr to rx numerical data. here as a place holder, only needed for completeness
+ * @brief   Initializes CAN objects with PBV objects ( only CAN IDs for now)
  * @return  void
  * @details Initialize the CAN communication.
  **********************************************************************************/
@@ -60,7 +60,7 @@ void PBV_CAN_Init(PBV_Datatype_TX_t* boardToPBV, PBV_Datatype_TX_t* boardToPBVAs
 
 /*********************************************************************************
  * @ingroup PBV_CAN 
- * @brief   checks the queue and if a message is received then links the data pointer to can object
+ * @brief   Checks the queue and if a message is received then links the data pointer to can object
  * @return  int (0 on successful, 1 on unsuccessful)
  * @details Checks the queue and if a message is received then links the data pointer to can object
  **********************************************************************************/
@@ -90,9 +90,9 @@ uint8_t PBV_CAN_Transmit_Ascii_to_GUI()
 
 /*********************************************************************************
  * @ingroup PBV_CAN 
- * @brief   transmits the numerical msg to PBV
+ * @brief   Transmits the numerical msg to PBV
  * @return  int
- * @details this function sends the message on CAN1 Transmit Queue. TODO: make this portable to other transmit queues. 
+ * @details This function sends the message on CAN1 Transmit Queue. TODO: make this portable to other transmit queues. 
  **********************************************************************************/
 uint8_t PBV_CAN_Transmit_to_GUI()
 {
@@ -105,9 +105,9 @@ uint8_t PBV_CAN_Transmit_to_GUI()
 /*********************************************************************************
  * @ingroup PBV_CAN 
  * @param   PBV_Datatype_RX_t *
- * @brief   reinitializes the can object with new can id. 
+ * @brief   Reinitializes the can object with new can id. 
  * @return  void
- * @details This function is needed in CAN TX to reinit the CAN TX object with new parameters.
+ * @details This function is needed in CAN TX to reinitialize the CAN TX object with new parameters.
  **********************************************************************************/
 void PBV_CAN_Reinit(PBV_Datatype_TX_t * ptr){
     if (ptr->PBV_Signal_Ascii == PBV_SIGNAL_MODE)
@@ -116,55 +116,55 @@ void PBV_CAN_Reinit(PBV_Datatype_TX_t * ptr){
         switch (ptr->Length)
         {
             case 0:
-                pbvCanObjectTx.field.dlc = DLC_0;    /**< Data length count 0 */
+                pbvCanObjectTx.field.dlc = DLC_0;    /*< Data length count 0 */
                 break;
             case 1:
-                pbvCanObjectTx.field.dlc = DLC_1;    /**< Data length count 1 */  
+                pbvCanObjectTx.field.dlc = DLC_1;    /*< Data length count 1 */  
                 break;
             case 2:
-                pbvCanObjectTx.field.dlc = DLC_2;    /**< Data length count 2 */ 
+                pbvCanObjectTx.field.dlc = DLC_2;    /*< Data length count 2 */ 
                 break;
             case 3:
-                pbvCanObjectTx.field.dlc = DLC_3;    /**< Data length count 3 */ 
+                pbvCanObjectTx.field.dlc = DLC_3;    /*< Data length count 3 */ 
                 break;
             case 4:
-                pbvCanObjectTx.field.dlc = DLC_4;    /**< Data length count 4 */ 
+                pbvCanObjectTx.field.dlc = DLC_4;    /*< Data length count 4 */ 
                 break;
             case 5:
-                pbvCanObjectTx.field.dlc = DLC_5;    /**< Data length count 5 */  
+                pbvCanObjectTx.field.dlc = DLC_5;    /*< Data length count 5 */  
                 break;     
             case 6:
-                pbvCanObjectTx.field.dlc = DLC_6;    /**< Data length count 6 */  
+                pbvCanObjectTx.field.dlc = DLC_6;    /*< Data length count 6 */  
                 break;   
             case 7:
-                pbvCanObjectTx.field.dlc = DLC_7;    /**< Data length count 7 */  
+                pbvCanObjectTx.field.dlc = DLC_7;    /*< Data length count 7 */  
                 break;
             case 8:
-                pbvCanObjectTx.field.dlc = DLC_8;    /**< Data length count 8 */  
+                pbvCanObjectTx.field.dlc = DLC_8;    /*< Data length count 8 */  
                 break; 
             case 9 ... 12:
-                pbvCanObjectTx.field.dlc = DLC_12;    /**< Data length count 12 */  
+                pbvCanObjectTx.field.dlc = DLC_12;    /*< Data length count 12 */  
                 break;    
            case 13 ... 16:
-                pbvCanObjectTx.field.dlc = DLC_16;    /**< Data length count 16 */  
+                pbvCanObjectTx.field.dlc = DLC_16;    /*< Data length count 16 */  
                 break;   
            case 17 ... 20:
-                pbvCanObjectTx.field.dlc = DLC_20;    /**< Data length count 20 */  
+                pbvCanObjectTx.field.dlc = DLC_20;    /*< Data length count 20 */  
                 break;   
            case 21 ... 24:
-                pbvCanObjectTx.field.dlc = DLC_24;    /**< Data length count 24 */  
+                pbvCanObjectTx.field.dlc = DLC_24;    /*< Data length count 24 */  
                 break;       
            case 25 ... 32:
-                pbvCanObjectTx.field.dlc = DLC_32;    /**< Data length count 32 */  
+                pbvCanObjectTx.field.dlc = DLC_32;    /*< Data length count 32 */  
                 break; 
            case 33 ... 48:
-                pbvCanObjectTx.field.dlc = DLC_48;    /**< Data length count 48 */  
+                pbvCanObjectTx.field.dlc = DLC_48;    /*< Data length count 48 */  
                 break;  
            case 49 ... 64:
-                pbvCanObjectTx.field.dlc = DLC_64;    /**< Data length count 64 */  
+                pbvCanObjectTx.field.dlc = DLC_64;    /*< Data length count 64 */  
                 break;                
             default:
-                pbvCanObjectTx.field.dlc = DLC_64;    /**< Data length count 64 */  
+                pbvCanObjectTx.field.dlc = DLC_64;    /*< Data length count 64 */  
                 break;
         }
     }
@@ -174,55 +174,55 @@ void PBV_CAN_Reinit(PBV_Datatype_TX_t * ptr){
         switch (ptr->Length)
         {
             case 0:
-                pbvCanObjectAscii.field.dlc = DLC_0;    /**< Data length count 0 */
+                pbvCanObjectAscii.field.dlc = DLC_0;    /*< Data length count 0 */
                 break;
             case 1:
-                pbvCanObjectAscii.field.dlc = DLC_1;    /**< Data length count 1 */  
+                pbvCanObjectAscii.field.dlc = DLC_1;    /*< Data length count 1 */  
                 break;
             case 2:
-                pbvCanObjectAscii.field.dlc = DLC_2;    /**< Data length count 2 */ 
+                pbvCanObjectAscii.field.dlc = DLC_2;    /*< Data length count 2 */ 
                 break;
             case 3:
-                pbvCanObjectAscii.field.dlc = DLC_3;    /**< Data length count 3 */ 
+                pbvCanObjectAscii.field.dlc = DLC_3;    /*< Data length count 3 */ 
                 break;
             case 4:
-                pbvCanObjectAscii.field.dlc = DLC_4;    /**< Data length count 4 */ 
+                pbvCanObjectAscii.field.dlc = DLC_4;    /*< Data length count 4 */ 
                 break;
             case 5:
-                pbvCanObjectAscii.field.dlc = DLC_5;    /**< Data length count 5 */  
+                pbvCanObjectAscii.field.dlc = DLC_5;    /*< Data length count 5 */  
                 break;     
             case 6:
-                pbvCanObjectAscii.field.dlc = DLC_6;    /**< Data length count 6 */  
+                pbvCanObjectAscii.field.dlc = DLC_6;    /*< Data length count 6 */  
                 break;   
             case 7:
-                pbvCanObjectAscii.field.dlc = DLC_7;    /**< Data length count 7 */  
+                pbvCanObjectAscii.field.dlc = DLC_7;    /*< Data length count 7 */  
                 break;
             case 8:
-                pbvCanObjectAscii.field.dlc = DLC_8;    /**< Data length count 8 */  
+                pbvCanObjectAscii.field.dlc = DLC_8;    /*< Data length count 8 */  
                 break; 
             case 9 ... 12:
-                pbvCanObjectAscii.field.dlc = DLC_12;    /**< Data length count 12 */  
+                pbvCanObjectAscii.field.dlc = DLC_12;    /*< Data length count 12 */  
                 break;    
            case 13 ... 16:
-                pbvCanObjectAscii.field.dlc = DLC_16;    /**< Data length count 16 */  
+                pbvCanObjectAscii.field.dlc = DLC_16;    /*< Data length count 16 */  
                 break;   
            case 17 ... 20:
-                pbvCanObjectAscii.field.dlc = DLC_20;    /**< Data length count 20 */  
+                pbvCanObjectAscii.field.dlc = DLC_20;    /*< Data length count 20 */  
                 break;   
            case 21 ... 24:
-                pbvCanObjectAscii.field.dlc = DLC_24;    /**< Data length count 24 */  
+                pbvCanObjectAscii.field.dlc = DLC_24;    /*< Data length count 24 */  
                 break;       
            case 25 ... 32:
-                pbvCanObjectAscii.field.dlc = DLC_32;    /**< Data length count 32 */  
+                pbvCanObjectAscii.field.dlc = DLC_32;    /*< Data length count 32 */  
                 break; 
            case 33 ... 48:
-                pbvCanObjectAscii.field.dlc = DLC_48;    /**< Data length count 48 */  
+                pbvCanObjectAscii.field.dlc = DLC_48;    /*< Data length count 48 */  
                 break;  
            case 49 ... 64:
-                pbvCanObjectAscii.field.dlc = DLC_64;    /**< Data length count 64 */  
+                pbvCanObjectAscii.field.dlc = DLC_64;    /*< Data length count 64 */  
                 break;                
             default:
-                pbvCanObjectAscii.field.dlc = DLC_64;    /**< Data length count 64 */  
+                pbvCanObjectAscii.field.dlc = DLC_64;    /*< Data length count 64 */  
                 break;
         }
     }
@@ -256,55 +256,55 @@ void PBV_CAN_Link_Data_RX(PBV_Datatype_RX_t * ptr){
         switch (pbvCanObjectRx.field.dlc)
         {
             case DLC_0:
-                ptr->Length = 0;    /**< Data length count 0 */
+                ptr->Length = 0;    /*< Data length count 0 */
                 break;
             case DLC_1:
-                ptr->Length = 1;    /**< Data length count 1 */  
+                ptr->Length = 1;    /*< Data length count 1 */  
                 break;
             case DLC_2:
-                ptr->Length = 2;    /**< Data length count 2 */ 
+                ptr->Length = 2;    /*< Data length count 2 */ 
                 break;
             case DLC_3:
-                ptr->Length = 3;    /**< Data length count 3 */ 
+                ptr->Length = 3;    /*< Data length count 3 */ 
                 break;
             case DLC_4:
-                ptr->Length = 4;    /**< Data length count 4 */ 
+                ptr->Length = 4;    /*< Data length count 4 */ 
                 break;
             case DLC_5:
-                ptr->Length = 5;    /**< Data length count 5 */  
+                ptr->Length = 5;    /*< Data length count 5 */  
                 break;     
             case DLC_6:
-                ptr->Length = 6;    /**< Data length count 6 */  
+                ptr->Length = 6;    /*< Data length count 6 */  
                 break;   
             case DLC_7:
-                ptr->Length = 7;    /**< Data length count 7 */  
+                ptr->Length = 7;    /*< Data length count 7 */  
                 break;
             case DLC_8:
-                ptr->Length = 8;    /**< Data length count 8 */  
+                ptr->Length = 8;    /*< Data length count 8 */  
                 break;     
             case DLC_12:
-                ptr->Length = 12;    /**< Data length count 12 */  
+                ptr->Length = 12;    /*< Data length count 12 */  
                 break;    
            case DLC_16:
-                ptr->Length = 16;    /**< Data length count 16 */  
+                ptr->Length = 16;    /*< Data length count 16 */  
                 break;   
            case DLC_20:
-                ptr->Length = 20;    /**< Data length count 20 */  
+                ptr->Length = 20;    /*< Data length count 20 */  
                 break;   
            case DLC_24:
-                ptr->Length = 24;    /**< Data length count 24 */  
+                ptr->Length = 24;    /*< Data length count 24 */  
                 break;       
            case DLC_32:
-                ptr->Length = 32;    /**< Data length count 32 */  
+                ptr->Length = 32;    /*< Data length count 32 */  
                 break; 
            case DLC_48:
-                ptr->Length = 48;    /**< Data length count 48 */  
+                ptr->Length = 48;    /*< Data length count 48 */  
                 break;  
            case DLC_64:
-                ptr->Length = 64;    /**< Data length count 64 */  
+                ptr->Length = 64;    /*< Data length count 64 */  
                 break;                
             default:
-                ptr->Length = 64;    /**< Data length count 64 */  
+                ptr->Length = 64;    /*< Data length count 64 */  
                 break;
         }
     }

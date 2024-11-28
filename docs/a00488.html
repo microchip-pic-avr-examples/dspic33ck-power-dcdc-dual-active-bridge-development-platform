@@ -216,15 +216,15 @@ $(document).ready(function(){initNavTree('a00488.html',''); initResizable(); });
 <div class="line">  where:</div>
 <div class="line"> </div>
 <div class="line">   aCoefficients, bCoefficients, controlHistory, errorHistory, </div>
-<div class="line">   preShift and postShift are all members of the data structure <a class="code hl_struct" href="a00681.html">SMPS_2P2Z_T</a>.</div>
+<div class="line">   preShift and postShift are all members of the data structure <a class="code hl_struct" href="a00677.html">SMPS_2P2Z_T</a>.</div>
 <div class="line"> </div>
 <div class="line"> Input:</div>
-<div class="line">       w0 = Address of <a class="code hl_struct" href="a00681.html">SMPS_2P2Z_T</a> data structure</div>
+<div class="line">       w0 = Address of <a class="code hl_struct" href="a00677.html">SMPS_2P2Z_T</a> data structure</div>
 <div class="line">       w1 = Address of the Source Register (Input)</div>
 <div class="line">       w2 = Control Reference</div>
 <div class="line">       w3 = Address of the Target Register (Output)</div>
 <div class="line"> Return:</div>
-<div class="line">       w0 = Address of <a class="code hl_struct" href="a00681.html">SMPS_2P2Z_T</a> data structure</div>
+<div class="line">       w0 = Address of <a class="code hl_struct" href="a00677.html">SMPS_2P2Z_T</a> data structure</div>
 <div class="line">       w1 = Address of the Source Register (Input)</div>
 <div class="line">       w2 = Control Reference</div>
 <div class="line">       w3 = Address of the Target Register (Output)</div>
@@ -234,7 +234,7 @@ $(document).ready(function(){initNavTree('a00488.html',''); initResizable(); });
 <div class="line">       {w8,w10}        saved, used, restored</div>
 <div class="line">        AccA           used, not restored</div>
 <div class="line">        CORCON         saved, used, restored</div>
-<div class="ttc" id="aa00681_html"><div class="ttname"><a href="a00681.html">SMPS_2P2Z_T</a></div><div class="ttdef"><b>Definition</b> <a href="a00425_source.html#l00162">smps_control.h:163</a></div></div>
+<div class="ttc" id="aa00677_html"><div class="ttname"><a href="a00677.html">SMPS_2P2Z_T</a></div><div class="ttdef"><b>Definition</b> <a href="a00425_source.html#l00162">smps_control.h:163</a></div></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The function in this assembly file requires CORCON register to be setup in a certain state in order to operate correctly. Due to this requirement, this function will save the CORCON register on the stack in the beginning of the function and restore it before the function return. After saving the CORCON register, this function writes to all bits of the CORCON register. Thus, for the brief duration when this function is executing, the state of CORCON register may be different from its state as set by the function caller. This may change the CPU core behaviour with respect to exception processing latency, DO loop termination, CPU interrupt priority level and DSP-engine behaviour. </dd></dl>
 </div><!-- contents -->
 </div><!-- doc-content -->
