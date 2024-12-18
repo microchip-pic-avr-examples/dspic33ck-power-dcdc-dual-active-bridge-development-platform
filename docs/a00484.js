@@ -1,12 +1,17 @@
 var a00484 =
 [
     [ "Conversion Macros", "a00485.html", "a00485" ],
-    [ "FAULT_PERSISTENCE_COUNT_TEMP", "a00484.html#gaa584ad6b0df4394fb8a954091913a713", null ],
-    [ "NOMINAL_TEMPERATURE_THRESHOLD", "a00484.html#gaf96b37309868a2ca71aec09e1d2180bc", null ],
-    [ "OTP_THRES_CLEAR_CELCIUS", "a00484.html#gadc3762a54e017c4db8ad9b6e83dc071d", null ],
-    [ "OTP_THRES_TRIG_CELCIUS", "a00484.html#gad1f727c2e9b6350745777aca9f272169", null ],
-    [ "TEMPERATURE_GAIN", "a00484.html#gab586eaca5d59d97c5a098f782633d74c", null ],
-    [ "TEMPERATURE_HYSTERESIS", "a00484.html#ga46b916cf898ceb2557a12f208380c5d5", null ],
-    [ "TEMPERATURE_OFFSET", "a00484.html#gac02a5a67e0612d6cb90e61cc23398701", null ],
-    [ "TEMPERATURE_PBV_OFFSET_CELCIUS", "a00484.html#ga732703e42208195be1ac578d4b31a3a3", null ]
+    [ "VPRI_OV_T_BLANK_CLEAR_SEC", "a00484.html#gae45b4bac6339131a7cb30567551a2cd5", null ],
+    [ "VPRI_OV_T_BLANK_TRIG_SEC", "a00484.html#gaf81643989e826fa9c4349f4184a56a0d", null ],
+    [ "VPRI_OV_THRES_CLEAR_VOLTS", "a00484.html#gae8ebc2c2c94c46d6bfbdc05ac7ffdecb", null ],
+    [ "VPRI_OV_THRES_TRIG_VOLTS", "a00484.html#ga3de0595efbf0659d33138d8f32e9e34e", null ],
+    [ "VPRI_OV_TICK_SEC", "a00484.html#gab881ac722074c5a0c9a96b33737b44f2", null ],
+    [ "VPRI_SNS_GAIN", "a00484.html#gae3dffcdc110b55af6c257bfc0748cf81", null ],
+    [ "VPRI_SNS_OFS", "a00484.html#ga35eab816332f1b3d80d161f125c5044a", null ],
+    [ "VPRI_UV_T_BLANK_CLEAR_SEC", "a00484.html#gae060c2f32be9e0c4fbe4d30968d86a50", null ],
+    [ "VPRI_UV_T_BLANK_TRIG_SEC", "a00484.html#ga6ff4ff92efb2e17e98e3b963e6dc0cae", null ],
+    [ "VPRI_UV_THRES_CLEAR_VOLTS", "a00484.html#gaf0c600dfc98788eda04c6051f1e67dff", null ],
+    [ "VPRI_UV_THRES_TRIG_VOLTS", "a00484.html#ga886eaaa750e2ef06f90bdd463c7f6346", null ],
+    [ "VPRI_UV_TICK_SEC", "a00484.html#gac8e4597345a6c7e57405fa9084be0dcb", null ],
+    [ "VPRI_VOLTAGE_GAIN", "a00484.html#gab88335efd29659386531beabaffdf660", null ]
 ];

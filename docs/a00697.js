@@ -1,7 +1,12 @@
 var a00697 =
 [
-    [ "Accumulator", "a00697.html#a1bf80696497119c4e36460f57de7f667", null ],
-    [ "AverageValue", "a00697.html#ababc9b3b062bdea79c71035d651fbe79", null ],
-    [ "AveragingCount", "a00697.html#a5c501c087c00d88f54766fff1bed2839", null ],
-    [ "Counter", "a00697.html#ac73dde33a2be13416f717c1ab8954227", null ]
+    [ "aCoefficients", "a00697.html#a9b53207353649ed96836db0f78300815", null ],
+    [ "bCoefficients", "a00697.html#ad1355dec3eb324d2eab4aeec3949315b", null ],
+    [ "controlHistory", "a00697.html#a01aaca2f4f21e2a7913a2b6e26378d9d", null ],
+    [ "errorHistory", "a00697.html#a2156cbcc870b55a05790b35d7a994ed2", null ],
+    [ "maxOutput", "a00697.html#a52e0ede1d35abbd1205991bf926b0123", null ],
+    [ "minOutput", "a00697.html#a0e61035e2b3233a7d496c3eb2f098969", null ],
+    [ "postScaler", "a00697.html#a63cf6fa1fea56820d41793296704eecb", null ],
+    [ "postShift", "a00697.html#a136ef863c1c5b2eee03c1223f4b7baef", null ],
+    [ "preShift", "a00697.html#ab80a85b190b1a682766250d4e72ba6fd", null ]
 ];

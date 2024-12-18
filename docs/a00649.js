@@ -1,12 +1,12 @@
 var a00649 =
 [
-    [ "AdcAverage", "a00649.html#ab3ddfcd824de2587d479076324c61bfa", null ],
-    [ "AdcReading", "a00649.html#aadb6f8d669172a241150025a40fcf44d", null ],
-    [ "BufferFull", "a00649.html#af15f06d55d9455ee4404bd24e08d67f4", null ],
-    [ "BufferIndex", "a00649.html#a894ac46d26a1a6eeaf39098ee8083ccf", null ],
-    [ "OverTemperatureFlag", "a00649.html#a4905336182a9fec2c6e219631604c50f", null ],
-    [ "ResetBuffer", "a00649.html#afad405df907341bbd9f263b80aac92ce", null ],
-    [ "SensorLost", "a00649.html#a9bd7d10eb7cc3c2d2fcd07bd6a58da84", null ],
-    [ "TempBuffer", "a00649.html#a665c9a1e8efc7255becd331cb622ab85", null ],
-    [ "TemperatureCelcius", "a00649.html#abf8f604e028adbffcfed2825d3e9384e", null ]
+    [ "CurrentSpeedPercent", "a00649.html#ad5d31528415a4ed9cf81ebfd785128c2", null ],
+    [ "CurrentSpeedRaw", "a00649.html#a833f5d95cb05c7446c9493ce32cd6a4e", null ],
+    [ "MaxSpeedPercent", "a00649.html#ad407e9ccc871b7dc9cca12bde19c730d", null ],
+    [ "MaxSpeedRaw", "a00649.html#a17841407278bd546565d170f7b6e9e78", null ],
+    [ "OverrideFlag", "a00649.html#a4f9053371e35277861b7403cd46b0d98", null ],
+    [ "StepSizePercent", "a00649.html#a6ea3b4a0033803dc206c7e104ab29ca8", null ],
+    [ "TargetSpeedPercent", "a00649.html#ad26b627b999dd76f16aa4a9e36470c91", null ],
+    [ "TargetSpeedRaw", "a00649.html#ac2a920307a7df3fdd9d9ef56b0fbac82", null ],
+    [ "Tick", "a00649.html#a4c53383b26fe25c1a65efe0e9b6ed9cf", null ]
 ];

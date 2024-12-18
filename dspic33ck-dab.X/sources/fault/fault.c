@@ -93,8 +93,8 @@ void Fault_Initialize(void)
             VRAIL_5V_UV_THRES_CLEAR, VRAIL_5V_UV_T_BLANK_TRIG, VRAIL_5V_UV_T_BLANK_CLEAR);
     
     // Initialize Over Temperature Protection
-    FAULT_Init(&dab.Fault.Object.PowerSupplyOTP, OTP_THRES_TRIG,         
-            OTP_THRES_CLEAR, FAULT_PERSISTENCE_COUNT_TEMP, FAULT_PERSISTENCE_COUNT_TEMP); 
+    FAULT_Init(&dab.Fault.Object.PowerSupplyOTP, OTP_THRES_TRIG_CELCIUS,         
+            OTP_THRES_CLEAR_CELCIUS, FAULT_PERSISTENCE_COUNT_TEMP, FAULT_PERSISTENCE_COUNT_TEMP); 
     
 #if defined (FAULT_SHORT_CCT) && (FAULT_SHORT_CCT == true)
     // Initialize short circuit fault protection with comparators
@@ -263,7 +263,7 @@ static void Fault_EnableShortCircuitProtection(void)
 void Fault_Execute_100ms(void) 
 {
     #if defined (FAULT_PS_OTP) && (FAULT_PS_OTP ==  true)
-    if(FAULT_CheckMin(&dab.Fault.Object.PowerSupplyOTP, dab.Data.Temperature, &Fault_Handler))
+    if(FAULT_CheckMax(&dab.Fault.Object.PowerSupplyOTP, Dev_Temp_Get_Temperature_Celcius(), &Fault_Handler))
     {
        devTempData.OverTemperatureFlag = 1; //for over temperature
        dab.Status.bits.FaultActive = 1;

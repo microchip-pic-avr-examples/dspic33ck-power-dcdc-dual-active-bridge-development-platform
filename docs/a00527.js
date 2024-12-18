@@ -1,17 +1,13 @@
 var a00527 =
 [
-    [ "dmt.c", "a00182.html", null ],
-    [ "DMT_CalibratedCounterGet", "a00527.html#ga96bdb17ac49dcea076379d6ac50d862f", null ],
-    [ "DMT_Clear", "a00527.html#gade400ce4a946f281a5927e9e8e70f99b", null ],
-    [ "DMT_CounterGet", "a00527.html#gaa88fd1abe6ab363f1c74a95da8050ff9", null ],
-    [ "DMT_Enable", "a00527.html#gab75675e5d7c803a7e5a1e8fe569e085a", null ],
-    [ "DMT_EventCallback", "a00527.html#ga0c26f1adfdfa77d4ff761acc1e89be67", null ],
-    [ "DMT_EventCallbackRegister", "a00527.html#ga96ee14343231d4dd8fd27dd480a0f5c3", null ],
-    [ "DMT_Initialize", "a00527.html#ga1bc5134c539119189fc912e50bb40f0c", null ],
-    [ "DMT_IsPreCleared", "a00527.html#ga1fbbdb18c7b3212c759d40b3e00807b3", null ],
-    [ "DMT_IsWindowOpen", "a00527.html#ga577a7783ce8f7a557697d8bb69ab4ea3", null ],
-    [ "DMT_PreClear", "a00527.html#ga1cd09f842f8bb767f63beb777cf744c5", null ],
-    [ "DMT_StatusGet", "a00527.html#ga067c396de0122d232c77695c74f3510f", null ],
-    [ "DMT_TimeoutCounterGet", "a00527.html#gad66f5fee2d6630f1180b74272310e61e", null ],
-    [ "DMT_WindowTimeoutCounterGet", "a00527.html#gaa7f703cf670f2d44154dee6fe713f347", null ]
+    [ "fault.c", "a00362.html", null ],
+    [ "fault.h", "a00365.html", null ],
+    [ "fault_comm_interface.c", "a00374.html", null ],
+    [ "fault_comm_interface.h", "a00377.html", null ],
+    [ "Fault_EnableShortCircuitProtection", "a00527.html#gaa8479905c2a8b34126d4fe56c1882b1b", null ],
+    [ "Fault_Execute", "a00527.html#gacd1ca209275dae0bc2388ac954858d83", null ],
+    [ "Fault_Execute_100ms", "a00527.html#ga35608d94d8d76de809bb7588a325abc9", null ],
+    [ "Fault_Handler", "a00527.html#gaf27f2f24932cec222273df148f8765cb", null ],
+    [ "Fault_Initialize", "a00527.html#gaaa5a7a6dc7ce982dec4f07edcd73e874", null ],
+    [ "Fault_Reset", "a00527.html#ga8ed0fee0d3aff71d49470aab1728a6ae", null ]
 ];

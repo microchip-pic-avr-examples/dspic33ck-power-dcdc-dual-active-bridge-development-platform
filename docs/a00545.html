@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: ADC_MULTICORE Struct Reference</title>
+<title>Dual Active Bridge Development Board: Clock Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,242 +137,166 @@ $(document).ready(function(){initNavTree('a00545.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">ADC_MULTICORE Struct Reference<div class="ingroups"><a class="el" href="a00518.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00520.html">ADC Multicore Driver</a></div></div></div>
+<a href="#files">Files</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">Clock Driver<div class="ingroups"><a class="el" href="a00530.html">MPLABX MCC Melody Code Generator</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Structure containing the function pointers of ADC driver.  
- <a href="a00545.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00062_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/mcc_generated_files/adc/adc_interface.h</a>&gt;</code></p>
+<p>Clock configurator driver for System and Peripheral Clock using dsPIC MCUs.  
+<a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for ADC_MULTICORE:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Clock Driver:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00543.svg" width="199" height="358"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00545.svg" width="302" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Data Fields</h2></td></tr>
-<tr class="memitem:abc2510a2a435fd0c5c37a56cfa732e47" id="r_abc2510a2a435fd0c5c37a56cfa732e47"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#abc2510a2a435fd0c5c37a56cfa732e47">ChannelCallbackRegister</a> )(void(*callback)(enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel, uint16_t adcVal))</td></tr>
-<tr class="memdesc:abc2510a2a435fd0c5c37a56cfa732e47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ADCx_ChannelCallbackRegister e.g. <a class="el" href="a00520.html#gaf5a05de69c2fee35a21d798c01ce3417">ADC1_ChannelCallbackRegister</a>.  <br /></td></tr>
-<tr class="separator:abc2510a2a435fd0c5c37a56cfa732e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a292e0f89d364c1053064f1e282b5acf5" id="r_a292e0f89d364c1053064f1e282b5acf5"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#a292e0f89d364c1053064f1e282b5acf5">ComparatorCallbackRegister</a> )(void(*callback)(enum <a class="el" href="a00065.html#a748c94aa6be5d765a4ef59743a30475d">ADC_CMP</a> comparator))</td></tr>
-<tr class="memdesc:a292e0f89d364c1053064f1e282b5acf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ADCx_ComparatorCallbackRegister e.g. <a class="el" href="a00520.html#ga80266aee20908dbc13be9199675ddef3">ADC1_ComparatorCallbackRegister</a>.  <br /></td></tr>
-<tr class="separator:a292e0f89d364c1053064f1e282b5acf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3fe7b48113a92f320d89727df0c9b7c" id="r_ae3fe7b48113a92f320d89727df0c9b7c"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#ae3fe7b48113a92f320d89727df0c9b7c">ChannelTasks</a> )(enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel)</td></tr>
-<tr class="memdesc:ae3fe7b48113a92f320d89727df0c9b7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ADCx_ChannelTasks e.g. <a class="el" href="a00520.html#ga9acbdc22ba6772bc871334bba9d7100d">ADC1_ChannelTasks</a>.  <br /></td></tr>
-<tr class="separator:ae3fe7b48113a92f320d89727df0c9b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97c7ef7d4e053ae1a9c75b85dec70f07" id="r_a97c7ef7d4e053ae1a9c75b85dec70f07"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#a97c7ef7d4e053ae1a9c75b85dec70f07">ComparatorTasks</a> )(enum <a class="el" href="a00065.html#a748c94aa6be5d765a4ef59743a30475d">ADC_CMP</a> comparator)</td></tr>
-<tr class="memdesc:a97c7ef7d4e053ae1a9c75b85dec70f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ADCx_ComparatorTasks e.g. ADC1_ComparatorTasks.  <br /></td></tr>
-<tr class="separator:a97c7ef7d4e053ae1a9c75b85dec70f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ae084298dffecf868a2180d4111f815" id="r_a3ae084298dffecf868a2180d4111f815"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#a3ae084298dffecf868a2180d4111f815">IndividualChannelInterruptEnable</a> )(enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel)</td></tr>
-<tr class="memdesc:a3ae084298dffecf868a2180d4111f815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ADCx_IndividualChannelInterruptEnable e.g. <a class="el" href="a00520.html#ga5366f7fa92e91e3a85a85846fdb44dce">ADC1_IndividualChannelInterruptEnable</a>.  <br /></td></tr>
-<tr class="separator:a3ae084298dffecf868a2180d4111f815"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9687d57a6b8c72e55484c40887a26314" id="r_a9687d57a6b8c72e55484c40887a26314"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#a9687d57a6b8c72e55484c40887a26314">IndividualChannelInterruptDisable</a> )(enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel)</td></tr>
-<tr class="memdesc:a9687d57a6b8c72e55484c40887a26314"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ADCx_IndividualChannelInterruptDisable e.g. <a class="el" href="a00520.html#ga41f83cac279271a6e66e67b77ec7ea2b">ADC1_IndividualChannelInterruptDisable</a>.  <br /></td></tr>
-<tr class="separator:a9687d57a6b8c72e55484c40887a26314"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a397992f7ede7840d43d2251a6d3c39fb" id="r_a397992f7ede7840d43d2251a6d3c39fb"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#a397992f7ede7840d43d2251a6d3c39fb">IndividualChannelInterruptFlagClear</a> )(enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel)</td></tr>
-<tr class="memdesc:a397992f7ede7840d43d2251a6d3c39fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ADCx_IndividualChannelInterruptFlagClear e.g. <a class="el" href="a00520.html#ga8e54ff06b9ea9167c9975fab7c59954b">ADC1_IndividualChannelInterruptFlagClear</a>.  <br /></td></tr>
-<tr class="separator:a397992f7ede7840d43d2251a6d3c39fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbbcbe450cc0f43690a599b11dbc8a0a" id="r_adbbcbe450cc0f43690a599b11dbc8a0a"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#adbbcbe450cc0f43690a599b11dbc8a0a">IndividualChannelInterruptPrioritySet</a> )(enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel, enum INTERRUPT_PRIORITY priorityValue)</td></tr>
-<tr class="memdesc:adbbcbe450cc0f43690a599b11dbc8a0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ADCx_IndividualChannelInterruptPrioritySet e.g. <a class="el" href="a00520.html#ga178920ddfe0093e488b8e599542d5542">ADC1_IndividualChannelInterruptPrioritySet</a>.  <br /></td></tr>
-<tr class="separator:adbbcbe450cc0f43690a599b11dbc8a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a415ad59e4b8144f1c758db5556932abf" id="r_a415ad59e4b8144f1c758db5556932abf"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#a415ad59e4b8144f1c758db5556932abf">CorePowerEnable</a> )(enum <a class="el" href="a00065.html#ac5315ce0e8c0f0a201a05d1cb8a935b7">ADC_DEDICATED_CORE</a> core)</td></tr>
-<tr class="memdesc:a415ad59e4b8144f1c758db5556932abf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ADCx_CorePowerEnable e.g. <a class="el" href="a00520.html#gaf051bfe964d4b2babd517b5445d53883">ADC1_CorePowerEnable</a>.  <br /></td></tr>
-<tr class="separator:a415ad59e4b8144f1c758db5556932abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa90dfb603622ed6295c16e283d542f40" id="r_aa90dfb603622ed6295c16e283d542f40"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#aa90dfb603622ed6295c16e283d542f40">SharedCorePowerEnable</a> )(void)</td></tr>
-<tr class="memdesc:aa90dfb603622ed6295c16e283d542f40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ADCx_SharedCorePowerEnable e.g. <a class="el" href="a00520.html#ga497308e69536136ae422cf23a5eed40c">ADC1_SharedCorePowerEnable</a>.  <br /></td></tr>
-<tr class="separator:aa90dfb603622ed6295c16e283d542f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41eb48477f4c5e0e256f8a237535464a" id="r_a41eb48477f4c5e0e256f8a237535464a"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#a41eb48477f4c5e0e256f8a237535464a">PWMTriggerSourceSet</a> )(enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel, enum <a class="el" href="a00065.html#a878e3f5a2dd082b75b0c3aef6e4a525e">ADC_PWM_INSTANCE</a> pwmInstance, enum <a class="el" href="a00065.html#a149ac70fba51af61abec9c9625d35e10">ADC_PWM_TRIGGERS</a> triggerNumber)</td></tr>
-<tr class="memdesc:a41eb48477f4c5e0e256f8a237535464a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to ADCx_PWMTriggerSourceSet e.g. <a class="el" href="a00520.html#ga493d3401154992c6e3524339ac991eb0">ADC1_PWMTriggerSourceSet</a>.  <br /></td></tr>
-<tr class="separator:a41eb48477f4c5e0e256f8a237535464a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:a00188" id="r_a00188"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00188.html">clock.c</a></td></tr>
+<tr class="memdesc:a00188"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated source file for CLOCK driver. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gae20bf0a12edd902aa2ee56554d6d4790" id="r_gae20bf0a12edd902aa2ee56554d6d4790"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#gae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</a>()&#160;&#160;&#160;(200000000UL)</td></tr>
+<tr class="memdesc:gae20bf0a12edd902aa2ee56554d6d4790"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to read the System clock (FOSC) Frequency configured in the MCC Melody User Interface.  <br /></td></tr>
+<tr class="separator:gae20bf0a12edd902aa2ee56554d6d4790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga192799fb698929f78edb9653d4eea55c" id="r_ga192799fb698929f78edb9653d4eea55c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#ga192799fb698929f78edb9653d4eea55c">CLOCK_PeripheralFrequencyGet</a>()&#160;&#160;&#160;((uint32_t)<a class="el" href="a00545.html#gae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</a>() / (uint32_t)2)</td></tr>
+<tr class="memdesc:ga192799fb698929f78edb9653d4eea55c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to read the Peripheral Clock (FP) Frequency configured in the MCC Melody User Interface.  <br /></td></tr>
+<tr class="separator:ga192799fb698929f78edb9653d4eea55c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c2fd6abb192260205b77d167d8e78da" id="r_ga7c2fd6abb192260205b77d167d8e78da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#ga7c2fd6abb192260205b77d167d8e78da">CLOCK_InstructionFrequencyGet</a>()&#160;&#160;&#160;((uint32_t)<a class="el" href="a00545.html#gae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</a>() / (uint32_t)2)</td></tr>
+<tr class="memdesc:ga7c2fd6abb192260205b77d167d8e78da"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to read the Instruction Clock (FCY) Frequency configured in the MCC Melody User Interface.  <br /></td></tr>
+<tr class="separator:ga7c2fd6abb192260205b77d167d8e78da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga98390d19c7087c52765eab23eb8ded96" id="r_ga98390d19c7087c52765eab23eb8ded96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#ga98390d19c7087c52765eab23eb8ded96">CLOCK_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga98390d19c7087c52765eab23eb8ded96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes all the INTERNAL OSCILLATOR sources and clock switch configurations.  <br /></td></tr>
+<tr class="separator:ga98390d19c7087c52765eab23eb8ded96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0153c20a7c603596e5722a8b45571d4a" id="r_ga0153c20a7c603596e5722a8b45571d4a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#ga0153c20a7c603596e5722a8b45571d4a">CLOCK_AuxPllLockStatusGet</a> (void)</td></tr>
+<tr class="memdesc:ga0153c20a7c603596e5722a8b45571d4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns Auxiliary PLL status.  <br /></td></tr>
+<tr class="separator:ga0153c20a7c603596e5722a8b45571d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00121">121</a> of file <a class="el" href="a00062_source.html">adc_interface.h</a>.</p>
-</div><h2 class="groupheader">Field Documentation</h2>
-<a id="abc2510a2a435fd0c5c37a56cfa732e47" name="abc2510a2a435fd0c5c37a56cfa732e47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc2510a2a435fd0c5c37a56cfa732e47">&#9670;&#160;</a></span>ChannelCallbackRegister</h2>
+<dl class="section version"><dt>Version</dt><dd>Firmware Driver Version 1.0.2</dd>
+<dd>
+PLIB Version 1.4.1</dd></dl>
+<div class="fragment"></div><!-- fragment --><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga7c2fd6abb192260205b77d167d8e78da" name="ga7c2fd6abb192260205b77d167d8e78da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7c2fd6abb192260205b77d167d8e78da">&#9670;&#160;</a></span>CLOCK_InstructionFrequencyGet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* ChannelCallbackRegister) (void(*callback)(enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel, uint16_t adcVal))</td>
+          <td class="memname">#define CLOCK_InstructionFrequencyGet</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td>&#160;&#160;&#160;((uint32_t)<a class="el" href="a00545.html#gae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</a>() / (uint32_t)2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00123">123</a> of file <a class="el" href="a00062_source.html">adc_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00167_source.html#l00064">64</a> of file <a class="el" href="a00167_source.html">clock.h</a>.</p>
 
 </div>
 </div>
-<a id="ae3fe7b48113a92f320d89727df0c9b7c" name="ae3fe7b48113a92f320d89727df0c9b7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3fe7b48113a92f320d89727df0c9b7c">&#9670;&#160;</a></span>ChannelTasks</h2>
+<a id="ga192799fb698929f78edb9653d4eea55c" name="ga192799fb698929f78edb9653d4eea55c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga192799fb698929f78edb9653d4eea55c">&#9670;&#160;</a></span>CLOCK_PeripheralFrequencyGet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* ChannelTasks) (enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel)</td>
+          <td class="memname">#define CLOCK_PeripheralFrequencyGet</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td>&#160;&#160;&#160;((uint32_t)<a class="el" href="a00545.html#gae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</a>() / (uint32_t)2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00129">129</a> of file <a class="el" href="a00062_source.html">adc_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00167_source.html#l00057">57</a> of file <a class="el" href="a00167_source.html">clock.h</a>.</p>
 
 </div>
 </div>
-<a id="a292e0f89d364c1053064f1e282b5acf5" name="a292e0f89d364c1053064f1e282b5acf5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a292e0f89d364c1053064f1e282b5acf5">&#9670;&#160;</a></span>ComparatorCallbackRegister</h2>
+<a id="gae20bf0a12edd902aa2ee56554d6d4790" name="gae20bf0a12edd902aa2ee56554d6d4790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae20bf0a12edd902aa2ee56554d6d4790">&#9670;&#160;</a></span>CLOCK_SystemFrequencyGet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* ComparatorCallbackRegister) (void(*callback)(enum <a class="el" href="a00065.html#a748c94aa6be5d765a4ef59743a30475d">ADC_CMP</a> comparator))</td>
+          <td class="memname">#define CLOCK_SystemFrequencyGet</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td>&#160;&#160;&#160;(200000000UL)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00126">126</a> of file <a class="el" href="a00062_source.html">adc_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00167_source.html#l00050">50</a> of file <a class="el" href="a00167_source.html">clock.h</a>.</p>
 
 </div>
 </div>
-<a id="a97c7ef7d4e053ae1a9c75b85dec70f07" name="a97c7ef7d4e053ae1a9c75b85dec70f07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97c7ef7d4e053ae1a9c75b85dec70f07">&#9670;&#160;</a></span>ComparatorTasks</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga0153c20a7c603596e5722a8b45571d4a" name="ga0153c20a7c603596e5722a8b45571d4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0153c20a7c603596e5722a8b45571d4a">&#9670;&#160;</a></span>CLOCK_AuxPllLockStatusGet()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* ComparatorTasks) (enum <a class="el" href="a00065.html#a748c94aa6be5d765a4ef59743a30475d">ADC_CMP</a> comparator)</td>
+          <td class="memname">bool CLOCK_AuxPllLockStatusGet </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00545.html#ga98390d19c7087c52765eab23eb8ded96">CLOCK_Initialize()</a> should be called for the associated function to work. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true - Auxiliary PLL locked </dd>
+<dd>
+false - Auxiliary PLL not locked </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00132">132</a> of file <a class="el" href="a00062_source.html">adc_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00188_source.html#l00108">108</a> of file <a class="el" href="a00188_source.html">clock.c</a>.</p>
 
 </div>
 </div>
-<a id="a415ad59e4b8144f1c758db5556932abf" name="a415ad59e4b8144f1c758db5556932abf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a415ad59e4b8144f1c758db5556932abf">&#9670;&#160;</a></span>CorePowerEnable</h2>
+<a id="ga98390d19c7087c52765eab23eb8ded96" name="ga98390d19c7087c52765eab23eb8ded96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga98390d19c7087c52765eab23eb8ded96">&#9670;&#160;</a></span>CLOCK_Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* CorePowerEnable) (enum <a class="el" href="a00065.html#ac5315ce0e8c0f0a201a05d1cb8a935b7">ADC_DEDICATED_CORE</a> core)</td>
+          <td class="memname">void CLOCK_Initialize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00147">147</a> of file <a class="el" href="a00062_source.html">adc_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00188_source.html#l00043">43</a> of file <a class="el" href="a00188_source.html">clock.c</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00545_ga98390d19c7087c52765eab23eb8ded96_icgraph.svg" width="308" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a9687d57a6b8c72e55484c40887a26314" name="a9687d57a6b8c72e55484c40887a26314"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9687d57a6b8c72e55484c40887a26314">&#9670;&#160;</a></span>IndividualChannelInterruptDisable</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* IndividualChannelInterruptDisable) (enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00138">138</a> of file <a class="el" href="a00062_source.html">adc_interface.h</a>.</p>
-
-</div>
-</div>
-<a id="a3ae084298dffecf868a2180d4111f815" name="a3ae084298dffecf868a2180d4111f815"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ae084298dffecf868a2180d4111f815">&#9670;&#160;</a></span>IndividualChannelInterruptEnable</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* IndividualChannelInterruptEnable) (enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00135">135</a> of file <a class="el" href="a00062_source.html">adc_interface.h</a>.</p>
-
-</div>
-</div>
-<a id="a397992f7ede7840d43d2251a6d3c39fb" name="a397992f7ede7840d43d2251a6d3c39fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a397992f7ede7840d43d2251a6d3c39fb">&#9670;&#160;</a></span>IndividualChannelInterruptFlagClear</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* IndividualChannelInterruptFlagClear) (enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00141">141</a> of file <a class="el" href="a00062_source.html">adc_interface.h</a>.</p>
-
-</div>
-</div>
-<a id="adbbcbe450cc0f43690a599b11dbc8a0a" name="adbbcbe450cc0f43690a599b11dbc8a0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbbcbe450cc0f43690a599b11dbc8a0a">&#9670;&#160;</a></span>IndividualChannelInterruptPrioritySet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* IndividualChannelInterruptPrioritySet) (enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel, enum INTERRUPT_PRIORITY priorityValue)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00144">144</a> of file <a class="el" href="a00062_source.html">adc_interface.h</a>.</p>
-
-</div>
-</div>
-<a id="a41eb48477f4c5e0e256f8a237535464a" name="a41eb48477f4c5e0e256f8a237535464a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41eb48477f4c5e0e256f8a237535464a">&#9670;&#160;</a></span>PWMTriggerSourceSet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* PWMTriggerSourceSet) (enum <a class="el" href="a00065.html#aecdfe48b0bc36d2dd1f99274613a6c92">ADC_CHANNEL</a> channel, enum <a class="el" href="a00065.html#a878e3f5a2dd082b75b0c3aef6e4a525e">ADC_PWM_INSTANCE</a> pwmInstance, enum <a class="el" href="a00065.html#a149ac70fba51af61abec9c9625d35e10">ADC_PWM_TRIGGERS</a> triggerNumber)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00154">154</a> of file <a class="el" href="a00062_source.html">adc_interface.h</a>.</p>
-
-</div>
-</div>
-<a id="aa90dfb603622ed6295c16e283d542f40" name="aa90dfb603622ed6295c16e283d542f40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa90dfb603622ed6295c16e283d542f40">&#9670;&#160;</a></span>SharedCorePowerEnable</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* SharedCorePowerEnable) (void)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00150">150</a> of file <a class="el" href="a00062_source.html">adc_interface.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dspic33ck-dab.X/mcc_generated_files/adc/<a class="el" href="a00062_source.html">adc_interface.h</a></li>
-</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

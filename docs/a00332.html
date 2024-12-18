@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/driver/mcc_extension/drv_mcc_extension_adc.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_temp.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,116 +137,170 @@ $(document).ready(function(){initNavTree('a00332.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">drv_mcc_extension_adc.h File Reference<div class="ingroups"><a class="el" href="a00502.html">Driver Layer</a> &raquo; <a class="el" href="a00504.html">MCC Custom Code ADC</a></div></div></div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">dev_temp.h File Reference<div class="ingroups"><a class="el" href="a00509.html">Device Layer</a> &raquo; <a class="el" href="a00513.html">Temperature Detection</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains public functions and defines for the MCC code extension for ADC. <br  />
-  
+<p>Contains temperature initialization and execution functions.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00068_source.html">adc/adc1.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for drv_mcc_extension_adc.h:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for dev_temp.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00333.svg" width="336" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00333.svg" width="458" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00334.svg" width="374" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00334.svg" width="100%" height="476"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="a00332_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html">TEMP_SETTINGS_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A custom data type for temperature measurement.  <a href="a00657.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a5c9b55ac632674b69d9ebbc6ccd4c4f0" id="r_a5c9b55ac632674b69d9ebbc6ccd4c4f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#a5c9b55ac632674b69d9ebbc6ccd4c4f0">MAX_NUM_SAMPLES_TEMP_BUFFER</a>&#160;&#160;&#160;64</td></tr>
+<tr class="memdesc:a5c9b55ac632674b69d9ebbc6ccd4c4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">These have to be renamed to make the temp device driver abstract.  <br /></td></tr>
+<tr class="separator:a5c9b55ac632674b69d9ebbc6ccd4c4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9ec1b8463b839bf9d8e8dffb6dbc281" id="r_af9ec1b8463b839bf9d8e8dffb6dbc281"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#af9ec1b8463b839bf9d8e8dffb6dbc281">MAX_NUM_SAMPLES_TEMP_BUFFER_AS_EXP_OF_TWO</a>&#160;&#160;&#160;6</td></tr>
+<tr class="memdesc:af9ec1b8463b839bf9d8e8dffb6dbc281"><td class="mdescLeft">&#160;</td><td class="mdescRight">for bit shifting  <br /></td></tr>
+<tr class="separator:af9ec1b8463b839bf9d8e8dffb6dbc281"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a799f42245358585723c53fb29008fda3" id="r_a799f42245358585723c53fb29008fda3"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00504.html#ga7b9b42cf017f1b61599aee687cc2803a">ADC_FILTER_MODE_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#a799f42245358585723c53fb29008fda3">ADC_FILTER_MODE_t</a></td></tr>
-<tr class="separator:a799f42245358585723c53fb29008fda3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8993058275f94e962b30da4ae3b2e8a" id="r_ac8993058275f94e962b30da4ae3b2e8a"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00504.html#gade4789b79009bb5798d22406600442a8">ADC_FILTER_OVRSAM_AVG_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#ac8993058275f94e962b30da4ae3b2e8a">ADC_FILTER_OVRSAM_AVG_t</a></td></tr>
-<tr class="separator:ac8993058275f94e962b30da4ae3b2e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:ga7b9b42cf017f1b61599aee687cc2803a" id="r_ga7b9b42cf017f1b61599aee687cc2803a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#ga7b9b42cf017f1b61599aee687cc2803a">ADC_FILTER_MODE_e</a> { <a class="el" href="a00504.html#gga7b9b42cf017f1b61599aee687cc2803aa92b3f4d7ad60ba627e8913772ab28791">ADC_FILTER_MODE_OVERSAMPLING</a> = 0
-, <a class="el" href="a00504.html#gga7b9b42cf017f1b61599aee687cc2803aa7744c10b74df8d669851f30b101554ac">ADC_FILTER_MODE_AVERAGING</a> = 3
- }</td></tr>
-<tr class="memdesc:ga7b9b42cf017f1b61599aee687cc2803a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC Filter Modes of operation.  <a href="a00504.html#ga7b9b42cf017f1b61599aee687cc2803a">More...</a><br /></td></tr>
-<tr class="separator:ga7b9b42cf017f1b61599aee687cc2803a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gade4789b79009bb5798d22406600442a8" id="r_gade4789b79009bb5798d22406600442a8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#gade4789b79009bb5798d22406600442a8">ADC_FILTER_OVRSAM_AVG_e</a> { <a class="el" href="a00504.html#ggade4789b79009bb5798d22406600442a8ac592295deb7ffa249a21e64907cf2c13">ADC_FILTER_OVRSAM_AVG_2x</a> = 0
-, <a class="el" href="a00504.html#ggade4789b79009bb5798d22406600442a8a1a5c4a9f038101bad68a56ce52a7b99f">ADC_FILTER_OVRSAM_AVG_4x</a> = 1
-, <a class="el" href="a00504.html#ggade4789b79009bb5798d22406600442a8a01fffdf4afdc19bc3f00de0d152dcd63">ADC_FILTER_OVRSAM_AVG_8x</a> = 2
-, <a class="el" href="a00504.html#ggade4789b79009bb5798d22406600442a8a6943e4ed06207ea3d52435cd23c7612e">ADC_FILTER_OVRSAM_AVG_16x</a> = 3
-, <a class="el" href="a00504.html#ggade4789b79009bb5798d22406600442a8a6e9e2dd1ce8aa49c2fa9235dad126d50">ADC_FILTER_OVRSAM_AVG_32x</a> = 4
-, <a class="el" href="a00504.html#ggade4789b79009bb5798d22406600442a8a56481c3dd7f242f83dac9be77ac97d93">ADC_FILTER_OVRSAM_AVG_64x</a> = 5
-, <a class="el" href="a00504.html#ggade4789b79009bb5798d22406600442a8aded484f19a56bac94569c4768bf26b16">ADC_FILTER_OVRSAM_AVG_128x</a> = 6
-, <a class="el" href="a00504.html#ggade4789b79009bb5798d22406600442a8a70761444839d59d84be99373fb963124">ADC_FILTER_OVRSAM_AVG_256x</a> = 7
- }</td></tr>
-<tr class="memdesc:gade4789b79009bb5798d22406600442a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC Filter Oversampling Ratio when in averaging mode.  <a href="a00504.html#gade4789b79009bb5798d22406600442a8">More...</a><br /></td></tr>
-<tr class="separator:gade4789b79009bb5798d22406600442a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01967840b431008a1b1a2528d97b612d" id="r_a01967840b431008a1b1a2528d97b612d"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00657.html">TEMP_SETTINGS_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a></td></tr>
+<tr class="separator:a01967840b431008a1b1a2528d97b612d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga71c6250f386033c07dae0150d67b100f" id="r_ga71c6250f386033c07dae0150d67b100f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#ga71c6250f386033c07dae0150d67b100f">ADC_Filter_Enable</a> (uint16_t filterIndex, bool enable)</td></tr>
-<tr class="memdesc:ga71c6250f386033c07dae0150d67b100f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the ADC filter feature of the ADC.  <br /></td></tr>
-<tr class="separator:ga71c6250f386033c07dae0150d67b100f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6ef63752d3c218e541d437721a3559fa" id="r_ga6ef63752d3c218e541d437721a3559fa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#ga6ef63752d3c218e541d437721a3559fa">ADC_Filter_Mode</a> (uint16_t filterIndex, <a class="el" href="a00332.html#a799f42245358585723c53fb29008fda3">ADC_FILTER_MODE_t</a> mode)</td></tr>
-<tr class="memdesc:ga6ef63752d3c218e541d437721a3559fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ADC instance filter mode.  <br /></td></tr>
-<tr class="separator:ga6ef63752d3c218e541d437721a3559fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7475de7e65b22a255c8587d7535359b3" id="r_ga7475de7e65b22a255c8587d7535359b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#ga7475de7e65b22a255c8587d7535359b3">ADC_Filter_Averaging</a> (uint16_t filterIndex, <a class="el" href="a00332.html#ac8993058275f94e962b30da4ae3b2e8a">ADC_FILTER_OVRSAM_AVG_t</a> averagingRatio)</td></tr>
-<tr class="memdesc:ga7475de7e65b22a255c8587d7535359b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ADC instance number of samples to average.  <br /></td></tr>
-<tr class="separator:ga7475de7e65b22a255c8587d7535359b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0645000c951ca217ee18beb7233da254" id="r_ga0645000c951ca217ee18beb7233da254"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#ga0645000c951ca217ee18beb7233da254">ADC_Filter_Input</a> (uint16_t filterIndex, uint16_t channelIndex)</td></tr>
-<tr class="memdesc:ga0645000c951ca217ee18beb7233da254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ADC instance to be filtered.  <br /></td></tr>
-<tr class="separator:ga0645000c951ca217ee18beb7233da254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaee0723998267abf6433b4b008758506b" id="r_gaee0723998267abf6433b4b008758506b"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#gaee0723998267abf6433b4b008758506b">ADC_Filter_GetResult</a> (uint16_t filterIndex)</td></tr>
-<tr class="memdesc:gaee0723998267abf6433b4b008758506b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the ADC filter result.  <br /></td></tr>
-<tr class="separator:gaee0723998267abf6433b4b008758506b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga777c30f75162d97f4e112d1fc8d49f87" id="r_ga777c30f75162d97f4e112d1fc8d49f87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#ga777c30f75162d97f4e112d1fc8d49f87">Dev_Temp_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga777c30f75162d97f4e112d1fc8d49f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the temperature data structure.  <br /></td></tr>
+<tr class="separator:ga777c30f75162d97f4e112d1fc8d49f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga642e882a6d78b8915f39b54f7183f71f" id="r_ga642e882a6d78b8915f39b54f7183f71f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#ga642e882a6d78b8915f39b54f7183f71f">Dev_Temp_Task_100ms</a> (void)</td></tr>
+<tr class="memdesc:ga642e882a6d78b8915f39b54f7183f71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the Temperature reading every 100ms.  <br /></td></tr>
+<tr class="separator:ga642e882a6d78b8915f39b54f7183f71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9618e1ca87e77920c94cdfdcc80321a" id="r_gac9618e1ca87e77920c94cdfdcc80321a"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a> ()</td></tr>
+<tr class="memdesc:gac9618e1ca87e77920c94cdfdcc80321a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This converts the raw values to temperature celcius as per device lookup table.  <br /></td></tr>
+<tr class="separator:gac9618e1ca87e77920c94cdfdcc80321a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d219d0b5470ff7bae4c51c403c19065" id="r_ga2d219d0b5470ff7bae4c51c403c19065"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#ga2d219d0b5470ff7bae4c51c403c19065">Dev_Temp_AverageValue</a> (void)</td></tr>
+<tr class="memdesc:ga2d219d0b5470ff7bae4c51c403c19065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the average adc temperature reading.  <br /></td></tr>
+<tr class="separator:ga2d219d0b5470ff7bae4c51c403c19065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga595a5dbd8f35a5e37d5fa77cfcd756a5" id="r_ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#ga595a5dbd8f35a5e37d5fa77cfcd756a5">Dev_Temp_Is_Over_Temperature</a> ()</td></tr>
+<tr class="memdesc:ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the status of the Over Temperature flag.  <br /></td></tr>
+<tr class="separator:ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ce3446cb43022df6a5a96c90ec70a17" id="r_ga6ce3446cb43022df6a5a96c90ec70a17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#ga6ce3446cb43022df6a5a96c90ec70a17">Dev_Temp_Get_ADC_Sample</a> (void)</td></tr>
+<tr class="memdesc:ga6ce3446cb43022df6a5a96c90ec70a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the temperature ADC sample.  <br /></td></tr>
+<tr class="separator:ga6ce3446cb43022df6a5a96c90ec70a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a3a0ce5751f12de74b0f17cee832c51cb" id="r_a3a0ce5751f12de74b0f17cee832c51cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00332.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#a3a0ce5751f12de74b0f17cee832c51cb">devTempDataPtr</a></td></tr>
+<tr class="memdesc:a3a0ce5751f12de74b0f17cee832c51cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">dev temp data object pointer external  <br /></td></tr>
+<tr class="separator:a3a0ce5751f12de74b0f17cee832c51cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac4362e7ed233e3ac6e62b7f6f49a80d0" id="r_gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00332.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a></td></tr>
+<tr class="memdesc:gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of temperature settings.  <br /></td></tr>
+<tr class="separator:gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><br  />
- &lt;&gt; </p>
+<div class="textblock"><p>Contains temperature public functions and macros.</p>
+<p>temperature device driver</p>
+<p>&lt;&gt;</p>
+<dl class="section author"><dt>Author</dt><dd>M70027 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>04/03/2024 </dd></dl>
 
-<p class="definition">Definition in file <a class="el" href="a00332_source.html">drv_mcc_extension_adc.h</a>.</p>
-</div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="a799f42245358585723c53fb29008fda3" name="a799f42245358585723c53fb29008fda3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a799f42245358585723c53fb29008fda3">&#9670;&#160;</a></span>ADC_FILTER_MODE_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef enum <a class="el" href="a00504.html#ga7b9b42cf017f1b61599aee687cc2803a">ADC_FILTER_MODE_e</a> <a class="el" href="a00332.html#a799f42245358585723c53fb29008fda3">ADC_FILTER_MODE_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00026">26</a> of file <a class="el" href="a00332_source.html">drv_mcc_extension_adc.h</a>.</p>
-
-</div>
-</div>
-<a id="ac8993058275f94e962b30da4ae3b2e8a" name="ac8993058275f94e962b30da4ae3b2e8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8993058275f94e962b30da4ae3b2e8a">&#9670;&#160;</a></span>ADC_FILTER_OVRSAM_AVG_t</h2>
+<p class="definition">Definition in file <a class="el" href="a00332_source.html">dev_temp.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a5c9b55ac632674b69d9ebbc6ccd4c4f0" name="a5c9b55ac632674b69d9ebbc6ccd4c4f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c9b55ac632674b69d9ebbc6ccd4c4f0">&#9670;&#160;</a></span>MAX_NUM_SAMPLES_TEMP_BUFFER</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef enum <a class="el" href="a00504.html#gade4789b79009bb5798d22406600442a8">ADC_FILTER_OVRSAM_AVG_e</a> <a class="el" href="a00332.html#ac8993058275f94e962b30da4ae3b2e8a">ADC_FILTER_OVRSAM_AVG_t</a></td>
+          <td class="memname">#define MAX_NUM_SAMPLES_TEMP_BUFFER&#160;&#160;&#160;64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>@ </p>
+<p>defines the temperature threshold raw average calculated using 64 samples </p>
+
+<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00035">35</a> of file <a class="el" href="a00332_source.html">dev_temp.h</a>.</p>
+
+</div>
+</div>
+<a id="af9ec1b8463b839bf9d8e8dffb6dbc281" name="af9ec1b8463b839bf9d8e8dffb6dbc281"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9ec1b8463b839bf9d8e8dffb6dbc281">&#9670;&#160;</a></span>MAX_NUM_SAMPLES_TEMP_BUFFER_AS_EXP_OF_TWO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_NUM_SAMPLES_TEMP_BUFFER_AS_EXP_OF_TWO&#160;&#160;&#160;6</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00044">44</a> of file <a class="el" href="a00332_source.html">drv_mcc_extension_adc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00036">36</a> of file <a class="el" href="a00332_source.html">dev_temp.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a01967840b431008a1b1a2528d97b612d" name="a01967840b431008a1b1a2528d97b612d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01967840b431008a1b1a2528d97b612d">&#9670;&#160;</a></span>TEMP_SETTINGS_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00657.html">TEMP_SETTINGS_s</a> <a class="el" href="a00332.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00054">54</a> of file <a class="el" href="a00332_source.html">dev_temp.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a3a0ce5751f12de74b0f17cee832c51cb" name="a3a0ce5751f12de74b0f17cee832c51cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a0ce5751f12de74b0f17cee832c51cb">&#9670;&#160;</a></span>devTempDataPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00332.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a>* devTempDataPtr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>pointer to the Object 'dev_Temp_data_t', providing access to all control and monitoring values. To access it, add the header file to the project, and then the pointer can be used to access the dev_temp_data_type members. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00329_source.html#l00031">31</a> of file <a class="el" href="a00329_source.html">dev_temp.c</a>.</p>
 
 </div>
 </div>

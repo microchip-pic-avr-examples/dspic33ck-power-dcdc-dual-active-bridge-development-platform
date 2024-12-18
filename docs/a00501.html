@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Temperature Detection</title>
+<title>Dual Active Bridge Development Board: Communication Layer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,357 +137,29 @@ $(document).ready(function(){initNavTree('a00501.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">Temperature Detection<div class="ingroups"><a class="el" href="a00497.html">Device Layer</a></div></div></div>
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Communication Layer</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The Temperature device layer is the proprietary user code used to configure and detect the board temperature.  
+<p>The communication layer establish the data to be displayed and the communication connection between the device and the application board to display in the GUI.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Temperature Detection:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Communication Layer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00501.svg" width="307" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00501.svg" width="363" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00320" id="r_a00320"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00320.html">dev_temp.h</a></td></tr>
-<tr class="memdesc:a00320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains temperature initialization and execution functions. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00502" id="r_a00502"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00502.html">Power Board Visualizer</a></td></tr>
+<tr class="memdesc:a00502"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver for Power Board Visualizer. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga777c30f75162d97f4e112d1fc8d49f87" id="r_ga777c30f75162d97f4e112d1fc8d49f87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga777c30f75162d97f4e112d1fc8d49f87">Dev_Temp_Initialize</a> (void)</td></tr>
-<tr class="memdesc:ga777c30f75162d97f4e112d1fc8d49f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the temperature data structure.  <br /></td></tr>
-<tr class="separator:ga777c30f75162d97f4e112d1fc8d49f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga642e882a6d78b8915f39b54f7183f71f" id="r_ga642e882a6d78b8915f39b54f7183f71f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga642e882a6d78b8915f39b54f7183f71f">Dev_Temp_Task_100ms</a> (void)</td></tr>
-<tr class="memdesc:ga642e882a6d78b8915f39b54f7183f71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the Temperature reading every 100ms.  <br /></td></tr>
-<tr class="separator:ga642e882a6d78b8915f39b54f7183f71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2d219d0b5470ff7bae4c51c403c19065" id="r_ga2d219d0b5470ff7bae4c51c403c19065"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga2d219d0b5470ff7bae4c51c403c19065">Dev_Temp_AverageValue</a> (void)</td></tr>
-<tr class="memdesc:ga2d219d0b5470ff7bae4c51c403c19065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the average adc temperature reading.  <br /></td></tr>
-<tr class="separator:ga2d219d0b5470ff7bae4c51c403c19065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac9618e1ca87e77920c94cdfdcc80321a" id="r_gac9618e1ca87e77920c94cdfdcc80321a"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a> (void)</td></tr>
-<tr class="memdesc:gac9618e1ca87e77920c94cdfdcc80321a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This converts the raw values to temperature celcius as per device lookup table.  <br /></td></tr>
-<tr class="separator:gac9618e1ca87e77920c94cdfdcc80321a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga595a5dbd8f35a5e37d5fa77cfcd756a5" id="r_ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga595a5dbd8f35a5e37d5fa77cfcd756a5">Dev_Temp_Is_Over_Temperature</a> (void)</td></tr>
-<tr class="memdesc:ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the status of the Over Temperature flag.  <br /></td></tr>
-<tr class="separator:ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6ce3446cb43022df6a5a96c90ec70a17" id="r_ga6ce3446cb43022df6a5a96c90ec70a17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga6ce3446cb43022df6a5a96c90ec70a17">Dev_Temp_Get_ADC_Sample</a> (void)</td></tr>
-<tr class="memdesc:ga6ce3446cb43022df6a5a96c90ec70a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the temperature ADC sample.  <br /></td></tr>
-<tr class="separator:ga6ce3446cb43022df6a5a96c90ec70a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaed1c98bc3ba65035d1ac0bdda433d812" id="r_gaed1c98bc3ba65035d1ac0bdda433d812"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gaed1c98bc3ba65035d1ac0bdda433d812">Average_Temp_ADC_Samples</a> (void)</td></tr>
-<tr class="memdesc:gaed1c98bc3ba65035d1ac0bdda433d812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the temperature average value.  <br /></td></tr>
-<tr class="separator:gaed1c98bc3ba65035d1ac0bdda433d812"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga87aa48cb3d8848b8dc9bee6ce978b1b1" id="r_ga87aa48cb3d8848b8dc9bee6ce978b1b1"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#ga87aa48cb3d8848b8dc9bee6ce978b1b1">Temp_Calculate_Average</a> (uint16_t *buffer, uint16_t length)</td></tr>
-<tr class="memdesc:ga87aa48cb3d8848b8dc9bee6ce978b1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Averages the temperature ADC samples.  <br /></td></tr>
-<tr class="separator:ga87aa48cb3d8848b8dc9bee6ce978b1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:gac4362e7ed233e3ac6e62b7f6f49a80d0" id="r_gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00320.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a></td></tr>
-<tr class="memdesc:gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of temperature settings.  <br /></td></tr>
-<tr class="separator:gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="gaed1c98bc3ba65035d1ac0bdda433d812" name="gaed1c98bc3ba65035d1ac0bdda433d812"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaed1c98bc3ba65035d1ac0bdda433d812">&#9670;&#160;</a></span>Average_Temp_ADC_Samples()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint16_t Average_Temp_ADC_Samples </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function returns the average result of the temperature ADC samples. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00143">143</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_gaed1c98bc3ba65035d1ac0bdda433d812_cgraph.svg" width="424" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_gaed1c98bc3ba65035d1ac0bdda433d812_icgraph.svg" width="570" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga2d219d0b5470ff7bae4c51c403c19065" name="ga2d219d0b5470ff7bae4c51c403c19065"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2d219d0b5470ff7bae4c51c403c19065">&#9670;&#160;</a></span>Dev_Temp_AverageValue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t Dev_Temp_AverageValue </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function returns the average ADC temperature reading. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00073">73</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_ga2d219d0b5470ff7bae4c51c403c19065_icgraph.svg" width="479" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga6ce3446cb43022df6a5a96c90ec70a17" name="ga6ce3446cb43022df6a5a96c90ec70a17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6ce3446cb43022df6a5a96c90ec70a17">&#9670;&#160;</a></span>Dev_Temp_Get_ADC_Sample()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_Temp_Get_ADC_Sample </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function gets the temperature ADC sample and adds it to the temperature buffer for averaging use. </p>
-<p>&lt; store last 128 values and then average</p>
-<p>&lt; flag to monitor if full then do averaging.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00121">121</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_ga6ce3446cb43022df6a5a96c90ec70a17_cgraph.svg" width="447" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_ga6ce3446cb43022df6a5a96c90ec70a17_icgraph.svg" width="566" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gac9618e1ca87e77920c94cdfdcc80321a" name="gac9618e1ca87e77920c94cdfdcc80321a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac9618e1ca87e77920c94cdfdcc80321a">&#9670;&#160;</a></span>Dev_Temp_Get_Temperature_Celcius()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int8_t Dev_Temp_Get_Temperature_Celcius </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function takes in the current adc values and get the closest high temperature value in the lookup table. i.e. if the averaged value is 3195, it will return the temperature value corresponding to 3079 i.e. 65. This value is offset by 40 degrees to avoid working with negative. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00087">87</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_gac9618e1ca87e77920c94cdfdcc80321a_icgraph.svg" width="542" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga777c30f75162d97f4e112d1fc8d49f87" name="ga777c30f75162d97f4e112d1fc8d49f87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga777c30f75162d97f4e112d1fc8d49f87">&#9670;&#160;</a></span>Dev_Temp_Initialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_Temp_Initialize </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the temperature data structure. </p>
-<p>&lt; Over temperature flag</p>
-<p>&lt; if Sensor is present <br  />
-</p>
-<p>&lt; temperature raw</p>
-<p>&lt; temperature raw</p>
-<p>&lt; temperature celcius.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00045">45</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
-
-</div>
-</div>
-<a id="ga595a5dbd8f35a5e37d5fa77cfcd756a5" name="ga595a5dbd8f35a5e37d5fa77cfcd756a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga595a5dbd8f35a5e37d5fa77cfcd756a5">&#9670;&#160;</a></span>Dev_Temp_Is_Over_Temperature()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t Dev_Temp_Is_Over_Temperature </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>true Over temperature is detected </dd>
-<dd>
-false Over temperature is not detected</dd></dl>
-<p>This function returns the status of the Over Temperature flag. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00109">109</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
-
-</div>
-</div>
-<a id="ga642e882a6d78b8915f39b54f7183f71f" name="ga642e882a6d78b8915f39b54f7183f71f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga642e882a6d78b8915f39b54f7183f71f">&#9670;&#160;</a></span>Dev_Temp_Task_100ms()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_Temp_Task_100ms </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function executes temperature reading every 100ms </p>
-
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00060">60</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_ga642e882a6d78b8915f39b54f7183f71f_cgraph.svg" width="662" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00501_ga642e882a6d78b8915f39b54f7183f71f_icgraph.svg" width="324" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga87aa48cb3d8848b8dc9bee6ce978b1b1" name="ga87aa48cb3d8848b8dc9bee6ce978b1b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga87aa48cb3d8848b8dc9bee6ce978b1b1">&#9670;&#160;</a></span>Temp_Calculate_Average()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint16_t Temp_Calculate_Average </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t *&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>length</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function averages the temperature ADC samples. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00157">157</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00501_ga87aa48cb3d8848b8dc9bee6ce978b1b1_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="gac4362e7ed233e3ac6e62b7f6f49a80d0" name="gac4362e7ed233e3ac6e62b7f6f49a80d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac4362e7ed233e3ac6e62b7f6f49a80d0">&#9670;&#160;</a></span>devTempData</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00320.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a> devTempData</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The 'devTempData' data object holds the settings for temperature sensor. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00317_source.html#l00030">30</a> of file <a class="el" href="a00317_source.html">dev_temp.c</a>.</p>
-
-</div>
-</div>
+<p>The communication layer facilitates the display of data and the connection between a device and an application board to show metrics like voltage, current, and energy consumption in the GUI. It employs tools or software to graphically represent power distribution and consumption, offering real-time monitoring, data logging, and analytics to help users manage the power supply effectively. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

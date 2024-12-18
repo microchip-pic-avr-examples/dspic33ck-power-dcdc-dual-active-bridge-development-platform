@@ -1,8 +1,6 @@
 var a00497 =
 [
-    [ "Current Sensor Calibration", "a00498.html", "a00498" ],
-    [ "Fan Control", "a00499.html", "a00499" ],
-    [ "LED Display", "a00500.html", "a00500" ],
-    [ "Temperature Detection", "a00501.html", "a00501" ],
-    [ "device.h", "a00290.html", null ]
+    [ "H_TEMPERATURE_THRESHOLD", "a00497.html#ga3aa6d37a535571959d177257ff529478", null ],
+    [ "L_TEMPERATURE_THRESHOLD", "a00497.html#ga138123533833c44398978f96b0f31764", null ],
+    [ "TEMPERATURE_FACTOR", "a00497.html#ga14e5a0b582b1666590c4d1854ab1fe6f", null ]
 ];

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/crc/crc_types.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/cmp/src/cmp2.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,112 +137,146 @@ $(document).ready(function(){initNavTree('a00122.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#enum-members">Enumerations</a>  </div>
-  <div class="headertitle"><div class="title">crc_types.h File Reference<div class="ingroups"><a class="el" href="a00518.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00524.html">CRC Driver</a></div></div></div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">cmp2.c File Reference<div class="ingroups"><a class="el" href="a00530.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00535.html">CMP DAC Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the generated driver types header file for the CRC driver.  
+<p>This is the generated driver source file for CMP2 driver.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00110_source.html">../cmp2.h</a>&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for cmp2.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00124.svg" width="532" height="374"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00123.svg" width="210" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00122_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:afad3a469b6bfe852c22c32716d3e63c0" id="r_afad3a469b6bfe852c22c32716d3e63c0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#afad3a469b6bfe852c22c32716d3e63c0">CRC_STATE</a> { <a class="el" href="a00122.html#afad3a469b6bfe852c22c32716d3e63c0ad568f149026207abd066a599aee87e29">CRC_STATE_CALCULATE</a>
-, <a class="el" href="a00122.html#afad3a469b6bfe852c22c32716d3e63c0acf6d4525aaf4ae40676899296a140690">CRC_STATE_FLUSH</a>
-, <a class="el" href="a00122.html#afad3a469b6bfe852c22c32716d3e63c0a0467900b024227ef57080935380e83f0">CRC_STATE_CLEANUP</a>
-, <a class="el" href="a00122.html#afad3a469b6bfe852c22c32716d3e63c0a6ad46080430f7634bd2b91ba963079ef">CRC_STATE_DONE</a>
- }</td></tr>
-<tr class="separator:afad3a469b6bfe852c22c32716d3e63c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada1c18391bf657479988adbfcc035607" id="r_ada1c18391bf657479988adbfcc035607"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#ada1c18391bf657479988adbfcc035607">CRC_SEED_METHOD</a> { <a class="el" href="a00122.html#ada1c18391bf657479988adbfcc035607a0a5b65f4b2cc5c9e59cb649d91125914">CRC_SEED_METHOD_DIRECT</a>
-, <a class="el" href="a00122.html#ada1c18391bf657479988adbfcc035607ae20a0834c1ca85fc89c3463e0ac01f67">CRC_SEED_METHOD_INDIRECT</a>
- }</td></tr>
-<tr class="separator:ada1c18391bf657479988adbfcc035607"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb206e74952718e1db3a800b67f77cb6" id="r_abb206e74952718e1db3a800b67f77cb6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#abb206e74952718e1db3a800b67f77cb6">CRC_SEED_DIRECTION</a> { <a class="el" href="a00122.html#abb206e74952718e1db3a800b67f77cb6a73095831ea215fa6edf41509bfca741f">CRC_SEED_DIRECTION_Msb</a>
-, <a class="el" href="a00122.html#abb206e74952718e1db3a800b67f77cb6a18837c288faf4a32313db1e405db276e">CRC_SEED_DIRECTION_Lsb</a>
- }</td></tr>
-<tr class="separator:abb206e74952718e1db3a800b67f77cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga6e9b9e6aa4b7a2aad99d146769cd740a" id="r_ga6e9b9e6aa4b7a2aad99d146769cd740a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga6e9b9e6aa4b7a2aad99d146769cd740a">CMP2_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga6e9b9e6aa4b7a2aad99d146769cd740a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the CMP2 module.  <br /></td></tr>
+<tr class="separator:ga6e9b9e6aa4b7a2aad99d146769cd740a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab3f358a27f58851e857c37e0a22131c" id="r_gaab3f358a27f58851e857c37e0a22131c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gaab3f358a27f58851e857c37e0a22131c">CMP2_Deinitialize</a> (void)</td></tr>
+<tr class="memdesc:gaab3f358a27f58851e857c37e0a22131c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the CMP2 to POR values.  <br /></td></tr>
+<tr class="separator:gaab3f358a27f58851e857c37e0a22131c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga290ef5f48955da67b7779cf2f7fd6d59" id="r_ga290ef5f48955da67b7779cf2f7fd6d59"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga290ef5f48955da67b7779cf2f7fd6d59">CMP2_StatusGet</a> (void)</td></tr>
+<tr class="memdesc:ga290ef5f48955da67b7779cf2f7fd6d59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the comparator output status.  <br /></td></tr>
+<tr class="separator:ga290ef5f48955da67b7779cf2f7fd6d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae550f4f54854dbd48f70218625390014" id="r_gae550f4f54854dbd48f70218625390014"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gae550f4f54854dbd48f70218625390014">CMP2_Enable</a> (void)</td></tr>
+<tr class="memdesc:gae550f4f54854dbd48f70218625390014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the common DAC module.  <br /></td></tr>
+<tr class="separator:gae550f4f54854dbd48f70218625390014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga504788073095217580b623451bdfc884" id="r_ga504788073095217580b623451bdfc884"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga504788073095217580b623451bdfc884">CMP2_Disable</a> (void)</td></tr>
+<tr class="memdesc:ga504788073095217580b623451bdfc884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the common DAC module.  <br /></td></tr>
+<tr class="separator:ga504788073095217580b623451bdfc884"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad15eb73354bf9c80e1f28d8fb64e60a" id="r_gaad15eb73354bf9c80e1f28d8fb64e60a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gaad15eb73354bf9c80e1f28d8fb64e60a">CMP2_DACEnable</a> (void)</td></tr>
+<tr class="memdesc:gaad15eb73354bf9c80e1f28d8fb64e60a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the individual DAC module.  <br /></td></tr>
+<tr class="separator:gaad15eb73354bf9c80e1f28d8fb64e60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace67b0b1d9b31342b493b4f70fe3c9a3" id="r_gace67b0b1d9b31342b493b4f70fe3c9a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gace67b0b1d9b31342b493b4f70fe3c9a3">CMP2_DACDisable</a> (void)</td></tr>
+<tr class="memdesc:gace67b0b1d9b31342b493b4f70fe3c9a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the individual DAC module.  <br /></td></tr>
+<tr class="separator:gace67b0b1d9b31342b493b4f70fe3c9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae0ce419d4615d091cb65cb32c168cc77" id="r_gae0ce419d4615d091cb65cb32c168cc77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gae0ce419d4615d091cb65cb32c168cc77">CMP2_DACDataWrite</a> (size_t value)</td></tr>
+<tr class="memdesc:gae0ce419d4615d091cb65cb32c168cc77"><td class="mdescLeft">&#160;</td><td class="mdescRight">CMP DAC Data write to register.  <br /></td></tr>
+<tr class="separator:gae0ce419d4615d091cb65cb32c168cc77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79d8604da53055f19be4378042ab07d5" id="r_ga79d8604da53055f19be4378042ab07d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga79d8604da53055f19be4378042ab07d5">CMP2_EventCallbackRegister</a> (void(*handler)(void))</td></tr>
+<tr class="memdesc:ga79d8604da53055f19be4378042ab07d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for CMP2 Event event.  <br /></td></tr>
+<tr class="separator:ga79d8604da53055f19be4378042ab07d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a201468129b483039afc5a619e2d31097" id="r_a201468129b483039afc5a619e2d31097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a201468129b483039afc5a619e2d31097">__attribute__</a> ((weak))</td></tr>
+<tr class="separator:a201468129b483039afc5a619e2d31097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae19d3ce0b97f555a2ed3ae95160572bc" id="r_gae19d3ce0b97f555a2ed3ae95160572bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gae19d3ce0b97f555a2ed3ae95160572bc">CMP2_Tasks</a> (void)</td></tr>
+<tr class="memdesc:gae19d3ce0b97f555a2ed3ae95160572bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Task function can be called in the main application using the High Speed Comparator, when interrupts are not used. This would thus introduce the polling mode feature of the Analog Comparator.  <br /></td></tr>
+<tr class="separator:gae19d3ce0b97f555a2ed3ae95160572bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a38086bdba9a8aea98e3964d3fdd0f36e" id="r_a38086bdba9a8aea98e3964d3fdd0f36e"><td class="memItemLeft" align="right" valign="top">static void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#a38086bdba9a8aea98e3964d3fdd0f36e">CMP2_EventHandler</a> )(void) = NULL</td></tr>
+<tr class="separator:a38086bdba9a8aea98e3964d3fdd0f36e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab69c3951ddaead5768167c370cb82bdc" id="r_ab69c3951ddaead5768167c370cb82bdc"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00581.html">DAC_DC_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html#ab69c3951ddaead5768167c370cb82bdc">dac2_dc_interface</a></td></tr>
+<tr class="separator:ab69c3951ddaead5768167c370cb82bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae04b230bf90fbadf34b46e74b37ae741" id="r_gae04b230bf90fbadf34b46e74b37ae741"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00585.html">CMP_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gae04b230bf90fbadf34b46e74b37ae741">DAC_DEBUG</a></td></tr>
+<tr class="memdesc:gae04b230bf90fbadf34b46e74b37ae741"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00585.html" title="Structure containing the function pointers of CMP driver.">CMP_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. CMP_DAC1 can be changed by the user in the CMP user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
+<tr class="separator:gae04b230bf90fbadf34b46e74b37ae741"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>CRC Generated Driver Types Header File</p>
+<div class="textblock"><p>CMP2 Generated Driver Source File</p>
 <div class="fragment"></div><!-- fragment -->
-<p class="definition">Definition in file <a class="el" href="a00122_source.html">crc_types.h</a>.</p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="abb206e74952718e1db3a800b67f77cb6" name="abb206e74952718e1db3a800b67f77cb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb206e74952718e1db3a800b67f77cb6">&#9670;&#160;</a></span>CRC_SEED_DIRECTION</h2>
+<p class="definition">Definition in file <a class="el" href="a00122_source.html">cmp2.c</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a201468129b483039afc5a619e2d31097" name="a201468129b483039afc5a619e2d31097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a201468129b483039afc5a619e2d31097">&#9670;&#160;</a></span>__attribute__()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00122.html#abb206e74952718e1db3a800b67f77cb6">CRC_SEED_DIRECTION</a></td>
+          <td class="memname">void __attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(weak)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abb206e74952718e1db3a800b67f77cb6a73095831ea215fa6edf41509bfca741f" name="abb206e74952718e1db3a800b67f77cb6a73095831ea215fa6edf41509bfca741f"></a>CRC_SEED_DIRECTION_Msb&#160;</td><td class="fielddoc"><p>CRC seed in Big Endian </p>
-</td></tr>
-<tr><td class="fieldname"><a id="abb206e74952718e1db3a800b67f77cb6a18837c288faf4a32313db1e405db276e" name="abb206e74952718e1db3a800b67f77cb6a18837c288faf4a32313db1e405db276e"></a>CRC_SEED_DIRECTION_Lsb&#160;</td><td class="fielddoc"><p>CRC seed in Little Endian </p>
-</td></tr>
+
+<p class="definition">Definition at line <a class="el" href="a00122_source.html#l00149">149</a> of file <a class="el" href="a00122_source.html">cmp2.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a38086bdba9a8aea98e3964d3fdd0f36e" name="a38086bdba9a8aea98e3964d3fdd0f36e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38086bdba9a8aea98e3964d3fdd0f36e">&#9670;&#160;</a></span>CMP2_EventHandler</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* CMP2_EventHandler) (void) </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
 </table>
+</div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00122_source.html#l00076">76</a> of file <a class="el" href="a00122_source.html">crc_types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00122_source.html#l00046">46</a> of file <a class="el" href="a00122_source.html">cmp2.c</a>.</p>
 
 </div>
 </div>
-<a id="ada1c18391bf657479988adbfcc035607" name="ada1c18391bf657479988adbfcc035607"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada1c18391bf657479988adbfcc035607">&#9670;&#160;</a></span>CRC_SEED_METHOD</h2>
+<a id="ab69c3951ddaead5768167c370cb82bdc" name="ab69c3951ddaead5768167c370cb82bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab69c3951ddaead5768167c370cb82bdc">&#9670;&#160;</a></span>dac2_dc_interface</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00122.html#ada1c18391bf657479988adbfcc035607">CRC_SEED_METHOD</a></td>
+          <td class="memname">const struct <a class="el" href="a00581.html">DAC_DC_INTERFACE</a> dac2_dc_interface</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ada1c18391bf657479988adbfcc035607a0a5b65f4b2cc5c9e59cb649d91125914" name="ada1c18391bf657479988adbfcc035607a0a5b65f4b2cc5c9e59cb649d91125914"></a>CRC_SEED_METHOD_DIRECT&#160;</td><td class="fielddoc"><p>CRC seed in direct method </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ada1c18391bf657479988adbfcc035607ae20a0834c1ca85fc89c3463e0ac01f67" name="ada1c18391bf657479988adbfcc035607ae20a0834c1ca85fc89c3463e0ac01f67"></a>CRC_SEED_METHOD_INDIRECT&#160;</td><td class="fielddoc"><p>CRC seed in indirect method </p>
-</td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00122_source.html#l00065">65</a> of file <a class="el" href="a00122_source.html">crc_types.h</a>.</p>
-
-</div>
-</div>
-<a id="afad3a469b6bfe852c22c32716d3e63c0" name="afad3a469b6bfe852c22c32716d3e63c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afad3a469b6bfe852c22c32716d3e63c0">&#9670;&#160;</a></span>CRC_STATE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00122.html#afad3a469b6bfe852c22c32716d3e63c0">CRC_STATE</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afad3a469b6bfe852c22c32716d3e63c0ad568f149026207abd066a599aee87e29" name="afad3a469b6bfe852c22c32716d3e63c0ad568f149026207abd066a599aee87e29"></a>CRC_STATE_CALCULATE&#160;</td><td class="fielddoc"><p>CRC calculation start </p>
-</td></tr>
-<tr><td class="fieldname"><a id="afad3a469b6bfe852c22c32716d3e63c0acf6d4525aaf4ae40676899296a140690" name="afad3a469b6bfe852c22c32716d3e63c0acf6d4525aaf4ae40676899296a140690"></a>CRC_STATE_FLUSH&#160;</td><td class="fielddoc"><p>CRC calculation data flush </p>
-</td></tr>
-<tr><td class="fieldname"><a id="afad3a469b6bfe852c22c32716d3e63c0a0467900b024227ef57080935380e83f0" name="afad3a469b6bfe852c22c32716d3e63c0a0467900b024227ef57080935380e83f0"></a>CRC_STATE_CLEANUP&#160;</td><td class="fielddoc"><p>CRC calculation reset </p>
-</td></tr>
-<tr><td class="fieldname"><a id="afad3a469b6bfe852c22c32716d3e63c0a6ad46080430f7634bd2b91ba963079ef" name="afad3a469b6bfe852c22c32716d3e63c0a6ad46080430f7634bd2b91ba963079ef"></a>CRC_STATE_DONE&#160;</td><td class="fielddoc"><p>CRC calculation complete </p>
-</td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00122_source.html#l00048">48</a> of file <a class="el" href="a00122_source.html">crc_types.h</a>.</p>
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    .Enable = &amp;<a class="code hl_function" href="a00535.html#gaad15eb73354bf9c80e1f28d8fb64e60a">CMP2_DACEnable</a>,</div>
+<div class="line">    .Disable = &amp;<a class="code hl_function" href="a00535.html#gace67b0b1d9b31342b493b4f70fe3c9a3">CMP2_DACDisable</a>,</div>
+<div class="line">    .DataWrite = &amp;<a class="code hl_function" href="a00535.html#gae0ce419d4615d091cb65cb32c168cc77">CMP2_DACDataWrite</a>,</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00535_html_gaad15eb73354bf9c80e1f28d8fb64e60a"><div class="ttname"><a href="a00535.html#gaad15eb73354bf9c80e1f28d8fb64e60a">CMP2_DACEnable</a></div><div class="ttdeci">void CMP2_DACEnable(void)</div><div class="ttdoc">Enables the individual DAC module.</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00126">cmp2.c:126</a></div></div>
+<div class="ttc" id="aa00535_html_gace67b0b1d9b31342b493b4f70fe3c9a3"><div class="ttname"><a href="a00535.html#gace67b0b1d9b31342b493b4f70fe3c9a3">CMP2_DACDisable</a></div><div class="ttdeci">void CMP2_DACDisable(void)</div><div class="ttdoc">Disables the individual DAC module.</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00131">cmp2.c:131</a></div></div>
+<div class="ttc" id="aa00535_html_gae0ce419d4615d091cb65cb32c168cc77"><div class="ttname"><a href="a00535.html#gae0ce419d4615d091cb65cb32c168cc77">CMP2_DACDataWrite</a></div><div class="ttdeci">void CMP2_DACDataWrite(size_t value)</div><div class="ttdoc">CMP DAC Data write to register.</div><div class="ttdef"><b>Definition</b> <a href="a00122_source.html#l00136">cmp2.c:136</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00122_source.html#l00049">49</a> of file <a class="el" href="a00122_source.html">cmp2.c</a>.</p>
 
 </div>
 </div>

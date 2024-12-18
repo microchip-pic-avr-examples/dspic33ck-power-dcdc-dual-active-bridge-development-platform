@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_common.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/dcdt/XFT_smps_2p2z_dspic.s File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,69 +136,107 @@ $(document).ready(function(){initNavTree('a00440.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">pwrctrl_common.h File Reference<div class="ingroups"><a class="el" href="a00505.html">Power Control</a> &raquo; <a class="el" href="a00512.html">Useful Functions</a></div></div></div>
+  <div class="headertitle"><div class="title">XFT_smps_2p2z_dspic.s File Reference<div class="ingroups"><a class="el" href="a00517.html">Power Control</a> &raquo; <a class="el" href="a00522.html">Control Loop Configuration</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains the power control reusable functions. <br  />
-  
+<p>Contains the dcdt generated assembly code for 2p2z control type with modified code for Adaptive Gain control.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00442.svg" width="100%" height="488"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</div>
+
 <p><a href="a00440_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00697.html">AVERAGING_s</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:aeb85fd21821814ad43f0744c4bf7434e" id="r_aeb85fd21821814ad43f0744c4bf7434e"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00697.html">AVERAGING_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00440.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a></td></tr>
-<tr class="separator:aeb85fd21821814ad43f0744c4bf7434e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gad68ead20ade98451df7ea1e4e923cbaa" id="r_gad68ead20ade98451df7ea1e4e923cbaa"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gad68ead20ade98451df7ea1e4e923cbaa">PwrCtrl_UpdateAverage</a> (<a class="el" href="a00440.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a> *data, uint16_t adcReading)</td></tr>
-<tr class="memdesc:gad68ead20ade98451df7ea1e4e923cbaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average the raw data over number of samples.  <br /></td></tr>
-<tr class="separator:gad68ead20ade98451df7ea1e4e923cbaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga59bb2fab32dc783d76f800283b4c7e2b" id="r_ga59bb2fab32dc783d76f800283b4c7e2b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga59bb2fab32dc783d76f800283b4c7e2b">PwrCtrl_RampReference</a> (<a class="el" href="a00721.html">START_UP_RAMP_t</a> *rampUp)</td></tr>
-<tr class="memdesc:ga59bb2fab32dc783d76f800283b4c7e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Softly increment / decrement to the set reference target.  <br /></td></tr>
-<tr class="separator:ga59bb2fab32dc783d76f800283b4c7e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><br  />
- </p>
+<div class="textblock"><p>Operation:</p>
+<div class="fragment"><div class="line">                                          Wcp0   ( S + Wcz1 )               </div>
+<div class="line">  Calculate the transfer function Hc(s) = ---- X ------------------------   </div>
+<div class="line">                                           S     ( S + Wcp1 )( S + Wcp2 )   </div>
+<div class="line">                                           </div>
+<div class="line">    Error Normalization</div>
+<div class="line">      ------------</div>
+<div class="line">     |   prsft    |</div>
+<div class="line">      ------------</div>
+<div class="line">Reference   |       e(n)          e(n-1)        e(n-2)</div>
+<div class="line">Input       |             --------      --------</div>
+<div class="line">        -   -   -        |        |    |        |</div>
+<div class="line">  o----|-|-|x|-|x|----o-&gt;| z^(-1) |-o-&gt;| z^(-1) |-o          Post</div>
+<div class="line">        -   -   -     |  |        | |  |        | |         Scaling</div>
+<div class="line">        |      NORM   |   --------  |   --------  |</div>
+<div class="line">        |             |             |             |          --------</div>
+<div class="line">Measured|            ---           ---           ---       |          |     - - - - - - - - - -</div>
+<div class="line">Input   |       B0=&gt;| X |     B1=&gt;| X |     B2=&gt;| X |      |posft     |    |                   |</div>
+<div class="line">        |            ---           ---           ---       |postScalar|    |     P O W E R     |</div>
+<div class="line">        |             |             |             |         ----------     |     P L A N T     |</div>
+<div class="line">        |            -------------------------------------        |        |                   |</div>
+<div class="line">        |           |                                     | U[n] ---       |                   |</div>
+<div class="line">        |           |        A C C U M U L A T O R        |--o--| X |------O Duty Ratio=&gt;PWM  |</div>
+<div class="line">        |           |                                     |  |   ---       |                   |</div>
+<div class="line">        |            -------------------------------------   |             | Voltage/Current   |</div>
+<div class="line">        |             |              |                       |             |      Feedback     |</div>
+<div class="line">        |            ---            ---                      |             |         O         |</div>
+<div class="line">        |       A2=&gt;| X |      A1=&gt;| X |                     |             |         |         |</div>
+<div class="line">        |            ---            ---                      |              - - - - - - - - - -</div>
+<div class="line">        |             |              |                       |                      |</div>
+<div class="line">        |             |   --------   |  --------             |                      | A/D</div>
+<div class="line">        |             |  |        |  | |        |            |                      | Input</div>
+<div class="line">        |             o--| z^(-1) |&lt;-o-| z^(-1) |&lt;-----------                       |</div>
+<div class="line">        |                |        |    |        |                                   |</div>
+<div class="line">        |                 --------      --------                                    |</div>
+<div class="line">        |                  u[n-2]        u[n-1]                                     |</div>
+<div class="line">        |                                                                           |</div>
+<div class="line">        |                                                                           |</div>
+<div class="line">         ---------------------------------------------------------------------------</div>
+<div class="line"> </div>
+<div class="line">   controlHistory[n] = errorHistory[n]   * bCoefficients[0]</div>
+<div class="line">                     + errorHistory[n-1] * bCoefficients[1]</div>
+<div class="line">                     + errorHistory[n-2] * bCoefficients[2]</div>
+<div class="line">                     + controlHistory[n-1] * aCoefficients[0]</div>
+<div class="line">                     + controlHistory[n-2] * aCoefficients[1]</div>
+<div class="line"> </div>
+<div class="line">  where:</div>
+<div class="line"> </div>
+<div class="line">   aCoefficients[0]  = A1</div>
+<div class="line">   aCoefficients[1]  = A2</div>
+<div class="line">   bCoefficients[0]  = B0</div>
+<div class="line">   bCoefficients[1]  = B1</div>
+<div class="line">   bCoefficients[2]  = B2</div>
+<div class="line">   controlHistory[0] = u(n)</div>
+<div class="line">   controlHistory[1] = u(n-1)</div>
+<div class="line">   errorHistory[0]   = e(n) =&gt; most recent error {(controlReference) - (sourceRegister)}</div>
+<div class="line">   errorHistory[1]   = e(n-1)</div>
+<div class="line">   errorHistory[2]   = e(n-2)</div>
+<div class="line">   preShift          = prsft    =&gt; pre scaling factor for Q15 normalization purposes</div>
+<div class="line">   postShift         = posft    =&gt; post scaling factor for normalization purposes</div>
+<div class="line">   postScaler        = postScaler =&gt; post scaling coefficient for normalization purpose</div>
+<div class="line"> </div>
+<div class="line">   Function call inputs:</div>
+<div class="line">   sourceRegister    = ADBUFx  =&gt; measured feedback input   </div>
+<div class="line">   controlReference  = V_ref    =&gt; reference voltage</div>
+<div class="line">   targetRegister = PDCx =&gt; output duty cycle</div>
+<div class="line"> </div>
+<div class="line">  where:</div>
+<div class="line"> </div>
+<div class="line">   aCoefficients, bCoefficients, controlHistory, errorHistory, </div>
+<div class="line">   preShift and postShift are all members of the data structure SMPS_2P2Z_T.</div>
+<div class="line"> </div>
+<div class="line"> Input:</div>
+<div class="line">       w0 = Address of SMPS_2P2Z_T data structure</div>
+<div class="line">       w1 = Address of the Source Register (Input)</div>
+<div class="line">       w2 = Control Reference</div>
+<div class="line">       w3 = Address of the Target Register (Output)</div>
+<div class="line"> Return:</div>
+<div class="line">       w0 = Address of SMPS_2P2Z_T data structure</div>
+<div class="line">       w1 = Address of the Source Register (Input)</div>
+<div class="line">       w2 = Control Reference</div>
+<div class="line">       w3 = Address of the Target Register (Output)</div>
+<div class="line"> </div>
+<div class="line"> System resources usage:</div>
+<div class="line">       {w4..w5}        saved, used, restored</div>
+<div class="line">       {w8,w10}        saved, used, restored</div>
+<div class="line">        AccA           used, not restored</div>
+<div class="line">        CORCON         saved, used, restored</div>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The function in this assembly file requires CORCON register to be setup in a certain state in order to operate correctly. Due to this requirement, this function will save the CORCON register on the stack in the beginning of the function and restore it before the function return. After saving the CORCON register, this function writes to all bits of the CORCON register. Thus, for the brief duration when this function is executing, the state of CORCON register may be different from its state as set by the function caller. This may change the CPU core behaviour with respect to exception processing latency, DO loop termination, CPU interrupt priority level and DSP-engine behaviour.   </dd></dl>
 
-<p class="definition">Definition in file <a class="el" href="a00440_source.html">pwrctrl_common.h</a>.</p>
-</div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="aeb85fd21821814ad43f0744c4bf7434e" name="aeb85fd21821814ad43f0744c4bf7434e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb85fd21821814ad43f0744c4bf7434e">&#9670;&#160;</a></span>AVERAGING_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct <a class="el" href="a00697.html">AVERAGING_s</a> <a class="el" href="a00440.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00440_source.html#l00024">24</a> of file <a class="el" href="a00440_source.html">pwrctrl_common.h</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00440_source.html">XFT_smps_2p2z_dspic.s</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

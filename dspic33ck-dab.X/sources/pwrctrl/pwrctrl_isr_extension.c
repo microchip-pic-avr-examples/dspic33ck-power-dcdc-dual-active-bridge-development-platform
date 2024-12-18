@@ -464,7 +464,7 @@ void  PwrCtrl_PeriodModulator(void)
             }
             else
             {    
-                if(dab.Pwm.ControlPeriod < MIN_PWM_PERIOD)
+                if(dab.Pwm.ControlPeriod < MAX_PWM_PERIOD)
                 {  
                     dab.Pwm.ControlPeriod += PERIODSTEP;
                 }

@@ -1,19 +1,14 @@
 var a00498 =
 [
-    [ "dev_current_sensor.c", "a00293.html", null ],
-    [ "dev_current_sensor.h", "a00296.html", null ],
-    [ "SENSOR_OFFSET_CAL_s", "a00637.html", [
-      [ "Accumulator", "a00637.html#a1bf80696497119c4e36460f57de7f667", null ],
-      [ "CalibrationComplete", "a00637.html#adf25ddb38dbda4b3bf8401ccfa38187f", null ],
-      [ "LimitHigh", "a00637.html#a26af6df9982c908f6c04dac5febbfabe", null ],
-      [ "LimitLow", "a00637.html#a807559395dd14cc8be15101fbc71677d", null ],
-      [ "MeasurementCounter", "a00637.html#a439f5c23e968e4d9d17def3e46ca3aff", null ],
-      [ "Offset", "a00637.html#ae6e68acb116dc3b5f8a7354c7f7d4146", null ]
-    ] ],
-    [ "Dev_CurrentSensor_Clr_Offset", "a00498.html#ga494b4a948891fd5757ccc647f9962529", null ],
-    [ "Dev_CurrentSensor_Get_CalibrationStatus", "a00498.html#ga218632f9814c3bf20c40cea0794ffc7d", null ],
-    [ "Dev_CurrentSensor_Get_Offset", "a00498.html#ga9f581abf52dc00ba320faafa189fafb9", null ],
-    [ "Dev_CurrentSensorOffsetCal", "a00498.html#gaaa75855922e60913d443c6203475256f", null ],
-    [ "Dev_SensorOffsetCal", "a00498.html#ga03e8d61bbc0f4b686c400440f80dcf69", null ],
-    [ "isecAvgCurrentSensor", "a00498.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f", null ]
+    [ "CURRENT_CALIBRATION", "a00498.html#ga4dac1dfb10918e33515fd140e62a247e", null ],
+    [ "DAC_DEBUG", "a00498.html#ga06a509daec59519381724d6f4c6c9a98", null ],
+    [ "DCDC400V_SYSTEM", "a00498.html#ga643cae3876a193f7910cdd4963d6cc3f", null ],
+    [ "DCDC800V_SYSTEM", "a00498.html#gab82279541c39e463eca29e7804800145", null ],
+    [ "ENABLE_VLOOP_AGC", "a00498.html#gaad5ce0d0b910332d668b5c4287e15ff8", null ],
+    [ "OPEN_LOOP_PBV", "a00498.html#ga98d40d6d77de8363187fdb3b1c6da065", null ],
+    [ "OPEN_LOOP_POTI", "a00498.html#gaffb8d78227a5b391853bbce53ca09857", null ],
+    [ "PBV_CANFD", "a00498.html#ga1151367cf9963cedbb90f4d5940d22b8", null ],
+    [ "PBV_UART", "a00498.html#ga3bf2f552a3148e521b11370c78f22121", null ],
+    [ "PERIOD_MODULATION_DEMO", "a00498.html#ga45df5256ba4c507175bdb3138ff68f1d", null ],
+    [ "VPRI_OPTOCOUPLER_POLARITY", "a00498.html#ga9da067b210e8083bb0545db1930060dc", null ]
 ];

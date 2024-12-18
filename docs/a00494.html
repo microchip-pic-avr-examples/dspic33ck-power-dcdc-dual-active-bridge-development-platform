@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: User Configuration</title>
+<title>Dual Active Bridge Development Board: Control Loop</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,73 +137,85 @@ $(document).ready(function(){initNavTree('a00494.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">User Configuration<div class="ingroups"><a class="el" href="a00489.html">Communication Layer</a> &raquo; <a class="el" href="a00490.html">Power Board Visualizer</a></div></div></div>
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Control Loop<div class="ingroups"><a class="el" href="a00508.html">Configuration Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected.  
+<p>Declaration of macros calculating additional parameters for Control Loop.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for User Configuration:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Control Loop:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00494.svg" width="343" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00494.svg" width="466" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00617.html">APP_PBV_INTF_API_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure of API function pointers.  <a href="a00617.html#details">More...</a><br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00495" id="r_a00495"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html">Conversion Macros</a></td></tr>
+<tr class="memdesc:a00495"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of Adaptive Gain Modulation parameters. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga40c15cce2e781ba3b9268150395d466c" id="r_ga40c15cce2e781ba3b9268150395d466c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00617.html">APP_PBV_INTF_API_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga40c15cce2e781ba3b9268150395d466c">appPbvFuncs</a></td></tr>
-<tr class="memdesc:ga40c15cce2e781ba3b9268150395d466c"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure of API function pointers.  <br /></td></tr>
-<tr class="separator:ga40c15cce2e781ba3b9268150395d466c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43edf0d1b9579419b244048d67b8744c" id="r_ga43edf0d1b9579419b244048d67b8744c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga43edf0d1b9579419b244048d67b8744c">VPLOOP_ILOOP_EXE_RATIO</a>&#160;&#160;&#160;(uint16_t)(10 / 2)</td></tr>
+<tr class="memdesc:ga43edf0d1b9579419b244048d67b8744c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ratio of ILOOP /VPLOOP execution [100KHz / 10KHz], the divide 2 is for interleaved VLoop and PLoop  <br /></td></tr>
+<tr class="separator:ga43edf0d1b9579419b244048d67b8744c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe9bc7e554222335c9b10bda87709883" id="r_gafe9bc7e554222335c9b10bda87709883"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a>&#160;&#160;&#160;160u</td></tr>
+<tr class="memdesc:gafe9bc7e554222335c9b10bda87709883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum VIN threshold to activate AGC in [V] <br  />
+  <br /></td></tr>
+<tr class="separator:gafe9bc7e554222335c9b10bda87709883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d6249446db551d0d518cad5fcd5a0ff" id="r_ga2d6249446db551d0d518cad5fcd5a0ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00494.html#ga2d6249446db551d0d518cad5fcd5a0ff">AGC_MINIMUM_ISEC_THRESHOLD</a>&#160;&#160;&#160;7</td></tr>
+<tr class="memdesc:ga2d6249446db551d0d518cad5fcd5a0ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum current threshold to activate AGC in [A].  <br /></td></tr>
+<tr class="separator:ga2d6249446db551d0d518cad5fcd5a0ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected. </p>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ga40c15cce2e781ba3b9268150395d466c" name="ga40c15cce2e781ba3b9268150395d466c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga40c15cce2e781ba3b9268150395d466c">&#9670;&#160;</a></span>appPbvFuncs</h2>
+<dl class="section note"><dt>Note</dt><dd>The Control Loop Declarations only contain user settings and conversion macros. </dd></dl>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga2d6249446db551d0d518cad5fcd5a0ff" name="ga2d6249446db551d0d518cad5fcd5a0ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d6249446db551d0d518cad5fcd5a0ff">&#9670;&#160;</a></span>AGC_MINIMUM_ISEC_THRESHOLD</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00617.html">APP_PBV_INTF_API_t</a> appPbvFuncs</td>
+          <td class="memname">#define AGC_MINIMUM_ISEC_THRESHOLD&#160;&#160;&#160;7</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line">}</div>
-</div><!-- fragment --><p>&lt; Includes </p>
 
-<p class="definition">Definition at line <a class="el" href="a00248_source.html#l00026">26</a> of file <a class="el" href="a00248_source.html">PBV_config.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00046">46</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gafe9bc7e554222335c9b10bda87709883" name="gafe9bc7e554222335c9b10bda87709883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafe9bc7e554222335c9b10bda87709883">&#9670;&#160;</a></span>AGC_MINIMUM_VIN_THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AGC_MINIMUM_VIN_THRESHOLD&#160;&#160;&#160;160u</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00045">45</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga43edf0d1b9579419b244048d67b8744c" name="ga43edf0d1b9579419b244048d67b8744c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga43edf0d1b9579419b244048d67b8744c">&#9670;&#160;</a></span>VPLOOP_ILOOP_EXE_RATIO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VPLOOP_ILOOP_EXE_RATIO&#160;&#160;&#160;(uint16_t)(10 / 2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00044">44</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
 
 </div>
 </div>

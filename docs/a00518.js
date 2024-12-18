@@ -1,21 +1,10 @@
 var a00518 =
 [
-    [ "ADC Multicore Driver", "a00520.html", "a00520" ],
-    [ "CAN FD Driver", "a00521.html", "a00521" ],
-    [ "CLC Driver", "a00522.html", "a00522" ],
-    [ "CMP DAC Driver", "a00523.html", "a00523" ],
-    [ "CRC Driver", "a00524.html", "a00524" ],
-    [ "PWM Driver", "a00525.html", "a00525" ],
-    [ "PWM HS Driver", "a00526.html", "a00526" ],
-    [ "DMT Driver", "a00527.html", "a00527" ],
-    [ "Interrupt Driver", "a00528.html", "a00528" ],
-    [ "WDT Driver", "a00529.html", "a00529" ],
-    [ "Pins Driver", "a00530.html", "a00530" ],
-    [ "System Driver", "a00531.html", "a00531" ],
-    [ "Reset Driver", "a00532.html", "a00532" ],
-    [ "Clock Driver", "a00533.html", "a00533" ],
-    [ "Traps Driver", "a00534.html", "a00534" ],
-    [ "Timer Driver", "a00535.html", "a00535" ],
-    [ "UART Driver", "a00536.html", "a00536" ],
-    [ "CONFIGBITS Driver", "a00537.html", null ]
+    [ "pwrctrl.c", "a00443.html", null ],
+    [ "PwrCtrl_ControlLoopInitialize", "a00518.html#gae58162e874535adf2003e9ed8a13b656", null ],
+    [ "PwrCtrl_Execute", "a00518.html#ga48dcb018afa53b60b6112cde00561c4b", null ],
+    [ "PwrCtrl_Initialize", "a00518.html#ga2c39b57545ef7b5c79bac36ab30da7d8", null ],
+    [ "PwrCtrl_Reset", "a00518.html#ga8c07187b0c96b5916e4b46daa47500c5", null ],
+    [ "PwrCtrl_StartUpInitialize", "a00518.html#ga45940145031d4886842c27f5e5277e9b", null ],
+    [ "dab", "a00518.html#ga5762de26b3d1b822c6a4b9c1605cd387", null ]
 ];

@@ -36,8 +36,8 @@
  * @{
  * @brief   macros defining the speed limits
  **********************************************************************************/
-#define MAX_SPEED_PERCENT       90  ///< limit the speed to 90 percent. done on compile time
-#define INIT_SPEED_PERCENT      1  ///< start fan at 50
+#define MAX_SPEED_PERCENT       96  ///< upper limit to fan speed 
+#define INIT_SPEED_PERCENT      1  ///<  intial start fan value 
 #define MIN_TICK                1   ///< fastest possible tick. needed for override flag. 
 #define STEP_SIZE               1   ///< in percent. needed for overide flag.
 

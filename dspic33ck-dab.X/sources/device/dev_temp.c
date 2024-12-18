@@ -86,16 +86,12 @@ uint16_t Dev_Temp_AverageValue(void){
  *********************************************************************************/
 int8_t Dev_Temp_Get_Temperature_Celcius(void){
     
-    TEMP_NTC_LUT_t point0;
-    
-    if (devTempData.AdcAverage == 0)  return 0;
-    
+    static int8_t temperatureCelsius;
+    if (devTempData.AdcAverage == 0)  
+        temperatureCelsius = 0;   
     if (devTempData.BufferFull)
-        point0.temperature =  (__builtin_mulsu(TEMPERATURE_FACTOR, devTempData.AdcAverage) >> 15) + TEMPERATURE_OFFSET;
-    
-    point0.temperatureCelsius = point0.temperature - TEMPERATURE_PBV_OFFSET_CELSIUS;
-    
-    return point0.temperatureCelsius;
+        temperatureCelsius =(int8_t)(__builtin_mulsu(TEMPERATURE_FACTOR, devTempData.AdcAverage) >> 15) + TEMPERATURE_OFFSET;
+    return temperatureCelsius;
 }
 
 /*******************************************************************************

@@ -1,10 +1,13 @@
 var a00506 =
 [
-    [ "pwrctrl.c", "a00431.html", null ],
-    [ "PwrCtrl_ControlLoopInitialize", "a00506.html#gae58162e874535adf2003e9ed8a13b656", null ],
-    [ "PwrCtrl_Execute", "a00506.html#ga48dcb018afa53b60b6112cde00561c4b", null ],
-    [ "PwrCtrl_Initialize", "a00506.html#ga2c39b57545ef7b5c79bac36ab30da7d8", null ],
-    [ "PwrCtrl_Reset", "a00506.html#ga8c07187b0c96b5916e4b46daa47500c5", null ],
-    [ "PwrCtrl_StartUpInitialize", "a00506.html#ga45940145031d4886842c27f5e5277e9b", null ],
-    [ "dab", "a00506.html#ga5762de26b3d1b822c6a4b9c1605cd387", null ]
+    [ "APP_PBV_INTF_API_s", "a00625.html", [
+      [ "init", "a00625.html#a2349c43259a9d3c23a516c9b4ad6baaa", null ],
+      [ "linkDataRX", "a00625.html#acf3107157116c08f212dafb02c8128f5", null ],
+      [ "linkDataTX", "a00625.html#a4156ff07130f03dfbd50bf7c30493bfb", null ],
+      [ "reinit", "a00625.html#aad1488054aade0d9770cbae5597a8db9", null ],
+      [ "rxGui", "a00625.html#add9801b083b7d6f3f7bbb0f1d9a55773", null ],
+      [ "txGui", "a00625.html#adca8b72baa17241a6989f96a073cc51c", null ],
+      [ "txGuiAscii", "a00625.html#a8ee94030daa6ae1784d3a4c1efd446eb", null ]
+    ] ],
+    [ "appPbvFuncs", "a00506.html#ga40c15cce2e781ba3b9268150395d466c", null ]
 ];

@@ -1,14 +1,14 @@
 var a00593 =
 [
-    [ "CallbackRegister", "a00593.html#a093b973db37c8958d7c5537c554bba2e", null ],
-    [ "DeadTimeSet", "a00593.html#a8664b14f1d9b71751ac0ec06bbb7f420", null ],
-    [ "Deinitialize", "a00593.html#ab6aa2863d2196e9f95f70fde91049ee6", null ],
-    [ "Disable", "a00593.html#a7fd5c6c55c6a76c4d35e3f81609fab87", null ],
-    [ "DutyCycleSet", "a00593.html#ab807c7b68893dc14af8b465526e3afbf", null ],
-    [ "Enable", "a00593.html#a04c571590cd163f474c876943a39e0f1", null ],
-    [ "Initialize", "a00593.html#afea2a7e78ccb7643d694c4bd7fa2ed5f", null ],
-    [ "OutputModeSet", "a00593.html#ae4a35aeba6a1f972341bd6e6eef6c952", null ],
-    [ "PeriodSet", "a00593.html#a8bfc1b042d812297e2bdeb23c78c6a1f", null ],
-    [ "SoftwareTriggerSet", "a00593.html#a6b902e9f14be393d2ca10c5748326a48", null ],
-    [ "Tasks", "a00593.html#a1cd6ba5da58bb0185a3939d1fdcd25f5", null ]
+    [ "data", "a00593.html#a735984d41155bc1032e09bece8f8d66d", null ],
+    [ "data16bit", "a00593.html#a658e8037b0f8c2c1f2ae60440dc0e2d3", null ],
+    [ "data32bit", "a00593.html#a199aaa77495095822c847af9e6bfc9a6", null ],
+    [ "data8bit", "a00593.html#adb736300817b3148878c4239def641ea", null ],
+    [ "dataWidth", "a00593.html#a66a1d5a959aad7270b8e482fa2e2965b", null ],
+    [ "polyWidth", "a00593.html#ae309e69cf392c9d842aaee54b13f242e", null ],
+    [ "program", "a00593.html#ae196ef9bb2f2fcba8cf613e072f0fe94", null ],
+    [ "program", "a00593.html#a04455838484a6927635ac503bfa7ea33", null ],
+    [ "ptr", "a00593.html#ab5a3524f1ba519d5db348733e3d0fd66", null ],
+    [ "remainingSize", "a00593.html#a539eeba5764098e42674a9af62aeb0b1", null ],
+    [ "state", "a00593.html#ab225b5a567ae019f7ef3891f51bf94e9", null ]
 ];

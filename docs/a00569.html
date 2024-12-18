@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: CLC_INTERFACE Struct Reference</title>
+<title>Dual Active Bridge Development Board: CAN_MSG_OBJ Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,202 +138,88 @@ $(document).ready(function(){initNavTree('a00569.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">CLC_INTERFACE Struct Reference<div class="ingroups"><a class="el" href="a00518.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00522.html">CLC Driver</a></div></div></div>
+  <div class="headertitle"><div class="title">CAN_MSG_OBJ Struct Reference<div class="ingroups"><a class="el" href="a00530.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00533.html">CAN FD Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Structure containing the function pointers of CLC driver.  
+<p>This data structure used to configure the CAN FD message object.  
  <a href="a00569.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00089_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/mcc_generated_files/clc/clc_interface.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00092_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/mcc_generated_files/can/can_types.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CLC_INTERFACE:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CAN_MSG_OBJ:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00567.svg" width="211" height="251"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00567.svg" width="131" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:afea2a7e78ccb7643d694c4bd7fa2ed5f" id="r_afea2a7e78ccb7643d694c4bd7fa2ed5f"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">Initialize</a> )(void)</td></tr>
-<tr class="memdesc:afea2a7e78ccb7643d694c4bd7fa2ed5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CLCx_Initialize e.g. <a class="el" href="a00522.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a>.  <br /></td></tr>
-<tr class="separator:afea2a7e78ccb7643d694c4bd7fa2ed5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6aa2863d2196e9f95f70fde91049ee6" id="r_ab6aa2863d2196e9f95f70fde91049ee6"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#ab6aa2863d2196e9f95f70fde91049ee6">Deinitialize</a> )(void)</td></tr>
-<tr class="memdesc:ab6aa2863d2196e9f95f70fde91049ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CLCx_Deinitialize e.g. <a class="el" href="a00522.html#ga01516d04dce352de74ae123cf553cb30">CLC1_Deinitialize</a>.  <br /></td></tr>
-<tr class="separator:ab6aa2863d2196e9f95f70fde91049ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04c571590cd163f474c876943a39e0f1" id="r_a04c571590cd163f474c876943a39e0f1"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#a04c571590cd163f474c876943a39e0f1">Enable</a> )(void)</td></tr>
-<tr class="memdesc:a04c571590cd163f474c876943a39e0f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CLCx_Enable e.g. <a class="el" href="a00522.html#ga7c85f3e09616a9a2855839d4b45c0e43">CLC1_Enable</a>.  <br /></td></tr>
-<tr class="separator:a04c571590cd163f474c876943a39e0f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fd5c6c55c6a76c4d35e3f81609fab87" id="r_a7fd5c6c55c6a76c4d35e3f81609fab87"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#a7fd5c6c55c6a76c4d35e3f81609fab87">Disable</a> )(void)</td></tr>
-<tr class="memdesc:a7fd5c6c55c6a76c4d35e3f81609fab87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CLCx_Disable e.g. <a class="el" href="a00522.html#ga278c795208d6f58fb1b0c1bf2739f883">CLC1_Disable</a>.  <br /></td></tr>
-<tr class="separator:a7fd5c6c55c6a76c4d35e3f81609fab87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01d0f5300c488764a1090a869cfa92a0" id="r_a01d0f5300c488764a1090a869cfa92a0"><td class="memItemLeft" align="right" valign="top">bool(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#a01d0f5300c488764a1090a869cfa92a0">OutputStatusGet</a> )(void)</td></tr>
-<tr class="memdesc:a01d0f5300c488764a1090a869cfa92a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CLCx_OutputStatusGet e.g. <a class="el" href="a00522.html#gaf3af7f12e3d269fdc409d1a279736b27">CLC1_OutputStatusGet</a>.  <br /></td></tr>
-<tr class="separator:a01d0f5300c488764a1090a869cfa92a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a608c4bc40a85b436b4094a7fc88a22e8" id="r_a608c4bc40a85b436b4094a7fc88a22e8"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#a608c4bc40a85b436b4094a7fc88a22e8">EdgeCallbackRegister</a> )(void(*CallbackHandler)(void))</td></tr>
-<tr class="memdesc:a608c4bc40a85b436b4094a7fc88a22e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CLCx_EdgeCallbackRegister e.g. CLC1_EdgeCallbackRegister.  <br /></td></tr>
-<tr class="separator:a608c4bc40a85b436b4094a7fc88a22e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6dcbda8f44087989855f4463221516d" id="r_ab6dcbda8f44087989855f4463221516d"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#ab6dcbda8f44087989855f4463221516d">PositiveEdgeCallbackRegister</a> )(void(*CallbackHandler)(void))</td></tr>
-<tr class="memdesc:ab6dcbda8f44087989855f4463221516d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CLCx_PositiveEdgeCallbackRegister e.g. <a class="el" href="a00522.html#gaecad61896990ca955aab640a8609a74d">CLC1_PositiveEdgeCallbackRegister</a>.  <br /></td></tr>
-<tr class="separator:ab6dcbda8f44087989855f4463221516d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab860ba9f294d7c8826db45ba1d5640d5" id="r_ab860ba9f294d7c8826db45ba1d5640d5"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#ab860ba9f294d7c8826db45ba1d5640d5">NegativeEdgeCallbackRegister</a> )(void(*CallbackHandler)(void))</td></tr>
-<tr class="memdesc:ab860ba9f294d7c8826db45ba1d5640d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CLCx_NegativeEdgeCallbackRegister e.g. <a class="el" href="a00522.html#gab37490b9172b07cf29c311b7501d04f6">CLC1_NegativeEdgeCallbackRegister</a>.  <br /></td></tr>
-<tr class="separator:ab860ba9f294d7c8826db45ba1d5640d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cd6ba5da58bb0185a3939d1fdcd25f5" id="r_a1cd6ba5da58bb0185a3939d1fdcd25f5"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#a1cd6ba5da58bb0185a3939d1fdcd25f5">Tasks</a> )(void)</td></tr>
-<tr class="memdesc:a1cd6ba5da58bb0185a3939d1fdcd25f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to CLCx_Tasks e.g. <a class="el" href="a00522.html#gaac6c1a14b3589b2c967b9a1b6bb01551">CLC1_Tasks</a> (Supported only in polling mode)  <br /></td></tr>
-<tr class="separator:a1cd6ba5da58bb0185a3939d1fdcd25f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92de58c41afbd447b2536d5c9eb7b0f2" id="r_a92de58c41afbd447b2536d5c9eb7b0f2"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#a92de58c41afbd447b2536d5c9eb7b0f2">msgId</a></td></tr>
+<tr class="separator:a92de58c41afbd447b2536d5c9eb7b0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3db823a278f5d389e9b29a698d10ee68" id="r_a3db823a278f5d389e9b29a698d10ee68"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="a00565.html">CAN_MSG_FIELD</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#a3db823a278f5d389e9b29a698d10ee68">field</a></td></tr>
+<tr class="separator:a3db823a278f5d389e9b29a698d10ee68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe222f6d3581e7920dcad5306cc906a8" id="r_abe222f6d3581e7920dcad5306cc906a8"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#abe222f6d3581e7920dcad5306cc906a8">data</a></td></tr>
+<tr class="separator:abe222f6d3581e7920dcad5306cc906a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00089_source.html#l00051">51</a> of file <a class="el" href="a00089_source.html">clc_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00067">67</a> of file <a class="el" href="a00092_source.html">can_types.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="ab6aa2863d2196e9f95f70fde91049ee6" name="ab6aa2863d2196e9f95f70fde91049ee6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6aa2863d2196e9f95f70fde91049ee6">&#9670;&#160;</a></span>Deinitialize</h2>
+<a id="abe222f6d3581e7920dcad5306cc906a8" name="abe222f6d3581e7920dcad5306cc906a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe222f6d3581e7920dcad5306cc906a8">&#9670;&#160;</a></span>data</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* Deinitialize) (void)</td>
+          <td class="memname">uint8_t* data</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pointer to message data </p>
 
-<p class="definition">Definition at line <a class="el" href="a00089_source.html#l00056">56</a> of file <a class="el" href="a00089_source.html">clc_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00071">71</a> of file <a class="el" href="a00092_source.html">can_types.h</a>.</p>
 
 </div>
 </div>
-<a id="a7fd5c6c55c6a76c4d35e3f81609fab87" name="a7fd5c6c55c6a76c4d35e3f81609fab87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fd5c6c55c6a76c4d35e3f81609fab87">&#9670;&#160;</a></span>Disable</h2>
+<a id="a3db823a278f5d389e9b29a698d10ee68" name="a3db823a278f5d389e9b29a698d10ee68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3db823a278f5d389e9b29a698d10ee68">&#9670;&#160;</a></span>field</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* Disable) (void)</td>
+          <td class="memname">struct <a class="el" href="a00565.html">CAN_MSG_FIELD</a> field</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Defines the <a class="el" href="a00565.html">CAN_MSG_FIELD</a> CAN TX/RX Message Object Control </p>
 
-<p class="definition">Definition at line <a class="el" href="a00089_source.html#l00062">62</a> of file <a class="el" href="a00089_source.html">clc_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00070">70</a> of file <a class="el" href="a00092_source.html">can_types.h</a>.</p>
 
 </div>
 </div>
-<a id="a608c4bc40a85b436b4094a7fc88a22e8" name="a608c4bc40a85b436b4094a7fc88a22e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a608c4bc40a85b436b4094a7fc88a22e8">&#9670;&#160;</a></span>EdgeCallbackRegister</h2>
+<a id="a92de58c41afbd447b2536d5c9eb7b0f2" name="a92de58c41afbd447b2536d5c9eb7b0f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92de58c41afbd447b2536d5c9eb7b0f2">&#9670;&#160;</a></span>msgId</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* EdgeCallbackRegister) (void(*CallbackHandler)(void))</td>
+          <td class="memname">uint32_t msgId</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Set the CAN Message ID </p>
 
-<p class="definition">Definition at line <a class="el" href="a00089_source.html#l00068">68</a> of file <a class="el" href="a00089_source.html">clc_interface.h</a>.</p>
-
-</div>
-</div>
-<a id="a04c571590cd163f474c876943a39e0f1" name="a04c571590cd163f474c876943a39e0f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04c571590cd163f474c876943a39e0f1">&#9670;&#160;</a></span>Enable</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* Enable) (void)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00089_source.html#l00059">59</a> of file <a class="el" href="a00089_source.html">clc_interface.h</a>.</p>
-
-</div>
-</div>
-<a id="afea2a7e78ccb7643d694c4bd7fa2ed5f" name="afea2a7e78ccb7643d694c4bd7fa2ed5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afea2a7e78ccb7643d694c4bd7fa2ed5f">&#9670;&#160;</a></span>Initialize</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* Initialize) (void)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00089_source.html#l00053">53</a> of file <a class="el" href="a00089_source.html">clc_interface.h</a>.</p>
-
-</div>
-</div>
-<a id="ab860ba9f294d7c8826db45ba1d5640d5" name="ab860ba9f294d7c8826db45ba1d5640d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab860ba9f294d7c8826db45ba1d5640d5">&#9670;&#160;</a></span>NegativeEdgeCallbackRegister</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* NegativeEdgeCallbackRegister) (void(*CallbackHandler)(void))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00089_source.html#l00074">74</a> of file <a class="el" href="a00089_source.html">clc_interface.h</a>.</p>
-
-</div>
-</div>
-<a id="a01d0f5300c488764a1090a869cfa92a0" name="a01d0f5300c488764a1090a869cfa92a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01d0f5300c488764a1090a869cfa92a0">&#9670;&#160;</a></span>OutputStatusGet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool(* OutputStatusGet) (void)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00089_source.html#l00065">65</a> of file <a class="el" href="a00089_source.html">clc_interface.h</a>.</p>
-
-</div>
-</div>
-<a id="ab6dcbda8f44087989855f4463221516d" name="ab6dcbda8f44087989855f4463221516d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6dcbda8f44087989855f4463221516d">&#9670;&#160;</a></span>PositiveEdgeCallbackRegister</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* PositiveEdgeCallbackRegister) (void(*CallbackHandler)(void))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00089_source.html#l00071">71</a> of file <a class="el" href="a00089_source.html">clc_interface.h</a>.</p>
-
-</div>
-</div>
-<a id="a1cd6ba5da58bb0185a3939d1fdcd25f5" name="a1cd6ba5da58bb0185a3939d1fdcd25f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cd6ba5da58bb0185a3939d1fdcd25f5">&#9670;&#160;</a></span>Tasks</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* Tasks) (void)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00089_source.html#l00077">77</a> of file <a class="el" href="a00089_source.html">clc_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00069">69</a> of file <a class="el" href="a00092_source.html">can_types.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dspic33ck-dab.X/mcc_generated_files/clc/<a class="el" href="a00089_source.html">clc_interface.h</a></li>
+<li>dspic33ck-dab.X/mcc_generated_files/can/<a class="el" href="a00092_source.html">can_types.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

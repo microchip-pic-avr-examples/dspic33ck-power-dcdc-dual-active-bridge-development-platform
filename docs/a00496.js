@@ -1,13 +1,12 @@
 var a00496 =
 [
-    [ "PWM Settings", "a00470.html", "a00470" ],
-    [ "Primary Voltage Feedback", "a00472.html", "a00472" ],
-    [ "Secondary Voltage Feedback", "a00474.html", "a00474" ],
-    [ "Primary Current Feedback", "a00476.html", "a00476" ],
-    [ "Secondary Current Feedback", "a00478.html", "a00478" ],
-    [ "5V Voltage Feedback", "a00480.html", "a00480" ],
-    [ "Control Loop", "a00482.html", "a00482" ],
-    [ "Temperature Feedback", "a00484.html", "a00484" ],
-    [ "Special Firmware Options", "a00486.html", "a00486" ],
-    [ "Useful Macros", "a00487.html", "a00487" ]
+    [ "Conversion Macros", "a00497.html", "a00497" ],
+    [ "FAULT_PERSISTENCE_COUNT_TEMP", "a00496.html#gaa584ad6b0df4394fb8a954091913a713", null ],
+    [ "NOMINAL_TEMPERATURE_THRESHOLD", "a00496.html#gaf96b37309868a2ca71aec09e1d2180bc", null ],
+    [ "OTP_THRES_CLEAR_CELCIUS", "a00496.html#gadc3762a54e017c4db8ad9b6e83dc071d", null ],
+    [ "OTP_THRES_TRIG_CELCIUS", "a00496.html#gad1f727c2e9b6350745777aca9f272169", null ],
+    [ "TEMPERATURE_GAIN", "a00496.html#gab586eaca5d59d97c5a098f782633d74c", null ],
+    [ "TEMPERATURE_HYSTERESIS", "a00496.html#ga46b916cf898ceb2557a12f208380c5d5", null ],
+    [ "TEMPERATURE_OFFSET", "a00496.html#gac02a5a67e0612d6cb90e61cc23398701", null ],
+    [ "TEMPERATURE_PBV_OFFSET_CELSIUS", "a00496.html#gadaf56c98b4dc5aeee1231153c378af0e", null ]
 ];
