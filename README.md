@@ -86,11 +86,11 @@ __Please always check for the latest data sheets on the respective product websi
 ## Directory Structure
 The directory structure for this project is summarized below.
 
-	├───dspic33ck-dab.X					DAB main project 
-	├───images						Images for the Readme 
+	├───dspic33ck-dab.X							DAB main project 
+	├───images									Images for the Readme 
 	├───power_board_visualizer_xmls				Power Board Visualizer Projects
-	├───pre_compiled_hex_files				Pre compiled Hex files for 400V output operation 
-	└───sources						Common Sources between both projects
+	├───pre_compiled_hex_files					Pre compiled Hex files for 400V output operation 
+	└───sources									Common Sources between both projects
 
 ---
 
@@ -121,11 +121,18 @@ To enable CAN communication from the PC to the DAB application board, a USB to C
 
 <p><center><a target="_blank" rel="nofollow">
 <p>
-<img src="images/dab-connection.jpg" alt="dsPIC33C DAB Development Board Hardware set-up" width="600">
+<img src="images/dab-connection.jpg" alt="dsPIC33C DAB Development Board Hardware set-up" width="800">
 </a>
 </center>
 </p>
 
+<p>
+<center>
+<a target="_blank" rel="nofollow">
+dsPIC33C DAB Development Board Hardware set-up
+</a>
+</center>
+</p>
 
 
 ### Powering On board through Power Board Visualizer
@@ -139,26 +146,30 @@ After completing the hardware setup, go to the power board visualizer XMLs folde
 
 <p><center><a target="_blank" rel="nofollow" href="images/dab-pbv.jpg">
 <p>
-<img src="images/dab-pbv.jpg" alt="DAB project running on Power Board Visualizer GUI" width="600">
+<img src="images/dab-pbv.jpg" alt="DAB project running on Power Board Visualizer GUI" width="800">
+</a>
+</center>
+</p>
+
+<p>
+<center>
+<a target="_blank" rel="nofollow">
+DAB project running on Power Board Visualizer GUI
 </a>
 </center>
 </p>
 
 
 1. Start/Stop Button
-- This button toggles the application on and off. Each button press sends a corresponding message over CANFD. For detailed CAN message descriptions, click on the Info tab.
-
+	- This button toggles the application on and off. Each button press sends a corresponding message over CANFD. For detailed CAN message descriptions, click on the Info tab.
 2. Voltage Output, Current Output, and Power Output Reference Sliders
-- These sliders are used to set reference values for output voltage, current, and power for the DAB. The lowest value among them will control the output. Ensure to press the Set button below the slider to communicate the reference value to the microcontroller.
-
+	- These sliders are used to set reference values for output voltage, current, and power for the DAB. The lowest value among them will control the output. Ensure to press the Set button below the slider to communicate the reference value to the microcontroller.
 3. Comm Status and COM Selector
-- The "COM?" button lists all available communication ports for the PBV. If the Peak Dongle drivers are installed and the Peak USB dongle is connected, it will appear as PCAN_USB:FD. Select the appropriate port and click enable. The Power Board Visualizer will then open the selected Comm port.
-
+	- The "COM?" button lists all available communication ports for the PBV. If the Peak Dongle drivers are installed and the Peak USB dongle is connected, it will appear as PCAN_USB:FD. Select the appropriate port and click enable. The Power Board Visualizer will then open the selected Comm port.
 4. DAB Controller State
-- This section displays the current state of the system. Detailed information about each state and the state machine can be found in the Firmware Overview section.
-
+	- This section displays the current state of the system. Detailed information about each state and the state machine can be found in the Firmware Overview section.
 5. DAB Status Flags
-- This section lists the high-level state of the system and any fault conditions that occur.
+	- This section lists the high-level state of the system and any fault conditions that occur.
 
 #### Sequence of Actions to Power On
 After opening the appropriate Power Board Visualizer project, follow these steps to start the board:
@@ -168,20 +179,37 @@ After opening the appropriate Power Board Visualizer project, follow these steps
 3. Adjust the reference voltage/current if necessary.
 4. Click on "Start." The system will quickly transition through various states and should eventually reach the PCS_UP_AND_RUNNING state.
 
-<p><center><a target="_blank" rel="nofollow" href="images/dab-in-stand-by.jpg">
+<p><center><a target="_blank" rel="nofollow" href="images/dab-in-stand-by.png">
 <p>
-<img src="images/dab-in-stand-by.jpg" alt="DAB in StandBy state" width="600">
+<img src="images/dab-in-stand-by.png" alt="DAB in StandBy state" width="800">
 </a>
 </center>
 </p>
 
-<p><center><a target="_blank" rel="nofollow" href="images/dab-running.jpg">
 <p>
-<img src="images/dab-running.jpg" alt="DAB in running state" width="600">
+<center>
+<a target="_blank" rel="nofollow">
+DAB in StandBy state
 </a>
 </center>
 </p>
 
+
+
+<p><center><a target="_blank" rel="nofollow" href="images/dab-running.png">
+<p>
+<img src="images/dab-running.png" alt="DAB in running state" width="800">
+</a>
+</center>
+</p>
+
+<p>
+<center>
+<a target="_blank" rel="nofollow">
+DAB in running state
+</a>
+</center>
+</p>
 
 ---
 &copy; 2024, Microchip Technology Inc.

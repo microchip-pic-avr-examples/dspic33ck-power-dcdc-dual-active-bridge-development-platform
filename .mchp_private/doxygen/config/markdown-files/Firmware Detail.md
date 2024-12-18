@@ -64,13 +64,13 @@ The firmware block diagram illustrates the use of the dspic33C for a Dual Active
 
 The DAB board operates in two modes, capable of outputting either 400V or 800V, depending on the user-specified settings. These modes are controlled by two defines in the config/config.h file:
 
-The 400V battery system operates within a voltage range of approximately 300V (discharged) to 450V (fully charged).
-
     #define DCDC400V_SYSTEM
 
-The 800V battery system operates within a voltage range of approximately 600V (discharged) to 900V (fully charged).
+The 400V battery system operates within a voltage range of approximately 300V (discharged) to 450V (fully charged).
 
     #define DCDC800V_SYSTEM
+
+The 800V battery system operates within a voltage range of approximately 600V (discharged) to 900V (fully charged).
 
 Typically, a single-phase totem pole combined with a DAB DC/DC converter is used for the 400V system (450V input, 300V to 450V output). For the 800V system, a three-phase totem pole combined with a DAB DC/DC converter is recommended (800V input, 600V to 900V output).
 
