@@ -136,111 +136,284 @@ $(document).ready(function(){initNavTree('a00483.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Conversion Macros<div class="ingroups"><a class="el" href="a00496.html">Configuration Layer</a> &raquo; <a class="el" href="a00482.html">Control Loop</a></div></div></div>
+  <div class="headertitle"><div class="title">Conversion Macros<div class="ingroups"><a class="el" href="a00508.html">Configuration Layer</a> &raquo; <a class="el" href="a00482.html">PWM Settings</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Conversion macros for user-declarations of Adaptive Gain Modulation parameters.  
+<p>Conversion macros for user declarations of PWM peripheral.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Conversion Macros:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00483.svg" width="284" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00483.svg" width="296" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="memitem:ga80914760246c425bc1536e1d809a071b" id="r_ga80914760246c425bc1536e1d809a071b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga80914760246c425bc1536e1d809a071b">POWER_SCALER</a>&#160;&#160;&#160;(14u)</td></tr>
-<tr class="separator:ga80914760246c425bc1536e1d809a071b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5d5113c068bc70c6666522402aa59bcf" id="r_ga5d5113c068bc70c6666522402aa59bcf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga5d5113c068bc70c6666522402aa59bcf">POWER_FACTOR</a>&#160;&#160;&#160;(uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, <a class="el" href="a00483.html#ga80914760246c425bc1536e1d809a071b">POWER_SCALER</a>))) / ((ADC_RESOLUTION * <a class="el" href="a00474.html#gadbb92791a446721a3d4af49d713520ca">VSEC_SNS_GAIN</a>) * (ADC_RESOLUTION * <a class="el" href="a00478.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>)))</td></tr>
-<tr class="separator:ga5d5113c068bc70c6666522402aa59bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacdae5309d1cb67f967c3b5b64b19d3af" id="r_gacdae5309d1cb67f967c3b5b64b19d3af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#gacdae5309d1cb67f967c3b5b64b19d3af">AGC_VOLTAGE_FACTOR</a>&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00482.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a> * pow(2.0, 15))</td></tr>
-<tr class="separator:gacdae5309d1cb67f967c3b5b64b19d3af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5a1b7f3b96ba61a6b0de4a89c5b93f40" id="r_ga5a1b7f3b96ba61a6b0de4a89c5b93f40"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">AGC_MINIMUM_CURRENT_THRESHOLD</a>&#160;&#160;&#160;(<a class="el" href="a00487.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00482.html#ga2d6249446db551d0d518cad5fcd5a0ff">AGC_MINIMUM_ISEC_THRESHOLD</a>,<a class="el" href="a00478.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>,0.0))</td></tr>
-<tr class="separator:ga5a1b7f3b96ba61a6b0de4a89c5b93f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4022c2ca098b410cbcb0f16f2e4cc0ea" id="r_ga4022c2ca098b410cbcb0f16f2e4cc0ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga4022c2ca098b410cbcb0f16f2e4cc0ea">AGC_CURRENT_FACTOR</a>&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00483.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">AGC_MINIMUM_CURRENT_THRESHOLD</a> * pow(2.0, 15))</td></tr>
-<tr class="separator:ga4022c2ca098b410cbcb0f16f2e4cc0ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd17199da18b5a3321b37016464983b0" id="r_gafd17199da18b5a3321b37016464983b0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#gafd17199da18b5a3321b37016464983b0">PWM_CLOCK_PERIOD</a>&#160;&#160;&#160;(float)(1.0 / PWM_CLOCK_FREQUENCY)</td></tr>
+<tr class="memdesc:gafd17199da18b5a3321b37016464983b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of PWM parameters.  <br /></td></tr>
+<tr class="separator:gafd17199da18b5a3321b37016464983b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b442951e644a17742ef24efa981f4c2" id="r_ga6b442951e644a17742ef24efa981f4c2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga6b442951e644a17742ef24efa981f4c2">MAX_SWITCHING_PERIOD</a>&#160;&#160;&#160;(float)(1.0/<a class="el" href="a00482.html#gae8f8211058cb5c9a0691fbf041d32043">MINIMUM_SWITCHING_FREQUENCY</a>)</td></tr>
+<tr class="memdesc:ga6b442951e644a17742ef24efa981f4c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switching period in [sec].  <br /></td></tr>
+<tr class="separator:ga6b442951e644a17742ef24efa981f4c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5ed32182c39d3e960b242387f435759b" id="r_ga5ed32182c39d3e960b242387f435759b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga5ed32182c39d3e960b242387f435759b">MIN_SWITCHING_PERIOD</a>&#160;&#160;&#160;(float)(1.0/<a class="el" href="a00482.html#ga99b5526b36699f6f8c57ed94954a9b77">MAXIMUM_SWITCHING_FREQUENCY</a>)</td></tr>
+<tr class="memdesc:ga5ed32182c39d3e960b242387f435759b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switching period in [sec].  <br /></td></tr>
+<tr class="separator:ga5ed32182c39d3e960b242387f435759b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga186594aa5d23f8d898758992a70b2d13" id="r_ga186594aa5d23f8d898758992a70b2d13"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga186594aa5d23f8d898758992a70b2d13">MAX_PWM_PERIOD</a>&#160;&#160;&#160;(uint16_t)(float)(<a class="el" href="a00483.html#ga6b442951e644a17742ef24efa981f4c2">MAX_SWITCHING_PERIOD</a> / <a class="el" href="a00483.html#gafd17199da18b5a3321b37016464983b0">PWM_CLOCK_PERIOD</a>)</td></tr>
+<tr class="memdesc:ga186594aa5d23f8d898758992a70b2d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">This sets the switching period of the converter.  <br /></td></tr>
+<tr class="separator:ga186594aa5d23f8d898758992a70b2d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab2f7ae5f2d6809dd3894e30692f30b1" id="r_gaab2f7ae5f2d6809dd3894e30692f30b1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#gaab2f7ae5f2d6809dd3894e30692f30b1">MIN_PWM_PERIOD</a>&#160;&#160;&#160;(uint16_t)(float)(<a class="el" href="a00483.html#ga5ed32182c39d3e960b242387f435759b">MIN_SWITCHING_PERIOD</a> / <a class="el" href="a00483.html#gafd17199da18b5a3321b37016464983b0">PWM_CLOCK_PERIOD</a>)</td></tr>
+<tr class="memdesc:gaab2f7ae5f2d6809dd3894e30692f30b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This sets the switching period of the converter.  <br /></td></tr>
+<tr class="separator:gaab2f7ae5f2d6809dd3894e30692f30b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf207f331e3e052a4ad198b0837e64cd9" id="r_gaf207f331e3e052a4ad198b0837e64cd9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#gaf207f331e3e052a4ad198b0837e64cd9">PERIOD_RANGE</a>&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00483.html#ga186594aa5d23f8d898758992a70b2d13">MAX_PWM_PERIOD</a> - <a class="el" href="a00483.html#gaab2f7ae5f2d6809dd3894e30692f30b1">MIN_PWM_PERIOD</a>)</td></tr>
+<tr class="memdesc:gaf207f331e3e052a4ad198b0837e64cd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the calculation of Period range. NOTE: only use in Debugging moode using digital power development board.  <br /></td></tr>
+<tr class="separator:gaf207f331e3e052a4ad198b0837e64cd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga437af142b62c5aaa24e036a25b81bdd1" id="r_ga437af142b62c5aaa24e036a25b81bdd1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga437af142b62c5aaa24e036a25b81bdd1">ADC_PERIOD_RANGE</a>&#160;&#160;&#160;(uint16_t)(float)(<a class="el" href="a00483.html#gaf207f331e3e052a4ad198b0837e64cd9">PERIOD_RANGE</a> / ADC_RESOLUTION)</td></tr>
+<tr class="memdesc:ga437af142b62c5aaa24e036a25b81bdd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the calculation for ADC equivalent with Period range. NOTE: only use in Debugging moode using digital power development board.  <br /></td></tr>
+<tr class="separator:ga437af142b62c5aaa24e036a25b81bdd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabc0fa5be333bec97b04a2dbdd15b1042" id="r_gabc0fa5be333bec97b04a2dbdd15b1042"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#gabc0fa5be333bec97b04a2dbdd15b1042">MIN_PWM_DEAD_TIME</a>&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00482.html#gad8b5e420d5663a13bb68f6883cad64c8">MINIMUM_DEADTIME</a> / (float)<a class="el" href="a00483.html#gafd17199da18b5a3321b37016464983b0">PWM_CLOCK_PERIOD</a>)</td></tr>
+<tr class="memdesc:gabc0fa5be333bec97b04a2dbdd15b1042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum dead time [tick = 250ps].  <br /></td></tr>
+<tr class="separator:gabc0fa5be333bec97b04a2dbdd15b1042"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1ca2efa729e26db33b57a3c71e9fd8ac" id="r_ga1ca2efa729e26db33b57a3c71e9fd8ac"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga1ca2efa729e26db33b57a3c71e9fd8ac">MAX_PWM_DEAD_TIME</a>&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00482.html#gac6d318c94c201374c73969ce117024a8">MAXIMUM_DEADTIME</a> / (float)<a class="el" href="a00483.html#gafd17199da18b5a3321b37016464983b0">PWM_CLOCK_PERIOD</a>)</td></tr>
+<tr class="memdesc:ga1ca2efa729e26db33b57a3c71e9fd8ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum dead time [tick = 250ps].  <br /></td></tr>
+<tr class="separator:ga1ca2efa729e26db33b57a3c71e9fd8ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6a2ee2364ce0f4f20b7527a1e95d181" id="r_gad6a2ee2364ce0f4f20b7527a1e95d181"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#gad6a2ee2364ce0f4f20b7527a1e95d181">MIN_PHASE_SHIFTED_PULSE</a>&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00482.html#ga10e0f079254bb242838a78371205ca1a">MINIMUM_PHASESHIFTED_PULSE</a> / (float)<a class="el" href="a00483.html#gafd17199da18b5a3321b37016464983b0">PWM_CLOCK_PERIOD</a>)</td></tr>
+<tr class="memdesc:gad6a2ee2364ce0f4f20b7527a1e95d181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum dead time [tick = 250ps].  <br /></td></tr>
+<tr class="separator:gad6a2ee2364ce0f4f20b7527a1e95d181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a2a936326c4e675da1e98a8661843ff" id="r_ga8a2a936326c4e675da1e98a8661843ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga8a2a936326c4e675da1e98a8661843ff">DEGREES_PHASE_10x</a>&#160;&#160;&#160;(10u)</td></tr>
+<tr class="separator:ga8a2a936326c4e675da1e98a8661843ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga985f58915c79f9f205b0ad2c51f53a2a" id="r_ga985f58915c79f9f205b0ad2c51f53a2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga985f58915c79f9f205b0ad2c51f53a2a">DEGREES_PHASE_SCALER</a>&#160;&#160;&#160;(10u)</td></tr>
+<tr class="separator:ga985f58915c79f9f205b0ad2c51f53a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2aa2f9a51e6d0c4f080cd83ae96989bd" id="r_ga2aa2f9a51e6d0c4f080cd83ae96989bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#ga2aa2f9a51e6d0c4f080cd83ae96989bd">DEGREES_PHASE_SCALING_10</a>&#160;&#160;&#160;((pow(2.0, <a class="el" href="a00483.html#ga985f58915c79f9f205b0ad2c51f53a2a">DEGREES_PHASE_SCALER</a>)) / <a class="el" href="a00483.html#ga8a2a936326c4e675da1e98a8661843ff">DEGREES_PHASE_10x</a>)</td></tr>
+<tr class="separator:ga2aa2f9a51e6d0c4f080cd83ae96989bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5d86e418e1507f6584595a8ed8b5e10" id="r_gad5d86e418e1507f6584595a8ed8b5e10"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00483.html#gad5d86e418e1507f6584595a8ed8b5e10">DEGREES_PHASE_FACTOR</a>&#160;&#160;&#160;((<a class="el" href="a00482.html#ga14f8c324344d8c244db7c1ffc95daacc">PRI_TO_SEC_PHASE_DEGREES_LIMIT</a> * ((<a class="el" href="a00483.html#ga985f58915c79f9f205b0ad2c51f53a2a">DEGREES_PHASE_SCALER</a>)* <a class="el" href="a00483.html#ga8a2a936326c4e675da1e98a8661843ff">DEGREES_PHASE_10x</a>)))</td></tr>
+<tr class="separator:gad5d86e418e1507f6584595a8ed8b5e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Conversion macros converting physical quantities of parameters into binary (integer) numbers for registers and variables </p>
+<p>These conversion macros are used to convert user settings defined as physical quantities into binary (integer) numbers, which will be written to registers and variables and used in calculations throughout the firmware. </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga4022c2ca098b410cbcb0f16f2e4cc0ea" name="ga4022c2ca098b410cbcb0f16f2e4cc0ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4022c2ca098b410cbcb0f16f2e4cc0ea">&#9670;&#160;</a></span>AGC_CURRENT_FACTOR</h2>
+<a id="ga437af142b62c5aaa24e036a25b81bdd1" name="ga437af142b62c5aaa24e036a25b81bdd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga437af142b62c5aaa24e036a25b81bdd1">&#9670;&#160;</a></span>ADC_PERIOD_RANGE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AGC_CURRENT_FACTOR&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00483.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">AGC_MINIMUM_CURRENT_THRESHOLD</a> * pow(2.0, 15))</td>
+          <td class="memname">#define ADC_PERIOD_RANGE&#160;&#160;&#160;(uint16_t)(float)(<a class="el" href="a00483.html#gaf207f331e3e052a4ad198b0837e64cd9">PERIOD_RANGE</a> / ADC_RESOLUTION)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00170">170</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00043">43</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
 
 </div>
 </div>
-<a id="ga5a1b7f3b96ba61a6b0de4a89c5b93f40" name="ga5a1b7f3b96ba61a6b0de4a89c5b93f40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">&#9670;&#160;</a></span>AGC_MINIMUM_CURRENT_THRESHOLD</h2>
+<a id="ga8a2a936326c4e675da1e98a8661843ff" name="ga8a2a936326c4e675da1e98a8661843ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8a2a936326c4e675da1e98a8661843ff">&#9670;&#160;</a></span>DEGREES_PHASE_10x</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AGC_MINIMUM_CURRENT_THRESHOLD&#160;&#160;&#160;(<a class="el" href="a00487.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00482.html#ga2d6249446db551d0d518cad5fcd5a0ff">AGC_MINIMUM_ISEC_THRESHOLD</a>,<a class="el" href="a00478.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>,0.0))</td>
+          <td class="memname">#define DEGREES_PHASE_10x&#160;&#160;&#160;(10u)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00169">169</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00054">54</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
 
 </div>
 </div>
-<a id="gacdae5309d1cb67f967c3b5b64b19d3af" name="gacdae5309d1cb67f967c3b5b64b19d3af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gacdae5309d1cb67f967c3b5b64b19d3af">&#9670;&#160;</a></span>AGC_VOLTAGE_FACTOR</h2>
+<a id="gad5d86e418e1507f6584595a8ed8b5e10" name="gad5d86e418e1507f6584595a8ed8b5e10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad5d86e418e1507f6584595a8ed8b5e10">&#9670;&#160;</a></span>DEGREES_PHASE_FACTOR</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AGC_VOLTAGE_FACTOR&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00482.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a> * pow(2.0, 15))</td>
+          <td class="memname">#define DEGREES_PHASE_FACTOR&#160;&#160;&#160;((<a class="el" href="a00482.html#ga14f8c324344d8c244db7c1ffc95daacc">PRI_TO_SEC_PHASE_DEGREES_LIMIT</a> * ((<a class="el" href="a00483.html#ga985f58915c79f9f205b0ad2c51f53a2a">DEGREES_PHASE_SCALER</a>)* <a class="el" href="a00483.html#ga8a2a936326c4e675da1e98a8661843ff">DEGREES_PHASE_10x</a>)))</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00168">168</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00057">57</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
 
 </div>
 </div>
-<a id="ga5d5113c068bc70c6666522402aa59bcf" name="ga5d5113c068bc70c6666522402aa59bcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5d5113c068bc70c6666522402aa59bcf">&#9670;&#160;</a></span>POWER_FACTOR</h2>
+<a id="ga985f58915c79f9f205b0ad2c51f53a2a" name="ga985f58915c79f9f205b0ad2c51f53a2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga985f58915c79f9f205b0ad2c51f53a2a">&#9670;&#160;</a></span>DEGREES_PHASE_SCALER</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define POWER_FACTOR&#160;&#160;&#160;(uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, <a class="el" href="a00483.html#ga80914760246c425bc1536e1d809a071b">POWER_SCALER</a>))) / ((ADC_RESOLUTION * <a class="el" href="a00474.html#gadbb92791a446721a3d4af49d713520ca">VSEC_SNS_GAIN</a>) * (ADC_RESOLUTION * <a class="el" href="a00478.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>)))</td>
+          <td class="memname">#define DEGREES_PHASE_SCALER&#160;&#160;&#160;(10u)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00166">166</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00055">55</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
 
 </div>
 </div>
-<a id="ga80914760246c425bc1536e1d809a071b" name="ga80914760246c425bc1536e1d809a071b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga80914760246c425bc1536e1d809a071b">&#9670;&#160;</a></span>POWER_SCALER</h2>
+<a id="ga2aa2f9a51e6d0c4f080cd83ae96989bd" name="ga2aa2f9a51e6d0c4f080cd83ae96989bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2aa2f9a51e6d0c4f080cd83ae96989bd">&#9670;&#160;</a></span>DEGREES_PHASE_SCALING_10</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define POWER_SCALER&#160;&#160;&#160;(14u)</td>
+          <td class="memname">#define DEGREES_PHASE_SCALING_10&#160;&#160;&#160;((pow(2.0, <a class="el" href="a00483.html#ga985f58915c79f9f205b0ad2c51f53a2a">DEGREES_PHASE_SCALER</a>)) / <a class="el" href="a00483.html#ga8a2a936326c4e675da1e98a8661843ff">DEGREES_PHASE_10x</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00165">165</a> of file <a class="el" href="a00281_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00056">56</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="ga1ca2efa729e26db33b57a3c71e9fd8ac" name="ga1ca2efa729e26db33b57a3c71e9fd8ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1ca2efa729e26db33b57a3c71e9fd8ac">&#9670;&#160;</a></span>MAX_PWM_DEAD_TIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_PWM_DEAD_TIME&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00482.html#gac6d318c94c201374c73969ce117024a8">MAXIMUM_DEADTIME</a> / (float)<a class="el" href="a00483.html#gafd17199da18b5a3321b37016464983b0">PWM_CLOCK_PERIOD</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00050">50</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="ga186594aa5d23f8d898758992a70b2d13" name="ga186594aa5d23f8d898758992a70b2d13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga186594aa5d23f8d898758992a70b2d13">&#9670;&#160;</a></span>MAX_PWM_PERIOD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_PWM_PERIOD&#160;&#160;&#160;(uint16_t)(float)(<a class="el" href="a00483.html#ga6b442951e644a17742ef24efa981f4c2">MAX_SWITCHING_PERIOD</a> / <a class="el" href="a00483.html#gafd17199da18b5a3321b37016464983b0">PWM_CLOCK_PERIOD</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00040">40</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="ga6b442951e644a17742ef24efa981f4c2" name="ga6b442951e644a17742ef24efa981f4c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6b442951e644a17742ef24efa981f4c2">&#9670;&#160;</a></span>MAX_SWITCHING_PERIOD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_SWITCHING_PERIOD&#160;&#160;&#160;(float)(1.0/<a class="el" href="a00482.html#gae8f8211058cb5c9a0691fbf041d32043">MINIMUM_SWITCHING_FREQUENCY</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00038">38</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gad6a2ee2364ce0f4f20b7527a1e95d181" name="gad6a2ee2364ce0f4f20b7527a1e95d181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad6a2ee2364ce0f4f20b7527a1e95d181">&#9670;&#160;</a></span>MIN_PHASE_SHIFTED_PULSE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MIN_PHASE_SHIFTED_PULSE&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00482.html#ga10e0f079254bb242838a78371205ca1a">MINIMUM_PHASESHIFTED_PULSE</a> / (float)<a class="el" href="a00483.html#gafd17199da18b5a3321b37016464983b0">PWM_CLOCK_PERIOD</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00052">52</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gabc0fa5be333bec97b04a2dbdd15b1042" name="gabc0fa5be333bec97b04a2dbdd15b1042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabc0fa5be333bec97b04a2dbdd15b1042">&#9670;&#160;</a></span>MIN_PWM_DEAD_TIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MIN_PWM_DEAD_TIME&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00482.html#gad8b5e420d5663a13bb68f6883cad64c8">MINIMUM_DEADTIME</a> / (float)<a class="el" href="a00483.html#gafd17199da18b5a3321b37016464983b0">PWM_CLOCK_PERIOD</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00049">49</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gaab2f7ae5f2d6809dd3894e30692f30b1" name="gaab2f7ae5f2d6809dd3894e30692f30b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab2f7ae5f2d6809dd3894e30692f30b1">&#9670;&#160;</a></span>MIN_PWM_PERIOD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MIN_PWM_PERIOD&#160;&#160;&#160;(uint16_t)(float)(<a class="el" href="a00483.html#ga5ed32182c39d3e960b242387f435759b">MIN_SWITCHING_PERIOD</a> / <a class="el" href="a00483.html#gafd17199da18b5a3321b37016464983b0">PWM_CLOCK_PERIOD</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00041">41</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="ga5ed32182c39d3e960b242387f435759b" name="ga5ed32182c39d3e960b242387f435759b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5ed32182c39d3e960b242387f435759b">&#9670;&#160;</a></span>MIN_SWITCHING_PERIOD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MIN_SWITCHING_PERIOD&#160;&#160;&#160;(float)(1.0/<a class="el" href="a00482.html#ga99b5526b36699f6f8c57ed94954a9b77">MAXIMUM_SWITCHING_FREQUENCY</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00039">39</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gaf207f331e3e052a4ad198b0837e64cd9" name="gaf207f331e3e052a4ad198b0837e64cd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf207f331e3e052a4ad198b0837e64cd9">&#9670;&#160;</a></span>PERIOD_RANGE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERIOD_RANGE&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00483.html#ga186594aa5d23f8d898758992a70b2d13">MAX_PWM_PERIOD</a> - <a class="el" href="a00483.html#gaab2f7ae5f2d6809dd3894e30692f30b1">MIN_PWM_PERIOD</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00042">42</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gafd17199da18b5a3321b37016464983b0" name="gafd17199da18b5a3321b37016464983b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafd17199da18b5a3321b37016464983b0">&#9670;&#160;</a></span>PWM_CLOCK_PERIOD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PWM_CLOCK_PERIOD&#160;&#160;&#160;(float)(1.0 / PWM_CLOCK_FREQUENCY)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>These conversion macros are used to convert user settings defined as physical quantities into binary (integer) numbers, which will be written to registers and variables and used in calculations throughout the firmware. PWM Clock Period in [sec] </p>
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00037">37</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
 
 </div>
 </div>

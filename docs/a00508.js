@@ -1,8 +1,13 @@
 var a00508 =
 [
-    [ "pwrctrl_pwm.c", "a00458.html", null ],
-    [ "pwrctrl_pwm.h", "a00461.html", null ],
-    [ "PwrCtrl_PWM_Disable", "a00508.html#ga79ec0c0e524a03b3a3d423308b89bb99", null ],
-    [ "PwrCtrl_PWM_Enable", "a00508.html#gae20d34fb8fc7fbaa57f6c68b2907807f", null ],
-    [ "PwrCtrl_PWM_Update", "a00508.html#ga73f526371cadb7674354635462e836cc", null ]
+    [ "PWM Settings", "a00482.html", "a00482" ],
+    [ "Primary Voltage Feedback", "a00484.html", "a00484" ],
+    [ "Secondary Voltage Feedback", "a00486.html", "a00486" ],
+    [ "Primary Current Feedback", "a00488.html", "a00488" ],
+    [ "Secondary Current Feedback", "a00490.html", "a00490" ],
+    [ "5V Voltage Feedback", "a00492.html", "a00492" ],
+    [ "Control Loop", "a00494.html", "a00494" ],
+    [ "Temperature Feedback", "a00496.html", "a00496" ],
+    [ "Special Firmware Options", "a00498.html", "a00498" ],
+    [ "Useful Macros", "a00499.html", "a00499" ]
 ];

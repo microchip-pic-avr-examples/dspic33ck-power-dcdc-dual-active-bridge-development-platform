@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/comm/PBV_DAB_frame_map.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/comm/PBV_CAN.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,32 +136,44 @@ $(document).ready(function(){initNavTree('a00257_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">PBV_DAB_frame_map.h</div></div>
+  <div class="headertitle"><div class="title">PBV_CAN.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00257.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// more than once.  </span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef APP_PBV_DAB_FRAME_MAP_H</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define APP_PBV_DAB_FRAME_MAP_H</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;xc.h&gt;</span> <span class="comment">// include processor files - each processor file is guarded.  </span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;PBV_interface.h&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/* </span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @file    PBV_CAN.h   </span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @author  M70027</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @ingroup PBV_CAN</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @brief   Power Board Visualizer CAN interface </span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// more than once.  </span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef APP_PBV_CAN_INTERFACE_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define APP_PBV_CAN_INTERFACE_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;PBV_interface.h&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#ga00307bed276aca52423f1e10365e3334">App_PBV_DAB_Init</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#ga4de477d51ea04cdcfcb1e3eb3ef0053a">App_PBV_DAB_Task_10ms</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00495.html#gad255673713bb77bc36791875207a4393">App_PBV_DAB_Task_1s</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="a00257.html#a6b4fd2864720192132d4e7ad69d6738a">   22</a></span><a class="code hl_struct" href="a00621.html">PBV_Datatype_TX_t</a> * <a class="code hl_function" href="a00257.html#a6b4fd2864720192132d4e7ad69d6738a">App_PBV_DAB_Get_TX_Log_ptr</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif  </span><span class="comment">/* APP_PBV_DAB_FRAME_MAP_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="ttc" id="aa00257_html_a6b4fd2864720192132d4e7ad69d6738a"><div class="ttname"><a href="a00257.html#a6b4fd2864720192132d4e7ad69d6738a">App_PBV_DAB_Get_TX_Log_ptr</a></div><div class="ttdeci">PBV_Datatype_TX_t * App_PBV_DAB_Get_TX_Log_ptr(void)</div></div>
-<div class="ttc" id="aa00495_html_ga00307bed276aca52423f1e10365e3334"><div class="ttname"><a href="a00495.html#ga00307bed276aca52423f1e10365e3334">App_PBV_DAB_Init</a></div><div class="ttdeci">void App_PBV_DAB_Init(void)</div><div class="ttdoc">This function initializes the local pbv objects. these objects are then passed on to the app_PBV_init...</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00095">PBV_dab_frame_map.c:95</a></div></div>
-<div class="ttc" id="aa00495_html_ga4de477d51ea04cdcfcb1e3eb3ef0053a"><div class="ttname"><a href="a00495.html#ga4de477d51ea04cdcfcb1e3eb3ef0053a">App_PBV_DAB_Task_10ms</a></div><div class="ttdeci">void App_PBV_DAB_Task_10ms(void)</div><div class="ttdoc">10ms PBV task to be execution</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00121">PBV_dab_frame_map.c:121</a></div></div>
-<div class="ttc" id="aa00495_html_gad255673713bb77bc36791875207a4393"><div class="ttname"><a href="a00495.html#gad255673713bb77bc36791875207a4393">App_PBV_DAB_Task_1s</a></div><div class="ttdeci">void App_PBV_DAB_Task_1s(void)</div><div class="ttdoc">1 second PBV task to be execution</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00150">PBV_dab_frame_map.c:150</a></div></div>
-<div class="ttc" id="aa00621_html"><div class="ttname"><a href="a00621.html">PBV_Datatype_TX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00263_source.html#l00075">PBV_interface.h:75</a></div></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">// Public Functions</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00503.html#ga79f8710b3f0d8c70122b335311789f84">PBV_CAN_Init</a>(<a class="code hl_struct" href="a00629.html">PBV_Datatype_TX_t</a> * boardToPBV, <a class="code hl_struct" href="a00629.html">PBV_Datatype_TX_t</a> * boardToPBVAscii, <a class="code hl_struct" href="a00633.html">PBV_Datatype_RX_t</a> *pbvToBoard);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>uint8_t <a class="code hl_function" href="a00503.html#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a">PBV_CAN_Receive_from_GUI</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>uint8_t <a class="code hl_function" href="a00503.html#gae06ebd7cad07c3a104d5b46c6f6323dc">PBV_CAN_Transmit_to_GUI</a>();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>uint8_t <a class="code hl_function" href="a00503.html#ga8a1a918272c7acb8edadb6686bdf7410">PBV_CAN_Transmit_Ascii_to_GUI</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00503.html#ga857a8826c159110cf094721b35f5637d">PBV_CAN_Reinit</a>(<a class="code hl_struct" href="a00629.html">PBV_Datatype_TX_t</a> * ptr);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00503.html#ga324f8d21b38a8db2c2eff48363fc09cd">PBV_CAN_Link_Data_TX</a>(<a class="code hl_struct" href="a00629.html">PBV_Datatype_TX_t</a> * ptr);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00503.html#ga75e58befa8b1fe6733bfe6cbab86e7ed">PBV_CAN_Link_Data_RX</a>(<a class="code hl_struct" href="a00633.html">PBV_Datatype_RX_t</a> * ptr);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif  </span><span class="comment">/* APP_PBV_CAN_INTERFACE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="ttc" id="aa00503_html_ga324f8d21b38a8db2c2eff48363fc09cd"><div class="ttname"><a href="a00503.html#ga324f8d21b38a8db2c2eff48363fc09cd">PBV_CAN_Link_Data_TX</a></div><div class="ttdeci">void PBV_CAN_Link_Data_TX(PBV_Datatype_TX_t *ptr)</div><div class="ttdoc">Links the data from TX PBV datatype to CAN TX object.</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00238">PBV_CAN.c:238</a></div></div>
+<div class="ttc" id="aa00503_html_ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><div class="ttname"><a href="a00503.html#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a">PBV_CAN_Receive_from_GUI</a></div><div class="ttdeci">uint8_t PBV_CAN_Receive_from_GUI()</div><div class="ttdoc">Checks the queue and if a message is received then links the data pointer to can object.</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00067">PBV_CAN.c:67</a></div></div>
+<div class="ttc" id="aa00503_html_ga75e58befa8b1fe6733bfe6cbab86e7ed"><div class="ttname"><a href="a00503.html#ga75e58befa8b1fe6733bfe6cbab86e7ed">PBV_CAN_Link_Data_RX</a></div><div class="ttdeci">void PBV_CAN_Link_Data_RX(PBV_Datatype_RX_t *ptr)</div><div class="ttdoc">links the received data to the application data structure</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00252">PBV_CAN.c:252</a></div></div>
+<div class="ttc" id="aa00503_html_ga79f8710b3f0d8c70122b335311789f84"><div class="ttname"><a href="a00503.html#ga79f8710b3f0d8c70122b335311789f84">PBV_CAN_Init</a></div><div class="ttdeci">void PBV_CAN_Init(PBV_Datatype_TX_t *boardToPBV, PBV_Datatype_TX_t *boardToPBVAscii, PBV_Datatype_RX_t *pbvToBoard)</div><div class="ttdoc">Initializes CAN objects with PBV objects ( only CAN IDs for now)</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00044">PBV_CAN.c:44</a></div></div>
+<div class="ttc" id="aa00503_html_ga857a8826c159110cf094721b35f5637d"><div class="ttname"><a href="a00503.html#ga857a8826c159110cf094721b35f5637d">PBV_CAN_Reinit</a></div><div class="ttdeci">void PBV_CAN_Reinit(PBV_Datatype_TX_t *ptr)</div><div class="ttdoc">Reinitializes the can object with new can id.</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00112">PBV_CAN.c:112</a></div></div>
+<div class="ttc" id="aa00503_html_ga8a1a918272c7acb8edadb6686bdf7410"><div class="ttname"><a href="a00503.html#ga8a1a918272c7acb8edadb6686bdf7410">PBV_CAN_Transmit_Ascii_to_GUI</a></div><div class="ttdeci">uint8_t PBV_CAN_Transmit_Ascii_to_GUI()</div><div class="ttdoc">transmits the Ascii msg to PBV</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00083">PBV_CAN.c:83</a></div></div>
+<div class="ttc" id="aa00503_html_gae06ebd7cad07c3a104d5b46c6f6323dc"><div class="ttname"><a href="a00503.html#gae06ebd7cad07c3a104d5b46c6f6323dc">PBV_CAN_Transmit_to_GUI</a></div><div class="ttdeci">uint8_t PBV_CAN_Transmit_to_GUI()</div><div class="ttdoc">Transmits the numerical msg to PBV.</div><div class="ttdef"><b>Definition</b> <a href="a00254_source.html#l00097">PBV_CAN.c:97</a></div></div>
+<div class="ttc" id="aa00629_html"><div class="ttname"><a href="a00629.html">PBV_Datatype_TX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00275_source.html#l00075">PBV_interface.h:75</a></div></div>
+<div class="ttc" id="aa00633_html"><div class="ttname"><a href="a00633.html">PBV_Datatype_RX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00275_source.html#l00089">PBV_interface.h:89</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

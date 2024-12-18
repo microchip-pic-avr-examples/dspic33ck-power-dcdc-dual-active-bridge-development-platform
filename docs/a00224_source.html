@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/timer/timer_interface.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/watchdog.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('a00224_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">timer_interface.h</div></div>
+  <div class="headertitle"><div class="title">watchdog.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
@@ -161,61 +161,41 @@ $(document).ready(function(){initNavTree('a00224_source.html',''); initResizable
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">    THIS SOFTWARE.</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#ifndef TIMER_INTERFACE_H</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#define TIMER_INTERFACE_H</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#ifndef WATCHDOG_H</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#define WATCHDOG_H</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">// Section: Included Files</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &quot;../system/interrupt_types.h&quot;</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">// Section: Data Type Definitions</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="a00535.html#gac11c35cf02cfa081af695c9ad0144394">   53</a></span><span class="preprocessor">#define TIMER_PERIODCOUNTSET_API_SUPPORT false</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="foldopen" id="foldopen00060" data-start="{" data-end="};">
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="a00601.html">   60</a></span><span class="keyword">struct </span><a class="code hl_struct" href="a00601.html">TIMER_INTERFACE</a></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>{</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="a00601.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">   62</a></span>    void (*<a class="code hl_variable" href="a00601.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">Initialize</a>)(void);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="a00601.html#ab6aa2863d2196e9f95f70fde91049ee6">   65</a></span>    void (*<a class="code hl_variable" href="a00601.html#ab6aa2863d2196e9f95f70fde91049ee6">Deinitialize</a>)(void);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="a00601.html#a758d4ba329d806525e4a916f4683cd98">   68</a></span>    void (*<a class="code hl_variable" href="a00601.html#a758d4ba329d806525e4a916f4683cd98">Start</a>)(void);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="a00601.html#a9085da955869b5ee4581824b0869d210">   71</a></span>    void (*<a class="code hl_variable" href="a00601.html#a9085da955869b5ee4581824b0869d210">Stop</a>)(void);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">    #if TIMER_PERIODCOUNTSET_API_SUPPORT</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    void (*PeriodCountSet)(<span class="keywordtype">size_t</span> count);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">    #endif</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="a00601.html#a9d4ca553733a468f91aeb200f8440685">   79</a></span>    void (*<a class="code hl_variable" href="a00601.html#a9d4ca553733a468f91aeb200f8440685">PeriodSet</a>)(uint32_t count);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="a00601.html#a9dedbf0c7d35427fa5c7d7627371cba1">   82</a></span>    uint32_t (*<a class="code hl_variable" href="a00601.html#a9dedbf0c7d35427fa5c7d7627371cba1">PeriodGet</a>)(void);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="a00601.html#a3bfca0e3c07096d3729aa5718e498b05">   85</a></span>    uint32_t (*<a class="code hl_variable" href="a00601.html#a3bfca0e3c07096d3729aa5718e498b05">CounterGet</a>)(void);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="a00601.html#a4ac86c80e790956adc78b492ab2769c4">   88</a></span>    void (*<a class="code hl_variable" href="a00601.html#a4ac86c80e790956adc78b492ab2769c4">InterruptPrioritySet</a>)(<span class="keyword">enum</span> INTERRUPT_PRIORITY priority);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="a00601.html#a0201c541ecfbc1b5a4048e7d7487003a">   91</a></span>    void (*<a class="code hl_variable" href="a00601.html#a0201c541ecfbc1b5a4048e7d7487003a">TimeoutCallbackRegister</a>)(void (*CallbackHandler)(void));</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="a00601.html#a1cd6ba5da58bb0185a3939d1fdcd25f5">   94</a></span>    void (*<a class="code hl_variable" href="a00601.html#a1cd6ba5da58bb0185a3939d1fdcd25f5">Tasks</a>)(void);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// Section: Type defines</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="a00541.html#ga9fe59f55f06cfb2df71dcf9f0b64cd3c">   48</a></span><span class="preprocessor">#define WATCHDOG_CLR_KEY 0x5743</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="a00541.html#gaf945fced45ce9cc9a9922d8f31e09e67">   56</a></span><span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00541.html#gaf945fced45ce9cc9a9922d8f31e09e67">WATCHDOG_TimerSoftwareEnable</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    WDTCONLbits.ON = 1;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
 </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#endif </span><span class="comment">// TIMER_INTERFACE_H</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="ttc" id="aa00601_html"><div class="ttname"><a href="a00601.html">TIMER_INTERFACE</a></div><div class="ttdoc">Structure containing the function pointers of TIMER driver.</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00060">timer_interface.h:61</a></div></div>
-<div class="ttc" id="aa00601_html_a0201c541ecfbc1b5a4048e7d7487003a"><div class="ttname"><a href="a00601.html#a0201c541ecfbc1b5a4048e7d7487003a">TIMER_INTERFACE::TimeoutCallbackRegister</a></div><div class="ttdeci">void(* TimeoutCallbackRegister)(void(*CallbackHandler)(void))</div><div class="ttdoc">Pointer to MCCPx_TimeoutCallbackRegister or SCCPx_TimeoutCallbackRegister or TMRx_TimeoutCallbackRegi...</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00091">timer_interface.h:91</a></div></div>
-<div class="ttc" id="aa00601_html_a1cd6ba5da58bb0185a3939d1fdcd25f5"><div class="ttname"><a href="a00601.html#a1cd6ba5da58bb0185a3939d1fdcd25f5">TIMER_INTERFACE::Tasks</a></div><div class="ttdeci">void(* Tasks)(void)</div><div class="ttdoc">Pointer to MCCPx_Timer_Tasks or SCCPx_Timer_Tasks or TMRx_Tasks e.g. SCCP1_Timer_Tasks or TMR1_Tasks ...</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00094">timer_interface.h:94</a></div></div>
-<div class="ttc" id="aa00601_html_a3bfca0e3c07096d3729aa5718e498b05"><div class="ttname"><a href="a00601.html#a3bfca0e3c07096d3729aa5718e498b05">TIMER_INTERFACE::CounterGet</a></div><div class="ttdeci">uint32_t(* CounterGet)(void)</div><div class="ttdoc">Pointer to MCCPx_Timer_CounterGet or SCCPx_Timer_CounterGet or TMRx_CounterGet e.g....</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00085">timer_interface.h:85</a></div></div>
-<div class="ttc" id="aa00601_html_a4ac86c80e790956adc78b492ab2769c4"><div class="ttname"><a href="a00601.html#a4ac86c80e790956adc78b492ab2769c4">TIMER_INTERFACE::InterruptPrioritySet</a></div><div class="ttdeci">void(* InterruptPrioritySet)(enum INTERRUPT_PRIORITY priority)</div><div class="ttdoc">Pointer to MCCPx_Timer_InterruptPrioritySet or SCCPx_Timer_InterruptPrioritySet or TMRx_InterruptPrio...</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00088">timer_interface.h:88</a></div></div>
-<div class="ttc" id="aa00601_html_a758d4ba329d806525e4a916f4683cd98"><div class="ttname"><a href="a00601.html#a758d4ba329d806525e4a916f4683cd98">TIMER_INTERFACE::Start</a></div><div class="ttdeci">void(* Start)(void)</div><div class="ttdoc">Pointer to MCCPx_Timer_Start or SCCPx_Timer_Start or TMRx_Start e.g. SCCP1_Timer_Start or TMR1_Start.</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00068">timer_interface.h:68</a></div></div>
-<div class="ttc" id="aa00601_html_a9085da955869b5ee4581824b0869d210"><div class="ttname"><a href="a00601.html#a9085da955869b5ee4581824b0869d210">TIMER_INTERFACE::Stop</a></div><div class="ttdeci">void(* Stop)(void)</div><div class="ttdoc">Pointer to MCCPx_Timer_Stop or SCCPx_Timer_Stop or TMRx_Stop e.g. SCCP1_Timer_Stop or TMR1_Stop.</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00071">timer_interface.h:71</a></div></div>
-<div class="ttc" id="aa00601_html_a9d4ca553733a468f91aeb200f8440685"><div class="ttname"><a href="a00601.html#a9d4ca553733a468f91aeb200f8440685">TIMER_INTERFACE::PeriodSet</a></div><div class="ttdeci">void(* PeriodSet)(uint32_t count)</div><div class="ttdoc">Pointer to MCCPx_Timer_PeriodSet or SCCPx_Timer_PeriodSet or TMRx_PeriodSet e.g. SCCP1_Timer_PeriodSe...</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00079">timer_interface.h:79</a></div></div>
-<div class="ttc" id="aa00601_html_a9dedbf0c7d35427fa5c7d7627371cba1"><div class="ttname"><a href="a00601.html#a9dedbf0c7d35427fa5c7d7627371cba1">TIMER_INTERFACE::PeriodGet</a></div><div class="ttdeci">uint32_t(* PeriodGet)(void)</div><div class="ttdoc">Pointer to MCCPx_Timer_PeriodGet or SCCPx_Timer_PeriodGet or TMRx_PeriodGet e.g. SCCP1_Timer_PeriodGe...</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00082">timer_interface.h:82</a></div></div>
-<div class="ttc" id="aa00601_html_ab6aa2863d2196e9f95f70fde91049ee6"><div class="ttname"><a href="a00601.html#ab6aa2863d2196e9f95f70fde91049ee6">TIMER_INTERFACE::Deinitialize</a></div><div class="ttdeci">void(* Deinitialize)(void)</div><div class="ttdoc">Pointer to MCCPx_Timer_Deinitialize or SCCPx_Timer_Deinitialize or TMRx_Deinitialize e....</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00065">timer_interface.h:65</a></div></div>
-<div class="ttc" id="aa00601_html_afea2a7e78ccb7643d694c4bd7fa2ed5f"><div class="ttname"><a href="a00601.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">TIMER_INTERFACE::Initialize</a></div><div class="ttdeci">void(* Initialize)(void)</div><div class="ttdoc">Pointer to MCCPx_Timer_Initialize or SCCPx_Timer_Initialize or TMRx_Initialize e.g....</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00062">timer_interface.h:62</a></div></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="a00541.html#ga74fb697367e441a6ac0a56e33794ebc4">   67</a></span><span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00541.html#ga74fb697367e441a6ac0a56e33794ebc4">WATCHDOG_TimerSoftwareDisable</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    WDTCONLbits.ON = 0;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
+</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="a00541.html#ga0709c01950447ea286ea4538174a7a82">   78</a></span><span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00541.html#ga0709c01950447ea286ea4538174a7a82">WATCHDOG_TimerClear</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    WDTCONH = <a class="code hl_define" href="a00541.html#ga9fe59f55f06cfb2df71dcf9f0b64cd3c">WATCHDOG_CLR_KEY</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>}</div>
+</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#endif </span><span class="comment">/* WATCHDOG_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aa00541_html_ga0709c01950447ea286ea4538174a7a82"><div class="ttname"><a href="a00541.html#ga0709c01950447ea286ea4538174a7a82">WATCHDOG_TimerClear</a></div><div class="ttdeci">static void WATCHDOG_TimerClear(void)</div><div class="ttdoc">This inline function is used to clear the Watchdog Timer (WDT)</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00078">watchdog.h:78</a></div></div>
+<div class="ttc" id="aa00541_html_ga74fb697367e441a6ac0a56e33794ebc4"><div class="ttname"><a href="a00541.html#ga74fb697367e441a6ac0a56e33794ebc4">WATCHDOG_TimerSoftwareDisable</a></div><div class="ttdeci">static void WATCHDOG_TimerSoftwareDisable(void)</div><div class="ttdoc">This inline function is used to disable the Watchdog Timer (WDT) using the software bit.</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00067">watchdog.h:67</a></div></div>
+<div class="ttc" id="aa00541_html_ga9fe59f55f06cfb2df71dcf9f0b64cd3c"><div class="ttname"><a href="a00541.html#ga9fe59f55f06cfb2df71dcf9f0b64cd3c">WATCHDOG_CLR_KEY</a></div><div class="ttdeci">#define WATCHDOG_CLR_KEY</div><div class="ttdoc">This macro holds the key value to clear Watchdog Timer (WDT)</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00048">watchdog.h:48</a></div></div>
+<div class="ttc" id="aa00541_html_gaf945fced45ce9cc9a9922d8f31e09e67"><div class="ttname"><a href="a00541.html#gaf945fced45ce9cc9a9922d8f31e09e67">WATCHDOG_TimerSoftwareEnable</a></div><div class="ttdeci">static void WATCHDOG_TimerSoftwareEnable(void)</div><div class="ttdoc">This inline function is used to enable the Watchdog Timer (WDT) using the software bit.</div><div class="ttdef"><b>Definition</b> <a href="a00224_source.html#l00056">watchdog.h:56</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_fan.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/device.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,78 +136,24 @@ $(document).ready(function(){initNavTree('a00302_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">dev_fan.h</div></div>
+  <div class="headertitle"><div class="title">device.h</div></div>
 </div><!--header-->
 <div class="contents">
 <a href="a00302.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">// more than once.  </span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef DEV_FAN_H</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define DEV_FAN_H</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;xc.h&gt;</span> <span class="comment">// include processor files - each processor file is guarded.  </span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;stdint.h&gt;</span> <span class="comment">// include standard integer data types</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include    &quot;<a class="code" href="a00134.html">pwm/sccp3.h</a>&quot;</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="a00302.html#ab7ffb5a0ee7b15aecd0b32e84b93e2ee">   30</a></span><span class="preprocessor">#define     MULTIPLIER      (CCP3PRL/100)       </span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
- <span class="comment">// end of dev-fan-sccp-abstraction-macros</span><div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="a00302.html#aaf9063e8b26414fdf46b844a1b8a8a88">   39</a></span><span class="preprocessor">#define MAX_SPEED_PERCENT       96  </span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="a00302.html#ab079ea0e55d954b22bad8e72f8bf5416">   40</a></span><span class="preprocessor">#define INIT_SPEED_PERCENT      1  </span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="a00302.html#a0131e7060ad24ede5f578cfd8afb841b">   41</a></span><span class="preprocessor">#define MIN_TICK                1   </span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="a00302.html#a47024204d8ea2cdcc3154f63677b3832">   42</a></span><span class="preprocessor">#define STEP_SIZE               1   </span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
- <span class="comment">// end of dev-fan-speed-limit-macros</span><div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="foldopen" id="foldopen00050" data-start="{" data-end="};">
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="a00641.html">   50</a></span><span class="keyword">struct </span><a class="code hl_struct" href="a00641.html">FAN_DATA_s</a> {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="a00641.html#ad5d31528415a4ed9cf81ebfd785128c2">   51</a></span>    uint8_t     <a class="code hl_variable" href="a00641.html#ad5d31528415a4ed9cf81ebfd785128c2">CurrentSpeedPercent</a>;     </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="a00641.html#ad26b627b999dd76f16aa4a9e36470c91">   52</a></span>    uint8_t     <a class="code hl_variable" href="a00641.html#ad26b627b999dd76f16aa4a9e36470c91">TargetSpeedPercent</a>;      </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="a00641.html#ad407e9ccc871b7dc9cca12bde19c730d">   53</a></span>    uint16_t    <a class="code hl_variable" href="a00641.html#ad407e9ccc871b7dc9cca12bde19c730d">MaxSpeedPercent</a>;         </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="a00641.html#a4c53383b26fe25c1a65efe0e9b6ed9cf">   54</a></span>    uint16_t    <a class="code hl_variable" href="a00641.html#a4c53383b26fe25c1a65efe0e9b6ed9cf">Tick</a>;                    </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="a00641.html#a6ea3b4a0033803dc206c7e104ab29ca8">   55</a></span>    uint16_t    <a class="code hl_variable" href="a00641.html#a6ea3b4a0033803dc206c7e104ab29ca8">StepSizePercent</a>;         </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="a00641.html#ac2a920307a7df3fdd9d9ef56b0fbac82">   56</a></span>    uint16_t    <a class="code hl_variable" href="a00641.html#ac2a920307a7df3fdd9d9ef56b0fbac82">TargetSpeedRaw</a>;          </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="a00641.html#a833f5d95cb05c7446c9493ce32cd6a4e">   57</a></span>    uint16_t    <a class="code hl_variable" href="a00641.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a>;         </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="a00641.html#a17841407278bd546565d170f7b6e9e78">   58</a></span>    uint16_t    <a class="code hl_variable" href="a00641.html#a17841407278bd546565d170f7b6e9e78">MaxSpeedRaw</a>;             </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="a00641.html#a4f9053371e35277861b7403cd46b0d98">   59</a></span>    uint8_t     <a class="code hl_variable" href="a00641.html#a4f9053371e35277861b7403cd46b0d98">OverrideFlag</a>;             </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>};</div>
-</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="a00302.html#a8811ef66930b574a01bfaf769ce39679">   61</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00641.html">FAN_DATA_s</a> <a class="code hl_struct" href="a00641.html">FAN_DATA_t</a>;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00641.html">FAN_DATA_t</a>* <a class="code hl_variable" href="a00302.html#adaf3c18eacb83f7ffa95a34b90d5ad0d">devFanDataPtr</a>;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00499.html#gad4274efc956bcca058565b186c2fd1a0">Dev_Fan_Initialize</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00499.html#ga1bd7dce99469a41bbb705d939ea512ad">Dev_Fan_Task_100ms</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00499.html#gafd7dde7baca2e1dd3a745bf5f8258da7">Dev_Fan_Task_1s</a>(<span class="keywordtype">void</span>); </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00499.html#gabf5c734c9834b070c4adf1af69e9f048">Dev_Fan_Set_Override</a>(<span class="keywordtype">void</span>);           </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00499.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a>(uint8_t <a class="code hl_variable" href="a00641.html#ad26b627b999dd76f16aa4a9e36470c91">TargetSpeedPercent</a>);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_FAN_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="ttc" id="aa00134_html"><div class="ttname"><a href="a00134.html">sccp3.h</a></div><div class="ttdoc">This is the generated driver header file for the SCCP3 driver.</div></div>
-<div class="ttc" id="aa00302_html_adaf3c18eacb83f7ffa95a34b90d5ad0d"><div class="ttname"><a href="a00302.html#adaf3c18eacb83f7ffa95a34b90d5ad0d">devFanDataPtr</a></div><div class="ttdeci">FAN_DATA_t * devFanDataPtr</div><div class="ttdef"><b>Definition</b> <a href="a00299_source.html#l00022">dev_fan.c:22</a></div></div>
-<div class="ttc" id="aa00499_html_ga1bd7dce99469a41bbb705d939ea512ad"><div class="ttname"><a href="a00499.html#ga1bd7dce99469a41bbb705d939ea512ad">Dev_Fan_Task_100ms</a></div><div class="ttdeci">void Dev_Fan_Task_100ms(void)</div><div class="ttdoc">this function needs to be called every 100ms it contains the code to update the status of the fan</div><div class="ttdef"><b>Definition</b> <a href="a00299_source.html#l00076">dev_fan.c:76</a></div></div>
-<div class="ttc" id="aa00499_html_ga5cfd61659ae6b17ad25e51bfc211723b"><div class="ttname"><a href="a00499.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a></div><div class="ttdeci">void Dev_Fan_Set_Speed(uint8_t TargetSpeedPercent)</div><div class="ttdoc">Sets the fan speed.</div><div class="ttdef"><b>Definition</b> <a href="a00299_source.html#l00159">dev_fan.c:159</a></div></div>
-<div class="ttc" id="aa00499_html_gabf5c734c9834b070c4adf1af69e9f048"><div class="ttname"><a href="a00499.html#gabf5c734c9834b070c4adf1af69e9f048">Dev_Fan_Set_Override</a></div><div class="ttdeci">void Dev_Fan_Set_Override(void)</div><div class="ttdoc">Sets the fan override bit and the fan speed.</div><div class="ttdef"><b>Definition</b> <a href="a00299_source.html#l00145">dev_fan.c:145</a></div></div>
-<div class="ttc" id="aa00499_html_gad4274efc956bcca058565b186c2fd1a0"><div class="ttname"><a href="a00499.html#gad4274efc956bcca058565b186c2fd1a0">Dev_Fan_Initialize</a></div><div class="ttdeci">void Dev_Fan_Initialize(void)</div><div class="ttdoc">This function initializes the fan object.</div><div class="ttdef"><b>Definition</b> <a href="a00299_source.html#l00049">dev_fan.c:49</a></div></div>
-<div class="ttc" id="aa00499_html_gafd7dde7baca2e1dd3a745bf5f8258da7"><div class="ttname"><a href="a00499.html#gafd7dde7baca2e1dd3a745bf5f8258da7">Dev_Fan_Task_1s</a></div><div class="ttdeci">void Dev_Fan_Task_1s(void)</div><div class="ttdoc">This function needs to be called every 1s to keep the temperature of the board at a certain temperatu...</div><div class="ttdef"><b>Definition</b> <a href="a00299_source.html#l00110">dev_fan.c:110</a></div></div>
-<div class="ttc" id="aa00641_html"><div class="ttname"><a href="a00641.html">FAN_DATA_s</a></div><div class="ttdoc">A custom data type for fan.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00050">dev_fan.h:50</a></div></div>
-<div class="ttc" id="aa00641_html_a17841407278bd546565d170f7b6e9e78"><div class="ttname"><a href="a00641.html#a17841407278bd546565d170f7b6e9e78">FAN_DATA_s::MaxSpeedRaw</a></div><div class="ttdeci">uint16_t MaxSpeedRaw</div><div class="ttdoc">based on period value (CCXPRL).</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00058">dev_fan.h:58</a></div></div>
-<div class="ttc" id="aa00641_html_a4c53383b26fe25c1a65efe0e9b6ed9cf"><div class="ttname"><a href="a00641.html#a4c53383b26fe25c1a65efe0e9b6ed9cf">FAN_DATA_s::Tick</a></div><div class="ttdeci">uint16_t Tick</div><div class="ttdoc">set the execution rate in multiples of 100ms</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00054">dev_fan.h:54</a></div></div>
-<div class="ttc" id="aa00641_html_a4f9053371e35277861b7403cd46b0d98"><div class="ttname"><a href="a00641.html#a4f9053371e35277861b7403cd46b0d98">FAN_DATA_s::OverrideFlag</a></div><div class="ttdeci">uint8_t OverrideFlag</div><div class="ttdoc">override flag. sets tick value to 1, step_size to 20 and target to 100%</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00059">dev_fan.h:59</a></div></div>
-<div class="ttc" id="aa00641_html_a6ea3b4a0033803dc206c7e104ab29ca8"><div class="ttname"><a href="a00641.html#a6ea3b4a0033803dc206c7e104ab29ca8">FAN_DATA_s::StepSizePercent</a></div><div class="ttdeci">uint16_t StepSizePercent</div><div class="ttdoc">set the increment rate per tick in percentage</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00055">dev_fan.h:55</a></div></div>
-<div class="ttc" id="aa00641_html_a833f5d95cb05c7446c9493ce32cd6a4e"><div class="ttname"><a href="a00641.html#a833f5d95cb05c7446c9493ce32cd6a4e">FAN_DATA_s::CurrentSpeedRaw</a></div><div class="ttdeci">uint16_t CurrentSpeedRaw</div><div class="ttdoc">current value raw.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00057">dev_fan.h:57</a></div></div>
-<div class="ttc" id="aa00641_html_ac2a920307a7df3fdd9d9ef56b0fbac82"><div class="ttname"><a href="a00641.html#ac2a920307a7df3fdd9d9ef56b0fbac82">FAN_DATA_s::TargetSpeedRaw</a></div><div class="ttdeci">uint16_t TargetSpeedRaw</div><div class="ttdoc">targetted value raw.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00056">dev_fan.h:56</a></div></div>
-<div class="ttc" id="aa00641_html_ad26b627b999dd76f16aa4a9e36470c91"><div class="ttname"><a href="a00641.html#ad26b627b999dd76f16aa4a9e36470c91">FAN_DATA_s::TargetSpeedPercent</a></div><div class="ttdeci">uint8_t TargetSpeedPercent</div><div class="ttdoc">targetted Speed in percentage</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00052">dev_fan.h:52</a></div></div>
-<div class="ttc" id="aa00641_html_ad407e9ccc871b7dc9cca12bde19c730d"><div class="ttname"><a href="a00641.html#ad407e9ccc871b7dc9cca12bde19c730d">FAN_DATA_s::MaxSpeedPercent</a></div><div class="ttdeci">uint16_t MaxSpeedPercent</div><div class="ttdoc">based on period value (CCXPRL). Use this to limit the fan max speed</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00053">dev_fan.h:53</a></div></div>
-<div class="ttc" id="aa00641_html_ad5d31528415a4ed9cf81ebfd785128c2"><div class="ttname"><a href="a00641.html#ad5d31528415a4ed9cf81ebfd785128c2">FAN_DATA_s::CurrentSpeedPercent</a></div><div class="ttdeci">uint8_t CurrentSpeedPercent</div><div class="ttdoc">Current Speed in percentage.</div><div class="ttdef"><b>Definition</b> <a href="a00302_source.html#l00051">dev_fan.h:51</a></div></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DEVICE_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DEVICE_H</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="a00308.html">dev_current_sensor.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="a00314.html">dev_fan.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="a00326.html">dev_led.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="a00332.html">dev_temp.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif  </span><span class="comment">/* DEVICE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="ttc" id="aa00308_html"><div class="ttname"><a href="a00308.html">dev_current_sensor.h</a></div><div class="ttdoc">Contains current sensor public functions.</div></div>
+<div class="ttc" id="aa00314_html"><div class="ttname"><a href="a00314.html">dev_fan.h</a></div><div class="ttdoc">fan device driver</div></div>
+<div class="ttc" id="aa00326_html"><div class="ttname"><a href="a00326.html">dev_led.h</a></div><div class="ttdoc">led device driver</div></div>
+<div class="ttc" id="aa00332_html"><div class="ttname"><a href="a00332.html">dev_temp.h</a></div><div class="ttdoc">Contains temperature initialization and execution functions.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

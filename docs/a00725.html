@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: PWR_CTRL_PROPERTIES_s Struct Reference</title>
+<title>Dual Active Bridge Development Board: START_UP_RAMP_s Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,146 +138,146 @@ $(document).ready(function(){initNavTree('a00725.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">PWR_CTRL_PROPERTIES_s Struct Reference<div class="ingroups"><a class="el" href="a00505.html">Power Control</a> &raquo; <a class="el" href="a00513.html">Power Control Data Types</a></div></div></div>
+  <div class="headertitle"><div class="title">START_UP_RAMP_s Struct Reference<div class="ingroups"><a class="el" href="a00517.html">Power Control</a> &raquo; <a class="el" href="a00525.html">Power Control Data Types</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Collection of power control properties.  
+<p>Stores data related to the ramping up/down of the reference.  
  <a href="a00725.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00467_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/sources/pwrctrl/pwrctrl_typedef.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00479_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/sources/pwrctrl/pwrctrl_typedef.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for PWR_CTRL_PROPERTIES_s:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for START_UP_RAMP_s:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00723.svg" width="198" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00723.svg" width="148" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:aa9713a077db135ad061aae799db7be2c" id="r_aa9713a077db135ad061aae799db7be2c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00725.html#aa9713a077db135ad061aae799db7be2c">VSecReference</a></td></tr>
-<tr class="memdesc:aa9713a077db135ad061aae799db7be2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">User secondary-voltage port reference setting used to control the power converter output voltage in buck mode.  <br /></td></tr>
-<tr class="separator:aa9713a077db135ad061aae799db7be2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7c7be85fbd243019a3d4117936a5eb6" id="r_aa7c7be85fbd243019a3d4117936a5eb6"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00725.html#aa7c7be85fbd243019a3d4117936a5eb6">VPriReference</a></td></tr>
-<tr class="memdesc:aa7c7be85fbd243019a3d4117936a5eb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">User primary-voltage port reference setting used to control the power converter output voltage in boost mode.  <br /></td></tr>
-<tr class="separator:aa7c7be85fbd243019a3d4117936a5eb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77adde2f7eb1f326d84f31bf34c99b99" id="r_a77adde2f7eb1f326d84f31bf34c99b99"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00725.html#a77adde2f7eb1f326d84f31bf34c99b99">IReference</a></td></tr>
-<tr class="memdesc:a77adde2f7eb1f326d84f31bf34c99b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">User current reference setting used to control the converter controller.  <br /></td></tr>
-<tr class="separator:a77adde2f7eb1f326d84f31bf34c99b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19c96c8c63b39d18db0eae64f208dcf7" id="r_a19c96c8c63b39d18db0eae64f208dcf7"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00725.html#a19c96c8c63b39d18db0eae64f208dcf7">PwrReference</a></td></tr>
-<tr class="memdesc:a19c96c8c63b39d18db0eae64f208dcf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">User power reference setting used to control the converter controller.  <br /></td></tr>
-<tr class="separator:a19c96c8c63b39d18db0eae64f208dcf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3595664cdc2ecd4b147334fe73c47be" id="r_ae3595664cdc2ecd4b147334fe73c47be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00725.html#ae3595664cdc2ecd4b147334fe73c47be">ChargingState</a></td></tr>
-<tr class="memdesc:ae3595664cdc2ecd4b147334fe73c47be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control Flag: When set, enables PWM output while keeping control loop disabled; Skips closed loop ramp up states and directly jumps to state Online.  <br /></td></tr>
-<tr class="separator:ae3595664cdc2ecd4b147334fe73c47be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3348c072797d519fa8f99e521ab65a69" id="r_a3348c072797d519fa8f99e521ab65a69"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00725.html#a3348c072797d519fa8f99e521ab65a69">Enable</a></td></tr>
-<tr class="memdesc:a3348c072797d519fa8f99e521ab65a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control Flag: When set, enables the converter triggering a startup sequence; When cleared, forces teh power supply to reset and turn off.  <br /></td></tr>
-<tr class="separator:a3348c072797d519fa8f99e521ab65a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac73dde33a2be13416f717c1ab8954227" id="r_ac73dde33a2be13416f717c1ab8954227"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00725.html#ac73dde33a2be13416f717c1ab8954227">Counter</a></td></tr>
+<tr class="memdesc:ac73dde33a2be13416f717c1ab8954227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soft-Start Execution Counter. This setting is set/cleared by the device driver and is 'read only'.  <br /></td></tr>
+<tr class="separator:ac73dde33a2be13416f717c1ab8954227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a366f1914db6923e6f49ba15572ea2" id="r_a16a366f1914db6923e6f49ba15572ea2"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00725.html#a16a366f1914db6923e6f49ba15572ea2">Delay</a></td></tr>
+<tr class="memdesc:a16a366f1914db6923e6f49ba15572ea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soft-Start Period (POD, RAMP PERIOD, PGD, etc.)  <br /></td></tr>
+<tr class="separator:a16a366f1914db6923e6f49ba15572ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf24954a61bfc0ab7ca1768da52625a" id="r_accf24954a61bfc0ab7ca1768da52625a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00725.html#accf24954a61bfc0ab7ca1768da52625a">StepSize</a></td></tr>
+<tr class="memdesc:accf24954a61bfc0ab7ca1768da52625a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size/value of one reference increment/decrement or this period.  <br /></td></tr>
+<tr class="separator:accf24954a61bfc0ab7ca1768da52625a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a910c9c759d95750a76fb660bf8325e6c" id="r_a910c9c759d95750a76fb660bf8325e6c"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00725.html#a910c9c759d95750a76fb660bf8325e6c">ptrReference</a></td></tr>
+<tr class="memdesc:a910c9c759d95750a76fb660bf8325e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer the reference variable  <br /></td></tr>
+<tr class="separator:a910c9c759d95750a76fb660bf8325e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7738d75eba1234a8928245eae64a01a7" id="r_a7738d75eba1234a8928245eae64a01a7"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00725.html#a7738d75eba1234a8928245eae64a01a7">ptrReferenceTarget</a></td></tr>
+<tr class="memdesc:a7738d75eba1234a8928245eae64a01a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the ramp-up reference target  <br /></td></tr>
+<tr class="separator:a7738d75eba1234a8928245eae64a01a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13025badec30c52baf766e745d4c699f" id="r_a13025badec30c52baf766e745d4c699f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00725.html#a13025badec30c52baf766e745d4c699f">RampComplete</a></td></tr>
+<tr class="memdesc:a13025badec30c52baf766e745d4c699f"><td class="mdescLeft">&#160;</td><td class="mdescRight">indicates when ramp-up is complete  <br /></td></tr>
+<tr class="separator:a13025badec30c52baf766e745d4c699f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This data structure can be use to initialize the desired output voltage, current and power. THe bits like charging state and if the power supply is enabled can be monitored in this structure. </p>
+<div class="textblock"><p>This data structure manages the ramping up/down of the reference depending on the target. "reference" is the actual reference currently being used while "targetReference" can be different that reference during soft-start. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00148">148</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00098">98</a> of file <a class="el" href="a00479_source.html">pwrctrl_typedef.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="ae3595664cdc2ecd4b147334fe73c47be" name="ae3595664cdc2ecd4b147334fe73c47be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3595664cdc2ecd4b147334fe73c47be">&#9670;&#160;</a></span>ChargingState</h2>
+<a id="ac73dde33a2be13416f717c1ab8954227" name="ac73dde33a2be13416f717c1ab8954227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac73dde33a2be13416f717c1ab8954227">&#9670;&#160;</a></span>Counter</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool ChargingState</td>
+          <td class="memname">uint16_t Counter</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00155">155</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00100">100</a> of file <a class="el" href="a00479_source.html">pwrctrl_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="a3348c072797d519fa8f99e521ab65a69" name="a3348c072797d519fa8f99e521ab65a69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3348c072797d519fa8f99e521ab65a69">&#9670;&#160;</a></span>Enable</h2>
+<a id="a16a366f1914db6923e6f49ba15572ea2" name="a16a366f1914db6923e6f49ba15572ea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16a366f1914db6923e6f49ba15572ea2">&#9670;&#160;</a></span>Delay</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Enable</td>
+          <td class="memname">uint16_t Delay</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00156">156</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00101">101</a> of file <a class="el" href="a00479_source.html">pwrctrl_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="a77adde2f7eb1f326d84f31bf34c99b99" name="a77adde2f7eb1f326d84f31bf34c99b99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77adde2f7eb1f326d84f31bf34c99b99">&#9670;&#160;</a></span>IReference</h2>
+<a id="a910c9c759d95750a76fb660bf8325e6c" name="a910c9c759d95750a76fb660bf8325e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a910c9c759d95750a76fb660bf8325e6c">&#9670;&#160;</a></span>ptrReference</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int16_t IReference</td>
+          <td class="memname">uint16_t* ptrReference</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00152">152</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00103">103</a> of file <a class="el" href="a00479_source.html">pwrctrl_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="a19c96c8c63b39d18db0eae64f208dcf7" name="a19c96c8c63b39d18db0eae64f208dcf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19c96c8c63b39d18db0eae64f208dcf7">&#9670;&#160;</a></span>PwrReference</h2>
+<a id="a7738d75eba1234a8928245eae64a01a7" name="a7738d75eba1234a8928245eae64a01a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7738d75eba1234a8928245eae64a01a7">&#9670;&#160;</a></span>ptrReferenceTarget</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t PwrReference</td>
+          <td class="memname">uint16_t* ptrReferenceTarget</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00153">153</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00104">104</a> of file <a class="el" href="a00479_source.html">pwrctrl_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="aa7c7be85fbd243019a3d4117936a5eb6" name="aa7c7be85fbd243019a3d4117936a5eb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7c7be85fbd243019a3d4117936a5eb6">&#9670;&#160;</a></span>VPriReference</h2>
+<a id="a13025badec30c52baf766e745d4c699f" name="a13025badec30c52baf766e745d4c699f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13025badec30c52baf766e745d4c699f">&#9670;&#160;</a></span>RampComplete</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t VPriReference</td>
+          <td class="memname">bool RampComplete</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00151">151</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00105">105</a> of file <a class="el" href="a00479_source.html">pwrctrl_typedef.h</a>.</p>
 
 </div>
 </div>
-<a id="aa9713a077db135ad061aae799db7be2c" name="aa9713a077db135ad061aae799db7be2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9713a077db135ad061aae799db7be2c">&#9670;&#160;</a></span>VSecReference</h2>
+<a id="accf24954a61bfc0ab7ca1768da52625a" name="accf24954a61bfc0ab7ca1768da52625a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accf24954a61bfc0ab7ca1768da52625a">&#9670;&#160;</a></span>StepSize</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t VSecReference</td>
+          <td class="memname">uint16_t StepSize</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00150">150</a> of file <a class="el" href="a00467_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00102">102</a> of file <a class="el" href="a00479_source.html">pwrctrl_typedef.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dspic33ck-dab.X/sources/pwrctrl/<a class="el" href="a00467_source.html">pwrctrl_typedef.h</a></li>
+<li>dspic33ck-dab.X/sources/pwrctrl/<a class="el" href="a00479_source.html">pwrctrl_typedef.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

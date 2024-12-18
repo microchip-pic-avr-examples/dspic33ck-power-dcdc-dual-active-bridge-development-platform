@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: PWM Settings</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_pwm.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,201 +137,44 @@ $(document).ready(function(){initNavTree('a00470.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a>  </div>
-  <div class="headertitle"><div class="title">PWM Settings<div class="ingroups"><a class="el" href="a00496.html">Configuration Layer</a></div></div></div>
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">pwrctrl_pwm.c File Reference<div class="ingroups"><a class="el" href="a00517.html">Power Control</a> &raquo; <a class="el" href="a00520.html">PWM Configuration</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>User-declaration of global defines for PWM signal generator settings.  
+<p>Contains DAB control phase calculation between primary and secondary, and the PWM distribution.  
 <a href="#details">More...</a></p>
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for PWM Settings:</div>
+<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00152_source.html">pwm_hs/pwm.h</a>&quot;</code><br />
+<code>#include &quot;pwrctrl_typedef.h&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pwrctrl_pwm.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00470.svg" width="478" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00471.svg" width="606" height="352"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+</div>
+<p><a href="a00470_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:a00471" id="r_a00471"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00471.html">Conversion Macros</a></td></tr>
-<tr class="memdesc:a00471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user declarations of PWM peripheral. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga99b5526b36699f6f8c57ed94954a9b77" id="r_ga99b5526b36699f6f8c57ed94954a9b77"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#ga99b5526b36699f6f8c57ed94954a9b77">MAXIMUM_SWITCHING_FREQUENCY</a>&#160;&#160;&#160;(float)170.0e+3</td></tr>
-<tr class="separator:ga99b5526b36699f6f8c57ed94954a9b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae8f8211058cb5c9a0691fbf041d32043" id="r_gae8f8211058cb5c9a0691fbf041d32043"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gae8f8211058cb5c9a0691fbf041d32043">MINIMUM_SWITCHING_FREQUENCY</a>&#160;&#160;&#160;(float) 65.0e+3</td></tr>
-<tr class="memdesc:gae8f8211058cb5c9a0691fbf041d32043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum Switching frequency in [Hz].  <br /></td></tr>
-<tr class="separator:gae8f8211058cb5c9a0691fbf041d32043"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad8b5e420d5663a13bb68f6883cad64c8" id="r_gad8b5e420d5663a13bb68f6883cad64c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gad8b5e420d5663a13bb68f6883cad64c8">MINIMUM_DEADTIME</a>&#160;&#160;&#160;(float)150e-9</td></tr>
-<tr class="memdesc:gad8b5e420d5663a13bb68f6883cad64c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum Deadtime in seconds [sec].  <br /></td></tr>
-<tr class="separator:gad8b5e420d5663a13bb68f6883cad64c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac6d318c94c201374c73969ce117024a8" id="r_gac6d318c94c201374c73969ce117024a8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gac6d318c94c201374c73969ce117024a8">MAXIMUM_DEADTIME</a>&#160;&#160;&#160;(float)500e-9</td></tr>
-<tr class="memdesc:gac6d318c94c201374c73969ce117024a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum Deadtime in seconds [sec].  <br /></td></tr>
-<tr class="separator:gac6d318c94c201374c73969ce117024a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga10e0f079254bb242838a78371205ca1a" id="r_ga10e0f079254bb242838a78371205ca1a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#ga10e0f079254bb242838a78371205ca1a">MINIMUM_PHASESHIFTED_PULSE</a>&#160;&#160;&#160;(float) 80e-9</td></tr>
-<tr class="memdesc:ga10e0f079254bb242838a78371205ca1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum phase shifted pulse in seconds [sec].  <br /></td></tr>
-<tr class="separator:ga10e0f079254bb242838a78371205ca1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga14f8c324344d8c244db7c1ffc95daacc" id="r_ga14f8c324344d8c244db7c1ffc95daacc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#ga14f8c324344d8c244db7c1ffc95daacc">PRI_TO_SEC_PHASE_DEGREES_LIMIT</a>&#160;&#160;&#160;90u</td></tr>
-<tr class="memdesc:ga14f8c324344d8c244db7c1ffc95daacc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum Limit for primary to secondary phase in degrees [deg].  <br /></td></tr>
-<tr class="separator:ga14f8c324344d8c244db7c1ffc95daacc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad98508b79a9e1e8c4841dbf9816c7deb" id="r_gad98508b79a9e1e8c4841dbf9816c7deb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gad98508b79a9e1e8c4841dbf9816c7deb">PRI_TO_SEC_PHASE_TARGET</a>&#160;&#160;&#160;830u</td></tr>
-<tr class="memdesc:gad98508b79a9e1e8c4841dbf9816c7deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Primary to Secondary phase target before switching to period modulation.  <br /></td></tr>
-<tr class="separator:gad98508b79a9e1e8c4841dbf9816c7deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab1ca6d03eb3a85cc6d07ac9196ccc466" id="r_gab1ca6d03eb3a85cc6d07ac9196ccc466"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gab1ca6d03eb3a85cc6d07ac9196ccc466">PERIODSTEP</a>&#160;&#160;&#160;(2&lt;&lt;3)</td></tr>
-<tr class="memdesc:gab1ca6d03eb3a85cc6d07ac9196ccc466"><td class="mdescLeft">&#160;</td><td class="mdescRight">period increment with 3LSBs needs to be 0 based from PWM FRM with cascaded PWM  <br /></td></tr>
-<tr class="separator:gab1ca6d03eb3a85cc6d07ac9196ccc466"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad09c14122e0caaaa2fcf393c2b74588f" id="r_gad09c14122e0caaaa2fcf393c2b74588f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html#gad09c14122e0caaaa2fcf393c2b74588f">PHASETIMESTEP</a>&#160;&#160;&#160;(1&lt;&lt;3)</td></tr>
-<tr class="memdesc:gad09c14122e0caaaa2fcf393c2b74588f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Phase increment with 3LSBs needs to be 0 based from PWM FRM with cascaded PWM.  <br /></td></tr>
-<tr class="separator:gad09c14122e0caaaa2fcf393c2b74588f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga73f526371cadb7674354635462e836cc" id="r_ga73f526371cadb7674354635462e836cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00520.html#ga73f526371cadb7674354635462e836cc">PwrCtrl_PWM_Update</a> (<a class="el" href="a00737.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
+<tr class="memdesc:ga73f526371cadb7674354635462e836cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM distribution for DAB converter.  <br /></td></tr>
+<tr class="separator:ga73f526371cadb7674354635462e836cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae20d34fb8fc7fbaa57f6c68b2907807f" id="r_gae20d34fb8fc7fbaa57f6c68b2907807f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00520.html#gae20d34fb8fc7fbaa57f6c68b2907807f">PwrCtrl_PWM_Enable</a> (void)</td></tr>
+<tr class="memdesc:gae20d34fb8fc7fbaa57f6c68b2907807f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the PWM output.  <br /></td></tr>
+<tr class="separator:gae20d34fb8fc7fbaa57f6c68b2907807f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79ec0c0e524a03b3a3d423308b89bb99" id="r_ga79ec0c0e524a03b3a3d423308b89bb99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00520.html#ga79ec0c0e524a03b3a3d423308b89bb99">PwrCtrl_PWM_Disable</a> (void)</td></tr>
+<tr class="memdesc:ga79ec0c0e524a03b3a3d423308b89bb99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the PWM output.  <br /></td></tr>
+<tr class="separator:ga79ec0c0e524a03b3a3d423308b89bb99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This section defines fundamental PWM settings required for the Dual Active Bridge development board. These settings are determined by hardware and defined using physical quantities. Pre-compiler macros are used to convert physical values into binary (integer) numbers to be written to Special Function Registers (SFR). </p>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="gac6d318c94c201374c73969ce117024a8" name="gac6d318c94c201374c73969ce117024a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac6d318c94c201374c73969ce117024a8">&#9670;&#160;</a></span>MAXIMUM_DEADTIME</h2>
+<div class="textblock"><p>&lt;&gt; </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAXIMUM_DEADTIME&#160;&#160;&#160;(float)500e-9</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00028">28</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="ga99b5526b36699f6f8c57ed94954a9b77" name="ga99b5526b36699f6f8c57ed94954a9b77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga99b5526b36699f6f8c57ed94954a9b77">&#9670;&#160;</a></span>MAXIMUM_SWITCHING_FREQUENCY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MAXIMUM_SWITCHING_FREQUENCY&#160;&#160;&#160;(float)170.0e+3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00024">24</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="gad8b5e420d5663a13bb68f6883cad64c8" name="gad8b5e420d5663a13bb68f6883cad64c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad8b5e420d5663a13bb68f6883cad64c8">&#9670;&#160;</a></span>MINIMUM_DEADTIME</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MINIMUM_DEADTIME&#160;&#160;&#160;(float)150e-9</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00027">27</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="ga10e0f079254bb242838a78371205ca1a" name="ga10e0f079254bb242838a78371205ca1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga10e0f079254bb242838a78371205ca1a">&#9670;&#160;</a></span>MINIMUM_PHASESHIFTED_PULSE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MINIMUM_PHASESHIFTED_PULSE&#160;&#160;&#160;(float) 80e-9</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00029">29</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="gae8f8211058cb5c9a0691fbf041d32043" name="gae8f8211058cb5c9a0691fbf041d32043"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae8f8211058cb5c9a0691fbf041d32043">&#9670;&#160;</a></span>MINIMUM_SWITCHING_FREQUENCY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MINIMUM_SWITCHING_FREQUENCY&#160;&#160;&#160;(float) 65.0e+3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00025">25</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="gab1ca6d03eb3a85cc6d07ac9196ccc466" name="gab1ca6d03eb3a85cc6d07ac9196ccc466"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab1ca6d03eb3a85cc6d07ac9196ccc466">&#9670;&#160;</a></span>PERIODSTEP</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PERIODSTEP&#160;&#160;&#160;(2&lt;&lt;3)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00035">35</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="gad09c14122e0caaaa2fcf393c2b74588f" name="gad09c14122e0caaaa2fcf393c2b74588f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad09c14122e0caaaa2fcf393c2b74588f">&#9670;&#160;</a></span>PHASETIMESTEP</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PHASETIMESTEP&#160;&#160;&#160;(1&lt;&lt;3)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00036">36</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="ga14f8c324344d8c244db7c1ffc95daacc" name="ga14f8c324344d8c244db7c1ffc95daacc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga14f8c324344d8c244db7c1ffc95daacc">&#9670;&#160;</a></span>PRI_TO_SEC_PHASE_DEGREES_LIMIT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PRI_TO_SEC_PHASE_DEGREES_LIMIT&#160;&#160;&#160;90u</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00031">31</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="gad98508b79a9e1e8c4841dbf9816c7deb" name="gad98508b79a9e1e8c4841dbf9816c7deb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad98508b79a9e1e8c4841dbf9816c7deb">&#9670;&#160;</a></span>PRI_TO_SEC_PHASE_TARGET</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PRI_TO_SEC_PHASE_TARGET&#160;&#160;&#160;830u</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00034">34</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00470_source.html">pwrctrl_pwm.c</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

@@ -1,13 +1,7 @@
 var a00494 =
 [
-    [ "APP_PBV_INTF_API_s", "a00617.html", [
-      [ "init", "a00617.html#a2349c43259a9d3c23a516c9b4ad6baaa", null ],
-      [ "linkDataRX", "a00617.html#acf3107157116c08f212dafb02c8128f5", null ],
-      [ "linkDataTX", "a00617.html#a4156ff07130f03dfbd50bf7c30493bfb", null ],
-      [ "reinit", "a00617.html#aad1488054aade0d9770cbae5597a8db9", null ],
-      [ "rxGui", "a00617.html#add9801b083b7d6f3f7bbb0f1d9a55773", null ],
-      [ "txGui", "a00617.html#adca8b72baa17241a6989f96a073cc51c", null ],
-      [ "txGuiAscii", "a00617.html#a8ee94030daa6ae1784d3a4c1efd446eb", null ]
-    ] ],
-    [ "appPbvFuncs", "a00494.html#ga40c15cce2e781ba3b9268150395d466c", null ]
+    [ "Conversion Macros", "a00495.html", "a00495" ],
+    [ "AGC_MINIMUM_ISEC_THRESHOLD", "a00494.html#ga2d6249446db551d0d518cad5fcd5a0ff", null ],
+    [ "AGC_MINIMUM_VIN_THRESHOLD", "a00494.html#gafe9bc7e554222335c9b10bda87709883", null ],
+    [ "VPLOOP_ILOOP_EXE_RATIO", "a00494.html#ga43edf0d1b9579419b244048d67b8744c", null ]
 ];

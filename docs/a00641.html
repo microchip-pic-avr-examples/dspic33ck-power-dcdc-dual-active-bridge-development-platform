@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: FAN_DATA_s Struct Reference</title>
+<title>Dual Active Bridge Development Board: UART_MSG_TX_OBJ Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,202 +138,162 @@ $(document).ready(function(){initNavTree('a00641.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">FAN_DATA_s Struct Reference</div></div>
+  <div class="headertitle"><div class="title">UART_MSG_TX_OBJ Struct Reference<div class="ingroups"><a class="el" href="a00501.html">Communication Layer</a> &raquo; <a class="el" href="a00502.html">Power Board Visualizer</a> &raquo; <a class="el" href="a00504.html">UART Communication</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>A custom data type for fan.  
+<p>UART msg Transmit object.  
  <a href="a00641.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00302_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/sources/device/dev_fan.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for FAN_DATA_s:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for UART_MSG_TX_OBJ:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00639.svg" width="159" height="251"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00639.svg" width="151" height="208"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:ad5d31528415a4ed9cf81ebfd785128c2" id="r_ad5d31528415a4ed9cf81ebfd785128c2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#ad5d31528415a4ed9cf81ebfd785128c2">CurrentSpeedPercent</a></td></tr>
-<tr class="memdesc:ad5d31528415a4ed9cf81ebfd785128c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current Speed in percentage.  <br /></td></tr>
-<tr class="separator:ad5d31528415a4ed9cf81ebfd785128c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad26b627b999dd76f16aa4a9e36470c91" id="r_ad26b627b999dd76f16aa4a9e36470c91"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#ad26b627b999dd76f16aa4a9e36470c91">TargetSpeedPercent</a></td></tr>
-<tr class="memdesc:ad26b627b999dd76f16aa4a9e36470c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">targetted Speed in percentage  <br /></td></tr>
-<tr class="separator:ad26b627b999dd76f16aa4a9e36470c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad407e9ccc871b7dc9cca12bde19c730d" id="r_ad407e9ccc871b7dc9cca12bde19c730d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#ad407e9ccc871b7dc9cca12bde19c730d">MaxSpeedPercent</a></td></tr>
-<tr class="memdesc:ad407e9ccc871b7dc9cca12bde19c730d"><td class="mdescLeft">&#160;</td><td class="mdescRight">based on period value (CCXPRL). Use this to limit the fan max speed  <br /></td></tr>
-<tr class="separator:ad407e9ccc871b7dc9cca12bde19c730d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c53383b26fe25c1a65efe0e9b6ed9cf" id="r_a4c53383b26fe25c1a65efe0e9b6ed9cf"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#a4c53383b26fe25c1a65efe0e9b6ed9cf">Tick</a></td></tr>
-<tr class="memdesc:a4c53383b26fe25c1a65efe0e9b6ed9cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the execution rate in multiples of 100ms  <br /></td></tr>
-<tr class="separator:a4c53383b26fe25c1a65efe0e9b6ed9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ea3b4a0033803dc206c7e104ab29ca8" id="r_a6ea3b4a0033803dc206c7e104ab29ca8"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#a6ea3b4a0033803dc206c7e104ab29ca8">StepSizePercent</a></td></tr>
-<tr class="memdesc:a6ea3b4a0033803dc206c7e104ab29ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the increment rate per tick in percentage  <br /></td></tr>
-<tr class="separator:a6ea3b4a0033803dc206c7e104ab29ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2a920307a7df3fdd9d9ef56b0fbac82" id="r_ac2a920307a7df3fdd9d9ef56b0fbac82"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#ac2a920307a7df3fdd9d9ef56b0fbac82">TargetSpeedRaw</a></td></tr>
-<tr class="memdesc:ac2a920307a7df3fdd9d9ef56b0fbac82"><td class="mdescLeft">&#160;</td><td class="mdescRight">targetted value raw.  <br /></td></tr>
-<tr class="separator:ac2a920307a7df3fdd9d9ef56b0fbac82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a833f5d95cb05c7446c9493ce32cd6a4e" id="r_a833f5d95cb05c7446c9493ce32cd6a4e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a></td></tr>
-<tr class="memdesc:a833f5d95cb05c7446c9493ce32cd6a4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">current value raw.  <br /></td></tr>
-<tr class="separator:a833f5d95cb05c7446c9493ce32cd6a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17841407278bd546565d170f7b6e9e78" id="r_a17841407278bd546565d170f7b6e9e78"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#a17841407278bd546565d170f7b6e9e78">MaxSpeedRaw</a></td></tr>
-<tr class="memdesc:a17841407278bd546565d170f7b6e9e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">based on period value (CCXPRL).  <br /></td></tr>
-<tr class="separator:a17841407278bd546565d170f7b6e9e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f9053371e35277861b7403cd46b0d98" id="r_a4f9053371e35277861b7403cd46b0d98"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#a4f9053371e35277861b7403cd46b0d98">OverrideFlag</a></td></tr>
-<tr class="memdesc:a4f9053371e35277861b7403cd46b0d98"><td class="mdescLeft">&#160;</td><td class="mdescRight">override flag. sets tick value to 1, step_size to 20 and target to 100%  <br /></td></tr>
-<tr class="separator:a4f9053371e35277861b7403cd46b0d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86b4ce2d2304f1de364f16d241b9c7d6" id="r_a86b4ce2d2304f1de364f16d241b9c7d6"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#a86b4ce2d2304f1de364f16d241b9c7d6">UART_Frame_State</a></td></tr>
+<tr class="memdesc:a86b4ce2d2304f1de364f16d241b9c7d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART Transmit Frame states.  <br /></td></tr>
+<tr class="separator:a86b4ce2d2304f1de364f16d241b9c7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b818f332a9c32b3297efe5f9c6b021d" id="r_a3b818f332a9c32b3297efe5f9c6b021d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#a3b818f332a9c32b3297efe5f9c6b021d">Length_in_Bytes</a></td></tr>
+<tr class="memdesc:a3b818f332a9c32b3297efe5f9c6b021d"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART Bytes to be Transmitted.  <br /></td></tr>
+<tr class="separator:a3b818f332a9c32b3297efe5f9c6b021d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfd2be56b2355b0fadf7124f95b00431" id="r_abfd2be56b2355b0fadf7124f95b00431"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#abfd2be56b2355b0fadf7124f95b00431">Protocol_ID</a></td></tr>
+<tr class="memdesc:abfd2be56b2355b0fadf7124f95b00431"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame ID to be appended.  <br /></td></tr>
+<tr class="separator:abfd2be56b2355b0fadf7124f95b00431"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6e68acb116dc3b5f8a7354c7f7d4146" id="r_ae6e68acb116dc3b5f8a7354c7f7d4146"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#ae6e68acb116dc3b5f8a7354c7f7d4146">Offset</a></td></tr>
+<tr class="memdesc:ae6e68acb116dc3b5f8a7354c7f7d4146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset needed for data transmission.  <br /></td></tr>
+<tr class="separator:ae6e68acb116dc3b5f8a7354c7f7d4146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb8cac113b1a41d1c48d80018ddb6744" id="r_afb8cac113b1a41d1c48d80018ddb6744"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#afb8cac113b1a41d1c48d80018ddb6744">CRC</a></td></tr>
+<tr class="memdesc:afb8cac113b1a41d1c48d80018ddb6744"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculated CRC  <br /></td></tr>
+<tr class="separator:afb8cac113b1a41d1c48d80018ddb6744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84122a7e2f523d0278895ca4f5d8748c" id="r_a84122a7e2f523d0278895ca4f5d8748c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#a84122a7e2f523d0278895ca4f5d8748c">PBV_Header</a> [<a class="el" href="a00504.html#ga9e84c6159dbb2284250a313f654c4b12">PBV_HEADER_SIZE</a>]</td></tr>
+<tr class="memdesc:a84122a7e2f523d0278895ca4f5d8748c"><td class="mdescLeft">&#160;</td><td class="mdescRight">sent Header. 5bytes ( SOF + ID + Length)  <br /></td></tr>
+<tr class="separator:a84122a7e2f523d0278895ca4f5d8748c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe222f6d3581e7920dcad5306cc906a8" id="r_abe222f6d3581e7920dcad5306cc906a8"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00641.html#abe222f6d3581e7920dcad5306cc906a8">data</a></td></tr>
+<tr class="memdesc:abe222f6d3581e7920dcad5306cc906a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">data buffer. linked by the calling application. STATIC(64) bytes for now.  <br /></td></tr>
+<tr class="separator:abe222f6d3581e7920dcad5306cc906a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00050">50</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00119">119</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="ad5d31528415a4ed9cf81ebfd785128c2" name="ad5d31528415a4ed9cf81ebfd785128c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5d31528415a4ed9cf81ebfd785128c2">&#9670;&#160;</a></span>CurrentSpeedPercent</h2>
+<a id="afb8cac113b1a41d1c48d80018ddb6744" name="afb8cac113b1a41d1c48d80018ddb6744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb8cac113b1a41d1c48d80018ddb6744">&#9670;&#160;</a></span>CRC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t CurrentSpeedPercent</td>
+          <td class="memname">uint16_t CRC</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00051">51</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00125">125</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="a833f5d95cb05c7446c9493ce32cd6a4e" name="a833f5d95cb05c7446c9493ce32cd6a4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a833f5d95cb05c7446c9493ce32cd6a4e">&#9670;&#160;</a></span>CurrentSpeedRaw</h2>
+<a id="abe222f6d3581e7920dcad5306cc906a8" name="abe222f6d3581e7920dcad5306cc906a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe222f6d3581e7920dcad5306cc906a8">&#9670;&#160;</a></span>data</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t CurrentSpeedRaw</td>
+          <td class="memname">uint8_t* data</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00057">57</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00127">127</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="ad407e9ccc871b7dc9cca12bde19c730d" name="ad407e9ccc871b7dc9cca12bde19c730d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad407e9ccc871b7dc9cca12bde19c730d">&#9670;&#160;</a></span>MaxSpeedPercent</h2>
+<a id="a3b818f332a9c32b3297efe5f9c6b021d" name="a3b818f332a9c32b3297efe5f9c6b021d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b818f332a9c32b3297efe5f9c6b021d">&#9670;&#160;</a></span>Length_in_Bytes</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t MaxSpeedPercent</td>
+          <td class="memname">uint8_t Length_in_Bytes</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00053">53</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00122">122</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="a17841407278bd546565d170f7b6e9e78" name="a17841407278bd546565d170f7b6e9e78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17841407278bd546565d170f7b6e9e78">&#9670;&#160;</a></span>MaxSpeedRaw</h2>
+<a id="ae6e68acb116dc3b5f8a7354c7f7d4146" name="ae6e68acb116dc3b5f8a7354c7f7d4146"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6e68acb116dc3b5f8a7354c7f7d4146">&#9670;&#160;</a></span>Offset</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t MaxSpeedRaw</td>
+          <td class="memname">uint16_t Offset</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00058">58</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00124">124</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="a4f9053371e35277861b7403cd46b0d98" name="a4f9053371e35277861b7403cd46b0d98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f9053371e35277861b7403cd46b0d98">&#9670;&#160;</a></span>OverrideFlag</h2>
+<a id="a84122a7e2f523d0278895ca4f5d8748c" name="a84122a7e2f523d0278895ca4f5d8748c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84122a7e2f523d0278895ca4f5d8748c">&#9670;&#160;</a></span>PBV_Header</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t OverrideFlag</td>
+          <td class="memname">uint8_t PBV_Header[<a class="el" href="a00504.html#ga9e84c6159dbb2284250a313f654c4b12">PBV_HEADER_SIZE</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00059">59</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00126">126</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="a6ea3b4a0033803dc206c7e104ab29ca8" name="a6ea3b4a0033803dc206c7e104ab29ca8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ea3b4a0033803dc206c7e104ab29ca8">&#9670;&#160;</a></span>StepSizePercent</h2>
+<a id="abfd2be56b2355b0fadf7124f95b00431" name="abfd2be56b2355b0fadf7124f95b00431"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfd2be56b2355b0fadf7124f95b00431">&#9670;&#160;</a></span>Protocol_ID</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t StepSizePercent</td>
+          <td class="memname">uint16_t Protocol_ID</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00055">55</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00123">123</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="ad26b627b999dd76f16aa4a9e36470c91" name="ad26b627b999dd76f16aa4a9e36470c91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad26b627b999dd76f16aa4a9e36470c91">&#9670;&#160;</a></span>TargetSpeedPercent</h2>
+<a id="a86b4ce2d2304f1de364f16d241b9c7d6" name="a86b4ce2d2304f1de364f16d241b9c7d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86b4ce2d2304f1de364f16d241b9c7d6">&#9670;&#160;</a></span>UART_Frame_State</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t TargetSpeedPercent</td>
+          <td class="memname">uint8_t UART_Frame_State</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00052">52</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
-
-</div>
-</div>
-<a id="ac2a920307a7df3fdd9d9ef56b0fbac82" name="ac2a920307a7df3fdd9d9ef56b0fbac82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2a920307a7df3fdd9d9ef56b0fbac82">&#9670;&#160;</a></span>TargetSpeedRaw</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t TargetSpeedRaw</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00056">56</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
-
-</div>
-</div>
-<a id="a4c53383b26fe25c1a65efe0e9b6ed9cf" name="a4c53383b26fe25c1a65efe0e9b6ed9cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c53383b26fe25c1a65efe0e9b6ed9cf">&#9670;&#160;</a></span>Tick</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t Tick</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00054">54</a> of file <a class="el" href="a00302_source.html">dev_fan.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00121">121</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dspic33ck-dab.X/sources/device/<a class="el" href="a00302_source.html">dev_fan.h</a></li>
+<li>dspic33ck-dab.X/sources/comm/<a class="el" href="a00278_source.html">PBV_UART.c</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

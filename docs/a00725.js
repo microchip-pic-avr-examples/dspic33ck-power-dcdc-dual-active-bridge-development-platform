@@ -1,9 +1,9 @@
 var a00725 =
 [
-    [ "ChargingState", "a00725.html#ae3595664cdc2ecd4b147334fe73c47be", null ],
-    [ "Enable", "a00725.html#a3348c072797d519fa8f99e521ab65a69", null ],
-    [ "IReference", "a00725.html#a77adde2f7eb1f326d84f31bf34c99b99", null ],
-    [ "PwrReference", "a00725.html#a19c96c8c63b39d18db0eae64f208dcf7", null ],
-    [ "VPriReference", "a00725.html#aa7c7be85fbd243019a3d4117936a5eb6", null ],
-    [ "VSecReference", "a00725.html#aa9713a077db135ad061aae799db7be2c", null ]
+    [ "Counter", "a00725.html#ac73dde33a2be13416f717c1ab8954227", null ],
+    [ "Delay", "a00725.html#a16a366f1914db6923e6f49ba15572ea2", null ],
+    [ "ptrReference", "a00725.html#a910c9c759d95750a76fb660bf8325e6c", null ],
+    [ "ptrReferenceTarget", "a00725.html#a7738d75eba1234a8928245eae64a01a7", null ],
+    [ "RampComplete", "a00725.html#a13025badec30c52baf766e745d4c699f", null ],
+    [ "StepSize", "a00725.html#accf24954a61bfc0ab7ca1768da52625a", null ]
 ];

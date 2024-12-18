@@ -1,13 +1,7 @@
 var a00677 =
 [
-    [ "aCoefficients", "a00677.html#a9b53207353649ed96836db0f78300815", null ],
-    [ "bCoefficients", "a00677.html#ad1355dec3eb324d2eab4aeec3949315b", null ],
-    [ "controlHistory", "a00677.html#a01aaca2f4f21e2a7913a2b6e26378d9d", null ],
-    [ "errorHistory", "a00677.html#a2156cbcc870b55a05790b35d7a994ed2", null ],
-    [ "KfactorCoeffsB", "a00677.html#a8c6507769bb4ff1f72e51636286bebc8", null ],
-    [ "maxOutput", "a00677.html#a52e0ede1d35abbd1205991bf926b0123", null ],
-    [ "minOutput", "a00677.html#a0e61035e2b3233a7d496c3eb2f098969", null ],
-    [ "postScaler", "a00677.html#a63cf6fa1fea56820d41793296704eecb", null ],
-    [ "postShift", "a00677.html#a136ef863c1c5b2eee03c1223f4b7baef", null ],
-    [ "preShift", "a00677.html#ab80a85b190b1a682766250d4e72ba6fd", null ]
+    [ "hour", "a00677.html#ae5af4ff48939d13d480f87e56a9385d6", null ],
+    [ "millisecond", "a00677.html#a2c2fc9077af4f9594b4433cd53e39f47", null ],
+    [ "minute", "a00677.html#a8ff981ec55c945940f4a0da7d8709b3c", null ],
+    [ "second", "a00677.html#a8459fc4e94de7eefc74991e41779c8fc", null ]
 ];

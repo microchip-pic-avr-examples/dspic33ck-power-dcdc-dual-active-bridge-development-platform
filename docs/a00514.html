@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Fault Monitor</title>
+<title>Dual Active Bridge Development Board: Driver Layer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,32 +137,79 @@ $(document).ready(function(){initNavTree('a00514.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a>  </div>
-  <div class="headertitle"><div class="title">Fault Monitor</div></div>
+<a href="#groups">Modules</a> &#124;
+<a href="#files">Files</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">Driver Layer</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The Fault Handler is an independent firmware task which is used to define certain so-called Fault Objects.  
+<p>Contain functions and properties of the Driver layer.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Fault Monitor:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Driver Layer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00514.svg" width="292" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00514.svg" width="319" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
 Modules</h2></td></tr>
-<tr class="memitem:a00515" id="r_a00515"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00515.html">Fault Configuration</a></td></tr>
-<tr class="memdesc:a00515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains functions that initialize, execute and handles the power supply fault. <br /></td></tr>
+<tr class="memitem:a00515" id="r_a00515"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00515.html">MCC Custom Code PWM</a></td></tr>
+<tr class="memdesc:a00515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contain functions and data types as MCC extension for PWM. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00516" id="r_a00516"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html">Generic Fault Driver</a></td></tr>
-<tr class="memdesc:a00516"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains generic fault functions. <br /></td></tr>
+<tr class="memitem:a00516" id="r_a00516"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html">MCC Custom Code ADC</a></td></tr>
+<tr class="memdesc:a00516"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contain functions and data types as MCC extension for ADC. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:a00341" id="r_a00341"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00341.html">drv_mcc_extension.h</a></td></tr>
+<tr class="memdesc:a00341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contain the peripheral header files with MCC extension code. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00353" id="r_a00353"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html">mcc_custom_config.h</a></td></tr>
+<tr class="memdesc:a00353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contain the MCC Custom peripheral configuration that is not supported by MCC Melody tool. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gafe646acf69be10085d651f4561909f69" id="r_gafe646acf69be10085d651f4561909f69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00514.html#gafe646acf69be10085d651f4561909f69">MCC_Custom_User_Config</a> (void)</td></tr>
+<tr class="memdesc:gafe646acf69be10085d651f4561909f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains custom peripheral initialization.  <br /></td></tr>
+<tr class="separator:gafe646acf69be10085d651f4561909f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Fault monitor is one of the vital components in creating different power supply applications. It is responsible for the protection of power supply including the monitoring and handling of faults that may be encountered while power supply is in operation. It is implemented as high-priority task included in the real-time operating system. Thresholds are being set for voltage, current, and temperature level that are being monitored if user-defined fault objects violate the minimum and maximum input and output voltage and current, and maximum temperature level allowed. Once the fault monitor objects detect a fault, this will trigger the fault responses and respond immediately. </p>
+<p>The driver layer includes peripheral drivers managed by the MPLABX MCC Melody tool. It is essential to initialize certain peripheral functionalities to enable specific features required for the application. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gafe646acf69be10085d651f4561909f69" name="gafe646acf69be10085d651f4561909f69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafe646acf69be10085d651f4561909f69">&#9670;&#160;</a></span>MCC_Custom_User_Config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MCC_Custom_User_Config </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function initializes peripheral settings that are needed in the application but is not supported by the generated code through MCC Melody tool. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00350_source.html#l00024">24</a> of file <a class="el" href="a00350_source.html">mcc_custom_config.c</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00514_gafe646acf69be10085d651f4561909f69_cgraph.svg" width="100%" height="516"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Temperature Feedback</title>
+<title>Dual Active Bridge Development Board: Primary Voltage Feedback</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,174 +138,260 @@ $(document).ready(function(){initNavTree('a00484.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#groups">Modules</a>  </div>
-  <div class="headertitle"><div class="title">Temperature Feedback<div class="ingroups"><a class="el" href="a00496.html">Configuration Layer</a></div></div></div>
+  <div class="headertitle"><div class="title">Primary Voltage Feedback<div class="ingroups"><a class="el" href="a00508.html">Configuration Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Declaration of Temperature Feedback parameters.  
+<p>Declaration of Primary Voltage Feedback parameters, fault configuration and macros.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Temperature Feedback:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Primary Voltage Feedback:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00484.svg" width="526" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00484.svg" width="546" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
 Modules</h2></td></tr>
 <tr class="memitem:a00485" id="r_a00485"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html">Conversion Macros</a></td></tr>
-<tr class="memdesc:a00485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of Temperature Feedback parameters details Conversion macros converting physical quantities of parameters into binary (integer) numbers for registers and variables. <br /></td></tr>
+<tr class="memdesc:a00485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of Primary Voltage Feedback parameters. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadaf56c98b4dc5aeee1231153c378af0e" id="r_gadaf56c98b4dc5aeee1231153c378af0e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gadaf56c98b4dc5aeee1231153c378af0e">TEMPERATURE_PBV_OFFSET_CELSIUS</a>&#160;&#160;&#160;(40u)</td></tr>
-<tr class="memdesc:gadaf56c98b4dc5aeee1231153c378af0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">To allow the PBV to support up to -40C, an offset was added.  <br /></td></tr>
-<tr class="separator:gadaf56c98b4dc5aeee1231153c378af0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad1f727c2e9b6350745777aca9f272169" id="r_gad1f727c2e9b6350745777aca9f272169"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gad1f727c2e9b6350745777aca9f272169">OTP_THRES_TRIG_CELCIUS</a>&#160;&#160;&#160;(80u)</td></tr>
-<tr class="memdesc:gad1f727c2e9b6350745777aca9f272169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees Celcius.  <br /></td></tr>
-<tr class="separator:gad1f727c2e9b6350745777aca9f272169"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadc3762a54e017c4db8ad9b6e83dc071d" id="r_gadc3762a54e017c4db8ad9b6e83dc071d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gadc3762a54e017c4db8ad9b6e83dc071d">OTP_THRES_CLEAR_CELCIUS</a>&#160;&#160;&#160;(70u)</td></tr>
-<tr class="memdesc:gadc3762a54e017c4db8ad9b6e83dc071d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees Celcius.  <br /></td></tr>
-<tr class="separator:gadc3762a54e017c4db8ad9b6e83dc071d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa584ad6b0df4394fb8a954091913a713" id="r_gaa584ad6b0df4394fb8a954091913a713"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gaa584ad6b0df4394fb8a954091913a713">FAULT_PERSISTENCE_COUNT_TEMP</a>&#160;&#160;&#160;(4u)</td></tr>
-<tr class="separator:gaa584ad6b0df4394fb8a954091913a713"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf96b37309868a2ca71aec09e1d2180bc" id="r_gaf96b37309868a2ca71aec09e1d2180bc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gaf96b37309868a2ca71aec09e1d2180bc">NOMINAL_TEMPERATURE_THRESHOLD</a>&#160;&#160;&#160;(float) (40.0)</td></tr>
-<tr class="separator:gaf96b37309868a2ca71aec09e1d2180bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga46b916cf898ceb2557a12f208380c5d5" id="r_ga46b916cf898ceb2557a12f208380c5d5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#ga46b916cf898ceb2557a12f208380c5d5">TEMPERATURE_HYSTERESIS</a>&#160;&#160;&#160;(float) (1.0)</td></tr>
-<tr class="memdesc:ga46b916cf898ceb2557a12f208380c5d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees Celcius.  <br /></td></tr>
-<tr class="separator:ga46b916cf898ceb2557a12f208380c5d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab586eaca5d59d97c5a098f782633d74c" id="r_gab586eaca5d59d97c5a098f782633d74c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gab586eaca5d59d97c5a098f782633d74c">TEMPERATURE_GAIN</a>&#160;&#160;&#160;(-0.029)</td></tr>
-<tr class="separator:gab586eaca5d59d97c5a098f782633d74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac02a5a67e0612d6cb90e61cc23398701" id="r_gac02a5a67e0612d6cb90e61cc23398701"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gac02a5a67e0612d6cb90e61cc23398701">TEMPERATURE_OFFSET</a>&#160;&#160;&#160;115u</td></tr>
-<tr class="separator:gac02a5a67e0612d6cb90e61cc23398701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3de0595efbf0659d33138d8f32e9e34e" id="r_ga3de0595efbf0659d33138d8f32e9e34e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#ga3de0595efbf0659d33138d8f32e9e34e">VPRI_OV_THRES_TRIG_VOLTS</a>&#160;&#160;&#160;(float)(700.0)</td></tr>
+<tr class="separator:ga3de0595efbf0659d33138d8f32e9e34e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8ebc2c2c94c46d6bfbdc05ac7ffdecb" id="r_gae8ebc2c2c94c46d6bfbdc05ac7ffdecb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gae8ebc2c2c94c46d6bfbdc05ac7ffdecb">VPRI_OV_THRES_CLEAR_VOLTS</a>&#160;&#160;&#160;(float)(600.0)</td></tr>
+<tr class="separator:gae8ebc2c2c94c46d6bfbdc05ac7ffdecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf81643989e826fa9c4349f4184a56a0d" id="r_gaf81643989e826fa9c4349f4184a56a0d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gaf81643989e826fa9c4349f4184a56a0d">VPRI_OV_T_BLANK_TRIG_SEC</a>&#160;&#160;&#160;(float)  (0.0)</td></tr>
+<tr class="separator:gaf81643989e826fa9c4349f4184a56a0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae45b4bac6339131a7cb30567551a2cd5" id="r_gae45b4bac6339131a7cb30567551a2cd5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gae45b4bac6339131a7cb30567551a2cd5">VPRI_OV_T_BLANK_CLEAR_SEC</a>&#160;&#160;&#160;(float)  (0.0)</td></tr>
+<tr class="separator:gae45b4bac6339131a7cb30567551a2cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab881ac722074c5a0c9a96b33737b44f2" id="r_gab881ac722074c5a0c9a96b33737b44f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gab881ac722074c5a0c9a96b33737b44f2">VPRI_OV_TICK_SEC</a>&#160;&#160;&#160;(<a class="el" href="a00488.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td></tr>
+<tr class="separator:gab881ac722074c5a0c9a96b33737b44f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga886eaaa750e2ef06f90bdd463c7f6346" id="r_ga886eaaa750e2ef06f90bdd463c7f6346"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#ga886eaaa750e2ef06f90bdd463c7f6346">VPRI_UV_THRES_TRIG_VOLTS</a>&#160;&#160;&#160;(float)(300.0)</td></tr>
+<tr class="separator:ga886eaaa750e2ef06f90bdd463c7f6346"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0c600dfc98788eda04c6051f1e67dff" id="r_gaf0c600dfc98788eda04c6051f1e67dff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gaf0c600dfc98788eda04c6051f1e67dff">VPRI_UV_THRES_CLEAR_VOLTS</a>&#160;&#160;&#160;(float)(200.0)</td></tr>
+<tr class="separator:gaf0c600dfc98788eda04c6051f1e67dff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ff4ff92efb2e17e98e3b963e6dc0cae" id="r_ga6ff4ff92efb2e17e98e3b963e6dc0cae"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#ga6ff4ff92efb2e17e98e3b963e6dc0cae">VPRI_UV_T_BLANK_TRIG_SEC</a>&#160;&#160;&#160;(float)  (0.0)</td></tr>
+<tr class="separator:ga6ff4ff92efb2e17e98e3b963e6dc0cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae060c2f32be9e0c4fbe4d30968d86a50" id="r_gae060c2f32be9e0c4fbe4d30968d86a50"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gae060c2f32be9e0c4fbe4d30968d86a50">VPRI_UV_T_BLANK_CLEAR_SEC</a>&#160;&#160;&#160;(float)  (0.0)</td></tr>
+<tr class="separator:gae060c2f32be9e0c4fbe4d30968d86a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac8e4597345a6c7e57405fa9084be0dcb" id="r_gac8e4597345a6c7e57405fa9084be0dcb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gac8e4597345a6c7e57405fa9084be0dcb">VPRI_UV_TICK_SEC</a>&#160;&#160;&#160;(<a class="el" href="a00488.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td></tr>
+<tr class="separator:gac8e4597345a6c7e57405fa9084be0dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae3dffcdc110b55af6c257bfc0748cf81" id="r_gae3dffcdc110b55af6c257bfc0748cf81"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gae3dffcdc110b55af6c257bfc0748cf81">VPRI_SNS_GAIN</a>&#160;&#160;&#160;(float)(3.600e-3)</td></tr>
+<tr class="separator:gae3dffcdc110b55af6c257bfc0748cf81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35eab816332f1b3d80d161f125c5044a" id="r_ga35eab816332f1b3d80d161f125c5044a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#ga35eab816332f1b3d80d161f125c5044a">VPRI_SNS_OFS</a>&#160;&#160;&#160;(0.0)</td></tr>
+<tr class="separator:ga35eab816332f1b3d80d161f125c5044a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab88335efd29659386531beabaffdf660" id="r_gab88335efd29659386531beabaffdf660"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00484.html#gab88335efd29659386531beabaffdf660">VPRI_VOLTAGE_GAIN</a>&#160;&#160;&#160;(float)0.2229</td></tr>
+<tr class="separator:gab88335efd29659386531beabaffdf660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Declaration of Temperature Feedback parameters </p>
+<p>Declaration of Primary Voltage Feedback parameters, fault configuration and macros </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="gaa584ad6b0df4394fb8a954091913a713" name="gaa584ad6b0df4394fb8a954091913a713"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa584ad6b0df4394fb8a954091913a713">&#9670;&#160;</a></span>FAULT_PERSISTENCE_COUNT_TEMP</h2>
+<a id="gae45b4bac6339131a7cb30567551a2cd5" name="gae45b4bac6339131a7cb30567551a2cd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae45b4bac6339131a7cb30567551a2cd5">&#9670;&#160;</a></span>VPRI_OV_T_BLANK_CLEAR_SEC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FAULT_PERSISTENCE_COUNT_TEMP&#160;&#160;&#160;(4u)</td>
+          <td class="memname">#define VPRI_OV_T_BLANK_CLEAR_SEC&#160;&#160;&#160;(float)  (0.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00169">169</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00106">106</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gaf96b37309868a2ca71aec09e1d2180bc" name="gaf96b37309868a2ca71aec09e1d2180bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf96b37309868a2ca71aec09e1d2180bc">&#9670;&#160;</a></span>NOMINAL_TEMPERATURE_THRESHOLD</h2>
+<a id="gaf81643989e826fa9c4349f4184a56a0d" name="gaf81643989e826fa9c4349f4184a56a0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf81643989e826fa9c4349f4184a56a0d">&#9670;&#160;</a></span>VPRI_OV_T_BLANK_TRIG_SEC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define NOMINAL_TEMPERATURE_THRESHOLD&#160;&#160;&#160;(float) (40.0)</td>
+          <td class="memname">#define VPRI_OV_T_BLANK_TRIG_SEC&#160;&#160;&#160;(float)  (0.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00173">173</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00105">105</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gadc3762a54e017c4db8ad9b6e83dc071d" name="gadc3762a54e017c4db8ad9b6e83dc071d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadc3762a54e017c4db8ad9b6e83dc071d">&#9670;&#160;</a></span>OTP_THRES_CLEAR_CELCIUS</h2>
+<a id="gae8ebc2c2c94c46d6bfbdc05ac7ffdecb" name="gae8ebc2c2c94c46d6bfbdc05ac7ffdecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae8ebc2c2c94c46d6bfbdc05ac7ffdecb">&#9670;&#160;</a></span>VPRI_OV_THRES_CLEAR_VOLTS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define OTP_THRES_CLEAR_CELCIUS&#160;&#160;&#160;(70u)</td>
+          <td class="memname">#define VPRI_OV_THRES_CLEAR_VOLTS&#160;&#160;&#160;(float)(600.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00168">168</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00100">100</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gad1f727c2e9b6350745777aca9f272169" name="gad1f727c2e9b6350745777aca9f272169"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad1f727c2e9b6350745777aca9f272169">&#9670;&#160;</a></span>OTP_THRES_TRIG_CELCIUS</h2>
+<a id="ga3de0595efbf0659d33138d8f32e9e34e" name="ga3de0595efbf0659d33138d8f32e9e34e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3de0595efbf0659d33138d8f32e9e34e">&#9670;&#160;</a></span>VPRI_OV_THRES_TRIG_VOLTS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define OTP_THRES_TRIG_CELCIUS&#160;&#160;&#160;(80u)</td>
+          <td class="memname">#define VPRI_OV_THRES_TRIG_VOLTS&#160;&#160;&#160;(float)(700.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00167">167</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00099">99</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gab586eaca5d59d97c5a098f782633d74c" name="gab586eaca5d59d97c5a098f782633d74c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab586eaca5d59d97c5a098f782633d74c">&#9670;&#160;</a></span>TEMPERATURE_GAIN</h2>
+<a id="gab881ac722074c5a0c9a96b33737b44f2" name="gab881ac722074c5a0c9a96b33737b44f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab881ac722074c5a0c9a96b33737b44f2">&#9670;&#160;</a></span>VPRI_OV_TICK_SEC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TEMPERATURE_GAIN&#160;&#160;&#160;(-0.029)</td>
+          <td class="memname">#define VPRI_OV_TICK_SEC&#160;&#160;&#160;(<a class="el" href="a00488.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00072">72</a> of file <a class="el" href="a00278_source.html">hardware.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00107">107</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga46b916cf898ceb2557a12f208380c5d5" name="ga46b916cf898ceb2557a12f208380c5d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga46b916cf898ceb2557a12f208380c5d5">&#9670;&#160;</a></span>TEMPERATURE_HYSTERESIS</h2>
+<a id="gae3dffcdc110b55af6c257bfc0748cf81" name="gae3dffcdc110b55af6c257bfc0748cf81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae3dffcdc110b55af6c257bfc0748cf81">&#9670;&#160;</a></span>VPRI_SNS_GAIN</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TEMPERATURE_HYSTERESIS&#160;&#160;&#160;(float) (1.0)</td>
+          <td class="memname">#define VPRI_SNS_GAIN&#160;&#160;&#160;(float)(3.600e-3)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00174">174</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00019">19</a> of file <a class="el" href="a00290_source.html">hardware.h</a>.</p>
 
 </div>
 </div>
-<a id="gac02a5a67e0612d6cb90e61cc23398701" name="gac02a5a67e0612d6cb90e61cc23398701"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac02a5a67e0612d6cb90e61cc23398701">&#9670;&#160;</a></span>TEMPERATURE_OFFSET</h2>
+<a id="ga35eab816332f1b3d80d161f125c5044a" name="ga35eab816332f1b3d80d161f125c5044a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga35eab816332f1b3d80d161f125c5044a">&#9670;&#160;</a></span>VPRI_SNS_OFS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TEMPERATURE_OFFSET&#160;&#160;&#160;115u</td>
+          <td class="memname">#define VPRI_SNS_OFS&#160;&#160;&#160;(0.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00073">73</a> of file <a class="el" href="a00278_source.html">hardware.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00020">20</a> of file <a class="el" href="a00290_source.html">hardware.h</a>.</p>
 
 </div>
 </div>
-<a id="gadaf56c98b4dc5aeee1231153c378af0e" name="gadaf56c98b4dc5aeee1231153c378af0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadaf56c98b4dc5aeee1231153c378af0e">&#9670;&#160;</a></span>TEMPERATURE_PBV_OFFSET_CELSIUS</h2>
+<a id="gae060c2f32be9e0c4fbe4d30968d86a50" name="gae060c2f32be9e0c4fbe4d30968d86a50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae060c2f32be9e0c4fbe4d30968d86a50">&#9670;&#160;</a></span>VPRI_UV_T_BLANK_CLEAR_SEC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TEMPERATURE_PBV_OFFSET_CELSIUS&#160;&#160;&#160;(40u)</td>
+          <td class="memname">#define VPRI_UV_T_BLANK_CLEAR_SEC&#160;&#160;&#160;(float)  (0.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00166">166</a> of file <a class="el" href="a00275_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00117">117</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga6ff4ff92efb2e17e98e3b963e6dc0cae" name="ga6ff4ff92efb2e17e98e3b963e6dc0cae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6ff4ff92efb2e17e98e3b963e6dc0cae">&#9670;&#160;</a></span>VPRI_UV_T_BLANK_TRIG_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VPRI_UV_T_BLANK_TRIG_SEC&#160;&#160;&#160;(float)  (0.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00116">116</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gaf0c600dfc98788eda04c6051f1e67dff" name="gaf0c600dfc98788eda04c6051f1e67dff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf0c600dfc98788eda04c6051f1e67dff">&#9670;&#160;</a></span>VPRI_UV_THRES_CLEAR_VOLTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VPRI_UV_THRES_CLEAR_VOLTS&#160;&#160;&#160;(float)(200.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00111">111</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga886eaaa750e2ef06f90bdd463c7f6346" name="ga886eaaa750e2ef06f90bdd463c7f6346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga886eaaa750e2ef06f90bdd463c7f6346">&#9670;&#160;</a></span>VPRI_UV_THRES_TRIG_VOLTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VPRI_UV_THRES_TRIG_VOLTS&#160;&#160;&#160;(float)(300.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00110">110</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gac8e4597345a6c7e57405fa9084be0dcb" name="gac8e4597345a6c7e57405fa9084be0dcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac8e4597345a6c7e57405fa9084be0dcb">&#9670;&#160;</a></span>VPRI_UV_TICK_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VPRI_UV_TICK_SEC&#160;&#160;&#160;(<a class="el" href="a00488.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00118">118</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gab88335efd29659386531beabaffdf660" name="gab88335efd29659386531beabaffdf660"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab88335efd29659386531beabaffdf660">&#9670;&#160;</a></span>VPRI_VOLTAGE_GAIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VPRI_VOLTAGE_GAIN&#160;&#160;&#160;(float)0.2229</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00023">23</a> of file <a class="el" href="a00290_source.html">hardware.h</a>.</p>
 
 </div>
 </div>

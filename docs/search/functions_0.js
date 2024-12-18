@@ -1,21 +1,10 @@
 var searchData=
 [
-  ['_5fadcan0interrupt_0',['_ADCAN0Interrupt',['../a00068.html#a968747854ba14331aa9f85784178d0da',1,'adc1.c']]],
-  ['_5fadcan10interrupt_1',['_ADCAN10Interrupt',['../a00068.html#a9cb192192797468bb772e5f122c0ec8c',1,'adc1.c']]],
-  ['_5fadcan14interrupt_2',['_ADCAN14Interrupt',['../a00068.html#a05df9cb7fa269f8a6ecf2902a0bd44f8',1,'adc1.c']]],
-  ['_5fadcan19interrupt_3',['_ADCAN19Interrupt',['../a00068.html#ad8ca4a9fffda0a78befdbf1f79577255',1,'adc1.c']]],
-  ['_5fadcan1interrupt_4',['_ADCAN1Interrupt',['../a00068.html#a6ac2591aa2e32874156ad3f8bf477d2f',1,'adc1.c']]],
-  ['_5fadcan2interrupt_5',['_ADCAN2Interrupt',['../a00068.html#a0edbbd038586d7cb4089da423144269c',1,'adc1.c']]],
-  ['_5fadcan7interrupt_6',['_ADCAN7Interrupt',['../a00068.html#a239c408aa2a01926ffda432ceab7ce75',1,'adc1.c']]],
-  ['_5fadcinterrupt_7',['_ADCInterrupt',['../a00068.html#aebe3a8039dee56cc6caeb987432d09bc',1,'adc1.c']]],
-  ['_5faddresserror_8',['_AddressError',['../a00200.html#a369f76085b5e8862ed6c95ebc4196240',1,'traps.c']]],
-  ['_5fc1interrupt_9',['_C1Interrupt',['../a00083.html#a7fca797fee50ebb0d9e1b9983aa8018a',1,'can1.c']]],
-  ['_5fcct1interrupt_10',['_CCT1Interrupt',['../a00218.html#a9f8efc110174a459158332a4f94dbccf',1,'sccp1.c']]],
-  ['_5fdmtinterrupt_11',['_DMTInterrupt',['../a00182.html#a6977028fc7045815842bce9d1736ea60',1,'dmt.c']]],
-  ['_5fhardtraperror_12',['_HardTrapError',['../a00200.html#adbfe1bbe232090a223197057a768befb',1,'traps.c']]],
-  ['_5fmatherror_13',['_MathError',['../a00200.html#a2017082168ce25fa118fc65101c58620',1,'traps.c']]],
-  ['_5foscillatorfail_14',['_OscillatorFail',['../a00200.html#ae50a96c4daa59acda66ca62e59b2a9a9',1,'traps.c']]],
-  ['_5fsofttraperror_15',['_SoftTrapError',['../a00200.html#acf6324ef35ef0cdd3aa63c1f195ba553',1,'traps.c']]],
-  ['_5fstackerror_16',['_StackError',['../a00200.html#a2bb82ba68a7d3e7a3384ae5b6d2c5205',1,'traps.c']]],
-  ['_5ft1interrupt_17',['_T1Interrupt',['../a00221.html#a3b9d4f7573499d6acdb1ffd1064a9077',1,'tmr1.c']]]
+  ['_5f_5fattribute_5f_5f_0',['__attribute__',['../a00080.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;adc1.c'],['../a00080.html#a1c6668511cac0671118ebc6266158cf5',1,'__attribute__((__interrupt__, auto_psv, weak)):&#160;adc1.c'],['../a00095.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;can1.c'],['../a00095.html#a64653c452ab199760e9cdd6bdbbeeb76',1,'__attribute__((__interrupt__, no_auto_psv)):&#160;can1.c'],['../a00104.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;clc1.c'],['../a00119.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;cmp1.c'],['../a00122.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;cmp2.c'],['../a00125.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;cmp3.c'],['../a00149.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;sccp3.c'],['../a00164.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;pwm.c'],['../a00194.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;dmt.c'],['../a00194.html#a226557d5e42f7e29ddaff30606138459',1,'__attribute__((interrupt, no_auto_psv)):&#160;dmt.c'],['../a00206.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;reset.c'],['../a00212.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;traps.c'],['../a00230.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;sccp1.c'],['../a00230.html#a226557d5e42f7e29ddaff30606138459',1,'__attribute__((interrupt, no_auto_psv)):&#160;sccp1.c'],['../a00233.html#a201468129b483039afc5a619e2d31097',1,'__attribute__((weak)):&#160;tmr1.c'],['../a00233.html#a226557d5e42f7e29ddaff30606138459',1,'__attribute__((interrupt, no_auto_psv)):&#160;tmr1.c'],['../a00522.html#ga3e431d7a1eef24adda9ba74cba5e5ce4',1,'__attribute__((space(xmemory))):&#160;pwrctrl_dcdt.c'],['../a00522.html#gace6ab8444e1493b1c2750447a51b9b93',1,'__attribute__((space(ymemory), far)):&#160;pwrctrl_dcdt.c']]],
+  ['_5faddresserror_1',['_AddressError',['../a00212.html#a369f76085b5e8862ed6c95ebc4196240',1,'traps.c']]],
+  ['_5fhardtraperror_2',['_HardTrapError',['../a00212.html#adbfe1bbe232090a223197057a768befb',1,'traps.c']]],
+  ['_5fmatherror_3',['_MathError',['../a00212.html#a2017082168ce25fa118fc65101c58620',1,'traps.c']]],
+  ['_5foscillatorfail_4',['_OscillatorFail',['../a00212.html#ae50a96c4daa59acda66ca62e59b2a9a9',1,'traps.c']]],
+  ['_5fsofttraperror_5',['_SoftTrapError',['../a00212.html#acf6324ef35ef0cdd3aa63c1f195ba553',1,'traps.c']]],
+  ['_5fstackerror_6',['_StackError',['../a00212.html#a2bb82ba68a7d3e7a3384ae5b6d2c5205',1,'traps.c']]]
 ];

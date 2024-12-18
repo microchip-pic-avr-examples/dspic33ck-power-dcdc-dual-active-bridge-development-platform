@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Device Layer</title>
+<title>Dual Active Bridge Development Board: Conversion Macros</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,47 +136,77 @@ $(document).ready(function(){initNavTree('a00497.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#groups">Modules</a> &#124;
-<a href="#files">Files</a>  </div>
-  <div class="headertitle"><div class="title">Device Layer</div></div>
+  <div class="headertitle"><div class="title">Conversion Macros<div class="ingroups"><a class="el" href="a00508.html">Configuration Layer</a> &raquo; <a class="el" href="a00496.html">Temperature Feedback</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains all the application tasks that will be executed.  
+<p>Conversion macros for user-declarations of Temperature Feedback parameters details Conversion macros converting physical quantities of parameters into binary (integer) numbers for registers and variables.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Device Layer:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Conversion Macros:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00497.svg" width="328" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00497.svg" width="344" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:a00498" id="r_a00498"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00498.html">Current Sensor Calibration</a></td></tr>
-<tr class="memdesc:a00498"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Current Sensor Calibration device layer is a proprietary user code utilized for configuring the sensor properties. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00499" id="r_a00499"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html">Fan Control</a></td></tr>
-<tr class="memdesc:a00499"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Fan control device layer is a proprietary user code utilized for configuring the fan control properties. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00500" id="r_a00500"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html">LED Display</a></td></tr>
-<tr class="memdesc:a00500"><td class="mdescLeft">&#160;</td><td class="mdescRight">The LED device layer is the proprietary user code used to configure and drive the on-board debugging LED. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00501" id="r_a00501"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00501.html">Temperature Detection</a></td></tr>
-<tr class="memdesc:a00501"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Temperature device layer is the proprietary user code used to configure and detect the board temperature. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00290" id="r_a00290"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00290.html">device.h</a></td></tr>
-<tr class="memdesc:a00290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains h files that are part of device layer. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga14e5a0b582b1666590c4d1854ab1fe6f" id="r_ga14e5a0b582b1666590c4d1854ab1fe6f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00497.html#ga14e5a0b582b1666590c4d1854ab1fe6f">TEMPERATURE_FACTOR</a>&#160;&#160;&#160;(int16_t)(<a class="el" href="a00496.html#gab586eaca5d59d97c5a098f782633d74c">TEMPERATURE_GAIN</a> * pow(2.0, 15))</td></tr>
+<tr class="separator:ga14e5a0b582b1666590c4d1854ab1fe6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga138123533833c44398978f96b0f31764" id="r_ga138123533833c44398978f96b0f31764"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00497.html#ga138123533833c44398978f96b0f31764">L_TEMPERATURE_THRESHOLD</a>&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00496.html#gaf96b37309868a2ca71aec09e1d2180bc">NOMINAL_TEMPERATURE_THRESHOLD</a> - <a class="el" href="a00496.html#ga46b916cf898ceb2557a12f208380c5d5">TEMPERATURE_HYSTERESIS</a>)</td></tr>
+<tr class="separator:ga138123533833c44398978f96b0f31764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3aa6d37a535571959d177257ff529478" id="r_ga3aa6d37a535571959d177257ff529478"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00497.html#ga3aa6d37a535571959d177257ff529478">H_TEMPERATURE_THRESHOLD</a>&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00496.html#gaf96b37309868a2ca71aec09e1d2180bc">NOMINAL_TEMPERATURE_THRESHOLD</a> + <a class="el" href="a00496.html#ga46b916cf898ceb2557a12f208380c5d5">TEMPERATURE_HYSTERESIS</a>)</td></tr>
+<tr class="separator:ga3aa6d37a535571959d177257ff529478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>The device layer covers all user tasks executed by the task scheduler. Each task is an independent entity called on its respective timing defined by the user. Tasks are proprietary user code modules representing specific functions of the application or end-product. <br  />
- </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga3aa6d37a535571959d177257ff529478" name="ga3aa6d37a535571959d177257ff529478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3aa6d37a535571959d177257ff529478">&#9670;&#160;</a></span>H_TEMPERATURE_THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define H_TEMPERATURE_THRESHOLD&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00496.html#gaf96b37309868a2ca71aec09e1d2180bc">NOMINAL_TEMPERATURE_THRESHOLD</a> + <a class="el" href="a00496.html#ga46b916cf898ceb2557a12f208380c5d5">TEMPERATURE_HYSTERESIS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00157">157</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="ga138123533833c44398978f96b0f31764" name="ga138123533833c44398978f96b0f31764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga138123533833c44398978f96b0f31764">&#9670;&#160;</a></span>L_TEMPERATURE_THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define L_TEMPERATURE_THRESHOLD&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00496.html#gaf96b37309868a2ca71aec09e1d2180bc">NOMINAL_TEMPERATURE_THRESHOLD</a> - <a class="el" href="a00496.html#ga46b916cf898ceb2557a12f208380c5d5">TEMPERATURE_HYSTERESIS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00156">156</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
+
+</div>
+</div>
+<a id="ga14e5a0b582b1666590c4d1854ab1fe6f" name="ga14e5a0b582b1666590c4d1854ab1fe6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga14e5a0b582b1666590c4d1854ab1fe6f">&#9670;&#160;</a></span>TEMPERATURE_FACTOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEMPERATURE_FACTOR&#160;&#160;&#160;(int16_t)(<a class="el" href="a00496.html#gab586eaca5d59d97c5a098f782633d74c">TEMPERATURE_GAIN</a> * pow(2.0, 15))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00154">154</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

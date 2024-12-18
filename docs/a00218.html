@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/timer/src/sccp1.c File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/system_types.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,181 +137,91 @@ $(document).ready(function(){initNavTree('a00218.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">sccp1.c File Reference<div class="ingroups"><a class="el" href="a00518.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00535.html">Timer Driver</a></div></div></div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle"><div class="title">system_types.h File Reference<div class="ingroups"><a class="el" href="a00530.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00543.html">System Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the generated driver source file for SCCP1-TIMER driver.  
+<p>This is the generated driver types header file for the System driver.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00215_source.html">../sccp1.h</a>&quot;</code><br />
-<code>#include &quot;../timer_interface.h&quot;</code><br />
-</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for sccp1.c:</div>
+<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00219.svg" width="435" height="310"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00220.svg" width="358" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00218_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ab1af98b17905c2c4854e5d9a460a64b5" id="r_ab1af98b17905c2c4854e5d9a460a64b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#ab1af98b17905c2c4854e5d9a460a64b5">MASK_32_BIT_LOW</a>&#160;&#160;&#160;0x0000FFFFU</td></tr>
-<tr class="separator:ab1af98b17905c2c4854e5d9a460a64b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e3affedd77bf522f423cdd636f6e90b" id="r_a3e3affedd77bf522f423cdd636f6e90b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a3e3affedd77bf522f423cdd636f6e90b">MASK_32_BIT_HIGH</a>&#160;&#160;&#160;0xFFFF0000U</td></tr>
-<tr class="separator:a3e3affedd77bf522f423cdd636f6e90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a20024c0647552ed1d76dbb4f332d0dce" id="r_a20024c0647552ed1d76dbb4f332d0dce"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00218.html#aabca170277f8d621f62d13ad1e6e25f8">CORCON_MODE_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a20024c0647552ed1d76dbb4f332d0dce">SYSTEM_CORCON_MODES</a></td></tr>
+<tr class="separator:a20024c0647552ed1d76dbb4f332d0dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gaf803d32453022c0508ffb40f6163635d" id="r_gaf803d32453022c0508ffb40f6163635d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gaf803d32453022c0508ffb40f6163635d">SCCP1_Timer_Initialize</a> (void)</td></tr>
-<tr class="memdesc:gaf803d32453022c0508ffb40f6163635d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the SCCP1 module.  <br /></td></tr>
-<tr class="separator:gaf803d32453022c0508ffb40f6163635d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6fcb5250c0ea0bb4adfe21449c91fbe2" id="r_ga6fcb5250c0ea0bb4adfe21449c91fbe2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga6fcb5250c0ea0bb4adfe21449c91fbe2">SCCP1_Timer_Deinitialize</a> (void)</td></tr>
-<tr class="memdesc:ga6fcb5250c0ea0bb4adfe21449c91fbe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the SCCP1 to POR values.  <br /></td></tr>
-<tr class="separator:ga6fcb5250c0ea0bb4adfe21449c91fbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab627b2912f0bca5e5194bc9afdef8072" id="r_gab627b2912f0bca5e5194bc9afdef8072"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gab627b2912f0bca5e5194bc9afdef8072">SCCP1_Timer_Start</a> (void)</td></tr>
-<tr class="memdesc:gab627b2912f0bca5e5194bc9afdef8072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer.  <br /></td></tr>
-<tr class="separator:gab627b2912f0bca5e5194bc9afdef8072"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1bd3863ac997aca4d96df728c9260148" id="r_ga1bd3863ac997aca4d96df728c9260148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga1bd3863ac997aca4d96df728c9260148">SCCP1_Timer_Stop</a> (void)</td></tr>
-<tr class="memdesc:ga1bd3863ac997aca4d96df728c9260148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer.  <br /></td></tr>
-<tr class="separator:ga1bd3863ac997aca4d96df728c9260148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3df341502631224f4ba59b364cf0cedc" id="r_ga3df341502631224f4ba59b364cf0cedc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga3df341502631224f4ba59b364cf0cedc">SCCP1_Timer_PeriodSet</a> (uint32_t count)</td></tr>
-<tr class="memdesc:ga3df341502631224f4ba59b364cf0cedc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the SCCP1-Timer period count value.  <br /></td></tr>
-<tr class="separator:ga3df341502631224f4ba59b364cf0cedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf8c308992dceeaa52d8282b679835e10" id="r_gaf8c308992dceeaa52d8282b679835e10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gaf8c308992dceeaa52d8282b679835e10">SCCP1_Timer_InterruptPrioritySet</a> (enum INTERRUPT_PRIORITY priority)</td></tr>
-<tr class="memdesc:gaf8c308992dceeaa52d8282b679835e10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Interrupt Priority Value.  <br /></td></tr>
-<tr class="separator:gaf8c308992dceeaa52d8282b679835e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8997d5f758579b5b3629655f9972efaf" id="r_ga8997d5f758579b5b3629655f9972efaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga8997d5f758579b5b3629655f9972efaf">SCCP1_Timer_TimeoutCallbackRegister</a> (void(*handler)(void))</td></tr>
-<tr class="memdesc:ga8997d5f758579b5b3629655f9972efaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for SCCP1 Timeout event.  <br /></td></tr>
-<tr class="separator:ga8997d5f758579b5b3629655f9972efaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafa6dada931e552d0ba5e8cfa2a00040a" id="r_gafa6dada931e552d0ba5e8cfa2a00040a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gafa6dada931e552d0ba5e8cfa2a00040a">SCCP1_TimeoutCallbackRegister</a> (void *handler)</td></tr>
-<tr class="memdesc:gafa6dada931e552d0ba5e8cfa2a00040a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for SCCP1 Timeout event.  <br /></td></tr>
-<tr class="separator:gafa6dada931e552d0ba5e8cfa2a00040a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5477b39dcbd952bf6e17ad435f59dbef" id="r_ga5477b39dcbd952bf6e17ad435f59dbef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga5477b39dcbd952bf6e17ad435f59dbef">SCCP1_TimeoutCallback</a> (void)</td></tr>
-<tr class="memdesc:ga5477b39dcbd952bf6e17ad435f59dbef"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using <a class="el" href="a00535.html#ga8997d5f758579b5b3629655f9972efaf">SCCP1_Timer_TimeoutCallbackRegister</a>.  <br /></td></tr>
-<tr class="separator:ga5477b39dcbd952bf6e17ad435f59dbef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f8efc110174a459158332a4f94dbccf" id="r_a9f8efc110174a459158332a4f94dbccf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a9f8efc110174a459158332a4f94dbccf">_CCT1Interrupt</a> (void)</td></tr>
-<tr class="separator:a9f8efc110174a459158332a4f94dbccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12a57a17a7a0814cffb6443dba5a2e1b" id="r_a12a57a17a7a0814cffb6443dba5a2e1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a12a57a17a7a0814cffb6443dba5a2e1b">SCCP1_Timer_PeriodCountSet</a> (size_t count)</td></tr>
-<tr class="separator:a12a57a17a7a0814cffb6443dba5a2e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a8933191a6bf64c9d34a9f9ef43294ddf" id="r_a8933191a6bf64c9d34a9f9ef43294ddf"><td class="memItemLeft" align="right" valign="top">static void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a8933191a6bf64c9d34a9f9ef43294ddf">SCCP1_TimeoutHandler</a> )(void) = NULL</td></tr>
-<tr class="separator:a8933191a6bf64c9d34a9f9ef43294ddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga56d847de2589dfb5bbce07a29fd5ef15" id="r_ga56d847de2589dfb5bbce07a29fd5ef15"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00601.html">TIMER_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga56d847de2589dfb5bbce07a29fd5ef15">CTRLLOOP_EXE</a></td></tr>
-<tr class="memdesc:ga56d847de2589dfb5bbce07a29fd5ef15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00601.html" title="Structure containing the function pointers of TIMER driver.">TIMER_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. Timer1 can be changed by the user in the TIMER user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
-<tr class="separator:ga56d847de2589dfb5bbce07a29fd5ef15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:aabca170277f8d621f62d13ad1e6e25f8" id="r_aabca170277f8d621f62d13ad1e6e25f8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#aabca170277f8d621f62d13ad1e6e25f8">CORCON_MODE_TYPE</a> { <a class="el" href="a00218.html#aabca170277f8d621f62d13ad1e6e25f8a548b24dbb2e97a6afd9011d85aeed115">CORCON_MODE_PORVALUES</a> = 0x0020
+, <a class="el" href="a00218.html#aabca170277f8d621f62d13ad1e6e25f8ae365ac8be7756d0511f00caaf4f187a6">CORCON_MODE_ENABLEALLSATNORMAL_ROUNDBIASED</a> = 0x00E2
+, <a class="el" href="a00218.html#aabca170277f8d621f62d13ad1e6e25f8a8192f72ec981ad76cb2134f696d0fa7f">CORCON_MODE_ENABLEALLSATNORMAL_ROUNDUNBIASED</a> = 0x00E0
+, <a class="el" href="a00218.html#aabca170277f8d621f62d13ad1e6e25f8a5ce6a10e1385654bdac5eeb00c230cec">CORCON_MODE_DISABLEALLSAT_ROUNDBIASED</a> = 0x0022
+, <a class="el" href="a00218.html#aabca170277f8d621f62d13ad1e6e25f8a57036aa0515ce1614e5e9ae45a665201">CORCON_MODE_DISABLEALLSAT_ROUNDUNBIASED</a> = 0x0020
+, <a class="el" href="a00218.html#aabca170277f8d621f62d13ad1e6e25f8abf2e69f7927925083545b13f88341f3d">CORCON_MODE_ENABLEALLSATSUPER_ROUNDBIASED</a> = 0x00F2
+, <a class="el" href="a00218.html#aabca170277f8d621f62d13ad1e6e25f8abff91c29828603af1e52a8cd2d876246">CORCON_MODE_ENABLEALLSATSUPER_ROUNDUNBIASED</a> = 0x00F0
+ }</td></tr>
+<tr class="separator:aabca170277f8d621f62d13ad1e6e25f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>SCCP1-TIMER Generated Driver Source File</p>
+<div class="textblock"><p>MAIN Generated Driver Types Header File</p>
+<dl class="section version"><dt>Version</dt><dd>Driver Version 1.0.1</dd></dl>
 <div class="fragment"></div><!-- fragment -->
-<p class="definition">Definition in file <a class="el" href="a00218_source.html">sccp1.c</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a3e3affedd77bf522f423cdd636f6e90b" name="a3e3affedd77bf522f423cdd636f6e90b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e3affedd77bf522f423cdd636f6e90b">&#9670;&#160;</a></span>MASK_32_BIT_HIGH</h2>
+<p class="definition">Definition in file <a class="el" href="a00218_source.html">system_types.h</a>.</p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a20024c0647552ed1d76dbb4f332d0dce" name="a20024c0647552ed1d76dbb4f332d0dce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20024c0647552ed1d76dbb4f332d0dce">&#9670;&#160;</a></span>SYSTEM_CORCON_MODES</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MASK_32_BIT_HIGH&#160;&#160;&#160;0xFFFF0000U</td>
+          <td class="memname">typedef enum <a class="el" href="a00218.html#aabca170277f8d621f62d13ad1e6e25f8">CORCON_MODE_TYPE</a> <a class="el" href="a00218.html#a20024c0647552ed1d76dbb4f332d0dce">SYSTEM_CORCON_MODES</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00047">47</a> of file <a class="el" href="a00218_source.html">sccp1.c</a>.</p>
-
 </div>
 </div>
-<a id="ab1af98b17905c2c4854e5d9a460a64b5" name="ab1af98b17905c2c4854e5d9a460a64b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1af98b17905c2c4854e5d9a460a64b5">&#9670;&#160;</a></span>MASK_32_BIT_LOW</h2>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="aabca170277f8d621f62d13ad1e6e25f8" name="aabca170277f8d621f62d13ad1e6e25f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabca170277f8d621f62d13ad1e6e25f8">&#9670;&#160;</a></span>CORCON_MODE_TYPE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MASK_32_BIT_LOW&#160;&#160;&#160;0x0000FFFFU</td>
+          <td class="memname">enum <a class="el" href="a00218.html#aabca170277f8d621f62d13ad1e6e25f8">CORCON_MODE_TYPE</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00046">46</a> of file <a class="el" href="a00218_source.html">sccp1.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a9f8efc110174a459158332a4f94dbccf" name="a9f8efc110174a459158332a4f94dbccf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f8efc110174a459158332a4f94dbccf">&#9670;&#160;</a></span>_CCT1Interrupt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void _CCT1Interrupt </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00197">197</a> of file <a class="el" href="a00218_source.html">sccp1.c</a>.</p>
-
-</div>
-</div>
-<a id="a12a57a17a7a0814cffb6443dba5a2e1b" name="a12a57a17a7a0814cffb6443dba5a2e1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12a57a17a7a0814cffb6443dba5a2e1b">&#9670;&#160;</a></span>SCCP1_Timer_PeriodCountSet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SCCP1_Timer_PeriodCountSet </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>count</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00206">206</a> of file <a class="el" href="a00218_source.html">sccp1.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a8933191a6bf64c9d34a9f9ef43294ddf" name="a8933191a6bf64c9d34a9f9ef43294ddf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8933191a6bf64c9d34a9f9ef43294ddf">&#9670;&#160;</a></span>SCCP1_TimeoutHandler</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* SCCP1_TimeoutHandler) (void) </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> = NULL</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8a548b24dbb2e97a6afd9011d85aeed115" name="aabca170277f8d621f62d13ad1e6e25f8a548b24dbb2e97a6afd9011d85aeed115"></a>CORCON_MODE_PORVALUES&#160;</td><td class="fielddoc"><p>Use POR values of CORCON </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8ae365ac8be7756d0511f00caaf4f187a6" name="aabca170277f8d621f62d13ad1e6e25f8ae365ac8be7756d0511f00caaf4f187a6"></a>CORCON_MODE_ENABLEALLSATNORMAL_ROUNDBIASED&#160;</td><td class="fielddoc"><p>Enable saturation for ACCA, ACCB and Dataspace write, enable normal ACCA/ACCB saturation mode and set rounding to Biased (conventional) mode. Rest of CORCON settings are set to the default POR values. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8a8192f72ec981ad76cb2134f696d0fa7f" name="aabca170277f8d621f62d13ad1e6e25f8a8192f72ec981ad76cb2134f696d0fa7f"></a>CORCON_MODE_ENABLEALLSATNORMAL_ROUNDUNBIASED&#160;</td><td class="fielddoc"><p>Enable saturation for ACCA, ACCB and Dataspace write, enable normal ACCA/ACCB saturation mode and set rounding to Unbiased (convergent) mode. Rest of CORCON settings are set to the default POR values. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8a5ce6a10e1385654bdac5eeb00c230cec" name="aabca170277f8d621f62d13ad1e6e25f8a5ce6a10e1385654bdac5eeb00c230cec"></a>CORCON_MODE_DISABLEALLSAT_ROUNDBIASED&#160;</td><td class="fielddoc"><p>Disable saturation for ACCA, ACCB and Dataspace write and set rounding to Biased (conventional) mode. Rest of CORCON settings are set to the default POR values. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8a57036aa0515ce1614e5e9ae45a665201" name="aabca170277f8d621f62d13ad1e6e25f8a57036aa0515ce1614e5e9ae45a665201"></a>CORCON_MODE_DISABLEALLSAT_ROUNDUNBIASED&#160;</td><td class="fielddoc"><p>Disable saturation for ACCA, ACCB and Dataspace write and set rounding to Unbiased (convergent) mode. Rest of CORCON settings are set to the default POR values. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8abf2e69f7927925083545b13f88341f3d" name="aabca170277f8d621f62d13ad1e6e25f8abf2e69f7927925083545b13f88341f3d"></a>CORCON_MODE_ENABLEALLSATSUPER_ROUNDBIASED&#160;</td><td class="fielddoc"><p>Enable saturation for ACCA, ACCB and Dataspace write, enable super ACCA/ACCB saturation mode and set rounding to Biased (conventional) mode. Rest of CORCON settings are set to the default POR values. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8abff91c29828603af1e52a8cd2d876246" name="aabca170277f8d621f62d13ad1e6e25f8abff91c29828603af1e52a8cd2d876246"></a>CORCON_MODE_ENABLEALLSATSUPER_ROUNDUNBIASED&#160;</td><td class="fielddoc"><p>Enable saturation for ACCA, ACCB and Dataspace write, enable super ACCA/ACCB saturation mode and set rounding to Unbiased (convergent) mode. Rest of CORCON settings are set to the default POR values. </p>
+</td></tr>
 </table>
-</div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00051">51</a> of file <a class="el" href="a00218_source.html">sccp1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00048">48</a> of file <a class="el" href="a00218_source.html">system_types.h</a>.</p>
 
 </div>
 </div>

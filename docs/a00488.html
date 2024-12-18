@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Smps-2p2z-dspic-description</title>
+<title>Dual Active Bridge Development Board: Primary Current Feedback</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,106 +136,195 @@ $(document).ready(function(){initNavTree('a00488.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Smps-2p2z-dspic-description<div class="ingroups"><a class="el" href="a00519.html">Hide-content</a></div></div></div>
+  <div class="summary">
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Primary Current Feedback<div class="ingroups"><a class="el" href="a00508.html">Configuration Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Declaration of Primary Current Feedback parameters, fault configuration and macros.  
+<a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Smps-2p2z-dspic-description:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Primary Current Feedback:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00488.svg" width="343" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00488.svg" width="544" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<p>Operation:</p>
-<div class="fragment"><div class="line">                                          Wcp0   ( S + Wcz1 )               </div>
-<div class="line">  Calculate the transfer function Hc(s) = ---- X ------------------------   </div>
-<div class="line">                                           S     ( S + Wcp1 )( S + Wcp2 )   </div>
-<div class="line">                                           </div>
-<div class="line">    Error Normalization</div>
-<div class="line">      ------------</div>
-<div class="line">     |   prsft    |</div>
-<div class="line">      ------------</div>
-<div class="line">Reference   |       e(n)          e(n-1)        e(n-2)</div>
-<div class="line">Input       |             --------      --------</div>
-<div class="line">        -   -   -        |        |    |        |</div>
-<div class="line">  o----|-|-|x|-|x|----o-&gt;| z^(-1) |-o-&gt;| z^(-1) |-o          Post</div>
-<div class="line">        -   -   -     |  |        | |  |        | |         Scaling</div>
-<div class="line">        |      NORM   |   --------  |   --------  |</div>
-<div class="line">        |             |             |             |          --------</div>
-<div class="line">Measured|            ---           ---           ---       |          |     - - - - - - - - - -</div>
-<div class="line">Input   |       B0=&gt;| X |     B1=&gt;| X |     B2=&gt;| X |      |posft     |    |                   |</div>
-<div class="line">        |            ---           ---           ---       |postScalar|    |     P O W E R     |</div>
-<div class="line">        |             |             |             |         ----------     |     P L A N T     |</div>
-<div class="line">        |            -------------------------------------        |        |                   |</div>
-<div class="line">        |           |                                     | U[n] ---       |                   |</div>
-<div class="line">        |           |        A C C U M U L A T O R        |--o--| X |------O Duty Ratio=&gt;PWM  |</div>
-<div class="line">        |           |                                     |  |   ---       |                   |</div>
-<div class="line">        |            -------------------------------------   |             | Voltage/Current   |</div>
-<div class="line">        |             |              |                       |             |      Feedback     |</div>
-<div class="line">        |            ---            ---                      |             |         O         |</div>
-<div class="line">        |       A2=&gt;| X |      A1=&gt;| X |                     |             |         |         |</div>
-<div class="line">        |            ---            ---                      |              - - - - - - - - - -</div>
-<div class="line">        |             |              |                       |                      |</div>
-<div class="line">        |             |   --------   |  --------             |                      | A/D</div>
-<div class="line">        |             |  |        |  | |        |            |                      | Input</div>
-<div class="line">        |             o--| z^(-1) |&lt;-o-| z^(-1) |&lt;-----------                       |</div>
-<div class="line">        |                |        |    |        |                                   |</div>
-<div class="line">        |                 --------      --------                                    |</div>
-<div class="line">        |                  u[n-2]        u[n-1]                                     |</div>
-<div class="line">        |                                                                           |</div>
-<div class="line">        |                                                                           |</div>
-<div class="line">         ---------------------------------------------------------------------------</div>
-<div class="line"> </div>
-<div class="line">   controlHistory[n] = errorHistory[n]   * bCoefficients[0]</div>
-<div class="line">                     + errorHistory[n-1] * bCoefficients[1]</div>
-<div class="line">                     + errorHistory[n-2] * bCoefficients[2]</div>
-<div class="line">                     + controlHistory[n-1] * aCoefficients[0]</div>
-<div class="line">                     + controlHistory[n-2] * aCoefficients[1]</div>
-<div class="line"> </div>
-<div class="line">  where:</div>
-<div class="line"> </div>
-<div class="line">   aCoefficients[0]  = A1</div>
-<div class="line">   aCoefficients[1]  = A2</div>
-<div class="line">   bCoefficients[0]  = B0</div>
-<div class="line">   bCoefficients[1]  = B1</div>
-<div class="line">   bCoefficients[2]  = B2</div>
-<div class="line">   controlHistory[0] = u(n)</div>
-<div class="line">   controlHistory[1] = u(n-1)</div>
-<div class="line">   errorHistory[0]   = e(n) =&gt; most recent error {(controlReference) - (sourceRegister)}</div>
-<div class="line">   errorHistory[1]   = e(n-1)</div>
-<div class="line">   errorHistory[2]   = e(n-2)</div>
-<div class="line">   preShift          = prsft    =&gt; pre scaling factor for Q15 normalization purposes</div>
-<div class="line">   postShift         = posft    =&gt; post scaling factor for normalization purposes</div>
-<div class="line">   postScaler        = postScaler =&gt; post scaling coefficient for normalization purpose</div>
-<div class="line"> </div>
-<div class="line">   Function call inputs:</div>
-<div class="line">   sourceRegister    = ADBUFx  =&gt; measured feedback input   </div>
-<div class="line">   controlReference  = V_ref    =&gt; reference voltage</div>
-<div class="line">   targetRegister = PDCx =&gt; output duty cycle</div>
-<div class="line"> </div>
-<div class="line">  where:</div>
-<div class="line"> </div>
-<div class="line">   aCoefficients, bCoefficients, controlHistory, errorHistory, </div>
-<div class="line">   preShift and postShift are all members of the data structure <a class="code hl_struct" href="a00677.html">SMPS_2P2Z_T</a>.</div>
-<div class="line"> </div>
-<div class="line"> Input:</div>
-<div class="line">       w0 = Address of <a class="code hl_struct" href="a00677.html">SMPS_2P2Z_T</a> data structure</div>
-<div class="line">       w1 = Address of the Source Register (Input)</div>
-<div class="line">       w2 = Control Reference</div>
-<div class="line">       w3 = Address of the Target Register (Output)</div>
-<div class="line"> Return:</div>
-<div class="line">       w0 = Address of <a class="code hl_struct" href="a00677.html">SMPS_2P2Z_T</a> data structure</div>
-<div class="line">       w1 = Address of the Source Register (Input)</div>
-<div class="line">       w2 = Control Reference</div>
-<div class="line">       w3 = Address of the Target Register (Output)</div>
-<div class="line"> </div>
-<div class="line"> System resources usage:</div>
-<div class="line">       {w4..w5}        saved, used, restored</div>
-<div class="line">       {w8,w10}        saved, used, restored</div>
-<div class="line">        AccA           used, not restored</div>
-<div class="line">        CORCON         saved, used, restored</div>
-<div class="ttc" id="aa00677_html"><div class="ttname"><a href="a00677.html">SMPS_2P2Z_T</a></div><div class="ttdef"><b>Definition</b> <a href="a00425_source.html#l00162">smps_control.h:163</a></div></div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The function in this assembly file requires CORCON register to be setup in a certain state in order to operate correctly. Due to this requirement, this function will save the CORCON register on the stack in the beginning of the function and restore it before the function return. After saving the CORCON register, this function writes to all bits of the CORCON register. Thus, for the brief duration when this function is executing, the state of CORCON register may be different from its state as set by the function caller. This may change the CPU core behaviour with respect to exception processing latency, DO loop termination, CPU interrupt priority level and DSP-engine behaviour. </dd></dl>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00489" id="r_a00489"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00489.html">Conversion Macros</a></td></tr>
+<tr class="memdesc:a00489"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of Primary Current Feedback parameters. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga629c6b42f4e4f0bb7b45a365327216c8" id="r_ga629c6b42f4e4f0bb7b45a365327216c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00488.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>&#160;&#160;&#160;(float) (10.0e-6)</td></tr>
+<tr class="memdesc:ga629c6b42f4e4f0bb7b45a365327216c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC sampling rate.  <br /></td></tr>
+<tr class="separator:ga629c6b42f4e4f0bb7b45a365327216c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf66f7333079207c329017043676a1fcb" id="r_gaf66f7333079207c329017043676a1fcb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00488.html#gaf66f7333079207c329017043676a1fcb">IPRI_OC_THRES_TRIG_AMPS</a>&#160;&#160;&#160;(float) (39.0)</td></tr>
+<tr class="memdesc:gaf66f7333079207c329017043676a1fcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Primary over current trigger threshold.  <br /></td></tr>
+<tr class="separator:gaf66f7333079207c329017043676a1fcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3d9ec4eb82b3b94114525bf01962d585" id="r_ga3d9ec4eb82b3b94114525bf01962d585"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00488.html#ga3d9ec4eb82b3b94114525bf01962d585">IPRI_OC_THRES_CLEAR_AMPS</a>&#160;&#160;&#160;(float) (2.0)</td></tr>
+<tr class="separator:ga3d9ec4eb82b3b94114525bf01962d585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa26d53ce604d0b5ce4b8e6bad69d2eca" id="r_gaa26d53ce604d0b5ce4b8e6bad69d2eca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00488.html#gaa26d53ce604d0b5ce4b8e6bad69d2eca">IPRI_OC_T_BLANK_TRIG_SEC</a>&#160;&#160;&#160;(float) (50.0e-6)</td></tr>
+<tr class="separator:gaa26d53ce604d0b5ce4b8e6bad69d2eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab24221cdd03e9a0deab655553752bc26" id="r_gab24221cdd03e9a0deab655553752bc26"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00488.html#gab24221cdd03e9a0deab655553752bc26">IPRI_OC_T_BLANK_CLEAR_SEC</a>&#160;&#160;&#160;(float) (0.0)</td></tr>
+<tr class="separator:gab24221cdd03e9a0deab655553752bc26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4487a40d5ee45b46fff78d92d3570251" id="r_ga4487a40d5ee45b46fff78d92d3570251"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00488.html#ga4487a40d5ee45b46fff78d92d3570251">IPRI_OC_TICK_SEC</a>&#160;&#160;&#160;(<a class="el" href="a00488.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td></tr>
+<tr class="separator:ga4487a40d5ee45b46fff78d92d3570251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab55238e2900bea980e7be8e9d488683e" id="r_gab55238e2900bea980e7be8e9d488683e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00488.html#gab55238e2900bea980e7be8e9d488683e">IPRI_SC_THRES_TRIG_AMPS</a>&#160;&#160;&#160;(float) (39.0)</td></tr>
+<tr class="separator:gab55238e2900bea980e7be8e9d488683e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd3268f777497752594e03ab7c9ed8bd" id="r_gadd3268f777497752594e03ab7c9ed8bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00488.html#gadd3268f777497752594e03ab7c9ed8bd">IPRI_CT_SNS_GAIN</a>&#160;&#160;&#160;(82.5e-3)</td></tr>
+<tr class="separator:gadd3268f777497752594e03ab7c9ed8bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae03bb48f1dee21d88493adfa4fd939d8" id="r_gae03bb48f1dee21d88493adfa4fd939d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00488.html#gae03bb48f1dee21d88493adfa4fd939d8">IPRI_CT_SNS_OFS</a>&#160;&#160;&#160;(0.0)</td></tr>
+<tr class="separator:gae03bb48f1dee21d88493adfa4fd939d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>Declaration of Primary Current Feedback parameters, fault configuration and macros </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="gadd3268f777497752594e03ab7c9ed8bd" name="gadd3268f777497752594e03ab7c9ed8bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadd3268f777497752594e03ab7c9ed8bd">&#9670;&#160;</a></span>IPRI_CT_SNS_GAIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IPRI_CT_SNS_GAIN&#160;&#160;&#160;(82.5e-3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00042">42</a> of file <a class="el" href="a00290_source.html">hardware.h</a>.</p>
+
+</div>
+</div>
+<a id="gae03bb48f1dee21d88493adfa4fd939d8" name="gae03bb48f1dee21d88493adfa4fd939d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae03bb48f1dee21d88493adfa4fd939d8">&#9670;&#160;</a></span>IPRI_CT_SNS_OFS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IPRI_CT_SNS_OFS&#160;&#160;&#160;(0.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00043">43</a> of file <a class="el" href="a00290_source.html">hardware.h</a>.</p>
+
+</div>
+</div>
+<a id="gab24221cdd03e9a0deab655553752bc26" name="gab24221cdd03e9a0deab655553752bc26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab24221cdd03e9a0deab655553752bc26">&#9670;&#160;</a></span>IPRI_OC_T_BLANK_CLEAR_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IPRI_OC_T_BLANK_CLEAR_SEC&#160;&#160;&#160;(float) (0.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00074">74</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gaa26d53ce604d0b5ce4b8e6bad69d2eca" name="gaa26d53ce604d0b5ce4b8e6bad69d2eca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa26d53ce604d0b5ce4b8e6bad69d2eca">&#9670;&#160;</a></span>IPRI_OC_T_BLANK_TRIG_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IPRI_OC_T_BLANK_TRIG_SEC&#160;&#160;&#160;(float) (50.0e-6)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00073">73</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga3d9ec4eb82b3b94114525bf01962d585" name="ga3d9ec4eb82b3b94114525bf01962d585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3d9ec4eb82b3b94114525bf01962d585">&#9670;&#160;</a></span>IPRI_OC_THRES_CLEAR_AMPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IPRI_OC_THRES_CLEAR_AMPS&#160;&#160;&#160;(float) (2.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00072">72</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gaf66f7333079207c329017043676a1fcb" name="gaf66f7333079207c329017043676a1fcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf66f7333079207c329017043676a1fcb">&#9670;&#160;</a></span>IPRI_OC_THRES_TRIG_AMPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IPRI_OC_THRES_TRIG_AMPS&#160;&#160;&#160;(float) (39.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00071">71</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga4487a40d5ee45b46fff78d92d3570251" name="ga4487a40d5ee45b46fff78d92d3570251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4487a40d5ee45b46fff78d92d3570251">&#9670;&#160;</a></span>IPRI_OC_TICK_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IPRI_OC_TICK_SEC&#160;&#160;&#160;(<a class="el" href="a00488.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00075">75</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gab55238e2900bea980e7be8e9d488683e" name="gab55238e2900bea980e7be8e9d488683e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab55238e2900bea980e7be8e9d488683e">&#9670;&#160;</a></span>IPRI_SC_THRES_TRIG_AMPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IPRI_SC_THRES_TRIG_AMPS&#160;&#160;&#160;(float) (39.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00077">77</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga629c6b42f4e4f0bb7b45a365327216c8" name="ga629c6b42f4e4f0bb7b45a365327216c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga629c6b42f4e4f0bb7b45a365327216c8">&#9670;&#160;</a></span>T_ADC_SAMPLE_SECS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define T_ADC_SAMPLE_SECS&#160;&#160;&#160;(float) (10.0e-6)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00287_source.html#l00069">69</a> of file <a class="el" href="a00287_source.html">config.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

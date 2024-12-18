@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Driver Layer</title>
+<title>Dual Active Bridge Development Board: Power Board Visualizer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,79 +137,55 @@ $(document).ready(function(){initNavTree('a00502.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a> &#124;
-<a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Driver Layer</div></div>
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Power Board Visualizer<div class="ingroups"><a class="el" href="a00501.html">Communication Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contain functions and properties of the Driver layer.  
+<p>Driver for Power Board Visualizer.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Driver Layer:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Power Board Visualizer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00502.svg" width="319" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00502.svg" width="560" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
 Modules</h2></td></tr>
-<tr class="memitem:a00503" id="r_a00503"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00503.html">MCC Custom Code PWM</a></td></tr>
-<tr class="memdesc:a00503"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contain functions and data types as MCC extension for PWM. <br /></td></tr>
+<tr class="memitem:a00503" id="r_a00503"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00503.html">CAN Communication</a></td></tr>
+<tr class="memdesc:a00503"><td class="mdescLeft">&#160;</td><td class="mdescRight">This abstracts the MCC driver api. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00504" id="r_a00504"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html">MCC Custom Code ADC</a></td></tr>
-<tr class="memdesc:a00504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contain functions and data types as MCC extension for ADC. <br /></td></tr>
+<tr class="memitem:a00504" id="r_a00504"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html">UART Communication</a></td></tr>
+<tr class="memdesc:a00504"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is where the framing/deframing and transmission happens for UART frames. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00329" id="r_a00329"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html">drv_mcc_extension.h</a></td></tr>
-<tr class="memdesc:a00329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contain the peripheral header files with MCC extension code. <br /></td></tr>
+<tr class="memitem:a00505" id="r_a00505"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html">PBV Interface</a></td></tr>
+<tr class="memdesc:a00505"><td class="mdescLeft">&#160;</td><td class="mdescRight">These implement the PBV state machine of RX and TX, as well as link data that is received by peripherals to application. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00341" id="r_a00341"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00341.html">mcc_custom_config.h</a></td></tr>
-<tr class="memdesc:a00341"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contain the MCC Custom peripheral configuration that is not supported by MCC Melody tool. <br /></td></tr>
+<tr class="memitem:a00506" id="r_a00506"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00506.html">User Configuration</a></td></tr>
+<tr class="memdesc:a00506"><td class="mdescLeft">&#160;</td><td class="mdescRight">This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gafe646acf69be10085d651f4561909f69" id="r_gafe646acf69be10085d651f4561909f69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00502.html#gafe646acf69be10085d651f4561909f69">MCC_Custom_User_Config</a> (void)</td></tr>
-<tr class="memdesc:gafe646acf69be10085d651f4561909f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains custom peripheral initialization.  <br /></td></tr>
-<tr class="separator:gafe646acf69be10085d651f4561909f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00507" id="r_a00507"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html">PBV Data DAB App</a></td></tr>
+<tr class="memdesc:a00507"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main application file. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>The driver layer includes peripheral drivers managed by the MPLABX MCC Melody tool. It is essential to initialize certain peripheral functionalities to enable specific features required for the application. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="gafe646acf69be10085d651f4561909f69" name="gafe646acf69be10085d651f4561909f69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafe646acf69be10085d651f4561909f69">&#9670;&#160;</a></span>MCC_Custom_User_Config()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void MCC_Custom_User_Config </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes peripheral settings that are needed in the application but is not supported by the generated code through MCC Melody tool. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00338_source.html#l00024">24</a> of file <a class="el" href="a00338_source.html">mcc_custom_config.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00502_gafe646acf69be10085d651f4561909f69_cgraph.svg" width="100%" height="516"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
+<p>The Power Board Visualizer is a tool or system designed to monitor and display the status and performance of a power distribution board. It typically provides real-time data on various parameters such as voltage, current, and power consumption, helping users to manage and optimize power usage effectively.</p>
+<p>Communication with the Power Board Visualizer is often facilitated through two primary protocols:</p>
+<ul>
+<li>CAN (Controller Area Network):<ul>
+<li>Purpose: CAN is a robust vehicle bus standard designed to allow microcontrollers and devices to communicate with each other without a host computer.</li>
+<li>Usage: In the context of the Power Board Visualizer, CAN is used for high-speed, reliable communication between the power board and the visualizer, ensuring that data is transmitted efficiently even in electrically noisy environments.</li>
+</ul>
+</li>
+<li>UART (Universal Asynchronous Receiver-Transmitter):<ul>
+<li>Purpose: UART is a hardware communication protocol that uses asynchronous serial communication with configurable speed.</li>
+<li>Usage: UART is typically used for simpler, point-to-point communication between the power board and the visualizer. It is suitable for lower-speed data transmission and is often used for initial setup, debugging, or communication with peripheral devices.</li>
+</ul>
+</li>
+</ul>
+<p>Together, these communication protocols enable the Power Board Visualizer to effectively gather and display critical power management data, ensuring efficient monitoring and control of power distribution systems. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
