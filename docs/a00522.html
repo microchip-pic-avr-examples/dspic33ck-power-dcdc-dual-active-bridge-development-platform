@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: CLC Driver</title>
+<title>Dual Active Bridge Development Board: Control Loop Configuration</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,87 +138,152 @@ $(document).ready(function(){initNavTree('a00522.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
-<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">CLC Driver<div class="ingroups"><a class="el" href="a00518.html">MPLABX MCC Melody Code Generator</a></div></div></div>
+  <div class="headertitle"><div class="title">Control Loop Configuration<div class="ingroups"><a class="el" href="a00517.html">Power Control</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Configurable Logic Cell driver allows the user to specify combinations of signals as inputs to a logic function and to use the logic output to control other peripherals or I/O pins using dsPIC MCUs.  
+<p>Contains the control loop configuration and initialization functions.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CLC Driver:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Control Loop Configuration:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522.svg" width="294" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522.svg" width="335" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00086" id="r_a00086"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00086.html">clc1.h</a></td></tr>
-<tr class="memdesc:a00086"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver header file for the CLC1 driver. <br /></td></tr>
+<tr class="memitem:a00431" id="r_a00431"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html">smps_2p2z_dspic.s</a></td></tr>
+<tr class="memdesc:a00431"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the dcdt generated assembly code for 2p2z control type. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00092" id="r_a00092"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00092.html">clc1.c</a></td></tr>
-<tr class="memdesc:a00092"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver source file for CLC1 driver. <br /></td></tr>
+<tr class="memitem:a00440" id="r_a00440"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00440.html">XFT_smps_2p2z_dspic.s</a></td></tr>
+<tr class="memdesc:a00440"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the dcdt generated assembly code for 2p2z control type with modified code for Adaptive Gain control. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html">CLC_INTERFACE</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure containing the function pointers of CLC driver.  <a href="a00569.html#details">More...</a><br /></td></tr>
+<tr class="memitem:a00047" id="r_a00047"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00047.html">dab_psio_dcdt.h</a></td></tr>
+<tr class="memdesc:a00047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generated by the Microchip Digital Compensator Design Tool (DCDT), contains system summaries and digital compensator coefficients. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00056" id="r_a00056"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00056.html">dab_pspo_dcdt.h</a></td></tr>
+<tr class="memdesc:a00056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generated by the Microchip Digital Compensator Design Tool (DCDT), contains system summaries and digital compensator coefficients. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00059" id="r_a00059"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html">dab_spvo_dcdt.h</a></td></tr>
+<tr class="memdesc:a00059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generated by the Microchip Digital Compensator Design Tool (DCDT), contains system summaries and digital compensator coefficients. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00425" id="r_a00425"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00425.html">pwrctrl_dcdt.c</a></td></tr>
+<tr class="memdesc:a00425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains individual DCDT control loop initialization functions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00428" id="r_a00428"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00428.html">pwrctrl_dcdt.h</a></td></tr>
+<tr class="memdesc:a00428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains public functions and data types relevant for DCDT file interface. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00437" id="r_a00437"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00437.html">smps_control.h</a></td></tr>
+<tr class="memdesc:a00437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the DCDT generated functions and data types. <br  />
+ <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaaa42a5ba0915a962cd75964a4dcde3b4" id="r_gaaa42a5ba0915a962cd75964a4dcde3b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> (void)</td></tr>
-<tr class="memdesc:gaaa42a5ba0915a962cd75964a4dcde3b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the CLC1 module.  <br /></td></tr>
-<tr class="separator:gaaa42a5ba0915a962cd75964a4dcde3b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga01516d04dce352de74ae123cf553cb30" id="r_ga01516d04dce352de74ae123cf553cb30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#ga01516d04dce352de74ae123cf553cb30">CLC1_Deinitialize</a> (void)</td></tr>
-<tr class="memdesc:ga01516d04dce352de74ae123cf553cb30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the CLC1 to POR values.  <br /></td></tr>
-<tr class="separator:ga01516d04dce352de74ae123cf553cb30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf3af7f12e3d269fdc409d1a279736b27" id="r_gaf3af7f12e3d269fdc409d1a279736b27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#gaf3af7f12e3d269fdc409d1a279736b27">CLC1_OutputStatusGet</a> (void)</td></tr>
-<tr class="memdesc:gaf3af7f12e3d269fdc409d1a279736b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns output pin status of the CLC1 module.  <br /></td></tr>
-<tr class="separator:gaf3af7f12e3d269fdc409d1a279736b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7c85f3e09616a9a2855839d4b45c0e43" id="r_ga7c85f3e09616a9a2855839d4b45c0e43"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#ga7c85f3e09616a9a2855839d4b45c0e43">CLC1_Enable</a> (void)</td></tr>
-<tr class="memdesc:ga7c85f3e09616a9a2855839d4b45c0e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function enables the CLC1 module.  <br /></td></tr>
-<tr class="separator:ga7c85f3e09616a9a2855839d4b45c0e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga278c795208d6f58fb1b0c1bf2739f883" id="r_ga278c795208d6f58fb1b0c1bf2739f883"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#ga278c795208d6f58fb1b0c1bf2739f883">CLC1_Disable</a> (void)</td></tr>
-<tr class="memdesc:ga278c795208d6f58fb1b0c1bf2739f883"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function disables the CLC1 module.  <br /></td></tr>
-<tr class="separator:ga278c795208d6f58fb1b0c1bf2739f883"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaecad61896990ca955aab640a8609a74d" id="r_gaecad61896990ca955aab640a8609a74d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#gaecad61896990ca955aab640a8609a74d">CLC1_PositiveEdgeCallbackRegister</a> (void(*handler)(void))</td></tr>
-<tr class="memdesc:gaecad61896990ca955aab640a8609a74d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for CLC1 PositiveEdge event.  <br /></td></tr>
-<tr class="separator:gaecad61896990ca955aab640a8609a74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga055481a146c113692385b653e64331f8" id="r_ga055481a146c113692385b653e64331f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#ga055481a146c113692385b653e64331f8">CLC1_PositiveEdgeCallback</a> (void)</td></tr>
-<tr class="memdesc:ga055481a146c113692385b653e64331f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using CLC1_PositiveEdgeCallbackRegister.  <br /></td></tr>
-<tr class="separator:ga055481a146c113692385b653e64331f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab37490b9172b07cf29c311b7501d04f6" id="r_gab37490b9172b07cf29c311b7501d04f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#gab37490b9172b07cf29c311b7501d04f6">CLC1_NegativeEdgeCallbackRegister</a> (void(*handler)(void))</td></tr>
-<tr class="memdesc:gab37490b9172b07cf29c311b7501d04f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for CLC1 NegativeEdge event.  <br /></td></tr>
-<tr class="separator:gab37490b9172b07cf29c311b7501d04f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf25cf35f34affb5c7832814688a02873" id="r_gaf25cf35f34affb5c7832814688a02873"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#gaf25cf35f34affb5c7832814688a02873">CLC1_NegativeEdgeCallback</a> (void)</td></tr>
-<tr class="memdesc:gaf25cf35f34affb5c7832814688a02873"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using CLC1_NegativeEdgeCallbackRegister.  <br /></td></tr>
-<tr class="separator:gaf25cf35f34affb5c7832814688a02873"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaac6c1a14b3589b2c967b9a1b6bb01551" id="r_gaac6c1a14b3589b2c967b9a1b6bb01551"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#gaac6c1a14b3589b2c967b9a1b6bb01551">CLC1_Tasks</a> (void)</td></tr>
-<tr class="memdesc:gaac6c1a14b3589b2c967b9a1b6bb01551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements the tasks for polled implementations where the hardware supports dedicated event for Positive edge, Negative edge or both. Note: If both Positive Edge and Negative Edge uses polling mode then Callback function of positive edge takes the priority if both event occurred.  <br /></td></tr>
-<tr class="separator:gaac6c1a14b3589b2c967b9a1b6bb01551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e431d7a1eef24adda9ba74cba5e5ce4" id="r_ga3e431d7a1eef24adda9ba74cba5e5ce4"><td class="memItemLeft" align="right" valign="top">int16_t VMC_2p2zACoefficients[2]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#ga3e431d7a1eef24adda9ba74cba5e5ce4">__attribute__</a> ((space(xmemory)))</td></tr>
+<tr class="memdesc:ga3e431d7a1eef24adda9ba74cba5e5ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Voltage Loop A-coefficient array.  <br /></td></tr>
+<tr class="separator:ga3e431d7a1eef24adda9ba74cba5e5ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace6ab8444e1493b1c2750447a51b9b93" id="r_gace6ab8444e1493b1c2750447a51b9b93"><td class="memItemLeft" align="right" valign="top">int16_t VMC_2p2zControlHistory[2]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#gace6ab8444e1493b1c2750447a51b9b93">__attribute__</a> ((space(ymemory), far))</td></tr>
+<tr class="memdesc:gace6ab8444e1493b1c2750447a51b9b93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Voltage Loop Control history.  <br /></td></tr>
+<tr class="separator:gace6ab8444e1493b1c2750447a51b9b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8603aa8f7d4f64fa925228cf9c99de83" id="r_ga8603aa8f7d4f64fa925228cf9c99de83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#ga8603aa8f7d4f64fa925228cf9c99de83">PwrCtrl_VComp_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga8603aa8f7d4f64fa925228cf9c99de83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Voltage Loop Control.  <br /></td></tr>
+<tr class="separator:ga8603aa8f7d4f64fa925228cf9c99de83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4d5efa27da3185177a7e9451a59ced82" id="r_ga4d5efa27da3185177a7e9451a59ced82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#ga4d5efa27da3185177a7e9451a59ced82">PwrCtrl_IComp_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga4d5efa27da3185177a7e9451a59ced82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Current Loop Control.  <br /></td></tr>
+<tr class="separator:ga4d5efa27da3185177a7e9451a59ced82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d45f928f4747df3d3fe50876e78efc5" id="r_ga5d45f928f4747df3d3fe50876e78efc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#ga5d45f928f4747df3d3fe50876e78efc5">PwrCtrl_PComp_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga5d45f928f4747df3d3fe50876e78efc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Power Loop Control.  <br /></td></tr>
+<tr class="separator:ga5d45f928f4747df3d3fe50876e78efc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5d978249e235e284da922df5ec4363a" id="r_gae5d978249e235e284da922df5ec4363a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#gae5d978249e235e284da922df5ec4363a">PwrCtrl_ResetControlLoopHistories</a> (void)</td></tr>
+<tr class="memdesc:gae5d978249e235e284da922df5ec4363a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the control and error histories of the control loops.  <br /></td></tr>
+<tr class="separator:gae5d978249e235e284da922df5ec4363a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:gaf313a644645eaeb160dd1eba82ff4506" id="r_gaf313a644645eaeb160dd1eba82ff4506"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00569.html">CLC_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#gaf313a644645eaeb160dd1eba82ff4506">CLC1</a></td></tr>
-<tr class="memdesc:gaf313a644645eaeb160dd1eba82ff4506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00569.html" title="Structure containing the function pointers of CLC driver.">CLC_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. CLC1 can be changed by the user in the CLC user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
-<tr class="separator:gaf313a644645eaeb160dd1eba82ff4506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f2fab45cc1fd91be7e11205806b6a63" id="r_ga6f2fab45cc1fd91be7e11205806b6a63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00685.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#ga6f2fab45cc1fd91be7e11205806b6a63">VMC_2p2z</a></td></tr>
+<tr class="memdesc:ga6f2fab45cc1fd91be7e11205806b6a63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of voltage mode control generated by DCDT.  <br /></td></tr>
+<tr class="separator:ga6f2fab45cc1fd91be7e11205806b6a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeb77b094c98ccef3e5592a3a906f3ff8" id="r_gaeb77b094c98ccef3e5592a3a906f3ff8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00685.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#gaeb77b094c98ccef3e5592a3a906f3ff8">IMC_2p2z</a></td></tr>
+<tr class="memdesc:gaeb77b094c98ccef3e5592a3a906f3ff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of current mode control.  <br /></td></tr>
+<tr class="separator:gaeb77b094c98ccef3e5592a3a906f3ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5aad9c96a95744da30275ec0eacf4ae3" id="r_ga5aad9c96a95744da30275ec0eacf4ae3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00685.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.html#ga5aad9c96a95744da30275ec0eacf4ae3">PMC_2p2z</a></td></tr>
+<tr class="memdesc:ga5aad9c96a95744da30275ec0eacf4ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of power mode control.  <br /></td></tr>
+<tr class="separator:ga5aad9c96a95744da30275ec0eacf4ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="fragment"></div><!-- fragment --><h2 class="groupheader">Function Documentation</h2>
-<a id="ga01516d04dce352de74ae123cf553cb30" name="ga01516d04dce352de74ae123cf553cb30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga01516d04dce352de74ae123cf553cb30">&#9670;&#160;</a></span>CLC1_Deinitialize()</h2>
+<p>This document covers the functions that initialize the control loop using DCDT tool. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga3e431d7a1eef24adda9ba74cba5e5ce4" name="ga3e431d7a1eef24adda9ba74cba5e5ce4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3e431d7a1eef24adda9ba74cba5e5ce4">&#9670;&#160;</a></span>__attribute__() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CLC1_Deinitialize </td>
+          <td class="memname">int16_t VMC_2p2zACoefficients[2] __attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(space(xmemory))&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Power Loop B-coefficient array.</p>
+<p>Power Loop A-coefficient array.</p>
+<p>Current Loop B-coefficient array.</p>
+<p>Current Loop A-coefficient array.</p>
+<p>Voltage Loop B-coefficient array.</p>
+<p>This array contains the A-coefficients of the z-domain compensation filter for voltage mode control.</p>
+<p>This array contains the B-coefficients of the z-domain compensation filter for voltage mode control.</p>
+<p>This array contains the A-coefficients of the z-domain compensation filter for current mode control.</p>
+<p>This array contains the B-coefficients of the z-domain compensation filter for current mode control.</p>
+<p>This array contains the A-coefficients of the z-domain compensation filter for power mode control.</p>
+<p>This array contains the B-coefficients of the z-domain compensation filter for power mode control. </p>
+
+</div>
+</div>
+<a id="gace6ab8444e1493b1c2750447a51b9b93" name="gace6ab8444e1493b1c2750447a51b9b93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gace6ab8444e1493b1c2750447a51b9b93">&#9670;&#160;</a></span>__attribute__() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t VMC_2p2zControlHistory[2] __attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(space(ymemory), far)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Power Loop Error history.</p>
+<p>Power Loop Control history.</p>
+<p>Current Loop Error history.</p>
+<p>Current Loop Control history.</p>
+<p>Voltage Loop Error history.</p>
+<p>This array contains the voltage loop control output history.</p>
+<p>This array contains the error history of the voltage loop control.</p>
+<p>This array contains the current loop control output history.</p>
+<p>This array contains the error history of the current loop control.</p>
+<p>This array contains the power loop control output history.</p>
+<p>This array contains the error history of the power loop control. </p>
+
+</div>
+</div>
+<a id="ga4d5efa27da3185177a7e9451a59ced82" name="ga4d5efa27da3185177a7e9451a59ced82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4d5efa27da3185177a7e9451a59ced82">&#9670;&#160;</a></span>PwrCtrl_IComp_Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PwrCtrl_IComp_Initialize </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -226,122 +291,71 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function initializes the filter coefficients of current loop from the frequencies selected in the DCDT tool. The control and error histories of the current loop is also cleared. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00085">85</a> of file <a class="el" href="a00092_source.html">clc1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00425_source.html#l00204">204</a> of file <a class="el" href="a00425_source.html">pwrctrl_dcdt.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_ga01516d04dce352de74ae123cf553cb30_cgraph.svg" width="286" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_ga4d5efa27da3185177a7e9451a59ced82_cgraph.svg" width="419" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="ga278c795208d6f58fb1b0c1bf2739f883" name="ga278c795208d6f58fb1b0c1bf2739f883"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga278c795208d6f58fb1b0c1bf2739f883">&#9670;&#160;</a></span>CLC1_Disable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void CLC1_Disable </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00522.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> function should be called before calling this function. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00086_source.html#l00110">110</a> of file <a class="el" href="a00086_source.html">clc1.h</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_ga278c795208d6f58fb1b0c1bf2739f883_icgraph.svg" width="286" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_ga4d5efa27da3185177a7e9451a59ced82_icgraph.svg" width="572" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ga7c85f3e09616a9a2855839d4b45c0e43" name="ga7c85f3e09616a9a2855839d4b45c0e43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7c85f3e09616a9a2855839d4b45c0e43">&#9670;&#160;</a></span>CLC1_Enable()</h2>
+<a id="ga5d45f928f4747df3d3fe50876e78efc5" name="ga5d45f928f4747df3d3fe50876e78efc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5d45f928f4747df3d3fe50876e78efc5">&#9670;&#160;</a></span>PwrCtrl_PComp_Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void CLC1_Enable </td>
+          <td class="memname">void PwrCtrl_PComp_Initialize </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00522.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> function should be called before calling this function. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function initializes the filter coefficients of power loop from the frequencies selected in the DCDT tool. The control and error histories of the power loop is also cleared. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00086_source.html#l00097">97</a> of file <a class="el" href="a00086_source.html">clc1.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00425_source.html#l00244">244</a> of file <a class="el" href="a00425_source.html">pwrctrl_dcdt.c</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_ga7c85f3e09616a9a2855839d4b45c0e43_icgraph.svg" width="444" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_ga5d45f928f4747df3d3fe50876e78efc5_cgraph.svg" width="424" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_ga5d45f928f4747df3d3fe50876e78efc5_icgraph.svg" width="578" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="gaaa42a5ba0915a962cd75964a4dcde3b4" name="gaaa42a5ba0915a962cd75964a4dcde3b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaaa42a5ba0915a962cd75964a4dcde3b4">&#9670;&#160;</a></span>CLC1_Initialize()</h2>
+<a id="gae5d978249e235e284da922df5ec4363a" name="gae5d978249e235e284da922df5ec4363a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae5d978249e235e284da922df5ec4363a">&#9670;&#160;</a></span>PwrCtrl_ResetControlLoopHistories()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CLC1_Initialize </td>
+          <td class="memname">void PwrCtrl_ResetControlLoopHistories </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -349,41 +363,28 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function clear the control and error histories of the control loops. it is essential to call this function during restart condition. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00063">63</a> of file <a class="el" href="a00092_source.html">clc1.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_gaaa42a5ba0915a962cd75964a4dcde3b4_cgraph.svg" width="356" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00425_source.html#l00282">282</a> of file <a class="el" href="a00425_source.html">pwrctrl_dcdt.c</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_gaaa42a5ba0915a962cd75964a4dcde3b4_icgraph.svg" width="296" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00522_gae5d978249e235e284da922df5ec4363a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="gaf25cf35f34affb5c7832814688a02873" name="gaf25cf35f34affb5c7832814688a02873"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf25cf35f34affb5c7832814688a02873">&#9670;&#160;</a></span>CLC1_NegativeEdgeCallback()</h2>
+<a id="ga8603aa8f7d4f64fa925228cf9c99de83" name="ga8603aa8f7d4f64fa925228cf9c99de83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8603aa8f7d4f64fa925228cf9c99de83">&#9670;&#160;</a></span>PwrCtrl_VComp_Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CLC1_NegativeEdgeCallback </td>
+          <td class="memname">void PwrCtrl_VComp_Initialize </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -391,213 +392,76 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function initializes the filter coefficients of voltage loop from the frequencies selected in the DCDT tool. The control and error histories of the voltage loop is also cleared. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00117">117</a> of file <a class="el" href="a00092_source.html">clc1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00425_source.html#l00165">165</a> of file <a class="el" href="a00425_source.html">pwrctrl_dcdt.c</a>.</p>
 <div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_gaf25cf35f34affb5c7832814688a02873_icgraph.svg" width="534" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_ga8603aa8f7d4f64fa925228cf9c99de83_cgraph.svg" width="424" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="gab37490b9172b07cf29c311b7501d04f6" name="gab37490b9172b07cf29c311b7501d04f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab37490b9172b07cf29c311b7501d04f6">&#9670;&#160;</a></span>CLC1_NegativeEdgeCallbackRegister()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CLC1_NegativeEdgeCallbackRegister </td>
-          <td>(</td>
-          <td class="paramtype">void(*)(void)&#160;</td>
-          <td class="paramname"><em>handler</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>- Address of the callback function. <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00109">109</a> of file <a class="el" href="a00092_source.html">clc1.c</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_gab37490b9172b07cf29c311b7501d04f6_icgraph.svg" width="534" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_ga8603aa8f7d4f64fa925228cf9c99de83_icgraph.svg" width="578" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="gaf3af7f12e3d269fdc409d1a279736b27" name="gaf3af7f12e3d269fdc409d1a279736b27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf3af7f12e3d269fdc409d1a279736b27">&#9670;&#160;</a></span>CLC1_OutputStatusGet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool CLC1_OutputStatusGet </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00522.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> function should be called before calling this function. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Output pin status <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00148">148</a> of file <a class="el" href="a00092_source.html">clc1.c</a>.</p>
-
-</div>
-</div>
-<a id="ga055481a146c113692385b653e64331f8" name="ga055481a146c113692385b653e64331f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga055481a146c113692385b653e64331f8">&#9670;&#160;</a></span>CLC1_PositiveEdgeCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CLC1_PositiveEdgeCallback </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00104">104</a> of file <a class="el" href="a00092_source.html">clc1.c</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_ga055481a146c113692385b653e64331f8_icgraph.svg" width="530" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gaecad61896990ca955aab640a8609a74d" name="gaecad61896990ca955aab640a8609a74d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaecad61896990ca955aab640a8609a74d">&#9670;&#160;</a></span>CLC1_PositiveEdgeCallbackRegister()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CLC1_PositiveEdgeCallbackRegister </td>
-          <td>(</td>
-          <td class="paramtype">void(*)(void)&#160;</td>
-          <td class="paramname"><em>handler</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>- Address of the callback function. <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00096">96</a> of file <a class="el" href="a00092_source.html">clc1.c</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_gaecad61896990ca955aab640a8609a74d_icgraph.svg" width="530" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gaac6c1a14b3589b2c967b9a1b6bb01551" name="gaac6c1a14b3589b2c967b9a1b6bb01551"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaac6c1a14b3589b2c967b9a1b6bb01551">&#9670;&#160;</a></span>CLC1_Tasks()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CLC1_Tasks </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00522.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> function should be called before calling this function. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00124">124</a> of file <a class="el" href="a00092_source.html">clc1.c</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="gaf313a644645eaeb160dd1eba82ff4506" name="gaf313a644645eaeb160dd1eba82ff4506"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf313a644645eaeb160dd1eba82ff4506">&#9670;&#160;</a></span>CLC1</h2>
+<a id="gaeb77b094c98ccef3e5592a3a906f3ff8" name="gaeb77b094c98ccef3e5592a3a906f3ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaeb77b094c98ccef3e5592a3a906f3ff8">&#9670;&#160;</a></span>IMC_2p2z</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const struct <a class="el" href="a00569.html">CLC_INTERFACE</a> CLC1</td>
+          <td class="memname"><a class="el" href="a00685.html">SMPS_2P2Z_T</a> IMC_2p2z</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+<p>The 'IMC_2p2z' data object holds the control loop parameter of the Current loop. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00051">51</a> of file <a class="el" href="a00092_source.html">clc1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00425_source.html#l00049">49</a> of file <a class="el" href="a00425_source.html">pwrctrl_dcdt.c</a>.</p>
+
+</div>
+</div>
+<a id="ga5aad9c96a95744da30275ec0eacf4ae3" name="ga5aad9c96a95744da30275ec0eacf4ae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5aad9c96a95744da30275ec0eacf4ae3">&#9670;&#160;</a></span>PMC_2p2z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00685.html">SMPS_2P2Z_T</a> PMC_2p2z</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The 'PMC_2p2z' data object holds the control loop parameter of the Power loop. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00425_source.html#l00057">57</a> of file <a class="el" href="a00425_source.html">pwrctrl_dcdt.c</a>.</p>
+
+</div>
+</div>
+<a id="ga6f2fab45cc1fd91be7e11205806b6a63" name="ga6f2fab45cc1fd91be7e11205806b6a63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6f2fab45cc1fd91be7e11205806b6a63">&#9670;&#160;</a></span>VMC_2p2z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00685.html">SMPS_2P2Z_T</a> VMC_2p2z</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The 'VMC_2p2z' data object holds the control loop parameter of the Voltage loop. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00425_source.html#l00041">41</a> of file <a class="el" href="a00425_source.html">pwrctrl_dcdt.c</a>.</p>
 
 </div>
 </div>

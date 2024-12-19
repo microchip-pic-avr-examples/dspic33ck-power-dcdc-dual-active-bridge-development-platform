@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Generic Fault Driver</title>
+<title>Dual Active Bridge Development Board: MCC Custom Code ADC</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,93 +138,279 @@ $(document).ready(function(){initNavTree('a00516.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
-<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Generic Fault Driver<div class="ingroups"><a class="el" href="a00514.html">Fault Monitor</a></div></div></div>
+  <div class="headertitle"><div class="title">MCC Custom Code ADC<div class="ingroups"><a class="el" href="a00514.html">Driver Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains generic fault functions.  
+<p>Contain functions and data types as MCC extension for ADC.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Generic Fault Driver:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for MCC Custom Code ADC:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00516.svg" width="292" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00516.svg" width="312" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00359" id="r_a00359"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00359.html">fault_common.h</a></td></tr>
-<tr class="memdesc:a00359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains fault generic public functions. <br /></td></tr>
+<tr class="memitem:a00335" id="r_a00335"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00335.html">drv_custom_config_adc.h</a></td></tr>
+<tr class="memdesc:a00335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains ADC initialization that was not supported by MCC generated code. <br  />
+ <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00368" id="r_a00368"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00368.html">fault_typedef.h</a></td></tr>
-<tr class="memdesc:a00368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains fault data types. <br /></td></tr>
+<tr class="memitem:a00344" id="r_a00344"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00344.html">drv_mcc_extension_adc.h</a></td></tr>
+<tr class="memdesc:a00344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains public functions and defines for the MCC code extension for ADC. <br  />
+ <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html">FAULT_OBJ_T</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Fault object data structure contains a list of elements/variables that are used to detect/check a fault.  <a href="a00657.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00661.html">FAULT_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of faults to be monitored.  <a href="a00661.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga7b9b42cf017f1b61599aee687cc2803a" id="r_ga7b9b42cf017f1b61599aee687cc2803a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga7b9b42cf017f1b61599aee687cc2803a">ADC_FILTER_MODE_e</a> { <a class="el" href="a00516.html#gga7b9b42cf017f1b61599aee687cc2803aa92b3f4d7ad60ba627e8913772ab28791">ADC_FILTER_MODE_OVERSAMPLING</a> = 0
+, <a class="el" href="a00516.html#gga7b9b42cf017f1b61599aee687cc2803aa7744c10b74df8d669851f30b101554ac">ADC_FILTER_MODE_AVERAGING</a> = 3
+ }</td></tr>
+<tr class="memdesc:ga7b9b42cf017f1b61599aee687cc2803a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC Filter Modes of operation.  <a href="a00516.html#ga7b9b42cf017f1b61599aee687cc2803a">More...</a><br /></td></tr>
+<tr class="separator:ga7b9b42cf017f1b61599aee687cc2803a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade4789b79009bb5798d22406600442a8" id="r_gade4789b79009bb5798d22406600442a8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#gade4789b79009bb5798d22406600442a8">ADC_FILTER_OVRSAM_AVG_e</a> { <a class="el" href="a00516.html#ggade4789b79009bb5798d22406600442a8ac592295deb7ffa249a21e64907cf2c13">ADC_FILTER_OVRSAM_AVG_2x</a> = 0
+, <a class="el" href="a00516.html#ggade4789b79009bb5798d22406600442a8a1a5c4a9f038101bad68a56ce52a7b99f">ADC_FILTER_OVRSAM_AVG_4x</a> = 1
+, <a class="el" href="a00516.html#ggade4789b79009bb5798d22406600442a8a01fffdf4afdc19bc3f00de0d152dcd63">ADC_FILTER_OVRSAM_AVG_8x</a> = 2
+, <a class="el" href="a00516.html#ggade4789b79009bb5798d22406600442a8a6943e4ed06207ea3d52435cd23c7612e">ADC_FILTER_OVRSAM_AVG_16x</a> = 3
+, <a class="el" href="a00516.html#ggade4789b79009bb5798d22406600442a8a6e9e2dd1ce8aa49c2fa9235dad126d50">ADC_FILTER_OVRSAM_AVG_32x</a> = 4
+, <a class="el" href="a00516.html#ggade4789b79009bb5798d22406600442a8a56481c3dd7f242f83dac9be77ac97d93">ADC_FILTER_OVRSAM_AVG_64x</a> = 5
+, <a class="el" href="a00516.html#ggade4789b79009bb5798d22406600442a8aded484f19a56bac94569c4768bf26b16">ADC_FILTER_OVRSAM_AVG_128x</a> = 6
+, <a class="el" href="a00516.html#ggade4789b79009bb5798d22406600442a8a70761444839d59d84be99373fb963124">ADC_FILTER_OVRSAM_AVG_256x</a> = 7
+ }</td></tr>
+<tr class="memdesc:gade4789b79009bb5798d22406600442a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC Filter Oversampling Ratio when in averaging mode.  <a href="a00516.html#gade4789b79009bb5798d22406600442a8">More...</a><br /></td></tr>
+<tr class="separator:gade4789b79009bb5798d22406600442a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gae9aa4b1a3733fa6ee5fb7778bdf74103" id="r_gae9aa4b1a3733fa6ee5fb7778bdf74103"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a> (<a class="el" href="a00657.html">FAULT_OBJ_T</a> *faultInput, int16_t threshold, int16_t hysLimit, uint16_t thresholdCnt, uint32_t hysCnt)</td></tr>
-<tr class="memdesc:gae9aa4b1a3733fa6ee5fb7778bdf74103"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the fault object data structure with the values that required to detect a fault. <br  />
-  <br /></td></tr>
-<tr class="separator:gae9aa4b1a3733fa6ee5fb7778bdf74103"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5feed023da8938178c78afe29ca8d2cb" id="r_ga5feed023da8938178c78afe29ca8d2cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga5feed023da8938178c78afe29ca8d2cb">FAULT_InitRange</a> (<a class="el" href="a00657.html">FAULT_OBJ_T</a> *faultInput, int16_t thresholdMin, int16_t hysLimitMin, int16_t thresholdMax, int16_t hysLimitMax, uint16_t thresholdCnt, uint32_t hysCnt)</td></tr>
-<tr class="memdesc:ga5feed023da8938178c78afe29ca8d2cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the fault object data structure with the values that required to detect a fault at a particular range. <br  />
-  <br /></td></tr>
-<tr class="separator:ga5feed023da8938178c78afe29ca8d2cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga81272ffd00652b2dbe00bfa8594be05f" id="r_ga81272ffd00652b2dbe00bfa8594be05f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga81272ffd00652b2dbe00bfa8594be05f">FAULT_SetCounters</a> (<a class="el" href="a00657.html">FAULT_OBJ_T</a> *faultInput, uint16_t fltThresholdCnt, uint32_t fltHysCnt)</td></tr>
-<tr class="memdesc:ga81272ffd00652b2dbe00bfa8594be05f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes/sets the fault structure with the counter limits.  <br /></td></tr>
-<tr class="separator:ga81272ffd00652b2dbe00bfa8594be05f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9814ba400be29bb6b3d2372c26252850" id="r_ga9814ba400be29bb6b3d2372c26252850"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga9814ba400be29bb6b3d2372c26252850">FAULT_SetThresholds</a> (<a class="el" href="a00657.html">FAULT_OBJ_T</a> *faultInput, int16_t fltThreshold, int16_t fltHysLimit)</td></tr>
-<tr class="memdesc:ga9814ba400be29bb6b3d2372c26252850"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes/sets the fault structure with the threshold limits.  <br /></td></tr>
-<tr class="separator:ga9814ba400be29bb6b3d2372c26252850"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1a12d5b7c5b1f234c50ea2214e91fcfc" id="r_ga1a12d5b7c5b1f234c50ea2214e91fcfc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a> (<a class="el" href="a00657.html">FAULT_OBJ_T</a> *faultInput, int16_t faultSource, <a class="el" href="a00359.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a> callback)</td></tr>
-<tr class="memdesc:ga1a12d5b7c5b1f234c50ea2214e91fcfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function compares the fault source value with the threshold limits and sets (or) resets the fault active state accordingly.  <br /></td></tr>
-<tr class="separator:ga1a12d5b7c5b1f234c50ea2214e91fcfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabe4788eb1b8be3ad755eb7daf6bba295" id="r_gabe4788eb1b8be3ad755eb7daf6bba295"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#gabe4788eb1b8be3ad755eb7daf6bba295">FAULT_CheckMin</a> (<a class="el" href="a00657.html">FAULT_OBJ_T</a> *faultInput, int16_t faultSource, <a class="el" href="a00359.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a> callback)</td></tr>
-<tr class="memdesc:gabe4788eb1b8be3ad755eb7daf6bba295"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function compares the fault source value with the threshold limits and sets (or) resets the fault active state accordingly.  <br /></td></tr>
-<tr class="separator:gabe4788eb1b8be3ad755eb7daf6bba295"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4d793923449f4e03992bcbdda147a3ec" id="r_ga4d793923449f4e03992bcbdda147a3ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga4d793923449f4e03992bcbdda147a3ec">FAULT_CheckBit</a> (<a class="el" href="a00657.html">FAULT_OBJ_T</a> *faultInput, bool faultBit, <a class="el" href="a00359.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a> callback)</td></tr>
-<tr class="separator:ga4d793923449f4e03992bcbdda147a3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1eb8f7e7cab65ed3eb87edd0b076f695" id="r_ga1eb8f7e7cab65ed3eb87edd0b076f695"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga1eb8f7e7cab65ed3eb87edd0b076f695">FAULT_CheckRange</a> (<a class="el" href="a00657.html">FAULT_OBJ_T</a> *faultInput, int16_t inputValue, <a class="el" href="a00359.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a> callback)</td></tr>
-<tr class="separator:ga1eb8f7e7cab65ed3eb87edd0b076f695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae714c168949aee8009c9482933cd85dc" id="r_gae714c168949aee8009c9482933cd85dc"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#gae714c168949aee8009c9482933cd85dc">DRV_Config_Custom_ADC</a> (void)</td></tr>
+<tr class="memdesc:gae714c168949aee8009c9482933cd85dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Customize configuration for ADC.  <br /></td></tr>
+<tr class="separator:gae714c168949aee8009c9482933cd85dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga71c6250f386033c07dae0150d67b100f" id="r_ga71c6250f386033c07dae0150d67b100f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga71c6250f386033c07dae0150d67b100f">ADC_Filter_Enable</a> (uint16_t filterIndex, bool enable)</td></tr>
+<tr class="memdesc:ga71c6250f386033c07dae0150d67b100f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the ADC filter feature of the ADC.  <br /></td></tr>
+<tr class="separator:ga71c6250f386033c07dae0150d67b100f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ef63752d3c218e541d437721a3559fa" id="r_ga6ef63752d3c218e541d437721a3559fa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga6ef63752d3c218e541d437721a3559fa">ADC_Filter_Mode</a> (uint16_t filterIndex, <a class="el" href="a00344.html#a799f42245358585723c53fb29008fda3">ADC_FILTER_MODE_t</a> mode)</td></tr>
+<tr class="memdesc:ga6ef63752d3c218e541d437721a3559fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ADC instance filter mode.  <br /></td></tr>
+<tr class="separator:ga6ef63752d3c218e541d437721a3559fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7475de7e65b22a255c8587d7535359b3" id="r_ga7475de7e65b22a255c8587d7535359b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga7475de7e65b22a255c8587d7535359b3">ADC_Filter_Averaging</a> (uint16_t filterIndex, <a class="el" href="a00344.html#ac8993058275f94e962b30da4ae3b2e8a">ADC_FILTER_OVRSAM_AVG_t</a> averagingRatio)</td></tr>
+<tr class="memdesc:ga7475de7e65b22a255c8587d7535359b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ADC instance number of samples to average.  <br /></td></tr>
+<tr class="separator:ga7475de7e65b22a255c8587d7535359b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0645000c951ca217ee18beb7233da254" id="r_ga0645000c951ca217ee18beb7233da254"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga0645000c951ca217ee18beb7233da254">ADC_Filter_Input</a> (uint16_t filterIndex, uint16_t channelIndex)</td></tr>
+<tr class="memdesc:ga0645000c951ca217ee18beb7233da254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ADC instance to be filtered.  <br /></td></tr>
+<tr class="separator:ga0645000c951ca217ee18beb7233da254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee0723998267abf6433b4b008758506b" id="r_gaee0723998267abf6433b4b008758506b"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#gaee0723998267abf6433b4b008758506b">ADC_Filter_GetResult</a> (uint16_t filterIndex)</td></tr>
+<tr class="memdesc:gaee0723998267abf6433b4b008758506b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the ADC filter result.  <br /></td></tr>
+<tr class="separator:gaee0723998267abf6433b4b008758506b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11363ccc92069cb46ab0e2d92e552bce" id="r_ga11363ccc92069cb46ab0e2d92e552bce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga11363ccc92069cb46ab0e2d92e552bce">ADC_CHANNEL_VSEC</a>&#160;&#160;&#160;(2)</td></tr>
+<tr class="memdesc:ga11363ccc92069cb46ab0e2d92e552bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC2 is routed to Secondary Voltage.  <br /></td></tr>
+<tr class="separator:ga11363ccc92069cb46ab0e2d92e552bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf9f8157c3d4ae8423c8d6d4a6b172d9" id="r_gadf9f8157c3d4ae8423c8d6d4a6b172d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#gadf9f8157c3d4ae8423c8d6d4a6b172d9">ADC_CHANNEL_IPRI_CT</a>&#160;&#160;&#160;(7)</td></tr>
+<tr class="memdesc:gadf9f8157c3d4ae8423c8d6d4a6b172d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC7 is routed to Primary CT Current.  <br /></td></tr>
+<tr class="separator:gadf9f8157c3d4ae8423c8d6d4a6b172d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf584f4955263417a4aa580f4ee138a95" id="r_gaf584f4955263417a4aa580f4ee138a95"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#gaf584f4955263417a4aa580f4ee138a95">ADC_CHANNEL_VPRI</a>&#160;&#160;&#160;(10)</td></tr>
+<tr class="memdesc:gaf584f4955263417a4aa580f4ee138a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC10 is routed to Primary Voltage.  <br /></td></tr>
+<tr class="separator:gaf584f4955263417a4aa580f4ee138a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7e176664c3a3e340c070fe54d507b800" id="r_ga7e176664c3a3e340c070fe54d507b800"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga7e176664c3a3e340c070fe54d507b800">ADC_CHANNEL_TEMP</a>&#160;&#160;&#160;(14)</td></tr>
+<tr class="memdesc:ga7e176664c3a3e340c070fe54d507b800"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC14 is routed to Temperature.  <br /></td></tr>
+<tr class="separator:ga7e176664c3a3e340c070fe54d507b800"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3499fc44fc64cc81aec9e488617d675a" id="r_ga3499fc44fc64cc81aec9e488617d675a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga3499fc44fc64cc81aec9e488617d675a">ADC_CHANNEL_VRAIL_5V</a>&#160;&#160;&#160;(19)</td></tr>
+<tr class="memdesc:ga3499fc44fc64cc81aec9e488617d675a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC19 is routed to 5V rail.  <br /></td></tr>
+<tr class="separator:ga3499fc44fc64cc81aec9e488617d675a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6dd6396aac82b663b437a43b80be4fe0" id="r_ga6dd6396aac82b663b437a43b80be4fe0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga6dd6396aac82b663b437a43b80be4fe0">ADC_CHANNEL_ISEC_CT</a>&#160;&#160;&#160;(0)</td></tr>
+<tr class="memdesc:ga6dd6396aac82b663b437a43b80be4fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC0 is routed to Secondary CT Current.  <br /></td></tr>
+<tr class="separator:ga6dd6396aac82b663b437a43b80be4fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga61417f0641a547b21b6f6811ab077179" id="r_ga61417f0641a547b21b6f6811ab077179"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html#ga61417f0641a547b21b6f6811ab077179">ADC_CHANNEL_ISEC_AVG</a>&#160;&#160;&#160;(1)</td></tr>
+<tr class="memdesc:ga61417f0641a547b21b6f6811ab077179"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC1 is routed to Secondary Average Current.  <br /></td></tr>
+<tr class="separator:ga61417f0641a547b21b6f6811ab077179"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document contains fault functions that handles different fault conditions and threshold. </p>
+<p>This documentation includes functions and data types for the ADC peripheral as an enhancement to the MCC Code Configurator. It provides application-specific ADC functions and includes essential ADC initialization that is not supported by the code generated by MCC. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="gadf9f8157c3d4ae8423c8d6d4a6b172d9" name="gadf9f8157c3d4ae8423c8d6d4a6b172d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadf9f8157c3d4ae8423c8d6d4a6b172d9">&#9670;&#160;</a></span>ADC_CHANNEL_IPRI_CT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_IPRI_CT&#160;&#160;&#160;(7)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00021">21</a> of file <a class="el" href="a00335_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="ga61417f0641a547b21b6f6811ab077179" name="ga61417f0641a547b21b6f6811ab077179"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga61417f0641a547b21b6f6811ab077179">&#9670;&#160;</a></span>ADC_CHANNEL_ISEC_AVG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_ISEC_AVG&#160;&#160;&#160;(1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00028">28</a> of file <a class="el" href="a00335_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="ga6dd6396aac82b663b437a43b80be4fe0" name="ga6dd6396aac82b663b437a43b80be4fe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6dd6396aac82b663b437a43b80be4fe0">&#9670;&#160;</a></span>ADC_CHANNEL_ISEC_CT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_ISEC_CT&#160;&#160;&#160;(0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00027">27</a> of file <a class="el" href="a00335_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="ga7e176664c3a3e340c070fe54d507b800" name="ga7e176664c3a3e340c070fe54d507b800"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7e176664c3a3e340c070fe54d507b800">&#9670;&#160;</a></span>ADC_CHANNEL_TEMP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_TEMP&#160;&#160;&#160;(14)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00023">23</a> of file <a class="el" href="a00335_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="gaf584f4955263417a4aa580f4ee138a95" name="gaf584f4955263417a4aa580f4ee138a95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf584f4955263417a4aa580f4ee138a95">&#9670;&#160;</a></span>ADC_CHANNEL_VPRI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_VPRI&#160;&#160;&#160;(10)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00022">22</a> of file <a class="el" href="a00335_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="ga3499fc44fc64cc81aec9e488617d675a" name="ga3499fc44fc64cc81aec9e488617d675a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3499fc44fc64cc81aec9e488617d675a">&#9670;&#160;</a></span>ADC_CHANNEL_VRAIL_5V</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_VRAIL_5V&#160;&#160;&#160;(19)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00024">24</a> of file <a class="el" href="a00335_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="ga11363ccc92069cb46ab0e2d92e552bce" name="ga11363ccc92069cb46ab0e2d92e552bce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga11363ccc92069cb46ab0e2d92e552bce">&#9670;&#160;</a></span>ADC_CHANNEL_VSEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_VSEC&#160;&#160;&#160;(2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00020">20</a> of file <a class="el" href="a00335_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga7b9b42cf017f1b61599aee687cc2803a" name="ga7b9b42cf017f1b61599aee687cc2803a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7b9b42cf017f1b61599aee687cc2803a">&#9670;&#160;</a></span>ADC_FILTER_MODE_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00516.html#ga7b9b42cf017f1b61599aee687cc2803a">ADC_FILTER_MODE_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>&lt;&gt;  </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga7b9b42cf017f1b61599aee687cc2803aa92b3f4d7ad60ba627e8913772ab28791" name="gga7b9b42cf017f1b61599aee687cc2803aa92b3f4d7ad60ba627e8913772ab28791"></a>ADC_FILTER_MODE_OVERSAMPLING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga7b9b42cf017f1b61599aee687cc2803aa7744c10b74df8d669851f30b101554ac" name="gga7b9b42cf017f1b61599aee687cc2803aa7744c10b74df8d669851f30b101554ac"></a>ADC_FILTER_MODE_AVERAGING&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00020">20</a> of file <a class="el" href="a00344_source.html">drv_mcc_extension_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="gade4789b79009bb5798d22406600442a8" name="gade4789b79009bb5798d22406600442a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gade4789b79009bb5798d22406600442a8">&#9670;&#160;</a></span>ADC_FILTER_OVRSAM_AVG_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00516.html#gade4789b79009bb5798d22406600442a8">ADC_FILTER_OVRSAM_AVG_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>&lt;&gt;  </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8ac592295deb7ffa249a21e64907cf2c13" name="ggade4789b79009bb5798d22406600442a8ac592295deb7ffa249a21e64907cf2c13"></a>ADC_FILTER_OVRSAM_AVG_2x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8a1a5c4a9f038101bad68a56ce52a7b99f" name="ggade4789b79009bb5798d22406600442a8a1a5c4a9f038101bad68a56ce52a7b99f"></a>ADC_FILTER_OVRSAM_AVG_4x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8a01fffdf4afdc19bc3f00de0d152dcd63" name="ggade4789b79009bb5798d22406600442a8a01fffdf4afdc19bc3f00de0d152dcd63"></a>ADC_FILTER_OVRSAM_AVG_8x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8a6943e4ed06207ea3d52435cd23c7612e" name="ggade4789b79009bb5798d22406600442a8a6943e4ed06207ea3d52435cd23c7612e"></a>ADC_FILTER_OVRSAM_AVG_16x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8a6e9e2dd1ce8aa49c2fa9235dad126d50" name="ggade4789b79009bb5798d22406600442a8a6e9e2dd1ce8aa49c2fa9235dad126d50"></a>ADC_FILTER_OVRSAM_AVG_32x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8a56481c3dd7f242f83dac9be77ac97d93" name="ggade4789b79009bb5798d22406600442a8a56481c3dd7f242f83dac9be77ac97d93"></a>ADC_FILTER_OVRSAM_AVG_64x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8aded484f19a56bac94569c4768bf26b16" name="ggade4789b79009bb5798d22406600442a8aded484f19a56bac94569c4768bf26b16"></a>ADC_FILTER_OVRSAM_AVG_128x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8a70761444839d59d84be99373fb963124" name="ggade4789b79009bb5798d22406600442a8a70761444839d59d84be99373fb963124"></a>ADC_FILTER_OVRSAM_AVG_256x&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00032">32</a> of file <a class="el" href="a00344_source.html">drv_mcc_extension_adc.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga4d793923449f4e03992bcbdda147a3ec" name="ga4d793923449f4e03992bcbdda147a3ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4d793923449f4e03992bcbdda147a3ec">&#9670;&#160;</a></span>FAULT_CheckBit()</h2>
+<a id="ga7475de7e65b22a255c8587d7535359b3" name="ga7475de7e65b22a255c8587d7535359b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7475de7e65b22a255c8587d7535359b3">&#9670;&#160;</a></span>ADC_Filter_Averaging()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool FAULT_CheckBit </td>
+          <td class="memname">static void ADC_Filter_Averaging </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00657.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>filterIndex</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>faultBit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00359.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a>&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00344.html#ac8993058275f94e962b30da4ae3b2e8a">ADC_FILTER_OVRSAM_AVG_t</a>&#160;</td>
+          <td class="paramname"><em>averagingRatio</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -232,102 +418,53 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00657.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">faultBit</td><td>bit being checked by fault function </td></tr>
-    <tr><td class="paramname">callback</td><td>function executed when fault trips </td></tr>
+    <tr><td class="paramname">filterIndex</td><td>ADC filter index (four indexes available for ADC filter) </td></tr>
+    <tr><td class="paramname">averagingRatio</td><td>Pointer to a power control data object of type ADC_FILTER_OVRSAM_AVG_t </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 when fault is active </dd>
-<dd>
-0 when fault is not active</dd></dl>
-<p>This function returns fault active state to TRUE, if the fault bit is set for a time equivalent to set_counter value. Also, after the fault active state becomes TRUE, if callback function pointer is non-null, then the routine will call the callback function which quickly shutdown the system, If needed. Also the function returns fault active state to FALSE, if the fault bit is reset for a time equivalent to reset_counter value. </p>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function sets the number of samples to average in the particular ADC instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00356_source.html#l00236">236</a> of file <a class="el" href="a00356_source.html">fault_common.c</a>.</p>
-
-</div>
-</div>
-<a id="ga1a12d5b7c5b1f234c50ea2214e91fcfc" name="ga1a12d5b7c5b1f234c50ea2214e91fcfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1a12d5b7c5b1f234c50ea2214e91fcfc">&#9670;&#160;</a></span>FAULT_CheckMax()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool FAULT_CheckMax </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00657.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>faultSource</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00359.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a>&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00657.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">faultSource</td><td>value being evaluated for fault limits </td></tr>
-    <tr><td class="paramname">callback</td><td>function executed when fault trips </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>1 when fault is active </dd>
-<dd>
-0 when fault is not active</dd></dl>
-<p>This function returns fault active state to TRUE, if input fault source is greater than the set threshold limit for a time equivalent to set_counter value. Also, after the fault active state becomes TRUE, if callback function pointer is non-null, then the routine will call the callback function which quickly shutdown the system, if needed. Also the function returns fault active state to FALSE, if input fault source is less than the hysteresis limit value for a time equivalent to reset_counter value. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00356_source.html#l00126">126</a> of file <a class="el" href="a00356_source.html">fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00116">116</a> of file <a class="el" href="a00344_source.html">drv_mcc_extension_adc.h</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00516_ga1a12d5b7c5b1f234c50ea2214e91fcfc_icgraph.svg" width="487" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00516_ga7475de7e65b22a255c8587d7535359b3_icgraph.svg" width="384" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="gabe4788eb1b8be3ad755eb7daf6bba295" name="gabe4788eb1b8be3ad755eb7daf6bba295"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabe4788eb1b8be3ad755eb7daf6bba295">&#9670;&#160;</a></span>FAULT_CheckMin()</h2>
+<a id="ga71c6250f386033c07dae0150d67b100f" name="ga71c6250f386033c07dae0150d67b100f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga71c6250f386033c07dae0150d67b100f">&#9670;&#160;</a></span>ADC_Filter_Enable()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool FAULT_CheckMin </td>
+          <td class="memname">static void ADC_Filter_Enable </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00657.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>filterIndex</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>faultSource</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00359.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a>&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -335,114 +472,89 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00657.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">faultSource</td><td>value being evaluated for fault limits </td></tr>
-    <tr><td class="paramname">callback</td><td>function executed when fault trips </td></tr>
+    <tr><td class="paramname">filterIndex</td><td>ADC filter index (four indexes available for ADC filter) </td></tr>
+    <tr><td class="paramname">enable</td><td>ADC filter enable </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 when fault is active </dd>
-<dd>
-0 when fault is not active</dd></dl>
-<p>This function returns fault active state to TRUE, if input fault source is less than the set threshold limit for a time equivalent to set_counter value. Also, after the fault active state becomes TRUE, if callback function pointer is non-null, then the routine will call the callback function which quickly shutdown the system, if needed. Also the function returns fault active state to FALSE, if input fault source is greater than the hysteresis limit value for a time equivalent to reset_counter value. </p>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function enables the ADC feature of the ADC instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00356_source.html#l00184">184</a> of file <a class="el" href="a00356_source.html">fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00054">54</a> of file <a class="el" href="a00344_source.html">drv_mcc_extension_adc.h</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00516_gabe4788eb1b8be3ad755eb7daf6bba295_icgraph.svg" width="530" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00516_ga71c6250f386033c07dae0150d67b100f_icgraph.svg" width="368" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ga1eb8f7e7cab65ed3eb87edd0b076f695" name="ga1eb8f7e7cab65ed3eb87edd0b076f695"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1eb8f7e7cab65ed3eb87edd0b076f695">&#9670;&#160;</a></span>FAULT_CheckRange()</h2>
+<a id="gaee0723998267abf6433b4b008758506b" name="gaee0723998267abf6433b4b008758506b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaee0723998267abf6433b4b008758506b">&#9670;&#160;</a></span>ADC_Filter_GetResult()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool FAULT_CheckRange </td>
+          <td class="memname">static uint16_t ADC_Filter_GetResult </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00657.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>filterIndex</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>inputValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00359.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a>&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00657.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">inputValue</td><td>value being evaluated by the function </td></tr>
-    <tr><td class="paramname">callback</td><td>function executed when fault trips </td></tr>
+    <tr><td class="paramname">filterIndex</td><td>ADC filter index (four indexes available for ADC filter) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 when fault is active </dd>
-<dd>
-0 when fault is not active</dd></dl>
-<p>This function returns fault active state to TRUE, if the input value is out of threshold limits range for a time equivalent to set_counter value. Also, after the fault active state becomes TRUE, if callback function pointer is non-null, then the routine will call the callback function which quickly shutdown the system, If needed. Also the function returns fault active state to FALSE, if the input value is within the hysteresis limits range for a time equivalent to reset_counter value. </p>
+<dl class="section return"><dt>Returns</dt><dd>filterResult result of the filtered ADC</dd></dl>
+<p>This function gives the value of the ADC filter output. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00356_source.html#l00287">287</a> of file <a class="el" href="a00356_source.html">fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00178">178</a> of file <a class="el" href="a00344_source.html">drv_mcc_extension_adc.h</a>.</p>
 
 </div>
 </div>
-<a id="gae9aa4b1a3733fa6ee5fb7778bdf74103" name="gae9aa4b1a3733fa6ee5fb7778bdf74103"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae9aa4b1a3733fa6ee5fb7778bdf74103">&#9670;&#160;</a></span>FAULT_Init()</h2>
+<a id="ga0645000c951ca217ee18beb7233da254" name="ga0645000c951ca217ee18beb7233da254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0645000c951ca217ee18beb7233da254">&#9670;&#160;</a></span>ADC_Filter_Input()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void FAULT_Init </td>
+          <td class="memname">static void ADC_Filter_Input </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00657.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>threshold</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>hysLimit</em>, </td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>filterIndex</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>thresholdCnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>hysCnt</em>&#160;</td>
+          <td class="paramname"><em>channelIndex</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -450,81 +562,53 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00657.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">threshold</td><td>sets the fault allowed limit </td></tr>
-    <tr><td class="paramname">hysLimit</td><td>hysteresis limit values </td></tr>
-    <tr><td class="paramname">thresholdCnt</td><td>threshold counter (increments when threshold limit is reached) <br  />
- </td></tr>
-    <tr><td class="paramname">hysCnt</td><td>hysteresis counter increments when hysteresis limit is reached <br  />
- </td></tr>
+    <tr><td class="paramname">filterIndex</td><td>ADC filter index (four indexes available for ADC filter) </td></tr>
+    <tr><td class="paramname">channelIndex</td><td>ADC channel </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p><br  />
- This function initializes the fault structure with the thresholds and counter limits which are required to detect a fault. </p>
+<p>This function sets up the ADC filter for the specific ADC instance. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00356_source.html#l00027">27</a> of file <a class="el" href="a00356_source.html">fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00146">146</a> of file <a class="el" href="a00344_source.html">drv_mcc_extension_adc.h</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00516_gae9aa4b1a3733fa6ee5fb7778bdf74103_icgraph.svg" width="248" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00516_ga0645000c951ca217ee18beb7233da254_icgraph.svg" width="356" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ga5feed023da8938178c78afe29ca8d2cb" name="ga5feed023da8938178c78afe29ca8d2cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5feed023da8938178c78afe29ca8d2cb">&#9670;&#160;</a></span>FAULT_InitRange()</h2>
+<a id="ga6ef63752d3c218e541d437721a3559fa" name="ga6ef63752d3c218e541d437721a3559fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6ef63752d3c218e541d437721a3559fa">&#9670;&#160;</a></span>ADC_Filter_Mode()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void FAULT_InitRange </td>
+          <td class="memname">static void ADC_Filter_Mode </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00657.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>thresholdMin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>hysLimitMin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>thresholdMax</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>hysLimitMax</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>thresholdCnt</em>, </td>
+          <td class="paramname"><em>filterIndex</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>hysCnt</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00344.html#a799f42245358585723c53fb29008fda3">ADC_FILTER_MODE_t</a>&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -532,121 +616,67 @@ Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00657.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">thresholdMin</td><td>sets the fault allowed minimum limit </td></tr>
-    <tr><td class="paramname">thresholdMax</td><td>sets the fault allowed maximum limit </td></tr>
-    <tr><td class="paramname">hysLimitMin</td><td>minimum hysteresis limit value </td></tr>
-    <tr><td class="paramname">hysLimitMax</td><td>maximum hysteresis limit values </td></tr>
-    <tr><td class="paramname">thresholdCnt</td><td>threshold counter (increments when threshold limit is reached) <br  />
- </td></tr>
-    <tr><td class="paramname">hysCnt</td><td>hysteresis counter increments when hysteresis limit is reached <br  />
- </td></tr>
+    <tr><td class="paramname">filterIndex</td><td>ADC filter index (four indexes available for ADC filter) </td></tr>
+    <tr><td class="paramname">mode</td><td>Pointer to a power control data object of type ADC_FILTER_MODE_t </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the fault structure with the thresholds <br  />
- and counter limits which are required to detect a fault. </p>
+<p>This function set the ADC instance filter mode either OverSampling mode or Averaging mode. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00356_source.html#l00055">55</a> of file <a class="el" href="a00356_source.html">fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00085">85</a> of file <a class="el" href="a00344_source.html">drv_mcc_extension_adc.h</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00516_ga6ef63752d3c218e541d437721a3559fa_icgraph.svg" width="360" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="ga81272ffd00652b2dbe00bfa8594be05f" name="ga81272ffd00652b2dbe00bfa8594be05f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga81272ffd00652b2dbe00bfa8594be05f">&#9670;&#160;</a></span>FAULT_SetCounters()</h2>
+<a id="gae714c168949aee8009c9482933cd85dc" name="gae714c168949aee8009c9482933cd85dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae714c168949aee8009c9482933cd85dc">&#9670;&#160;</a></span>DRV_Config_Custom_ADC()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void FAULT_SetCounters </td>
+          <td class="memname">static __inline__ void DRV_Config_Custom_ADC </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00657.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>fltThresholdCnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>fltHysCnt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00657.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">fltThresholdCnt</td><td>threshold counter (increments when threshold limit is reached) <br  />
- </td></tr>
-    <tr><td class="paramname">fltHysCnt</td><td>hysteresis counter increments when hysteresis limit is reached <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the CounterSet, CounterReset variables of the fault object data structure. These counter values together with thresholds are used to set and reset the fault. </p>
+<p>This function initializes the ADC module to use the ADC Filter mode (averaging mode) to some of the ADC being sampled in the application. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00356_source.html#l00083">83</a> of file <a class="el" href="a00356_source.html">fault_common.c</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00039">39</a> of file <a class="el" href="a00335_source.html">drv_custom_config_adc.h</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00516_gae714c168949aee8009c9482933cd85dc_cgraph.svg" width="384" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<a id="ga9814ba400be29bb6b3d2372c26252850" name="ga9814ba400be29bb6b3d2372c26252850"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9814ba400be29bb6b3d2372c26252850">&#9670;&#160;</a></span>FAULT_SetThresholds()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void FAULT_SetThresholds </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00657.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>fltThreshold</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>fltHysLimit</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00657.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">fltThreshold</td><td>sets the fault allowed limit </td></tr>
-    <tr><td class="paramname">fltHysLimit</td><td>hysteresis limit values <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes/sets the val1_Threshold, val1_Hysteresis variables of the fault object data structure. These threshold values together with counter limits are used to set and reset the fault. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00356_source.html#l00101">101</a> of file <a class="el" href="a00356_source.html">fault_common.c</a>.</p>
 
 </div>
 </div>

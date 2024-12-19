@@ -1,7 +1,5 @@
 var a00673 =
 [
-    [ "hour", "a00673.html#ae5af4ff48939d13d480f87e56a9385d6", null ],
-    [ "millisecond", "a00673.html#a2c2fc9077af4f9594b4433cd53e39f47", null ],
-    [ "minute", "a00673.html#a8ff981ec55c945940f4a0da7d8709b3c", null ],
-    [ "second", "a00673.html#a8459fc4e94de7eefc74991e41779c8fc", null ]
+    [ "__pad0__", "a00673.html#adf71f3d8410c1f1dbbc96680a92c49af", null ],
+    [ "reset_by_watchdog", "a00673.html#af7905814a554a97a8db48d413ca5aa21", null ]
 ];

@@ -1,14 +1,17 @@
 var a00486 =
 [
-    [ "CURRENT_CALIBRATION", "a00486.html#ga4dac1dfb10918e33515fd140e62a247e", null ],
-    [ "DAC_DEBUG", "a00486.html#ga06a509daec59519381724d6f4c6c9a98", null ],
-    [ "DCDC400V_SYSTEM", "a00486.html#ga643cae3876a193f7910cdd4963d6cc3f", null ],
-    [ "DCDC800V_SYSTEM", "a00486.html#gab82279541c39e463eca29e7804800145", null ],
-    [ "ENABLE_VLOOP_AGC", "a00486.html#gaad5ce0d0b910332d668b5c4287e15ff8", null ],
-    [ "OPEN_LOOP_PBV", "a00486.html#ga98d40d6d77de8363187fdb3b1c6da065", null ],
-    [ "OPEN_LOOP_POTI", "a00486.html#gaffb8d78227a5b391853bbce53ca09857", null ],
-    [ "PBV_CANFD", "a00486.html#ga1151367cf9963cedbb90f4d5940d22b8", null ],
-    [ "PBV_UART", "a00486.html#ga3bf2f552a3148e521b11370c78f22121", null ],
-    [ "PERIOD_MODULATION_DEMO", "a00486.html#ga45df5256ba4c507175bdb3138ff68f1d", null ],
-    [ "VPRI_OPTOCOUPLER_POLARITY", "a00486.html#ga9da067b210e8083bb0545db1930060dc", null ]
+    [ "Conversion Macros", "a00487.html", "a00487" ],
+    [ "VPRIM_LOAD_STEP_CLAMPING_VOLTS", "a00486.html#gae3f52347b2b4a59f50701b297dd93e08", null ],
+    [ "VSEC_LOAD_STEP_CLAMPING_VOLTS", "a00486.html#gad65db8b07e7c77b600ab24be46652e8b", null ],
+    [ "VSEC_OV_T_BLANK_CLEAR_SEC", "a00486.html#ga5128a30f14a7b25809efe09d606b8055", null ],
+    [ "VSEC_OV_T_BLANK_TRIG_SEC", "a00486.html#gaf49c547355152112f9ae4b26555d57e2", null ],
+    [ "VSEC_OV_THRES_CLEAR_VOLTS", "a00486.html#gab1003ede83a567c60837872c8542824b", null ],
+    [ "VSEC_OV_THRES_TRIG_VOLTS", "a00486.html#gaf7f1d859f3effd96e6613130af09fc0b", null ],
+    [ "VSEC_OV_TICK_SEC", "a00486.html#ga77d2a7b05664c0c08ce317f942deca00", null ],
+    [ "VSEC_SNS_GAIN", "a00486.html#gadbb92791a446721a3d4af49d713520ca", null ],
+    [ "VSEC_UV_T_BLANK_CLEAR_SEC", "a00486.html#ga683160afa1313d6ba361e499e367a976", null ],
+    [ "VSEC_UV_T_BLANK_TRIG_SEC", "a00486.html#gacaf7eee4f78c07c9647a18ca030da57d", null ],
+    [ "VSEC_UV_THRES_CLEAR_VOLTS", "a00486.html#gad401641684f506e72d672405e4e80bba", null ],
+    [ "VSEC_UV_THRES_TRIG_VOLTS", "a00486.html#gab7c6ea26f50ee59cfffa63274edbd8ea", null ],
+    [ "VSEC_UV_TICK_SEC", "a00486.html#gab4b4e960335284c22232a1a6fcb41573", null ]
 ];

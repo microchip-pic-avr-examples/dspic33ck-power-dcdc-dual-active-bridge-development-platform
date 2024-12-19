@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/driver/mcc_extension/drv_custom_config_adc.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_led.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,29 +137,23 @@ $(document).ready(function(){initNavTree('a00323.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">drv_custom_config_adc.h File Reference<div class="ingroups"><a class="el" href="a00502.html">Driver Layer</a> &raquo; <a class="el" href="a00504.html">MCC Custom Code ADC</a></div></div></div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">dev_led.c File Reference<div class="ingroups"><a class="el" href="a00509.html">Device Layer</a> &raquo; <a class="el" href="a00512.html">LED Display</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains ADC initialization that was not supported by MCC generated code. <br  />
-  
+<p>Contains LED initialization and execution functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00056_source.html">adc/adc1.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00332_source.html">drv_mcc_extension_adc.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;xc.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00326_source.html">dev_led.h</a>&quot;</code><br />
+<code>#include &quot;system/pins.h&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for drv_custom_config_adc.h:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for dev_led.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00324.svg" width="575" height="326"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00325.svg" width="183" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00324.svg" width="246" height="203"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00323_source.html">Go to the source code of this file.</a></p>
@@ -167,40 +161,116 @@ $(document).ready(function(){initNavTree('a00323.html',''); initResizable(); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:ga11363ccc92069cb46ab0e2d92e552bce" id="r_ga11363ccc92069cb46ab0e2d92e552bce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#ga11363ccc92069cb46ab0e2d92e552bce">ADC_CHANNEL_VSEC</a>&#160;&#160;&#160;(2)</td></tr>
-<tr class="memdesc:ga11363ccc92069cb46ab0e2d92e552bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC2 is routed to Secondary Voltage.  <br /></td></tr>
-<tr class="separator:ga11363ccc92069cb46ab0e2d92e552bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadf9f8157c3d4ae8423c8d6d4a6b172d9" id="r_gadf9f8157c3d4ae8423c8d6d4a6b172d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#gadf9f8157c3d4ae8423c8d6d4a6b172d9">ADC_CHANNEL_IPRI_CT</a>&#160;&#160;&#160;(7)</td></tr>
-<tr class="memdesc:gadf9f8157c3d4ae8423c8d6d4a6b172d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC7 is routed to Primary CT Current.  <br /></td></tr>
-<tr class="separator:gadf9f8157c3d4ae8423c8d6d4a6b172d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf584f4955263417a4aa580f4ee138a95" id="r_gaf584f4955263417a4aa580f4ee138a95"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#gaf584f4955263417a4aa580f4ee138a95">ADC_CHANNEL_VPRI</a>&#160;&#160;&#160;(10)</td></tr>
-<tr class="memdesc:gaf584f4955263417a4aa580f4ee138a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC10 is routed to Primary Voltage.  <br /></td></tr>
-<tr class="separator:gaf584f4955263417a4aa580f4ee138a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7e176664c3a3e340c070fe54d507b800" id="r_ga7e176664c3a3e340c070fe54d507b800"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#ga7e176664c3a3e340c070fe54d507b800">ADC_CHANNEL_TEMP</a>&#160;&#160;&#160;(14)</td></tr>
-<tr class="memdesc:ga7e176664c3a3e340c070fe54d507b800"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC14 is routed to Temperature.  <br /></td></tr>
-<tr class="separator:ga7e176664c3a3e340c070fe54d507b800"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3499fc44fc64cc81aec9e488617d675a" id="r_ga3499fc44fc64cc81aec9e488617d675a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#ga3499fc44fc64cc81aec9e488617d675a">ADC_CHANNEL_VRAIL_5V</a>&#160;&#160;&#160;(19)</td></tr>
-<tr class="memdesc:ga3499fc44fc64cc81aec9e488617d675a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC19 is routed to 5V rail.  <br /></td></tr>
-<tr class="separator:ga3499fc44fc64cc81aec9e488617d675a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6dd6396aac82b663b437a43b80be4fe0" id="r_ga6dd6396aac82b663b437a43b80be4fe0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#ga6dd6396aac82b663b437a43b80be4fe0">ADC_CHANNEL_ISEC_CT</a>&#160;&#160;&#160;(0)</td></tr>
-<tr class="memdesc:ga6dd6396aac82b663b437a43b80be4fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC0 is routed to Secondary CT Current.  <br /></td></tr>
-<tr class="separator:ga6dd6396aac82b663b437a43b80be4fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga61417f0641a547b21b6f6811ab077179" id="r_ga61417f0641a547b21b6f6811ab077179"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#ga61417f0641a547b21b6f6811ab077179">ADC_CHANNEL_ISEC_AVG</a>&#160;&#160;&#160;(1)</td></tr>
-<tr class="memdesc:ga61417f0641a547b21b6f6811ab077179"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC1 is routed to Secondary Average Current.  <br /></td></tr>
-<tr class="separator:ga61417f0641a547b21b6f6811ab077179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga900bdeb2c6d6ab966bad8f4fd78e8cd2" id="r_ga900bdeb2c6d6ab966bad8f4fd78e8cd2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga900bdeb2c6d6ab966bad8f4fd78e8cd2">LED_STATE_OFF</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ga900bdeb2c6d6ab966bad8f4fd78e8cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">These are the macros indicating the status of the LED.  <br /></td></tr>
+<tr class="separator:ga900bdeb2c6d6ab966bad8f4fd78e8cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga04ba0e3f7ea33a087f01b2745a2de63b" id="r_ga04ba0e3f7ea33a087f01b2745a2de63b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga04ba0e3f7ea33a087f01b2745a2de63b">LED_STATE_ON</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ga04ba0e3f7ea33a087f01b2745a2de63b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae7328822ca8e2fd16a638854eeae068b" id="r_gae7328822ca8e2fd16a638854eeae068b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gae7328822ca8e2fd16a638854eeae068b">LED_STATE_BLINK</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:gae7328822ca8e2fd16a638854eeae068b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac387d5ec1a81ff6058b9bf31e5809e9d" id="r_gac387d5ec1a81ff6058b9bf31e5809e9d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gac387d5ec1a81ff6058b9bf31e5809e9d">LED_STATE_BLINK_SLOW</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:gac387d5ec1a81ff6058b9bf31e5809e9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga065311bdf1ad091dc6f4aa643bd59f48" id="r_ga065311bdf1ad091dc6f4aa643bd59f48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga065311bdf1ad091dc6f4aa643bd59f48">LED_STATE_BLINK_FAST</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:ga065311bdf1ad091dc6f4aa643bd59f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa38f6cc3eb9957214f94466dd2650cc" id="r_gaaa38f6cc3eb9957214f94466dd2650cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gaaa38f6cc3eb9957214f94466dd2650cc">LED_STATE_BLINK_COUNT</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:gaaa38f6cc3eb9957214f94466dd2650cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gae714c168949aee8009c9482933cd85dc" id="r_gae714c168949aee8009c9482933cd85dc"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html#gae714c168949aee8009c9482933cd85dc">DRV_Config_Custom_ADC</a> (void)</td></tr>
-<tr class="memdesc:gae714c168949aee8009c9482933cd85dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Customize configuration for ADC.  <br /></td></tr>
-<tr class="separator:gae714c168949aee8009c9482933cd85dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d2db02502e7b576a9149d114f303daa" id="r_ga2d2db02502e7b576a9149d114f303daa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga2d2db02502e7b576a9149d114f303daa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function contains the LED initialization.  <br /></td></tr>
+<tr class="separator:ga2d2db02502e7b576a9149d114f303daa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6fc0416c8ff212d938628b290a18a390" id="r_ga6fc0416c8ff212d938628b290a18a390"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga6fc0416c8ff212d938628b290a18a390">Dev_LED_On</a> (uint8_t led_id)</td></tr>
+<tr class="memdesc:ga6fc0416c8ff212d938628b290a18a390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch on the LED.  <br /></td></tr>
+<tr class="separator:ga6fc0416c8ff212d938628b290a18a390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga645c25dba273dcf25dc202d31f441154" id="r_ga645c25dba273dcf25dc202d31f441154"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga645c25dba273dcf25dc202d31f441154">Dev_LED_Off</a> (uint8_t led_id)</td></tr>
+<tr class="memdesc:ga645c25dba273dcf25dc202d31f441154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switch off the LED.  <br /></td></tr>
+<tr class="separator:ga645c25dba273dcf25dc202d31f441154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf12fda3f7d99f77a0e68b846273984f" id="r_gacf12fda3f7d99f77a0e68b846273984f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gacf12fda3f7d99f77a0e68b846273984f">Dev_LED_Toggle</a> (uint8_t led_id)</td></tr>
+<tr class="memdesc:gacf12fda3f7d99f77a0e68b846273984f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the LED state.  <br /></td></tr>
+<tr class="separator:gacf12fda3f7d99f77a0e68b846273984f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf44b310330b9dbf4597275fdade9b5f7" id="r_gaf44b310330b9dbf4597275fdade9b5f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gaf44b310330b9dbf4597275fdade9b5f7">Dev_LED_Blink</a> (uint8_t led_id)</td></tr>
+<tr class="memdesc:gaf44b310330b9dbf4597275fdade9b5f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED in blinking mode.  <br /></td></tr>
+<tr class="separator:gaf44b310330b9dbf4597275fdade9b5f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab8abb73dda8dc3829d57da8c681f4931" id="r_gab8abb73dda8dc3829d57da8c681f4931"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gab8abb73dda8dc3829d57da8c681f4931">Dev_LED_Blink_Iter</a> (uint8_t led_id, uint8_t count)</td></tr>
+<tr class="memdesc:gab8abb73dda8dc3829d57da8c681f4931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED in blinking mode in number of LED iterations.  <br /></td></tr>
+<tr class="separator:gab8abb73dda8dc3829d57da8c681f4931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga371fdb6009ec0f15b00e75ad4ef4d177" id="r_ga371fdb6009ec0f15b00e75ad4ef4d177"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga371fdb6009ec0f15b00e75ad4ef4d177">Dev_LED_Blink_Slow</a> (uint8_t led_id)</td></tr>
+<tr class="memdesc:ga371fdb6009ec0f15b00e75ad4ef4d177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED in SLOW blinking mode.  <br /></td></tr>
+<tr class="separator:ga371fdb6009ec0f15b00e75ad4ef4d177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a710b93c9efd76f1c850ee4415f736c" id="r_ga9a710b93c9efd76f1c850ee4415f736c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga9a710b93c9efd76f1c850ee4415f736c">Dev_LED_Blink_Fast</a> (uint8_t led_id)</td></tr>
+<tr class="memdesc:ga9a710b93c9efd76f1c850ee4415f736c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED in FAST blinking mode.  <br /></td></tr>
+<tr class="separator:ga9a710b93c9efd76f1c850ee4415f736c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad26b3effecb0675aad3bcba8993a0bb2" id="r_gad26b3effecb0675aad3bcba8993a0bb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gad26b3effecb0675aad3bcba8993a0bb2">Dev_LED_Task_100ms</a> ()</td></tr>
+<tr class="memdesc:gad26b3effecb0675aad3bcba8993a0bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function needs to be called every 100ms and contains the code to update the status of the LEDs.  <br /></td></tr>
+<tr class="separator:gad26b3effecb0675aad3bcba8993a0bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ad28c356ad401214e0341b5fbd5bb0a69" id="r_ad28c356ad401214e0341b5fbd5bb0a69"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#ad28c356ad401214e0341b5fbd5bb0a69">ledStates</a> [<a class="el" href="a00326.html#a42308849576b2f1ead04e472d38985da">NUM_OF_LEDS</a>]</td></tr>
+<tr class="memdesc:ad28c356ad401214e0341b5fbd5bb0a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">array that stores the led states  <br /></td></tr>
+<tr class="separator:ad28c356ad401214e0341b5fbd5bb0a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a906e48b27f149e7d748964dc009cc218" id="r_a906e48b27f149e7d748964dc009cc218"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#a906e48b27f149e7d748964dc009cc218">ledTimer</a> [<a class="el" href="a00326.html#a42308849576b2f1ead04e472d38985da">NUM_OF_LEDS</a>]</td></tr>
+<tr class="memdesc:a906e48b27f149e7d748964dc009cc218"><td class="mdescLeft">&#160;</td><td class="mdescRight">array that stores led blink times  <br /></td></tr>
+<tr class="separator:a906e48b27f149e7d748964dc009cc218"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91db6e8aa1c40134b783d90aa0dca239" id="r_a91db6e8aa1c40134b783d90aa0dca239"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#a91db6e8aa1c40134b783d90aa0dca239">ledIterationsCounter</a> [<a class="el" href="a00326.html#a42308849576b2f1ead04e472d38985da">NUM_OF_LEDS</a>]</td></tr>
+<tr class="separator:a91db6e8aa1c40134b783d90aa0dca239"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><br  />
- &lt;&gt; </p>
+<div class="textblock"><p>&lt;&gt; </p>
 
-<p class="definition">Definition in file <a class="el" href="a00323_source.html">drv_custom_config_adc.h</a>.</p>
-</div></div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00323_source.html">dev_led.c</a>.</p>
+</div><h2 class="groupheader">Variable Documentation</h2>
+<a id="a91db6e8aa1c40134b783d90aa0dca239" name="a91db6e8aa1c40134b783d90aa0dca239"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91db6e8aa1c40134b783d90aa0dca239">&#9670;&#160;</a></span>ledIterationsCounter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t ledIterationsCounter[<a class="el" href="a00326.html#a42308849576b2f1ead04e472d38985da">NUM_OF_LEDS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00323_source.html#l00067">67</a> of file <a class="el" href="a00323_source.html">dev_led.c</a>.</p>
+
+</div>
+</div>
+<a id="ad28c356ad401214e0341b5fbd5bb0a69" name="ad28c356ad401214e0341b5fbd5bb0a69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad28c356ad401214e0341b5fbd5bb0a69">&#9670;&#160;</a></span>ledStates</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t ledStates[<a class="el" href="a00326.html#a42308849576b2f1ead04e472d38985da">NUM_OF_LEDS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Private Variables </p>
+
+<p class="definition">Definition at line <a class="el" href="a00323_source.html#l00063">63</a> of file <a class="el" href="a00323_source.html">dev_led.c</a>.</p>
+
+</div>
+</div>
+<a id="a906e48b27f149e7d748964dc009cc218" name="a906e48b27f149e7d748964dc009cc218"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a906e48b27f149e7d748964dc009cc218">&#9670;&#160;</a></span>ledTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t ledTimer[<a class="el" href="a00326.html#a42308849576b2f1ead04e472d38985da">NUM_OF_LEDS</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00323_source.html#l00064">64</a> of file <a class="el" href="a00323_source.html">dev_led.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

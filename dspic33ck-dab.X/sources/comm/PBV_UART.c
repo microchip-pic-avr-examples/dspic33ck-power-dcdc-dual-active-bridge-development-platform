@@ -95,7 +95,7 @@
  * @brief   Maximum UART buffer. The max data that could be received is 64 bytes
  * @details     Receive Data lenght excluding header (5 bytes) and footer (3 bytes, but not needed in memory allocation for UART arrays.)
  **********************************************************************************/
-#define PBV_HEADER_SIZE             5       // in bytes 0x55 + protocol ID (2 bytes) + length (2 bytes)?
+#define PBV_HEADER_SIZE             5       ///< in bytes 0x55 + protocol ID (2 bytes) + length (2 bytes)?
 
 /***********************************************************************************
  * @ingroup PBV_UART

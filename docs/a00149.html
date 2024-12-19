@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/pwm_hs/pwm_hs_types.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/pwm/src/sccp3.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,228 +137,118 @@ $(document).ready(function(){initNavTree('a00149.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#enum-members">Enumerations</a>  </div>
-  <div class="headertitle"><div class="title">pwm_hs_types.h File Reference<div class="ingroups"><a class="el" href="a00518.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00526.html">PWM HS Driver</a></div></div></div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">sccp3.c File Reference<div class="ingroups"><a class="el" href="a00530.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00537.html">PWM Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the generated driver types header file for the PWM driver.  
+<p>This is the generated driver source file for SCCP3 driver.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00146_source.html">../sccp3.h</a>&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for sccp3.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00151.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00150.svg" width="342" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00149_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:aa552a948d5b08cc9a8345234b82fe5a8" id="r_aa552a948d5b08cc9a8345234b82fe5a8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#aa552a948d5b08cc9a8345234b82fe5a8">PWM_GENERATOR</a> { <a class="el" href="a00149.html#aa552a948d5b08cc9a8345234b82fe5a8a486f4c61c953939ade26a1d48f57197c">PWM_PRI_1</a> = 1
-, <a class="el" href="a00149.html#aa552a948d5b08cc9a8345234b82fe5a8a2d038a5a03cabafe601e3565cd701b58">PWM_SEC_1</a> = 2
-, <a class="el" href="a00149.html#aa552a948d5b08cc9a8345234b82fe5a8ad5f68a24115f48485c95e9d0f8cb4f1f">PWM_PRI_2</a> = 3
-, <a class="el" href="a00149.html#aa552a948d5b08cc9a8345234b82fe5a8ac2ed50db261be046cb6758a72f9fcda9">PWM_SEC_2</a> = 4
-, <a class="el" href="a00149.html#aa552a948d5b08cc9a8345234b82fe5a8a85b62cb67aff95d6568ae48fb19a667f">PWM_MAX_GENERATOR</a>
- }</td></tr>
-<tr class="separator:aa552a948d5b08cc9a8345234b82fe5a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26884aa075f9b9e9e4fe32e47ee22680" id="r_a26884aa075f9b9e9e4fe32e47ee22680"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a26884aa075f9b9e9e4fe32e47ee22680">PWM_GENERATOR_INTERRUPT</a> { <a class="el" href="a00149.html#a26884aa075f9b9e9e4fe32e47ee22680acf0f7cb894c3d9ead46d1a41f4e9d979">PWM_GENERATOR_INTERRUPT_FAULT</a> = 1
-, <a class="el" href="a00149.html#a26884aa075f9b9e9e4fe32e47ee22680abe89a89fd7679f1858834568c152031f">PWM_GENERATOR_INTERRUPT_CURRENT_LIMIT</a> = 2
-, <a class="el" href="a00149.html#a26884aa075f9b9e9e4fe32e47ee22680a5999c0ac98c9b92f52b7b8cc4c55eef7">PWM_GENERATOR_INTERRUPT_FEED_FORWARD</a> = 3
-, <a class="el" href="a00149.html#a26884aa075f9b9e9e4fe32e47ee22680a8020023831b8d664e8fa680bf58f128a">PWM_GENERATOR_INTERRUPT_SYNC</a> = 4
- }</td></tr>
-<tr class="separator:a26884aa075f9b9e9e4fe32e47ee22680"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac417da9a87feb343098a4723078a4b43" id="r_ac417da9a87feb343098a4723078a4b43"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#ac417da9a87feb343098a4723078a4b43">PWM_COMMON_EVENT</a> { <a class="el" href="a00149.html#ac417da9a87feb343098a4723078a4b43a1ed7c329eb1a652bb1c774da22195fa6">PWM_EVENT_A</a> = 1
-, <a class="el" href="a00149.html#ac417da9a87feb343098a4723078a4b43a268305d94f322163f1e27bafd45fa13c">PWM_EVENT_B</a> = 2
-, <a class="el" href="a00149.html#ac417da9a87feb343098a4723078a4b43a8aaa3c3679ed3af8a15837a2d678f6e6">PWM_EVENT_C</a> = 3
-, <a class="el" href="a00149.html#ac417da9a87feb343098a4723078a4b43a53a9d971038c7e2d939fcc1b046d2299">PWM_EVENT_D</a> = 4
-, <a class="el" href="a00149.html#ac417da9a87feb343098a4723078a4b43a59667ad9123ff65018cf4b2d2fbd8192">PWM_EVENT_E</a> = 5
-, <a class="el" href="a00149.html#ac417da9a87feb343098a4723078a4b43a7095586c7e3e266010cdf502fbb11fd3">PWM_EVENT_F</a> = 6
- }</td></tr>
-<tr class="separator:ac417da9a87feb343098a4723078a4b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49a81b3d1835f88d40c81ea13ba7ffa6" id="r_a49a81b3d1835f88d40c81ea13ba7ffa6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a49a81b3d1835f88d40c81ea13ba7ffa6">PWM_TRIGGER_COMPARE</a> { <a class="el" href="a00149.html#a49a81b3d1835f88d40c81ea13ba7ffa6a1b1f3c381f0dd0818a4ad2f999ff2192">PWM_TRIGGER_COMPARE_A</a> = 1
-, <a class="el" href="a00149.html#a49a81b3d1835f88d40c81ea13ba7ffa6a6f8d846fe3e8284ed806f7007108222d">PWM_TRIGGER_COMPARE_B</a> = 2
-, <a class="el" href="a00149.html#a49a81b3d1835f88d40c81ea13ba7ffa6a8e32380415e3040ffd442c05649e635d">PWM_TRIGGER_COMPARE_C</a> = 3
- }</td></tr>
-<tr class="separator:a49a81b3d1835f88d40c81ea13ba7ffa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89dd925d03364582d04713b3003571d0" id="r_a89dd925d03364582d04713b3003571d0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a89dd925d03364582d04713b3003571d0">PWM_MODES</a> { <a class="el" href="a00149.html#a89dd925d03364582d04713b3003571d0ab932460c96a796b8c18c8fdfe46d3d4b">PWM_MODE_INDEPENDENT_EDGE</a> = 0x0
-, <a class="el" href="a00149.html#a89dd925d03364582d04713b3003571d0a40a43e6785f0dc93086ede3119f7d6e8">PWM_MODE_VARIABLE_PHASE</a> = 0x1
-, <a class="el" href="a00149.html#a89dd925d03364582d04713b3003571d0a837d776d61e3be7af0028915f9833a20">PWM_MODE_INDEPENDENT_EDGE_DUAL_OUTPUT</a> = 0x2
-, <a class="el" href="a00149.html#a89dd925d03364582d04713b3003571d0a002b5f6e5b1b2f392021e53961333747">PWM_MODE_CENTER_ALIGNED</a> = 0x4
-, <a class="el" href="a00149.html#a89dd925d03364582d04713b3003571d0a60ffb7c3ecf2a0d5e7d9dad72e5274f7">PWM_MODE_DOUBLE_UPDATE_CENTER_ALIGNED</a> = 0x5
-, <a class="el" href="a00149.html#a89dd925d03364582d04713b3003571d0ad270f5fbda817f27221f1fc744a8d173">PWM_MODE_DUAL_EDGE_CENTER_ALIGNED_ONE_UPDATE_CYCLE</a> = 0x6
-, <a class="el" href="a00149.html#a89dd925d03364582d04713b3003571d0a03203c5d0d2adbbc413673b7933dff3c">PWM_MODE_DUAL_EDGE_CENTER_ALIGNED_TWO_UPDATES_CYCLE</a> = 0x7
- }</td></tr>
-<tr class="separator:a89dd925d03364582d04713b3003571d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf75b04e4ce65147e631b1c76af67934" id="r_aaf75b04e4ce65147e631b1c76af67934"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#aaf75b04e4ce65147e631b1c76af67934">PWM_SOURCE_SELECT</a> { <a class="el" href="a00149.html#aaf75b04e4ce65147e631b1c76af67934a8da7b1ffab034e9f530353a609c7ae6f">PWM_SOURCE_SELECT_INDEPENDENT</a> = 0
-, <a class="el" href="a00149.html#aaf75b04e4ce65147e631b1c76af67934a9c9aa23582485a3d0bb9df2d6f40ef73">PWM_SOURCE_SELECT_MASTER</a> = 1
- }</td></tr>
-<tr class="separator:aaf75b04e4ce65147e631b1c76af67934"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga809f90ef20376e690eb52fbb4a0c9cb3" id="r_ga809f90ef20376e690eb52fbb4a0c9cb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga809f90ef20376e690eb52fbb4a0c9cb3">SCCP3_PWM_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga809f90ef20376e690eb52fbb4a0c9cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the SCCP3 Pulse driver. This function must be called before any other SCCP3 function is called.  <br /></td></tr>
+<tr class="separator:ga809f90ef20376e690eb52fbb4a0c9cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6fb7818d3569a39f7d21903c81e78aa7" id="r_ga6fb7818d3569a39f7d21903c81e78aa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga6fb7818d3569a39f7d21903c81e78aa7">SCCP3_PWM_Deinitialize</a> (void)</td></tr>
+<tr class="memdesc:ga6fb7818d3569a39f7d21903c81e78aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the SCCP3 to POR values.  <br /></td></tr>
+<tr class="separator:ga6fb7818d3569a39f7d21903c81e78aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f57d725bb9b840c8b4f3be0ff8d832e" id="r_ga6f57d725bb9b840c8b4f3be0ff8d832e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga6f57d725bb9b840c8b4f3be0ff8d832e">SCCP3_PWM_Enable</a> (void)</td></tr>
+<tr class="memdesc:ga6f57d725bb9b840c8b4f3be0ff8d832e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the SCCP3 module.  <br /></td></tr>
+<tr class="separator:ga6f57d725bb9b840c8b4f3be0ff8d832e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga215716b466252c678c01cf0db83dcc4a" id="r_ga215716b466252c678c01cf0db83dcc4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga215716b466252c678c01cf0db83dcc4a">SCCP3_PWM_Disable</a> (void)</td></tr>
+<tr class="memdesc:ga215716b466252c678c01cf0db83dcc4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the SCCP3 module.  <br /></td></tr>
+<tr class="separator:ga215716b466252c678c01cf0db83dcc4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09fe5a6d2e2fde0eee0f9d1b1e4462d9" id="r_ga09fe5a6d2e2fde0eee0f9d1b1e4462d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga09fe5a6d2e2fde0eee0f9d1b1e4462d9">SCCP3_PWM_PeriodSet</a> (size_t periodCount)</td></tr>
+<tr class="memdesc:ga09fe5a6d2e2fde0eee0f9d1b1e4462d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cycle width.  <br /></td></tr>
+<tr class="separator:ga09fe5a6d2e2fde0eee0f9d1b1e4462d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4217568ce7d40ce04f74c937347811f9" id="r_ga4217568ce7d40ce04f74c937347811f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga4217568ce7d40ce04f74c937347811f9">SCCP3_PWM_DutyCycleSet</a> (size_t dutyCycleCount)</td></tr>
+<tr class="memdesc:ga4217568ce7d40ce04f74c937347811f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ON pulse width.  <br /></td></tr>
+<tr class="separator:ga4217568ce7d40ce04f74c937347811f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab26ef78a582b1a03658191fdbd113eeb" id="r_gab26ef78a582b1a03658191fdbd113eeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gab26ef78a582b1a03658191fdbd113eeb">SCCP3_PWM_SoftwareTriggerSet</a> (void)</td></tr>
+<tr class="memdesc:gab26ef78a582b1a03658191fdbd113eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function sets the manual trigger.  <br /></td></tr>
+<tr class="separator:gab26ef78a582b1a03658191fdbd113eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf9818122aff50cd60e48c543286f1996" id="r_gaf9818122aff50cd60e48c543286f1996"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaf9818122aff50cd60e48c543286f1996">SCCP3_PWM_CallbackRegister</a> (void(*handler)(void))</td></tr>
+<tr class="memdesc:gaf9818122aff50cd60e48c543286f1996"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for SCCP3 PWM event.  <br /></td></tr>
+<tr class="separator:gaf9818122aff50cd60e48c543286f1996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a201468129b483039afc5a619e2d31097" id="r_a201468129b483039afc5a619e2d31097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a201468129b483039afc5a619e2d31097">__attribute__</a> ((weak))</td></tr>
+<tr class="separator:a201468129b483039afc5a619e2d31097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab00ca303a8991de3bc06795d1fa8878" id="r_gaab00ca303a8991de3bc06795d1fa8878"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaab00ca303a8991de3bc06795d1fa8878">SCCP3_PWM_Tasks</a> (void)</td></tr>
+<tr class="memdesc:gaab00ca303a8991de3bc06795d1fa8878"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to implement the tasks for polled implementations.  <br /></td></tr>
+<tr class="separator:gaab00ca303a8991de3bc06795d1fa8878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a35426a55a2a3d2c96463ba5780f144f8" id="r_a35426a55a2a3d2c96463ba5780f144f8"><td class="memItemLeft" align="right" valign="top">static void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a35426a55a2a3d2c96463ba5780f144f8">SCCP3_PWMHandler</a> )(void) = NULL</td></tr>
+<tr class="separator:a35426a55a2a3d2c96463ba5780f144f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaefb33d483bc26188d3a5d7f31fe21c42" id="r_gaefb33d483bc26188d3a5d7f31fe21c42"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00601.html">PWM_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaefb33d483bc26188d3a5d7f31fe21c42">FAN_PWM</a></td></tr>
+<tr class="memdesc:gaefb33d483bc26188d3a5d7f31fe21c42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00601.html" title="Structure containing the function pointers of PWM generator driver.">PWM_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. PWM1 can be changed by the user in the MCCP user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
+<tr class="separator:gaefb33d483bc26188d3a5d7f31fe21c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>PWM Generated Driver Types Header File</p>
+<div class="textblock"><p>SCCP3 Generated Driver Source File</p>
 <div class="fragment"></div><!-- fragment -->
-<p class="definition">Definition in file <a class="el" href="a00149_source.html">pwm_hs_types.h</a>.</p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="ac417da9a87feb343098a4723078a4b43" name="ac417da9a87feb343098a4723078a4b43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac417da9a87feb343098a4723078a4b43">&#9670;&#160;</a></span>PWM_COMMON_EVENT</h2>
+<p class="definition">Definition in file <a class="el" href="a00149_source.html">sccp3.c</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a201468129b483039afc5a619e2d31097" name="a201468129b483039afc5a619e2d31097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a201468129b483039afc5a619e2d31097">&#9670;&#160;</a></span>__attribute__()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00149.html#ac417da9a87feb343098a4723078a4b43">PWM_COMMON_EVENT</a></td>
+          <td class="memname">void __attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(weak)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac417da9a87feb343098a4723078a4b43a1ed7c329eb1a652bb1c774da22195fa6" name="ac417da9a87feb343098a4723078a4b43a1ed7c329eb1a652bb1c774da22195fa6"></a>PWM_EVENT_A&#160;</td><td class="fielddoc"><p>PWM EVENT_A Output </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ac417da9a87feb343098a4723078a4b43a268305d94f322163f1e27bafd45fa13c" name="ac417da9a87feb343098a4723078a4b43a268305d94f322163f1e27bafd45fa13c"></a>PWM_EVENT_B&#160;</td><td class="fielddoc"><p>PWM EVENT_B Output </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ac417da9a87feb343098a4723078a4b43a8aaa3c3679ed3af8a15837a2d678f6e6" name="ac417da9a87feb343098a4723078a4b43a8aaa3c3679ed3af8a15837a2d678f6e6"></a>PWM_EVENT_C&#160;</td><td class="fielddoc"><p>PWM EVENT_C Output </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ac417da9a87feb343098a4723078a4b43a53a9d971038c7e2d939fcc1b046d2299" name="ac417da9a87feb343098a4723078a4b43a53a9d971038c7e2d939fcc1b046d2299"></a>PWM_EVENT_D&#160;</td><td class="fielddoc"><p>PWM EVENT_D Output </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ac417da9a87feb343098a4723078a4b43a59667ad9123ff65018cf4b2d2fbd8192" name="ac417da9a87feb343098a4723078a4b43a59667ad9123ff65018cf4b2d2fbd8192"></a>PWM_EVENT_E&#160;</td><td class="fielddoc"><p>PWM EVENT_E Output </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ac417da9a87feb343098a4723078a4b43a7095586c7e3e266010cdf502fbb11fd3" name="ac417da9a87feb343098a4723078a4b43a7095586c7e3e266010cdf502fbb11fd3"></a>PWM_EVENT_F&#160;</td><td class="fielddoc"><p>PWM EVENT_F Output </p>
-</td></tr>
-</table>
 
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00081">81</a> of file <a class="el" href="a00149_source.html">pwm_hs_types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00155">155</a> of file <a class="el" href="a00149_source.html">sccp3.c</a>.</p>
 
 </div>
 </div>
-<a id="aa552a948d5b08cc9a8345234b82fe5a8" name="aa552a948d5b08cc9a8345234b82fe5a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa552a948d5b08cc9a8345234b82fe5a8">&#9670;&#160;</a></span>PWM_GENERATOR</h2>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a35426a55a2a3d2c96463ba5780f144f8" name="a35426a55a2a3d2c96463ba5780f144f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35426a55a2a3d2c96463ba5780f144f8">&#9670;&#160;</a></span>SCCP3_PWMHandler</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00149.html#aa552a948d5b08cc9a8345234b82fe5a8">PWM_GENERATOR</a></td>
+          <td class="memname">void(* SCCP3_PWMHandler) (void) </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> = NULL</td>
         </tr>
       </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa552a948d5b08cc9a8345234b82fe5a8a486f4c61c953939ade26a1d48f57197c" name="aa552a948d5b08cc9a8345234b82fe5a8a486f4c61c953939ade26a1d48f57197c"></a>PWM_PRI_1&#160;</td><td class="fielddoc"><p>Custom name of PWM generator 1 </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa552a948d5b08cc9a8345234b82fe5a8a2d038a5a03cabafe601e3565cd701b58" name="aa552a948d5b08cc9a8345234b82fe5a8a2d038a5a03cabafe601e3565cd701b58"></a>PWM_SEC_1&#160;</td><td class="fielddoc"><p>Custom name of PWM generator 2 </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa552a948d5b08cc9a8345234b82fe5a8ad5f68a24115f48485c95e9d0f8cb4f1f" name="aa552a948d5b08cc9a8345234b82fe5a8ad5f68a24115f48485c95e9d0f8cb4f1f"></a>PWM_PRI_2&#160;</td><td class="fielddoc"><p>Custom name of PWM generator 3 </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa552a948d5b08cc9a8345234b82fe5a8ac2ed50db261be046cb6758a72f9fcda9" name="aa552a948d5b08cc9a8345234b82fe5a8ac2ed50db261be046cb6758a72f9fcda9"></a>PWM_SEC_2&#160;</td><td class="fielddoc"><p>Custom name of PWM generator 4 </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa552a948d5b08cc9a8345234b82fe5a8a85b62cb67aff95d6568ae48fb19a667f" name="aa552a948d5b08cc9a8345234b82fe5a8a85b62cb67aff95d6568ae48fb19a667f"></a>PWM_MAX_GENERATOR&#160;</td><td class="fielddoc"></td></tr>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
 </table>
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00053">53</a> of file <a class="el" href="a00149_source.html">pwm_hs_types.h</a>.</p>
-
-</div>
-</div>
-<a id="a26884aa075f9b9e9e4fe32e47ee22680" name="a26884aa075f9b9e9e4fe32e47ee22680"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26884aa075f9b9e9e4fe32e47ee22680">&#9670;&#160;</a></span>PWM_GENERATOR_INTERRUPT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00149.html#a26884aa075f9b9e9e4fe32e47ee22680">PWM_GENERATOR_INTERRUPT</a></td>
-        </tr>
-      </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a26884aa075f9b9e9e4fe32e47ee22680acf0f7cb894c3d9ead46d1a41f4e9d979" name="a26884aa075f9b9e9e4fe32e47ee22680acf0f7cb894c3d9ead46d1a41f4e9d979"></a>PWM_GENERATOR_INTERRUPT_FAULT&#160;</td><td class="fielddoc"><p>PWM Generator Fault Interrupt </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a26884aa075f9b9e9e4fe32e47ee22680abe89a89fd7679f1858834568c152031f" name="a26884aa075f9b9e9e4fe32e47ee22680abe89a89fd7679f1858834568c152031f"></a>PWM_GENERATOR_INTERRUPT_CURRENT_LIMIT&#160;</td><td class="fielddoc"><p>PWM Generator Current Limit Interrupt </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a26884aa075f9b9e9e4fe32e47ee22680a5999c0ac98c9b92f52b7b8cc4c55eef7" name="a26884aa075f9b9e9e4fe32e47ee22680a5999c0ac98c9b92f52b7b8cc4c55eef7"></a>PWM_GENERATOR_INTERRUPT_FEED_FORWARD&#160;</td><td class="fielddoc"><p>PWM Generator Feed Forward Interrupt </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a26884aa075f9b9e9e4fe32e47ee22680a8020023831b8d664e8fa680bf58f128a" name="a26884aa075f9b9e9e4fe32e47ee22680a8020023831b8d664e8fa680bf58f128a"></a>PWM_GENERATOR_INTERRUPT_SYNC&#160;</td><td class="fielddoc"><p>PWM Generator Sync Interrupt </p>
-</td></tr>
-</table>
 
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00067">67</a> of file <a class="el" href="a00149_source.html">pwm_hs_types.h</a>.</p>
-
-</div>
-</div>
-<a id="a89dd925d03364582d04713b3003571d0" name="a89dd925d03364582d04713b3003571d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89dd925d03364582d04713b3003571d0">&#9670;&#160;</a></span>PWM_MODES</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00149.html#a89dd925d03364582d04713b3003571d0">PWM_MODES</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a89dd925d03364582d04713b3003571d0ab932460c96a796b8c18c8fdfe46d3d4b" name="a89dd925d03364582d04713b3003571d0ab932460c96a796b8c18c8fdfe46d3d4b"></a>PWM_MODE_INDEPENDENT_EDGE&#160;</td><td class="fielddoc"><p>Independent Edge mode </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a89dd925d03364582d04713b3003571d0a40a43e6785f0dc93086ede3119f7d6e8" name="a89dd925d03364582d04713b3003571d0a40a43e6785f0dc93086ede3119f7d6e8"></a>PWM_MODE_VARIABLE_PHASE&#160;</td><td class="fielddoc"><p>Variable Phase mode </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a89dd925d03364582d04713b3003571d0a837d776d61e3be7af0028915f9833a20" name="a89dd925d03364582d04713b3003571d0a837d776d61e3be7af0028915f9833a20"></a>PWM_MODE_INDEPENDENT_EDGE_DUAL_OUTPUT&#160;</td><td class="fielddoc"><p>Independent Edge, dual output mode </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a89dd925d03364582d04713b3003571d0a002b5f6e5b1b2f392021e53961333747" name="a89dd925d03364582d04713b3003571d0a002b5f6e5b1b2f392021e53961333747"></a>PWM_MODE_CENTER_ALIGNED&#160;</td><td class="fielddoc"><p>Center-Aligned mode </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a89dd925d03364582d04713b3003571d0a60ffb7c3ecf2a0d5e7d9dad72e5274f7" name="a89dd925d03364582d04713b3003571d0a60ffb7c3ecf2a0d5e7d9dad72e5274f7"></a>PWM_MODE_DOUBLE_UPDATE_CENTER_ALIGNED&#160;</td><td class="fielddoc"><p>Double-Update Center-Aligned mode </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a89dd925d03364582d04713b3003571d0ad270f5fbda817f27221f1fc744a8d173" name="a89dd925d03364582d04713b3003571d0ad270f5fbda817f27221f1fc744a8d173"></a>PWM_MODE_DUAL_EDGE_CENTER_ALIGNED_ONE_UPDATE_CYCLE&#160;</td><td class="fielddoc"><p>Dual Edge Center-Aligned;one update/cycle mode </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a89dd925d03364582d04713b3003571d0a03203c5d0d2adbbc413673b7933dff3c" name="a89dd925d03364582d04713b3003571d0a03203c5d0d2adbbc413673b7933dff3c"></a>PWM_MODE_DUAL_EDGE_CENTER_ALIGNED_TWO_UPDATES_CYCLE&#160;</td><td class="fielddoc"><p>Dual Edge Center-Aligned;two updates/cycle mode </p>
-</td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00109">109</a> of file <a class="el" href="a00149_source.html">pwm_hs_types.h</a>.</p>
-
-</div>
-</div>
-<a id="aaf75b04e4ce65147e631b1c76af67934" name="aaf75b04e4ce65147e631b1c76af67934"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf75b04e4ce65147e631b1c76af67934">&#9670;&#160;</a></span>PWM_SOURCE_SELECT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00149.html#aaf75b04e4ce65147e631b1c76af67934">PWM_SOURCE_SELECT</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aaf75b04e4ce65147e631b1c76af67934a8da7b1ffab034e9f530353a609c7ae6f" name="aaf75b04e4ce65147e631b1c76af67934a8da7b1ffab034e9f530353a609c7ae6f"></a>PWM_SOURCE_SELECT_INDEPENDENT&#160;</td><td class="fielddoc"><p>PWM select Independent PWM as source </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aaf75b04e4ce65147e631b1c76af67934a9c9aa23582485a3d0bb9df2d6f40ef73" name="aaf75b04e4ce65147e631b1c76af67934a9c9aa23582485a3d0bb9df2d6f40ef73"></a>PWM_SOURCE_SELECT_MASTER&#160;</td><td class="fielddoc"><p>PWM select Master as source </p>
-</td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00125">125</a> of file <a class="el" href="a00149_source.html">pwm_hs_types.h</a>.</p>
-
-</div>
-</div>
-<a id="a49a81b3d1835f88d40c81ea13ba7ffa6" name="a49a81b3d1835f88d40c81ea13ba7ffa6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49a81b3d1835f88d40c81ea13ba7ffa6">&#9670;&#160;</a></span>PWM_TRIGGER_COMPARE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00149.html#a49a81b3d1835f88d40c81ea13ba7ffa6">PWM_TRIGGER_COMPARE</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a49a81b3d1835f88d40c81ea13ba7ffa6a1b1f3c381f0dd0818a4ad2f999ff2192" name="a49a81b3d1835f88d40c81ea13ba7ffa6a1b1f3c381f0dd0818a4ad2f999ff2192"></a>PWM_TRIGGER_COMPARE_A&#160;</td><td class="fielddoc"><p>PWM Trigger Compare A Register </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a49a81b3d1835f88d40c81ea13ba7ffa6a6f8d846fe3e8284ed806f7007108222d" name="a49a81b3d1835f88d40c81ea13ba7ffa6a6f8d846fe3e8284ed806f7007108222d"></a>PWM_TRIGGER_COMPARE_B&#160;</td><td class="fielddoc"><p>PWM Trigger Compare B Register </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a49a81b3d1835f88d40c81ea13ba7ffa6a8e32380415e3040ffd442c05649e635d" name="a49a81b3d1835f88d40c81ea13ba7ffa6a8e32380415e3040ffd442c05649e635d"></a>PWM_TRIGGER_COMPARE_C&#160;</td><td class="fielddoc"><p>PWM Trigger Compare C Register </p>
-</td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00097">97</a> of file <a class="el" href="a00149_source.html">pwm_hs_types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00046">46</a> of file <a class="el" href="a00149_source.html">sccp3.c</a>.</p>
 
 </div>
 </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: SENSOR_OFFSET_CAL_s Struct Reference</title>
+<title>Dual Active Bridge Development Board: UART_MSG_RX_OBJ Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,124 +138,95 @@ $(document).ready(function(){initNavTree('a00637.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">SENSOR_OFFSET_CAL_s Struct Reference<div class="ingroups"><a class="el" href="a00497.html">Device Layer</a> &raquo; <a class="el" href="a00498.html">Current Sensor Calibration</a></div></div></div>
+  <div class="headertitle"><div class="title">UART_MSG_RX_OBJ Struct Reference<div class="ingroups"><a class="el" href="a00501.html">Communication Layer</a> &raquo; <a class="el" href="a00502.html">Power Board Visualizer</a> &raquo; <a class="el" href="a00504.html">UART Communication</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Stores data related to sensor calibration, including data related to sensor offset.  
+<p>UART msg receive object.  
  <a href="a00637.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for SENSOR_OFFSET_CAL_s:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for UART_MSG_RX_OBJ:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00635.svg" width="183" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00635.svg" width="151" height="208"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a1bf80696497119c4e36460f57de7f667" id="r_a1bf80696497119c4e36460f57de7f667"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html#a1bf80696497119c4e36460f57de7f667">Accumulator</a></td></tr>
-<tr class="memdesc:a1bf80696497119c4e36460f57de7f667"><td class="mdescLeft">&#160;</td><td class="mdescRight">used for sensor offset measurement at startup  <br /></td></tr>
-<tr class="separator:a1bf80696497119c4e36460f57de7f667"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a439f5c23e968e4d9d17def3e46ca3aff" id="r_a439f5c23e968e4d9d17def3e46ca3aff"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html#a439f5c23e968e4d9d17def3e46ca3aff">MeasurementCounter</a></td></tr>
-<tr class="memdesc:a439f5c23e968e4d9d17def3e46ca3aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">used for sensor offset measurement at startup  <br /></td></tr>
-<tr class="separator:a439f5c23e968e4d9d17def3e46ca3aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86b4ce2d2304f1de364f16d241b9c7d6" id="r_a86b4ce2d2304f1de364f16d241b9c7d6"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html#a86b4ce2d2304f1de364f16d241b9c7d6">UART_Frame_State</a></td></tr>
+<tr class="memdesc:a86b4ce2d2304f1de364f16d241b9c7d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART Receive Frame states.  <br /></td></tr>
+<tr class="separator:a86b4ce2d2304f1de364f16d241b9c7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b818f332a9c32b3297efe5f9c6b021d" id="r_a3b818f332a9c32b3297efe5f9c6b021d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html#a3b818f332a9c32b3297efe5f9c6b021d">Length_in_Bytes</a></td></tr>
+<tr class="memdesc:a3b818f332a9c32b3297efe5f9c6b021d"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART bytes Received <br  />
+  <br /></td></tr>
+<tr class="separator:a3b818f332a9c32b3297efe5f9c6b021d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfd2be56b2355b0fadf7124f95b00431" id="r_abfd2be56b2355b0fadf7124f95b00431"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html#abfd2be56b2355b0fadf7124f95b00431">Protocol_ID</a></td></tr>
+<tr class="memdesc:abfd2be56b2355b0fadf7124f95b00431"><td class="mdescLeft">&#160;</td><td class="mdescRight">Received Frame ID.  <br /></td></tr>
+<tr class="separator:abfd2be56b2355b0fadf7124f95b00431"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6e68acb116dc3b5f8a7354c7f7d4146" id="r_ae6e68acb116dc3b5f8a7354c7f7d4146"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html#ae6e68acb116dc3b5f8a7354c7f7d4146">Offset</a></td></tr>
-<tr class="memdesc:ae6e68acb116dc3b5f8a7354c7f7d4146"><td class="mdescLeft">&#160;</td><td class="mdescRight">measured offset  <br /></td></tr>
+<tr class="memdesc:ae6e68acb116dc3b5f8a7354c7f7d4146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Offset needed to store data in <em>data</em> <br  />
+  <br /></td></tr>
 <tr class="separator:ae6e68acb116dc3b5f8a7354c7f7d4146"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf25ddb38dbda4b3bf8401ccfa38187f" id="r_adf25ddb38dbda4b3bf8401ccfa38187f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html#adf25ddb38dbda4b3bf8401ccfa38187f">CalibrationComplete</a></td></tr>
-<tr class="memdesc:adf25ddb38dbda4b3bf8401ccfa38187f"><td class="mdescLeft">&#160;</td><td class="mdescRight">set to true if the sensor is calibrated  <br /></td></tr>
-<tr class="separator:adf25ddb38dbda4b3bf8401ccfa38187f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26af6df9982c908f6c04dac5febbfabe" id="r_a26af6df9982c908f6c04dac5febbfabe"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html#a26af6df9982c908f6c04dac5febbfabe">LimitHigh</a></td></tr>
-<tr class="memdesc:a26af6df9982c908f6c04dac5febbfabe"><td class="mdescLeft">&#160;</td><td class="mdescRight">upper bound of what offset should be, offset needs to be &lt; limitHigh and &gt; limitLow for sensorCalibrated = true  <br /></td></tr>
-<tr class="separator:a26af6df9982c908f6c04dac5febbfabe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a807559395dd14cc8be15101fbc71677d" id="r_a807559395dd14cc8be15101fbc71677d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html#a807559395dd14cc8be15101fbc71677d">LimitLow</a></td></tr>
-<tr class="memdesc:a807559395dd14cc8be15101fbc71677d"><td class="mdescLeft">&#160;</td><td class="mdescRight">low bound of what offset should be  <br /></td></tr>
-<tr class="separator:a807559395dd14cc8be15101fbc71677d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb8cac113b1a41d1c48d80018ddb6744" id="r_afb8cac113b1a41d1c48d80018ddb6744"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html#afb8cac113b1a41d1c48d80018ddb6744">CRC</a></td></tr>
+<tr class="memdesc:afb8cac113b1a41d1c48d80018ddb6744"><td class="mdescLeft">&#160;</td><td class="mdescRight">received CRC  <br /></td></tr>
+<tr class="separator:afb8cac113b1a41d1c48d80018ddb6744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84122a7e2f523d0278895ca4f5d8748c" id="r_a84122a7e2f523d0278895ca4f5d8748c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html#a84122a7e2f523d0278895ca4f5d8748c">PBV_Header</a> [<a class="el" href="a00504.html#ga9e84c6159dbb2284250a313f654c4b12">PBV_HEADER_SIZE</a>]</td></tr>
+<tr class="memdesc:a84122a7e2f523d0278895ca4f5d8748c"><td class="mdescLeft">&#160;</td><td class="mdescRight">recived Header. 5bytes ( SOF + ID + Length)  <br /></td></tr>
+<tr class="separator:a84122a7e2f523d0278895ca4f5d8748c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6818e30aac80097c9ba1786e8408956" id="r_af6818e30aac80097c9ba1786e8408956"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00637.html#af6818e30aac80097c9ba1786e8408956">data</a> [<a class="el" href="a00504.html#ga53a98e4f1e1956439607425ca9c21cf8">PBV_RCV_DATABUFFER_SIZE</a>]</td></tr>
+<tr class="memdesc:af6818e30aac80097c9ba1786e8408956"><td class="mdescLeft">&#160;</td><td class="mdescRight">data buffer. linked by the calling application. STATIC(64) bytes for now.  <br /></td></tr>
+<tr class="separator:af6818e30aac80097c9ba1786e8408956"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This data structure contains the collection of current sensor properties that the user can initialize and monitor. <br  />
- </p>
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00022">22</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00104">104</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="a1bf80696497119c4e36460f57de7f667" name="a1bf80696497119c4e36460f57de7f667"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bf80696497119c4e36460f57de7f667">&#9670;&#160;</a></span>Accumulator</h2>
+<a id="afb8cac113b1a41d1c48d80018ddb6744" name="afb8cac113b1a41d1c48d80018ddb6744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb8cac113b1a41d1c48d80018ddb6744">&#9670;&#160;</a></span>CRC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Accumulator</td>
+          <td class="memname">uint16_t CRC</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00024">24</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00110">110</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="adf25ddb38dbda4b3bf8401ccfa38187f" name="adf25ddb38dbda4b3bf8401ccfa38187f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf25ddb38dbda4b3bf8401ccfa38187f">&#9670;&#160;</a></span>CalibrationComplete</h2>
+<a id="af6818e30aac80097c9ba1786e8408956" name="af6818e30aac80097c9ba1786e8408956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6818e30aac80097c9ba1786e8408956">&#9670;&#160;</a></span>data</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool CalibrationComplete</td>
+          <td class="memname">uint8_t data[<a class="el" href="a00504.html#ga53a98e4f1e1956439607425ca9c21cf8">PBV_RCV_DATABUFFER_SIZE</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00027">27</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00112">112</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
-<a id="a26af6df9982c908f6c04dac5febbfabe" name="a26af6df9982c908f6c04dac5febbfabe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26af6df9982c908f6c04dac5febbfabe">&#9670;&#160;</a></span>LimitHigh</h2>
+<a id="a3b818f332a9c32b3297efe5f9c6b021d" name="a3b818f332a9c32b3297efe5f9c6b021d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b818f332a9c32b3297efe5f9c6b021d">&#9670;&#160;</a></span>Length_in_Bytes</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t LimitHigh</td>
+          <td class="memname">uint8_t Length_in_Bytes</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00028">28</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
-
-</div>
-</div>
-<a id="a807559395dd14cc8be15101fbc71677d" name="a807559395dd14cc8be15101fbc71677d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a807559395dd14cc8be15101fbc71677d">&#9670;&#160;</a></span>LimitLow</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t LimitLow</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00029">29</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
-
-</div>
-</div>
-<a id="a439f5c23e968e4d9d17def3e46ca3aff" name="a439f5c23e968e4d9d17def3e46ca3aff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a439f5c23e968e4d9d17def3e46ca3aff">&#9670;&#160;</a></span>MeasurementCounter</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t MeasurementCounter</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00025">25</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00107">107</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
@@ -271,12 +242,60 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00026">26</a> of file <a class="el" href="a00293_source.html">dev_current_sensor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00109">109</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
+
+</div>
+</div>
+<a id="a84122a7e2f523d0278895ca4f5d8748c" name="a84122a7e2f523d0278895ca4f5d8748c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84122a7e2f523d0278895ca4f5d8748c">&#9670;&#160;</a></span>PBV_Header</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t PBV_Header[<a class="el" href="a00504.html#ga9e84c6159dbb2284250a313f654c4b12">PBV_HEADER_SIZE</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00111">111</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
+
+</div>
+</div>
+<a id="abfd2be56b2355b0fadf7124f95b00431" name="abfd2be56b2355b0fadf7124f95b00431"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfd2be56b2355b0fadf7124f95b00431">&#9670;&#160;</a></span>Protocol_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Protocol_ID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00108">108</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
+
+</div>
+</div>
+<a id="a86b4ce2d2304f1de364f16d241b9c7d6" name="a86b4ce2d2304f1de364f16d241b9c7d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86b4ce2d2304f1de364f16d241b9c7d6">&#9670;&#160;</a></span>UART_Frame_State</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t UART_Frame_State</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00106">106</a> of file <a class="el" href="a00278_source.html">PBV_UART.c</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dspic33ck-dab.X/sources/device/<a class="el" href="a00293_source.html">dev_current_sensor.c</a></li>
+<li>dspic33ck-dab.X/sources/comm/<a class="el" href="a00278_source.html">PBV_UART.c</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

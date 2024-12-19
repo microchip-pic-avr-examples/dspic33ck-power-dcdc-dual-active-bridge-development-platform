@@ -1,14 +1,11 @@
 var a00585 =
 [
-    [ "data", "a00585.html#a735984d41155bc1032e09bece8f8d66d", null ],
-    [ "data16bit", "a00585.html#a658e8037b0f8c2c1f2ae60440dc0e2d3", null ],
-    [ "data32bit", "a00585.html#a199aaa77495095822c847af9e6bfc9a6", null ],
-    [ "data8bit", "a00585.html#adb736300817b3148878c4239def641ea", null ],
-    [ "dataWidth", "a00585.html#a66a1d5a959aad7270b8e482fa2e2965b", null ],
-    [ "polyWidth", "a00585.html#ae309e69cf392c9d842aaee54b13f242e", null ],
-    [ "program", "a00585.html#ae196ef9bb2f2fcba8cf613e072f0fe94", null ],
-    [ "program", "a00585.html#a04455838484a6927635ac503bfa7ea33", null ],
-    [ "ptr", "a00585.html#ab5a3524f1ba519d5db348733e3d0fd66", null ],
-    [ "remainingSize", "a00585.html#a539eeba5764098e42674a9af62aeb0b1", null ],
-    [ "state", "a00585.html#ab225b5a567ae019f7ef3891f51bf94e9", null ]
+    [ "cmp_dac_dc_interface", "a00585.html#a6d9887579eb5b51f6f5f9df819fa0538", null ],
+    [ "Deinitialize", "a00585.html#ab6aa2863d2196e9f95f70fde91049ee6", null ],
+    [ "Disable", "a00585.html#a7fd5c6c55c6a76c4d35e3f81609fab87", null ],
+    [ "Enable", "a00585.html#a04c571590cd163f474c876943a39e0f1", null ],
+    [ "EventCallbackRegister", "a00585.html#aad49cd423e587e4688bad864c2420148", null ],
+    [ "Initialize", "a00585.html#afea2a7e78ccb7643d694c4bd7fa2ed5f", null ],
+    [ "StatusGet", "a00585.html#a24f27219b70a98575c30c84585a0456c", null ],
+    [ "Tasks", "a00585.html#a1cd6ba5da58bb0185a3939d1fdcd25f5", null ]
 ];

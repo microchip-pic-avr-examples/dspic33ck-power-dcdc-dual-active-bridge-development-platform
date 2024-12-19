@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Fan Control</title>
+<title>Dual Active Bridge Development Board: Useful Macros</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,409 +136,464 @@ $(document).ready(function(){initNavTree('a00499.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">Fan Control<div class="ingroups"><a class="el" href="a00497.html">Device Layer</a></div></div></div>
+  <div class="headertitle"><div class="title">Useful Macros<div class="ingroups"><a class="el" href="a00508.html">Configuration Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The Fan control device layer is a proprietary user code utilized for configuring the fan control properties.  
+<p>Collection of macros that the user can utilize when converting physical quantities of parameters into binary (integer) numbers for registers and variables.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Fan Control:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Useful Macros:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499.svg" width="243" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00499.svg" width="296" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00299" id="r_a00299"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00299.html">dev_fan.c</a></td></tr>
-<tr class="memdesc:a00299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains fan initialization and execution functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00302" id="r_a00302"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00302.html">dev_fan.h</a></td></tr>
-<tr class="memdesc:a00302"><td class="mdescLeft">&#160;</td><td class="mdescRight">fan device driver <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gad4274efc956bcca058565b186c2fd1a0" id="r_gad4274efc956bcca058565b186c2fd1a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gad4274efc956bcca058565b186c2fd1a0">Dev_Fan_Initialize</a> (void)</td></tr>
-<tr class="memdesc:gad4274efc956bcca058565b186c2fd1a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the fan object.  <br /></td></tr>
-<tr class="separator:gad4274efc956bcca058565b186c2fd1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1bd7dce99469a41bbb705d939ea512ad" id="r_ga1bd7dce99469a41bbb705d939ea512ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga1bd7dce99469a41bbb705d939ea512ad">Dev_Fan_Task_100ms</a> (void)</td></tr>
-<tr class="memdesc:ga1bd7dce99469a41bbb705d939ea512ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">this function needs to be called every 100ms it contains the code to update the status of the fan  <br /></td></tr>
-<tr class="separator:ga1bd7dce99469a41bbb705d939ea512ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafd7dde7baca2e1dd3a745bf5f8258da7" id="r_gafd7dde7baca2e1dd3a745bf5f8258da7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gafd7dde7baca2e1dd3a745bf5f8258da7">Dev_Fan_Task_1s</a> (void)</td></tr>
-<tr class="memdesc:gafd7dde7baca2e1dd3a745bf5f8258da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function needs to be called every 1s to keep the temperature of the board at a certain temperature.  <br /></td></tr>
-<tr class="separator:gafd7dde7baca2e1dd3a745bf5f8258da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabf5c734c9834b070c4adf1af69e9f048" id="r_gabf5c734c9834b070c4adf1af69e9f048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gabf5c734c9834b070c4adf1af69e9f048">Dev_Fan_Set_Override</a> (void)</td></tr>
-<tr class="memdesc:gabf5c734c9834b070c4adf1af69e9f048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fan override bit and the fan speed.  <br /></td></tr>
-<tr class="separator:gabf5c734c9834b070c4adf1af69e9f048"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5cfd61659ae6b17ad25e51bfc211723b" id="r_ga5cfd61659ae6b17ad25e51bfc211723b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a> (uint8_t target_speed_percent)</td></tr>
-<tr class="memdesc:ga5cfd61659ae6b17ad25e51bfc211723b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fan speed.  <br /></td></tr>
-<tr class="separator:ga5cfd61659ae6b17ad25e51bfc211723b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3ba0ef09cbd1274a9c325fc04cab411d" id="r_ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga3ba0ef09cbd1274a9c325fc04cab411d">Convert_From_Percentage</a> (uint8_t percentage_value)</td></tr>
-<tr class="memdesc:ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the percentage value to number of ticks.  <br /></td></tr>
-<tr class="separator:ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0d2b426f7411623a821415f02956aac8" id="r_ga0d2b426f7411623a821415f02956aac8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga0d2b426f7411623a821415f02956aac8">Override_Speed</a> (void)</td></tr>
-<tr class="memdesc:ga0d2b426f7411623a821415f02956aac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override the fan speed with maximum speed.  <br /></td></tr>
-<tr class="separator:ga0d2b426f7411623a821415f02956aac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga66c5db181798514534d7f97b622ca35e" id="r_ga66c5db181798514534d7f97b622ca35e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga66c5db181798514534d7f97b622ca35e">Calculate_Speed</a> (void)</td></tr>
-<tr class="memdesc:ga66c5db181798514534d7f97b622ca35e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the fan speed.  <br /></td></tr>
-<tr class="separator:ga66c5db181798514534d7f97b622ca35e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad7e38e334c2209a2a296bf3f573fed78" id="r_gad7e38e334c2209a2a296bf3f573fed78"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gad7e38e334c2209a2a296bf3f573fed78">Update_Speed</a> (void)</td></tr>
-<tr class="memdesc:gad7e38e334c2209a2a296bf3f573fed78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the fan speed.  <br /></td></tr>
-<tr class="separator:gad7e38e334c2209a2a296bf3f573fed78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga52debd393de750722aca541b24b1bc6d" id="r_ga52debd393de750722aca541b24b1bc6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00302.html#a8811ef66930b574a01bfaf769ce39679">FAN_DATA_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a></td></tr>
-<tr class="memdesc:ga52debd393de750722aca541b24b1bc6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of fan.  <br /></td></tr>
-<tr class="separator:ga52debd393de750722aca541b24b1bc6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa3c2bb84c225cf77ab67824f886de487" id="r_gaa3c2bb84c225cf77ab67824f886de487"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(a)&#160;&#160;&#160;((int16_t)((a)+((a)&lt;0?-0.5:0.5)))</td></tr>
+<tr class="separator:gaa3c2bb84c225cf77ab67824f886de487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8a68cbc825e50630b93047279a32718" id="r_gad8a68cbc825e50630b93047279a32718"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gad8a68cbc825e50630b93047279a32718">_min</a>(a,  b)&#160;&#160;&#160;(((a)&gt;(b)) ? (b):(a))</td></tr>
+<tr class="separator:gad8a68cbc825e50630b93047279a32718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7742fa23cad0b81a56daae0c5ad63c8b" id="r_ga7742fa23cad0b81a56daae0c5ad63c8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga7742fa23cad0b81a56daae0c5ad63c8b">_max</a>(a,  b)&#160;&#160;&#160;(((a)&gt;(b)) ? (a):(b))</td></tr>
+<tr class="separator:ga7742fa23cad0b81a56daae0c5ad63c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1c75b371213fc3a62a8bb5fbc799cfc3" id="r_ga1c75b371213fc3a62a8bb5fbc799cfc3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>(a)&#160;&#160;&#160;((int32_t)((a)+((a)&lt;0?-0.5:0.5)))</td></tr>
+<tr class="separator:ga1c75b371213fc3a62a8bb5fbc799cfc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7e3572e4f8ef715cd1e722691f87b54" id="r_gad7e3572e4f8ef715cd1e722691f87b54"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gad7e3572e4f8ef715cd1e722691f87b54">WordLowByte</a>(word)&#160;&#160;&#160;((uint8_t) (word &amp; 0x00FF))</td></tr>
+<tr class="separator:gad7e3572e4f8ef715cd1e722691f87b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6f8b8bc288578b9150234364ccb5a6f0" id="r_ga6f8b8bc288578b9150234364ccb5a6f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga6f8b8bc288578b9150234364ccb5a6f0">WordHighByte</a>(word)&#160;&#160;&#160;((uint8_t) (word &gt;&gt; 8))</td></tr>
+<tr class="separator:ga6f8b8bc288578b9150234364ccb5a6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafae5fd95c828eb48279a0cbf470d1b45" id="r_gafae5fd95c828eb48279a0cbf470d1b45"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gafae5fd95c828eb48279a0cbf470d1b45">QFORMAT_SHIFT</a>(value)</td></tr>
+<tr class="separator:gafae5fd95c828eb48279a0cbf470d1b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa1550b4b116085f90e0cd704f1b078b9" id="r_gaa1550b4b116085f90e0cd704f1b078b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gaa1550b4b116085f90e0cd704f1b078b9">TIME_TO_TICKS</a>(time,  tick_period)&#160;&#160;&#160;(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(time/tick_period))</td></tr>
+<tr class="separator:gaa1550b4b116085f90e0cd704f1b078b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac24ae161523eadceef352918d1ebb0c8" id="r_gac24ae161523eadceef352918d1ebb0c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gac24ae161523eadceef352918d1ebb0c8">RMS_TO_PEAK</a>&#160;&#160;&#160;(1.414213562)</td></tr>
+<tr class="separator:gac24ae161523eadceef352918d1ebb0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec140a01387ddcbb23059abeb73d163e" id="r_gaec140a01387ddcbb23059abeb73d163e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gaec140a01387ddcbb23059abeb73d163e">AVG_TO_RMS</a>&#160;&#160;&#160;(1.11)</td></tr>
+<tr class="separator:gaec140a01387ddcbb23059abeb73d163e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada5ead94c63caa7198833caee45bcd9a" id="r_gada5ead94c63caa7198833caee45bcd9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gada5ead94c63caa7198833caee45bcd9a">RMS_TO_AVG</a>&#160;&#160;&#160;(1.0/<a class="el" href="a00499.html#gaec140a01387ddcbb23059abeb73d163e">AVG_TO_RMS</a>)</td></tr>
+<tr class="separator:gada5ead94c63caa7198833caee45bcd9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga67a05b5f54847bdcf3a4f8505a8ddf5d" id="r_ga67a05b5f54847bdcf3a4f8505a8ddf5d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga67a05b5f54847bdcf3a4f8505a8ddf5d">PWM_HR_EDGE_ALIGNED_PGxPER</a>(freq_hz)&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>((8.0*500.0e+6)/(float)freq_hz)-8.0))</td></tr>
+<tr class="separator:ga67a05b5f54847bdcf3a4f8505a8ddf5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1651dc9a22fef1ab2af194db866dd73f" id="r_ga1651dc9a22fef1ab2af194db866dd73f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga1651dc9a22fef1ab2af194db866dd73f">PWM_HR_EDGE_ALIGNED_PGxDC</a>(PGxPER,  duty_percent)&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>((PGxPER+8)*(duty_percent/100.0))))</td></tr>
+<tr class="separator:ga1651dc9a22fef1ab2af194db866dd73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga788298696055df15aab198a429d96ed3" id="r_ga788298696055df15aab198a429d96ed3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga788298696055df15aab198a429d96ed3">PWM_HR_PGxTRIGy</a>(trigger_offset)&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>(8.0*500.0e+6*trigger_offset)))</td></tr>
+<tr class="separator:ga788298696055df15aab198a429d96ed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9dd7d65ec0c724eb6a3a944f9b60ec0" id="r_gae9dd7d65ec0c724eb6a3a944f9b60ec0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#gae9dd7d65ec0c724eb6a3a944f9b60ec0">PWM_HR_PGxDTy</a>(dead_time)&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>(8.0*500.0e+6*dead_time)))</td></tr>
+<tr class="separator:gae9dd7d65ec0c724eb6a3a944f9b60ec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7ed8c7d9c9dc6a5417e022786cfc9c00" id="r_ga7ed8c7d9c9dc6a5417e022786cfc9c00"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(threshold,  gain,  offset)&#160;&#160;&#160;(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((((float)threshold*(float)gain) + (float)offset)/3.3*4095.0))</td></tr>
+<tr class="separator:ga7ed8c7d9c9dc6a5417e022786cfc9c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5032cd832e55c41df8dc512000cc9c0d" id="r_ga5032cd832e55c41df8dc512000cc9c0d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ga5032cd832e55c41df8dc512000cc9c0d">UNITS_FROM_ADC_TO_ENG</a>(AdcValue,  Gain)&#160;&#160;&#160;(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((((float)AdcValue /(float)Gain))/4095.0 * 3.3))</td></tr>
+<tr class="separator:ga5032cd832e55c41df8dc512000cc9c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ga66c5db181798514534d7f97b622ca35e" name="ga66c5db181798514534d7f97b622ca35e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga66c5db181798514534d7f97b622ca35e">&#9670;&#160;</a></span>Calculate_Speed()</h2>
+<p>Collection of macros that the user can utilize when converting physical quantities of parameters into binary (integer) numbers for registers and variables. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga7742fa23cad0b81a56daae0c5ad63c8b" name="ga7742fa23cad0b81a56daae0c5ad63c8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7742fa23cad0b81a56daae0c5ad63c8b">&#9670;&#160;</a></span>_max</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void Calculate_Speed </td>
+          <td class="memname">#define _max</td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(((a)&gt;(b)) ? (a):(b))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00015">15</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gad8a68cbc825e50630b93047279a32718" name="gad8a68cbc825e50630b93047279a32718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad8a68cbc825e50630b93047279a32718">&#9670;&#160;</a></span>_min</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _min</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(((a)&gt;(b)) ? (b):(a))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00014">14</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gaa3c2bb84c225cf77ab67824f886de487" name="gaa3c2bb84c225cf77ab67824f886de487"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa3c2bb84c225cf77ab67824f886de487">&#9670;&#160;</a></span>_rnd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _rnd</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;((int16_t)((a)+((a)&lt;0?-0.5:0.5)))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00013">13</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
+
+</div>
+</div>
+<a id="ga1c75b371213fc3a62a8bb5fbc799cfc3" name="ga1c75b371213fc3a62a8bb5fbc799cfc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1c75b371213fc3a62a8bb5fbc799cfc3">&#9670;&#160;</a></span>_rnd_int32_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _rnd_int32_t</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">a</td><td>)</td>
+          <td>&#160;&#160;&#160;((int32_t)((a)+((a)&lt;0?-0.5:0.5)))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00017">17</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gaec140a01387ddcbb23059abeb73d163e" name="gaec140a01387ddcbb23059abeb73d163e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaec140a01387ddcbb23059abeb73d163e">&#9670;&#160;</a></span>AVG_TO_RMS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define AVG_TO_RMS&#160;&#160;&#160;(1.11)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00048">48</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
+
+</div>
+</div>
+<a id="ga1651dc9a22fef1ab2af194db866dd73f" name="ga1651dc9a22fef1ab2af194db866dd73f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1651dc9a22fef1ab2af194db866dd73f">&#9670;&#160;</a></span>PWM_HR_EDGE_ALIGNED_PGxDC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PWM_HR_EDGE_ALIGNED_PGxDC</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">PGxPER, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">duty_percent&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>((PGxPER+8)*(duty_percent/100.0))))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00059">59</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
+
+</div>
+</div>
+<a id="ga67a05b5f54847bdcf3a4f8505a8ddf5d" name="ga67a05b5f54847bdcf3a4f8505a8ddf5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga67a05b5f54847bdcf3a4f8505a8ddf5d">&#9670;&#160;</a></span>PWM_HR_EDGE_ALIGNED_PGxPER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PWM_HR_EDGE_ALIGNED_PGxPER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">freq_hz</td><td>)</td>
+          <td>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>((8.0*500.0e+6)/(float)freq_hz)-8.0))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00055">55</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gae9dd7d65ec0c724eb6a3a944f9b60ec0" name="gae9dd7d65ec0c724eb6a3a944f9b60ec0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae9dd7d65ec0c724eb6a3a944f9b60ec0">&#9670;&#160;</a></span>PWM_HR_PGxDTy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PWM_HR_PGxDTy</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dead_time</td><td>)</td>
+          <td>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>(8.0*500.0e+6*dead_time)))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00065">65</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
+
+</div>
+</div>
+<a id="ga788298696055df15aab198a429d96ed3" name="ga788298696055df15aab198a429d96ed3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga788298696055df15aab198a429d96ed3">&#9670;&#160;</a></span>PWM_HR_PGxTRIGy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PWM_HR_PGxTRIGy</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">trigger_offset</td><td>)</td>
+          <td>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>(8.0*500.0e+6*trigger_offset)))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00062">62</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gafae5fd95c828eb48279a0cbf470d1b45" name="gafae5fd95c828eb48279a0cbf470d1b45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafae5fd95c828eb48279a0cbf470d1b45">&#9670;&#160;</a></span>QFORMAT_SHIFT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QFORMAT_SHIFT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">value</td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function calculates the fan speed. </p>
+<b>Value:</b><div class="fragment"><div class="line">                              ((value) &lt; ((<span class="keywordtype">float</span>)(1&lt;&lt;0)) ? (15) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;1)) ? (14) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;2)) ? (13) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;3)) ? (12) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;4)) ? (11) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;5)) ? (10) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;6)) ? (9) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;7)) ? (8) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;8)) ? (7) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;9)) ? (6) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;10)) ? (5) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;11)) ? (4) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;13)) ? (3) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;13)) ? (2) : \</div>
+<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;14)) ? (1) : (0))))))))))))))))</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00025">25</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00200">200</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_ga66c5db181798514534d7f97b622ca35e_cgraph.svg" width="352" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_ga66c5db181798514534d7f97b622ca35e_icgraph.svg" width="482" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
 </div>
 </div>
-<a id="ga3ba0ef09cbd1274a9c325fc04cab411d" name="ga3ba0ef09cbd1274a9c325fc04cab411d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3ba0ef09cbd1274a9c325fc04cab411d">&#9670;&#160;</a></span>Convert_From_Percentage()</h2>
+<a id="gada5ead94c63caa7198833caee45bcd9a" name="gada5ead94c63caa7198833caee45bcd9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gada5ead94c63caa7198833caee45bcd9a">&#9670;&#160;</a></span>RMS_TO_AVG</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static uint16_t Convert_From_Percentage </td>
+          <td class="memname">#define RMS_TO_AVG&#160;&#160;&#160;(1.0/<a class="el" href="a00499.html#gaec140a01387ddcbb23059abeb73d163e">AVG_TO_RMS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00050">50</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gac24ae161523eadceef352918d1ebb0c8" name="gac24ae161523eadceef352918d1ebb0c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac24ae161523eadceef352918d1ebb0c8">&#9670;&#160;</a></span>RMS_TO_PEAK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RMS_TO_PEAK&#160;&#160;&#160;(1.414213562)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00045">45</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
+
+</div>
+</div>
+<a id="gaa1550b4b116085f90e0cd704f1b078b9" name="gaa1550b4b116085f90e0cd704f1b078b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa1550b4b116085f90e0cd704f1b078b9">&#9670;&#160;</a></span>TIME_TO_TICKS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TIME_TO_TICKS</td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>percentage_value</em></td><td>)</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">time, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">tick_period&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(time/tick_period))</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function converts the percent value to the duty cycle value as per MULTIPLIER. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00175">175</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00499_ga3ba0ef09cbd1274a9c325fc04cab411d_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00042">42</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
 
 </div>
 </div>
-<a id="gad4274efc956bcca058565b186c2fd1a0" name="gad4274efc956bcca058565b186c2fd1a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad4274efc956bcca058565b186c2fd1a0">&#9670;&#160;</a></span>Dev_Fan_Initialize()</h2>
+<a id="ga5032cd832e55c41df8dc512000cc9c0d" name="ga5032cd832e55c41df8dc512000cc9c0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5032cd832e55c41df8dc512000cc9c0d">&#9670;&#160;</a></span>UNITS_FROM_ADC_TO_ENG</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_Fan_Initialize </td>
+          <td class="memname">#define UNITS_FROM_ADC_TO_ENG</td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">AdcValue, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Gain&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((((float)AdcValue /(float)Gain))/4095.0 * 3.3))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes fan data objects including the initial fan speed, the maximum allowable speed, and the increment/decrement step of the fan speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00049">49</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_gad4274efc956bcca058565b186c2fd1a0_cgraph.svg" width="359" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00072">72</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
 
 </div>
 </div>
-<a id="gabf5c734c9834b070c4adf1af69e9f048" name="gabf5c734c9834b070c4adf1af69e9f048"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabf5c734c9834b070c4adf1af69e9f048">&#9670;&#160;</a></span>Dev_Fan_Set_Override()</h2>
+<a id="ga7ed8c7d9c9dc6a5417e022786cfc9c00" name="ga7ed8c7d9c9dc6a5417e022786cfc9c00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7ed8c7d9c9dc6a5417e022786cfc9c00">&#9670;&#160;</a></span>UNITS_FROM_ENG_TO_ADC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_Fan_Set_Override </td>
+          <td class="memname">#define UNITS_FROM_ENG_TO_ADC</td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">threshold, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">gain, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">offset&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((((float)threshold*(float)gain) + (float)offset)/3.3*4095.0))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function sets the fan override flag bit to true and sets the fan target speed to maximum speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00145">145</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_gabf5c734c9834b070c4adf1af69e9f048_cgraph.svg" width="324" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00070">70</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
 
 </div>
 </div>
-<a id="ga5cfd61659ae6b17ad25e51bfc211723b" name="ga5cfd61659ae6b17ad25e51bfc211723b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5cfd61659ae6b17ad25e51bfc211723b">&#9670;&#160;</a></span>Dev_Fan_Set_Speed()</h2>
+<a id="ga6f8b8bc288578b9150234364ccb5a6f0" name="ga6f8b8bc288578b9150234364ccb5a6f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6f8b8bc288578b9150234364ccb5a6f0">&#9670;&#160;</a></span>WordHighByte</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_Fan_Set_Speed </td>
+          <td class="memname">#define WordHighByte</td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>target_speed_percent</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">word</td><td>)</td>
+          <td>&#160;&#160;&#160;((uint8_t) (word &gt;&gt; 8))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function sets the fan speed when the target speed does not exceed the maximum fan speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00159">159</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00499_ga5cfd61659ae6b17ad25e51bfc211723b_icgraph.svg" width="100%" height="378"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00021">21</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
 
 </div>
 </div>
-<a id="ga1bd7dce99469a41bbb705d939ea512ad" name="ga1bd7dce99469a41bbb705d939ea512ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1bd7dce99469a41bbb705d939ea512ad">&#9670;&#160;</a></span>Dev_Fan_Task_100ms()</h2>
+<a id="gad7e3572e4f8ef715cd1e722691f87b54" name="gad7e3572e4f8ef715cd1e722691f87b54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad7e3572e4f8ef715cd1e722691f87b54">&#9670;&#160;</a></span>WordLowByte</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_Fan_Task_100ms </td>
+          <td class="memname">#define WordLowByte</td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">word</td><td>)</td>
+          <td>&#160;&#160;&#160;((uint8_t) (word &amp; 0x00FF))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function needs to be called every 100ms. This modulates the speed of fan depending on the initialized parameters in the fan object.</p>
-<dl class="section note"><dt>Note</dt><dd>This is called in a rather slow 100ms object, as the speed modulation is not so critical. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00076">76</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_ga1bd7dce99469a41bbb705d939ea512ad_cgraph.svg" width="554" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_ga1bd7dce99469a41bbb705d939ea512ad_icgraph.svg" width="314" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gafd7dde7baca2e1dd3a745bf5f8258da7" name="gafd7dde7baca2e1dd3a745bf5f8258da7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafd7dde7baca2e1dd3a745bf5f8258da7">&#9670;&#160;</a></span>Dev_Fan_Task_1s()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_Fan_Task_1s </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function needs to be called every 1s. This modulates the speed of fan depending on the initialized parameters in the fan object. To keep the temperature of the board at around 40 degrees Celcius, the fan speed is increased/decreased depending on the temperature.</p>
-<dl class="section note"><dt>Note</dt><dd>This is called in a rather slow 1s object, as the speed modulation is not so critical. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00110">110</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_gafd7dde7baca2e1dd3a745bf5f8258da7_cgraph.svg" width="354" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_gafd7dde7baca2e1dd3a745bf5f8258da7_icgraph.svg" width="264" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga0d2b426f7411623a821415f02956aac8" name="ga0d2b426f7411623a821415f02956aac8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0d2b426f7411623a821415f02956aac8">&#9670;&#160;</a></span>Override_Speed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void Override_Speed </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function changes the target speed value to maximum. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00187">187</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_ga0d2b426f7411623a821415f02956aac8_icgraph.svg" width="474" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gad7e38e334c2209a2a296bf3f573fed78" name="gad7e38e334c2209a2a296bf3f573fed78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad7e38e334c2209a2a296bf3f573fed78">&#9670;&#160;</a></span>Update_Speed()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void Update_Speed </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This functions updates the fan speed. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00230">230</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
-<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-12-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_gad7e38e334c2209a2a296bf3f573fed78_cgraph.svg" width="299" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-13-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00499_gad7e38e334c2209a2a296bf3f573fed78_icgraph.svg" width="468" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ga52debd393de750722aca541b24b1bc6d" name="ga52debd393de750722aca541b24b1bc6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga52debd393de750722aca541b24b1bc6d">&#9670;&#160;</a></span>devFanData</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00302.html#a8811ef66930b574a01bfaf769ce39679">FAN_DATA_t</a> devFanData</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The 'FAN_DATA_t' data object holds the access to all the fan control and monitoring values. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00299_source.html#l00021">21</a> of file <a class="el" href="a00299_source.html">dev_fan.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00296_source.html#l00020">20</a> of file <a class="el" href="a00296_source.html">useful_macros.h</a>.</p>
 
 </div>
 </div>

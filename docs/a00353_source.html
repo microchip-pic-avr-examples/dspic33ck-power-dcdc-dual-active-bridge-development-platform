@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/fault/fault.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/driver/mcc_extension/mcc_custom_config.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,50 +136,18 @@ $(document).ready(function(){initNavTree('a00353_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">fault.h</div></div>
+  <div class="headertitle"><div class="title">mcc_custom_config.h</div></div>
 </div><!--header-->
 <div class="contents">
 <a href="a00353.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DRV_PWRCTL_FAULT_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DRV_PWRCTL_FAULT_H</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef APP_MCC_CUSTOM_CONFIG_H</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define APP_MCC_CUSTOM_CONFIG_H</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00514.html#gafe646acf69be10085d651f4561909f69">MCC_Custom_User_Config</a> (<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="a00095.html">cmp/cmp1.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="a00101.html">cmp/cmp3.h</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="a00353.html">fault.h</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="a00461.html">pwrctrl/pwrctrl_pwm.h</a>&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;pwrctrl/pwrctrl_typedef.h&quot;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="a00440.html">pwrctrl/pwrctrl_common.h</a>&quot;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;config/config.h&quot;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">// functions with external linkage</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00515.html#gaaa5a7a6dc7ce982dec4f07edcd73e874">Fault_Initialize</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00515.html#gacd1ca209275dae0bc2388ac954858d83">Fault_Execute</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="a00353.html#aa3c792f843559d10b2bd2567747cd608">   30</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00353.html#aa3c792f843559d10b2bd2567747cd608">Dev_Fault_ClearHardwareFaults</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00515.html#ga8ed0fee0d3aff71d49470aab1728a6ae">Fault_Reset</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00515.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00515.html#ga35608d94d8d76de809bb7588a325abc9">Fault_Execute_100ms</a>(<span class="keywordtype">void</span>); </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif  </span><span class="comment">/* DRV_PWRCTL_FAULT_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="ttc" id="aa00095_html"><div class="ttname"><a href="a00095.html">cmp1.h</a></div><div class="ttdoc">This is the generated driver header file for the CMP1 driver.</div></div>
-<div class="ttc" id="aa00101_html"><div class="ttname"><a href="a00101.html">cmp3.h</a></div><div class="ttdoc">This is the generated driver header file for the CMP3 driver.</div></div>
-<div class="ttc" id="aa00353_html"><div class="ttname"><a href="a00353.html">fault.h</a></div><div class="ttdoc">Contains public fault functions.</div></div>
-<div class="ttc" id="aa00353_html_aa3c792f843559d10b2bd2567747cd608"><div class="ttname"><a href="a00353.html#aa3c792f843559d10b2bd2567747cd608">Dev_Fault_ClearHardwareFaults</a></div><div class="ttdeci">void Dev_Fault_ClearHardwareFaults(void)</div></div>
-<div class="ttc" id="aa00440_html"><div class="ttname"><a href="a00440.html">pwrctrl_common.h</a></div><div class="ttdoc">Contains the power control reusable functions.</div></div>
-<div class="ttc" id="aa00461_html"><div class="ttname"><a href="a00461.html">pwrctrl_pwm.h</a></div><div class="ttdoc">Contains public functions for PWM.</div></div>
-<div class="ttc" id="aa00515_html_ga35608d94d8d76de809bb7588a325abc9"><div class="ttname"><a href="a00515.html#ga35608d94d8d76de809bb7588a325abc9">Fault_Execute_100ms</a></div><div class="ttdeci">void Fault_Execute_100ms(void)</div><div class="ttdoc">Fault evaluation for Temperature and other slow fault detection executed every 100ms.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00263">fault.c:263</a></div></div>
-<div class="ttc" id="aa00515_html_ga8ed0fee0d3aff71d49470aab1728a6ae"><div class="ttname"><a href="a00515.html#ga8ed0fee0d3aff71d49470aab1728a6ae">Fault_Reset</a></div><div class="ttdeci">void Fault_Reset(void)</div><div class="ttdoc">Clears the fault object flag bits.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00200">fault.c:200</a></div></div>
-<div class="ttc" id="aa00515_html_gaaa5a7a6dc7ce982dec4f07edcd73e874"><div class="ttname"><a href="a00515.html#gaaa5a7a6dc7ce982dec4f07edcd73e874">Fault_Initialize</a></div><div class="ttdeci">void Fault_Initialize(void)</div><div class="ttdoc">Initialize the fault objects.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00065">fault.c:65</a></div></div>
-<div class="ttc" id="aa00515_html_gacd1ca209275dae0bc2388ac954858d83"><div class="ttname"><a href="a00515.html#gacd1ca209275dae0bc2388ac954858d83">Fault_Execute</a></div><div class="ttdeci">void Fault_Execute(void)</div><div class="ttdoc">Executes the fault handlers.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00115">fault.c:115</a></div></div>
-<div class="ttc" id="aa00515_html_gaf27f2f24932cec222273df148f8765cb"><div class="ttname"><a href="a00515.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a></div><div class="ttdeci">void Fault_Handler(void)</div><div class="ttdoc">Handles the fault trip by turning off the power control switching.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00041">fault.c:41</a></div></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#endif  </span><span class="comment">/* APP_MCC_CUSTOM_CONFIG_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="ttc" id="aa00514_html_gafe646acf69be10085d651f4561909f69"><div class="ttname"><a href="a00514.html#gafe646acf69be10085d651f4561909f69">MCC_Custom_User_Config</a></div><div class="ttdeci">void MCC_Custom_User_Config(void)</div><div class="ttdoc">Contains custom peripheral initialization.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00024">mcc_custom_config.c:24</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

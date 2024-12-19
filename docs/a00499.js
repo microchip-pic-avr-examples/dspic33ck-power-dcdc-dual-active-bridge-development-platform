@@ -1,15 +1,20 @@
 var a00499 =
 [
-    [ "dev_fan.c", "a00299.html", null ],
-    [ "dev_fan.h", "a00302.html", null ],
-    [ "Calculate_Speed", "a00499.html#ga66c5db181798514534d7f97b622ca35e", null ],
-    [ "Convert_From_Percentage", "a00499.html#ga3ba0ef09cbd1274a9c325fc04cab411d", null ],
-    [ "Dev_Fan_Initialize", "a00499.html#gad4274efc956bcca058565b186c2fd1a0", null ],
-    [ "Dev_Fan_Set_Override", "a00499.html#gabf5c734c9834b070c4adf1af69e9f048", null ],
-    [ "Dev_Fan_Set_Speed", "a00499.html#ga5cfd61659ae6b17ad25e51bfc211723b", null ],
-    [ "Dev_Fan_Task_100ms", "a00499.html#ga1bd7dce99469a41bbb705d939ea512ad", null ],
-    [ "Dev_Fan_Task_1s", "a00499.html#gafd7dde7baca2e1dd3a745bf5f8258da7", null ],
-    [ "Override_Speed", "a00499.html#ga0d2b426f7411623a821415f02956aac8", null ],
-    [ "Update_Speed", "a00499.html#gad7e38e334c2209a2a296bf3f573fed78", null ],
-    [ "devFanData", "a00499.html#ga52debd393de750722aca541b24b1bc6d", null ]
+    [ "_max", "a00499.html#ga7742fa23cad0b81a56daae0c5ad63c8b", null ],
+    [ "_min", "a00499.html#gad8a68cbc825e50630b93047279a32718", null ],
+    [ "_rnd", "a00499.html#gaa3c2bb84c225cf77ab67824f886de487", null ],
+    [ "_rnd_int32_t", "a00499.html#ga1c75b371213fc3a62a8bb5fbc799cfc3", null ],
+    [ "AVG_TO_RMS", "a00499.html#gaec140a01387ddcbb23059abeb73d163e", null ],
+    [ "PWM_HR_EDGE_ALIGNED_PGxDC", "a00499.html#ga1651dc9a22fef1ab2af194db866dd73f", null ],
+    [ "PWM_HR_EDGE_ALIGNED_PGxPER", "a00499.html#ga67a05b5f54847bdcf3a4f8505a8ddf5d", null ],
+    [ "PWM_HR_PGxDTy", "a00499.html#gae9dd7d65ec0c724eb6a3a944f9b60ec0", null ],
+    [ "PWM_HR_PGxTRIGy", "a00499.html#ga788298696055df15aab198a429d96ed3", null ],
+    [ "QFORMAT_SHIFT", "a00499.html#gafae5fd95c828eb48279a0cbf470d1b45", null ],
+    [ "RMS_TO_AVG", "a00499.html#gada5ead94c63caa7198833caee45bcd9a", null ],
+    [ "RMS_TO_PEAK", "a00499.html#gac24ae161523eadceef352918d1ebb0c8", null ],
+    [ "TIME_TO_TICKS", "a00499.html#gaa1550b4b116085f90e0cd704f1b078b9", null ],
+    [ "UNITS_FROM_ADC_TO_ENG", "a00499.html#ga5032cd832e55c41df8dc512000cc9c0d", null ],
+    [ "UNITS_FROM_ENG_TO_ADC", "a00499.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00", null ],
+    [ "WordHighByte", "a00499.html#ga6f8b8bc288578b9150234364ccb5a6f0", null ],
+    [ "WordLowByte", "a00499.html#gad7e3572e4f8ef715cd1e722691f87b54", null ]
 ];

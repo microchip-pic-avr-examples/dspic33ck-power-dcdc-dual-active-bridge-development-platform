@@ -8,6 +8,11 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdint.h> // include standard integer data types
+
+#include <stdio.h>
+#include <string.h>
+//#include <stdlib.h>
+
 #include <stdbool.h> // include standard boolean data types
 #include <stddef.h> // include standard definition data types
 
@@ -64,8 +69,7 @@ uint16_t bufferSixteenTx[32];
 
 static uint8_t transmitFirmwareId = 1;
 
-// temporary variables
-static int16_t temperature = 0;
+
 
 /***********************************************************************************
  * Private Functions Prototypes
@@ -81,9 +85,11 @@ void protocolID(uint16_t protocol_ID, uint16_t length, uint8_t * data);
 /***********************************************************************************
  * @ingroup app-pbv-dab-map
  * @return  void
- * @brief   this function initializes the local pbv objects. these objects are then
+ * @brief   This function initializes the local pbv objects. these objects are then
  *          passed on to the app_PBV_init function to initialize the CAN/UART objects
  * @details
+ *          This function initializes the local pbv objects. these objects are then
+ *          passed on to the app_PBV_init function to initialize the CAN/UART objects.
  *          RX object just needs state change. 
  **********************************************************************************/
 void App_PBV_DAB_Init()
@@ -136,7 +142,6 @@ void App_PBV_DAB_Task_10ms(void)
 /***********************************************************************************
  * @ingroup app-pbv-dab-map
  * @param   void
- * @return  nothing
  * @brief   1 second PBV task to be execution
  * @details This is a slow task simulating the low speed sending of ascii data
  *           it sends the firmware id, and the switches to the log id.
@@ -144,24 +149,48 @@ void App_PBV_DAB_Task_10ms(void)
  **********************************************************************************/
 void App_PBV_DAB_Task_1s(void)
 {
+    static uint16_t OneSecCounter;//debug log print demo purpose. Sporadic Resets can be detected by checking this number
+    static uint8_t PBVBuffer[64<<1];//PBV msg buffer. Take care of 64B length boundary when creating messages. 
+
+    for(uint16_t i=0; i<(64); i++) PBVBuffer[i]=0;//clear to 0 all 64 bytes
+    
     if (appPbvDabAsciiPtr->PBV_Protcol_ID == FIRMWARE_PROTOCOL_ID)
     {
-        appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)FIRMWARE_VERSION_STRING;
+        strcpy(&PBVBuffer[0], (uint8_t *)FIRMWARE_VERSION_STRING);
+        strcpy(&PBVBuffer[10], (uint8_t *)FIRMWARE_NAME);
+        appPbvDabAsciiPtr->Data_Buffer = &PBVBuffer[0];
+                
         App_Send_To_PBV(appPbvDabAsciiPtr);
         appPbvDabAsciiPtr->PBV_Protcol_ID = PBV_LOG_ID;
         transmitFirmwareId = 1;
         return;
     }
+    
     if (appPbvDabAsciiPtr->PBV_Protcol_ID == PBV_LOG_ID)
     {
         if (transmitFirmwareId) App_PBV_Re_Init(appPbvDabAsciiPtr);     ///< reinit to new id
         transmitFirmwareId = 0; 
-    }
+        
+        if(OneSecCounter)
+        {
+            if(!(OneSecCounter%20))
+            {
+ //                                    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef";   
+                sprintf(&PBVBuffer[0], "\rDAB board heat sink Temperature is %d degree Celsius  ", Dev_Temp_Get_Temperature_Celcius() );
+            }
+            else
+            sprintf(&PBVBuffer[0], "\r Dual Active Bridge. 64B fixed length Log. MsgNo %d ", OneSecCounter);
+        }
+        else
+        {   
+            sprintf(&PBVBuffer[0], "\r Dual Active Bridge. AFTER RESET SYSTEM STARTUP  " ); 
+        }
 
-    appPbvDabAsciiPtr->Data_Buffer = (uint8_t *)"                 Log Message From Protocol ID 0x300";
-    App_Send_To_PBV(appPbvDabAsciiPtr);
-   
-    temperature = (int16_t)Dev_Temp_Get_Temperature_Celcius();
+        appPbvDabAsciiPtr->Data_Buffer =&PBVBuffer[0];
+        App_Send_To_PBV(appPbvDabAsciiPtr);//64B fixed frame
+        
+        OneSecCounter++;
+    }
 }
 
 /***********************************************************************************
@@ -187,8 +216,9 @@ PBV_Datatype_TX_t * App_PB_DAB_Get_TX_ASCII_ptr(void)
 /***********************************************************************************
  * @ingroup pbv-private-function
  * @return  void
- * @brief   this builds frame
- * @details
+ * @brief   This builds application frame
+ * @details This function builds the frame of the Power board visualizer for
+ *  the dual active bridge application. 
  **********************************************************************************/
 
 void App_PBV_DAB_Build_Frame()
@@ -210,11 +240,11 @@ void App_PBV_DAB_Build_Frame()
     bufferSixteenTx[4] = PwrCtrl_GetAdc_Ipri_ct();
     bufferSixteenTx[5] = PwrCtrl_GetAdc_Isec_ct();
     bufferSixteenTx[6] = Dev_PwrCtrl_GetAveraging_Isec();
-    bufferSixteenTx[7] = temperature + 40;
+    bufferSixteenTx[7] = (uint16_t)(TEMPERATURE_PBV_OFFSET_CELSIUS + (int16_t)Dev_Temp_Get_Temperature_Celcius());
     bufferSixteenTx[8] = PwrCtrl_GetAdc_Vrail_5V();    
     bufferSixteenTx[9] =  PwrCtrl_GetPhase_P2SDegree();
-    bufferSixteenTx[10] = devFanDataPtr->CurrentSpeedPercent;
-    bufferSixteenTx[11] = temperature;
+    bufferSixteenTx[10] = 0;//devFanDataPtr->CurrentSpeedPercent;
+    bufferSixteenTx[11] = 0;//(uint16_t)(TEMPERATURE_PBV_OFFSET_CELSIUS + (int16_t)Dev_Temp_Get_Temperature_Celcius());
     bufferSixteenTx[12] = Dev_PwrCtrl_Get_Period();
     bufferSixteenTx[13] = Dev_PwrCtrl_Get_PwmprdTarget();
     bufferSixteenTx[14] = Dev_PwrCtrl_Get_SecPower(); 
@@ -228,11 +258,10 @@ void App_PBV_DAB_Build_Frame()
 
 /***********************************************************************************
  * @ingroup app-pbv-dab-map
- * @param   pointer to received data
- * @return  nothing
+ * @param   data pointer to received data
  * @brief   process received data
- * @details
- * @note
+ * @details This function transfer the data coming from the Power Board Visualizer 
+ *  to the MCU to process the action taken by the user in the Dual active Bridge Board. 
  **********************************************************************************/
 void App_PBV_DAB_Process_Rx_Data(uint16_t * data) 
 {
@@ -311,11 +340,12 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
 
 /***********************************************************************************
  * @ingroup app-pbv-dab-map
- * @param   void
- * @return  nothing
+ * @param   protocal_ID indicates the protocol ID for the PBV
+ * @param   length  length of the data
+ * @param   data    pointer to the data
  * @brief   default callback
- * @details
- * @note
+ * @details This function defines the PBV protocol ID for specific data received. 
+ * @note    This function defines the PBV protocol ID for specific data received. 
  **********************************************************************************/
 void protocolID(uint16_t protocol_ID, uint16_t length, uint8_t * data)
 {

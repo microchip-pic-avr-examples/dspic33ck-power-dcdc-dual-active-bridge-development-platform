@@ -53,17 +53,6 @@ struct TEMP_SETTINGS_s {
 };
 typedef struct TEMP_SETTINGS_s TEMP_SETTINGS_t;
 
-/***********************************************************************************
- * @ingroup dev-temp-data-type
- * @brief   A custom data type for ntc look up table
- **********************************************************************************/
-struct TEMP_NTC_LUT_s {
-    uint16_t temperature;
-    int8_t temperatureCelsius;
-    uint16_t ADC_Val;
-};
-typedef struct TEMP_NTC_LUT_s TEMP_NTC_LUT_t;
-
 /*********************************************************************************
  * @ingroup dev-temp-data-type
  * @brief   dev temp data object pointer external
