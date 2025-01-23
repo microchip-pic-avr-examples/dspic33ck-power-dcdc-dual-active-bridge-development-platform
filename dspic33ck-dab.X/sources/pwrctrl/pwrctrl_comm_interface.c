@@ -27,7 +27,11 @@ uint16_t PwrCtrl_GetPhase_P2SDegree(void)
  **********************************************************************************/
 void Dev_PwrCtrl_SetState(uint16_t reference)
 {    
-    dab.State = reference;
+    PwrCtrl_PWM_Disable();
+    
+    dab.State = reference;   
+    //forcing change in SM state without proper context awareness can have dangerous glitches and consequences.
+    //switch off PWM signals for safe guard
 }
 
 /*********************************************************************************
@@ -48,6 +52,16 @@ void PwrCtrl_SetIReference(uint16_t reference)
 void PwrCtrl_SetVSecReference(uint16_t reference)
 {    
     dab.Properties.VSecReference = reference;
+}
+
+/*********************************************************************************
+ * @ingroup pwrctrl-comm
+ * @brief   API function to set the primary voltage controller reference, in reverse mode
+ * @return  void
+ **********************************************************************************/
+void PwrCtrl_SetVPriReference(uint16_t reference)
+{    
+    dab.Properties.VPriReference = reference;
 }
 
 /*********************************************************************************
@@ -91,14 +105,30 @@ void PwrCtrl_SetP2SPhaseTarget(uint16_t reference)
 
 /*********************************************************************************
  * @ingroup pwrctrl-comm
- * @brief   API function to set the power control enable bit
+ * @brief   API function to set the power control state forward, reverse or stop
  * @return  void
  **********************************************************************************/
-void PwrCtrl_SetEnable(bool enable)
+void PwrCtrl_SetEnable(PWR_CTRL_CHARGE_STATE_t setVal)
 { 
-  dab.Properties.Enable = enable; 
+    if(setVal) dab.Properties.Enable = true; 
+    else dab.Properties.Enable = false; 
+    
+    if(dab.PowerDirection!=setVal)
+    {    
+        if(dab.PowerDirection)//if converter running force stop before new mode
+        {
+            dab.Properties.Enable = false; 
+            dab.PowerDirection = PWR_CTRL_STOP;
+             Dev_PwrCtrl_SetState(0);
+        }
+        else //proceed with starting selected mode
+        {
+            if(setVal) dab.Properties.Enable = true; 
+            else dab.Properties.Enable = false; 
+            dab.PowerDirection =  setVal;
+        }
+    }
 }
-
 
 /*********************************************************************************
  * @ingroup pwrctrl-comm
@@ -178,6 +208,16 @@ uint16_t Dev_PwrCtrl_Get_DutyCycle(void)
 uint16_t Dev_PwrCtrl_Get_State(void)
 {
     return(dab.State);
+}
+
+/*********************************************************************************
+ * @ingroup pwrctrl-comm
+ * @brief   API function to get the direction of configure power flow. 
+ * @return  value   DAB power direction
+ **********************************************************************************/
+uint16_t Dev_PwrCtrl_Get_PowerDir(void)
+{
+    return(dab.PowerDirection);
 }
 
 /*********************************************************************************

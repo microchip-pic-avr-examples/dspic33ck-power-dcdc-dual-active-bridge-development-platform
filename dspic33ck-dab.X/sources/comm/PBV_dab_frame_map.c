@@ -22,7 +22,9 @@
 
 // other header files
 #include "PBV_interface.h"
+#include "pwrctrl/pwrctrl_typedef.h"
 #include "pwrctrl/pwrctrl_comm_interface.h"
+#include "pwrctrl/pwrctrl.h"
 #include "fault/fault_comm_interface.h"
 #include "config/macros.h"
 #include "config/version.h"
@@ -37,11 +39,13 @@
 
 // command IDs, first data word in received package
 // use this to decide what action to take when data is received
+#define PBV_CMD_ID_DAB_ON_REV           0x5502           ///< turn DAB on - REVERSED discharge mode
 #define PBV_CMD_ID_DAB_ON               0x5501           ///< turn DAB on
 #define PBV_CMD_ID_DAB_OFF              0x5500           ///< turn DAB off
 #define PBV_CMD_ID_FREQ_CHANGE          0xBBBB           ///< change DAB switching frequency
 #define PBV_CMD_ID_FAN_SPEED            0xCCCC           ///< set fan speed 
 
+#define PBV_CMD_ID_VLOOPREV_REF_SET     0xDDDC           ///< set voltage loop reference reverse mode
 #define PBV_CMD_ID_ILOOP_REF_SET        0xDDDD           ///< set current loop reference
 #define PBV_CMD_ID_VLOOP_REF_SET        0xDDDE           ///< set voltage loop reference
 #define PBV_CMD_ID_PLOOP_REF_SET        0xDDDF           ///< set voltage loop reference
@@ -232,8 +236,8 @@ void App_PBV_DAB_Build_Frame()
     uint16_t enabled = Dev_PwrCtrl_Get_EnableFlag();
     uint16_t fault_flags = Fault_GetFlags();
     uint16_t status_flags = Dev_PwrCtrl_Get_Status();
-    uint16_t flag_word = enabled + ((status_flags & 0x0003)<<1) + (fault_flags<<3);
-    
+    uint16_t PowDir_flags = Dev_PwrCtrl_Get_PowerDir();
+    uint16_t flag_word = enabled + ((status_flags & 0x0003)<<1) + (fault_flags<<3) +  (PowDir_flags<<14) ;
     bufferSixteenTx[1] = flag_word;
     bufferSixteenTx[2] = Dev_PwrCtrl_GetAveraging_Vprim(); 
     bufferSixteenTx[3] = Dev_PwrCtrl_GetAveraging_Vsec();
@@ -270,11 +274,17 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
     switch (cmd_id)
     {
         case PBV_CMD_ID_DAB_ON: {
-            PwrCtrl_SetEnable(true);
+            //Dev_PwrCtrl_SetState(0);
+            PwrCtrl_SetEnable(PWR_CTRL_CHARGING);
+            break;
+        }
+        case PBV_CMD_ID_DAB_ON_REV: {
+            //Dev_PwrCtrl_SetState(0);
+            PwrCtrl_SetEnable(PWR_CTRL_DISCHARGING);
             break;
         }
         case PBV_CMD_ID_DAB_OFF: {
-            PwrCtrl_SetEnable(false);
+            PwrCtrl_SetEnable(PWR_CTRL_STOP);
             Dev_PwrCtrl_SetState(0);
             break;
         } 
@@ -288,6 +298,14 @@ void App_PBV_DAB_Process_Rx_Data(uint16_t * data)
             }            
             break; 
         }
+        case PBV_CMD_ID_VLOOPREV_REF_SET: {
+            if (control_word < 32767) //TODO: put in proper check here!
+            {
+                PwrCtrl_SetVPriReference(control_word);
+            }
+            break; 
+        } 
+                
         case PBV_CMD_ID_ILOOP_REF_SET: {
             if (control_word < 32767) //TODO: put in proper check here!
             {

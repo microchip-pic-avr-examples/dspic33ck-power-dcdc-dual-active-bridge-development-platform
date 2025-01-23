@@ -44,6 +44,7 @@
 #define VPLOOP_ILOOP_EXE_RATIO           (uint16_t)(10 / 2) ///< ratio of ILOOP /VPLOOP execution [100KHz / 10KHz], the divide 2 is for interleaved VLoop and PLoop
 #define AGC_MINIMUM_VIN_THRESHOLD       160u ///< Minimum VIN threshold to activate AGC in [V]  
 #define AGC_MINIMUM_ISEC_THRESHOLD      7 ///< Minimum current threshold to activate AGC in [A]
+#define AGC_MINIMUM_VIN_THRESHOLD_SEC       160u ///< Minimum VIN secondary threshold to activate AGC reverse mode in [V]  
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 //------------------------------------------------------------------------------

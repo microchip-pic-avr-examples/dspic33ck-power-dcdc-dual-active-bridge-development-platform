@@ -9,17 +9,17 @@
 #include "pwrctrl/pwrctrl.h"
 
 enum FAULTLOG_FLAGS_e {
-    FLT_VPRI_OVP,
-    FLT_VPRI_UVP,
-    FLT_VSEC_OVP,
-    FLT_VSEC_UVP,
-    FLT_IPRI_OCP,
-    FLT_ISEC_OCP,
-    FLT_ISNS_SCP,
-    FLT_DAB_TEMP,
-    FLT_RAIL_5V,
-    FLT_LOAD_DISCONNECT,
-    RESET
+    FLT_VPRI_OVP, //0
+    FLT_VPRI_UVP, //1
+    FLT_VSEC_OVP, //2
+    FLT_VSEC_UVP, //3
+    FLT_IPRI_OCP, //4
+    FLT_ISEC_OCP, //5
+    FLT_ISNS_SCP, //6
+    FLT_DAB_TEMP, //7
+    FLT_RAIL_5V,  //8
+    FLT_LOAD_DISCONNECT, //9
+    RESET //10
 };
 typedef enum FAULTLOG_FLAGS_e FAULTLOG_FLAGS_t;
 

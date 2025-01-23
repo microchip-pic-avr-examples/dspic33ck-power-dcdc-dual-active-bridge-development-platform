@@ -133,6 +133,7 @@ typedef struct CONTROLLER_s CONTROLLER_t;
  ***********************************************************************************/
 enum  PWR_CTRL_CHARGE_STATE_e
 {
+    PWR_CTRL_STOP,
     PWR_CTRL_CHARGING,      ///< power converter is in charging mode
     PWR_CTRL_DISCHARGING    ///< power converter is in discharging mode
 };
@@ -152,7 +153,7 @@ struct PWR_CTRL_PROPERTIES_s
     int16_t  IReference;       ///< User current reference setting used to control the converter controller
     uint16_t PwrReference;     ///< User power reference setting used to control the  converter controller
     
-    bool ChargingState;        ///< Control Flag: When set, enables PWM output while keeping control loop disabled; Skips closed loop ramp up states and directly jumps to state Online 
+    //bool ChargingState;        ///< Control Flag: When set, enables PWM output while keeping control loop disabled; Skips closed loop ramp up states and directly jumps to state Online 
     bool Enable;               ///< Control Flag: When set, enables the converter triggering a startup sequence; When cleared, forces teh power supply to reset and turn off
 
 };  
@@ -165,8 +166,8 @@ typedef struct PWR_CTRL_PROPERTIES_s PWR_CTRL_PROPERTIES_t;
  ***********************************************************************************/
 struct POWER_CONTROL_s
 {
-    STATUS_FLAGS_t      Status; ///< Power Supply status flags
-    PWR_CTRL_STATE_t    State;  ///< Power Control State ID
+    STATUS_FLAGS_t      Status; ///< Power Supply status flags, running or fault
+    PWR_CTRL_STATE_t    State;  ///< Power Control SM State ID
     PWR_CTRL_PROPERTIES_t Properties;    ///< Power Control properties    
     SWITCH_NODE_t       Pwm;    ///< Switch node settings
     FEEDBACK_SETTINGS_t Data;   ///< Feedback channel settings

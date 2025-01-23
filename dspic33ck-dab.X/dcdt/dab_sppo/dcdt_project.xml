@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><dcdt>
-    <project type="Single-Loop" name="dab_psvo">
+    <project type="Single-Loop" name="dab_sppo">
         <compensator type="2P2Z">
             <pole type="0" value="150.000"/>
             <pole type="2" value="1550.000"/>
@@ -8,9 +8,9 @@
             <setting type="warp" value="false"/>
             <pwm type="frequency" value="10000.000"/>
             <pwm type="ratio" value="1"/>
-            <pwm type="PWM Max Resolution" value="4.000e-08"/>
+            <pwm type="PWM Max Resolution" value="1.000e-09"/>
             <pwm type="computational delay" value="1.000e-06"/>
-            <pwm type="gate drive delay" value="5.000e-09"/>
+            <pwm type="gate drive delay" value="5.000e-08"/>
             <clamp type="min" value="0"/>
             <clamp type="max" value="32767"/>
         </compensator>
@@ -30,8 +30,8 @@
         <feedback type="fixed gain" value="Hfb">
             <gain type="feedback" value="6.020e-01"/>
             <frequency type="bandwidth" value="300000"/>
-            <adc type="resolution" value="10-bit"/>
-            <adc type="latency" value="600"/>
+            <adc type="resolution" value="12-bit"/>
+            <adc type="latency" value="300"/>
             <adc type="voltage range" value="3.300e+00"/>
             <adc type="output" value="5.000e+00"/>
             <adc type="Kr" value="0.0000"/>
