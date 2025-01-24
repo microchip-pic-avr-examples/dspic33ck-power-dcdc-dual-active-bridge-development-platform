@@ -6,8 +6,8 @@
 
   File Name:     dab_spio_dcdt.h
   Project Name:  dab_spio
-  Date:          1/16/2025
-  Time:          20:45.53
+  Date:          1/24/2025
+  Time:          12:36.30
 
   Software License Agreement
 
@@ -43,7 +43,7 @@
   Pole 0                 5.0000e+03 Hz
   Pole 2                 5.0000e+03 Hz
   Zero 1                 9.0000e+03 Hz
-  Gain(Kdc)              4.000
+  Gain(Kdc)              2.000
   Warp                   false
   PWM Frequency          1.0000e+05
   PWM Sampling Ratio     1
@@ -71,7 +71,7 @@
                 s    Wz1(Wp2 + s)
 
                   3.14e+04   3.14e+04(5.65e+04 + s)
-  H(s) = 4.000 X -------- X ----------------------
+  H(s) = 2.000 X -------- X ----------------------
                      s       5.65e+04(3.14e+04 + s)
 
 
@@ -82,9 +82,9 @@
   ----    -----     ----------    ---      ---
   a1      1.728     1.000         32764    0x7FFC
   a2      -0.728    -0.421        -13809   0xCA0F
-  b0      0.387     0.224         7335     0x1CA7
-  b1      0.171     0.099         3233     0x0CA1
-  b2      -0.216    -0.125        -4101    0xEFFB
+  b0      0.193     0.112         3667     0x0E53
+  b1      0.085     0.049         1616     0x0650
+  b2      -0.108    -0.063        -2050    0xF7FE
 
 
   z-domain transfer function
@@ -93,7 +93,7 @@
   H(z) = --- = ------------------------
          e(z)  A0 - A1z^(-1) - A2z^(-2)
 
-          (0.387) + (0.171)z^(-1) + (-0.216)z^(-2)
+          (0.193) + (0.085)z^(-1) + (-0.108)z^(-2)
   H(z) = ---------------------------------------------
           1 - (1.728)z^(-1) - (-0.728)z^(-2)
 
@@ -103,9 +103,9 @@
 // Compensator Coefficient Defines
 #define DAB_SPIO_COMP_2P2Z_COEFF_A1      0x7FFC
 #define DAB_SPIO_COMP_2P2Z_COEFF_A2      0xCA0F
-#define DAB_SPIO_COMP_2P2Z_COEFF_B0      0x1CA7
-#define DAB_SPIO_COMP_2P2Z_COEFF_B1      0x0CA1
-#define DAB_SPIO_COMP_2P2Z_COEFF_B2      0xEFFB
+#define DAB_SPIO_COMP_2P2Z_COEFF_B0      0x0E53
+#define DAB_SPIO_COMP_2P2Z_COEFF_B1      0x0650
+#define DAB_SPIO_COMP_2P2Z_COEFF_B2      0xF7FE
 #define DAB_SPIO_COMP_2P2Z_POSTSCALER    0x6EA2
 #define DAB_SPIO_COMP_2P2Z_POSTSHIFT     0xFFFF
 #define DAB_SPIO_COMP_2P2Z_PRESHIFT      0x0000

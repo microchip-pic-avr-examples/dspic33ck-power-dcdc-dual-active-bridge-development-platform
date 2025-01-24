@@ -25,7 +25,7 @@
  * @details The 'dab' data object holds all status, control and monitoring values 
  * of the POWER_CONTROL_t power controller. 
  ******************************************************************************/
-POWER_CONTROL_t dab;    // Declare DAB converter data structure, singleton pattern
+POWER_CONTROL_t dab;    // Declare DAB converter data structure, global, only one instance
 
 // PRIVATE FUNCTIONS
 static void PwrCtrl_StartUpInitialize(void);
