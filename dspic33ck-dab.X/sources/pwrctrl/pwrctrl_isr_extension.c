@@ -121,6 +121,13 @@ void PwrCtrl_10KHzVPLoopPrepareData(void)
         vSecAveraging.Accumulator = 0;
         vSecAveraging.Counter = 0;
         
+        
+                // Averaging of Primary Voltage
+        vPrimAveraging.AverageValue = (uint16_t)(__builtin_divud(vPrimAveraging.Accumulator, vPrimAveraging.Counter));
+        vPrimAveraging.Accumulator = 0;
+        vPrimAveraging.Counter = 0;
+            
+            
         #if(OPEN_LOOP_PBV == false)
         //Condition for control loop execution controlling the loop enable bit
         if((dab.VLoop.Enable == false) && (VLoopInterleaveExec == true) && (dab.Status.bits.Running == 1))
@@ -130,10 +137,10 @@ void PwrCtrl_10KHzVPLoopPrepareData(void)
             dab.VLoop.Enable = true;
             dab.PLoop.Enable = false;
           
-            // Averaging of Primary Voltage
-            vPrimAveraging.AverageValue = (uint16_t)(__builtin_divud(vPrimAveraging.Accumulator, vPrimAveraging.Counter));
-            vPrimAveraging.Accumulator = 0;
-            vPrimAveraging.Counter = 0;
+//            // Averaging of Primary Voltage
+//            vPrimAveraging.AverageValue = (uint16_t)(__builtin_divud(vPrimAveraging.Accumulator, vPrimAveraging.Counter));
+//            vPrimAveraging.Accumulator = 0;
+//            vPrimAveraging.Counter = 0;
             
             // Compute the Adaptive Gain 
             PwrCtrl_AdaptiveGainUpdate();
@@ -169,10 +176,10 @@ void PwrCtrl_10KHzVPLoopPrepareData(void)
         // If Power supply is not yet running, the averaging of
         // primary voltage and secondary voltage continues to display in PBV
         if(!dab.Status.bits.Running){
-            // Averaging of Primary Voltage
-            vPrimAveraging.AverageValue = (uint16_t)(__builtin_divud(vPrimAveraging.Accumulator, vPrimAveraging.Counter));
-            vPrimAveraging.Accumulator = 0;
-            vPrimAveraging.Counter = 0;
+//            // Averaging of Primary Voltage
+//            vPrimAveraging.AverageValue = (uint16_t)(__builtin_divud(vPrimAveraging.Accumulator, vPrimAveraging.Counter));
+//            vPrimAveraging.Accumulator = 0;
+//            vPrimAveraging.Counter = 0;
             
             // Averaging of Secondary Current
             iSecAveraging.AverageValue = (uint16_t)(__builtin_divud(iSecAveraging.Accumulator, iSecAveraging.Counter));
@@ -229,6 +236,24 @@ void PwrCtrl_ControlLoopExecute(void)
         
             // Reset the Vloop reference to its original scaling
             dab.VLoop.Reference = (dab.VLoop.Reference >> 3);
+            
+            if(0)
+            {    
+                //plant measurement K factor 4  
+//                dab.VLoop.Output = vPrimAveraging.AverageValue << 2; 
+//                dab.VLoop.Output = dab.VLoop.Reference << 2; 
+                if ((dab.VLoop.Reference + 100 )> vSecAveraging.AverageValue)
+                {
+                   dab.VLoop.Output = 40 * (dab.VLoop.Reference - vSecAveraging.AverageValue);// << 2; 
+                }
+                else
+                {
+                    dab.VLoop.Output = 0;
+                }
+
+            }
+            
+            
         }
         
         if(dab.PowerDirection == PWR_CTRL_DISCHARGING)
@@ -243,9 +268,28 @@ void PwrCtrl_ControlLoopExecute(void)
             // Execute the Voltage Loop Control
             XFT_SMPS_Controller2P2ZUpdate(&VMC_2p2z_Rev, &dab.VLoop.Feedback,
                     dab.VLoop.Reference, &dab.VLoop.Output);
-        
+
             // Reset the Vloop reference to its original scaling
             dab.VLoop.Reference = (dab.VLoop.Reference >> 3);
+            
+            
+            if(0)
+            {    
+                //plant measurement K factor 4  
+//                dab.VLoop.Output = vPrimAveraging.AverageValue << 2; 
+//                dab.VLoop.Output = dab.VLoop.Reference << 2; 
+                if ((dab.VLoop.Reference + 100 )> vPrimAveraging.AverageValue)
+                {
+                   dab.VLoop.Output = 40 * (dab.VLoop.Reference - vPrimAveraging.AverageValue);// << 2; 
+                }
+                else
+                {
+                    dab.VLoop.Output = 0;
+                }
+
+            }
+            
+            
         }
         
     }
@@ -358,6 +402,24 @@ void PwrCtrl_ControlLoopExecute(void)
             
             
         }
+        
+        
+        
+            if(0)
+            {    
+                //plant measurement K factor 4  
+//                dab.VLoop.Output = vPrimAveraging.AverageValue << 2; 
+//                dab.VLoop.Output = dab.VLoop.Reference << 2; 
+                if ((dab.ILoop.Reference + 10 )> dab.Data.ISecAverageRectified)
+                {
+                   dab.ILoop.Output = 100 * (dab.ILoop.Reference - dab.Data.ISecAverageRectified);// << 2; 
+                }
+                else//current overshoot, clip
+                {
+                    dab.ILoop.Output = 20;
+                }
+
+            }
         
         
         

@@ -299,17 +299,17 @@ void PwrCtrl_VComp_Initialize(void)
   VMC_2p2z.controlHistory = &VMC_2p2zControlHistory[0]; // Set up pointer to controller history
   VMC_2p2z.errorHistory =   &VMC_2p2zErrorHistory[0]; // Set up pointer to error history
 
-  VMC_2p2z.preShift =   DAB_SPVO_COMP_2P2Z_PRESHIFT;  
-  VMC_2p2z.postScaler = DAB_SPVO_COMP_2P2Z_POSTSCALER;
-  VMC_2p2z.postShift =  DAB_SPVO_COMP_2P2Z_POSTSHIFT;
-  VMC_2p2z.minOutput =  DAB_SPVO_COMP_2P2Z_MIN_CLAMP;
-  VMC_2p2z.maxOutput =  DAB_SPVO_COMP_2P2Z_MAX_CLAMP; 
+  VMC_2p2z.preShift =   DAB_PSVO_COMP_2P2Z_PRESHIFT;  
+  VMC_2p2z.postScaler = DAB_PSVO_COMP_2P2Z_POSTSCALER;
+  VMC_2p2z.postShift =  DAB_PSVO_COMP_2P2Z_POSTSHIFT;
+  VMC_2p2z.minOutput =  DAB_PSVO_COMP_2P2Z_MIN_CLAMP;
+  VMC_2p2z.maxOutput =  DAB_PSVO_COMP_2P2Z_MAX_CLAMP; 
   
-  VMC_2p2zACoefficients[0] = DAB_SPVO_COMP_2P2Z_COEFF_A1;
-  VMC_2p2zACoefficients[1] = DAB_SPVO_COMP_2P2Z_COEFF_A2;
-  VMC_2p2zBCoefficients[0] = DAB_SPVO_COMP_2P2Z_COEFF_B0;
-  VMC_2p2zBCoefficients[1] = DAB_SPVO_COMP_2P2Z_COEFF_B1;
-  VMC_2p2zBCoefficients[2] = DAB_SPVO_COMP_2P2Z_COEFF_B2; 
+  VMC_2p2zACoefficients[0] = DAB_PSVO_COMP_2P2Z_COEFF_A1;
+  VMC_2p2zACoefficients[1] = DAB_PSVO_COMP_2P2Z_COEFF_A2;
+  VMC_2p2zBCoefficients[0] = DAB_PSVO_COMP_2P2Z_COEFF_B0;
+  VMC_2p2zBCoefficients[1] = DAB_PSVO_COMP_2P2Z_COEFF_B1;
+  VMC_2p2zBCoefficients[2] = DAB_PSVO_COMP_2P2Z_COEFF_B2; 
   
    //explicit clear to 0
   VMC_2p2zControlHistory[0] = 0;
@@ -326,17 +326,17 @@ void PwrCtrl_VComp_Initialize(void)
   VMC_2p2z_Rev.controlHistory = &VMC_2p2zControlHistory_Rev[0]; // Set up pointer to controller history
   VMC_2p2z_Rev.errorHistory =   &VMC_2p2zErrorHistory_Rev[0]; // Set up pointer to error history
 
-  VMC_2p2z_Rev.preShift =   DAB_PSVO_COMP_2P2Z_PRESHIFT;  
-  VMC_2p2z_Rev.postScaler = DAB_PSVO_COMP_2P2Z_POSTSCALER;
-  VMC_2p2z_Rev.postShift =  DAB_PSVO_COMP_2P2Z_POSTSHIFT;
-  VMC_2p2z_Rev.minOutput =  DAB_PSVO_COMP_2P2Z_MIN_CLAMP;
-  VMC_2p2z_Rev.maxOutput =  DAB_PSVO_COMP_2P2Z_MAX_CLAMP; 
+  VMC_2p2z_Rev.preShift =   DAB_SPVO_COMP_2P2Z_PRESHIFT;  
+  VMC_2p2z_Rev.postScaler = DAB_SPVO_COMP_2P2Z_POSTSCALER;
+  VMC_2p2z_Rev.postShift =  DAB_SPVO_COMP_2P2Z_POSTSHIFT;
+  VMC_2p2z_Rev.minOutput =  DAB_SPVO_COMP_2P2Z_MIN_CLAMP;
+  VMC_2p2z_Rev.maxOutput =  DAB_SPVO_COMP_2P2Z_MAX_CLAMP; 
   
-  VMC_2p2zACoefficients_Rev[0] = DAB_PSVO_COMP_2P2Z_COEFF_A1;
-  VMC_2p2zACoefficients_Rev[1] = DAB_PSVO_COMP_2P2Z_COEFF_A2;
-  VMC_2p2zBCoefficients_Rev[0] = DAB_PSVO_COMP_2P2Z_COEFF_B0;
-  VMC_2p2zBCoefficients_Rev[1] = DAB_PSVO_COMP_2P2Z_COEFF_B1;
-  VMC_2p2zBCoefficients_Rev[2] = DAB_PSVO_COMP_2P2Z_COEFF_B2; 
+  VMC_2p2zACoefficients_Rev[0] = DAB_SPVO_COMP_2P2Z_COEFF_A1;
+  VMC_2p2zACoefficients_Rev[1] = DAB_SPVO_COMP_2P2Z_COEFF_A2;
+  VMC_2p2zBCoefficients_Rev[0] = DAB_SPVO_COMP_2P2Z_COEFF_B0;
+  VMC_2p2zBCoefficients_Rev[1] = DAB_SPVO_COMP_2P2Z_COEFF_B1;
+  VMC_2p2zBCoefficients_Rev[2] = DAB_SPVO_COMP_2P2Z_COEFF_B2; 
   
    //explicit clear to 0
   VMC_2p2zControlHistory_Rev[0] = 0;

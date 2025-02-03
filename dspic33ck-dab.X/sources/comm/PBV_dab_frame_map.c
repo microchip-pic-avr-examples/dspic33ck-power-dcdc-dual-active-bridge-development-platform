@@ -170,6 +170,7 @@ void App_PBV_DAB_Task_1s(void)
         return;
     }
     
+    if(0)
     if (appPbvDabAsciiPtr->PBV_Protcol_ID == PBV_LOG_ID)
     {
         if (transmitFirmwareId) App_PBV_Re_Init(appPbvDabAsciiPtr);     ///< reinit to new id
@@ -195,6 +196,65 @@ void App_PBV_DAB_Task_1s(void)
         
         OneSecCounter++;
     }
+    
+    
+    if(0)//debug purpose only
+    if (appPbvDabAsciiPtr->PBV_Protcol_ID == PBV_LOG_ID)
+    {
+        if (transmitFirmwareId) App_PBV_Re_Init(appPbvDabAsciiPtr);     ///< reinit to new id
+        transmitFirmwareId = 0; 
+        
+        if(OneSecCounter)
+        {
+            if(!(OneSecCounter%2))
+            {
+ //                                    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef";   
+                sprintf(&PBVBuffer[0], "\rDAB ADC voltage sense %d   ", dab.VLoop.Feedback );
+            }
+            else
+            sprintf(&PBVBuffer[0], "\r DAB compensator out:  %d ", dab.VLoop.Output);
+        }
+        else
+        {   
+            sprintf(&PBVBuffer[0], "\r Dual Active Bridge. AFTER RESET SYSTEM STARTUP  " ); 
+        }
+
+        appPbvDabAsciiPtr->Data_Buffer =&PBVBuffer[0];
+        App_Send_To_PBV(appPbvDabAsciiPtr);//64B fixed frame
+        
+        OneSecCounter++;
+    }
+    
+     if(1)//debug purpose only
+    if (appPbvDabAsciiPtr->PBV_Protcol_ID == PBV_LOG_ID)
+    {
+        if (transmitFirmwareId) App_PBV_Re_Init(appPbvDabAsciiPtr);     ///< reinit to new id
+        transmitFirmwareId = 0; 
+        
+        if(OneSecCounter)
+        {
+            if(!(OneSecCounter%2))
+            {
+ //                                    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef";   
+                sprintf(&PBVBuffer[0], "\rDAB ADC current sense %d   ", dab.Data.ISecAverageRectified );
+            }
+            else
+            sprintf(&PBVBuffer[0], "\r DAB compensator out:  %d ", dab.ILoop.Output);
+        }
+        else
+        {   
+            sprintf(&PBVBuffer[0], "\r Dual Active Bridge. AFTER RESET SYSTEM STARTUP  " ); 
+        }
+
+        appPbvDabAsciiPtr->Data_Buffer =&PBVBuffer[0];
+        App_Send_To_PBV(appPbvDabAsciiPtr);//64B fixed frame
+        
+        OneSecCounter++;
+    }
+    
+                  // dab.ILoop.Output = 2 * (dab.ILoop.Reference - dab.Data.ISecAverageRectified);// << 2; 
+                   
+                   
 }
 
 /***********************************************************************************

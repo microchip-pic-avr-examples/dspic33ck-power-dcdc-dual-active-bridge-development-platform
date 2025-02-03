@@ -12,8 +12,8 @@
  * @{
  ******************************************************************************/
 #define PERIOD_MODULATION_DEMO    false  ///< Modulates the period; for further development
-#define DCDC400V_SYSTEM           true  ///< When true, operates the DAB with protection thresholds for 400V output
-#define DCDC800V_SYSTEM           false  ///< When true, operates the DAB with protection thresholds for 800V output
+#define DCDC400V_SYSTEM           0//true  ///< When true, operates the DAB with protection thresholds for 400V output
+#define DCDC800V_SYSTEM           1//false  ///< When true, operates the DAB with protection thresholds for 800V output
 #define ENABLE_VLOOP_AGC          false ///< This is an optional feature (not needed for battery application)
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 

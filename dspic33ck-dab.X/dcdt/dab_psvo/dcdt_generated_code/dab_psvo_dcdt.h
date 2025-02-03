@@ -6,8 +6,8 @@
 
   File Name:     dab_psvo_dcdt.h
   Project Name:  dab_psvo
-  Date:          1/24/2025
-  Time:          12:01.47
+  Date:          1/27/2025
+  Time:          14:01.39
 
   Software License Agreement
 
@@ -53,7 +53,7 @@
   Gate Drive Delay       5.0000e-08
   Control Output Min.    0
   Control Output Max.    32767
-  Kuc Gain               5.3585e+02
+  Kuc Gain               1.3386e+02
   Use Kuc Gain           false
 
 
@@ -99,7 +99,6 @@
 
 **/
 
-
 // Compensator Coefficient Defines
 #define DAB_PSVO_COMP_2P2Z_COEFF_A1      0x0513
 #define DAB_PSVO_COMP_2P2Z_COEFF_A2      0x00A6
@@ -114,6 +113,7 @@
 // Compensator Clamp Limits
 #define DAB_PSVO_COMP_2P2Z_MIN_CLAMP    0x0000
 #define DAB_PSVO_COMP_2P2Z_MAX_CLAMP    0x7FFF
+
 
 
 #endif
