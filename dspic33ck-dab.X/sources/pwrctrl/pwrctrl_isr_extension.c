@@ -223,6 +223,7 @@ void PwrCtrl_ControlLoopExecute(void)
         
         if(dab.PowerDirection == PWR_CTRL_CHARGING)
         { 
+//            static uint16_t OutP;
             VMC_2p2z.KfactorCoeffsB = 0x7FFF;
             VMC_2p2z.maxOutput =  0x7FFF;
 
@@ -230,18 +231,20 @@ void PwrCtrl_ControlLoopExecute(void)
             dab.VLoop.Feedback = vSecAveraging.AverageValue << 3;  
             dab.VLoop.Reference = (dab.VLoop.Reference << 3);
 
-            // Execute the Voltage Loop Control
-            XFT_SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,
-                    dab.VLoop.Reference, &dab.VLoop.Output);
+            // Execute the Voltage Loop Control OutP
+            XFT_SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,dab.VLoop.Reference, &dab.VLoop.Output);
+//            SMPS_ControllerPIDUpdate(&VMC_pid, &dab.VLoop.Feedback,dab.VLoop.Reference, &dab.VLoop.Output);
+            
+//            
+//            XFT_SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,dab.VLoop.Reference, &OutP);
+//            SMPS_ControllerPIDUpdate(&VMC_pid, &dab.VLoop.Feedback,dab.VLoop.Reference, &dab.VLoop.Output);
+        
         
             // Reset the Vloop reference to its original scaling
             dab.VLoop.Reference = (dab.VLoop.Reference >> 3);
             
             if(0)
             {    
-                //plant measurement K factor 4  
-//                dab.VLoop.Output = vPrimAveraging.AverageValue << 2; 
-//                dab.VLoop.Output = dab.VLoop.Reference << 2; 
                 if ((dab.VLoop.Reference + 100 )> vSecAveraging.AverageValue)
                 {
                    dab.VLoop.Output = 40 * (dab.VLoop.Reference - vSecAveraging.AverageValue);// << 2; 
@@ -250,7 +253,6 @@ void PwrCtrl_ControlLoopExecute(void)
                 {
                     dab.VLoop.Output = 0;
                 }
-
             }
             
             
@@ -275,9 +277,6 @@ void PwrCtrl_ControlLoopExecute(void)
             
             if(0)
             {    
-                //plant measurement K factor 4  
-//                dab.VLoop.Output = vPrimAveraging.AverageValue << 2; 
-//                dab.VLoop.Output = dab.VLoop.Reference << 2; 
                 if ((dab.VLoop.Reference + 100 )> vPrimAveraging.AverageValue)
                 {
                    dab.VLoop.Output = 40 * (dab.VLoop.Reference - vPrimAveraging.AverageValue);// << 2; 
@@ -334,6 +333,7 @@ void PwrCtrl_ControlLoopExecute(void)
         dab.ILoop.Feedback = dab.Data.ISecAverageRectified << 3;
         //adaptive gain factor
         IMC_2p2z.KfactorCoeffsB = dab.ILoop.AgcFactor;
+        IMC_2p2z_Rev.KfactorCoeffsB = dab.ILoop.AgcFactor;
         //refresh limits
         IMC_2p2z.maxOutput =  0x7FFF;
 
@@ -388,16 +388,16 @@ void PwrCtrl_ControlLoopExecute(void)
             // Basic clamping in rising direction, in case of  Iloop or Vloop overshoot during large load step. 
             if( dab.Data.ISecAverageRectified >  (dab.ILoop.Reference + ISEC_LOAD_STEP_CLAMP)) 
             {
-                 XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 0, &dab.ILoop.Output); //force I ref to 0
+                 XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z_Rev, &dab.ILoop.Feedback, 0, &dab.ILoop.Output); //force I ref to 0
             }
             else
                 if(vSecAveraging.AverageValue > (dab.VLoop.Reference + VSEC_LOAD_STEP_CLAMP))
                 {    
-                    XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, 0, &dab.ILoop.Output);//force I ref to 0
+                    XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z_Rev, &dab.ILoop.Feedback, 0, &dab.ILoop.Output);//force I ref to 0
                 }
                 else
                 {
-                    XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, ILoopReference, &dab.ILoop.Output);   
+                    XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z_Rev, &dab.ILoop.Feedback, ILoopReference, &dab.ILoop.Output);   
                 }   
             
             
@@ -407,9 +407,6 @@ void PwrCtrl_ControlLoopExecute(void)
         
             if(0)
             {    
-                //plant measurement K factor 4  
-//                dab.VLoop.Output = vPrimAveraging.AverageValue << 2; 
-//                dab.VLoop.Output = dab.VLoop.Reference << 2; 
                 if ((dab.ILoop.Reference + 10 )> dab.Data.ISecAverageRectified)
                 {
                    dab.ILoop.Output = 100 * (dab.ILoop.Reference - dab.Data.ISecAverageRectified);// << 2; 

@@ -4,10 +4,10 @@
   and includes system summary and digital compensator coefficients. This file
   should be included in the MPLAB X project directory.
 
-  File Name:     dab_spio_dcdt.h
-  Project Name:  dab_spio
+  File Name:     test1_dcdt.h
+  Project Name:  test1
   Date:          2/4/2025
-  Time:          19:37.35
+  Time:          12:21.45
 
   Software License Agreement
 
@@ -33,87 +33,83 @@
   CLAIMS BY THIRD PARTIES (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF),
   OR OTHER SIMILAR COSTS.
  **/
-#ifndef _DAB_SPIO_DCDT_DEFINES_H
-#define _DAB_SPIO_DCDT_DEFINES_H
+#ifndef _TEST1_DCDT_DEFINES_H
+#define _TEST1_DCDT_DEFINES_H
 
 /**
-  Compensator Type:  2P2Z
+  Compensator Type:  PID
       Entry                Value  
     ---------            ---------
-  Pole 0                 2.3730e+03 Hz
-  Pole 2                 6.5720e+03 Hz
-  Zero 1                 1.3990e+03 Hz
-  Gain(Kdc)              1.000
-  Warp                   false
-  PWM Frequency          1.0000e+05
+  Kp                     9.0000e-01
+  Ki                     2.0000e+01
+  Kd                     1.0000e-04
+  Kd                     1.0000e-04
+  Gain(Kdc)              1
+  PWM Frequency          3.0000e+05
   PWM Sampling Ratio     1
-  Sampling Frequency     1.0000e+05
-  PWM Max Resolution     2.5000e-10
-  Computational Delay    1.0000e-06
-  Gate Drive Delay       5.0000e-08
+  Sampling Frequency     3.0000e+05
+  PWM Max Resolution     1.0600e-09
+  Computational Delay    1.1000e-06
+  Gate Drive Delay       1.5000e-07
   Control Output Min.    0
   Control Output Max.    32767
-  Kuc Gain               5.3546e+01
+  Kuc Gain               1.0144e+01
   Use Kuc Gain           false
 
 
   PWM Calculations
       Name                Value  
     ---------           ---------
-  Bits of Resolution    15.288
-  Gain                  2.500e-05
+  Bits of Resolution    11.619
+  Gain                  3.181e-04
 
 
   s-domain transfer function
 
-               Wp0   Wp2(Wz1 + s)
-  H(s) = Kdc X --- X ------------
-                s    Wz1(Wp2 + s)
+               (             Ki )
+  H(s) = Kdc X (Kp + Kd(s) + ---)
+               (              s )
 
-                  1.49e+04   4.13e+04(8.79e+03 + s)
-  H(s) = 1.000 X -------- X ----------------------
-                     s       8.79e+03(4.13e+04 + s)
+                 (                         2.00e+01 )
+  H(s) = 1.000 X (9.00e-01 + 1.00e-04(s) + ---------)
+              (                                s    )
 
 
 
   Digital Compensator Coefficients
 
-  Name    Value     Normalized    Q15      Hex
-  ----    -----     ----------    ---      ---
-  a1      1.658     1.000         32764    0x7FFC
-  a2      -0.658    -0.397        -12999   0xCD39
-  b0      0.303     0.183         5989     0x1765
-  b1      0.026     0.015         504      0x01F8
-  b2      -0.278    -0.167        -5485    0xEA93
+  Name    Value      Normalized    Q15      Hex
+  ----    -----      ----------    ---      ---
+  Ka      30.900     0.507         16624    0x40F0
+  Kb      -60.900    -1.000        -32764   0x8004
+  Kc      30.000     0.493         16140    0x3F0C
 
 
   z-domain transfer function
 
-         u(z)  B0 + B1z^(-1) + B2z^(-2)
+         u(z)  KA + KBz^(-1) + KCz^(-2)
   H(z) = --- = ------------------------
-         e(z)  A0 - A1z^(-1) - A2z^(-2)
+         e(z)       1 - z^(-1)
 
-          (0.303) + (0.026)z^(-1) + (-0.278)z^(-2)
+          (30.900) + (-60.900)z^(-1) + (30.000)z^(-2)
   H(z) = ---------------------------------------------
-          1 - (1.658)z^(-1) - (-0.658)z^(-2)
+                        1 - z^(-1)
 
 **/
 
 
 // Compensator Coefficient Defines
-#define DAB_SPIO_COMP_2P2Z_COEFF_A1      0x7FFC
-#define DAB_SPIO_COMP_2P2Z_COEFF_A2      0xCD39
-#define DAB_SPIO_COMP_2P2Z_COEFF_B0      0x1765
-#define DAB_SPIO_COMP_2P2Z_COEFF_B1      0x01F8
-#define DAB_SPIO_COMP_2P2Z_COEFF_B2      0xEA93
-#define DAB_SPIO_COMP_2P2Z_POSTSCALER    0x6A1B
-#define DAB_SPIO_COMP_2P2Z_POSTSHIFT     0xFFFF
-#define DAB_SPIO_COMP_2P2Z_PRESHIFT      0x0000
+#define TEST1_COMP_PID_COEFF_KA      0x40F0
+#define TEST1_COMP_PID_COEFF_KB      0x8004
+#define TEST1_COMP_PID_COEFF_KC      0x3F0C
+#define TEST1_COMP_PID_POSTSCALER    0x79CF
+#define TEST1_COMP_PID_POSTSHIFT     0xFFFA
+#define TEST1_COMP_PID_PRESHIFT      0x0000
 
 
 // Compensator Clamp Limits
-#define DAB_SPIO_COMP_2P2Z_MIN_CLAMP    0x0000
-#define DAB_SPIO_COMP_2P2Z_MAX_CLAMP    0x7FFF
+#define TEST1_COMP_PID_MIN_CLAMP    0x0000
+#define TEST1_COMP_PID_MAX_CLAMP    0x7FFF
 
 
 #endif

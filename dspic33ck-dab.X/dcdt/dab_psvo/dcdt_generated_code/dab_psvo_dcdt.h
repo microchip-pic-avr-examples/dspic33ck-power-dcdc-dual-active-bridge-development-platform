@@ -6,8 +6,8 @@
 
   File Name:     dab_psvo_dcdt.h
   Project Name:  dab_psvo
-  Date:          1/27/2025
-  Time:          14:01.39
+  Date:          2/4/2025
+  Time:          17:17.08
 
   Software License Agreement
 
@@ -40,9 +40,9 @@
   Compensator Type:  2P2Z
       Entry                Value  
     ---------            ---------
-  Pole 0                 4.0000e+02 Hz
+  Pole 0                 8.0000e+01 Hz
   Pole 2                 4.0000e+03 Hz
-  Zero 1                 1.0000e+01 Hz
+  Zero 1                 1.2000e+01 Hz
   Gain(Kdc)              1.000
   Warp                   false
   PWM Frequency          1.0000e+04
@@ -53,7 +53,7 @@
   Gate Drive Delay       5.0000e-08
   Control Output Min.    0
   Control Output Max.    32767
-  Kuc Gain               1.3386e+02
+  Kuc Gain               5.3585e+02
   Use Kuc Gain           false
 
 
@@ -70,21 +70,21 @@
   H(s) = Kdc X --- X ------------
                 s    Wz1(Wp2 + s)
 
-                  2.51e+03   2.51e+04(6.28e+01 + s)
+                  5.03e+02   2.51e+04(7.54e+01 + s)
   H(s) = 1.000 X -------- X ----------------------
-                     s       6.28e+01(2.51e+04 + s)
+                     s       7.54e+01(2.51e+04 + s)
 
 
 
   Digital Compensator Coefficients
 
-  Name    Value      Normalized    Q15      Hex
-  ----    -----      ----------    ---      ---
-  a1      0.886      0.040         1299     0x0513
-  a2      0.114      0.005         166      0x00A6
-  b0      22.344     1.000         32764    0x7FFC
-  b1      0.140      0.006         205      0x00CD
-  b2      -22.205    -0.994        -32559   0x80D1
+  Name    Value     Normalized    Q15      Hex
+  ----    -----     ----------    ---      ---
+  a1      0.886     0.238         7792     0x1E70
+  a2      0.114     0.031         999      0x03E7
+  b0      3.726     1.000         32764    0x7FFC
+  b1      0.028     0.008         246      0x00F6
+  b2      -3.698    -0.992        -32518   0x80FA
 
 
   z-domain transfer function
@@ -93,27 +93,27 @@
   H(z) = --- = ------------------------
          e(z)  A0 - A1z^(-1) - A2z^(-2)
 
-          (22.344) + (0.140)z^(-1) + (-22.205)z^(-2)
+          (3.726) + (0.028)z^(-1) + (-3.698)z^(-2)
   H(z) = ---------------------------------------------
           1 - (0.886)z^(-1) - (0.114)z^(-2)
 
 **/
 
+
 // Compensator Coefficient Defines
-#define DAB_PSVO_COMP_2P2Z_COEFF_A1      0x0513
-#define DAB_PSVO_COMP_2P2Z_COEFF_A2      0x00A6
+#define DAB_PSVO_COMP_2P2Z_COEFF_A1      0x1E70
+#define DAB_PSVO_COMP_2P2Z_COEFF_A2      0x03E7
 #define DAB_PSVO_COMP_2P2Z_COEFF_B0      0x7FFC
-#define DAB_PSVO_COMP_2P2Z_COEFF_B1      0x00CD
-#define DAB_PSVO_COMP_2P2Z_COEFF_B2      0x80D1
-#define DAB_PSVO_COMP_2P2Z_POSTSCALER    0x5963
-#define DAB_PSVO_COMP_2P2Z_POSTSHIFT     0xFFFB
+#define DAB_PSVO_COMP_2P2Z_COEFF_B1      0x00F6
+#define DAB_PSVO_COMP_2P2Z_COEFF_B2      0x80FA
+#define DAB_PSVO_COMP_2P2Z_POSTSCALER    0x7741
+#define DAB_PSVO_COMP_2P2Z_POSTSHIFT     0xFFFE
 #define DAB_PSVO_COMP_2P2Z_PRESHIFT      0x0000
 
 
 // Compensator Clamp Limits
 #define DAB_PSVO_COMP_2P2Z_MIN_CLAMP    0x0000
 #define DAB_PSVO_COMP_2P2Z_MAX_CLAMP    0x7FFF
-
 
 
 #endif
