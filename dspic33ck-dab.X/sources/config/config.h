@@ -18,7 +18,6 @@
 
 #define ILOOP_K_TEST    false
 #define VLOOP_K_TEST    false
-#define LOOP_K_TEST     false
 
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
