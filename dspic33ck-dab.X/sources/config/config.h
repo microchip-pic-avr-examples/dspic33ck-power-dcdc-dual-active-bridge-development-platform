@@ -15,6 +15,11 @@
 #define DCDC400V_SYSTEM           0//true  ///< When true, operates the DAB with protection thresholds for 400V output
 #define DCDC800V_SYSTEM           1//false  ///< When true, operates the DAB with protection thresholds for 800V output
 #define ENABLE_VLOOP_AGC          false ///< This is an optional feature (not needed for battery application)
+
+#define ILOOP_K_TEST    false
+#define VLOOP_K_TEST    false
+#define PLOOP_K_TEST    false
+
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************

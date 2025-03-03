@@ -30,7 +30,8 @@
  **********************************************************************************/
 #define FIRMWARE_VERSION_MAJOR    (0x00)
 #define FIRMWARE_VERSION_MINOR    (0x01)
-#define FIRMWARE_VERSION_REVISION (0x0000)
+//#define FIRMWARE_VERSION_REVISION (0x0000)
+#define FIRMWARE_VERSION_REVISION (0x0002) //reverse/discharger mode implementation
 #define FIRMWARE_VERSION (uint32_t)(FIRMWARE_VERSION_MAJOR << 24)+ (uint32_t)(FIRMWARE_VERSION_MINOR<<16) + (uint32_t)(FIRMWARE_VERSION_REVISION)
 /*********************************************************************************
  * @ingroup apps-layer-properties-public-defines
@@ -43,7 +44,7 @@
  *  number REV.
  *  This string may be used to be displayed in terminal windows or LC displays.
  **********************************************************************************/
-#define FIRMWARE_VERSION_STRING "00.01.0000" 
+#define FIRMWARE_VERSION_STRING "00.01.0002" 
 /*********************************************************************************
  * @ingroup apps-layer-properties-public-defines
  * @brief   Start screen string of second line showing firmware name
