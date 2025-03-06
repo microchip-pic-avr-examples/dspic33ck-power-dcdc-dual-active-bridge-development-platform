@@ -360,7 +360,7 @@ void PwrCtrl_ControlLoopExecute(void)
 
                             dab.ILoop.Reference=10;
                             //dab.VLoop.Reference;
-                            dab.PLoop.Reference=10;        
+                            dab.PLoop.Reference=13;        
                         }   
 
             // Mixing stage from voltage loop 10KHz
