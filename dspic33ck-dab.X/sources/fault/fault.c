@@ -27,20 +27,6 @@ static void Fault_EnableShortCircuitProtection(void);
 
 bool loadDisconnect = false;
 
-
-//void CMP1_EventCallback(void)
-//{ 
-//   Fault_Handler();
-//   dab.Fault.Object.IPrimaryOCP.FaultActive=1;
-//} 
-//
-//void CMP3_EventCallback(void)
-//{ 
-//   Fault_Handler();
-//   dab.Fault.Object.IPrimaryOCP.FaultActive=1;
-//} 
-
-
 /*******************************************************************************
  * @ingroup fault
  * @brief  Handles the fault trip by turning off the power control switching
@@ -172,6 +158,10 @@ void Fault_Execute(void)
 //    }
     
 
+    //sometimes the comparator state changes back to 0 by the time it is read by fault controller code
+    //it is still captured inside PWM generator as fault signal.
+    //act on this signal if detected, as generic Short Circuit detection fault.
+    //PWM signals are already turned off by HW, so adjust SW flow accordingly
     if((PG1STATbits.FLTACT)||
         (PG2STATbits.FLTACT)||
             (PG3STATbits.FLTACT)||
@@ -187,6 +177,7 @@ void Fault_Execute(void)
     }
     
     
+    //check OC comparator and set fault signals if needed
     if(CMP3_StatusGet() )
     {
         Fault_Handler();
@@ -197,7 +188,7 @@ void Fault_Execute(void)
 
         faultCheck &= dab.Fault.Object.IPrimaryOCP.FaultActive;
     }
-    
+    //check OC comparator and set fault signals if needed
     if(CMP1_StatusGet())
     {
         Fault_Handler();
