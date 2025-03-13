@@ -27,6 +27,20 @@ static void Fault_EnableShortCircuitProtection(void);
 
 bool loadDisconnect = false;
 
+
+//void CMP1_EventCallback(void)
+//{ 
+//   Fault_Handler();
+//   dab.Fault.Object.IPrimaryOCP.FaultActive=1;
+//} 
+//
+//void CMP3_EventCallback(void)
+//{ 
+//   Fault_Handler();
+//   dab.Fault.Object.IPrimaryOCP.FaultActive=1;
+//} 
+
+
 /*******************************************************************************
  * @ingroup fault
  * @brief  Handles the fault trip by turning off the power control switching
@@ -146,8 +160,23 @@ void Fault_Execute(void)
     #endif  
     
     // Hardware short circuit
-    if(CMP1_StatusGet() || CMP3_StatusGet()){
-        
+//    if(CMP1_StatusGet() || CMP3_StatusGet()){
+//        
+//        Fault_Handler();
+//        
+//        // Set fault bits
+//        dab.Fault.Object.ISenseSCP.FaultActive = 1;
+//        dab.Fault.Object.ISenseSCP.FaultLatch = 1;
+//
+//        faultCheck &= dab.Fault.Object.ISenseSCP.FaultActive;
+//    }
+    
+
+    if((PG1STATbits.FLTACT)||
+        (PG2STATbits.FLTACT)||
+            (PG3STATbits.FLTACT)||
+            (PG4STATbits.FLTACT))
+    {
         Fault_Handler();
         
         // Set fault bits
@@ -155,6 +184,29 @@ void Fault_Execute(void)
         dab.Fault.Object.ISenseSCP.FaultLatch = 1;
 
         faultCheck &= dab.Fault.Object.ISenseSCP.FaultActive;
+    }
+    
+    
+    if(CMP3_StatusGet() )
+    {
+        Fault_Handler();
+        
+        // Set fault bits
+        dab.Fault.Object.IPrimaryOCP.FaultActive = 1;
+        dab.Fault.Object.IPrimaryOCP.FaultLatch = 1;
+
+        faultCheck &= dab.Fault.Object.IPrimaryOCP.FaultActive;
+    }
+    
+    if(CMP1_StatusGet())
+    {
+        Fault_Handler();
+        
+        // Set fault bits
+        dab.Fault.Object.ISecondaryOCP.FaultActive = 1;
+        dab.Fault.Object.ISecondaryOCP.FaultLatch = 1;
+
+        faultCheck &= dab.Fault.Object.ISecondaryOCP.FaultActive;
     }
     
     #if defined (LOAD_DISCONNECT) && (LOAD_DISCONNECT ==  true)

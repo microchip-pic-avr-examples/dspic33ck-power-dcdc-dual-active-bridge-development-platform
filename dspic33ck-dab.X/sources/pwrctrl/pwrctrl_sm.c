@@ -111,10 +111,11 @@ void PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
  *********************************************************************************/
 static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
 {
-    
+    PwrCtrl_Initialize();
+ 
     PwrCtrl_PWM_Disable();
-    
     PWM_Disable();
+ 
     
     #if defined (CURRENT_CALIBRATION) && (CURRENT_CALIBRATION == true)    
     // Execute current sensor offset calibration

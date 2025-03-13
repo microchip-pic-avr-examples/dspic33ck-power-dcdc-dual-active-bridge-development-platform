@@ -74,7 +74,6 @@ void CMP3_Initialize(void)
     DACCTRL2L = 0x55; //TMODTIME 85; 
     DAC3CONH = 0x0; //TMCB 0; 
     DAC3CONL = 0x8108; //HYSSEL None; HYSPOL Rising Edge; INSEL CMP3B; CMPPOL Non Inverted; FLTREN enabled; DACOEN disabled; CBE disabled; IRQM Interrupts are disabled; DACEN enabled; 
-
     //Slope Settings
     DAC3DATH = 0xF32; //DACDATH 3890; 
     DAC3DATL = 0xCD; //DACDATL 205; 

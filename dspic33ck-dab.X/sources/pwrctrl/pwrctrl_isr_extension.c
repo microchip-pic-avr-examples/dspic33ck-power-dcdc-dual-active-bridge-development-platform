@@ -206,6 +206,8 @@ void PwrCtrl_10KHzVPLoopPrepareData(void)
  *********************************************************************************/
 void PwrCtrl_ControlLoopExecute(void)
 {   
+    
+
     // Execute the Voltage Loop Control
     if((dab.VLoop.Enable == true) && (VLoopInterleaveExec == true))
     {     
@@ -271,6 +273,7 @@ void PwrCtrl_ControlLoopExecute(void)
             }
 #endif   
         }
+        dab.VLoop.Output = dab.VLoop.Output & 0x7FFF;
     }
 
 
@@ -301,6 +304,8 @@ void PwrCtrl_ControlLoopExecute(void)
             SMPS_Controller2P2ZUpdate(&PMC_2p2z_Rev, &dab.PLoop.Feedback,
                     dab.PLoop.Reference, &dab.PLoop.Output);
         }
+        
+        dab.PLoop.Output = dab.PLoop.Output & 0x7FFF;
     }
 
     // Execute the Current Loop Control
@@ -320,8 +325,7 @@ void PwrCtrl_ControlLoopExecute(void)
         if(dab.PowerDirection == PWR_CTRL_CHARGING)
         { 
             // Mixing stage from voltage loop 10KHz
-            uint32_t RefBuf = (uint32_t)(dab.ILoop.Reference) * 
-                    (uint32_t)(dab.VLoop.Output & 0x7FFF);
+            uint32_t RefBuf = (uint32_t)(dab.ILoop.Reference) * (uint32_t)(dab.VLoop.Output & 0x7FFF);
             uint16_t ILoopReference = (uint16_t)(RefBuf >> 12); 
 
             // Mixing stage from power loop 10KHz
@@ -340,7 +344,8 @@ void PwrCtrl_ControlLoopExecute(void)
                 }
                 else
                 {
-                    XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, ILoopReference, &dab.ILoop.Output);   
+                    XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, ILoopReference, &dab.ILoop.Output);  
+                    
                 }    
         }
         
@@ -364,8 +369,7 @@ void PwrCtrl_ControlLoopExecute(void)
                         }   
 
             // Mixing stage from voltage loop 10KHz
-            uint32_t RefBuf = (uint32_t)(dab.ILoop.Reference) * 
-                    (uint32_t)(dab.VLoop.Output & 0x7FFF);
+            uint32_t RefBuf = (uint32_t)(dab.ILoop.Reference) * (uint32_t)(dab.VLoop.Output & 0x7FFF);
             uint16_t ILoopReference = (uint16_t)(RefBuf >> 12); 
 
             // Mixing stage from power loop 10KHz
@@ -375,7 +379,7 @@ void PwrCtrl_ControlLoopExecute(void)
             // Basic clamping in rising direction, in case of  Iloop or Vloop overshoot during large load step. 
             if( dab.Data.ISecAverageRectified >  (dab.ILoop.Reference + ISEC_LOAD_STEP_CLAMP)) 
             {
-                 XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z_Rev, &dab.ILoop.Feedback, 0, &dab.ILoop.Output); //force I ref to 0
+                 XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z_Rev, &dab.ILoop.Feedback,0, &dab.ILoop.Output); //force I ref to 0
             }
             else
                 if(vPrimAveraging.AverageValue > (dab.VLoop.Reference +  VPRIM_LOAD_STEP_CLAMP  ))
@@ -400,6 +404,7 @@ void PwrCtrl_ControlLoopExecute(void)
                 }
             }
 #endif
+        dab.ILoop.Output = dab.ILoop.Output & 0x7FFF;
         
         // Control loop output copied to control phase
         dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle) * 
@@ -407,14 +412,15 @@ void PwrCtrl_ControlLoopExecute(void)
         dab.Pwm.ControlPhase += MIN_PHASE_SHIFTED_PULSE;//32;//dab.Pwm.DeadTimeLow;
         
         // Clamping value of control phase
-        if(dab.Pwm.ControlPhase > (dab.Pwm.ControlDutyCycle - MIN_PHASE_SHIFTED_PULSE))
-            dab.Pwm.ControlPhase = dab.Pwm.ControlDutyCycle - MIN_PHASE_SHIFTED_PULSE;
-//        // Clamping value of control phase
+        if(dab.Pwm.ControlPhase > (dab.Pwm.ControlDutyCycle - MAXIMUM_DEADTIME))//MIN_PHASE_SHIFTED_PULSE))
+            dab.Pwm.ControlPhase = dab.Pwm.ControlDutyCycle - MAXIMUM_DEADTIME;//MIN_PHASE_SHIFTED_PULSE;
+        
+////        // Clamping value of control phase
 //        else if(dab.Pwm.ControlPhase < dab.Pwm.DeadTimeLow) 
 //            dab.Pwm.ControlPhase = dab.Pwm.DeadTimeLow;  
          else if(dab.Pwm.ControlPhase < MIN_PHASE_SHIFTED_PULSE) 
             dab.Pwm.ControlPhase = MIN_PHASE_SHIFTED_PULSE;  
-        
+
         DPD_TP31_SetLow();//Test/dbg purpose only
     }
 }

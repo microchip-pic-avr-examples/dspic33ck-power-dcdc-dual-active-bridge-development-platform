@@ -207,7 +207,7 @@ static void PwrCtrl_StartUpInitialize(void)
     dab.IRamp.ptrReference = (uint16_t*)&dab.ILoop.Reference;
     dab.IRamp.ptrReferenceTarget = (uint16_t*)&dab.Properties.IReference;
     dab.IRamp.StepSize = 1;
-    dab.IRamp.Delay = 60;
+    dab.IRamp.Delay = 120;//60;
     dab.IRamp.Counter = 0;
     dab.IRamp.RampComplete = 0;
     
