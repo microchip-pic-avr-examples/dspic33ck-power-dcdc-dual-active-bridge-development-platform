@@ -119,14 +119,12 @@ void PwrCtrl_10KHzVPLoopPrepareData(void)
         // Averaging of Secondary Voltage
         vSecAveraging.AverageValue = (uint16_t)(__builtin_divud(vSecAveraging.Accumulator, vSecAveraging.Counter));
         vSecAveraging.Accumulator = 0;
-        vSecAveraging.Counter = 0;
-        
+        vSecAveraging.Counter = 0;  
         
         // Averaging of Primary Voltage
         vPrimAveraging.AverageValue = (uint16_t)(__builtin_divud(vPrimAveraging.Accumulator, vPrimAveraging.Counter));
         vPrimAveraging.Accumulator = 0;
         vPrimAveraging.Counter = 0;
-            
             
         #if(OPEN_LOOP_PBV == false)
         //Condition for control loop execution controlling the loop enable bit
@@ -188,7 +186,6 @@ void PwrCtrl_10KHzVPLoopPrepareData(void)
             // Transfer to SecPower data member the power computation in [Watts] 
             dab.Data.SecPower = buf;
         }
-        
         cnt = 0;
     }
 }
@@ -204,10 +201,33 @@ void PwrCtrl_10KHzVPLoopPrepareData(void)
  *  the current loop with interleaved execution while Iloop is executed every time 
  *  this function is called.  
  *********************************************************************************/
+
+
+/*******************************************************************************
+ *    In reverse mode of power flow, voltage sensor is not working reliably below 100V.  
+ *    In order to avoid possible voltage overshoot, checking needs to be done against a minimum voltage threshold 
+ *    When under voltage detected, makes it mandatory to ramp up reverse mode voltage very very slowly, without sensing
+ *    Until voltage readings become reliable, P and I references are forced to minimum safe values.
+ *    This achieves very slow ramp up of voltage across output capacitors.
+ *********************************************************************************/
+#define MIN_REFERENCE_THRESHOLD_IV (10)
+#define MIN_REFERENCE_THRESHOLD_P  (15)
+#define PIRM_MIN_VOLTAGE_55V       (250)
+#define PRIMARY_VOLTAGE_MODE_SENSOR_SAFE_CHECK() do { \
+    if (dab.Properties.IReference > MIN_REFERENCE_THRESHOLD_IV) \
+        if (dab.Properties.VPriReference > MIN_REFERENCE_THRESHOLD_IV) \
+            if (dab.Properties.PwrReference > MIN_REFERENCE_THRESHOLD_P) \
+                if (vPrimAveraging.AverageValue < PIRM_MIN_VOLTAGE_55V) { \
+                    dab.Properties.IReference = MIN_REFERENCE_THRESHOLD_IV; \
+                    dab.ILoop.Reference = MIN_REFERENCE_THRESHOLD_IV; \
+                    dab.Properties.PwrReference = MIN_REFERENCE_THRESHOLD_P; \
+                    dab.PLoop.Reference = MIN_REFERENCE_THRESHOLD_P; \
+                } \
+} while (0)
+
 void PwrCtrl_ControlLoopExecute(void)
 {   
     
-
     // Execute the Voltage Loop Control
     if((dab.VLoop.Enable == true) && (VLoopInterleaveExec == true))
     {     
@@ -222,26 +242,12 @@ void PwrCtrl_ControlLoopExecute(void)
             dab.VLoop.Feedback = vSecAveraging.AverageValue << 3;  
             dab.VLoop.Reference = (dab.VLoop.Reference << 3);
 
-            // Execute the Voltage Loop Control OutP
+            // Execute the Voltage Loop Control 
             XFT_SMPS_Controller2P2ZUpdate(&VMC_2p2z, &dab.VLoop.Feedback,dab.VLoop.Reference, &dab.VLoop.Output);
 
             // Reset the Vloop reference to its original scaling
-            dab.VLoop.Reference = (dab.VLoop.Reference >> 3);
-            
-#if VLOOP_K_TEST
-            {    
-                if ((dab.VLoop.Reference + 100 )> vSecAveraging.AverageValue)
-                {
-                    dab.VLoop.Output = 40 * (dab.VLoop.Reference - vSecAveraging.AverageValue);// << 2; 
-                }
-                else
-                {
-                    dab.VLoop.Output = 0;
-                }
-            }
-#endif        
+            dab.VLoop.Reference = (dab.VLoop.Reference >> 3); 
         }
-
         
         if(dab.PowerDirection == PWR_CTRL_DISCHARGING)
         { 
@@ -258,22 +264,7 @@ void PwrCtrl_ControlLoopExecute(void)
 
             // Reset the Vloop reference to its original scaling
             dab.VLoop.Reference = (dab.VLoop.Reference >> 3);
-            
-            
-#if VLOOP_K_TEST
-            {    
-                if ((dab.VLoop.Reference + 100 )> vPrimAveraging.AverageValue)
-                {
-                   dab.VLoop.Output = 40 * (dab.VLoop.Reference - vPrimAveraging.AverageValue);// << 2; 
-                }
-                else
-                {
-                    dab.VLoop.Output = 0;
-                }
-            }
-#endif   
         }
-        dab.VLoop.Output = dab.VLoop.Output & 0x7FFF;
     }
 
 
@@ -291,7 +282,6 @@ void PwrCtrl_ControlLoopExecute(void)
             SMPS_Controller2P2ZUpdate(&PMC_2p2z, &dab.PLoop.Feedback,
                     dab.PLoop.Reference, &dab.PLoop.Output);
         }
-        
 
         if(dab.PowerDirection == PWR_CTRL_DISCHARGING)
         {
@@ -304,8 +294,6 @@ void PwrCtrl_ControlLoopExecute(void)
             SMPS_Controller2P2ZUpdate(&PMC_2p2z_Rev, &dab.PLoop.Feedback,
                     dab.PLoop.Reference, &dab.PLoop.Output);
         }
-        
-        dab.PLoop.Output = dab.PLoop.Output & 0x7FFF;
     }
 
     // Execute the Current Loop Control
@@ -320,8 +308,6 @@ void PwrCtrl_ControlLoopExecute(void)
         //refresh limits
         IMC_2p2z.maxOutput =  0x7FFF;
 
-
-        
         if(dab.PowerDirection == PWR_CTRL_CHARGING)
         { 
             // Mixing stage from voltage loop 10KHz
@@ -345,29 +331,13 @@ void PwrCtrl_ControlLoopExecute(void)
                 else
                 {
                     XFT_SMPS_Controller2P2ZUpdate(&IMC_2p2z, &dab.ILoop.Feedback, ILoopReference, &dab.ILoop.Output);  
-                    
                 }    
         }
         
-
         if(dab.PowerDirection == PWR_CTRL_DISCHARGING)
         {
-            //in reverse mode, voltage sensor is not working below 100V.  
-            //in order to avoid possible voltage overshoot 
-            //This makes it mandatory to ramp up reverse mode voltage very very slowly, until readings become reliable
-             if(dab.Properties.IReference>10)
-                if( dab.Properties.VPriReference>10)
-                    if( dab.Properties.PwrReference>20)
-                        if(vPrimAveraging.AverageValue < 250)//prim side volt sense only above 100V. Can not used for regulating below 100V cause of aux power
-                        {
-                            dab.Properties.IReference = 10;//hard coded value until voltage sensor kicks in
-                            dab.Properties.PwrReference = 13;//hard coded value until voltage sensor kicks in
-
-                            dab.ILoop.Reference=10;
-                            //dab.VLoop.Reference;
-                            dab.PLoop.Reference=13;        
-                        }   
-
+            PRIMARY_VOLTAGE_MODE_SENSOR_SAFE_CHECK();
+            
             // Mixing stage from voltage loop 10KHz
             uint32_t RefBuf = (uint32_t)(dab.ILoop.Reference) * (uint32_t)(dab.VLoop.Output & 0x7FFF);
             uint16_t ILoopReference = (uint16_t)(RefBuf >> 12); 
@@ -392,32 +362,16 @@ void PwrCtrl_ControlLoopExecute(void)
                 }   
         }
         
-#if ILOOP_K_TEST
-            {    
-                if ((dab.ILoop.Reference + 10 )> dab.Data.ISecAverageRectified)
-                {
-                   dab.ILoop.Output = 100 * (dab.ILoop.Reference - dab.Data.ISecAverageRectified);// << 2; 
-                }
-                else//current overshoot, clip
-                {
-                    dab.ILoop.Output = 20;
-                }
-            }
-#endif
-        dab.ILoop.Output = dab.ILoop.Output & 0x7FFF;
-        
-        // Control loop output copied to control phase
+        // Control loop output mapped to control phase. Normalized to Duty Cycle value
         dab.Pwm.ControlPhase = (((uint32_t)(dab.Pwm.ControlDutyCycle) * 
                 (uint32_t)dab.ILoop.Output) >> 15); //range 0..180
-        dab.Pwm.ControlPhase += MIN_PHASE_SHIFTED_PULSE;//32;//dab.Pwm.DeadTimeLow;
+        dab.Pwm.ControlPhase += MIN_PHASE_SHIFTED_PULSE;
         
-        // Clamping value of control phase
+        // Clamping value of maximum control phase
         if(dab.Pwm.ControlPhase > (dab.Pwm.ControlDutyCycle - MAXIMUM_DEADTIME))//MIN_PHASE_SHIFTED_PULSE))
             dab.Pwm.ControlPhase = dab.Pwm.ControlDutyCycle - MAXIMUM_DEADTIME;//MIN_PHASE_SHIFTED_PULSE;
         
-////        // Clamping value of control phase
-//        else if(dab.Pwm.ControlPhase < dab.Pwm.DeadTimeLow) 
-//            dab.Pwm.ControlPhase = dab.Pwm.DeadTimeLow;  
+        // Clamping value of minimum control phase 
          else if(dab.Pwm.ControlPhase < MIN_PHASE_SHIFTED_PULSE) 
             dab.Pwm.ControlPhase = MIN_PHASE_SHIFTED_PULSE;  
 
@@ -448,21 +402,11 @@ static void PwrCtrl_AdaptiveGainUpdate(void)
                     __builtin_divud(AGC_VOLTAGE_FACTOR, DAB_PrimaryVoltage));
         else // AGC is not active
             dab.ILoop.AgcFactor = 0x7FFF;
-        
-              
-    #if(ENABLE_VLOOP_AGC == true)
-        if(dab.ILoop.Reference > AGC_MINIMUM_CURRENT_THRESHOLD)
-            dab.VLoop.AgcFactor = (int16_t) (0x7FFF & 
-                    __builtin_divud(AGC_CURRENT_FACTOR, dab.ILoop.Reference)); 
-        else // AGC is not active
-            dab.VLoop.AgcFactor = 0x7FFF;
-    #endif
     }
     
-    // Reserved for future Development
+    
     if(dab.PowerDirection == PWR_CTRL_DISCHARGING)
     { 
-        
         // Calculate the secondary voltage in terms of Volts
         uint16_t DAB_SecondaryVoltage = __builtin_divud((vSecAveraging.AverageValue * VSEC_SCALER), VSEC_FACTOR);
         
@@ -472,7 +416,6 @@ static void PwrCtrl_AdaptiveGainUpdate(void)
                     __builtin_divud(AGC_VOLTAGE_FACTOR_SEC, DAB_SecondaryVoltage));
         else // AGC is not active
             dab.ILoop.AgcFactor = 0x7FFF;
-        
     }
 }
 
