@@ -112,10 +112,8 @@ void PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
 static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
 {
     PwrCtrl_Initialize();//enforce reinit of all compensators variables to 0, avoid glitches at a new startup
- 
     PwrCtrl_PWM_Disable();
     PWM_Disable();
- 
     
     #if defined (CURRENT_CALIBRATION) && (CURRENT_CALIBRATION == true)    
     // Execute current sensor offset calibration
@@ -127,10 +125,7 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
     {
         // Current sensor calibration is complete. Update the offset of the current sensor
         pcInstance->Data.ISecSensorOffset = Dev_CurrentSensor_Get_Offset();
-        
-        // Ensure PWM output is disabled
-        //PwrCtrl_PWM_Disable();
-        
+   
         // Reset fault objects status bits
         Fault_Reset();
         

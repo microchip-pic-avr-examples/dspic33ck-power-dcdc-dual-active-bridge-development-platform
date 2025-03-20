@@ -173,6 +173,8 @@
 #define AGC_MINIMUM_CURRENT_THRESHOLD                   (UNITS_FROM_ENG_TO_ADC(AGC_MINIMUM_ISEC_THRESHOLD,ISEC_AVG_SNS_GAIN,0.0))
 #define AGC_CURRENT_FACTOR                      (uint32_t)(AGC_MINIMUM_CURRENT_THRESHOLD * pow(2.0, 15))
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
+        
+
 
 
 #endif	/* MACROS_H */
