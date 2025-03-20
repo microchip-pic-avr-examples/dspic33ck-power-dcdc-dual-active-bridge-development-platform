@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_fan.c Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_iso_voltage_sense.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,232 +136,172 @@ $(document).ready(function(){initNavTree('a00332_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">dev_fan.c</div></div>
+  <div class="headertitle"><div class="title">dev_iso_voltage_sense.c</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00332.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="a00335.html">dev_fan.h</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="a00353.html">dev_temp.h</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;config/macros.h&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">   21</a></span><a class="code hl_struct" href="a00673.html">FAN_DATA_t</a> <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="a00332.html#adaf3c18eacb83f7ffa95a34b90d5ad0d">   22</a></span><a class="code hl_struct" href="a00673.html">FAN_DATA_t</a>* <a class="code hl_variable" href="a00332.html#adaf3c18eacb83f7ffa95a34b90d5ad0d">devFanDataPtr</a> = &amp;<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="a00332.html#afd4e54e729c2947c072af93c0bac2524">   24</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="a00332.html#afd4e54e729c2947c072af93c0bac2524">FAN_SETTINGS_e</a> {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="a00332.html#afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd">   25</a></span>    <a class="code hl_enumvalue" href="a00332.html#afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd">NO_CHANGE</a>     = 0,</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="a00332.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">   26</a></span>    <a class="code hl_enumvalue" href="a00332.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">CHANGE_SPEED</a>  = 1,</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>};</div>
-</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="a00332.html#a659bfa45ad96d6e745795d58c6053a94">   28</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="a00332.html#afd4e54e729c2947c072af93c0bac2524">FAN_SETTINGS_e</a> <a class="code hl_typedef" href="a00332.html#a659bfa45ad96d6e745795d58c6053a94">FAN_SETTINGS_t</a>;</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * File:   dev_iso_voltage_sense.c</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Author: M70027</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Created on Jan 17, 2024, 13:30 PM</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;dev_iso_voltage_sense.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../sources/fault/fault_common.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><a class="code hl_struct" href="a00763.html">dev_iso_voltage_data_t</a>  dev_iso_voltage_data;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><a class="code hl_struct" href="a00763.html">dev_iso_voltage_data_t</a>* dev_iso_voltage_data_ptr = &amp;dev_iso_voltage_data;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">static</span> uint16_t interrupt_counter = 0;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="a00332.html#a8590bb5f278011ec7f33fd6b02e6ba93">   30</a></span><span class="keyword">static</span> <a class="code hl_typedef" href="a00332.html#a659bfa45ad96d6e745795d58c6053a94">FAN_SETTINGS_t</a> <a class="code hl_variable" href="a00332.html#a8590bb5f278011ec7f33fd6b02e6ba93">changeSpeed</a> = <a class="code hl_enumvalue" href="a00332.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">CHANGE_SPEED</a>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">//Private Function Call Prototypes</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">static</span> uint16_t <a class="code hl_function" href="a00535.html#ga3ba0ef09cbd1274a9c325fc04cab411d">Convert_From_Percentage</a> (uint8_t percentage);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">static</span> uint8_t <a class="code hl_function" href="a00332.html#a1adc887cf6c46c0eed096f1e8d203cae">Convert_From_Raw</a>(uint16_t raw);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00535.html#ga0d2b426f7411623a821415f02956aac8">Override_Speed</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00535.html#ga66c5db181798514534d7f97b622ca35e">Calculate_Speed</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00535.html#gad7e38e334c2209a2a296bf3f573fed78">Update_Speed</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><a class="code hl_struct" href="a00679.html">FAULT_OBJ_T</a> Vin_Fault_Min;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="a00535.html#gad4274efc956bcca058565b186c2fd1a0">   49</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00535.html#gad4274efc956bcca058565b186c2fd1a0">Dev_Fan_Initialize</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ad5d31528415a4ed9cf81ebfd785128c2">CurrentSpeedPercent</a> = 0 ;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ad26b627b999dd76f16aa4a9e36470c91">TargetSpeedPercent</a> = <a class="code hl_define" href="a00335.html#ab079ea0e55d954b22bad8e72f8bf5416">INIT_SPEED_PERCENT</a>;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ad407e9ccc871b7dc9cca12bde19c730d">MaxSpeedPercent</a> = <a class="code hl_define" href="a00335.html#aaf9063e8b26414fdf46b844a1b8a8a88">MAX_SPEED_PERCENT</a>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a4c53383b26fe25c1a65efe0e9b6ed9cf">Tick</a> = 5 ;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a6ea3b4a0033803dc206c7e104ab29ca8">StepSizePercent</a> = <a class="code hl_define" href="a00335.html#a47024204d8ea2cdcc3154f63677b3832">STEP_SIZE</a> ;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ac2a920307a7df3fdd9d9ef56b0fbac82">TargetSpeedRaw</a> = 0 ;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a> = 0 ;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a17841407278bd546565d170f7b6e9e78">MaxSpeedRaw</a> = <a class="code hl_function" href="a00535.html#ga3ba0ef09cbd1274a9c325fc04cab411d">Convert_From_Percentage</a>(<a class="code hl_define" href="a00335.html#aaf9063e8b26414fdf46b844a1b8a8a88">MAX_SPEED_PERCENT</a>);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">//dev_fan_data.hystersis_raw = Convert_From_Percentage(HYSTERESIS);</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a4f9053371e35277861b7403cd46b0d98">OverrideFlag</a> = 0 ;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
-</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="a00535.html#ga1bd7dce99469a41bbb705d939ea512ad">   76</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00535.html#ga1bd7dce99469a41bbb705d939ea512ad">Dev_Fan_Task_100ms</a>(<span class="keywordtype">void</span>) </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>{</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keyword">static</span> uint8_t currentTickCount;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>   </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a4f9053371e35277861b7403cd46b0d98">OverrideFlag</a> == 1) </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_variable" href="a00332.html#a8590bb5f278011ec7f33fd6b02e6ba93">changeSpeed</a> = <a class="code hl_enumvalue" href="a00332.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">CHANGE_SPEED</a>;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <a class="code hl_function" href="a00535.html#ga0d2b426f7411623a821415f02956aac8">Override_Speed</a>();</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <a class="code hl_function" href="a00535.html#ga66c5db181798514534d7f97b622ca35e">Calculate_Speed</a>();</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_function" href="a00535.html#gad7e38e334c2209a2a296bf3f573fed78">Update_Speed</a>();     </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    }</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (++currentTickCount &gt;= <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a4c53383b26fe25c1a65efe0e9b6ed9cf">Tick</a>) </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    {</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <a class="code hl_function" href="a00535.html#ga66c5db181798514534d7f97b622ca35e">Calculate_Speed</a>();</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <a class="code hl_function" href="a00535.html#gad7e38e334c2209a2a296bf3f573fed78">Update_Speed</a>();</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        currentTickCount = 0;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><a class="code hl_struct" href="a00679.html">FAULT_OBJ_T</a> Vin_Fault_Max;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">void</span> Dev_Iso_Voltage_Sens_Callback(<span class="keywordtype">void</span>);   </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">void</span> Dev_Iso_Voltage_Sens_Calculate_Average(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>uint16_t Iso_Calculate_Average(uint16_t * buffer, uint16_t length);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">void</span> default_faultcallback_max(<a class="code hl_struct" href="a00679.html">FAULT_OBJ_T</a>* faultInput); </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">void</span> default_faultcallback_min(<a class="code hl_struct" href="a00679.html">FAULT_OBJ_T</a>* faultInput);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keywordtype">void</span> Dev_Iso_Voltage_Sens_Init(){</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    dev_iso_voltage_data.over_voltage_flag = 0;          </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    dev_iso_voltage_data.under_voltage_flag = 0;         </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    dev_iso_voltage_data.no_signal_flag = 0;             </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    dev_iso_voltage_data.buffer_full = 0;                </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    dev_iso_voltage_data.voltage_buffer_idx = 0;         </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_function" href="a00546.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            &amp;Vin_Fault_Min,                             </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            UV_THRESHOLD_RAW,                           </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            UV_LOWER_THRESHOLD_WITH_HYST,               </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            FAULT_PERSISTENCE_COUNT,                    </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            FAULT_PERSISTENCE_COUNT                     </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            ) ; </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_function" href="a00546.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a>(</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            &amp;Vin_Fault_Max, </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            OV_THRESHOLD_RAW,               </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            OV_UPPER_THRESHOLD_WITH_HYST,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            FAULT_PERSISTENCE_COUNT,</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            FAULT_PERSISTENCE_COUNT ) ;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    InputCapture_CallbackRegister(Dev_Iso_Voltage_Sens_Callback);</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
-</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="a00535.html#gafd7dde7baca2e1dd3a745bf5f8258da7">  110</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00535.html#gafd7dde7baca2e1dd3a745bf5f8258da7">Dev_Fan_Task_1s</a>(<span class="keywordtype">void</span>) </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>{</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keyword">static</span> uint8_t fanSpeedPercent = 0;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    uint16_t TCelsiusNTC = <a class="code hl_function" href="a00537.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a>();<span class="comment">//</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordflow">if</span>(TCelsiusNTC &gt; <a class="code hl_define" href="a00521.html#ga3aa6d37a535571959d177257ff529478">H_TEMPERATURE_THRESHOLD</a>){</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        fanSpeedPercent += 2;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="comment">// Fan speed maximum clamping value</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordflow">if</span>(fanSpeedPercent &gt;= <a class="code hl_define" href="a00335.html#aaf9063e8b26414fdf46b844a1b8a8a88">MAX_SPEED_PERCENT</a>){</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            fanSpeedPercent = <a class="code hl_define" href="a00335.html#aaf9063e8b26414fdf46b844a1b8a8a88">MAX_SPEED_PERCENT</a>;</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        }</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">else</span>{}</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    }</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(TCelsiusNTC &lt; <a class="code hl_define" href="a00521.html#ga138123533833c44398978f96b0f31764">L_TEMPERATURE_THRESHOLD</a>){</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        fanSpeedPercent -= 2;</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="comment">// Fan speed minimum clamping value</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">if</span>(fanSpeedPercent &lt;= 10){</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            fanSpeedPercent = 10;<span class="comment">//hw request to have a minimum load on auxiliary supply</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        } </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">else</span>{}</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    }</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordflow">else</span>{}</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <a class="code hl_function" href="a00535.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a>(fanSpeedPercent);</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}        </div>
-</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="a00535.html#gabf5c734c9834b070c4adf1af69e9f048">  145</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00535.html#gabf5c734c9834b070c4adf1af69e9f048">Dev_Fan_Set_Override</a>(<span class="keywordtype">void</span>) </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>{</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a4f9053371e35277861b7403cd46b0d98">OverrideFlag</a> = 1;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <a class="code hl_function" href="a00535.html#ga0d2b426f7411623a821415f02956aac8">Override_Speed</a>();</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>}</div>
-</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="foldopen" id="foldopen00159" data-start="{" data-end="}">
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="a00535.html#ga5cfd61659ae6b17ad25e51bfc211723b">  159</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00535.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a>(uint8_t target_speed_percent) </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>{</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordflow">if</span> (target_speed_percent &lt;= <a class="code hl_define" href="a00335.html#aaf9063e8b26414fdf46b844a1b8a8a88">MAX_SPEED_PERCENT</a>)</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    {</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ad26b627b999dd76f16aa4a9e36470c91">TargetSpeedPercent</a> = target_speed_percent;</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    }</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>}</div>
-</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
-<div class="foldopen" id="foldopen00175" data-start="{" data-end="}">
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="a00535.html#ga3ba0ef09cbd1274a9c325fc04cab411d">  175</a></span><span class="keyword">static</span> uint16_t <a class="code hl_function" href="a00535.html#ga3ba0ef09cbd1274a9c325fc04cab411d">Convert_From_Percentage</a>(uint8_t percentage_value) </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>{</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keywordflow">return</span> (percentage_value * <a class="code hl_define" href="a00335.html#ab7ffb5a0ee7b15aecd0b32e84b93e2ee">MULTIPLIER</a>) ;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>}</div>
-</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keywordtype">void</span> Dev_Iso_Voltage_Task_1ms(<span class="keywordtype">void</span>) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordflow">if</span> (interrupt_counter &lt; INTERRUPT_COUNTS_MIN || interrupt_counter &gt; INTERRUPT_COUNTS_MAX)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        dev_iso_voltage_data.no_signal_flag = 1;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordflow">else</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        dev_iso_voltage_data.no_signal_flag = 0;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    interrupt_counter = 0;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="comment">//GPIO_1_Toggle();</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keywordtype">void</span> Dev_Reset_Average_Buffer() {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    dev_iso_voltage_data.voltage_buffer_idx  = 0;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    dev_iso_voltage_data.buffer_full = 0;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>uint16_t Dev_Get_Iso_Voltage_avg(<span class="keywordtype">void</span>) </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>{</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordflow">if</span> (dev_iso_voltage_data.buffer_full)</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keywordflow">return</span> Iso_Calculate_Average(dev_iso_voltage_data.voltage_buffer, MAX_NUM_SAMPLES_ISO_BUFFER);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordflow">else</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>}</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>uint16_t Dev_Get_Iso_Voltage(<span class="keywordtype">void</span>) </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>{</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordflow">return</span> dev_iso_voltage_data.voltage_raw; </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>}</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>uint8_t Dev_Iso_Voltage_Is_OV(<span class="keywordtype">void</span>) </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>{</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">return</span> dev_iso_voltage_data.over_voltage_flag; </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>}</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>uint8_t Dev_Iso_Voltage_Is_UV(<span class="keywordtype">void</span>) </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>{</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">return</span> dev_iso_voltage_data.under_voltage_flag; </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>}</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="foldopen" id="foldopen00187" data-start="{" data-end="}">
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="a00535.html#ga0d2b426f7411623a821415f02956aac8">  187</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00535.html#ga0d2b426f7411623a821415f02956aac8">Override_Speed</a>(<span class="keywordtype">void</span>) </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>{</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ad26b627b999dd76f16aa4a9e36470c91">TargetSpeedPercent</a> = <a class="code hl_define" href="a00335.html#aaf9063e8b26414fdf46b844a1b8a8a88">MAX_SPEED_PERCENT</a>;</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a4c53383b26fe25c1a65efe0e9b6ed9cf">Tick</a> = <a class="code hl_define" href="a00335.html#a0131e7060ad24ede5f578cfd8afb841b">MIN_TICK</a>;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>}</div>
-</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
-<div class="foldopen" id="foldopen00200" data-start="{" data-end="}">
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="a00535.html#ga66c5db181798514534d7f97b622ca35e">  200</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00535.html#ga66c5db181798514534d7f97b622ca35e">Calculate_Speed</a>(<span class="keywordtype">void</span>) </div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>{</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ad26b627b999dd76f16aa4a9e36470c91">TargetSpeedPercent</a> -= (<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ad26b627b999dd76f16aa4a9e36470c91">TargetSpeedPercent</a> % <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a6ea3b4a0033803dc206c7e104ab29ca8">StepSizePercent</a>);</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ac2a920307a7df3fdd9d9ef56b0fbac82">TargetSpeedRaw</a> = <a class="code hl_function" href="a00535.html#ga3ba0ef09cbd1274a9c325fc04cab411d">Convert_From_Percentage</a>(<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ad26b627b999dd76f16aa4a9e36470c91">TargetSpeedPercent</a>);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="keywordtype">void</span> Dev_Iso_Voltage_Sens_Callback() {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    uint8_t i = 0;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keyword">static</span> uint16_t vdd_sens_buff[CCP_INPUT_CAPTURE_BUFFER];</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a> &gt; (<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ac2a920307a7df3fdd9d9ef56b0fbac82">TargetSpeedRaw</a> ))</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">if</span> (InputCapture_bufferoverflow)</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    {</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a> -= <a class="code hl_function" href="a00535.html#ga3ba0ef09cbd1274a9c325fc04cab411d">Convert_From_Percentage</a>(<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a6ea3b4a0033803dc206c7e104ab29ca8">StepSizePercent</a>); </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <a class="code hl_variable" href="a00332.html#a8590bb5f278011ec7f33fd6b02e6ba93">changeSpeed</a> = <a class="code hl_enumvalue" href="a00332.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">CHANGE_SPEED</a>;</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    }</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a> &lt; (<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ac2a920307a7df3fdd9d9ef56b0fbac82">TargetSpeedRaw</a> )) </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    {</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a> += <a class="code hl_function" href="a00535.html#ga3ba0ef09cbd1274a9c325fc04cab411d">Convert_From_Percentage</a>(<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a6ea3b4a0033803dc206c7e104ab29ca8">StepSizePercent</a>) ;</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <a class="code hl_variable" href="a00332.html#a8590bb5f278011ec7f33fd6b02e6ba93">changeSpeed</a> = <a class="code hl_enumvalue" href="a00332.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">CHANGE_SPEED</a>;</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    } </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keywordflow">else</span> </div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    {</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        <a class="code hl_variable" href="a00332.html#a8590bb5f278011ec7f33fd6b02e6ba93">changeSpeed</a> = <a class="code hl_enumvalue" href="a00332.html#afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd">NO_CHANGE</a>;</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    }</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>} </div>
-</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
-<div class="foldopen" id="foldopen00230" data-start="{" data-end="}">
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="a00535.html#gad7e38e334c2209a2a296bf3f573fed78">  230</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00535.html#gad7e38e334c2209a2a296bf3f573fed78">Update_Speed</a>(<span class="keywordtype">void</span>) </div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>{</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00332.html#a8590bb5f278011ec7f33fd6b02e6ba93">changeSpeed</a> != <a class="code hl_enumvalue" href="a00332.html#afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd">NO_CHANGE</a>)</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        i = 0;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <span class="keywordflow">while</span> ((!InputCapture_BufferEmpty) || (i &lt; CCP_INPUT_CAPTURE_BUFFER)) </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        {</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>            vdd_sens_buff[i++] = CCP_BUF_L;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        }</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        dev_iso_voltage_data.voltage_raw = vdd_sens_buff[2] - vdd_sens_buff[1];</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        dev_iso_voltage_data.voltage_buffer[dev_iso_voltage_data.voltage_buffer_idx++] = dev_iso_voltage_data.voltage_raw ;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        CCP_TIMER_HIGH_REG = 0;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        CCP_TIMER_LOW_REG = 0;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    }</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    CCP_INTERRUPT_FLAG = 0;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    interrupt_counter++ ;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordflow">if</span> (dev_iso_voltage_data.voltage_buffer_idx &gt;= (MAX_NUM_SAMPLES_ISO_BUFFER - 1))  {      </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        dev_iso_voltage_data.voltage_buffer_idx = 0;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>       dev_iso_voltage_data.buffer_full = 1;    </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    }</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="a00546.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a>(&amp;Vin_Fault_Max, dev_iso_voltage_data.voltage_raw, NULL ))</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    {</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        dev_iso_voltage_data.over_voltage_flag = 1; <span class="comment">//for overvoltage</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    }</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    {</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a> &gt; <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a17841407278bd546565d170f7b6e9e78">MaxSpeedRaw</a>)</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        {</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>            <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a> = <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a17841407278bd546565d170f7b6e9e78">MaxSpeedRaw</a>;</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        }</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <a class="code hl_define" href="a00561.html#ga6fd80147a13bd06bc84ebb98308e207f">FAN_PWM_DutyCycleSet</a>(<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a>);</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        <a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#ad5d31528415a4ed9cf81ebfd785128c2">CurrentSpeedPercent</a> = <a class="code hl_function" href="a00332.html#a1adc887cf6c46c0eed096f1e8d203cae">Convert_From_Raw</a>(<a class="code hl_variable" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a>.<a class="code hl_variable" href="a00673.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a>);</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    }</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>}</div>
-</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
-<div class="foldopen" id="foldopen00251" data-start="{" data-end="}">
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="a00332.html#a1adc887cf6c46c0eed096f1e8d203cae">  251</a></span><span class="keyword">static</span> uint8_t <a class="code hl_function" href="a00332.html#a1adc887cf6c46c0eed096f1e8d203cae">Convert_From_Raw</a>(uint16_t raw) </div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>{</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="keywordflow">return</span> ( raw * 0.02 );  <span class="comment">//TODO: recalculate math</span></div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>}</div>
-</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
-<div class="ttc" id="aa00332_html_a1adc887cf6c46c0eed096f1e8d203cae"><div class="ttname"><a href="a00332.html#a1adc887cf6c46c0eed096f1e8d203cae">Convert_From_Raw</a></div><div class="ttdeci">static uint8_t Convert_From_Raw(uint16_t raw)</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00251">dev_fan.c:251</a></div></div>
-<div class="ttc" id="aa00332_html_a659bfa45ad96d6e745795d58c6053a94"><div class="ttname"><a href="a00332.html#a659bfa45ad96d6e745795d58c6053a94">FAN_SETTINGS_t</a></div><div class="ttdeci">enum FAN_SETTINGS_e FAN_SETTINGS_t</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00028">dev_fan.c:28</a></div></div>
-<div class="ttc" id="aa00332_html_a8590bb5f278011ec7f33fd6b02e6ba93"><div class="ttname"><a href="a00332.html#a8590bb5f278011ec7f33fd6b02e6ba93">changeSpeed</a></div><div class="ttdeci">static FAN_SETTINGS_t changeSpeed</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00030">dev_fan.c:30</a></div></div>
-<div class="ttc" id="aa00332_html_adaf3c18eacb83f7ffa95a34b90d5ad0d"><div class="ttname"><a href="a00332.html#adaf3c18eacb83f7ffa95a34b90d5ad0d">devFanDataPtr</a></div><div class="ttdeci">FAN_DATA_t * devFanDataPtr</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00022">dev_fan.c:22</a></div></div>
-<div class="ttc" id="aa00332_html_afd4e54e729c2947c072af93c0bac2524"><div class="ttname"><a href="a00332.html#afd4e54e729c2947c072af93c0bac2524">FAN_SETTINGS_e</a></div><div class="ttdeci">FAN_SETTINGS_e</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00024">dev_fan.c:24</a></div></div>
-<div class="ttc" id="aa00332_html_afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd"><div class="ttname"><a href="a00332.html#afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd">NO_CHANGE</a></div><div class="ttdeci">@ NO_CHANGE</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00025">dev_fan.c:25</a></div></div>
-<div class="ttc" id="aa00332_html_afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc"><div class="ttname"><a href="a00332.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">CHANGE_SPEED</a></div><div class="ttdeci">@ CHANGE_SPEED</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00026">dev_fan.c:26</a></div></div>
-<div class="ttc" id="aa00335_html"><div class="ttname"><a href="a00335.html">dev_fan.h</a></div><div class="ttdoc">fan device driver</div></div>
-<div class="ttc" id="aa00335_html_a0131e7060ad24ede5f578cfd8afb841b"><div class="ttname"><a href="a00335.html#a0131e7060ad24ede5f578cfd8afb841b">MIN_TICK</a></div><div class="ttdeci">#define MIN_TICK</div><div class="ttdoc">fastest possible tick. needed for override flag.</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00041">dev_fan.h:41</a></div></div>
-<div class="ttc" id="aa00335_html_a47024204d8ea2cdcc3154f63677b3832"><div class="ttname"><a href="a00335.html#a47024204d8ea2cdcc3154f63677b3832">STEP_SIZE</a></div><div class="ttdeci">#define STEP_SIZE</div><div class="ttdoc">in percent. needed for overide flag.</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00042">dev_fan.h:42</a></div></div>
-<div class="ttc" id="aa00335_html_aaf9063e8b26414fdf46b844a1b8a8a88"><div class="ttname"><a href="a00335.html#aaf9063e8b26414fdf46b844a1b8a8a88">MAX_SPEED_PERCENT</a></div><div class="ttdeci">#define MAX_SPEED_PERCENT</div><div class="ttdoc">macros defining the speed limits</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00039">dev_fan.h:39</a></div></div>
-<div class="ttc" id="aa00335_html_ab079ea0e55d954b22bad8e72f8bf5416"><div class="ttname"><a href="a00335.html#ab079ea0e55d954b22bad8e72f8bf5416">INIT_SPEED_PERCENT</a></div><div class="ttdeci">#define INIT_SPEED_PERCENT</div><div class="ttdoc">intial start fan value</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00040">dev_fan.h:40</a></div></div>
-<div class="ttc" id="aa00335_html_ab7ffb5a0ee7b15aecd0b32e84b93e2ee"><div class="ttname"><a href="a00335.html#ab7ffb5a0ee7b15aecd0b32e84b93e2ee">MULTIPLIER</a></div><div class="ttdeci">#define MULTIPLIER</div><div class="ttdoc">These have to be renamed to make the fan device driver abstract.</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00030">dev_fan.h:30</a></div></div>
-<div class="ttc" id="aa00353_html"><div class="ttname"><a href="a00353.html">dev_temp.h</a></div><div class="ttdoc">Contains temperature initialization and execution functions.</div></div>
-<div class="ttc" id="aa00521_html_ga138123533833c44398978f96b0f31764"><div class="ttname"><a href="a00521.html#ga138123533833c44398978f96b0f31764">L_TEMPERATURE_THRESHOLD</a></div><div class="ttdeci">#define L_TEMPERATURE_THRESHOLD</div><div class="ttdef"><b>Definition</b> <a href="a00314_source.html#l00159">macros.h:159</a></div></div>
-<div class="ttc" id="aa00521_html_ga3aa6d37a535571959d177257ff529478"><div class="ttname"><a href="a00521.html#ga3aa6d37a535571959d177257ff529478">H_TEMPERATURE_THRESHOLD</a></div><div class="ttdeci">#define H_TEMPERATURE_THRESHOLD</div><div class="ttdef"><b>Definition</b> <a href="a00314_source.html#l00160">macros.h:160</a></div></div>
-<div class="ttc" id="aa00535_html_ga0d2b426f7411623a821415f02956aac8"><div class="ttname"><a href="a00535.html#ga0d2b426f7411623a821415f02956aac8">Override_Speed</a></div><div class="ttdeci">static void Override_Speed(void)</div><div class="ttdoc">Override the fan speed with maximum speed.</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00187">dev_fan.c:187</a></div></div>
-<div class="ttc" id="aa00535_html_ga1bd7dce99469a41bbb705d939ea512ad"><div class="ttname"><a href="a00535.html#ga1bd7dce99469a41bbb705d939ea512ad">Dev_Fan_Task_100ms</a></div><div class="ttdeci">void Dev_Fan_Task_100ms(void)</div><div class="ttdoc">this function needs to be called every 100ms it contains the code to update the status of the fan</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00076">dev_fan.c:76</a></div></div>
-<div class="ttc" id="aa00535_html_ga3ba0ef09cbd1274a9c325fc04cab411d"><div class="ttname"><a href="a00535.html#ga3ba0ef09cbd1274a9c325fc04cab411d">Convert_From_Percentage</a></div><div class="ttdeci">static uint16_t Convert_From_Percentage(uint8_t percentage)</div><div class="ttdoc">Converts the percentage value to number of ticks.</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00175">dev_fan.c:175</a></div></div>
-<div class="ttc" id="aa00535_html_ga52debd393de750722aca541b24b1bc6d"><div class="ttname"><a href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a></div><div class="ttdeci">FAN_DATA_t devFanData</div><div class="ttdoc">Data Object of fan.</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00021">dev_fan.c:21</a></div></div>
-<div class="ttc" id="aa00535_html_ga5cfd61659ae6b17ad25e51bfc211723b"><div class="ttname"><a href="a00535.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a></div><div class="ttdeci">void Dev_Fan_Set_Speed(uint8_t target_speed_percent)</div><div class="ttdoc">Sets the fan speed.</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00159">dev_fan.c:159</a></div></div>
-<div class="ttc" id="aa00535_html_ga66c5db181798514534d7f97b622ca35e"><div class="ttname"><a href="a00535.html#ga66c5db181798514534d7f97b622ca35e">Calculate_Speed</a></div><div class="ttdeci">static void Calculate_Speed(void)</div><div class="ttdoc">Calculates the fan speed.</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00200">dev_fan.c:200</a></div></div>
-<div class="ttc" id="aa00535_html_gabf5c734c9834b070c4adf1af69e9f048"><div class="ttname"><a href="a00535.html#gabf5c734c9834b070c4adf1af69e9f048">Dev_Fan_Set_Override</a></div><div class="ttdeci">void Dev_Fan_Set_Override(void)</div><div class="ttdoc">Sets the fan override bit and the fan speed.</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00145">dev_fan.c:145</a></div></div>
-<div class="ttc" id="aa00535_html_gad4274efc956bcca058565b186c2fd1a0"><div class="ttname"><a href="a00535.html#gad4274efc956bcca058565b186c2fd1a0">Dev_Fan_Initialize</a></div><div class="ttdeci">void Dev_Fan_Initialize(void)</div><div class="ttdoc">This function initializes the fan object.</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00049">dev_fan.c:49</a></div></div>
-<div class="ttc" id="aa00535_html_gad7e38e334c2209a2a296bf3f573fed78"><div class="ttname"><a href="a00535.html#gad7e38e334c2209a2a296bf3f573fed78">Update_Speed</a></div><div class="ttdeci">static void Update_Speed(void)</div><div class="ttdoc">Update the fan speed.</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00230">dev_fan.c:230</a></div></div>
-<div class="ttc" id="aa00535_html_gafd7dde7baca2e1dd3a745bf5f8258da7"><div class="ttname"><a href="a00535.html#gafd7dde7baca2e1dd3a745bf5f8258da7">Dev_Fan_Task_1s</a></div><div class="ttdeci">void Dev_Fan_Task_1s(void)</div><div class="ttdoc">This function needs to be called every 1s to keep the temperature of the board at a certain temperatu...</div><div class="ttdef"><b>Definition</b> <a href="a00332_source.html#l00110">dev_fan.c:110</a></div></div>
-<div class="ttc" id="aa00537_html_gac9618e1ca87e77920c94cdfdcc80321a"><div class="ttname"><a href="a00537.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a></div><div class="ttdeci">int8_t Dev_Temp_Get_Temperature_Celcius(void)</div><div class="ttdoc">This converts the raw values to temperature celcius as per device lookup table.</div><div class="ttdef"><b>Definition</b> <a href="a00350_source.html#l00087">dev_temp.c:87</a></div></div>
-<div class="ttc" id="aa00561_html_ga6fd80147a13bd06bc84ebb98308e207f"><div class="ttname"><a href="a00561.html#ga6fd80147a13bd06bc84ebb98308e207f">FAN_PWM_DutyCycleSet</a></div><div class="ttdeci">#define FAN_PWM_DutyCycleSet</div><div class="ttdoc">This macro defines the Custom Name for SCCP3_PWM_DutyCycleSet API.</div><div class="ttdef"><b>Definition</b> <a href="a00167_source.html#l00090">sccp3.h:90</a></div></div>
-<div class="ttc" id="aa00673_html"><div class="ttname"><a href="a00673.html">FAN_DATA_s</a></div><div class="ttdoc">A custom data type for fan.</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00050">dev_fan.h:50</a></div></div>
-<div class="ttc" id="aa00673_html_a17841407278bd546565d170f7b6e9e78"><div class="ttname"><a href="a00673.html#a17841407278bd546565d170f7b6e9e78">FAN_DATA_s::MaxSpeedRaw</a></div><div class="ttdeci">uint16_t MaxSpeedRaw</div><div class="ttdoc">based on period value (CCXPRL).</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00058">dev_fan.h:58</a></div></div>
-<div class="ttc" id="aa00673_html_a4c53383b26fe25c1a65efe0e9b6ed9cf"><div class="ttname"><a href="a00673.html#a4c53383b26fe25c1a65efe0e9b6ed9cf">FAN_DATA_s::Tick</a></div><div class="ttdeci">uint16_t Tick</div><div class="ttdoc">set the execution rate in multiples of 100ms</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00054">dev_fan.h:54</a></div></div>
-<div class="ttc" id="aa00673_html_a4f9053371e35277861b7403cd46b0d98"><div class="ttname"><a href="a00673.html#a4f9053371e35277861b7403cd46b0d98">FAN_DATA_s::OverrideFlag</a></div><div class="ttdeci">uint8_t OverrideFlag</div><div class="ttdoc">override flag. sets tick value to 1, step_size to 20 and target to 100%</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00059">dev_fan.h:59</a></div></div>
-<div class="ttc" id="aa00673_html_a6ea3b4a0033803dc206c7e104ab29ca8"><div class="ttname"><a href="a00673.html#a6ea3b4a0033803dc206c7e104ab29ca8">FAN_DATA_s::StepSizePercent</a></div><div class="ttdeci">uint16_t StepSizePercent</div><div class="ttdoc">set the increment rate per tick in percentage</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00055">dev_fan.h:55</a></div></div>
-<div class="ttc" id="aa00673_html_a833f5d95cb05c7446c9493ce32cd6a4e"><div class="ttname"><a href="a00673.html#a833f5d95cb05c7446c9493ce32cd6a4e">FAN_DATA_s::CurrentSpeedRaw</a></div><div class="ttdeci">uint16_t CurrentSpeedRaw</div><div class="ttdoc">current value raw.</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00057">dev_fan.h:57</a></div></div>
-<div class="ttc" id="aa00673_html_ac2a920307a7df3fdd9d9ef56b0fbac82"><div class="ttname"><a href="a00673.html#ac2a920307a7df3fdd9d9ef56b0fbac82">FAN_DATA_s::TargetSpeedRaw</a></div><div class="ttdeci">uint16_t TargetSpeedRaw</div><div class="ttdoc">targetted value raw.</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00056">dev_fan.h:56</a></div></div>
-<div class="ttc" id="aa00673_html_ad26b627b999dd76f16aa4a9e36470c91"><div class="ttname"><a href="a00673.html#ad26b627b999dd76f16aa4a9e36470c91">FAN_DATA_s::TargetSpeedPercent</a></div><div class="ttdeci">uint8_t TargetSpeedPercent</div><div class="ttdoc">targetted Speed in percentage</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00052">dev_fan.h:52</a></div></div>
-<div class="ttc" id="aa00673_html_ad407e9ccc871b7dc9cca12bde19c730d"><div class="ttname"><a href="a00673.html#ad407e9ccc871b7dc9cca12bde19c730d">FAN_DATA_s::MaxSpeedPercent</a></div><div class="ttdeci">uint16_t MaxSpeedPercent</div><div class="ttdoc">based on period value (CCXPRL). Use this to limit the fan max speed</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00053">dev_fan.h:53</a></div></div>
-<div class="ttc" id="aa00673_html_ad5d31528415a4ed9cf81ebfd785128c2"><div class="ttname"><a href="a00673.html#ad5d31528415a4ed9cf81ebfd785128c2">FAN_DATA_s::CurrentSpeedPercent</a></div><div class="ttdeci">uint8_t CurrentSpeedPercent</div><div class="ttdoc">Current Speed in percentage.</div><div class="ttdef"><b>Definition</b> <a href="a00335_source.html#l00051">dev_fan.h:51</a></div></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        dev_iso_voltage_data.over_voltage_flag = 0; <span class="comment">//for overvoltage</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    }</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="a00546.html#gabe4788eb1b8be3ad755eb7daf6bba295">FAULT_CheckMin</a>(&amp;Vin_Fault_Min, dev_iso_voltage_data.voltage_raw, NULL ))</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    {</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        dev_iso_voltage_data.under_voltage_flag = 1; <span class="comment">//for overvoltage</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    } </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    {</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        dev_iso_voltage_data.under_voltage_flag = 0; <span class="comment">//for overvoltage</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    }</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>}</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>uint16_t Iso_Calculate_Average(uint16_t * buffer, uint16_t length) {</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    uint16_t index = 0;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    uint32_t sum = 0;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordflow">for</span> (index = 0; index &lt;length; index++)</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        sum +=buffer[index];</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    <span class="keywordflow">return</span> (sum &gt;&gt; MAX_NUM_SAMPLES_ISO_BUFFER_AS_EXP_OF_TWO);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>}</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="ttc" id="aa00546_html_ga1a12d5b7c5b1f234c50ea2214e91fcfc"><div class="ttname"><a href="a00546.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a></div><div class="ttdeci">bool FAULT_CheckMax(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK callback)</div><div class="ttdoc">This function compares the fault source value with the threshold limits and sets (or) resets the faul...</div><div class="ttdef"><b>Definition</b> <a href="a00383_source.html#l00126">fault_common.c:126</a></div></div>
+<div class="ttc" id="aa00546_html_gabe4788eb1b8be3ad755eb7daf6bba295"><div class="ttname"><a href="a00546.html#gabe4788eb1b8be3ad755eb7daf6bba295">FAULT_CheckMin</a></div><div class="ttdeci">bool FAULT_CheckMin(FAULT_OBJ_T *faultInput, int16_t faultSource, FAULT_CALLBACK callback)</div><div class="ttdoc">This function compares the fault source value with the threshold limits and sets (or) resets the faul...</div><div class="ttdef"><b>Definition</b> <a href="a00383_source.html#l00184">fault_common.c:184</a></div></div>
+<div class="ttc" id="aa00546_html_gae9aa4b1a3733fa6ee5fb7778bdf74103"><div class="ttname"><a href="a00546.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a></div><div class="ttdeci">void FAULT_Init(FAULT_OBJ_T *faultInput, int16_t threshold, int16_t hysLimit, uint16_t thresholdCnt, uint32_t hysCnt)</div><div class="ttdoc">This function initializes the fault object data structure with the values that required to detect a f...</div><div class="ttdef"><b>Definition</b> <a href="a00383_source.html#l00027">fault_common.c:27</a></div></div>
+<div class="ttc" id="aa00679_html"><div class="ttname"><a href="a00679.html">FAULT_OBJ_T</a></div><div class="ttdoc">The Fault object data structure contains a list of elements/variables that are used to detect/check a...</div><div class="ttdef"><b>Definition</b> <a href="a00386_source.html#l00022">fault_common.h:23</a></div></div>
+<div class="ttc" id="aa00763_html"><div class="ttname"><a href="a00763.html">dev_iso_voltage_data_t</a></div><div class="ttdoc">a custom data type for isolated voltage measurement</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

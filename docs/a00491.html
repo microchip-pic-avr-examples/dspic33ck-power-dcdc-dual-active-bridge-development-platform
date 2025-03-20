@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_isr_extension.c File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_pwm.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,101 +137,53 @@ $(document).ready(function(){initNavTree('a00491.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">pwrctrl_isr_extension.c File Reference<div class="ingroups"><a class="el" href="a00541.html">Power Control</a> &raquo; <a class="el" href="a00543.html">Interrupt Routine and Functions</a></div></div></div>
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">pwrctrl_pwm.h File Reference<div class="ingroups"><a class="el" href="a00535.html">Power Control</a> &raquo; <a class="el" href="a00538.html">PWM Configuration</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains some of the functions used in the interrupt service routine of control loop.  
+<p>Contains public functions for PWM. <br  />
+  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
-<code>#include &lt;math.h&gt;</code><br />
-<code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00098_source.html">adc/adc_types.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00089_source.html">adc/adc1.h</a>&quot;</code><br />
-<code>#include &quot;system/pins.h&quot;</code><br />
-<code>#include &quot;config/macros.h&quot;</code><br />
-<code>#include &quot;config/config.h&quot;</code><br />
-<code>#include &quot;pwrctrl.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00386_source.html">fault/fault.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00449_source.html">dcdt/pwrctrl_dcdt.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;pwrctrl_typedef.h&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pwrctrl_isr_extension.c:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pwrctrl_pwm.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00492.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00492.svg" width="178" height="352"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00493.svg" width="100%" height="488"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="a00491_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga8e52f74dc17c38d13a3980af0968fc2f" id="r_ga8e52f74dc17c38d13a3980af0968fc2f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga8e52f74dc17c38d13a3980af0968fc2f">PwrCtrl_AdaptiveGainUpdate</a> (void)</td></tr>
-<tr class="memdesc:ga8e52f74dc17c38d13a3980af0968fc2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Adaptive gain for the power converter control loop.  <br /></td></tr>
-<tr class="separator:ga8e52f74dc17c38d13a3980af0968fc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa34c5b66d8f20f01daef50d0e88cf20e" id="r_gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gaa34c5b66d8f20f01daef50d0e88cf20e">PwrCtrl_UpdateADConverterData</a> (void)</td></tr>
-<tr class="memdesc:gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members with ADC raw values.  <br /></td></tr>
-<tr class="separator:gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaf49f142990b8dc3f750e88365bf8fed" id="r_gaaf49f142990b8dc3f750e88365bf8fed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gaaf49f142990b8dc3f750e88365bf8fed">PwrCtrl_10KHzVPLoopPrepareData</a> (void)</td></tr>
-<tr class="memdesc:gaaf49f142990b8dc3f750e88365bf8fed"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function prepares the data for control loop and selects which control loop will be executed.  <br /></td></tr>
-<tr class="separator:gaaf49f142990b8dc3f750e88365bf8fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2eeebdb0cef4bbfeed446752525dd879" id="r_ga2eeebdb0cef4bbfeed446752525dd879"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga2eeebdb0cef4bbfeed446752525dd879">PwrCtrl_ControlLoopExecute</a> (void)</td></tr>
-<tr class="memdesc:ga2eeebdb0cef4bbfeed446752525dd879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power converter control loop.  <br /></td></tr>
-<tr class="separator:ga2eeebdb0cef4bbfeed446752525dd879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabda1b0b4f44a931cc725c3f5fa45be7b" id="r_gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gabda1b0b4f44a931cc725c3f5fa45be7b">PwrCtrl_PrimToSecPHDegree</a> (void)</td></tr>
-<tr class="memdesc:gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members with phase values normalized in degree.  <br /></td></tr>
-<tr class="separator:gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga80c3a681fbe9c0d7041146d82134f0cb" id="r_ga80c3a681fbe9c0d7041146d82134f0cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga80c3a681fbe9c0d7041146d82134f0cb">PwrCtrl_DeadTimeAdjust</a> (void)</td></tr>
-<tr class="memdesc:ga80c3a681fbe9c0d7041146d82134f0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members dead time based on load.  <br /></td></tr>
-<tr class="separator:ga80c3a681fbe9c0d7041146d82134f0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga963f5607c8862374734b3cc799dedc68" id="r_ga963f5607c8862374734b3cc799dedc68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00476.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga963f5607c8862374734b3cc799dedc68">vPrimAveraging</a></td></tr>
-<tr class="memdesc:ga963f5607c8862374734b3cc799dedc68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of primary voltage averaging.  <br /></td></tr>
-<tr class="separator:ga963f5607c8862374734b3cc799dedc68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaef7d489f0d36cd14c2f49022909e01b4" id="r_gaef7d489f0d36cd14c2f49022909e01b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00476.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gaef7d489f0d36cd14c2f49022909e01b4">vSecAveraging</a></td></tr>
-<tr class="memdesc:gaef7d489f0d36cd14c2f49022909e01b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of secondary voltage averaging.  <br /></td></tr>
-<tr class="separator:gaef7d489f0d36cd14c2f49022909e01b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga672f4741d032387a584ef0444f637cce" id="r_ga672f4741d032387a584ef0444f637cce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00476.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga672f4741d032387a584ef0444f637cce">iSecAveraging</a></td></tr>
-<tr class="memdesc:ga672f4741d032387a584ef0444f637cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of secondary current averaging.  <br /></td></tr>
-<tr class="separator:ga672f4741d032387a584ef0444f637cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6b5615f3ef634a80843e80a706202ae" id="r_ab6b5615f3ef634a80843e80a706202ae"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00491.html#ab6b5615f3ef634a80843e80a706202ae">VLoopInterleaveExec</a> = true</td></tr>
-<tr class="separator:ab6b5615f3ef634a80843e80a706202ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73f526371cadb7674354635462e836cc" id="r_ga73f526371cadb7674354635462e836cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#ga73f526371cadb7674354635462e836cc">PwrCtrl_PWM_Update</a> (<a class="el" href="a00755.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
+<tr class="memdesc:ga73f526371cadb7674354635462e836cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM distribution for DAB converter.  <br /></td></tr>
+<tr class="separator:ga73f526371cadb7674354635462e836cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae20d34fb8fc7fbaa57f6c68b2907807f" id="r_gae20d34fb8fc7fbaa57f6c68b2907807f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#gae20d34fb8fc7fbaa57f6c68b2907807f">PwrCtrl_PWM_Enable</a> (void)</td></tr>
+<tr class="memdesc:gae20d34fb8fc7fbaa57f6c68b2907807f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the PWM output.  <br /></td></tr>
+<tr class="separator:gae20d34fb8fc7fbaa57f6c68b2907807f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79ec0c0e524a03b3a3d423308b89bb99" id="r_ga79ec0c0e524a03b3a3d423308b89bb99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#ga79ec0c0e524a03b3a3d423308b89bb99">PwrCtrl_PWM_Disable</a> (void)</td></tr>
+<tr class="memdesc:ga79ec0c0e524a03b3a3d423308b89bb99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the PWM output.  <br /></td></tr>
+<tr class="separator:ga79ec0c0e524a03b3a3d423308b89bb99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga09cbca9d9eea8e033ba27cb0f77417c3" id="r_ga09cbca9d9eea8e033ba27cb0f77417c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#ga09cbca9d9eea8e033ba27cb0f77417c3">PwrCtrl_PWM_DAB_DirectionSpecificSwapCfg</a> (PWR_CTRL_CHARGE_STATE_t direction)</td></tr>
+<tr class="memdesc:ga09cbca9d9eea8e033ba27cb0f77417c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward/Reverse Direction related swap pattern on PWM output.  <br /></td></tr>
+<tr class="separator:ga09cbca9d9eea8e033ba27cb0f77417c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>&lt;&gt; </p>
+<div class="textblock"><p><br  />
+ &lt;&gt; </p>
 
-<p class="definition">Definition in file <a class="el" href="a00491_source.html">pwrctrl_isr_extension.c</a>.</p>
-</div><h2 class="groupheader">Variable Documentation</h2>
-<a id="ab6b5615f3ef634a80843e80a706202ae" name="ab6b5615f3ef634a80843e80a706202ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6b5615f3ef634a80843e80a706202ae">&#9670;&#160;</a></span>VLoopInterleaveExec</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool VLoopInterleaveExec = true</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00491_source.html#l00054">54</a> of file <a class="el" href="a00491_source.html">pwrctrl_isr_extension.c</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00491_source.html">pwrctrl_pwm.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

@@ -1,13 +1,16 @@
 var a00537 =
 [
-    [ "dev_temp.h", "a00353.html", null ],
-    [ "Average_Temp_ADC_Samples", "a00537.html#gaed1c98bc3ba65035d1ac0bdda433d812", null ],
-    [ "Dev_Temp_AverageValue", "a00537.html#ga2d219d0b5470ff7bae4c51c403c19065", null ],
-    [ "Dev_Temp_Get_ADC_Sample", "a00537.html#ga6ce3446cb43022df6a5a96c90ec70a17", null ],
-    [ "Dev_Temp_Get_Temperature_Celcius", "a00537.html#gac9618e1ca87e77920c94cdfdcc80321a", null ],
-    [ "Dev_Temp_Initialize", "a00537.html#ga777c30f75162d97f4e112d1fc8d49f87", null ],
-    [ "Dev_Temp_Is_Over_Temperature", "a00537.html#ga595a5dbd8f35a5e37d5fa77cfcd756a5", null ],
-    [ "Dev_Temp_Task_100ms", "a00537.html#ga642e882a6d78b8915f39b54f7183f71f", null ],
-    [ "Temp_Calculate_Average", "a00537.html#ga87aa48cb3d8848b8dc9bee6ce978b1b1", null ],
-    [ "devTempData", "a00537.html#gac4362e7ed233e3ac6e62b7f6f49a80d0", null ]
+    [ "pwrctrl_isr.c", "a00479.html", null ],
+    [ "pwrctrl_isr.h", "a00482.html", null ],
+    [ "pwrctrl_isr_extension.c", "a00485.html", null ],
+    [ "MIN_REFERENCE_THRESHOLD_IV", "a00537.html#ga9bdc078fe328d76d13c139cab37a7a24", null ],
+    [ "ControlLoop_Interrupt_CallBack", "a00537.html#gae32c9e5ed4d1fb98fc13b26601782c10", null ],
+    [ "PwrCtrl_10KHzVPLoopPrepareData", "a00537.html#gaaf49f142990b8dc3f750e88365bf8fed", null ],
+    [ "PwrCtrl_AdaptiveGainUpdate", "a00537.html#ga8e52f74dc17c38d13a3980af0968fc2f", null ],
+    [ "PwrCtrl_DeadTimeAdjust", "a00537.html#ga80c3a681fbe9c0d7041146d82134f0cb", null ],
+    [ "PwrCtrl_PrimToSecPHDegree", "a00537.html#gabda1b0b4f44a931cc725c3f5fa45be7b", null ],
+    [ "PwrCtrl_UpdateADConverterData", "a00537.html#gaa34c5b66d8f20f01daef50d0e88cf20e", null ],
+    [ "iSecAveraging", "a00537.html#ga672f4741d032387a584ef0444f637cce", null ],
+    [ "vPrimAveraging", "a00537.html#ga963f5607c8862374734b3cc799dedc68", null ],
+    [ "vSecAveraging", "a00537.html#gaef7d489f0d36cd14c2f49022909e01b4", null ]
 ];

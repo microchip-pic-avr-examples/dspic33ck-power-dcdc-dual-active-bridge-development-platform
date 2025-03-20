@@ -36,14 +36,14 @@ var NAVTREE =
       [ "Programming Hex File using available hex files", "index.html#autotoc_md14", null ],
       [ "Quick Start Guide", "index.html#autotoc_md16", null ]
     ] ],
-    [ "Firmware Overview", "a00770.html", [
-      [ "DAB Output Voltage Selection", "a00770.html#autotoc_md20", null ],
-      [ "Mode of Operation", "a00770.html#autotoc_md22", null ],
-      [ "Converter State Machine", "a00770.html#autotoc_md24", null ],
-      [ "Power Control Data Structure", "a00770.html#autotoc_md25", null ],
-      [ "Fault Protection", "a00770.html#autotoc_md27", null ],
-      [ "PWM Setup", "a00770.html#autotoc_md31", null ],
-      [ "Power Control Compensator", "a00770.html#autotoc_md33", null ]
+    [ "Firmware Overview", "a00764.html", [
+      [ "DAB Output Voltage Selection", "a00764.html#autotoc_md20", null ],
+      [ "Mode of Operation", "a00764.html#autotoc_md22", null ],
+      [ "Converter State Machine", "a00764.html#autotoc_md24", null ],
+      [ "Power Control Data Structure", "a00764.html#autotoc_md25", null ],
+      [ "Fault Protection", "a00764.html#autotoc_md27", null ],
+      [ "PWM Setup", "a00764.html#autotoc_md31", null ],
+      [ "Power Control Compensator", "a00764.html#autotoc_md33", null ]
     ] ],
     [ "Firmware Detail", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
@@ -68,13 +68,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "a00053.html",
-"a00523.html#ga5032cd832e55c41df8dc512000cc9c0d",
-"a00539.html#gga047f851c8ef37ed494a184f9dc539301ab5a5a9133bc019f3e13e056265a7fc1b",
-"a00547.html#ga70c7b962e7df84e7d49fd37a76826059",
-"a00559.html#gae0ce419d4615d091cb65cb32c168cc77",
-"a00571.html#ga1ac3eaa672aed8c00795c6def406aea9",
-"a00629.html#ab28516cc25bad0a1ec7808621ff3fa01",
-"a00757.html#aa7c7be85fbd243019a3d4117936a5eb6"
+"a00517.html#ga7742fa23cad0b81a56daae0c5ad63c8b",
+"a00533.html#gga047f851c8ef37ed494a184f9dc539301abb733b7a2b425e98d00e2334b526829f",
+"a00541.html#ga80737f595e2855e9361772d2c1a9852d",
+"a00553.html#gae8fc6e741033d7c25cce81d0ccdfd7b8",
+"a00565.html#ga2841c95f77415643312872bc9e042fd9",
+"a00623.html#ab9b28c9b2b3f5e4eaef68e56ba5dcc33",
+"a00755.html#a13383149438802e4c6c08683d6d004db"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

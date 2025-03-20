@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/clock.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/interrupt.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('a00188_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">clock.h</div></div>
+  <div class="headertitle"><div class="title">interrupt.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
@@ -161,28 +161,43 @@ $(document).ready(function(){initNavTree('a00188_source.html',''); initResizable
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    THIS SOFTWARE.</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#ifndef CLOCK_H</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define CLOCK_H</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#ifndef INTERRUPT_H</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define INTERRUPT_H</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// Section: Included Files</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// Section: Driver Interface Function</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="a00569.html#gae20bf0a12edd902aa2ee56554d6d4790">   50</a></span><span class="preprocessor">#define CLOCK_SystemFrequencyGet()        (200000000UL)</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="a00569.html#ga192799fb698929f78edb9653d4eea55c">   57</a></span><span class="preprocessor">#define CLOCK_PeripheralFrequencyGet()    ((uint32_t)CLOCK_SystemFrequencyGet() / (uint32_t)2)</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00558.html#ga5c526129ee879458dff6755f5768a6e3">INTERRUPT_Initialize</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00558.html#ga2b6583be540877d43388113fdc5bd110">INTERRUPT_Deinitialize</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="a00569.html#ga7c2fd6abb192260205b77d167d8e78da">   64</a></span><span class="preprocessor">#define CLOCK_InstructionFrequencyGet()   ((uint32_t)CLOCK_SystemFrequencyGet() / (uint32_t)2)</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">// Section: CLOCK APIs</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00569.html#ga98390d19c7087c52765eab23eb8ded96">CLOCK_Initialize</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">bool</span> <a class="code hl_function" href="a00569.html#ga0153c20a7c603596e5722a8b45571d4a">CLOCK_AuxPllLockStatusGet</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif    </span><span class="comment">/* CLOCK_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aa00569_html_ga0153c20a7c603596e5722a8b45571d4a"><div class="ttname"><a href="a00569.html#ga0153c20a7c603596e5722a8b45571d4a">CLOCK_AuxPllLockStatusGet</a></div><div class="ttdeci">bool CLOCK_AuxPllLockStatusGet(void)</div><div class="ttdoc">Returns Auxiliary PLL status.</div><div class="ttdef"><b>Definition</b> <a href="a00209_source.html#l00108">clock.c:108</a></div></div>
-<div class="ttc" id="aa00569_html_ga98390d19c7087c52765eab23eb8ded96"><div class="ttname"><a href="a00569.html#ga98390d19c7087c52765eab23eb8ded96">CLOCK_Initialize</a></div><div class="ttdeci">void CLOCK_Initialize(void)</div><div class="ttdoc">Initializes all the INTERNAL OSCILLATOR sources and clock switch configurations.</div><div class="ttdef"><b>Definition</b> <a href="a00209_source.html#l00043">clock.c:43</a></div></div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="a00558.html#ga0e88e5f65ed34a762b4f9059e2a033ed">   65</a></span><span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00558.html#ga0e88e5f65ed34a762b4f9059e2a033ed">INTERRUPT_GlobalEnable</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    __builtin_enable_interrupts();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="a00558.html#gac2f23c6185e515ff80fb2f2549b0f10d">   76</a></span><span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00558.html#gac2f23c6185e515ff80fb2f2549b0f10d">INTERRUPT_GlobalDisable</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>{</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    __builtin_disable_interrupts();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="a00558.html#ga4f2787d36434a2df6c0c6009108da708">   87</a></span><span class="keyword">inline</span> <span class="keyword">static</span> uint16_t <a class="code hl_function" href="a00558.html#ga4f2787d36434a2df6c0c6009108da708">INTERRUPT_VectorNumberGet</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>{</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordflow">return</span> _VECNUM; </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>}</div>
+</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="ttc" id="aa00558_html_ga0e88e5f65ed34a762b4f9059e2a033ed"><div class="ttname"><a href="a00558.html#ga0e88e5f65ed34a762b4f9059e2a033ed">INTERRUPT_GlobalEnable</a></div><div class="ttdeci">static void INTERRUPT_GlobalEnable(void)</div><div class="ttdoc">Enables the global interrupt bit.</div><div class="ttdef"><b>Definition</b> <a href="a00188_source.html#l00065">interrupt.h:65</a></div></div>
+<div class="ttc" id="aa00558_html_ga2b6583be540877d43388113fdc5bd110"><div class="ttname"><a href="a00558.html#ga2b6583be540877d43388113fdc5bd110">INTERRUPT_Deinitialize</a></div><div class="ttdeci">void INTERRUPT_Deinitialize(void)</div><div class="ttdoc">Deinitializes the INTERRUPT to POR values.</div><div class="ttdef"><b>Definition</b> <a href="a00215_source.html#l00060">interrupt.c:60</a></div></div>
+<div class="ttc" id="aa00558_html_ga4f2787d36434a2df6c0c6009108da708"><div class="ttname"><a href="a00558.html#ga4f2787d36434a2df6c0c6009108da708">INTERRUPT_VectorNumberGet</a></div><div class="ttdeci">static uint16_t INTERRUPT_VectorNumberGet(void)</div><div class="ttdoc">Returns the pending Interrupt Vector number.</div><div class="ttdef"><b>Definition</b> <a href="a00188_source.html#l00087">interrupt.h:87</a></div></div>
+<div class="ttc" id="aa00558_html_ga5c526129ee879458dff6755f5768a6e3"><div class="ttname"><a href="a00558.html#ga5c526129ee879458dff6755f5768a6e3">INTERRUPT_Initialize</a></div><div class="ttdeci">void INTERRUPT_Initialize(void)</div><div class="ttdoc">Initializes the interrupt priorities of the modules that have been configured.</div><div class="ttdef"><b>Definition</b> <a href="a00215_source.html#l00044">interrupt.c:44</a></div></div>
+<div class="ttc" id="aa00558_html_gac2f23c6185e515ff80fb2f2549b0f10d"><div class="ttname"><a href="a00558.html#gac2f23c6185e515ff80fb2f2549b0f10d">INTERRUPT_GlobalDisable</a></div><div class="ttdeci">static void INTERRUPT_GlobalDisable(void)</div><div class="ttdoc">Disables the global interrupt bit.</div><div class="ttdef"><b>Definition</b> <a href="a00188_source.html#l00076">interrupt.h:76</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

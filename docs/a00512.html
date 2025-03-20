@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Primary Current Feedback</title>
+<title>Dual Active Bridge Development Board: Control Loop</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,190 +138,104 @@ $(document).ready(function(){initNavTree('a00512.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#groups">Modules</a>  </div>
-  <div class="headertitle"><div class="title">Primary Current Feedback<div class="ingroups"><a class="el" href="a00532.html">Configuration Layer</a></div></div></div>
+  <div class="headertitle"><div class="title">Control Loop<div class="ingroups"><a class="el" href="a00526.html">Configuration Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Declaration of Primary Current Feedback parameters, fault configuration and macros.  
+<p>Declaration of macros calculating additional parameters for Control Loop.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Primary Current Feedback:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Control Loop:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00512.svg" width="544" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00512.svg" width="466" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
 Modules</h2></td></tr>
 <tr class="memitem:a00513" id="r_a00513"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html">Conversion Macros</a></td></tr>
-<tr class="memdesc:a00513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of Primary Current Feedback parameters. <br /></td></tr>
+<tr class="memdesc:a00513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of Adaptive Gain Modulation parameters. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga629c6b42f4e4f0bb7b45a365327216c8" id="r_ga629c6b42f4e4f0bb7b45a365327216c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>&#160;&#160;&#160;(float) (10.0e-6)</td></tr>
-<tr class="memdesc:ga629c6b42f4e4f0bb7b45a365327216c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC sampling rate.  <br /></td></tr>
-<tr class="separator:ga629c6b42f4e4f0bb7b45a365327216c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf66f7333079207c329017043676a1fcb" id="r_gaf66f7333079207c329017043676a1fcb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gaf66f7333079207c329017043676a1fcb">IPRI_OC_THRES_TRIG_AMPS</a>&#160;&#160;&#160;(float) (39.0)</td></tr>
-<tr class="memdesc:gaf66f7333079207c329017043676a1fcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Primary over current trigger threshold.  <br /></td></tr>
-<tr class="separator:gaf66f7333079207c329017043676a1fcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3d9ec4eb82b3b94114525bf01962d585" id="r_ga3d9ec4eb82b3b94114525bf01962d585"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga3d9ec4eb82b3b94114525bf01962d585">IPRI_OC_THRES_CLEAR_AMPS</a>&#160;&#160;&#160;(float) (2.0)</td></tr>
-<tr class="separator:ga3d9ec4eb82b3b94114525bf01962d585"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa26d53ce604d0b5ce4b8e6bad69d2eca" id="r_gaa26d53ce604d0b5ce4b8e6bad69d2eca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gaa26d53ce604d0b5ce4b8e6bad69d2eca">IPRI_OC_T_BLANK_TRIG_SEC</a>&#160;&#160;&#160;(float) (50.0e-6)</td></tr>
-<tr class="separator:gaa26d53ce604d0b5ce4b8e6bad69d2eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab24221cdd03e9a0deab655553752bc26" id="r_gab24221cdd03e9a0deab655553752bc26"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gab24221cdd03e9a0deab655553752bc26">IPRI_OC_T_BLANK_CLEAR_SEC</a>&#160;&#160;&#160;(float) (0.0)</td></tr>
-<tr class="separator:gab24221cdd03e9a0deab655553752bc26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4487a40d5ee45b46fff78d92d3570251" id="r_ga4487a40d5ee45b46fff78d92d3570251"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga4487a40d5ee45b46fff78d92d3570251">IPRI_OC_TICK_SEC</a>&#160;&#160;&#160;(<a class="el" href="a00512.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td></tr>
-<tr class="separator:ga4487a40d5ee45b46fff78d92d3570251"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab55238e2900bea980e7be8e9d488683e" id="r_gab55238e2900bea980e7be8e9d488683e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gab55238e2900bea980e7be8e9d488683e">IPRI_SC_THRES_TRIG_AMPS</a>&#160;&#160;&#160;(float) (39.0)</td></tr>
-<tr class="separator:gab55238e2900bea980e7be8e9d488683e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadd3268f777497752594e03ab7c9ed8bd" id="r_gadd3268f777497752594e03ab7c9ed8bd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gadd3268f777497752594e03ab7c9ed8bd">IPRI_CT_SNS_GAIN</a>&#160;&#160;&#160;(82.5e-3)</td></tr>
-<tr class="separator:gadd3268f777497752594e03ab7c9ed8bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae03bb48f1dee21d88493adfa4fd939d8" id="r_gae03bb48f1dee21d88493adfa4fd939d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gae03bb48f1dee21d88493adfa4fd939d8">IPRI_CT_SNS_OFS</a>&#160;&#160;&#160;(0.0)</td></tr>
-<tr class="separator:gae03bb48f1dee21d88493adfa4fd939d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43edf0d1b9579419b244048d67b8744c" id="r_ga43edf0d1b9579419b244048d67b8744c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga43edf0d1b9579419b244048d67b8744c">VPLOOP_ILOOP_EXE_RATIO</a>&#160;&#160;&#160;(uint16_t)(10 / 2)</td></tr>
+<tr class="memdesc:ga43edf0d1b9579419b244048d67b8744c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ratio of ILOOP /VPLOOP execution [100KHz / 10KHz], the divide 2 is for interleaved VLoop and PLoop  <br /></td></tr>
+<tr class="separator:ga43edf0d1b9579419b244048d67b8744c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe9bc7e554222335c9b10bda87709883" id="r_gafe9bc7e554222335c9b10bda87709883"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a>&#160;&#160;&#160;160u</td></tr>
+<tr class="memdesc:gafe9bc7e554222335c9b10bda87709883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum VIN threshold to activate AGC in [V] <br  />
+  <br /></td></tr>
+<tr class="separator:gafe9bc7e554222335c9b10bda87709883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d6249446db551d0d518cad5fcd5a0ff" id="r_ga2d6249446db551d0d518cad5fcd5a0ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga2d6249446db551d0d518cad5fcd5a0ff">AGC_MINIMUM_ISEC_THRESHOLD</a>&#160;&#160;&#160;7</td></tr>
+<tr class="memdesc:ga2d6249446db551d0d518cad5fcd5a0ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum current threshold to activate AGC in [A].  <br /></td></tr>
+<tr class="separator:ga2d6249446db551d0d518cad5fcd5a0ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga73ac2fb840e4ddfb6c430e67a7ecae4b" id="r_ga73ac2fb840e4ddfb6c430e67a7ecae4b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html#ga73ac2fb840e4ddfb6c430e67a7ecae4b">AGC_MINIMUM_VIN_THRESHOLD_SEC</a>&#160;&#160;&#160;160u</td></tr>
+<tr class="memdesc:ga73ac2fb840e4ddfb6c430e67a7ecae4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum VIN secondary threshold to activate AGC reverse mode in [V] <br  />
+  <br /></td></tr>
+<tr class="separator:ga73ac2fb840e4ddfb6c430e67a7ecae4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Declaration of Primary Current Feedback parameters, fault configuration and macros </p>
+<dl class="section note"><dt>Note</dt><dd>The Control Loop Declarations only contain user settings and conversion macros. </dd></dl>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="gadd3268f777497752594e03ab7c9ed8bd" name="gadd3268f777497752594e03ab7c9ed8bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadd3268f777497752594e03ab7c9ed8bd">&#9670;&#160;</a></span>IPRI_CT_SNS_GAIN</h2>
+<a id="ga2d6249446db551d0d518cad5fcd5a0ff" name="ga2d6249446db551d0d518cad5fcd5a0ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d6249446db551d0d518cad5fcd5a0ff">&#9670;&#160;</a></span>AGC_MINIMUM_ISEC_THRESHOLD</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IPRI_CT_SNS_GAIN&#160;&#160;&#160;(82.5e-3)</td>
+          <td class="memname">#define AGC_MINIMUM_ISEC_THRESHOLD&#160;&#160;&#160;7</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00044">44</a> of file <a class="el" href="a00311_source.html">hardware.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00046">46</a> of file <a class="el" href="a00302_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gae03bb48f1dee21d88493adfa4fd939d8" name="gae03bb48f1dee21d88493adfa4fd939d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae03bb48f1dee21d88493adfa4fd939d8">&#9670;&#160;</a></span>IPRI_CT_SNS_OFS</h2>
+<a id="gafe9bc7e554222335c9b10bda87709883" name="gafe9bc7e554222335c9b10bda87709883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafe9bc7e554222335c9b10bda87709883">&#9670;&#160;</a></span>AGC_MINIMUM_VIN_THRESHOLD</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IPRI_CT_SNS_OFS&#160;&#160;&#160;(0.0)</td>
+          <td class="memname">#define AGC_MINIMUM_VIN_THRESHOLD&#160;&#160;&#160;160u</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00045">45</a> of file <a class="el" href="a00311_source.html">hardware.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00045">45</a> of file <a class="el" href="a00302_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gab24221cdd03e9a0deab655553752bc26" name="gab24221cdd03e9a0deab655553752bc26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab24221cdd03e9a0deab655553752bc26">&#9670;&#160;</a></span>IPRI_OC_T_BLANK_CLEAR_SEC</h2>
+<a id="ga73ac2fb840e4ddfb6c430e67a7ecae4b" name="ga73ac2fb840e4ddfb6c430e67a7ecae4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga73ac2fb840e4ddfb6c430e67a7ecae4b">&#9670;&#160;</a></span>AGC_MINIMUM_VIN_THRESHOLD_SEC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IPRI_OC_T_BLANK_CLEAR_SEC&#160;&#160;&#160;(float) (0.0)</td>
+          <td class="memname">#define AGC_MINIMUM_VIN_THRESHOLD_SEC&#160;&#160;&#160;160u</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00079">79</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00047">47</a> of file <a class="el" href="a00302_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gaa26d53ce604d0b5ce4b8e6bad69d2eca" name="gaa26d53ce604d0b5ce4b8e6bad69d2eca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa26d53ce604d0b5ce4b8e6bad69d2eca">&#9670;&#160;</a></span>IPRI_OC_T_BLANK_TRIG_SEC</h2>
+<a id="ga43edf0d1b9579419b244048d67b8744c" name="ga43edf0d1b9579419b244048d67b8744c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga43edf0d1b9579419b244048d67b8744c">&#9670;&#160;</a></span>VPLOOP_ILOOP_EXE_RATIO</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IPRI_OC_T_BLANK_TRIG_SEC&#160;&#160;&#160;(float) (50.0e-6)</td>
+          <td class="memname">#define VPLOOP_ILOOP_EXE_RATIO&#160;&#160;&#160;(uint16_t)(10 / 2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00078">78</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="ga3d9ec4eb82b3b94114525bf01962d585" name="ga3d9ec4eb82b3b94114525bf01962d585"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3d9ec4eb82b3b94114525bf01962d585">&#9670;&#160;</a></span>IPRI_OC_THRES_CLEAR_AMPS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IPRI_OC_THRES_CLEAR_AMPS&#160;&#160;&#160;(float) (2.0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00077">77</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="gaf66f7333079207c329017043676a1fcb" name="gaf66f7333079207c329017043676a1fcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf66f7333079207c329017043676a1fcb">&#9670;&#160;</a></span>IPRI_OC_THRES_TRIG_AMPS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IPRI_OC_THRES_TRIG_AMPS&#160;&#160;&#160;(float) (39.0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00076">76</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="ga4487a40d5ee45b46fff78d92d3570251" name="ga4487a40d5ee45b46fff78d92d3570251"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4487a40d5ee45b46fff78d92d3570251">&#9670;&#160;</a></span>IPRI_OC_TICK_SEC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IPRI_OC_TICK_SEC&#160;&#160;&#160;(<a class="el" href="a00512.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00080">80</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="gab55238e2900bea980e7be8e9d488683e" name="gab55238e2900bea980e7be8e9d488683e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab55238e2900bea980e7be8e9d488683e">&#9670;&#160;</a></span>IPRI_SC_THRES_TRIG_AMPS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IPRI_SC_THRES_TRIG_AMPS&#160;&#160;&#160;(float) (39.0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00082">82</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
-
-</div>
-</div>
-<a id="ga629c6b42f4e4f0bb7b45a365327216c8" name="ga629c6b42f4e4f0bb7b45a365327216c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga629c6b42f4e4f0bb7b45a365327216c8">&#9670;&#160;</a></span>T_ADC_SAMPLE_SECS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define T_ADC_SAMPLE_SECS&#160;&#160;&#160;(float) (10.0e-6)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00074">74</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00044">44</a> of file <a class="el" href="a00302_source.html">config.h</a>.</p>
 
 </div>
 </div>

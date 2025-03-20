@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Conversion Macros</title>
+<title>Dual Active Bridge Development Board: Communication Layer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,132 +136,30 @@ $(document).ready(function(){initNavTree('a00519.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Conversion Macros<div class="ingroups"><a class="el" href="a00532.html">Configuration Layer</a> &raquo; <a class="el" href="a00518.html">Control Loop</a></div></div></div>
+  <div class="summary">
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Communication Layer</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Conversion macros for user-declarations of Adaptive Gain Modulation parameters.  
+<p>The communication layer establish the data to be displayed and the communication connection between the device and the application board to display in the GUI.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Conversion Macros:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Communication Layer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00519.svg" width="284" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00519.svg" width="363" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="memitem:ga80914760246c425bc1536e1d809a071b" id="r_ga80914760246c425bc1536e1d809a071b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga80914760246c425bc1536e1d809a071b">POWER_SCALER</a>&#160;&#160;&#160;(14u)</td></tr>
-<tr class="separator:ga80914760246c425bc1536e1d809a071b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5d5113c068bc70c6666522402aa59bcf" id="r_ga5d5113c068bc70c6666522402aa59bcf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga5d5113c068bc70c6666522402aa59bcf">POWER_FACTOR</a>&#160;&#160;&#160;(uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, <a class="el" href="a00519.html#ga80914760246c425bc1536e1d809a071b">POWER_SCALER</a>))) / ((ADC_RESOLUTION * <a class="el" href="a00510.html#gadbb92791a446721a3d4af49d713520ca">VSEC_SNS_GAIN</a>) * (ADC_RESOLUTION * <a class="el" href="a00514.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>)))</td></tr>
-<tr class="separator:ga5d5113c068bc70c6666522402aa59bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacdae5309d1cb67f967c3b5b64b19d3af" id="r_gacdae5309d1cb67f967c3b5b64b19d3af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#gacdae5309d1cb67f967c3b5b64b19d3af">AGC_VOLTAGE_FACTOR</a>&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00518.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a> * pow(2.0, 15))</td></tr>
-<tr class="separator:gacdae5309d1cb67f967c3b5b64b19d3af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf85ec768f2e621acc512b9246946f1eb" id="r_gaf85ec768f2e621acc512b9246946f1eb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#gaf85ec768f2e621acc512b9246946f1eb">AGC_VOLTAGE_FACTOR_SEC</a>&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00518.html#ga73ac2fb840e4ddfb6c430e67a7ecae4b">AGC_MINIMUM_VIN_THRESHOLD_SEC</a> * pow(2.0, 15))</td></tr>
-<tr class="separator:gaf85ec768f2e621acc512b9246946f1eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5a1b7f3b96ba61a6b0de4a89c5b93f40" id="r_ga5a1b7f3b96ba61a6b0de4a89c5b93f40"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">AGC_MINIMUM_CURRENT_THRESHOLD</a>&#160;&#160;&#160;(<a class="el" href="a00523.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00518.html#ga2d6249446db551d0d518cad5fcd5a0ff">AGC_MINIMUM_ISEC_THRESHOLD</a>,<a class="el" href="a00514.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>,0.0))</td></tr>
-<tr class="separator:ga5a1b7f3b96ba61a6b0de4a89c5b93f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4022c2ca098b410cbcb0f16f2e4cc0ea" id="r_ga4022c2ca098b410cbcb0f16f2e4cc0ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga4022c2ca098b410cbcb0f16f2e4cc0ea">AGC_CURRENT_FACTOR</a>&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00519.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">AGC_MINIMUM_CURRENT_THRESHOLD</a> * pow(2.0, 15))</td></tr>
-<tr class="separator:ga4022c2ca098b410cbcb0f16f2e4cc0ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00520" id="r_a00520"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00520.html">Power Board Visualizer</a></td></tr>
+<tr class="memdesc:a00520"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver for Power Board Visualizer. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Conversion macros converting physical quantities of parameters into binary (integer) numbers for registers and variables </p>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga4022c2ca098b410cbcb0f16f2e4cc0ea" name="ga4022c2ca098b410cbcb0f16f2e4cc0ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4022c2ca098b410cbcb0f16f2e4cc0ea">&#9670;&#160;</a></span>AGC_CURRENT_FACTOR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AGC_CURRENT_FACTOR&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00519.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">AGC_MINIMUM_CURRENT_THRESHOLD</a> * pow(2.0, 15))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00174">174</a> of file <a class="el" href="a00314_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="ga5a1b7f3b96ba61a6b0de4a89c5b93f40" name="ga5a1b7f3b96ba61a6b0de4a89c5b93f40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">&#9670;&#160;</a></span>AGC_MINIMUM_CURRENT_THRESHOLD</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AGC_MINIMUM_CURRENT_THRESHOLD&#160;&#160;&#160;(<a class="el" href="a00523.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00518.html#ga2d6249446db551d0d518cad5fcd5a0ff">AGC_MINIMUM_ISEC_THRESHOLD</a>,<a class="el" href="a00514.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>,0.0))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00173">173</a> of file <a class="el" href="a00314_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="gacdae5309d1cb67f967c3b5b64b19d3af" name="gacdae5309d1cb67f967c3b5b64b19d3af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gacdae5309d1cb67f967c3b5b64b19d3af">&#9670;&#160;</a></span>AGC_VOLTAGE_FACTOR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AGC_VOLTAGE_FACTOR&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00518.html#gafe9bc7e554222335c9b10bda87709883">AGC_MINIMUM_VIN_THRESHOLD</a> * pow(2.0, 15))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00171">171</a> of file <a class="el" href="a00314_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="gaf85ec768f2e621acc512b9246946f1eb" name="gaf85ec768f2e621acc512b9246946f1eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf85ec768f2e621acc512b9246946f1eb">&#9670;&#160;</a></span>AGC_VOLTAGE_FACTOR_SEC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define AGC_VOLTAGE_FACTOR_SEC&#160;&#160;&#160;(uint32_t)(<a class="el" href="a00518.html#ga73ac2fb840e4ddfb6c430e67a7ecae4b">AGC_MINIMUM_VIN_THRESHOLD_SEC</a> * pow(2.0, 15))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00172">172</a> of file <a class="el" href="a00314_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="ga5d5113c068bc70c6666522402aa59bcf" name="ga5d5113c068bc70c6666522402aa59bcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5d5113c068bc70c6666522402aa59bcf">&#9670;&#160;</a></span>POWER_FACTOR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define POWER_FACTOR&#160;&#160;&#160;(uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, <a class="el" href="a00519.html#ga80914760246c425bc1536e1d809a071b">POWER_SCALER</a>))) / ((ADC_RESOLUTION * <a class="el" href="a00510.html#gadbb92791a446721a3d4af49d713520ca">VSEC_SNS_GAIN</a>) * (ADC_RESOLUTION * <a class="el" href="a00514.html#gaa04f0731e5ca53dd3034155ddec2fb51">ISEC_AVG_SNS_GAIN</a>)))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00169">169</a> of file <a class="el" href="a00314_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="ga80914760246c425bc1536e1d809a071b" name="ga80914760246c425bc1536e1d809a071b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga80914760246c425bc1536e1d809a071b">&#9670;&#160;</a></span>POWER_SCALER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define POWER_SCALER&#160;&#160;&#160;(14u)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00168">168</a> of file <a class="el" href="a00314_source.html">macros.h</a>.</p>
-
-</div>
-</div>
+<p>The communication layer facilitates the display of data and the connection between a device and an application board to show metrics like voltage, current, and energy consumption in the GUI. It employs tools or software to graphically represent power distribution and consumption, offering real-time monitoring, data logging, and analytics to help users manage the power supply effectively. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

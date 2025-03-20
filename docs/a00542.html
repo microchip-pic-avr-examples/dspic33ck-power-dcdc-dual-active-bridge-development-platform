@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Power Control Configuration</title>
+<title>Dual Active Bridge Development Board: Useful Functions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,252 +138,114 @@ $(document).ready(function(){initNavTree('a00542.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">Power Control Configuration<div class="ingroups"><a class="el" href="a00541.html">Power Control</a></div></div></div>
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">Useful Functions<div class="ingroups"><a class="el" href="a00535.html">Power Control</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains Power Control Configuration.  
+<p>Contains generic functions that is usable to the application.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Power Control Configuration:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Useful Functions:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00542.svg" width="343" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00542.svg" width="280" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00467" id="r_a00467"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00467.html">pwrctrl.c</a></td></tr>
-<tr class="memdesc:a00467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains power control initialization including control loop initialization and start-up initialization, and the power control execution. <br /></td></tr>
+<tr class="memitem:a00467" id="r_a00467"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00467.html">pwrctrl_common.c</a></td></tr>
+<tr class="memdesc:a00467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains generic functions that handles power control ramp Up/Down and the averaging generic function. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00470" id="r_a00470"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00470.html">pwrctrl_common.h</a></td></tr>
+<tr class="memdesc:a00470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the power control reusable functions. <br  />
+ <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga2c39b57545ef7b5c79bac36ab30da7d8" id="r_ga2c39b57545ef7b5c79bac36ab30da7d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00542.html#ga2c39b57545ef7b5c79bac36ab30da7d8">PwrCtrl_Initialize</a> (void)</td></tr>
-<tr class="memdesc:ga2c39b57545ef7b5c79bac36ab30da7d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the power control parameters.  <br /></td></tr>
-<tr class="separator:ga2c39b57545ef7b5c79bac36ab30da7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga48dcb018afa53b60b6112cde00561c4b" id="r_ga48dcb018afa53b60b6112cde00561c4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00542.html#ga48dcb018afa53b60b6112cde00561c4b">PwrCtrl_Execute</a> (void)</td></tr>
-<tr class="memdesc:ga48dcb018afa53b60b6112cde00561c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power control state machine.  <br /></td></tr>
-<tr class="separator:ga48dcb018afa53b60b6112cde00561c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8c07187b0c96b5916e4b46daa47500c5" id="r_ga8c07187b0c96b5916e4b46daa47500c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00542.html#ga8c07187b0c96b5916e4b46daa47500c5">PwrCtrl_Reset</a> (void)</td></tr>
-<tr class="memdesc:ga8c07187b0c96b5916e4b46daa47500c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the power control properties.  <br /></td></tr>
-<tr class="separator:ga8c07187b0c96b5916e4b46daa47500c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae58162e874535adf2003e9ed8a13b656" id="r_gae58162e874535adf2003e9ed8a13b656"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00542.html#gae58162e874535adf2003e9ed8a13b656">PwrCtrl_ControlLoopInitialize</a> (void)</td></tr>
-<tr class="memdesc:gae58162e874535adf2003e9ed8a13b656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the control loop.  <br /></td></tr>
-<tr class="separator:gae58162e874535adf2003e9ed8a13b656"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga45940145031d4886842c27f5e5277e9b" id="r_ga45940145031d4886842c27f5e5277e9b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00542.html#ga45940145031d4886842c27f5e5277e9b">PwrCtrl_StartUpInitialize</a> (void)</td></tr>
-<tr class="memdesc:ga45940145031d4886842c27f5e5277e9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the StartUp Ramp configuration.  <br /></td></tr>
-<tr class="separator:ga45940145031d4886842c27f5e5277e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga5762de26b3d1b822c6a4b9c1605cd387" id="r_ga5762de26b3d1b822c6a4b9c1605cd387"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00761.html">POWER_CONTROL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00542.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a></td></tr>
-<tr class="memdesc:ga5762de26b3d1b822c6a4b9c1605cd387"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global data object for a DAB Converter.  <br /></td></tr>
-<tr class="separator:ga5762de26b3d1b822c6a4b9c1605cd387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad68ead20ade98451df7ea1e4e923cbaa" id="r_gad68ead20ade98451df7ea1e4e923cbaa"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00542.html#gad68ead20ade98451df7ea1e4e923cbaa">PwrCtrl_UpdateAverage</a> (<a class="el" href="a00470.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a> *data, uint16_t sample)</td></tr>
+<tr class="memdesc:gad68ead20ade98451df7ea1e4e923cbaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average the raw data over number of samples.  <br /></td></tr>
+<tr class="separator:gad68ead20ade98451df7ea1e4e923cbaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga59bb2fab32dc783d76f800283b4c7e2b" id="r_ga59bb2fab32dc783d76f800283b4c7e2b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00542.html#ga59bb2fab32dc783d76f800283b4c7e2b">PwrCtrl_RampReference</a> (<a class="el" href="a00743.html">START_UP_RAMP_t</a> *rampUp)</td></tr>
+<tr class="memdesc:ga59bb2fab32dc783d76f800283b4c7e2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Softly increment / decrement to the set reference target.  <br /></td></tr>
+<tr class="separator:ga59bb2fab32dc783d76f800283b4c7e2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document includes the power control initialization and execution functions. </p>
+<p>This document covers some generic power control functions that the user can utilize while developing the application code. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gae58162e874535adf2003e9ed8a13b656" name="gae58162e874535adf2003e9ed8a13b656"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae58162e874535adf2003e9ed8a13b656">&#9670;&#160;</a></span>PwrCtrl_ControlLoopInitialize()</h2>
+<a id="ga59bb2fab32dc783d76f800283b4c7e2b" name="ga59bb2fab32dc783d76f800283b4c7e2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga59bb2fab32dc783d76f800283b4c7e2b">&#9670;&#160;</a></span>PwrCtrl_RampReference()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void PwrCtrl_ControlLoopInitialize </td>
+          <td class="memname">bool PwrCtrl_RampReference </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00743.html">START_UP_RAMP_t</a> *&#160;</td>
+          <td class="paramname"><em>rampUp</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the control loop necessary to run the close loop operation of the converter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rampUp</td><td>Pointer to start-up ramp data object of type START_UP_RAMP_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>RampComplete Indicates if the ramp-up/down is done</dd></dl>
+<p>This function increments or decrements the reference with its defined step size to meet the reference target. Once the value reached the reference target, the RampComplete will be set. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00141">141</a> of file <a class="el" href="a00467_source.html">pwrctrl.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00046">46</a> of file <a class="el" href="a00467_source.html">pwrctrl_common.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00542_gae58162e874535adf2003e9ed8a13b656_cgraph.svg" width="659" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00542_gae58162e874535adf2003e9ed8a13b656_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00542_ga59bb2fab32dc783d76f800283b4c7e2b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="ga48dcb018afa53b60b6112cde00561c4b" name="ga48dcb018afa53b60b6112cde00561c4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga48dcb018afa53b60b6112cde00561c4b">&#9670;&#160;</a></span>PwrCtrl_Execute()</h2>
+<a id="gad68ead20ade98451df7ea1e4e923cbaa" name="gad68ead20ade98451df7ea1e4e923cbaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad68ead20ade98451df7ea1e4e923cbaa">&#9670;&#160;</a></span>PwrCtrl_UpdateAverage()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void PwrCtrl_Execute </td>
+          <td class="memname">uint16_t PwrCtrl_UpdateAverage </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="a00470.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a> *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
         </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>After initialization this function has to be called on a deterministic, constant time base. Each execution step, this function will call the power control state machine. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00088">88</a> of file <a class="el" href="a00467_source.html">pwrctrl.c</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00542_ga48dcb018afa53b60b6112cde00561c4b_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ga2c39b57545ef7b5c79bac36ab30da7d8" name="ga2c39b57545ef7b5c79bac36ab30da7d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2c39b57545ef7b5c79bac36ab30da7d8">&#9670;&#160;</a></span>PwrCtrl_Initialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">void PwrCtrl_Initialize </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>sample</em>&#160;</td>
         </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initialize the power control PWM instances, settings, start-up configuration and control loop configuration. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00045">45</a> of file <a class="el" href="a00467_source.html">pwrctrl.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00542_ga2c39b57545ef7b5c79bac36ab30da7d8_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00542_ga2c39b57545ef7b5c79bac36ab30da7d8_icgraph.svg" width="667" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga8c07187b0c96b5916e4b46daa47500c5" name="ga8c07187b0c96b5916e4b46daa47500c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8c07187b0c96b5916e4b46daa47500c5">&#9670;&#160;</a></span>PwrCtrl_Reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">void PwrCtrl_Reset </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
           <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function resets the power control properties including the PWM properties and control loop references. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Pointer to averaging data object of type AVERAGING_t </td></tr>
+    <tr><td class="paramname">sample</td><td>data that will be averaged </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>AverageValue Returns the average value</dd></dl>
+<p>This function averages the data over number of samples. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00102">102</a> of file <a class="el" href="a00467_source.html">pwrctrl.c</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00542_ga8c07187b0c96b5916e4b46daa47500c5_cgraph.svg" width="336" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00542_ga8c07187b0c96b5916e4b46daa47500c5_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ga45940145031d4886842c27f5e5277e9b" name="ga45940145031d4886842c27f5e5277e9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga45940145031d4886842c27f5e5277e9b">&#9670;&#160;</a></span>PwrCtrl_StartUpInitialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PwrCtrl_StartUpInitialize </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the Ramp Up configuration for voltage, current and power. For each parameters that would be ramped up, pointer to the reference, reference target pointer, increment/decrement step size, delay for each increment/decremnt counter for each execution need to be defined. When the reference becomes equal to the reference targe, the rampComplete data member will be set. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00186">186</a> of file <a class="el" href="a00467_source.html">pwrctrl.c</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00542_ga45940145031d4886842c27f5e5277e9b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ga5762de26b3d1b822c6a4b9c1605cd387" name="ga5762de26b3d1b822c6a4b9c1605cd387"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5762de26b3d1b822c6a4b9c1605cd387">&#9670;&#160;</a></span>dab</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00761.html">POWER_CONTROL_t</a> dab</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The 'dab' data object holds all status, control and monitoring values of the POWER_CONTROL_t power controller. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00028">28</a> of file <a class="el" href="a00467_source.html">pwrctrl.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00467_source.html#l00025">25</a> of file <a class="el" href="a00467_source.html">pwrctrl_common.c</a>.</p>
 
 </div>
 </div>

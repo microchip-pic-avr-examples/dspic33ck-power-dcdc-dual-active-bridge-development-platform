@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/crc/crc.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/crc/crc_types.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,94 +137,116 @@ $(document).ready(function(){initNavTree('a00149.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">crc.h File Reference<div class="ingroups"><a class="el" href="a00554.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00560.html">CRC Driver</a></div></div></div>
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle"><div class="title">crc_types.h File Reference<div class="ingroups"><a class="el" href="a00548.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00554.html">CRC Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the generated driver header file for the CRC driver.  
+<p>This is the generated driver types header file for the CRC driver.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00155_source.html">crc_types.h</a>&quot;</code><br />
-<code>#include &quot;crc_interface.h&quot;</code><br />
-</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for crc.h:</div>
+<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00150.svg" width="390" height="203"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00151.svg" width="532" height="160"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00151.svg" width="532" height="374"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00149_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga2b4567df8569d3ef2268f89ce5230cb6" id="r_ga2b4567df8569d3ef2268f89ce5230cb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga2b4567df8569d3ef2268f89ce5230cb6">CRC_Initialize</a> (void)</td></tr>
-<tr class="memdesc:ga2b4567df8569d3ef2268f89ce5230cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the CRC module. This function sets the polynomial and data width; data and seed shift; updates the polynomial and shifts the seed value. After the function is called, the CRC module is ready to calculate the CRC of a data buffer.  <br /></td></tr>
-<tr class="separator:ga2b4567df8569d3ef2268f89ce5230cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacc78d7c2e55e48b64e49c0505145b145" id="r_gacc78d7c2e55e48b64e49c0505145b145"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gacc78d7c2e55e48b64e49c0505145b145">CRC_Deinitialize</a> (void)</td></tr>
-<tr class="memdesc:gacc78d7c2e55e48b64e49c0505145b145"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes CRC to POR values.  <br /></td></tr>
-<tr class="separator:gacc78d7c2e55e48b64e49c0505145b145"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga93df614b326f4c56400a8515d4cd7cb9" id="r_ga93df614b326f4c56400a8515d4cd7cb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga93df614b326f4c56400a8515d4cd7cb9">CRC_SeedSet</a> (uint32_t seed, enum <a class="el" href="a00155.html#ada1c18391bf657479988adbfcc035607">CRC_SEED_METHOD</a> seedMethod, enum <a class="el" href="a00155.html#abb206e74952718e1db3a800b67f77cb6">CRC_SEED_DIRECTION</a> seedDirection)</td></tr>
-<tr class="memdesc:ga93df614b326f4c56400a8515d4cd7cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the CRC seed with method and direction.  <br /></td></tr>
-<tr class="separator:ga93df614b326f4c56400a8515d4cd7cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9deaccba0d18fa00991e60c07770f9d5" id="r_ga9deaccba0d18fa00991e60c07770f9d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga9deaccba0d18fa00991e60c07770f9d5">CRC_CalculateBufferStart</a> (void *buffer, uint32_t sizeBytes)</td></tr>
-<tr class="memdesc:ga9deaccba0d18fa00991e60c07770f9d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC module calculation on a buffer in data space.  <br /></td></tr>
-<tr class="separator:ga9deaccba0d18fa00991e60c07770f9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf3c107761015dff9b719960a7cae0fc7" id="r_gaf3c107761015dff9b719960a7cae0fc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gaf3c107761015dff9b719960a7cae0fc7">CRC_CalculateProgramStart</a> (uint32_t startAddr, uint32_t sizeBytes)</td></tr>
-<tr class="memdesc:gaf3c107761015dff9b719960a7cae0fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the CRC calculation on a buffer in program space.  <br /></td></tr>
-<tr class="separator:gaf3c107761015dff9b719960a7cae0fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga464220e3c2951fa8617f8b73806d508f" id="r_ga464220e3c2951fa8617f8b73806d508f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga464220e3c2951fa8617f8b73806d508f">CRC_EventCallbackRegister</a> (void(*handler)(void))</td></tr>
-<tr class="memdesc:ga464220e3c2951fa8617f8b73806d508f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for CRC Event event.  <br /></td></tr>
-<tr class="separator:ga464220e3c2951fa8617f8b73806d508f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac9077e2fdee5d83f83d2639a92fc7c78" id="r_gac9077e2fdee5d83f83d2639a92fc7c78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gac9077e2fdee5d83f83d2639a92fc7c78">CRC_EventCallback</a> (void)</td></tr>
-<tr class="memdesc:gac9077e2fdee5d83f83d2639a92fc7c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using <br  />
- CRC_EventCallbackRegister.  <br /></td></tr>
-<tr class="separator:gac9077e2fdee5d83f83d2639a92fc7c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac36ee878e4256e6b5c82e180f5196b40" id="r_gac36ee878e4256e6b5c82e180f5196b40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gac36ee878e4256e6b5c82e180f5196b40">CRC_Tasks</a> (void)</td></tr>
-<tr class="memdesc:gac36ee878e4256e6b5c82e180f5196b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function cycles through the CRC calculations. <br  />
- This function will load the CRC module FIFO with the buffer data.  <br /></td></tr>
-<tr class="separator:gac36ee878e4256e6b5c82e180f5196b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf55c3e382b50ab182645f68e85873e0a" id="r_gaf55c3e382b50ab182645f68e85873e0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gaf55c3e382b50ab182645f68e85873e0a">CRC_CalculationIsDone</a> (void)</td></tr>
-<tr class="memdesc:gaf55c3e382b50ab182645f68e85873e0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the CRC calculation complete status <br  />
-  <br /></td></tr>
-<tr class="separator:gaf55c3e382b50ab182645f68e85873e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga595814562acde8c6c22c92af9c33ca16" id="r_ga595814562acde8c6c22c92af9c33ca16"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga595814562acde8c6c22c92af9c33ca16">CRC_CalculationResultGet</a> (bool reverse, uint32_t xorValue)</td></tr>
-<tr class="memdesc:ga595814562acde8c6c22c92af9c33ca16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the CRC result if the calculation is done.  <br /></td></tr>
-<tr class="separator:ga595814562acde8c6c22c92af9c33ca16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3a06d9e9df1840cb7bda3f8c3b48f14e" id="r_ga3a06d9e9df1840cb7bda3f8c3b48f14e"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga3a06d9e9df1840cb7bda3f8c3b48f14e">CRC_CalculationResultRawGet</a> (void)</td></tr>
-<tr class="memdesc:ga3a06d9e9df1840cb7bda3f8c3b48f14e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the CRC raw result if the calculation is done.  <br /></td></tr>
-<tr class="separator:ga3a06d9e9df1840cb7bda3f8c3b48f14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae32b26f5e43c6cb51a808454b8645c3a" id="r_gae32b26f5e43c6cb51a808454b8645c3a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gae32b26f5e43c6cb51a808454b8645c3a">CRC_CalculationResultReverseGet</a> (void)</td></tr>
-<tr class="memdesc:gae32b26f5e43c6cb51a808454b8645c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the CRC reversed value of result if the calculation is done.  <br /></td></tr>
-<tr class="separator:gae32b26f5e43c6cb51a808454b8645c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad79b80b3d8a690fbfa807ce0a3a7d399" id="r_gad79b80b3d8a690fbfa807ce0a3a7d399"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gad79b80b3d8a690fbfa807ce0a3a7d399">CRC_CalculationResultXORGet</a> (uint32_t xorValue)</td></tr>
-<tr class="memdesc:gad79b80b3d8a690fbfa807ce0a3a7d399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the CRC XOR'd value of the result if the calculation is done.  <br /></td></tr>
-<tr class="separator:gad79b80b3d8a690fbfa807ce0a3a7d399"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga1065ec72a69750ea4b5815f6504d8798" id="r_ga1065ec72a69750ea4b5815f6504d8798"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00613.html">CRC_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga1065ec72a69750ea4b5815f6504d8798">CRC</a></td></tr>
-<tr class="memdesc:ga1065ec72a69750ea4b5815f6504d8798"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00613.html" title="Structure containing the function pointers of CRC driver.">CRC_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. CRC can be changed by the user in the CRC user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
-<tr class="separator:ga1065ec72a69750ea4b5815f6504d8798"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:afad3a469b6bfe852c22c32716d3e63c0" id="r_afad3a469b6bfe852c22c32716d3e63c0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#afad3a469b6bfe852c22c32716d3e63c0">CRC_STATE</a> { <a class="el" href="a00149.html#afad3a469b6bfe852c22c32716d3e63c0ad568f149026207abd066a599aee87e29">CRC_STATE_CALCULATE</a>
+, <a class="el" href="a00149.html#afad3a469b6bfe852c22c32716d3e63c0acf6d4525aaf4ae40676899296a140690">CRC_STATE_FLUSH</a>
+, <a class="el" href="a00149.html#afad3a469b6bfe852c22c32716d3e63c0a0467900b024227ef57080935380e83f0">CRC_STATE_CLEANUP</a>
+, <a class="el" href="a00149.html#afad3a469b6bfe852c22c32716d3e63c0a6ad46080430f7634bd2b91ba963079ef">CRC_STATE_DONE</a>
+ }</td></tr>
+<tr class="separator:afad3a469b6bfe852c22c32716d3e63c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada1c18391bf657479988adbfcc035607" id="r_ada1c18391bf657479988adbfcc035607"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#ada1c18391bf657479988adbfcc035607">CRC_SEED_METHOD</a> { <a class="el" href="a00149.html#ada1c18391bf657479988adbfcc035607a0a5b65f4b2cc5c9e59cb649d91125914">CRC_SEED_METHOD_DIRECT</a>
+, <a class="el" href="a00149.html#ada1c18391bf657479988adbfcc035607ae20a0834c1ca85fc89c3463e0ac01f67">CRC_SEED_METHOD_INDIRECT</a>
+ }</td></tr>
+<tr class="separator:ada1c18391bf657479988adbfcc035607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb206e74952718e1db3a800b67f77cb6" id="r_abb206e74952718e1db3a800b67f77cb6"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#abb206e74952718e1db3a800b67f77cb6">CRC_SEED_DIRECTION</a> { <a class="el" href="a00149.html#abb206e74952718e1db3a800b67f77cb6a73095831ea215fa6edf41509bfca741f">CRC_SEED_DIRECTION_Msb</a>
+, <a class="el" href="a00149.html#abb206e74952718e1db3a800b67f77cb6a18837c288faf4a32313db1e405db276e">CRC_SEED_DIRECTION_Lsb</a>
+ }</td></tr>
+<tr class="separator:abb206e74952718e1db3a800b67f77cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This is the generated driver source file for the CRC driver.</p>
-<p>CRC Generated Driver Header File</p>
-<div class="fragment"></div><!-- fragment --><p> CRC Generated Driver Source File</p>
+<div class="textblock"><p>CRC Generated Driver Types Header File</p>
 <div class="fragment"></div><!-- fragment -->
-<p class="definition">Definition in file <a class="el" href="a00149_source.html">crc.h</a>.</p>
-</div></div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00149_source.html">crc_types.h</a>.</p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="abb206e74952718e1db3a800b67f77cb6" name="abb206e74952718e1db3a800b67f77cb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb206e74952718e1db3a800b67f77cb6">&#9670;&#160;</a></span>CRC_SEED_DIRECTION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00149.html#abb206e74952718e1db3a800b67f77cb6">CRC_SEED_DIRECTION</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abb206e74952718e1db3a800b67f77cb6a73095831ea215fa6edf41509bfca741f" name="abb206e74952718e1db3a800b67f77cb6a73095831ea215fa6edf41509bfca741f"></a>CRC_SEED_DIRECTION_Msb&#160;</td><td class="fielddoc"><p>CRC seed in Big Endian </p>
+</td></tr>
+<tr><td class="fieldname"><a id="abb206e74952718e1db3a800b67f77cb6a18837c288faf4a32313db1e405db276e" name="abb206e74952718e1db3a800b67f77cb6a18837c288faf4a32313db1e405db276e"></a>CRC_SEED_DIRECTION_Lsb&#160;</td><td class="fielddoc"><p>CRC seed in Little Endian </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00076">76</a> of file <a class="el" href="a00149_source.html">crc_types.h</a>.</p>
+
+</div>
+</div>
+<a id="ada1c18391bf657479988adbfcc035607" name="ada1c18391bf657479988adbfcc035607"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada1c18391bf657479988adbfcc035607">&#9670;&#160;</a></span>CRC_SEED_METHOD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00149.html#ada1c18391bf657479988adbfcc035607">CRC_SEED_METHOD</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ada1c18391bf657479988adbfcc035607a0a5b65f4b2cc5c9e59cb649d91125914" name="ada1c18391bf657479988adbfcc035607a0a5b65f4b2cc5c9e59cb649d91125914"></a>CRC_SEED_METHOD_DIRECT&#160;</td><td class="fielddoc"><p>CRC seed in direct method </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ada1c18391bf657479988adbfcc035607ae20a0834c1ca85fc89c3463e0ac01f67" name="ada1c18391bf657479988adbfcc035607ae20a0834c1ca85fc89c3463e0ac01f67"></a>CRC_SEED_METHOD_INDIRECT&#160;</td><td class="fielddoc"><p>CRC seed in indirect method </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00065">65</a> of file <a class="el" href="a00149_source.html">crc_types.h</a>.</p>
+
+</div>
+</div>
+<a id="afad3a469b6bfe852c22c32716d3e63c0" name="afad3a469b6bfe852c22c32716d3e63c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afad3a469b6bfe852c22c32716d3e63c0">&#9670;&#160;</a></span>CRC_STATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00149.html#afad3a469b6bfe852c22c32716d3e63c0">CRC_STATE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afad3a469b6bfe852c22c32716d3e63c0ad568f149026207abd066a599aee87e29" name="afad3a469b6bfe852c22c32716d3e63c0ad568f149026207abd066a599aee87e29"></a>CRC_STATE_CALCULATE&#160;</td><td class="fielddoc"><p>CRC calculation start </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afad3a469b6bfe852c22c32716d3e63c0acf6d4525aaf4ae40676899296a140690" name="afad3a469b6bfe852c22c32716d3e63c0acf6d4525aaf4ae40676899296a140690"></a>CRC_STATE_FLUSH&#160;</td><td class="fielddoc"><p>CRC calculation data flush </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afad3a469b6bfe852c22c32716d3e63c0a0467900b024227ef57080935380e83f0" name="afad3a469b6bfe852c22c32716d3e63c0a0467900b024227ef57080935380e83f0"></a>CRC_STATE_CLEANUP&#160;</td><td class="fielddoc"><p>CRC calculation reset </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afad3a469b6bfe852c22c32716d3e63c0a6ad46080430f7634bd2b91ba963079ef" name="afad3a469b6bfe852c22c32716d3e63c0a6ad46080430f7634bd2b91ba963079ef"></a>CRC_STATE_DONE&#160;</td><td class="fielddoc"><p>CRC calculation complete </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00048">48</a> of file <a class="el" href="a00149_source.html">crc_types.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

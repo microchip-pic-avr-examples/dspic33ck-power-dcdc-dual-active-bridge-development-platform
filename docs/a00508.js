@@ -1,17 +1,15 @@
 var a00508 =
 [
     [ "Conversion Macros", "a00509.html", "a00509" ],
-    [ "VPRI_OV_T_BLANK_CLEAR_SEC", "a00508.html#gae45b4bac6339131a7cb30567551a2cd5", null ],
-    [ "VPRI_OV_T_BLANK_TRIG_SEC", "a00508.html#gaf81643989e826fa9c4349f4184a56a0d", null ],
-    [ "VPRI_OV_THRES_CLEAR_VOLTS", "a00508.html#gae8ebc2c2c94c46d6bfbdc05ac7ffdecb", null ],
-    [ "VPRI_OV_THRES_TRIG_VOLTS", "a00508.html#ga3de0595efbf0659d33138d8f32e9e34e", null ],
-    [ "VPRI_OV_TICK_SEC", "a00508.html#gab881ac722074c5a0c9a96b33737b44f2", null ],
-    [ "VPRI_SNS_GAIN", "a00508.html#gae3dffcdc110b55af6c257bfc0748cf81", null ],
-    [ "VPRI_SNS_OFS", "a00508.html#ga35eab816332f1b3d80d161f125c5044a", null ],
-    [ "VPRI_UV_T_BLANK_CLEAR_SEC", "a00508.html#gae060c2f32be9e0c4fbe4d30968d86a50", null ],
-    [ "VPRI_UV_T_BLANK_TRIG_SEC", "a00508.html#ga6ff4ff92efb2e17e98e3b963e6dc0cae", null ],
-    [ "VPRI_UV_THRES_CLEAR_VOLTS", "a00508.html#gaf0c600dfc98788eda04c6051f1e67dff", null ],
-    [ "VPRI_UV_THRES_TRIG_VOLTS", "a00508.html#ga886eaaa750e2ef06f90bdd463c7f6346", null ],
-    [ "VPRI_UV_TICK_SEC", "a00508.html#gac8e4597345a6c7e57405fa9084be0dcb", null ],
-    [ "VPRI_VOLTAGE_GAIN", "a00508.html#gab88335efd29659386531beabaffdf660", null ]
+    [ "ISEC_AVG_SNS_GAIN", "a00508.html#gaa04f0731e5ca53dd3034155ddec2fb51", null ],
+    [ "ISEC_AVG_SNS_OFS", "a00508.html#ga3ddd48524fd57578569ad30b31317bee", null ],
+    [ "ISEC_CT_SNS_GAIN", "a00508.html#gad565ee56fd67a47693480901f73b5e2c", null ],
+    [ "ISEC_CT_SNS_OFS", "a00508.html#ga167708b374334a691b34a153fc97ded0", null ],
+    [ "ISEC_LOAD_STEP_CLAMPING_AMPS", "a00508.html#ga6ec24bdfc7696657bf7e95dbaf83d5d9", null ],
+    [ "ISEC_OC_T_BLANK_CLEAR_SEC", "a00508.html#ga80ef2d060cb2e0d45398358f08401976", null ],
+    [ "ISEC_OC_T_BLANK_TRIG_SEC", "a00508.html#ga9dd78aa25c054cc00c115cd70169dcda", null ],
+    [ "ISEC_OC_THRES_CLEAR_AMPS", "a00508.html#gacdbe9002c178691c914b1043a7c070ce", null ],
+    [ "ISEC_OC_THRES_TRIG_AMPS", "a00508.html#ga61571a56765f2041df1adffb0e127623", null ],
+    [ "ISEC_OC_TICK_SEC", "a00508.html#gaf7a4bcd753b1270a1745bc3fe4c403e9", null ],
+    [ "ISEC_SC_THRES_TRIG_AMPS", "a00508.html#ga5f4043a3b61439e7695829b39102281c", null ]
 ];

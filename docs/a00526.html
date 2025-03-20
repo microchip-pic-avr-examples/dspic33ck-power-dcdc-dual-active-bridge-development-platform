@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Power Board Visualizer</title>
+<title>Dual Active Bridge Development Board: Configuration Layer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,54 +138,57 @@ $(document).ready(function(){initNavTree('a00526.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#groups">Modules</a>  </div>
-  <div class="headertitle"><div class="title">Power Board Visualizer<div class="ingroups"><a class="el" href="a00525.html">Communication Layer</a></div></div></div>
+  <div class="headertitle"><div class="title">Configuration Layer</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Driver for Power Board Visualizer.  
+<p>Allow user to quickly change fundamental system parameters, hardware changes and even migrating the firmware across different designs wiht minimal modification in the actual source code.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Power Board Visualizer:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Configuration Layer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00526.svg" width="560" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00526.svg" width="367" height="526"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
 Modules</h2></td></tr>
-<tr class="memitem:a00527" id="r_a00527"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html">CAN Communication</a></td></tr>
-<tr class="memdesc:a00527"><td class="mdescLeft">&#160;</td><td class="mdescRight">This abstracts the MCC driver api. <br /></td></tr>
+<tr class="memitem:a00500" id="r_a00500"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00500.html">PWM Settings</a></td></tr>
+<tr class="memdesc:a00500"><td class="mdescLeft">&#160;</td><td class="mdescRight">User-declaration of global defines for PWM signal generator settings. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00528" id="r_a00528"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00528.html">UART Communication</a></td></tr>
-<tr class="memdesc:a00528"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is where the framing/deframing and transmission happens for UART frames. <br /></td></tr>
+<tr class="memitem:a00502" id="r_a00502"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00502.html">Primary Voltage Feedback</a></td></tr>
+<tr class="memdesc:a00502"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of Primary Voltage Feedback parameters, fault configuration and macros. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00529" id="r_a00529"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html">PBV Interface</a></td></tr>
-<tr class="memdesc:a00529"><td class="mdescLeft">&#160;</td><td class="mdescRight">These implement the PBV state machine of RX and TX, as well as link data that is received by peripherals to application. <br /></td></tr>
+<tr class="memitem:a00504" id="r_a00504"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00504.html">Secondary Voltage Feedback</a></td></tr>
+<tr class="memdesc:a00504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of Secondary Voltage Feedback parameters, fault configuration and macros. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00530" id="r_a00530"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00530.html">User Configuration</a></td></tr>
-<tr class="memdesc:a00530"><td class="mdescLeft">&#160;</td><td class="mdescRight">This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected. <br /></td></tr>
+<tr class="memitem:a00506" id="r_a00506"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00506.html">Primary Current Feedback</a></td></tr>
+<tr class="memdesc:a00506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of Primary Current Feedback parameters, fault configuration and macros. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00531" id="r_a00531"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html">PBV Data DAB App</a></td></tr>
-<tr class="memdesc:a00531"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main application file. <br /></td></tr>
+<tr class="memitem:a00508" id="r_a00508"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00508.html">Secondary Current Feedback</a></td></tr>
+<tr class="memdesc:a00508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of Secondary Current Feedback parameters, fault configuration and macros. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00510" id="r_a00510"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html">5V Voltage Feedback</a></td></tr>
+<tr class="memdesc:a00510"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of 5V Voltage Feedback parameters, fault configuration and macros. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00512" id="r_a00512"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00512.html">Control Loop</a></td></tr>
+<tr class="memdesc:a00512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of macros calculating additional parameters for Control Loop. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00514" id="r_a00514"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00514.html">Temperature Feedback</a></td></tr>
+<tr class="memdesc:a00514"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of Temperature Feedback parameters. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00516" id="r_a00516"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00516.html">Special Firmware Options</a></td></tr>
+<tr class="memdesc:a00516"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special functions use to enable or disable special firmware options. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00517" id="r_a00517"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html">Useful Macros</a></td></tr>
+<tr class="memdesc:a00517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of macros that the user can utilize when converting physical quantities of parameters into binary (integer) numbers for registers and variables. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>The Power Board Visualizer is a tool or system designed to monitor and display the status and performance of a power distribution board. It typically provides real-time data on various parameters such as voltage, current, and power consumption, helping users to manage and optimize power usage effectively.</p>
-<p>Communication with the Power Board Visualizer is often facilitated through two primary protocols:</p>
-<ul>
-<li>CAN (Controller Area Network):<ul>
-<li>Purpose: CAN is a robust vehicle bus standard designed to allow microcontrollers and devices to communicate with each other without a host computer.</li>
-<li>Usage: In the context of the Power Board Visualizer, CAN is used for high-speed, reliable communication between the power board and the visualizer, ensuring that data is transmitted efficiently even in electrically noisy environments.</li>
-</ul>
-</li>
-<li>UART (Universal Asynchronous Receiver-Transmitter):<ul>
-<li>Purpose: UART is a hardware communication protocol that uses asynchronous serial communication with configurable speed.</li>
-<li>Usage: UART is typically used for simpler, point-to-point communication between the power board and the visualizer. It is suitable for lower-speed data transmission and is often used for initial setup, debugging, or communication with peripheral devices.</li>
-</ul>
-</li>
-</ul>
-<p>Together, these communication protocols enable the Power Board Visualizer to effectively gather and display critical power management data, ensuring efficient monitoring and control of power distribution systems. </p>
+<p>The main purpose of a configuration layer is to provide one central point in the firmware architecture where hardware dependencies can be specified, signal scalings can be defined and specific chip resources can be assigned to support/ connect generic software functions to the hardware.</p>
+<p>This central definitions allow fast modifications and optimizations but also support fast code migration between different hardware platforms. Thus, fast adaptation of new hardware can be achieved by modifying this set of centralized definitions. <br  />
+ </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

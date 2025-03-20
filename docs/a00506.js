@@ -1,13 +1,13 @@
 var a00506 =
 [
     [ "Conversion Macros", "a00507.html", "a00507" ],
-    [ "MAXIMUM_DEADTIME", "a00506.html#gac6d318c94c201374c73969ce117024a8", null ],
-    [ "MAXIMUM_SWITCHING_FREQUENCY", "a00506.html#ga99b5526b36699f6f8c57ed94954a9b77", null ],
-    [ "MINIMUM_DEADTIME", "a00506.html#gad8b5e420d5663a13bb68f6883cad64c8", null ],
-    [ "MINIMUM_PHASESHIFTED_PULSE", "a00506.html#ga10e0f079254bb242838a78371205ca1a", null ],
-    [ "MINIMUM_SWITCHING_FREQUENCY", "a00506.html#gae8f8211058cb5c9a0691fbf041d32043", null ],
-    [ "PERIODSTEP", "a00506.html#gab1ca6d03eb3a85cc6d07ac9196ccc466", null ],
-    [ "PHASETIMESTEP", "a00506.html#gad09c14122e0caaaa2fcf393c2b74588f", null ],
-    [ "PRI_TO_SEC_PHASE_DEGREES_LIMIT", "a00506.html#ga14f8c324344d8c244db7c1ffc95daacc", null ],
-    [ "PRI_TO_SEC_PHASE_TARGET", "a00506.html#gad98508b79a9e1e8c4841dbf9816c7deb", null ]
+    [ "IPRI_CT_SNS_GAIN", "a00506.html#gadd3268f777497752594e03ab7c9ed8bd", null ],
+    [ "IPRI_CT_SNS_OFS", "a00506.html#gae03bb48f1dee21d88493adfa4fd939d8", null ],
+    [ "IPRI_OC_T_BLANK_CLEAR_SEC", "a00506.html#gab24221cdd03e9a0deab655553752bc26", null ],
+    [ "IPRI_OC_T_BLANK_TRIG_SEC", "a00506.html#gaa26d53ce604d0b5ce4b8e6bad69d2eca", null ],
+    [ "IPRI_OC_THRES_CLEAR_AMPS", "a00506.html#ga3d9ec4eb82b3b94114525bf01962d585", null ],
+    [ "IPRI_OC_THRES_TRIG_AMPS", "a00506.html#gaf66f7333079207c329017043676a1fcb", null ],
+    [ "IPRI_OC_TICK_SEC", "a00506.html#ga4487a40d5ee45b46fff78d92d3570251", null ],
+    [ "IPRI_SC_THRES_TRIG_AMPS", "a00506.html#gab55238e2900bea980e7be8e9d488683e", null ],
+    [ "T_ADC_SAMPLE_SECS", "a00506.html#ga629c6b42f4e4f0bb7b45a365327216c8", null ]
 ];

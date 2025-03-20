@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Generic Fault Driver</title>
+<title>Dual Active Bridge Development Board: CLC Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -139,514 +139,461 @@ $(document).ready(function(){initNavTree('a00552.html',''); initResizable(); });
   <div class="summary">
 <a href="#files">Files</a> &#124;
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Generic Fault Driver<div class="ingroups"><a class="el" href="a00550.html">Fault Monitor</a></div></div></div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">CLC Driver<div class="ingroups"><a class="el" href="a00548.html">MPLABX MCC Melody Code Generator</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains generic fault functions.  
+<p>Configurable Logic Cell driver allows the user to specify combinations of signals as inputs to a logic function and to use the logic output to control other peripherals or I/O pins using dsPIC MCUs.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Generic Fault Driver:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CLC Driver:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00552.svg" width="292" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00552.svg" width="294" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00392" id="r_a00392"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00392.html">fault_common.h</a></td></tr>
-<tr class="memdesc:a00392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains fault generic public functions. <br /></td></tr>
+<tr class="memitem:a00113" id="r_a00113"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00113.html">clc1.h</a></td></tr>
+<tr class="memdesc:a00113"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver header file for the CLC1 driver. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00401" id="r_a00401"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00401.html">fault_typedef.h</a></td></tr>
-<tr class="memdesc:a00401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains fault data types. <br /></td></tr>
+<tr class="memitem:a00119" id="r_a00119"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00119.html">clc1.c</a></td></tr>
+<tr class="memdesc:a00119"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver source file for CLC1 driver. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00685.html">FAULT_OBJ_T</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Fault object data structure contains a list of elements/variables that are used to detect/check a fault.  <a href="a00685.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00689.html">FAULT_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of faults to be monitored.  <a href="a00689.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00595.html">CLC_INTERFACE</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure containing the function pointers of CLC driver.  <a href="a00595.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gae9aa4b1a3733fa6ee5fb7778bdf74103" id="r_gae9aa4b1a3733fa6ee5fb7778bdf74103"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#gae9aa4b1a3733fa6ee5fb7778bdf74103">FAULT_Init</a> (<a class="el" href="a00685.html">FAULT_OBJ_T</a> *faultInput, int16_t threshold, int16_t hysLimit, uint16_t thresholdCnt, uint32_t hysCnt)</td></tr>
-<tr class="memdesc:gae9aa4b1a3733fa6ee5fb7778bdf74103"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the fault object data structure with the values that required to detect a fault. <br  />
-  <br /></td></tr>
-<tr class="separator:gae9aa4b1a3733fa6ee5fb7778bdf74103"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5feed023da8938178c78afe29ca8d2cb" id="r_ga5feed023da8938178c78afe29ca8d2cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#ga5feed023da8938178c78afe29ca8d2cb">FAULT_InitRange</a> (<a class="el" href="a00685.html">FAULT_OBJ_T</a> *faultInput, int16_t thresholdMin, int16_t hysLimitMin, int16_t thresholdMax, int16_t hysLimitMax, uint16_t thresholdCnt, uint32_t hysCnt)</td></tr>
-<tr class="memdesc:ga5feed023da8938178c78afe29ca8d2cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the fault object data structure with the values that required to detect a fault at a particular range. <br  />
-  <br /></td></tr>
-<tr class="separator:ga5feed023da8938178c78afe29ca8d2cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga81272ffd00652b2dbe00bfa8594be05f" id="r_ga81272ffd00652b2dbe00bfa8594be05f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#ga81272ffd00652b2dbe00bfa8594be05f">FAULT_SetCounters</a> (<a class="el" href="a00685.html">FAULT_OBJ_T</a> *faultInput, uint16_t fltThresholdCnt, uint32_t fltHysCnt)</td></tr>
-<tr class="memdesc:ga81272ffd00652b2dbe00bfa8594be05f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes/sets the fault structure with the counter limits.  <br /></td></tr>
-<tr class="separator:ga81272ffd00652b2dbe00bfa8594be05f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9814ba400be29bb6b3d2372c26252850" id="r_ga9814ba400be29bb6b3d2372c26252850"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#ga9814ba400be29bb6b3d2372c26252850">FAULT_SetThresholds</a> (<a class="el" href="a00685.html">FAULT_OBJ_T</a> *faultInput, int16_t fltThreshold, int16_t fltHysLimit)</td></tr>
-<tr class="memdesc:ga9814ba400be29bb6b3d2372c26252850"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes/sets the fault structure with the threshold limits.  <br /></td></tr>
-<tr class="separator:ga9814ba400be29bb6b3d2372c26252850"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1a12d5b7c5b1f234c50ea2214e91fcfc" id="r_ga1a12d5b7c5b1f234c50ea2214e91fcfc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#ga1a12d5b7c5b1f234c50ea2214e91fcfc">FAULT_CheckMax</a> (<a class="el" href="a00685.html">FAULT_OBJ_T</a> *faultInput, int16_t faultSource, <a class="el" href="a00392.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a> callback)</td></tr>
-<tr class="memdesc:ga1a12d5b7c5b1f234c50ea2214e91fcfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function compares the fault source value with the threshold limits and sets (or) resets the fault active state accordingly.  <br /></td></tr>
-<tr class="separator:ga1a12d5b7c5b1f234c50ea2214e91fcfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabe4788eb1b8be3ad755eb7daf6bba295" id="r_gabe4788eb1b8be3ad755eb7daf6bba295"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#gabe4788eb1b8be3ad755eb7daf6bba295">FAULT_CheckMin</a> (<a class="el" href="a00685.html">FAULT_OBJ_T</a> *faultInput, int16_t faultSource, <a class="el" href="a00392.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a> callback)</td></tr>
-<tr class="memdesc:gabe4788eb1b8be3ad755eb7daf6bba295"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function compares the fault source value with the threshold limits and sets (or) resets the fault active state accordingly.  <br /></td></tr>
-<tr class="separator:gabe4788eb1b8be3ad755eb7daf6bba295"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4d793923449f4e03992bcbdda147a3ec" id="r_ga4d793923449f4e03992bcbdda147a3ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#ga4d793923449f4e03992bcbdda147a3ec">FAULT_CheckBit</a> (<a class="el" href="a00685.html">FAULT_OBJ_T</a> *faultInput, bool faultBit, <a class="el" href="a00392.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a> callback)</td></tr>
-<tr class="separator:ga4d793923449f4e03992bcbdda147a3ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1eb8f7e7cab65ed3eb87edd0b076f695" id="r_ga1eb8f7e7cab65ed3eb87edd0b076f695"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#ga1eb8f7e7cab65ed3eb87edd0b076f695">FAULT_CheckRange</a> (<a class="el" href="a00685.html">FAULT_OBJ_T</a> *faultInput, int16_t inputValue, <a class="el" href="a00392.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a> callback)</td></tr>
-<tr class="separator:ga1eb8f7e7cab65ed3eb87edd0b076f695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa42a5ba0915a962cd75964a4dcde3b4" id="r_gaaa42a5ba0915a962cd75964a4dcde3b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> (void)</td></tr>
+<tr class="memdesc:gaaa42a5ba0915a962cd75964a4dcde3b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the CLC1 module.  <br /></td></tr>
+<tr class="separator:gaaa42a5ba0915a962cd75964a4dcde3b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01516d04dce352de74ae123cf553cb30" id="r_ga01516d04dce352de74ae123cf553cb30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#ga01516d04dce352de74ae123cf553cb30">CLC1_Deinitialize</a> (void)</td></tr>
+<tr class="memdesc:ga01516d04dce352de74ae123cf553cb30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the CLC1 to POR values.  <br /></td></tr>
+<tr class="separator:ga01516d04dce352de74ae123cf553cb30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3af7f12e3d269fdc409d1a279736b27" id="r_gaf3af7f12e3d269fdc409d1a279736b27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#gaf3af7f12e3d269fdc409d1a279736b27">CLC1_OutputStatusGet</a> (void)</td></tr>
+<tr class="memdesc:gaf3af7f12e3d269fdc409d1a279736b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns output pin status of the CLC1 module.  <br /></td></tr>
+<tr class="separator:gaf3af7f12e3d269fdc409d1a279736b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c85f3e09616a9a2855839d4b45c0e43" id="r_ga7c85f3e09616a9a2855839d4b45c0e43"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#ga7c85f3e09616a9a2855839d4b45c0e43">CLC1_Enable</a> (void)</td></tr>
+<tr class="memdesc:ga7c85f3e09616a9a2855839d4b45c0e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function enables the CLC1 module.  <br /></td></tr>
+<tr class="separator:ga7c85f3e09616a9a2855839d4b45c0e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga278c795208d6f58fb1b0c1bf2739f883" id="r_ga278c795208d6f58fb1b0c1bf2739f883"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#ga278c795208d6f58fb1b0c1bf2739f883">CLC1_Disable</a> (void)</td></tr>
+<tr class="memdesc:ga278c795208d6f58fb1b0c1bf2739f883"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function disables the CLC1 module.  <br /></td></tr>
+<tr class="separator:ga278c795208d6f58fb1b0c1bf2739f883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaecad61896990ca955aab640a8609a74d" id="r_gaecad61896990ca955aab640a8609a74d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#gaecad61896990ca955aab640a8609a74d">CLC1_PositiveEdgeCallbackRegister</a> (void(*handler)(void))</td></tr>
+<tr class="memdesc:gaecad61896990ca955aab640a8609a74d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for CLC1 PositiveEdge event.  <br /></td></tr>
+<tr class="separator:gaecad61896990ca955aab640a8609a74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga055481a146c113692385b653e64331f8" id="r_ga055481a146c113692385b653e64331f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#ga055481a146c113692385b653e64331f8">CLC1_PositiveEdgeCallback</a> (void)</td></tr>
+<tr class="memdesc:ga055481a146c113692385b653e64331f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using CLC1_PositiveEdgeCallbackRegister.  <br /></td></tr>
+<tr class="separator:ga055481a146c113692385b653e64331f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab37490b9172b07cf29c311b7501d04f6" id="r_gab37490b9172b07cf29c311b7501d04f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#gab37490b9172b07cf29c311b7501d04f6">CLC1_NegativeEdgeCallbackRegister</a> (void(*handler)(void))</td></tr>
+<tr class="memdesc:gab37490b9172b07cf29c311b7501d04f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for CLC1 NegativeEdge event.  <br /></td></tr>
+<tr class="separator:gab37490b9172b07cf29c311b7501d04f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf25cf35f34affb5c7832814688a02873" id="r_gaf25cf35f34affb5c7832814688a02873"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#gaf25cf35f34affb5c7832814688a02873">CLC1_NegativeEdgeCallback</a> (void)</td></tr>
+<tr class="memdesc:gaf25cf35f34affb5c7832814688a02873"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using CLC1_NegativeEdgeCallbackRegister.  <br /></td></tr>
+<tr class="separator:gaf25cf35f34affb5c7832814688a02873"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac6c1a14b3589b2c967b9a1b6bb01551" id="r_gaac6c1a14b3589b2c967b9a1b6bb01551"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#gaac6c1a14b3589b2c967b9a1b6bb01551">CLC1_Tasks</a> (void)</td></tr>
+<tr class="memdesc:gaac6c1a14b3589b2c967b9a1b6bb01551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements the tasks for polled implementations where the hardware supports dedicated event for Positive edge, Negative edge or both. Note: If both Positive Edge and Negative Edge uses polling mode then Callback function of positive edge takes the priority if both event occurred.  <br /></td></tr>
+<tr class="separator:gaac6c1a14b3589b2c967b9a1b6bb01551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gaf313a644645eaeb160dd1eba82ff4506" id="r_gaf313a644645eaeb160dd1eba82ff4506"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00595.html">CLC_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00552.html#gaf313a644645eaeb160dd1eba82ff4506">CLC1</a></td></tr>
+<tr class="memdesc:gaf313a644645eaeb160dd1eba82ff4506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00595.html" title="Structure containing the function pointers of CLC driver.">CLC_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. CLC1 can be changed by the user in the CLC user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
+<tr class="separator:gaf313a644645eaeb160dd1eba82ff4506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document contains fault functions that handles different fault conditions and threshold. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ga4d793923449f4e03992bcbdda147a3ec" name="ga4d793923449f4e03992bcbdda147a3ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4d793923449f4e03992bcbdda147a3ec">&#9670;&#160;</a></span>FAULT_CheckBit()</h2>
+<div class="fragment"></div><!-- fragment --><h2 class="groupheader">Function Documentation</h2>
+<a id="ga01516d04dce352de74ae123cf553cb30" name="ga01516d04dce352de74ae123cf553cb30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga01516d04dce352de74ae123cf553cb30">&#9670;&#160;</a></span>CLC1_Deinitialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool FAULT_CheckBit </td>
+          <td class="memname">void CLC1_Deinitialize </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00685.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>faultBit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00392.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a>&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00685.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">faultBit</td><td>bit being checked by fault function </td></tr>
-    <tr><td class="paramname">callback</td><td>function executed when fault trips </td></tr>
+    <tr><td class="paramname">none</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 when fault is active </dd>
-<dd>
-0 when fault is not active</dd></dl>
-<p>This function returns fault active state to TRUE, if the fault bit is set for a time equivalent to set_counter value. Also, after the fault active state becomes TRUE, if callback function pointer is non-null, then the routine will call the callback function which quickly shutdown the system, If needed. Also the function returns fault active state to FALSE, if the fault bit is reset for a time equivalent to reset_counter value. </p>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00389_source.html#l00236">236</a> of file <a class="el" href="a00389_source.html">fault_common.c</a>.</p>
-
-</div>
-</div>
-<a id="ga1a12d5b7c5b1f234c50ea2214e91fcfc" name="ga1a12d5b7c5b1f234c50ea2214e91fcfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1a12d5b7c5b1f234c50ea2214e91fcfc">&#9670;&#160;</a></span>FAULT_CheckMax()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool FAULT_CheckMax </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00685.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>faultSource</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00392.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a>&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00685.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">faultSource</td><td>value being evaluated for fault limits </td></tr>
-    <tr><td class="paramname">callback</td><td>function executed when fault trips </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>1 when fault is active </dd>
-<dd>
-0 when fault is not active</dd></dl>
-<p>This function returns fault active state to TRUE, if input fault source is greater than the set threshold limit for a time equivalent to set_counter value. Also, after the fault active state becomes TRUE, if callback function pointer is non-null, then the routine will call the callback function which quickly shutdown the system, if needed. Also the function returns fault active state to FALSE, if input fault source is less than the hysteresis limit value for a time equivalent to reset_counter value. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00389_source.html#l00126">126</a> of file <a class="el" href="a00389_source.html">fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00085">85</a> of file <a class="el" href="a00119_source.html">clc1.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00552_ga1a12d5b7c5b1f234c50ea2214e91fcfc_icgraph.svg" width="534" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00552_ga01516d04dce352de74ae123cf553cb30_cgraph.svg" width="286" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="gabe4788eb1b8be3ad755eb7daf6bba295" name="gabe4788eb1b8be3ad755eb7daf6bba295"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabe4788eb1b8be3ad755eb7daf6bba295">&#9670;&#160;</a></span>FAULT_CheckMin()</h2>
+<a id="ga278c795208d6f58fb1b0c1bf2739f883" name="ga278c795208d6f58fb1b0c1bf2739f883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga278c795208d6f58fb1b0c1bf2739f883">&#9670;&#160;</a></span>CLC1_Disable()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool FAULT_CheckMin </td>
+          <td class="memname">static void CLC1_Disable </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00685.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>faultSource</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00392.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a>&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00552.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> function should be called before calling this function. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00685.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">faultSource</td><td>value being evaluated for fault limits </td></tr>
-    <tr><td class="paramname">callback</td><td>function executed when fault trips </td></tr>
+    <tr><td class="paramname">none</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 when fault is active </dd>
-<dd>
-0 when fault is not active</dd></dl>
-<p>This function returns fault active state to TRUE, if input fault source is less than the set threshold limit for a time equivalent to set_counter value. Also, after the fault active state becomes TRUE, if callback function pointer is non-null, then the routine will call the callback function which quickly shutdown the system, if needed. Also the function returns fault active state to FALSE, if input fault source is greater than the hysteresis limit value for a time equivalent to reset_counter value. </p>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00389_source.html#l00184">184</a> of file <a class="el" href="a00389_source.html">fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00110">110</a> of file <a class="el" href="a00113_source.html">clc1.h</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00552_gabe4788eb1b8be3ad755eb7daf6bba295_icgraph.svg" width="483" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00552_ga278c795208d6f58fb1b0c1bf2739f883_icgraph.svg" width="286" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ga1eb8f7e7cab65ed3eb87edd0b076f695" name="ga1eb8f7e7cab65ed3eb87edd0b076f695"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1eb8f7e7cab65ed3eb87edd0b076f695">&#9670;&#160;</a></span>FAULT_CheckRange()</h2>
+<a id="ga7c85f3e09616a9a2855839d4b45c0e43" name="ga7c85f3e09616a9a2855839d4b45c0e43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7c85f3e09616a9a2855839d4b45c0e43">&#9670;&#160;</a></span>CLC1_Enable()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool FAULT_CheckRange </td>
+          <td class="memname">static void CLC1_Enable </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00685.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>inputValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00392.html#ab1866aa7da8f57af405367f987a93392">FAULT_CALLBACK</a>&#160;</td>
-          <td class="paramname"><em>callback</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00552.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> function should be called before calling this function. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00685.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">inputValue</td><td>value being evaluated by the function </td></tr>
-    <tr><td class="paramname">callback</td><td>function executed when fault trips </td></tr>
+    <tr><td class="paramname">none</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 when fault is active </dd>
-<dd>
-0 when fault is not active</dd></dl>
-<p>This function returns fault active state to TRUE, if the input value is out of threshold limits range for a time equivalent to set_counter value. Also, after the fault active state becomes TRUE, if callback function pointer is non-null, then the routine will call the callback function which quickly shutdown the system, If needed. Also the function returns fault active state to FALSE, if the input value is within the hysteresis limits range for a time equivalent to reset_counter value. </p>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00389_source.html#l00287">287</a> of file <a class="el" href="a00389_source.html">fault_common.c</a>.</p>
-
-</div>
-</div>
-<a id="gae9aa4b1a3733fa6ee5fb7778bdf74103" name="gae9aa4b1a3733fa6ee5fb7778bdf74103"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae9aa4b1a3733fa6ee5fb7778bdf74103">&#9670;&#160;</a></span>FAULT_Init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void FAULT_Init </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00685.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>threshold</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>hysLimit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>thresholdCnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>hysCnt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00685.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">threshold</td><td>sets the fault allowed limit </td></tr>
-    <tr><td class="paramname">hysLimit</td><td>hysteresis limit values </td></tr>
-    <tr><td class="paramname">thresholdCnt</td><td>threshold counter (increments when threshold limit is reached) <br  />
- </td></tr>
-    <tr><td class="paramname">hysCnt</td><td>hysteresis counter increments when hysteresis limit is reached <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p><br  />
- This function initializes the fault structure with the thresholds and counter limits which are required to detect a fault. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00389_source.html#l00027">27</a> of file <a class="el" href="a00389_source.html">fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00097">97</a> of file <a class="el" href="a00113_source.html">clc1.h</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00552_gae9aa4b1a3733fa6ee5fb7778bdf74103_icgraph.svg" width="248" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00552_ga7c85f3e09616a9a2855839d4b45c0e43_icgraph.svg" width="444" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ga5feed023da8938178c78afe29ca8d2cb" name="ga5feed023da8938178c78afe29ca8d2cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5feed023da8938178c78afe29ca8d2cb">&#9670;&#160;</a></span>FAULT_InitRange()</h2>
+<a id="gaaa42a5ba0915a962cd75964a4dcde3b4" name="gaaa42a5ba0915a962cd75964a4dcde3b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaa42a5ba0915a962cd75964a4dcde3b4">&#9670;&#160;</a></span>CLC1_Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void FAULT_InitRange </td>
+          <td class="memname">void CLC1_Initialize </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00685.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>thresholdMin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>hysLimitMin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>thresholdMax</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>hysLimitMax</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>thresholdCnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>hysCnt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00685.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">thresholdMin</td><td>sets the fault allowed minimum limit </td></tr>
-    <tr><td class="paramname">thresholdMax</td><td>sets the fault allowed maximum limit </td></tr>
-    <tr><td class="paramname">hysLimitMin</td><td>minimum hysteresis limit value </td></tr>
-    <tr><td class="paramname">hysLimitMax</td><td>maximum hysteresis limit values </td></tr>
-    <tr><td class="paramname">thresholdCnt</td><td>threshold counter (increments when threshold limit is reached) <br  />
- </td></tr>
-    <tr><td class="paramname">hysCnt</td><td>hysteresis counter increments when hysteresis limit is reached <br  />
- </td></tr>
+    <tr><td class="paramname">none</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the fault structure with the thresholds <br  />
- and counter limits which are required to detect a fault. </p>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00389_source.html#l00055">55</a> of file <a class="el" href="a00389_source.html">fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00063">63</a> of file <a class="el" href="a00119_source.html">clc1.c</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00552_gaaa42a5ba0915a962cd75964a4dcde3b4_cgraph.svg" width="356" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00552_gaaa42a5ba0915a962cd75964a4dcde3b4_icgraph.svg" width="296" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="ga81272ffd00652b2dbe00bfa8594be05f" name="ga81272ffd00652b2dbe00bfa8594be05f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga81272ffd00652b2dbe00bfa8594be05f">&#9670;&#160;</a></span>FAULT_SetCounters()</h2>
+<a id="gaf25cf35f34affb5c7832814688a02873" name="gaf25cf35f34affb5c7832814688a02873"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf25cf35f34affb5c7832814688a02873">&#9670;&#160;</a></span>CLC1_NegativeEdgeCallback()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void FAULT_SetCounters </td>
+          <td class="memname">void CLC1_NegativeEdgeCallback </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00685.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>fltThresholdCnt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>fltHysCnt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00685.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">fltThresholdCnt</td><td>threshold counter (increments when threshold limit is reached) <br  />
- </td></tr>
-    <tr><td class="paramname">fltHysCnt</td><td>hysteresis counter increments when hysteresis limit is reached <br  />
- </td></tr>
+    <tr><td class="paramname">none</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the CounterSet, CounterReset variables of the fault object data structure. These counter values together with thresholds are used to set and reset the fault. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00389_source.html#l00083">83</a> of file <a class="el" href="a00389_source.html">fault_common.c</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00552_gaf25cf35f34affb5c7832814688a02873_icgraph.svg" width="534" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="ga9814ba400be29bb6b3d2372c26252850" name="ga9814ba400be29bb6b3d2372c26252850"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9814ba400be29bb6b3d2372c26252850">&#9670;&#160;</a></span>FAULT_SetThresholds()</h2>
+<a id="gab37490b9172b07cf29c311b7501d04f6" name="gab37490b9172b07cf29c311b7501d04f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab37490b9172b07cf29c311b7501d04f6">&#9670;&#160;</a></span>CLC1_NegativeEdgeCallbackRegister()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void FAULT_SetThresholds </td>
+          <td class="memname">void CLC1_NegativeEdgeCallbackRegister </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00685.html">FAULT_OBJ_T</a> *&#160;</td>
-          <td class="paramname"><em>faultInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void(*)(void)&#160;</td>
+          <td class="paramname"><em>handler</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>fltThreshold</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>fltHysLimit</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">faultInput</td><td>Pointer to a fault data object of type <a class="el" href="a00685.html" title="The Fault object data structure contains a list of elements/variables that are used to detect/check a...">FAULT_OBJ_T</a> </td></tr>
-    <tr><td class="paramname">fltThreshold</td><td>sets the fault allowed limit </td></tr>
-    <tr><td class="paramname">fltHysLimit</td><td>hysteresis limit values <br  />
+    <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>- Address of the callback function. <br  />
  </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes/sets the val1_Threshold, val1_Hysteresis variables of the fault object data structure. These threshold values together with counter limits are used to set and reset the fault. </p>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00389_source.html#l00101">101</a> of file <a class="el" href="a00389_source.html">fault_common.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00109">109</a> of file <a class="el" href="a00119_source.html">clc1.c</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00552_gab37490b9172b07cf29c311b7501d04f6_icgraph.svg" width="534" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gaf3af7f12e3d269fdc409d1a279736b27" name="gaf3af7f12e3d269fdc409d1a279736b27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf3af7f12e3d269fdc409d1a279736b27">&#9670;&#160;</a></span>CLC1_OutputStatusGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CLC1_OutputStatusGet </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00552.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> function should be called before calling this function. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Output pin status <br  />
+ </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00148">148</a> of file <a class="el" href="a00119_source.html">clc1.c</a>.</p>
+
+</div>
+</div>
+<a id="ga055481a146c113692385b653e64331f8" name="ga055481a146c113692385b653e64331f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga055481a146c113692385b653e64331f8">&#9670;&#160;</a></span>CLC1_PositiveEdgeCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CLC1_PositiveEdgeCallback </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00552_ga055481a146c113692385b653e64331f8_icgraph.svg" width="530" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gaecad61896990ca955aab640a8609a74d" name="gaecad61896990ca955aab640a8609a74d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaecad61896990ca955aab640a8609a74d">&#9670;&#160;</a></span>CLC1_PositiveEdgeCallbackRegister()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CLC1_PositiveEdgeCallbackRegister </td>
+          <td>(</td>
+          <td class="paramtype">void(*)(void)&#160;</td>
+          <td class="paramname"><em>handler</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>- Address of the callback function. <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00096">96</a> of file <a class="el" href="a00119_source.html">clc1.c</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00552_gaecad61896990ca955aab640a8609a74d_icgraph.svg" width="530" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gaac6c1a14b3589b2c967b9a1b6bb01551" name="gaac6c1a14b3589b2c967b9a1b6bb01551"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaac6c1a14b3589b2c967b9a1b6bb01551">&#9670;&#160;</a></span>CLC1_Tasks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CLC1_Tasks </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00552.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> function should be called before calling this function. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00124">124</a> of file <a class="el" href="a00119_source.html">clc1.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="gaf313a644645eaeb160dd1eba82ff4506" name="gaf313a644645eaeb160dd1eba82ff4506"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf313a644645eaeb160dd1eba82ff4506">&#9670;&#160;</a></span>CLC1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const struct <a class="el" href="a00595.html">CLC_INTERFACE</a> CLC1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00051">51</a> of file <a class="el" href="a00119_source.html">clc1.c</a>.</p>
 
 </div>
 </div>

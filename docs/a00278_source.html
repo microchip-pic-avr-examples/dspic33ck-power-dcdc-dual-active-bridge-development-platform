@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/comm/PBV_CAN.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/comm/PBV_config.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,44 +136,71 @@ $(document).ready(function(){initNavTree('a00278_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">PBV_CAN.h</div></div>
+  <div class="headertitle"><div class="title">PBV_config.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/* </span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @file    PBV_CAN.h   </span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @file    PBV_config.h   </span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @author  M70027</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @ingroup PBV_CAN</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @brief   Power Board Visualizer CAN interface </span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @ingroup    app-pbv-config</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @brief   Power Board Visualizer application configuration </span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// more than once.  </span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef APP_PBV_CAN_INTERFACE_H</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define APP_PBV_CAN_INTERFACE_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef APP_PBV_CONFIG_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define APP_PBV_CONFIG_H_</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;PBV_interface.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;PBV_interface.h&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">// Public Functions</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00527.html#ga79f8710b3f0d8c70122b335311789f84">PBV_CAN_Init</a>(<a class="code hl_struct" href="a00653.html">PBV_Datatype_TX_t</a> * boardToPBV, <a class="code hl_struct" href="a00653.html">PBV_Datatype_TX_t</a> * boardToPBVAscii, <a class="code hl_struct" href="a00657.html">PBV_Datatype_RX_t</a> *pbvToBoard);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>uint8_t <a class="code hl_function" href="a00527.html#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a">PBV_CAN_Receive_from_GUI</a>();</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>uint8_t <a class="code hl_function" href="a00527.html#gae06ebd7cad07c3a104d5b46c6f6323dc">PBV_CAN_Transmit_to_GUI</a>();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>uint8_t <a class="code hl_function" href="a00527.html#ga8a1a918272c7acb8edadb6686bdf7410">PBV_CAN_Transmit_Ascii_to_GUI</a>();</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00527.html#ga857a8826c159110cf094721b35f5637d">PBV_CAN_Reinit</a>(<a class="code hl_struct" href="a00653.html">PBV_Datatype_TX_t</a> * ptr);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00527.html#ga324f8d21b38a8db2c2eff48363fc09cd">PBV_CAN_Link_Data_TX</a>(<a class="code hl_struct" href="a00653.html">PBV_Datatype_TX_t</a> * ptr);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00527.html#ga75e58befa8b1fe6733bfe6cbab86e7ed">PBV_CAN_Link_Data_RX</a>(<a class="code hl_struct" href="a00657.html">PBV_Datatype_RX_t</a> * ptr);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#endif  </span><span class="comment">/* APP_PBV_CAN_INTERFACE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">typedef</span> void (*PBV_Intf_Init_t)(<a class="code hl_struct" href="a00647.html">PBV_Datatype_TX_t</a> * boardToPBV, </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>                                <a class="code hl_struct" href="a00647.html">PBV_Datatype_TX_t</a> * boardToPBVAscii, </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>                                <a class="code hl_struct" href="a00651.html">PBV_Datatype_RX_t</a> *App_PBV_To_System_Ptr);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="ttc" id="aa00527_html_ga324f8d21b38a8db2c2eff48363fc09cd"><div class="ttname"><a href="a00527.html#ga324f8d21b38a8db2c2eff48363fc09cd">PBV_CAN_Link_Data_TX</a></div><div class="ttdeci">void PBV_CAN_Link_Data_TX(PBV_Datatype_TX_t *ptr)</div><div class="ttdoc">Links the data from TX PBV datatype to CAN TX object.</div><div class="ttdef"><b>Definition</b> <a href="a00275_source.html#l00238">PBV_CAN.c:238</a></div></div>
-<div class="ttc" id="aa00527_html_ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><div class="ttname"><a href="a00527.html#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a">PBV_CAN_Receive_from_GUI</a></div><div class="ttdeci">uint8_t PBV_CAN_Receive_from_GUI()</div><div class="ttdoc">Checks the queue and if a message is received then links the data pointer to can object.</div><div class="ttdef"><b>Definition</b> <a href="a00275_source.html#l00067">PBV_CAN.c:67</a></div></div>
-<div class="ttc" id="aa00527_html_ga75e58befa8b1fe6733bfe6cbab86e7ed"><div class="ttname"><a href="a00527.html#ga75e58befa8b1fe6733bfe6cbab86e7ed">PBV_CAN_Link_Data_RX</a></div><div class="ttdeci">void PBV_CAN_Link_Data_RX(PBV_Datatype_RX_t *ptr)</div><div class="ttdoc">links the received data to the application data structure</div><div class="ttdef"><b>Definition</b> <a href="a00275_source.html#l00252">PBV_CAN.c:252</a></div></div>
-<div class="ttc" id="aa00527_html_ga79f8710b3f0d8c70122b335311789f84"><div class="ttname"><a href="a00527.html#ga79f8710b3f0d8c70122b335311789f84">PBV_CAN_Init</a></div><div class="ttdeci">void PBV_CAN_Init(PBV_Datatype_TX_t *boardToPBV, PBV_Datatype_TX_t *boardToPBVAscii, PBV_Datatype_RX_t *pbvToBoard)</div><div class="ttdoc">Initializes CAN objects with PBV objects ( only CAN IDs for now)</div><div class="ttdef"><b>Definition</b> <a href="a00275_source.html#l00044">PBV_CAN.c:44</a></div></div>
-<div class="ttc" id="aa00527_html_ga857a8826c159110cf094721b35f5637d"><div class="ttname"><a href="a00527.html#ga857a8826c159110cf094721b35f5637d">PBV_CAN_Reinit</a></div><div class="ttdeci">void PBV_CAN_Reinit(PBV_Datatype_TX_t *ptr)</div><div class="ttdoc">Reinitializes the can object with new can id.</div><div class="ttdef"><b>Definition</b> <a href="a00275_source.html#l00112">PBV_CAN.c:112</a></div></div>
-<div class="ttc" id="aa00527_html_ga8a1a918272c7acb8edadb6686bdf7410"><div class="ttname"><a href="a00527.html#ga8a1a918272c7acb8edadb6686bdf7410">PBV_CAN_Transmit_Ascii_to_GUI</a></div><div class="ttdeci">uint8_t PBV_CAN_Transmit_Ascii_to_GUI()</div><div class="ttdoc">transmits the Ascii msg to PBV</div><div class="ttdef"><b>Definition</b> <a href="a00275_source.html#l00083">PBV_CAN.c:83</a></div></div>
-<div class="ttc" id="aa00527_html_gae06ebd7cad07c3a104d5b46c6f6323dc"><div class="ttname"><a href="a00527.html#gae06ebd7cad07c3a104d5b46c6f6323dc">PBV_CAN_Transmit_to_GUI</a></div><div class="ttdeci">uint8_t PBV_CAN_Transmit_to_GUI()</div><div class="ttdoc">Transmits the numerical msg to PBV.</div><div class="ttdef"><b>Definition</b> <a href="a00275_source.html#l00097">PBV_CAN.c:97</a></div></div>
-<div class="ttc" id="aa00653_html"><div class="ttname"><a href="a00653.html">PBV_Datatype_TX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00296_source.html#l00075">PBV_interface.h:75</a></div></div>
-<div class="ttc" id="aa00657_html"><div class="ttname"><a href="a00657.html">PBV_Datatype_RX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00296_source.html#l00089">PBV_interface.h:89</a></div></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">typedef</span> uint8_t (*PBV_Intf_Receive_from_GUI_t)(void);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">typedef</span> uint8_t (*PBV_Intf_Transmit_to_GUI_t)(void);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">typedef</span> uint8_t (*PBV_Intf_Transmit_Ascii_to_GUI_t)(void);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">typedef</span> void (*PBV_Intf_Reinit_t)(<a class="code hl_struct" href="a00647.html">PBV_Datatype_TX_t</a> * ptr);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">typedef</span> void (*PBV_Intf_Link_Data_TX_t)(<a class="code hl_struct" href="a00647.html">PBV_Datatype_TX_t</a> * ptr);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">typedef</span> int (*PBV_Intf_Link_Data_RX_t)(<a class="code hl_struct" href="a00651.html">PBV_Datatype_RX_t</a> * ptr);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="};">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="a00643.html">   88</a></span><span class="keyword">struct </span><a class="code hl_struct" href="a00643.html">APP_PBV_INTF_API_s</a> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{    </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="a00643.html#a2349c43259a9d3c23a516c9b4ad6baaa">   90</a></span>    PBV_Intf_Init_t <a class="code hl_variable" href="a00643.html#a2349c43259a9d3c23a516c9b4ad6baaa">init</a>;                   </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="a00643.html#add9801b083b7d6f3f7bbb0f1d9a55773">   91</a></span>    PBV_Intf_Receive_from_GUI_t <a class="code hl_variable" href="a00643.html#add9801b083b7d6f3f7bbb0f1d9a55773">rxGui</a>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="a00643.html#adca8b72baa17241a6989f96a073cc51c">   92</a></span>    PBV_Intf_Transmit_to_GUI_t <a class="code hl_variable" href="a00643.html#adca8b72baa17241a6989f96a073cc51c">txGui</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="a00643.html#a8ee94030daa6ae1784d3a4c1efd446eb">   93</a></span>    PBV_Intf_Transmit_Ascii_to_GUI_t <a class="code hl_variable" href="a00643.html#a8ee94030daa6ae1784d3a4c1efd446eb">txGuiAscii</a>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="a00643.html#aad1488054aade0d9770cbae5597a8db9">   94</a></span>    PBV_Intf_Reinit_t <a class="code hl_variable" href="a00643.html#aad1488054aade0d9770cbae5597a8db9">reinit</a>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="a00643.html#a4156ff07130f03dfbd50bf7c30493bfb">   95</a></span>    PBV_Intf_Link_Data_TX_t <a class="code hl_variable" href="a00643.html#a4156ff07130f03dfbd50bf7c30493bfb">linkDataTX</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="a00643.html#acf3107157116c08f212dafb02c8128f5">   96</a></span>    PBV_Intf_Link_Data_RX_t <a class="code hl_variable" href="a00643.html#acf3107157116c08f212dafb02c8128f5">linkDataRX</a>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>};</div>
+</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00643.html">APP_PBV_INTF_API_s</a> <a class="code hl_struct" href="a00643.html">APP_PBV_INTF_API_t</a>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#endif  </span><span class="comment">/*  APP_PBV_INTERFACE_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aa00643_html"><div class="ttname"><a href="a00643.html">APP_PBV_INTF_API_s</a></div><div class="ttdoc">structure of API function pointers.</div><div class="ttdef"><b>Definition</b> <a href="a00278_source.html#l00088">PBV_config.h:89</a></div></div>
+<div class="ttc" id="aa00643_html_a2349c43259a9d3c23a516c9b4ad6baaa"><div class="ttname"><a href="a00643.html#a2349c43259a9d3c23a516c9b4ad6baaa">APP_PBV_INTF_API_s::init</a></div><div class="ttdeci">PBV_Intf_Init_t init</div><div class="ttdef"><b>Definition</b> <a href="a00278_source.html#l00090">PBV_config.h:90</a></div></div>
+<div class="ttc" id="aa00643_html_a4156ff07130f03dfbd50bf7c30493bfb"><div class="ttname"><a href="a00643.html#a4156ff07130f03dfbd50bf7c30493bfb">APP_PBV_INTF_API_s::linkDataTX</a></div><div class="ttdeci">PBV_Intf_Link_Data_TX_t linkDataTX</div><div class="ttdef"><b>Definition</b> <a href="a00278_source.html#l00095">PBV_config.h:95</a></div></div>
+<div class="ttc" id="aa00643_html_a8ee94030daa6ae1784d3a4c1efd446eb"><div class="ttname"><a href="a00643.html#a8ee94030daa6ae1784d3a4c1efd446eb">APP_PBV_INTF_API_s::txGuiAscii</a></div><div class="ttdeci">PBV_Intf_Transmit_Ascii_to_GUI_t txGuiAscii</div><div class="ttdef"><b>Definition</b> <a href="a00278_source.html#l00093">PBV_config.h:93</a></div></div>
+<div class="ttc" id="aa00643_html_aad1488054aade0d9770cbae5597a8db9"><div class="ttname"><a href="a00643.html#aad1488054aade0d9770cbae5597a8db9">APP_PBV_INTF_API_s::reinit</a></div><div class="ttdeci">PBV_Intf_Reinit_t reinit</div><div class="ttdef"><b>Definition</b> <a href="a00278_source.html#l00094">PBV_config.h:94</a></div></div>
+<div class="ttc" id="aa00643_html_acf3107157116c08f212dafb02c8128f5"><div class="ttname"><a href="a00643.html#acf3107157116c08f212dafb02c8128f5">APP_PBV_INTF_API_s::linkDataRX</a></div><div class="ttdeci">PBV_Intf_Link_Data_RX_t linkDataRX</div><div class="ttdef"><b>Definition</b> <a href="a00278_source.html#l00096">PBV_config.h:96</a></div></div>
+<div class="ttc" id="aa00643_html_adca8b72baa17241a6989f96a073cc51c"><div class="ttname"><a href="a00643.html#adca8b72baa17241a6989f96a073cc51c">APP_PBV_INTF_API_s::txGui</a></div><div class="ttdeci">PBV_Intf_Transmit_to_GUI_t txGui</div><div class="ttdef"><b>Definition</b> <a href="a00278_source.html#l00092">PBV_config.h:92</a></div></div>
+<div class="ttc" id="aa00643_html_add9801b083b7d6f3f7bbb0f1d9a55773"><div class="ttname"><a href="a00643.html#add9801b083b7d6f3f7bbb0f1d9a55773">APP_PBV_INTF_API_s::rxGui</a></div><div class="ttdeci">PBV_Intf_Receive_from_GUI_t rxGui</div><div class="ttdef"><b>Definition</b> <a href="a00278_source.html#l00091">PBV_config.h:91</a></div></div>
+<div class="ttc" id="aa00647_html"><div class="ttname"><a href="a00647.html">PBV_Datatype_TX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00290_source.html#l00075">PBV_interface.h:75</a></div></div>
+<div class="ttc" id="aa00651_html"><div class="ttname"><a href="a00651.html">PBV_Datatype_RX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00290_source.html#l00089">PBV_interface.h:89</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

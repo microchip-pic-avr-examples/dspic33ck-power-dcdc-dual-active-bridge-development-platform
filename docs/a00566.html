@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Pins Driver</title>
+<title>Dual Active Bridge Development Board: UART Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,1704 +138,439 @@ $(document).ready(function(){initNavTree('a00566.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Pins Driver<div class="ingroups"><a class="el" href="a00554.html">MPLABX MCC Melody Code Generator</a></div></div></div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">UART Driver<div class="ingroups"><a class="el" href="a00548.html">MPLABX MCC Melody Code Generator</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The Pin Driver directs the operation and function of the selected device pins using dsPIC MCUs.  
+<p>Universal Asynchronous Receiver Transmitter driver using dsPIC MCUs.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Pins Driver:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for UART Driver:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00566.svg" width="295" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00566.svg" width="303" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00224" id="r_a00224"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html">pins.c</a></td></tr>
-<tr class="memdesc:a00224"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver source file for PINS driver. <br /></td></tr>
+<tr class="memitem:a00257" id="r_a00257"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00257.html">uart1.c</a></td></tr>
+<tr class="memdesc:a00257"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver source file for the UART1 driver. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00260" id="r_a00260"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00260.html">uart1.h</a></td></tr>
+<tr class="memdesc:a00260"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver header file for the UART1 driver. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00266" id="r_a00266"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00266.html">uart_types.h</a></td></tr>
+<tr class="memdesc:a00266"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver types header file for the UART driver. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00639.html">UART_INTERFACE</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure containing the function pointers of UART driver.  <a href="a00639.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ga8ea6bce31aae059adcf4ac16d825d8c7" id="r_ga8ea6bce31aae059adcf4ac16d825d8c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga8ea6bce31aae059adcf4ac16d825d8c7">GPIO_1_SetHigh</a>()&#160;&#160;&#160;(_LATC10 = 1)</td></tr>
-<tr class="memdesc:ga8ea6bce31aae059adcf4ac16d825d8c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RC10 GPIO Pin which has a custom name of GPIO_1 to High.  <br /></td></tr>
-<tr class="separator:ga8ea6bce31aae059adcf4ac16d825d8c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaf3407679ba6fcb8c1b18130c5b60093" id="r_gaaf3407679ba6fcb8c1b18130c5b60093"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gaaf3407679ba6fcb8c1b18130c5b60093">GPIO_1_SetLow</a>()&#160;&#160;&#160;(_LATC10 = 0)</td></tr>
-<tr class="memdesc:gaaf3407679ba6fcb8c1b18130c5b60093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RC10 GPIO Pin which has a custom name of GPIO_1 to Low.  <br /></td></tr>
-<tr class="separator:gaaf3407679ba6fcb8c1b18130c5b60093"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5410a818518ca295da2ef1c17045ba20" id="r_ga5410a818518ca295da2ef1c17045ba20"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga5410a818518ca295da2ef1c17045ba20">GPIO_1_Toggle</a>()&#160;&#160;&#160;(_LATC10 ^= 1)</td></tr>
-<tr class="memdesc:ga5410a818518ca295da2ef1c17045ba20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the RC10 GPIO Pin which has a custom name of GPIO_1.  <br /></td></tr>
-<tr class="separator:ga5410a818518ca295da2ef1c17045ba20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga77df8f85e44acb6e63344bcd819c9a7d" id="r_ga77df8f85e44acb6e63344bcd819c9a7d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga77df8f85e44acb6e63344bcd819c9a7d">GPIO_1_GetValue</a>()&#160;&#160;&#160;_RC10</td></tr>
-<tr class="memdesc:ga77df8f85e44acb6e63344bcd819c9a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the value of the RC10 GPIO Pin which has a custom name of GPIO_1.  <br /></td></tr>
-<tr class="separator:ga77df8f85e44acb6e63344bcd819c9a7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4b3ba47bffbe9dc6e26dcaf7fa260a19" id="r_ga4b3ba47bffbe9dc6e26dcaf7fa260a19"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga4b3ba47bffbe9dc6e26dcaf7fa260a19">GPIO_1_SetDigitalInput</a>()&#160;&#160;&#160;(_TRISC10 = 1)</td></tr>
-<tr class="memdesc:ga4b3ba47bffbe9dc6e26dcaf7fa260a19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RC10 GPIO Pin which has a custom name of GPIO_1 as Input.  <br /></td></tr>
-<tr class="separator:ga4b3ba47bffbe9dc6e26dcaf7fa260a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2ad88d5b1fc36b4a6a8f1392d118131f" id="r_ga2ad88d5b1fc36b4a6a8f1392d118131f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga2ad88d5b1fc36b4a6a8f1392d118131f">GPIO_1_SetDigitalOutput</a>()&#160;&#160;&#160;(_TRISC10 = 0)</td></tr>
-<tr class="memdesc:ga2ad88d5b1fc36b4a6a8f1392d118131f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RC10 GPIO Pin which has a custom name of GPIO_1 as Output.  <br /></td></tr>
-<tr class="separator:ga2ad88d5b1fc36b4a6a8f1392d118131f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf459951b9b1accd8e18ad6958ec1cdb9" id="r_gaf459951b9b1accd8e18ad6958ec1cdb9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gaf459951b9b1accd8e18ad6958ec1cdb9">GPIO_2_SetHigh</a>()&#160;&#160;&#160;(_LATC11 = 1)</td></tr>
-<tr class="memdesc:gaf459951b9b1accd8e18ad6958ec1cdb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RC11 GPIO Pin which has a custom name of GPIO_2 to High.  <br /></td></tr>
-<tr class="separator:gaf459951b9b1accd8e18ad6958ec1cdb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga15ba15a486e6eb26d864ed8034e7887e" id="r_ga15ba15a486e6eb26d864ed8034e7887e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga15ba15a486e6eb26d864ed8034e7887e">GPIO_2_SetLow</a>()&#160;&#160;&#160;(_LATC11 = 0)</td></tr>
-<tr class="memdesc:ga15ba15a486e6eb26d864ed8034e7887e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RC11 GPIO Pin which has a custom name of GPIO_2 to Low.  <br /></td></tr>
-<tr class="separator:ga15ba15a486e6eb26d864ed8034e7887e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacb47c56767e6f3d4aad59c3484ee6f48" id="r_gacb47c56767e6f3d4aad59c3484ee6f48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gacb47c56767e6f3d4aad59c3484ee6f48">GPIO_2_Toggle</a>()&#160;&#160;&#160;(_LATC11 ^= 1)</td></tr>
-<tr class="memdesc:gacb47c56767e6f3d4aad59c3484ee6f48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the RC11 GPIO Pin which has a custom name of GPIO_2.  <br /></td></tr>
-<tr class="separator:gacb47c56767e6f3d4aad59c3484ee6f48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga89876fc532439414f914af280a3cf433" id="r_ga89876fc532439414f914af280a3cf433"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga89876fc532439414f914af280a3cf433">GPIO_2_GetValue</a>()&#160;&#160;&#160;_RC11</td></tr>
-<tr class="memdesc:ga89876fc532439414f914af280a3cf433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the value of the RC11 GPIO Pin which has a custom name of GPIO_2.  <br /></td></tr>
-<tr class="separator:ga89876fc532439414f914af280a3cf433"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae861156b7942878aaf62830b19fb1ba6" id="r_gae861156b7942878aaf62830b19fb1ba6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gae861156b7942878aaf62830b19fb1ba6">GPIO_2_SetDigitalInput</a>()&#160;&#160;&#160;(_TRISC11 = 1)</td></tr>
-<tr class="memdesc:gae861156b7942878aaf62830b19fb1ba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RC11 GPIO Pin which has a custom name of GPIO_2 as Input.  <br /></td></tr>
-<tr class="separator:gae861156b7942878aaf62830b19fb1ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga30a82b346afc2ab7e607ea864cefc7fa" id="r_ga30a82b346afc2ab7e607ea864cefc7fa"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga30a82b346afc2ab7e607ea864cefc7fa">GPIO_2_SetDigitalOutput</a>()&#160;&#160;&#160;(_TRISC11 = 0)</td></tr>
-<tr class="memdesc:ga30a82b346afc2ab7e607ea864cefc7fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RC11 GPIO Pin which has a custom name of GPIO_2 as Output.  <br /></td></tr>
-<tr class="separator:ga30a82b346afc2ab7e607ea864cefc7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga545df547b460fddd81472ca958685368" id="r_ga545df547b460fddd81472ca958685368"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga545df547b460fddd81472ca958685368">DPD_TP31_SetHigh</a>()&#160;&#160;&#160;(_LATC14 = 1)</td></tr>
-<tr class="memdesc:ga545df547b460fddd81472ca958685368"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RC14 GPIO Pin which has a custom name of DPD_TP31 to High.  <br /></td></tr>
-<tr class="separator:ga545df547b460fddd81472ca958685368"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae7121286782c505e6c29741b853445fd" id="r_gae7121286782c505e6c29741b853445fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gae7121286782c505e6c29741b853445fd">DPD_TP31_SetLow</a>()&#160;&#160;&#160;(_LATC14 = 0)</td></tr>
-<tr class="memdesc:gae7121286782c505e6c29741b853445fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RC14 GPIO Pin which has a custom name of DPD_TP31 to Low.  <br /></td></tr>
-<tr class="separator:gae7121286782c505e6c29741b853445fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae65a0536740afb3f9b87e95809091791" id="r_gae65a0536740afb3f9b87e95809091791"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gae65a0536740afb3f9b87e95809091791">DPD_TP31_Toggle</a>()&#160;&#160;&#160;(_LATC14 ^= 1)</td></tr>
-<tr class="memdesc:gae65a0536740afb3f9b87e95809091791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the RC14 GPIO Pin which has a custom name of DPD_TP31.  <br /></td></tr>
-<tr class="separator:gae65a0536740afb3f9b87e95809091791"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9c557fe37267159465220ff9d0966323" id="r_ga9c557fe37267159465220ff9d0966323"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga9c557fe37267159465220ff9d0966323">DPD_TP31_GetValue</a>()&#160;&#160;&#160;_RC14</td></tr>
-<tr class="memdesc:ga9c557fe37267159465220ff9d0966323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the value of the RC14 GPIO Pin which has a custom name of DPD_TP31.  <br /></td></tr>
-<tr class="separator:ga9c557fe37267159465220ff9d0966323"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga254489d302b6f688f8f61adeff91f5b2" id="r_ga254489d302b6f688f8f61adeff91f5b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga254489d302b6f688f8f61adeff91f5b2">DPD_TP31_SetDigitalInput</a>()&#160;&#160;&#160;(_TRISC14 = 1)</td></tr>
-<tr class="memdesc:ga254489d302b6f688f8f61adeff91f5b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RC14 GPIO Pin which has a custom name of DPD_TP31 as Input.  <br /></td></tr>
-<tr class="separator:ga254489d302b6f688f8f61adeff91f5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5da1654ca5b05eb88674d5f721ea3f1d" id="r_ga5da1654ca5b05eb88674d5f721ea3f1d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga5da1654ca5b05eb88674d5f721ea3f1d">DPD_TP31_SetDigitalOutput</a>()&#160;&#160;&#160;(_TRISC14 = 0)</td></tr>
-<tr class="memdesc:ga5da1654ca5b05eb88674d5f721ea3f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RC14 GPIO Pin which has a custom name of DPD_TP31 as Output.  <br /></td></tr>
-<tr class="separator:ga5da1654ca5b05eb88674d5f721ea3f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac5482c650e7c6641e03d1ff4f5a1bdf3" id="r_gac5482c650e7c6641e03d1ff4f5a1bdf3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gac5482c650e7c6641e03d1ff4f5a1bdf3">IO_RD2_SetHigh</a>()&#160;&#160;&#160;(_LATD2 = 1)</td></tr>
-<tr class="memdesc:gac5482c650e7c6641e03d1ff4f5a1bdf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RD2 GPIO Pin which has a custom name of IO_RD2 to High.  <br /></td></tr>
-<tr class="separator:gac5482c650e7c6641e03d1ff4f5a1bdf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9da1c34de33a7df8b54920cf03a9a2ff" id="r_ga9da1c34de33a7df8b54920cf03a9a2ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga9da1c34de33a7df8b54920cf03a9a2ff">IO_RD2_SetLow</a>()&#160;&#160;&#160;(_LATD2 = 0)</td></tr>
-<tr class="memdesc:ga9da1c34de33a7df8b54920cf03a9a2ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RD2 GPIO Pin which has a custom name of IO_RD2 to Low.  <br /></td></tr>
-<tr class="separator:ga9da1c34de33a7df8b54920cf03a9a2ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga024dbceaf67f4fe398c75f6d10168fbe" id="r_ga024dbceaf67f4fe398c75f6d10168fbe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga024dbceaf67f4fe398c75f6d10168fbe">IO_RD2_Toggle</a>()&#160;&#160;&#160;(_LATD2 ^= 1)</td></tr>
-<tr class="memdesc:ga024dbceaf67f4fe398c75f6d10168fbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the RD2 GPIO Pin which has a custom name of IO_RD2.  <br /></td></tr>
-<tr class="separator:ga024dbceaf67f4fe398c75f6d10168fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga635f4b6ca64a0bd4da9503245d872dfe" id="r_ga635f4b6ca64a0bd4da9503245d872dfe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga635f4b6ca64a0bd4da9503245d872dfe">IO_RD2_GetValue</a>()&#160;&#160;&#160;_RD2</td></tr>
-<tr class="memdesc:ga635f4b6ca64a0bd4da9503245d872dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the value of the RD2 GPIO Pin which has a custom name of IO_RD2.  <br /></td></tr>
-<tr class="separator:ga635f4b6ca64a0bd4da9503245d872dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1bb236df859c01de2793b72b30ff9869" id="r_ga1bb236df859c01de2793b72b30ff9869"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga1bb236df859c01de2793b72b30ff9869">IO_RD2_SetDigitalInput</a>()&#160;&#160;&#160;(_TRISD2 = 1)</td></tr>
-<tr class="memdesc:ga1bb236df859c01de2793b72b30ff9869"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RD2 GPIO Pin which has a custom name of IO_RD2 as Input.  <br /></td></tr>
-<tr class="separator:ga1bb236df859c01de2793b72b30ff9869"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad7b8542d49a565ae0120a50b4dfe93b3" id="r_gad7b8542d49a565ae0120a50b4dfe93b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gad7b8542d49a565ae0120a50b4dfe93b3">IO_RD2_SetDigitalOutput</a>()&#160;&#160;&#160;(_TRISD2 = 0)</td></tr>
-<tr class="memdesc:gad7b8542d49a565ae0120a50b4dfe93b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RD2 GPIO Pin which has a custom name of IO_RD2 as Output.  <br /></td></tr>
-<tr class="separator:gad7b8542d49a565ae0120a50b4dfe93b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3f3640b2ca5d43fc730310ec1119dab4" id="r_ga3f3640b2ca5d43fc730310ec1119dab4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga3f3640b2ca5d43fc730310ec1119dab4">LED_GREEN_SetHigh</a>()&#160;&#160;&#160;(_LATD7 = 1)</td></tr>
-<tr class="memdesc:ga3f3640b2ca5d43fc730310ec1119dab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RD7 GPIO Pin which has a custom name of LED_GREEN to High.  <br /></td></tr>
-<tr class="separator:ga3f3640b2ca5d43fc730310ec1119dab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga69ca74a0689ed5659dc13472272e963d" id="r_ga69ca74a0689ed5659dc13472272e963d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga69ca74a0689ed5659dc13472272e963d">LED_GREEN_SetLow</a>()&#160;&#160;&#160;(_LATD7 = 0)</td></tr>
-<tr class="memdesc:ga69ca74a0689ed5659dc13472272e963d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RD7 GPIO Pin which has a custom name of LED_GREEN to Low.  <br /></td></tr>
-<tr class="separator:ga69ca74a0689ed5659dc13472272e963d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga67db10031fe64a52f508f8b912e3b27b" id="r_ga67db10031fe64a52f508f8b912e3b27b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga67db10031fe64a52f508f8b912e3b27b">LED_GREEN_Toggle</a>()&#160;&#160;&#160;(_LATD7 ^= 1)</td></tr>
-<tr class="memdesc:ga67db10031fe64a52f508f8b912e3b27b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the RD7 GPIO Pin which has a custom name of LED_GREEN.  <br /></td></tr>
-<tr class="separator:ga67db10031fe64a52f508f8b912e3b27b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga08808bff069a1ae1e875c4b7363bd301" id="r_ga08808bff069a1ae1e875c4b7363bd301"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga08808bff069a1ae1e875c4b7363bd301">LED_GREEN_GetValue</a>()&#160;&#160;&#160;_RD7</td></tr>
-<tr class="memdesc:ga08808bff069a1ae1e875c4b7363bd301"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the value of the RD7 GPIO Pin which has a custom name of LED_GREEN.  <br /></td></tr>
-<tr class="separator:ga08808bff069a1ae1e875c4b7363bd301"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga478d99d323f84f6618a564051efeb17d" id="r_ga478d99d323f84f6618a564051efeb17d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga478d99d323f84f6618a564051efeb17d">LED_GREEN_SetDigitalInput</a>()&#160;&#160;&#160;(_TRISD7 = 1)</td></tr>
-<tr class="memdesc:ga478d99d323f84f6618a564051efeb17d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RD7 GPIO Pin which has a custom name of LED_GREEN as Input.  <br /></td></tr>
-<tr class="separator:ga478d99d323f84f6618a564051efeb17d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaee2f4e9bc1946e950fae45809f4be73e" id="r_gaee2f4e9bc1946e950fae45809f4be73e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gaee2f4e9bc1946e950fae45809f4be73e">LED_GREEN_SetDigitalOutput</a>()&#160;&#160;&#160;(_TRISD7 = 0)</td></tr>
-<tr class="memdesc:gaee2f4e9bc1946e950fae45809f4be73e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RD7 GPIO Pin which has a custom name of LED_GREEN as Output.  <br /></td></tr>
-<tr class="separator:gaee2f4e9bc1946e950fae45809f4be73e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf389f3e41b8f9bc1d2dca499e84e7861" id="r_gaf389f3e41b8f9bc1d2dca499e84e7861"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gaf389f3e41b8f9bc1d2dca499e84e7861">LED_RED_SetHigh</a>()&#160;&#160;&#160;(_LATD8 = 1)</td></tr>
-<tr class="memdesc:gaf389f3e41b8f9bc1d2dca499e84e7861"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RD8 GPIO Pin which has a custom name of LED_RED to High.  <br /></td></tr>
-<tr class="separator:gaf389f3e41b8f9bc1d2dca499e84e7861"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga920f51d71e56d58ff827f4e0dab947c8" id="r_ga920f51d71e56d58ff827f4e0dab947c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga920f51d71e56d58ff827f4e0dab947c8">LED_RED_SetLow</a>()&#160;&#160;&#160;(_LATD8 = 0)</td></tr>
-<tr class="memdesc:ga920f51d71e56d58ff827f4e0dab947c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RD8 GPIO Pin which has a custom name of LED_RED to Low.  <br /></td></tr>
-<tr class="separator:ga920f51d71e56d58ff827f4e0dab947c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacf582d2f0bbc49d08b5bb14e987862e6" id="r_gacf582d2f0bbc49d08b5bb14e987862e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gacf582d2f0bbc49d08b5bb14e987862e6">LED_RED_Toggle</a>()&#160;&#160;&#160;(_LATD8 ^= 1)</td></tr>
-<tr class="memdesc:gacf582d2f0bbc49d08b5bb14e987862e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the RD8 GPIO Pin which has a custom name of LED_RED.  <br /></td></tr>
-<tr class="separator:gacf582d2f0bbc49d08b5bb14e987862e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga13334d1e93fb445f81d5d9ab7fed5954" id="r_ga13334d1e93fb445f81d5d9ab7fed5954"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga13334d1e93fb445f81d5d9ab7fed5954">LED_RED_GetValue</a>()&#160;&#160;&#160;_RD8</td></tr>
-<tr class="memdesc:ga13334d1e93fb445f81d5d9ab7fed5954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the value of the RD8 GPIO Pin which has a custom name of LED_RED.  <br /></td></tr>
-<tr class="separator:ga13334d1e93fb445f81d5d9ab7fed5954"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1079836d96a0713ab8a63f8a0aa81262" id="r_ga1079836d96a0713ab8a63f8a0aa81262"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga1079836d96a0713ab8a63f8a0aa81262">LED_RED_SetDigitalInput</a>()&#160;&#160;&#160;(_TRISD8 = 1)</td></tr>
-<tr class="memdesc:ga1079836d96a0713ab8a63f8a0aa81262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RD8 GPIO Pin which has a custom name of LED_RED as Input.  <br /></td></tr>
-<tr class="separator:ga1079836d96a0713ab8a63f8a0aa81262"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf48d1ad0c844a4b6b2454478b3d07267" id="r_gaf48d1ad0c844a4b6b2454478b3d07267"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gaf48d1ad0c844a4b6b2454478b3d07267">LED_RED_SetDigitalOutput</a>()&#160;&#160;&#160;(_TRISD8 = 0)</td></tr>
-<tr class="memdesc:gaf48d1ad0c844a4b6b2454478b3d07267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RD8 GPIO Pin which has a custom name of LED_RED as Output.  <br /></td></tr>
-<tr class="separator:gaf48d1ad0c844a4b6b2454478b3d07267"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac99ec8d8525a9698c252ae0e5edb70f3" id="r_gac99ec8d8525a9698c252ae0e5edb70f3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gac99ec8d8525a9698c252ae0e5edb70f3">FAULT_SetHigh</a>()&#160;&#160;&#160;(_LATD9 = 1)</td></tr>
-<tr class="memdesc:gac99ec8d8525a9698c252ae0e5edb70f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RD9 GPIO Pin which has a custom name of FAULT to High.  <br /></td></tr>
-<tr class="separator:gac99ec8d8525a9698c252ae0e5edb70f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga368d77dcce7f6c02a4a3c28f378832a3" id="r_ga368d77dcce7f6c02a4a3c28f378832a3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga368d77dcce7f6c02a4a3c28f378832a3">FAULT_SetLow</a>()&#160;&#160;&#160;(_LATD9 = 0)</td></tr>
-<tr class="memdesc:ga368d77dcce7f6c02a4a3c28f378832a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RD9 GPIO Pin which has a custom name of FAULT to Low.  <br /></td></tr>
-<tr class="separator:ga368d77dcce7f6c02a4a3c28f378832a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4c3938ec9689a9beed979d41aef40def" id="r_ga4c3938ec9689a9beed979d41aef40def"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga4c3938ec9689a9beed979d41aef40def">FAULT_Toggle</a>()&#160;&#160;&#160;(_LATD9 ^= 1)</td></tr>
-<tr class="memdesc:ga4c3938ec9689a9beed979d41aef40def"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the RD9 GPIO Pin which has a custom name of FAULT.  <br /></td></tr>
-<tr class="separator:ga4c3938ec9689a9beed979d41aef40def"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6f82a24f7439e65b25c522f9cf41c8a7" id="r_ga6f82a24f7439e65b25c522f9cf41c8a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga6f82a24f7439e65b25c522f9cf41c8a7">FAULT_GetValue</a>()&#160;&#160;&#160;_RD9</td></tr>
-<tr class="memdesc:ga6f82a24f7439e65b25c522f9cf41c8a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the value of the RD9 GPIO Pin which has a custom name of FAULT.  <br /></td></tr>
-<tr class="separator:ga6f82a24f7439e65b25c522f9cf41c8a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa6a23400d27dd6dac679a0a526ee37b7" id="r_gaa6a23400d27dd6dac679a0a526ee37b7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gaa6a23400d27dd6dac679a0a526ee37b7">FAULT_SetDigitalInput</a>()&#160;&#160;&#160;(_TRISD9 = 1)</td></tr>
-<tr class="memdesc:gaa6a23400d27dd6dac679a0a526ee37b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RD9 GPIO Pin which has a custom name of FAULT as Input.  <br /></td></tr>
-<tr class="separator:gaa6a23400d27dd6dac679a0a526ee37b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8f7dba6209cdc0077cb247c1206c06c1" id="r_ga8f7dba6209cdc0077cb247c1206c06c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga8f7dba6209cdc0077cb247c1206c06c1">FAULT_SetDigitalOutput</a>()&#160;&#160;&#160;(_TRISD9 = 0)</td></tr>
-<tr class="memdesc:ga8f7dba6209cdc0077cb247c1206c06c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RD9 GPIO Pin which has a custom name of FAULT as Output.  <br /></td></tr>
-<tr class="separator:ga8f7dba6209cdc0077cb247c1206c06c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2b16bfab7ee057105ed85a6eb42b0f7e" id="r_ga2b16bfab7ee057105ed85a6eb42b0f7e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga2b16bfab7ee057105ed85a6eb42b0f7e">TP_PIM_SetHigh</a>()&#160;&#160;&#160;(_LATD12 = 1)</td></tr>
-<tr class="memdesc:ga2b16bfab7ee057105ed85a6eb42b0f7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RD12 GPIO Pin which has a custom name of TP_PIM to High.  <br /></td></tr>
-<tr class="separator:ga2b16bfab7ee057105ed85a6eb42b0f7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga00b1597a96a7e77c09a946c10a4024cd" id="r_ga00b1597a96a7e77c09a946c10a4024cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga00b1597a96a7e77c09a946c10a4024cd">TP_PIM_SetLow</a>()&#160;&#160;&#160;(_LATD12 = 0)</td></tr>
-<tr class="memdesc:ga00b1597a96a7e77c09a946c10a4024cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RD12 GPIO Pin which has a custom name of TP_PIM to Low.  <br /></td></tr>
-<tr class="separator:ga00b1597a96a7e77c09a946c10a4024cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaef2ef29536dfb65c47501a02ae473925" id="r_gaef2ef29536dfb65c47501a02ae473925"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gaef2ef29536dfb65c47501a02ae473925">TP_PIM_Toggle</a>()&#160;&#160;&#160;(_LATD12 ^= 1)</td></tr>
-<tr class="memdesc:gaef2ef29536dfb65c47501a02ae473925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the RD12 GPIO Pin which has a custom name of TP_PIM.  <br /></td></tr>
-<tr class="separator:gaef2ef29536dfb65c47501a02ae473925"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9f4f8d76d4c660460d9b99a2602bbbcc" id="r_ga9f4f8d76d4c660460d9b99a2602bbbcc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga9f4f8d76d4c660460d9b99a2602bbbcc">TP_PIM_GetValue</a>()&#160;&#160;&#160;_RD12</td></tr>
-<tr class="memdesc:ga9f4f8d76d4c660460d9b99a2602bbbcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the value of the RD12 GPIO Pin which has a custom name of TP_PIM.  <br /></td></tr>
-<tr class="separator:ga9f4f8d76d4c660460d9b99a2602bbbcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga62be35b05c16842a1b5bd104dc08b97c" id="r_ga62be35b05c16842a1b5bd104dc08b97c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga62be35b05c16842a1b5bd104dc08b97c">TP_PIM_SetDigitalInput</a>()&#160;&#160;&#160;(_TRISD12 = 1)</td></tr>
-<tr class="memdesc:ga62be35b05c16842a1b5bd104dc08b97c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RD12 GPIO Pin which has a custom name of TP_PIM as Input.  <br /></td></tr>
-<tr class="separator:ga62be35b05c16842a1b5bd104dc08b97c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga379b483a6060c2738f65744200ecbf73" id="r_ga379b483a6060c2738f65744200ecbf73"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga379b483a6060c2738f65744200ecbf73">TP_PIM_SetDigitalOutput</a>()&#160;&#160;&#160;(_TRISD12 = 0)</td></tr>
-<tr class="memdesc:ga379b483a6060c2738f65744200ecbf73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RD12 GPIO Pin which has a custom name of TP_PIM as Output.  <br /></td></tr>
-<tr class="separator:ga379b483a6060c2738f65744200ecbf73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga53770a9727430f273c2b85506f057859" id="r_ga53770a9727430f273c2b85506f057859"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga53770a9727430f273c2b85506f057859">LED_DP_PIM_SetHigh</a>()&#160;&#160;&#160;(_LATD15 = 1)</td></tr>
-<tr class="memdesc:ga53770a9727430f273c2b85506f057859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RD15 GPIO Pin which has a custom name of LED_DP_PIM to High.  <br /></td></tr>
-<tr class="separator:ga53770a9727430f273c2b85506f057859"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad9c8ad4b68890a1dba13c91820bec22e" id="r_gad9c8ad4b68890a1dba13c91820bec22e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gad9c8ad4b68890a1dba13c91820bec22e">LED_DP_PIM_SetLow</a>()&#160;&#160;&#160;(_LATD15 = 0)</td></tr>
-<tr class="memdesc:gad9c8ad4b68890a1dba13c91820bec22e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the RD15 GPIO Pin which has a custom name of LED_DP_PIM to Low.  <br /></td></tr>
-<tr class="separator:gad9c8ad4b68890a1dba13c91820bec22e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabb0ef5cca7ad307c51e0de1050c9be95" id="r_gabb0ef5cca7ad307c51e0de1050c9be95"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gabb0ef5cca7ad307c51e0de1050c9be95">LED_DP_PIM_Toggle</a>()&#160;&#160;&#160;(_LATD15 ^= 1)</td></tr>
-<tr class="memdesc:gabb0ef5cca7ad307c51e0de1050c9be95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles the RD15 GPIO Pin which has a custom name of LED_DP_PIM.  <br /></td></tr>
-<tr class="separator:gabb0ef5cca7ad307c51e0de1050c9be95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4da15301986ea86700e1523243afcf14" id="r_ga4da15301986ea86700e1523243afcf14"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga4da15301986ea86700e1523243afcf14">LED_DP_PIM_GetValue</a>()&#160;&#160;&#160;_RD15</td></tr>
-<tr class="memdesc:ga4da15301986ea86700e1523243afcf14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the value of the RD15 GPIO Pin which has a custom name of LED_DP_PIM.  <br /></td></tr>
-<tr class="separator:ga4da15301986ea86700e1523243afcf14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7cc1dd15ece050d947263d882063525b" id="r_ga7cc1dd15ece050d947263d882063525b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga7cc1dd15ece050d947263d882063525b">LED_DP_PIM_SetDigitalInput</a>()&#160;&#160;&#160;(_TRISD15 = 1)</td></tr>
-<tr class="memdesc:ga7cc1dd15ece050d947263d882063525b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RD15 GPIO Pin which has a custom name of LED_DP_PIM as Input.  <br /></td></tr>
-<tr class="separator:ga7cc1dd15ece050d947263d882063525b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7823a4a831b9272af4c17e4f89995493" id="r_ga7823a4a831b9272af4c17e4f89995493"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga7823a4a831b9272af4c17e4f89995493">LED_DP_PIM_SetDigitalOutput</a>()&#160;&#160;&#160;(_TRISD15 = 0)</td></tr>
-<tr class="memdesc:ga7823a4a831b9272af4c17e4f89995493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the RD15 GPIO Pin which has a custom name of LED_DP_PIM as Output.  <br /></td></tr>
-<tr class="separator:ga7823a4a831b9272af4c17e4f89995493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ee5aca85534f8f218b4a713778ff964" id="r_ga2ee5aca85534f8f218b4a713778ff964"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga2ee5aca85534f8f218b4a713778ff964">UART1_Drv_Initialize</a>&#160;&#160;&#160;<a class="el" href="a00566.html#ga10757505060dc7bf0fe148c5363eae08">UART1_Initialize</a></td></tr>
+<tr class="memdesc:ga2ee5aca85534f8f218b4a713778ff964"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#ga10757505060dc7bf0fe148c5363eae08">UART1_Initialize</a> API.  <br /></td></tr>
+<tr class="separator:ga2ee5aca85534f8f218b4a713778ff964"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2d8872a29a576c61c590bfea8c8f7f5" id="r_gae2d8872a29a576c61c590bfea8c8f7f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gae2d8872a29a576c61c590bfea8c8f7f5">UART1_Drv_Deinitialize</a>&#160;&#160;&#160;<a class="el" href="a00566.html#gab8ba2fd2eb61dcbfce8b7b1e1dbe5909">UART1_Deinitialize</a></td></tr>
+<tr class="memdesc:gae2d8872a29a576c61c590bfea8c8f7f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#gab8ba2fd2eb61dcbfce8b7b1e1dbe5909">UART1_Deinitialize</a> API.  <br /></td></tr>
+<tr class="separator:gae2d8872a29a576c61c590bfea8c8f7f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaac02431379e6d05e69877b4e05238bc9" id="r_gaac02431379e6d05e69877b4e05238bc9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gaac02431379e6d05e69877b4e05238bc9">UART1_Drv_Read</a>&#160;&#160;&#160;<a class="el" href="a00566.html#ga4e34071aa3125eb037bd6ae844c7ffbb">UART1_Read</a></td></tr>
+<tr class="memdesc:gaac02431379e6d05e69877b4e05238bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#ga4e34071aa3125eb037bd6ae844c7ffbb">UART1_Read</a> API.  <br /></td></tr>
+<tr class="separator:gaac02431379e6d05e69877b4e05238bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2f2b65d0c30afa22f9968646a1ce8055" id="r_ga2f2b65d0c30afa22f9968646a1ce8055"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga2f2b65d0c30afa22f9968646a1ce8055">UART1_Drv_Write</a>&#160;&#160;&#160;<a class="el" href="a00566.html#ga6be5aaf3406104a362f3a3438dafe83c">UART1_Write</a></td></tr>
+<tr class="memdesc:ga2f2b65d0c30afa22f9968646a1ce8055"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#ga6be5aaf3406104a362f3a3438dafe83c">UART1_Write</a> API.  <br /></td></tr>
+<tr class="separator:ga2f2b65d0c30afa22f9968646a1ce8055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga735029df56ad9834434a5a9ec2af5937" id="r_ga735029df56ad9834434a5a9ec2af5937"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga735029df56ad9834434a5a9ec2af5937">UART1_Drv_IsRxReady</a>&#160;&#160;&#160;<a class="el" href="a00566.html#ga35ebdf043c6e4995ff711ebc13954861">UART1_IsRxReady</a></td></tr>
+<tr class="memdesc:ga735029df56ad9834434a5a9ec2af5937"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#ga35ebdf043c6e4995ff711ebc13954861">UART1_IsRxReady</a> API.  <br /></td></tr>
+<tr class="separator:ga735029df56ad9834434a5a9ec2af5937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga69e1beeb67801d241edbe01bd254d239" id="r_ga69e1beeb67801d241edbe01bd254d239"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga69e1beeb67801d241edbe01bd254d239">UART1_Drv_IsTxReady</a>&#160;&#160;&#160;<a class="el" href="a00566.html#gae2fc49fa99787bc951e12bd840b1248c">UART1_IsTxReady</a></td></tr>
+<tr class="memdesc:ga69e1beeb67801d241edbe01bd254d239"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#gae2fc49fa99787bc951e12bd840b1248c">UART1_IsTxReady</a> API.  <br /></td></tr>
+<tr class="separator:ga69e1beeb67801d241edbe01bd254d239"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabbb25ae9c641edb26841f00af81a92e2" id="r_gabbb25ae9c641edb26841f00af81a92e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gabbb25ae9c641edb26841f00af81a92e2">UART1_Drv_IsTxDone</a>&#160;&#160;&#160;<a class="el" href="a00566.html#ga693f8124b5bec099c5141b65e47f2bb9">UART1_IsTxDone</a></td></tr>
+<tr class="memdesc:gabbb25ae9c641edb26841f00af81a92e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#ga693f8124b5bec099c5141b65e47f2bb9">UART1_IsTxDone</a> API.  <br /></td></tr>
+<tr class="separator:gabbb25ae9c641edb26841f00af81a92e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadfe9bad13e737f1171e2453f8fb0d4ab" id="r_gadfe9bad13e737f1171e2453f8fb0d4ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gadfe9bad13e737f1171e2453f8fb0d4ab">UART1_Drv_TransmitEnable</a>&#160;&#160;&#160;<a class="el" href="a00566.html#ga378b1dbcd496537d87bacafa2ecb49e9">UART1_TransmitEnable</a></td></tr>
+<tr class="memdesc:gadfe9bad13e737f1171e2453f8fb0d4ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#ga378b1dbcd496537d87bacafa2ecb49e9">UART1_TransmitEnable</a> API.  <br /></td></tr>
+<tr class="separator:gadfe9bad13e737f1171e2453f8fb0d4ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a8b87d5bcd3e434c078d82746885fa2" id="r_ga1a8b87d5bcd3e434c078d82746885fa2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga1a8b87d5bcd3e434c078d82746885fa2">UART1_Drv_TransmitDisable</a>&#160;&#160;&#160;<a class="el" href="a00566.html#ga221ffa21be6206c8c7d0ff5a22f14bce">UART1_TransmitDisable</a></td></tr>
+<tr class="memdesc:ga1a8b87d5bcd3e434c078d82746885fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#ga221ffa21be6206c8c7d0ff5a22f14bce">UART1_TransmitDisable</a> API.  <br /></td></tr>
+<tr class="separator:ga1a8b87d5bcd3e434c078d82746885fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga30f91ba64d576390304bd61161aea49e" id="r_ga30f91ba64d576390304bd61161aea49e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga30f91ba64d576390304bd61161aea49e">UART1_Drv_AutoBaudSet</a>&#160;&#160;&#160;<a class="el" href="a00566.html#ga3144eac41c391b44a5e75d9ec37dd989">UART1_AutoBaudSet</a></td></tr>
+<tr class="memdesc:ga30f91ba64d576390304bd61161aea49e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#ga3144eac41c391b44a5e75d9ec37dd989">UART1_AutoBaudSet</a> API.  <br /></td></tr>
+<tr class="separator:ga30f91ba64d576390304bd61161aea49e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6c694273bae4bcafd6a2a21139c87eb3" id="r_ga6c694273bae4bcafd6a2a21139c87eb3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga6c694273bae4bcafd6a2a21139c87eb3">UART1_Drv_AutoBaudQuery</a>&#160;&#160;&#160;<a class="el" href="a00566.html#gac3b02f60d9474f7b7f1cdda3e3cb005a">UART1_AutoBaudQuery</a></td></tr>
+<tr class="memdesc:ga6c694273bae4bcafd6a2a21139c87eb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#gac3b02f60d9474f7b7f1cdda3e3cb005a">UART1_AutoBaudQuery</a> API.  <br /></td></tr>
+<tr class="separator:ga6c694273bae4bcafd6a2a21139c87eb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga98789c7fade24ecd5115624acf624ab0" id="r_ga98789c7fade24ecd5115624acf624ab0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga98789c7fade24ecd5115624acf624ab0">UART1_Drv_AutoBaudEventEnableGet</a>&#160;&#160;&#160;<a class="el" href="a00566.html#gac3ffab5418715b2afcd1295d3aaca37a">UART1_AutoBaudEventEnableGet</a></td></tr>
+<tr class="memdesc:ga98789c7fade24ecd5115624acf624ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#gac3ffab5418715b2afcd1295d3aaca37a">UART1_AutoBaudEventEnableGet</a> API.  <br /></td></tr>
+<tr class="separator:ga98789c7fade24ecd5115624acf624ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gada6d4b4d21230f4fac5b216dab2927ed" id="r_gada6d4b4d21230f4fac5b216dab2927ed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gada6d4b4d21230f4fac5b216dab2927ed">UART1_Drv_ErrorGet</a>&#160;&#160;&#160;<a class="el" href="a00566.html#gaa61abb32e644f425b8bd10a71e690a42">UART1_ErrorGet</a></td></tr>
+<tr class="memdesc:gada6d4b4d21230f4fac5b216dab2927ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#gaa61abb32e644f425b8bd10a71e690a42">UART1_ErrorGet</a> API.  <br /></td></tr>
+<tr class="separator:gada6d4b4d21230f4fac5b216dab2927ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga31f7064428ab2a009ff0a95680d20882" id="r_ga31f7064428ab2a009ff0a95680d20882"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga31f7064428ab2a009ff0a95680d20882">UART1_Drv_BRGCountSet</a>&#160;&#160;&#160;<a class="el" href="a00566.html#gaf08dfcac26c53b59cccd5d3100566346">UART1_BRGCountSet</a></td></tr>
+<tr class="memdesc:ga31f7064428ab2a009ff0a95680d20882"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#gaf08dfcac26c53b59cccd5d3100566346">UART1_BRGCountSet</a> API.  <br /></td></tr>
+<tr class="separator:ga31f7064428ab2a009ff0a95680d20882"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa78080d73426144a5adb0e152ce7722e" id="r_gaa78080d73426144a5adb0e152ce7722e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gaa78080d73426144a5adb0e152ce7722e">UART1_Drv_BRGCountGet</a>&#160;&#160;&#160;<a class="el" href="a00566.html#gae17ce6d866cf1df1a98a30b8b8aef089">UART1_BRGCountGet</a></td></tr>
+<tr class="memdesc:gaa78080d73426144a5adb0e152ce7722e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#gae17ce6d866cf1df1a98a30b8b8aef089">UART1_BRGCountGet</a> API.  <br /></td></tr>
+<tr class="separator:gaa78080d73426144a5adb0e152ce7722e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a9b9f98e06d53ef14a93aba85530c8f" id="r_ga9a9b9f98e06d53ef14a93aba85530c8f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga9a9b9f98e06d53ef14a93aba85530c8f">UART1_Drv_BaudRateSet</a>&#160;&#160;&#160;<a class="el" href="a00566.html#ga0184b510832e59754733272786b9b6f3">UART1_BaudRateSet</a></td></tr>
+<tr class="memdesc:ga9a9b9f98e06d53ef14a93aba85530c8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#ga0184b510832e59754733272786b9b6f3">UART1_BaudRateSet</a> API.  <br /></td></tr>
+<tr class="separator:ga9a9b9f98e06d53ef14a93aba85530c8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab109e95935c2942ead694c877b0e36b1" id="r_gab109e95935c2942ead694c877b0e36b1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gab109e95935c2942ead694c877b0e36b1">UART1_Drv_BaudRateGet</a>&#160;&#160;&#160;<a class="el" href="a00566.html#gace0aa1c533605015c605693a58658214">UART1_BaudRateGet</a></td></tr>
+<tr class="memdesc:gab109e95935c2942ead694c877b0e36b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00566.html#gace0aa1c533605015c605693a58658214">UART1_BaudRateGet</a> API.  <br /></td></tr>
+<tr class="separator:gab109e95935c2942ead694c877b0e36b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gad6f767603dec823a33d6b0aceea97e27" id="r_gad6f767603dec823a33d6b0aceea97e27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gad6f767603dec823a33d6b0aceea97e27">PINS_Initialize</a> (void)</td></tr>
-<tr class="memdesc:gad6f767603dec823a33d6b0aceea97e27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the PINS module.  <br /></td></tr>
-<tr class="separator:gad6f767603dec823a33d6b0aceea97e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10757505060dc7bf0fe148c5363eae08" id="r_ga10757505060dc7bf0fe148c5363eae08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga10757505060dc7bf0fe148c5363eae08">UART1_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga10757505060dc7bf0fe148c5363eae08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the UART driver.  <br /></td></tr>
+<tr class="separator:ga10757505060dc7bf0fe148c5363eae08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab8ba2fd2eb61dcbfce8b7b1e1dbe5909" id="r_gab8ba2fd2eb61dcbfce8b7b1e1dbe5909"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gab8ba2fd2eb61dcbfce8b7b1e1dbe5909">UART1_Deinitialize</a> (void)</td></tr>
+<tr class="memdesc:gab8ba2fd2eb61dcbfce8b7b1e1dbe5909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the UART to POR values.  <br /></td></tr>
+<tr class="separator:gab8ba2fd2eb61dcbfce8b7b1e1dbe5909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e34071aa3125eb037bd6ae844c7ffbb" id="r_ga4e34071aa3125eb037bd6ae844c7ffbb"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga4e34071aa3125eb037bd6ae844c7ffbb">UART1_Read</a> (void)</td></tr>
+<tr class="memdesc:ga4e34071aa3125eb037bd6ae844c7ffbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a byte of data from the UART1.  <br /></td></tr>
+<tr class="separator:ga4e34071aa3125eb037bd6ae844c7ffbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6be5aaf3406104a362f3a3438dafe83c" id="r_ga6be5aaf3406104a362f3a3438dafe83c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga6be5aaf3406104a362f3a3438dafe83c">UART1_Write</a> (uint8_t data)</td></tr>
+<tr class="memdesc:ga6be5aaf3406104a362f3a3438dafe83c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a byte of data to the UART1.  <br /></td></tr>
+<tr class="separator:ga6be5aaf3406104a362f3a3438dafe83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga35ebdf043c6e4995ff711ebc13954861" id="r_ga35ebdf043c6e4995ff711ebc13954861"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga35ebdf043c6e4995ff711ebc13954861">UART1_IsRxReady</a> (void)</td></tr>
+<tr class="memdesc:ga35ebdf043c6e4995ff711ebc13954861"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a boolean value if data is available to read.  <br /></td></tr>
+<tr class="separator:ga35ebdf043c6e4995ff711ebc13954861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae2fc49fa99787bc951e12bd840b1248c" id="r_gae2fc49fa99787bc951e12bd840b1248c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gae2fc49fa99787bc951e12bd840b1248c">UART1_IsTxReady</a> (void)</td></tr>
+<tr class="memdesc:gae2fc49fa99787bc951e12bd840b1248c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a boolean value if data can be written.  <br /></td></tr>
+<tr class="separator:gae2fc49fa99787bc951e12bd840b1248c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga693f8124b5bec099c5141b65e47f2bb9" id="r_ga693f8124b5bec099c5141b65e47f2bb9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga693f8124b5bec099c5141b65e47f2bb9">UART1_IsTxDone</a> (void)</td></tr>
+<tr class="memdesc:ga693f8124b5bec099c5141b65e47f2bb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if all bytes have been transferred.  <br /></td></tr>
+<tr class="separator:ga693f8124b5bec099c5141b65e47f2bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga378b1dbcd496537d87bacafa2ecb49e9" id="r_ga378b1dbcd496537d87bacafa2ecb49e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga378b1dbcd496537d87bacafa2ecb49e9">UART1_TransmitEnable</a> (void)</td></tr>
+<tr class="memdesc:ga378b1dbcd496537d87bacafa2ecb49e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables UART1 transmit.  <br /></td></tr>
+<tr class="separator:ga378b1dbcd496537d87bacafa2ecb49e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga221ffa21be6206c8c7d0ff5a22f14bce" id="r_ga221ffa21be6206c8c7d0ff5a22f14bce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga221ffa21be6206c8c7d0ff5a22f14bce">UART1_TransmitDisable</a> (void)</td></tr>
+<tr class="memdesc:ga221ffa21be6206c8c7d0ff5a22f14bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables UART1 transmit.  <br /></td></tr>
+<tr class="separator:ga221ffa21be6206c8c7d0ff5a22f14bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3144eac41c391b44a5e75d9ec37dd989" id="r_ga3144eac41c391b44a5e75d9ec37dd989"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga3144eac41c391b44a5e75d9ec37dd989">UART1_AutoBaudSet</a> (bool enable)</td></tr>
+<tr class="memdesc:ga3144eac41c391b44a5e75d9ec37dd989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables UART1 Auto-Baud detection.  <br /></td></tr>
+<tr class="separator:ga3144eac41c391b44a5e75d9ec37dd989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3b02f60d9474f7b7f1cdda3e3cb005a" id="r_gac3b02f60d9474f7b7f1cdda3e3cb005a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gac3b02f60d9474f7b7f1cdda3e3cb005a">UART1_AutoBaudQuery</a> (void)</td></tr>
+<tr class="memdesc:gac3b02f60d9474f7b7f1cdda3e3cb005a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the status of Auto-Baud detection.  <br /></td></tr>
+<tr class="separator:gac3b02f60d9474f7b7f1cdda3e3cb005a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac3ffab5418715b2afcd1295d3aaca37a" id="r_gac3ffab5418715b2afcd1295d3aaca37a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gac3ffab5418715b2afcd1295d3aaca37a">UART1_AutoBaudEventEnableGet</a> (void)</td></tr>
+<tr class="memdesc:gac3ffab5418715b2afcd1295d3aaca37a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns enable state of the Auto-Baud feature.  <br /></td></tr>
+<tr class="separator:gac3ffab5418715b2afcd1295d3aaca37a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf08dfcac26c53b59cccd5d3100566346" id="r_gaf08dfcac26c53b59cccd5d3100566346"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gaf08dfcac26c53b59cccd5d3100566346">UART1_BRGCountSet</a> (uint32_t brgValue)</td></tr>
+<tr class="memdesc:gaf08dfcac26c53b59cccd5d3100566346"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the BRG value of UART1.  <br /></td></tr>
+<tr class="separator:gaf08dfcac26c53b59cccd5d3100566346"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae17ce6d866cf1df1a98a30b8b8aef089" id="r_gae17ce6d866cf1df1a98a30b8b8aef089"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gae17ce6d866cf1df1a98a30b8b8aef089">UART1_BRGCountGet</a> (void)</td></tr>
+<tr class="memdesc:gae17ce6d866cf1df1a98a30b8b8aef089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the BRG value of UART1.  <br /></td></tr>
+<tr class="separator:gae17ce6d866cf1df1a98a30b8b8aef089"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0184b510832e59754733272786b9b6f3" id="r_ga0184b510832e59754733272786b9b6f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga0184b510832e59754733272786b9b6f3">UART1_BaudRateSet</a> (uint32_t baudRate)</td></tr>
+<tr class="memdesc:ga0184b510832e59754733272786b9b6f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the calculated Baud-Rate of UART1.  <br /></td></tr>
+<tr class="separator:ga0184b510832e59754733272786b9b6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace0aa1c533605015c605693a58658214" id="r_gace0aa1c533605015c605693a58658214"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gace0aa1c533605015c605693a58658214">UART1_BaudRateGet</a> (void)</td></tr>
+<tr class="memdesc:gace0aa1c533605015c605693a58658214"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the actual Baud-Rate of UART1.  <br /></td></tr>
+<tr class="separator:gace0aa1c533605015c605693a58658214"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa61abb32e644f425b8bd10a71e690a42" id="r_gaa61abb32e644f425b8bd10a71e690a42"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#gaa61abb32e644f425b8bd10a71e690a42">UART1_ErrorGet</a> (void)</td></tr>
+<tr class="memdesc:gaa61abb32e644f425b8bd10a71e690a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the error status of UART1.  <br /></td></tr>
+<tr class="separator:gaa61abb32e644f425b8bd10a71e690a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga64f67285e9e72c2b50bd19567ec8fb16" id="r_ga64f67285e9e72c2b50bd19567ec8fb16"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00639.html">UART_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00566.html#ga64f67285e9e72c2b50bd19567ec8fb16">UART1_Drv</a></td></tr>
+<tr class="memdesc:ga64f67285e9e72c2b50bd19567ec8fb16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00639.html" title="Structure containing the function pointers of UART driver.">UART_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. UART1 can be changed by the user in the UART user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
+<tr class="separator:ga64f67285e9e72c2b50bd19567ec8fb16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="fragment"></div><!-- fragment --><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga9c557fe37267159465220ff9d0966323" name="ga9c557fe37267159465220ff9d0966323"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9c557fe37267159465220ff9d0966323">&#9670;&#160;</a></span>DPD_TP31_GetValue</h2>
+<a id="ga98789c7fade24ecd5115624acf624ab0" name="ga98789c7fade24ecd5115624acf624ab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga98789c7fade24ecd5115624acf624ab0">&#9670;&#160;</a></span>UART1_Drv_AutoBaudEventEnableGet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DPD_TP31_GetValue</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;_RC14</td>
+          <td class="memname">#define UART1_Drv_AutoBaudEventEnableGet&#160;&#160;&#160;<a class="el" href="a00566.html#gac3ffab5418715b2afcd1295d3aaca37a">UART1_AutoBaudEventEnableGet</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00181">181</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00132">132</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="ga254489d302b6f688f8f61adeff91f5b2" name="ga254489d302b6f688f8f61adeff91f5b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga254489d302b6f688f8f61adeff91f5b2">&#9670;&#160;</a></span>DPD_TP31_SetDigitalInput</h2>
+<a id="ga6c694273bae4bcafd6a2a21139c87eb3" name="ga6c694273bae4bcafd6a2a21139c87eb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6c694273bae4bcafd6a2a21139c87eb3">&#9670;&#160;</a></span>UART1_Drv_AutoBaudQuery</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DPD_TP31_SetDigitalInput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISC14 = 1)</td>
+          <td class="memname">#define UART1_Drv_AutoBaudQuery&#160;&#160;&#160;<a class="el" href="a00566.html#gac3b02f60d9474f7b7f1cdda3e3cb005a">UART1_AutoBaudQuery</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00189">189</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00126">126</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="ga5da1654ca5b05eb88674d5f721ea3f1d" name="ga5da1654ca5b05eb88674d5f721ea3f1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5da1654ca5b05eb88674d5f721ea3f1d">&#9670;&#160;</a></span>DPD_TP31_SetDigitalOutput</h2>
+<a id="ga30f91ba64d576390304bd61161aea49e" name="ga30f91ba64d576390304bd61161aea49e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga30f91ba64d576390304bd61161aea49e">&#9670;&#160;</a></span>UART1_Drv_AutoBaudSet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DPD_TP31_SetDigitalOutput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISC14 = 0)</td>
+          <td class="memname">#define UART1_Drv_AutoBaudSet&#160;&#160;&#160;<a class="el" href="a00566.html#ga3144eac41c391b44a5e75d9ec37dd989">UART1_AutoBaudSet</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00197">197</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00120">120</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="ga545df547b460fddd81472ca958685368" name="ga545df547b460fddd81472ca958685368"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga545df547b460fddd81472ca958685368">&#9670;&#160;</a></span>DPD_TP31_SetHigh</h2>
+<a id="gab109e95935c2942ead694c877b0e36b1" name="gab109e95935c2942ead694c877b0e36b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab109e95935c2942ead694c877b0e36b1">&#9670;&#160;</a></span>UART1_Drv_BaudRateGet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DPD_TP31_SetHigh</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATC14 = 1)</td>
+          <td class="memname">#define UART1_Drv_BaudRateGet&#160;&#160;&#160;<a class="el" href="a00566.html#gace0aa1c533605015c605693a58658214">UART1_BaudRateGet</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RC14 must be set as Output Pin <br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00155">155</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00162">162</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="gae7121286782c505e6c29741b853445fd" name="gae7121286782c505e6c29741b853445fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae7121286782c505e6c29741b853445fd">&#9670;&#160;</a></span>DPD_TP31_SetLow</h2>
+<a id="ga9a9b9f98e06d53ef14a93aba85530c8f" name="ga9a9b9f98e06d53ef14a93aba85530c8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9a9b9f98e06d53ef14a93aba85530c8f">&#9670;&#160;</a></span>UART1_Drv_BaudRateSet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DPD_TP31_SetLow</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATC14 = 0)</td>
+          <td class="memname">#define UART1_Drv_BaudRateSet&#160;&#160;&#160;<a class="el" href="a00566.html#ga0184b510832e59754733272786b9b6f3">UART1_BaudRateSet</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RC14 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00164">164</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00156">156</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="gae65a0536740afb3f9b87e95809091791" name="gae65a0536740afb3f9b87e95809091791"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae65a0536740afb3f9b87e95809091791">&#9670;&#160;</a></span>DPD_TP31_Toggle</h2>
+<a id="gaa78080d73426144a5adb0e152ce7722e" name="gaa78080d73426144a5adb0e152ce7722e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa78080d73426144a5adb0e152ce7722e">&#9670;&#160;</a></span>UART1_Drv_BRGCountGet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define DPD_TP31_Toggle</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATC14 ^= 1)</td>
+          <td class="memname">#define UART1_Drv_BRGCountGet&#160;&#160;&#160;<a class="el" href="a00566.html#gae17ce6d866cf1df1a98a30b8b8aef089">UART1_BRGCountGet</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RC14 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00173">173</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00150">150</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="ga6f82a24f7439e65b25c522f9cf41c8a7" name="ga6f82a24f7439e65b25c522f9cf41c8a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6f82a24f7439e65b25c522f9cf41c8a7">&#9670;&#160;</a></span>FAULT_GetValue</h2>
+<a id="ga31f7064428ab2a009ff0a95680d20882" name="ga31f7064428ab2a009ff0a95680d20882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga31f7064428ab2a009ff0a95680d20882">&#9670;&#160;</a></span>UART1_Drv_BRGCountSet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FAULT_GetValue</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;_RD9</td>
+          <td class="memname">#define UART1_Drv_BRGCountSet&#160;&#160;&#160;<a class="el" href="a00566.html#gaf08dfcac26c53b59cccd5d3100566346">UART1_BRGCountSet</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00385">385</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00144">144</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="gaa6a23400d27dd6dac679a0a526ee37b7" name="gaa6a23400d27dd6dac679a0a526ee37b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa6a23400d27dd6dac679a0a526ee37b7">&#9670;&#160;</a></span>FAULT_SetDigitalInput</h2>
+<a id="gae2d8872a29a576c61c590bfea8c8f7f5" name="gae2d8872a29a576c61c590bfea8c8f7f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae2d8872a29a576c61c590bfea8c8f7f5">&#9670;&#160;</a></span>UART1_Drv_Deinitialize</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FAULT_SetDigitalInput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISD9 = 1)</td>
+          <td class="memname">#define UART1_Drv_Deinitialize&#160;&#160;&#160;<a class="el" href="a00566.html#gab8ba2fd2eb61dcbfce8b7b1e1dbe5909">UART1_Deinitialize</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00393">393</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00072">72</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="ga8f7dba6209cdc0077cb247c1206c06c1" name="ga8f7dba6209cdc0077cb247c1206c06c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8f7dba6209cdc0077cb247c1206c06c1">&#9670;&#160;</a></span>FAULT_SetDigitalOutput</h2>
+<a id="gada6d4b4d21230f4fac5b216dab2927ed" name="gada6d4b4d21230f4fac5b216dab2927ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gada6d4b4d21230f4fac5b216dab2927ed">&#9670;&#160;</a></span>UART1_Drv_ErrorGet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FAULT_SetDigitalOutput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISD9 = 0)</td>
+          <td class="memname">#define UART1_Drv_ErrorGet&#160;&#160;&#160;<a class="el" href="a00566.html#gaa61abb32e644f425b8bd10a71e690a42">UART1_ErrorGet</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00401">401</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00138">138</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="gac99ec8d8525a9698c252ae0e5edb70f3" name="gac99ec8d8525a9698c252ae0e5edb70f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac99ec8d8525a9698c252ae0e5edb70f3">&#9670;&#160;</a></span>FAULT_SetHigh</h2>
+<a id="ga2ee5aca85534f8f218b4a713778ff964" name="ga2ee5aca85534f8f218b4a713778ff964"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2ee5aca85534f8f218b4a713778ff964">&#9670;&#160;</a></span>UART1_Drv_Initialize</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FAULT_SetHigh</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD9 = 1)</td>
+          <td class="memname">#define UART1_Drv_Initialize&#160;&#160;&#160;<a class="el" href="a00566.html#ga10757505060dc7bf0fe148c5363eae08">UART1_Initialize</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD9 must be set as Output Pin <br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00359">359</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00066">66</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="ga368d77dcce7f6c02a4a3c28f378832a3" name="ga368d77dcce7f6c02a4a3c28f378832a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga368d77dcce7f6c02a4a3c28f378832a3">&#9670;&#160;</a></span>FAULT_SetLow</h2>
+<a id="ga735029df56ad9834434a5a9ec2af5937" name="ga735029df56ad9834434a5a9ec2af5937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga735029df56ad9834434a5a9ec2af5937">&#9670;&#160;</a></span>UART1_Drv_IsRxReady</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FAULT_SetLow</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD9 = 0)</td>
+          <td class="memname">#define UART1_Drv_IsRxReady&#160;&#160;&#160;<a class="el" href="a00566.html#ga35ebdf043c6e4995ff711ebc13954861">UART1_IsRxReady</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD9 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00368">368</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00090">90</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="ga4c3938ec9689a9beed979d41aef40def" name="ga4c3938ec9689a9beed979d41aef40def"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4c3938ec9689a9beed979d41aef40def">&#9670;&#160;</a></span>FAULT_Toggle</h2>
+<a id="gabbb25ae9c641edb26841f00af81a92e2" name="gabbb25ae9c641edb26841f00af81a92e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabbb25ae9c641edb26841f00af81a92e2">&#9670;&#160;</a></span>UART1_Drv_IsTxDone</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FAULT_Toggle</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD9 ^= 1)</td>
+          <td class="memname">#define UART1_Drv_IsTxDone&#160;&#160;&#160;<a class="el" href="a00566.html#ga693f8124b5bec099c5141b65e47f2bb9">UART1_IsTxDone</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD9 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00377">377</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00102">102</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="ga77df8f85e44acb6e63344bcd819c9a7d" name="ga77df8f85e44acb6e63344bcd819c9a7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga77df8f85e44acb6e63344bcd819c9a7d">&#9670;&#160;</a></span>GPIO_1_GetValue</h2>
+<a id="ga69e1beeb67801d241edbe01bd254d239" name="ga69e1beeb67801d241edbe01bd254d239"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga69e1beeb67801d241edbe01bd254d239">&#9670;&#160;</a></span>UART1_Drv_IsTxReady</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define GPIO_1_GetValue</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;_RC10</td>
+          <td class="memname">#define UART1_Drv_IsTxReady&#160;&#160;&#160;<a class="el" href="a00566.html#gae2fc49fa99787bc951e12bd840b1248c">UART1_IsTxReady</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00079">79</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00096">96</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="ga4b3ba47bffbe9dc6e26dcaf7fa260a19" name="ga4b3ba47bffbe9dc6e26dcaf7fa260a19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4b3ba47bffbe9dc6e26dcaf7fa260a19">&#9670;&#160;</a></span>GPIO_1_SetDigitalInput</h2>
+<a id="gaac02431379e6d05e69877b4e05238bc9" name="gaac02431379e6d05e69877b4e05238bc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaac02431379e6d05e69877b4e05238bc9">&#9670;&#160;</a></span>UART1_Drv_Read</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define GPIO_1_SetDigitalInput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISC10 = 1)</td>
+          <td class="memname">#define UART1_Drv_Read&#160;&#160;&#160;<a class="el" href="a00566.html#ga4e34071aa3125eb037bd6ae844c7ffbb">UART1_Read</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00087">87</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00078">78</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="ga2ad88d5b1fc36b4a6a8f1392d118131f" name="ga2ad88d5b1fc36b4a6a8f1392d118131f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2ad88d5b1fc36b4a6a8f1392d118131f">&#9670;&#160;</a></span>GPIO_1_SetDigitalOutput</h2>
+<a id="ga1a8b87d5bcd3e434c078d82746885fa2" name="ga1a8b87d5bcd3e434c078d82746885fa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1a8b87d5bcd3e434c078d82746885fa2">&#9670;&#160;</a></span>UART1_Drv_TransmitDisable</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define GPIO_1_SetDigitalOutput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISC10 = 0)</td>
+          <td class="memname">#define UART1_Drv_TransmitDisable&#160;&#160;&#160;<a class="el" href="a00566.html#ga221ffa21be6206c8c7d0ff5a22f14bce">UART1_TransmitDisable</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00095">95</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00114">114</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="ga8ea6bce31aae059adcf4ac16d825d8c7" name="ga8ea6bce31aae059adcf4ac16d825d8c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8ea6bce31aae059adcf4ac16d825d8c7">&#9670;&#160;</a></span>GPIO_1_SetHigh</h2>
+<a id="gadfe9bad13e737f1171e2453f8fb0d4ab" name="gadfe9bad13e737f1171e2453f8fb0d4ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadfe9bad13e737f1171e2453f8fb0d4ab">&#9670;&#160;</a></span>UART1_Drv_TransmitEnable</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define GPIO_1_SetHigh</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATC10 = 1)</td>
+          <td class="memname">#define UART1_Drv_TransmitEnable&#160;&#160;&#160;<a class="el" href="a00566.html#ga378b1dbcd496537d87bacafa2ecb49e9">UART1_TransmitEnable</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RC10 must be set as Output Pin <br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00053">53</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00108">108</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
-<a id="gaaf3407679ba6fcb8c1b18130c5b60093" name="gaaf3407679ba6fcb8c1b18130c5b60093"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaaf3407679ba6fcb8c1b18130c5b60093">&#9670;&#160;</a></span>GPIO_1_SetLow</h2>
+<a id="ga2f2b65d0c30afa22f9968646a1ce8055" name="ga2f2b65d0c30afa22f9968646a1ce8055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2f2b65d0c30afa22f9968646a1ce8055">&#9670;&#160;</a></span>UART1_Drv_Write</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define GPIO_1_SetLow</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATC10 = 0)</td>
+          <td class="memname">#define UART1_Drv_Write&#160;&#160;&#160;<a class="el" href="a00566.html#ga6be5aaf3406104a362f3a3438dafe83c">UART1_Write</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RC10 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00062">62</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga5410a818518ca295da2ef1c17045ba20" name="ga5410a818518ca295da2ef1c17045ba20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5410a818518ca295da2ef1c17045ba20">&#9670;&#160;</a></span>GPIO_1_Toggle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_1_Toggle</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATC10 ^= 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RC10 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00071">71</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga89876fc532439414f914af280a3cf433" name="ga89876fc532439414f914af280a3cf433"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga89876fc532439414f914af280a3cf433">&#9670;&#160;</a></span>GPIO_2_GetValue</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_2_GetValue</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;_RC11</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00130">130</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="gae861156b7942878aaf62830b19fb1ba6" name="gae861156b7942878aaf62830b19fb1ba6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae861156b7942878aaf62830b19fb1ba6">&#9670;&#160;</a></span>GPIO_2_SetDigitalInput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_2_SetDigitalInput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISC11 = 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00138">138</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga30a82b346afc2ab7e607ea864cefc7fa" name="ga30a82b346afc2ab7e607ea864cefc7fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga30a82b346afc2ab7e607ea864cefc7fa">&#9670;&#160;</a></span>GPIO_2_SetDigitalOutput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_2_SetDigitalOutput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISC11 = 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00146">146</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="gaf459951b9b1accd8e18ad6958ec1cdb9" name="gaf459951b9b1accd8e18ad6958ec1cdb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf459951b9b1accd8e18ad6958ec1cdb9">&#9670;&#160;</a></span>GPIO_2_SetHigh</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_2_SetHigh</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATC11 = 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RC11 must be set as Output Pin <br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00104">104</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga15ba15a486e6eb26d864ed8034e7887e" name="ga15ba15a486e6eb26d864ed8034e7887e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga15ba15a486e6eb26d864ed8034e7887e">&#9670;&#160;</a></span>GPIO_2_SetLow</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_2_SetLow</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATC11 = 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RC11 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00113">113</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="gacb47c56767e6f3d4aad59c3484ee6f48" name="gacb47c56767e6f3d4aad59c3484ee6f48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gacb47c56767e6f3d4aad59c3484ee6f48">&#9670;&#160;</a></span>GPIO_2_Toggle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define GPIO_2_Toggle</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATC11 ^= 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RC11 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00122">122</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga635f4b6ca64a0bd4da9503245d872dfe" name="ga635f4b6ca64a0bd4da9503245d872dfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga635f4b6ca64a0bd4da9503245d872dfe">&#9670;&#160;</a></span>IO_RD2_GetValue</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IO_RD2_GetValue</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;_RD2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00232">232</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga1bb236df859c01de2793b72b30ff9869" name="ga1bb236df859c01de2793b72b30ff9869"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1bb236df859c01de2793b72b30ff9869">&#9670;&#160;</a></span>IO_RD2_SetDigitalInput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IO_RD2_SetDigitalInput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISD2 = 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00240">240</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="gad7b8542d49a565ae0120a50b4dfe93b3" name="gad7b8542d49a565ae0120a50b4dfe93b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad7b8542d49a565ae0120a50b4dfe93b3">&#9670;&#160;</a></span>IO_RD2_SetDigitalOutput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IO_RD2_SetDigitalOutput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISD2 = 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00248">248</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="gac5482c650e7c6641e03d1ff4f5a1bdf3" name="gac5482c650e7c6641e03d1ff4f5a1bdf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac5482c650e7c6641e03d1ff4f5a1bdf3">&#9670;&#160;</a></span>IO_RD2_SetHigh</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IO_RD2_SetHigh</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD2 = 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD2 must be set as Output Pin <br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00206">206</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga9da1c34de33a7df8b54920cf03a9a2ff" name="ga9da1c34de33a7df8b54920cf03a9a2ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9da1c34de33a7df8b54920cf03a9a2ff">&#9670;&#160;</a></span>IO_RD2_SetLow</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IO_RD2_SetLow</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD2 = 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD2 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00215">215</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga024dbceaf67f4fe398c75f6d10168fbe" name="ga024dbceaf67f4fe398c75f6d10168fbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga024dbceaf67f4fe398c75f6d10168fbe">&#9670;&#160;</a></span>IO_RD2_Toggle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define IO_RD2_Toggle</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD2 ^= 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD2 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00224">224</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga4da15301986ea86700e1523243afcf14" name="ga4da15301986ea86700e1523243afcf14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4da15301986ea86700e1523243afcf14">&#9670;&#160;</a></span>LED_DP_PIM_GetValue</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_DP_PIM_GetValue</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;_RD15</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00487">487</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga7cc1dd15ece050d947263d882063525b" name="ga7cc1dd15ece050d947263d882063525b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7cc1dd15ece050d947263d882063525b">&#9670;&#160;</a></span>LED_DP_PIM_SetDigitalInput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_DP_PIM_SetDigitalInput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISD15 = 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00495">495</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga7823a4a831b9272af4c17e4f89995493" name="ga7823a4a831b9272af4c17e4f89995493"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7823a4a831b9272af4c17e4f89995493">&#9670;&#160;</a></span>LED_DP_PIM_SetDigitalOutput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_DP_PIM_SetDigitalOutput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISD15 = 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00503">503</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga53770a9727430f273c2b85506f057859" name="ga53770a9727430f273c2b85506f057859"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga53770a9727430f273c2b85506f057859">&#9670;&#160;</a></span>LED_DP_PIM_SetHigh</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_DP_PIM_SetHigh</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD15 = 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD15 must be set as Output Pin <br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00461">461</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="gad9c8ad4b68890a1dba13c91820bec22e" name="gad9c8ad4b68890a1dba13c91820bec22e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad9c8ad4b68890a1dba13c91820bec22e">&#9670;&#160;</a></span>LED_DP_PIM_SetLow</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_DP_PIM_SetLow</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD15 = 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD15 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00470">470</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="gabb0ef5cca7ad307c51e0de1050c9be95" name="gabb0ef5cca7ad307c51e0de1050c9be95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabb0ef5cca7ad307c51e0de1050c9be95">&#9670;&#160;</a></span>LED_DP_PIM_Toggle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_DP_PIM_Toggle</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD15 ^= 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD15 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00479">479</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga08808bff069a1ae1e875c4b7363bd301" name="ga08808bff069a1ae1e875c4b7363bd301"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga08808bff069a1ae1e875c4b7363bd301">&#9670;&#160;</a></span>LED_GREEN_GetValue</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_GREEN_GetValue</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;_RD7</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00283">283</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga478d99d323f84f6618a564051efeb17d" name="ga478d99d323f84f6618a564051efeb17d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga478d99d323f84f6618a564051efeb17d">&#9670;&#160;</a></span>LED_GREEN_SetDigitalInput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_GREEN_SetDigitalInput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISD7 = 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00291">291</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="gaee2f4e9bc1946e950fae45809f4be73e" name="gaee2f4e9bc1946e950fae45809f4be73e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaee2f4e9bc1946e950fae45809f4be73e">&#9670;&#160;</a></span>LED_GREEN_SetDigitalOutput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_GREEN_SetDigitalOutput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISD7 = 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00299">299</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga3f3640b2ca5d43fc730310ec1119dab4" name="ga3f3640b2ca5d43fc730310ec1119dab4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3f3640b2ca5d43fc730310ec1119dab4">&#9670;&#160;</a></span>LED_GREEN_SetHigh</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_GREEN_SetHigh</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD7 = 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD7 must be set as Output Pin <br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00257">257</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga69ca74a0689ed5659dc13472272e963d" name="ga69ca74a0689ed5659dc13472272e963d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga69ca74a0689ed5659dc13472272e963d">&#9670;&#160;</a></span>LED_GREEN_SetLow</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_GREEN_SetLow</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD7 = 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD7 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00266">266</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga67db10031fe64a52f508f8b912e3b27b" name="ga67db10031fe64a52f508f8b912e3b27b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga67db10031fe64a52f508f8b912e3b27b">&#9670;&#160;</a></span>LED_GREEN_Toggle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_GREEN_Toggle</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD7 ^= 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD7 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00275">275</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga13334d1e93fb445f81d5d9ab7fed5954" name="ga13334d1e93fb445f81d5d9ab7fed5954"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga13334d1e93fb445f81d5d9ab7fed5954">&#9670;&#160;</a></span>LED_RED_GetValue</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_RED_GetValue</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;_RD8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00334">334</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga1079836d96a0713ab8a63f8a0aa81262" name="ga1079836d96a0713ab8a63f8a0aa81262"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1079836d96a0713ab8a63f8a0aa81262">&#9670;&#160;</a></span>LED_RED_SetDigitalInput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_RED_SetDigitalInput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISD8 = 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00342">342</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="gaf48d1ad0c844a4b6b2454478b3d07267" name="gaf48d1ad0c844a4b6b2454478b3d07267"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf48d1ad0c844a4b6b2454478b3d07267">&#9670;&#160;</a></span>LED_RED_SetDigitalOutput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_RED_SetDigitalOutput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISD8 = 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00350">350</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="gaf389f3e41b8f9bc1d2dca499e84e7861" name="gaf389f3e41b8f9bc1d2dca499e84e7861"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf389f3e41b8f9bc1d2dca499e84e7861">&#9670;&#160;</a></span>LED_RED_SetHigh</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_RED_SetHigh</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD8 = 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD8 must be set as Output Pin <br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00308">308</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga920f51d71e56d58ff827f4e0dab947c8" name="ga920f51d71e56d58ff827f4e0dab947c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga920f51d71e56d58ff827f4e0dab947c8">&#9670;&#160;</a></span>LED_RED_SetLow</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_RED_SetLow</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD8 = 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD8 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00317">317</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="gacf582d2f0bbc49d08b5bb14e987862e6" name="gacf582d2f0bbc49d08b5bb14e987862e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gacf582d2f0bbc49d08b5bb14e987862e6">&#9670;&#160;</a></span>LED_RED_Toggle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LED_RED_Toggle</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD8 ^= 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD8 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00326">326</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga9f4f8d76d4c660460d9b99a2602bbbcc" name="ga9f4f8d76d4c660460d9b99a2602bbbcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9f4f8d76d4c660460d9b99a2602bbbcc">&#9670;&#160;</a></span>TP_PIM_GetValue</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TP_PIM_GetValue</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;_RD12</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00436">436</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga62be35b05c16842a1b5bd104dc08b97c" name="ga62be35b05c16842a1b5bd104dc08b97c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga62be35b05c16842a1b5bd104dc08b97c">&#9670;&#160;</a></span>TP_PIM_SetDigitalInput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TP_PIM_SetDigitalInput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISD12 = 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00444">444</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga379b483a6060c2738f65744200ecbf73" name="ga379b483a6060c2738f65744200ecbf73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga379b483a6060c2738f65744200ecbf73">&#9670;&#160;</a></span>TP_PIM_SetDigitalOutput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TP_PIM_SetDigitalOutput</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_TRISD12 = 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00452">452</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga2b16bfab7ee057105ed85a6eb42b0f7e" name="ga2b16bfab7ee057105ed85a6eb42b0f7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2b16bfab7ee057105ed85a6eb42b0f7e">&#9670;&#160;</a></span>TP_PIM_SetHigh</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TP_PIM_SetHigh</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD12 = 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD12 must be set as Output Pin <br  />
- </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00410">410</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="ga00b1597a96a7e77c09a946c10a4024cd" name="ga00b1597a96a7e77c09a946c10a4024cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga00b1597a96a7e77c09a946c10a4024cd">&#9670;&#160;</a></span>TP_PIM_SetLow</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TP_PIM_SetLow</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD12 = 0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD12 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00419">419</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
-
-</div>
-</div>
-<a id="gaef2ef29536dfb65c47501a02ae473925" name="gaef2ef29536dfb65c47501a02ae473925"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaef2ef29536dfb65c47501a02ae473925">&#9670;&#160;</a></span>TP_PIM_Toggle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TP_PIM_Toggle</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(_LATD12 ^= 1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The RD12 must be set as Output Pin </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00200_source.html#l00428">428</a> of file <a class="el" href="a00200_source.html">pins.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00260_source.html#l00084">84</a> of file <a class="el" href="a00260_source.html">uart1.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gad6f767603dec823a33d6b0aceea97e27" name="gad6f767603dec823a33d6b0aceea97e27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad6f767603dec823a33d6b0aceea97e27">&#9670;&#160;</a></span>PINS_Initialize()</h2>
+<a id="gac3ffab5418715b2afcd1295d3aaca37a" name="gac3ffab5418715b2afcd1295d3aaca37a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac3ffab5418715b2afcd1295d3aaca37a">&#9670;&#160;</a></span>UART1_AutoBaudEventEnableGet()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void PINS_Initialize </td>
+          <td class="memname">bool UART1_AutoBaudEventEnableGet </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1849,23 +584,506 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-<p>Setting the Output Latch SFR(s)</p>
-<p>Setting the GPIO Direction SFR(s)</p>
-<p>Setting the Weak Pull Up and Weak Pull Down SFR(s)</p>
-<p>Setting the Open Drain SFR(s)</p>
-<p>Setting the Analog/Digital Configuration SFR(s)</p>
-<p>Set the PPS</p>
+<dl class="section return"><dt>Returns</dt><dd>true - Auto-Baud is enabled </dd>
+<dd>
+false - Auto-Baud is disabled </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00224_source.html#l00046">46</a> of file <a class="el" href="a00224_source.html">pins.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00200">200</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="gac3b02f60d9474f7b7f1cdda3e3cb005a" name="gac3b02f60d9474f7b7f1cdda3e3cb005a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac3b02f60d9474f7b7f1cdda3e3cb005a">&#9670;&#160;</a></span>UART1_AutoBaudQuery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UART1_AutoBaudQuery </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true - Auto-Baud detection in progress or counter overflow occurred </dd>
+<dd>
+false - Auto-Baud detection is complete or disabled </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00195">195</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="ga3144eac41c391b44a5e75d9ec37dd989" name="ga3144eac41c391b44a5e75d9ec37dd989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3144eac41c391b44a5e75d9ec37dd989">&#9670;&#160;</a></span>UART1_AutoBaudSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UART1_AutoBaudSet </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>- true, starts the auto-baud detection <br  />
+ </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>- false, disables the auto-baud detection <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00188">188</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="gace0aa1c533605015c605693a58658214" name="gace0aa1c533605015c605693a58658214"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gace0aa1c533605015c605693a58658214">&#9670;&#160;</a></span>UART1_BaudRateGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t UART1_BaudRateGet </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Actual baud-rate of UART1 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00277">277</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00566_gad6f767603dec823a33d6b0aceea97e27_icgraph.svg" width="294" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00566_gace0aa1c533605015c605693a58658214_cgraph.svg" width="359" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="ga0184b510832e59754733272786b9b6f3" name="ga0184b510832e59754733272786b9b6f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0184b510832e59754733272786b9b6f3">&#9670;&#160;</a></span>UART1_BaudRateSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UART1_BaudRateSet </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>baudRate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">baudRate</td><td>- Value of Baud-Rate to be set <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Make sure the is no transmission in progress using <a class="el" href="a00566.html#ga693f8124b5bec099c5141b65e47f2bb9">UART1_IsTxDone</a> function </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00251">251</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="gae17ce6d866cf1df1a98a30b8b8aef089" name="gae17ce6d866cf1df1a98a30b8b8aef089"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae17ce6d866cf1df1a98a30b8b8aef089">&#9670;&#160;</a></span>UART1_BRGCountGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t UART1_BRGCountGet </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Combined BRG value upto 20 bits </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00241">241</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00566_gae17ce6d866cf1df1a98a30b8b8aef089_icgraph.svg" width="359" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gaf08dfcac26c53b59cccd5d3100566346" name="gaf08dfcac26c53b59cccd5d3100566346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf08dfcac26c53b59cccd5d3100566346">&#9670;&#160;</a></span>UART1_BRGCountSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UART1_BRGCountSet </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>brgValue</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">baudRate</td><td>- BRG value upto 20 bits <br  />
+ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Make sure the is no transmission in progress using <a class="el" href="a00566.html#ga693f8124b5bec099c5141b65e47f2bb9">UART1_IsTxDone</a> function </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00235">235</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="gab8ba2fd2eb61dcbfce8b7b1e1dbe5909" name="gab8ba2fd2eb61dcbfce8b7b1e1dbe5909"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab8ba2fd2eb61dcbfce8b7b1e1dbe5909">&#9670;&#160;</a></span>UART1_Deinitialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UART1_Deinitialize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00128">128</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="gaa61abb32e644f425b8bd10a71e690a42" name="gaa61abb32e644f425b8bd10a71e690a42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa61abb32e644f425b8bd10a71e690a42">&#9670;&#160;</a></span>UART1_ErrorGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t UART1_ErrorGet </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Errors with masking as per UART1_ERROR_MASKS </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00205">205</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="ga10757505060dc7bf0fe148c5363eae08" name="ga10757505060dc7bf0fe148c5363eae08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga10757505060dc7bf0fe148c5363eae08">&#9670;&#160;</a></span>UART1_Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UART1_Initialize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00104">104</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00566_ga10757505060dc7bf0fe148c5363eae08_icgraph.svg" width="304" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga35ebdf043c6e4995ff711ebc13954861" name="ga35ebdf043c6e4995ff711ebc13954861"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga35ebdf043c6e4995ff711ebc13954861">&#9670;&#160;</a></span>UART1_IsRxReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UART1_IsRxReady </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true - Data available to read </dd>
+<dd>
+false - Data not available to read </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00163">163</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="ga693f8124b5bec099c5141b65e47f2bb9" name="ga693f8124b5bec099c5141b65e47f2bb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga693f8124b5bec099c5141b65e47f2bb9">&#9670;&#160;</a></span>UART1_IsTxDone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UART1_IsTxDone </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true - All bytes transferred </dd>
+<dd>
+false - Data transfer is pending </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00173">173</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="gae2fc49fa99787bc951e12bd840b1248c" name="gae2fc49fa99787bc951e12bd840b1248c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae2fc49fa99787bc951e12bd840b1248c">&#9670;&#160;</a></span>UART1_IsTxReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UART1_IsTxReady </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true - Data can be written </dd>
+<dd>
+false - Data can not be written </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00168">168</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="ga4e34071aa3125eb037bd6ae844c7ffbb" name="ga4e34071aa3125eb037bd6ae844c7ffbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4e34071aa3125eb037bd6ae844c7ffbb">&#9670;&#160;</a></span>UART1_Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t UART1_Read </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>UART1_Initialize function should have been called before calling this function. The transfer status should be checked to see if the receiver is not empty before calling this function. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A data byte received by the driver </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00138">138</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="ga221ffa21be6206c8c7d0ff5a22f14bce" name="ga221ffa21be6206c8c7d0ff5a22f14bce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga221ffa21be6206c8c7d0ff5a22f14bce">&#9670;&#160;</a></span>UART1_TransmitDisable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UART1_TransmitDisable </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00183">183</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="ga378b1dbcd496537d87bacafa2ecb49e9" name="ga378b1dbcd496537d87bacafa2ecb49e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga378b1dbcd496537d87bacafa2ecb49e9">&#9670;&#160;</a></span>UART1_TransmitEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UART1_TransmitEnable </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00178">178</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<a id="ga6be5aaf3406104a362f3a3438dafe83c" name="ga6be5aaf3406104a362f3a3438dafe83c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6be5aaf3406104a362f3a3438dafe83c">&#9670;&#160;</a></span>UART1_Write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UART1_Write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd>UART1_Initialize function should have been called before calling this function. The transfer status should be checked to see if transmitter is not full before calling this function. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>- Data byte to write to the UART1 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00153">153</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ga64f67285e9e72c2b50bd19567ec8fb16" name="ga64f67285e9e72c2b50bd19567ec8fb16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga64f67285e9e72c2b50bd19567ec8fb16">&#9670;&#160;</a></span>UART1_Drv</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const struct <a class="el" href="a00639.html">UART_INTERFACE</a> UART1_Drv</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00059">59</a> of file <a class="el" href="a00257_source.html">uart1.c</a>.</p>
 
 </div>
 </div>

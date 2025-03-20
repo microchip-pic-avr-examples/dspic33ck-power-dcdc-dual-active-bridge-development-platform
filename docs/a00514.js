@@ -1,15 +1,12 @@
 var a00514 =
 [
     [ "Conversion Macros", "a00515.html", "a00515" ],
-    [ "ISEC_AVG_SNS_GAIN", "a00514.html#gaa04f0731e5ca53dd3034155ddec2fb51", null ],
-    [ "ISEC_AVG_SNS_OFS", "a00514.html#ga3ddd48524fd57578569ad30b31317bee", null ],
-    [ "ISEC_CT_SNS_GAIN", "a00514.html#gad565ee56fd67a47693480901f73b5e2c", null ],
-    [ "ISEC_CT_SNS_OFS", "a00514.html#ga167708b374334a691b34a153fc97ded0", null ],
-    [ "ISEC_LOAD_STEP_CLAMPING_AMPS", "a00514.html#ga6ec24bdfc7696657bf7e95dbaf83d5d9", null ],
-    [ "ISEC_OC_T_BLANK_CLEAR_SEC", "a00514.html#ga80ef2d060cb2e0d45398358f08401976", null ],
-    [ "ISEC_OC_T_BLANK_TRIG_SEC", "a00514.html#ga9dd78aa25c054cc00c115cd70169dcda", null ],
-    [ "ISEC_OC_THRES_CLEAR_AMPS", "a00514.html#gacdbe9002c178691c914b1043a7c070ce", null ],
-    [ "ISEC_OC_THRES_TRIG_AMPS", "a00514.html#ga61571a56765f2041df1adffb0e127623", null ],
-    [ "ISEC_OC_TICK_SEC", "a00514.html#gaf7a4bcd753b1270a1745bc3fe4c403e9", null ],
-    [ "ISEC_SC_THRES_TRIG_AMPS", "a00514.html#ga5f4043a3b61439e7695829b39102281c", null ]
+    [ "FAULT_PERSISTENCE_COUNT_TEMP", "a00514.html#gaa584ad6b0df4394fb8a954091913a713", null ],
+    [ "NOMINAL_TEMPERATURE_THRESHOLD", "a00514.html#gaf96b37309868a2ca71aec09e1d2180bc", null ],
+    [ "OTP_THRES_CLEAR_CELCIUS", "a00514.html#gadc3762a54e017c4db8ad9b6e83dc071d", null ],
+    [ "OTP_THRES_TRIG_CELCIUS", "a00514.html#gad1f727c2e9b6350745777aca9f272169", null ],
+    [ "TEMPERATURE_GAIN", "a00514.html#gab586eaca5d59d97c5a098f782633d74c", null ],
+    [ "TEMPERATURE_HYSTERESIS", "a00514.html#ga46b916cf898ceb2557a12f208380c5d5", null ],
+    [ "TEMPERATURE_OFFSET", "a00514.html#gac02a5a67e0612d6cb90e61cc23398701", null ],
+    [ "TEMPERATURE_PBV_OFFSET_CELSIUS", "a00514.html#gadaf56c98b4dc5aeee1231153c378af0e", null ]
 ];

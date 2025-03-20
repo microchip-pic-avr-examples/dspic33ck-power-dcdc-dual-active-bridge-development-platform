@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/src/traps.c File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/system_types.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,341 +137,91 @@ $(document).ready(function(){initNavTree('a00233.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">traps.c File Reference<div class="ingroups"><a class="el" href="a00554.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00570.html">Traps Driver</a></div></div></div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle"><div class="title">system_types.h File Reference<div class="ingroups"><a class="el" href="a00548.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00561.html">System Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the generated driver source file for TRAPS driver.  
+<p>This is the generated driver types header file for the System driver.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
-<code>#include &quot;../traps.h&quot;</code><br />
-</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for traps.c:</div>
+<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00234.svg" width="174" height="219"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00235.svg" width="358" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00233_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:afc1223fc26cddba5ffba1c5bd5def82f" id="r_afc1223fc26cddba5ffba1c5bd5def82f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a>&#160;&#160;&#160;<a class="el" href="a00101.html#a201468129b483039afc5a619e2d31097">__attribute__</a>((interrupt,no_auto_psv))</td></tr>
-<tr class="separator:afc1223fc26cddba5ffba1c5bd5def82f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d6c626527a12311e8a698a87daae6f7" id="r_a8d6c626527a12311e8a698a87daae6f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#a8d6c626527a12311e8a698a87daae6f7">FAILSAFE_STACK_GUARDSIZE</a>&#160;&#160;&#160;8</td></tr>
-<tr class="separator:a8d6c626527a12311e8a698a87daae6f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a20024c0647552ed1d76dbb4f332d0dce" id="r_a20024c0647552ed1d76dbb4f332d0dce"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00233.html#aabca170277f8d621f62d13ad1e6e25f8">CORCON_MODE_TYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#a20024c0647552ed1d76dbb4f332d0dce">SYSTEM_CORCON_MODES</a></td></tr>
+<tr class="separator:a20024c0647552ed1d76dbb4f332d0dce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a201468129b483039afc5a619e2d31097" id="r_a201468129b483039afc5a619e2d31097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#a201468129b483039afc5a619e2d31097">__attribute__</a> ((weak))</td></tr>
-<tr class="separator:a201468129b483039afc5a619e2d31097"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a179592ff2045f0be286f62f3b2e1cb63" id="r_a179592ff2045f0be286f62f3b2e1cb63"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#a179592ff2045f0be286f62f3b2e1cb63">use_failsafe_stack</a> (void)</td></tr>
-<tr class="separator:a179592ff2045f0be286f62f3b2e1cb63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a369f76085b5e8862ed6c95ebc4196240" id="r_a369f76085b5e8862ed6c95ebc4196240"><td class="memItemLeft" align="right" valign="top">void <a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#a369f76085b5e8862ed6c95ebc4196240">_AddressError</a> (void)</td></tr>
-<tr class="separator:a369f76085b5e8862ed6c95ebc4196240"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbfe1bbe232090a223197057a768befb" id="r_adbfe1bbe232090a223197057a768befb"><td class="memItemLeft" align="right" valign="top">void <a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#adbfe1bbe232090a223197057a768befb">_HardTrapError</a> (void)</td></tr>
-<tr class="separator:adbfe1bbe232090a223197057a768befb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf6324ef35ef0cdd3aa63c1f195ba553" id="r_acf6324ef35ef0cdd3aa63c1f195ba553"><td class="memItemLeft" align="right" valign="top">void <a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#acf6324ef35ef0cdd3aa63c1f195ba553">_SoftTrapError</a> (void)</td></tr>
-<tr class="separator:acf6324ef35ef0cdd3aa63c1f195ba553"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae50a96c4daa59acda66ca62e59b2a9a9" id="r_ae50a96c4daa59acda66ca62e59b2a9a9"><td class="memItemLeft" align="right" valign="top">void <a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#ae50a96c4daa59acda66ca62e59b2a9a9">_OscillatorFail</a> (void)</td></tr>
-<tr class="separator:ae50a96c4daa59acda66ca62e59b2a9a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2017082168ce25fa118fc65101c58620" id="r_a2017082168ce25fa118fc65101c58620"><td class="memItemLeft" align="right" valign="top">void <a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#a2017082168ce25fa118fc65101c58620">_MathError</a> (void)</td></tr>
-<tr class="separator:a2017082168ce25fa118fc65101c58620"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bb82ba68a7d3e7a3384ae5b6d2c5205" id="r_a2bb82ba68a7d3e7a3384ae5b6d2c5205"><td class="memItemLeft" align="right" valign="top">void <a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#a2bb82ba68a7d3e7a3384ae5b6d2c5205">_StackError</a> (void)</td></tr>
-<tr class="separator:a2bb82ba68a7d3e7a3384ae5b6d2c5205"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ad5ed11bf5b4e1b432ffb169e279a29bc" id="r_ad5ed11bf5b4e1b432ffb169e279a29bc"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#ad5ed11bf5b4e1b432ffb169e279a29bc">TRAPS_error_code</a> = -1</td></tr>
-<tr class="separator:ad5ed11bf5b4e1b432ffb169e279a29bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:aabca170277f8d621f62d13ad1e6e25f8" id="r_aabca170277f8d621f62d13ad1e6e25f8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html#aabca170277f8d621f62d13ad1e6e25f8">CORCON_MODE_TYPE</a> { <a class="el" href="a00233.html#aabca170277f8d621f62d13ad1e6e25f8a548b24dbb2e97a6afd9011d85aeed115">CORCON_MODE_PORVALUES</a> = 0x0020
+, <a class="el" href="a00233.html#aabca170277f8d621f62d13ad1e6e25f8ae365ac8be7756d0511f00caaf4f187a6">CORCON_MODE_ENABLEALLSATNORMAL_ROUNDBIASED</a> = 0x00E2
+, <a class="el" href="a00233.html#aabca170277f8d621f62d13ad1e6e25f8a8192f72ec981ad76cb2134f696d0fa7f">CORCON_MODE_ENABLEALLSATNORMAL_ROUNDUNBIASED</a> = 0x00E0
+, <a class="el" href="a00233.html#aabca170277f8d621f62d13ad1e6e25f8a5ce6a10e1385654bdac5eeb00c230cec">CORCON_MODE_DISABLEALLSAT_ROUNDBIASED</a> = 0x0022
+, <a class="el" href="a00233.html#aabca170277f8d621f62d13ad1e6e25f8a57036aa0515ce1614e5e9ae45a665201">CORCON_MODE_DISABLEALLSAT_ROUNDUNBIASED</a> = 0x0020
+, <a class="el" href="a00233.html#aabca170277f8d621f62d13ad1e6e25f8abf2e69f7927925083545b13f88341f3d">CORCON_MODE_ENABLEALLSATSUPER_ROUNDBIASED</a> = 0x00F2
+, <a class="el" href="a00233.html#aabca170277f8d621f62d13ad1e6e25f8abff91c29828603af1e52a8cd2d876246">CORCON_MODE_ENABLEALLSATSUPER_ROUNDUNBIASED</a> = 0x00F0
+ }</td></tr>
+<tr class="separator:aabca170277f8d621f62d13ad1e6e25f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>TRAPS Generated Driver Source File</p>
+<div class="textblock"><p>MAIN Generated Driver Types Header File</p>
+<dl class="section version"><dt>Version</dt><dd>Driver Version 1.0.1</dd></dl>
 <div class="fragment"></div><!-- fragment -->
-<p class="definition">Definition in file <a class="el" href="a00233_source.html">traps.c</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="afc1223fc26cddba5ffba1c5bd5def82f" name="afc1223fc26cddba5ffba1c5bd5def82f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc1223fc26cddba5ffba1c5bd5def82f">&#9670;&#160;</a></span>ERROR_HANDLER</h2>
+<p class="definition">Definition in file <a class="el" href="a00233_source.html">system_types.h</a>.</p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a20024c0647552ed1d76dbb4f332d0dce" name="a20024c0647552ed1d76dbb4f332d0dce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20024c0647552ed1d76dbb4f332d0dce">&#9670;&#160;</a></span>SYSTEM_CORCON_MODES</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ERROR_HANDLER&#160;&#160;&#160;<a class="el" href="a00101.html#a201468129b483039afc5a619e2d31097">__attribute__</a>((interrupt,no_auto_psv))</td>
+          <td class="memname">typedef enum <a class="el" href="a00233.html#aabca170277f8d621f62d13ad1e6e25f8">CORCON_MODE_TYPE</a> <a class="el" href="a00233.html#a20024c0647552ed1d76dbb4f332d0dce">SYSTEM_CORCON_MODES</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00042">42</a> of file <a class="el" href="a00233_source.html">traps.c</a>.</p>
-
 </div>
 </div>
-<a id="a8d6c626527a12311e8a698a87daae6f7" name="a8d6c626527a12311e8a698a87daae6f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d6c626527a12311e8a698a87daae6f7">&#9670;&#160;</a></span>FAILSAFE_STACK_GUARDSIZE</h2>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="aabca170277f8d621f62d13ad1e6e25f8" name="aabca170277f8d621f62d13ad1e6e25f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabca170277f8d621f62d13ad1e6e25f8">&#9670;&#160;</a></span>CORCON_MODE_TYPE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FAILSAFE_STACK_GUARDSIZE&#160;&#160;&#160;8</td>
+          <td class="memname">enum <a class="el" href="a00233.html#aabca170277f8d621f62d13ad1e6e25f8">CORCON_MODE_TYPE</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00043">43</a> of file <a class="el" href="a00233_source.html">traps.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a201468129b483039afc5a619e2d31097" name="a201468129b483039afc5a619e2d31097"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a201468129b483039afc5a619e2d31097">&#9670;&#160;</a></span>__attribute__()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void __attribute__ </td>
-          <td>(</td>
-          <td class="paramtype">(weak)&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00052">52</a> of file <a class="el" href="a00233_source.html">traps.c</a>.</p>
-
-</div>
-</div>
-<a id="a369f76085b5e8862ed6c95ebc4196240" name="a369f76085b5e8862ed6c95ebc4196240"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a369f76085b5e8862ed6c95ebc4196240">&#9670;&#160;</a></span>_AddressError()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a> _AddressError </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Address error Trap vector </p>
-
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00087">87</a> of file <a class="el" href="a00233_source.html">traps.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00233_a369f76085b5e8862ed6c95ebc4196240_cgraph.svg" width="310" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="adbfe1bbe232090a223197057a768befb" name="adbfe1bbe232090a223197057a768befb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbfe1bbe232090a223197057a768befb">&#9670;&#160;</a></span>_HardTrapError()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a> _HardTrapError </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Generic Hard Trap vector </p>
-
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00094">94</a> of file <a class="el" href="a00233_source.html">traps.c</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00233_adbfe1bbe232090a223197057a768befb_cgraph.svg" width="314" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a2017082168ce25fa118fc65101c58620" name="a2017082168ce25fa118fc65101c58620"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2017082168ce25fa118fc65101c58620">&#9670;&#160;</a></span>_MathError()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a> _MathError </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Math Error Trap vector </p>
-
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00150">150</a> of file <a class="el" href="a00233_source.html">traps.c</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00233_a2017082168ce25fa118fc65101c58620_cgraph.svg" width="291" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ae50a96c4daa59acda66ca62e59b2a9a9" name="ae50a96c4daa59acda66ca62e59b2a9a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae50a96c4daa59acda66ca62e59b2a9a9">&#9670;&#160;</a></span>_OscillatorFail()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a> _OscillatorFail </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Oscillator Fail Trap vector </p>
-
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00143">143</a> of file <a class="el" href="a00233_source.html">traps.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00233_ae50a96c4daa59acda66ca62e59b2a9a9_cgraph.svg" width="310" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="acf6324ef35ef0cdd3aa63c1f195ba553" name="acf6324ef35ef0cdd3aa63c1f195ba553"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf6324ef35ef0cdd3aa63c1f195ba553">&#9670;&#160;</a></span>_SoftTrapError()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a> _SoftTrapError </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Generic Soft Trap vector </p>
-
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00101">101</a> of file <a class="el" href="a00233_source.html">traps.c</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00233_acf6324ef35ef0cdd3aa63c1f195ba553_cgraph.svg" width="310" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a2bb82ba68a7d3e7a3384ae5b6d2c5205" name="a2bb82ba68a7d3e7a3384ae5b6d2c5205"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bb82ba68a7d3e7a3384ae5b6d2c5205">&#9670;&#160;</a></span>_StackError()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00233.html#afc1223fc26cddba5ffba1c5bd5def82f">ERROR_HANDLER</a> _StackError </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Stack Error Trap Vector </p>
-
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00157">157</a> of file <a class="el" href="a00233_source.html">traps.c</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00233_a2bb82ba68a7d3e7a3384ae5b6d2c5205_cgraph.svg" width="296" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a179592ff2045f0be286f62f3b2e1cb63" name="a179592ff2045f0be286f62f3b2e1cb63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a179592ff2045f0be286f62f3b2e1cb63">&#9670;&#160;</a></span>use_failsafe_stack()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void use_failsafe_stack </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8a548b24dbb2e97a6afd9011d85aeed115" name="aabca170277f8d621f62d13ad1e6e25f8a548b24dbb2e97a6afd9011d85aeed115"></a>CORCON_MODE_PORVALUES&#160;</td><td class="fielddoc"><p>Use POR values of CORCON </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8ae365ac8be7756d0511f00caaf4f187a6" name="aabca170277f8d621f62d13ad1e6e25f8ae365ac8be7756d0511f00caaf4f187a6"></a>CORCON_MODE_ENABLEALLSATNORMAL_ROUNDBIASED&#160;</td><td class="fielddoc"><p>Enable saturation for ACCA, ACCB and Dataspace write, enable normal ACCA/ACCB saturation mode and set rounding to Biased (conventional) mode. Rest of CORCON settings are set to the default POR values. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8a8192f72ec981ad76cb2134f696d0fa7f" name="aabca170277f8d621f62d13ad1e6e25f8a8192f72ec981ad76cb2134f696d0fa7f"></a>CORCON_MODE_ENABLEALLSATNORMAL_ROUNDUNBIASED&#160;</td><td class="fielddoc"><p>Enable saturation for ACCA, ACCB and Dataspace write, enable normal ACCA/ACCB saturation mode and set rounding to Unbiased (convergent) mode. Rest of CORCON settings are set to the default POR values. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8a5ce6a10e1385654bdac5eeb00c230cec" name="aabca170277f8d621f62d13ad1e6e25f8a5ce6a10e1385654bdac5eeb00c230cec"></a>CORCON_MODE_DISABLEALLSAT_ROUNDBIASED&#160;</td><td class="fielddoc"><p>Disable saturation for ACCA, ACCB and Dataspace write and set rounding to Biased (conventional) mode. Rest of CORCON settings are set to the default POR values. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8a57036aa0515ce1614e5e9ae45a665201" name="aabca170277f8d621f62d13ad1e6e25f8a57036aa0515ce1614e5e9ae45a665201"></a>CORCON_MODE_DISABLEALLSAT_ROUNDUNBIASED&#160;</td><td class="fielddoc"><p>Disable saturation for ACCA, ACCB and Dataspace write and set rounding to Unbiased (convergent) mode. Rest of CORCON settings are set to the default POR values. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8abf2e69f7927925083545b13f88341f3d" name="aabca170277f8d621f62d13ad1e6e25f8abf2e69f7927925083545b13f88341f3d"></a>CORCON_MODE_ENABLEALLSATSUPER_ROUNDBIASED&#160;</td><td class="fielddoc"><p>Enable saturation for ACCA, ACCB and Dataspace write, enable super ACCA/ACCB saturation mode and set rounding to Biased (conventional) mode. Rest of CORCON settings are set to the default POR values. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aabca170277f8d621f62d13ad1e6e25f8abff91c29828603af1e52a8cd2d876246" name="aabca170277f8d621f62d13ad1e6e25f8abff91c29828603af1e52a8cd2d876246"></a>CORCON_MODE_ENABLEALLSATSUPER_ROUNDUNBIASED&#160;</td><td class="fielddoc"><p>Enable saturation for ACCA, ACCB and Dataspace write, enable super ACCA/ACCB saturation mode and set rounding to Unbiased (convergent) mode. Rest of CORCON settings are set to the default POR values. </p>
+</td></tr>
 </table>
-</div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00071">71</a> of file <a class="el" href="a00233_source.html">traps.c</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00233_a179592ff2045f0be286f62f3b2e1cb63_icgraph.svg" width="278" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ad5ed11bf5b4e1b432ffb169e279a29bc" name="ad5ed11bf5b4e1b432ffb169e279a29bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5ed11bf5b4e1b432ffb169e279a29bc">&#9670;&#160;</a></span>TRAPS_error_code</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t TRAPS_error_code = -1</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00047">47</a> of file <a class="el" href="a00233_source.html">traps.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00048">48</a> of file <a class="el" href="a00233_source.html">system_types.h</a>.</p>
 
 </div>
 </div>

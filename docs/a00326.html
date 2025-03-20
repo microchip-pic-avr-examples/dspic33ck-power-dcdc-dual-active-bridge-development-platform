@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_current_sensor.c File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_fan.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,106 +137,202 @@ $(document).ready(function(){initNavTree('a00326.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">dev_current_sensor.c File Reference<div class="ingroups"><a class="el" href="a00533.html">Device Layer</a> &raquo; <a class="el" href="a00534.html">Current Sensor Calibration</a></div></div></div>
+  <div class="headertitle"><div class="title">dev_fan.c File Reference<div class="ingroups"><a class="el" href="a00527.html">Device Layer</a> &raquo; <a class="el" href="a00529.html">Fan Control</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains current sensor initialization and calibration evaluation.  
+<p>Contains fan initialization and execution functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00329_source.html">dev_fan.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00347_source.html">dev_temp.h</a>&quot;</code><br />
 <code>#include &quot;config/macros.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00089_source.html">adc/adc1.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for dev_current_sensor.c:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for dev_fan.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00327.svg" width="100%" height="520"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00327.svg" width="100%" height="576"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="a00326_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00669.html">SENSOR_OFFSET_CAL_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores data related to sensor calibration, including data related to sensor offset.  <a href="a00669.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a175e2f52c3522e4154a8d21da88426df" id="r_a175e2f52c3522e4154a8d21da88426df"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00326.html#a175e2f52c3522e4154a8d21da88426df">SENSOR_OFFSET_NUM_MEASUREMENTS</a>&#160;&#160;&#160;(1000)</td></tr>
-<tr class="memdesc:a175e2f52c3522e4154a8d21da88426df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of measurement to calculate the average over.  <br /></td></tr>
-<tr class="separator:a175e2f52c3522e4154a8d21da88426df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a11d4505c8c67dc1bff5d289e1232b593" id="r_a11d4505c8c67dc1bff5d289e1232b593"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00669.html">SENSOR_OFFSET_CAL_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00326.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a></td></tr>
-<tr class="separator:a11d4505c8c67dc1bff5d289e1232b593"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a659bfa45ad96d6e745795d58c6053a94" id="r_a659bfa45ad96d6e745795d58c6053a94"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00326.html#afd4e54e729c2947c072af93c0bac2524">FAN_SETTINGS_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00326.html#a659bfa45ad96d6e745795d58c6053a94">FAN_SETTINGS_t</a></td></tr>
+<tr class="separator:a659bfa45ad96d6e745795d58c6053a94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:afd4e54e729c2947c072af93c0bac2524" id="r_afd4e54e729c2947c072af93c0bac2524"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00326.html#afd4e54e729c2947c072af93c0bac2524">FAN_SETTINGS_e</a> { <a class="el" href="a00326.html#afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd">NO_CHANGE</a> = 0
+, <a class="el" href="a00326.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">CHANGE_SPEED</a> = 1
+ }</td></tr>
+<tr class="separator:afd4e54e729c2947c072af93c0bac2524"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga03e8d61bbc0f4b686c400440f80dcf69" id="r_ga03e8d61bbc0f4b686c400440f80dcf69"><td class="memItemLeft" align="right" valign="top">static void __inline__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga03e8d61bbc0f4b686c400440f80dcf69">Dev_SensorOffsetCal</a> (<a class="el" href="a00326.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> *sensor, uint16_t adcReading)</td></tr>
-<tr class="memdesc:ga03e8d61bbc0f4b686c400440f80dcf69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the sensor offset.  <br /></td></tr>
-<tr class="separator:ga03e8d61bbc0f4b686c400440f80dcf69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaa75855922e60913d443c6203475256f" id="r_gaaa75855922e60913d443c6203475256f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a> (void)</td></tr>
-<tr class="memdesc:gaaa75855922e60913d443c6203475256f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measures the currents sensor offset.  <br /></td></tr>
-<tr class="separator:gaaa75855922e60913d443c6203475256f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga218632f9814c3bf20c40cea0794ffc7d" id="r_ga218632f9814c3bf20c40cea0794ffc7d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a> (void)</td></tr>
-<tr class="memdesc:ga218632f9814c3bf20c40cea0794ffc7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the calibration status.  <br /></td></tr>
-<tr class="separator:ga218632f9814c3bf20c40cea0794ffc7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9f581abf52dc00ba320faafa189fafb9" id="r_ga9f581abf52dc00ba320faafa189fafb9"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a> (void)</td></tr>
-<tr class="memdesc:ga9f581abf52dc00ba320faafa189fafb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the sensor offset.  <br /></td></tr>
-<tr class="separator:ga9f581abf52dc00ba320faafa189fafb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga494b4a948891fd5757ccc647f9962529" id="r_ga494b4a948891fd5757ccc647f9962529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a> (void)</td></tr>
-<tr class="memdesc:ga494b4a948891fd5757ccc647f9962529"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to clear the sensor offset.  <br /></td></tr>
-<tr class="separator:ga494b4a948891fd5757ccc647f9962529"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ba0ef09cbd1274a9c325fc04cab411d" id="r_ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ga3ba0ef09cbd1274a9c325fc04cab411d">Convert_From_Percentage</a> (uint8_t percentage_value)</td></tr>
+<tr class="memdesc:ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the percentage value to number of ticks.  <br /></td></tr>
+<tr class="separator:ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1adc887cf6c46c0eed096f1e8d203cae" id="r_a1adc887cf6c46c0eed096f1e8d203cae"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00326.html#a1adc887cf6c46c0eed096f1e8d203cae">Convert_From_Raw</a> (uint16_t raw)</td></tr>
+<tr class="memdesc:a1adc887cf6c46c0eed096f1e8d203cae"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <br /></td></tr>
+<tr class="separator:a1adc887cf6c46c0eed096f1e8d203cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d2b426f7411623a821415f02956aac8" id="r_ga0d2b426f7411623a821415f02956aac8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ga0d2b426f7411623a821415f02956aac8">Override_Speed</a> (void)</td></tr>
+<tr class="memdesc:ga0d2b426f7411623a821415f02956aac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override the fan speed with maximum speed.  <br /></td></tr>
+<tr class="separator:ga0d2b426f7411623a821415f02956aac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66c5db181798514534d7f97b622ca35e" id="r_ga66c5db181798514534d7f97b622ca35e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ga66c5db181798514534d7f97b622ca35e">Calculate_Speed</a> (void)</td></tr>
+<tr class="memdesc:ga66c5db181798514534d7f97b622ca35e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the fan speed.  <br /></td></tr>
+<tr class="separator:ga66c5db181798514534d7f97b622ca35e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7e38e334c2209a2a296bf3f573fed78" id="r_gad7e38e334c2209a2a296bf3f573fed78"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#gad7e38e334c2209a2a296bf3f573fed78">Update_Speed</a> (void)</td></tr>
+<tr class="memdesc:gad7e38e334c2209a2a296bf3f573fed78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the fan speed.  <br /></td></tr>
+<tr class="separator:gad7e38e334c2209a2a296bf3f573fed78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4274efc956bcca058565b186c2fd1a0" id="r_gad4274efc956bcca058565b186c2fd1a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#gad4274efc956bcca058565b186c2fd1a0">Dev_Fan_Initialize</a> (void)</td></tr>
+<tr class="memdesc:gad4274efc956bcca058565b186c2fd1a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the fan object.  <br /></td></tr>
+<tr class="separator:gad4274efc956bcca058565b186c2fd1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bd7dce99469a41bbb705d939ea512ad" id="r_ga1bd7dce99469a41bbb705d939ea512ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ga1bd7dce99469a41bbb705d939ea512ad">Dev_Fan_Task_100ms</a> (void)</td></tr>
+<tr class="memdesc:ga1bd7dce99469a41bbb705d939ea512ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">this function needs to be called every 100ms it contains the code to update the status of the fan  <br /></td></tr>
+<tr class="separator:ga1bd7dce99469a41bbb705d939ea512ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd7dde7baca2e1dd3a745bf5f8258da7" id="r_gafd7dde7baca2e1dd3a745bf5f8258da7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#gafd7dde7baca2e1dd3a745bf5f8258da7">Dev_Fan_Task_1s</a> (void)</td></tr>
+<tr class="memdesc:gafd7dde7baca2e1dd3a745bf5f8258da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function needs to be called every 1s to keep the temperature of the board at a certain temperature.  <br /></td></tr>
+<tr class="separator:gafd7dde7baca2e1dd3a745bf5f8258da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf5c734c9834b070c4adf1af69e9f048" id="r_gabf5c734c9834b070c4adf1af69e9f048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#gabf5c734c9834b070c4adf1af69e9f048">Dev_Fan_Set_Override</a> (void)</td></tr>
+<tr class="memdesc:gabf5c734c9834b070c4adf1af69e9f048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fan override bit and the fan speed.  <br /></td></tr>
+<tr class="separator:gabf5c734c9834b070c4adf1af69e9f048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cfd61659ae6b17ad25e51bfc211723b" id="r_ga5cfd61659ae6b17ad25e51bfc211723b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a> (uint8_t target_speed_percent)</td></tr>
+<tr class="memdesc:ga5cfd61659ae6b17ad25e51bfc211723b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fan speed.  <br /></td></tr>
+<tr class="separator:ga5cfd61659ae6b17ad25e51bfc211723b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:gaf2e1ab5706d4b7e1a47eea25ce323c5f" id="r_gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00326.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">isecAvgCurrentSensor</a></td></tr>
-<tr class="memdesc:gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of sensor offset calibration.  <br /></td></tr>
-<tr class="separator:gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52debd393de750722aca541b24b1bc6d" id="r_ga52debd393de750722aca541b24b1bc6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00329.html#a8811ef66930b574a01bfaf769ce39679">FAN_DATA_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a></td></tr>
+<tr class="memdesc:ga52debd393de750722aca541b24b1bc6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of fan.  <br /></td></tr>
+<tr class="separator:ga52debd393de750722aca541b24b1bc6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf3c18eacb83f7ffa95a34b90d5ad0d" id="r_adaf3c18eacb83f7ffa95a34b90d5ad0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00329.html#a8811ef66930b574a01bfaf769ce39679">FAN_DATA_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00326.html#adaf3c18eacb83f7ffa95a34b90d5ad0d">devFanDataPtr</a> = &amp;<a class="el" href="a00529.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a></td></tr>
+<tr class="separator:adaf3c18eacb83f7ffa95a34b90d5ad0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8590bb5f278011ec7f33fd6b02e6ba93" id="r_a8590bb5f278011ec7f33fd6b02e6ba93"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00326.html#a659bfa45ad96d6e745795d58c6053a94">FAN_SETTINGS_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00326.html#a8590bb5f278011ec7f33fd6b02e6ba93">changeSpeed</a> = <a class="el" href="a00326.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">CHANGE_SPEED</a></td></tr>
+<tr class="separator:a8590bb5f278011ec7f33fd6b02e6ba93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>&lt;&gt; </p>
 
-<p class="definition">Definition in file <a class="el" href="a00326_source.html">dev_current_sensor.c</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a175e2f52c3522e4154a8d21da88426df" name="a175e2f52c3522e4154a8d21da88426df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a175e2f52c3522e4154a8d21da88426df">&#9670;&#160;</a></span>SENSOR_OFFSET_NUM_MEASUREMENTS</h2>
+<p class="definition">Definition in file <a class="el" href="a00326_source.html">dev_fan.c</a>.</p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a659bfa45ad96d6e745795d58c6053a94" name="a659bfa45ad96d6e745795d58c6053a94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a659bfa45ad96d6e745795d58c6053a94">&#9670;&#160;</a></span>FAN_SETTINGS_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SENSOR_OFFSET_NUM_MEASUREMENTS&#160;&#160;&#160;(1000)</td>
+          <td class="memname">typedef enum <a class="el" href="a00326.html#afd4e54e729c2947c072af93c0bac2524">FAN_SETTINGS_e</a> <a class="el" href="a00326.html#a659bfa45ad96d6e745795d58c6053a94">FAN_SETTINGS_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00013">13</a> of file <a class="el" href="a00326_source.html">dev_current_sensor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00028">28</a> of file <a class="el" href="a00326_source.html">dev_fan.c</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a11d4505c8c67dc1bff5d289e1232b593" name="a11d4505c8c67dc1bff5d289e1232b593"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11d4505c8c67dc1bff5d289e1232b593">&#9670;&#160;</a></span>SENSOR_OFFSET_CAL_t</h2>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="afd4e54e729c2947c072af93c0bac2524" name="afd4e54e729c2947c072af93c0bac2524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd4e54e729c2947c072af93c0bac2524">&#9670;&#160;</a></span>FAN_SETTINGS_e</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="a00669.html">SENSOR_OFFSET_CAL_s</a> <a class="el" href="a00326.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a></td>
+          <td class="memname">enum <a class="el" href="a00326.html#afd4e54e729c2947c072af93c0bac2524">FAN_SETTINGS_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd" name="afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd"></a>NO_CHANGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc" name="afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc"></a>CHANGE_SPEED&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00024">24</a> of file <a class="el" href="a00326_source.html">dev_fan.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a1adc887cf6c46c0eed096f1e8d203cae" name="a1adc887cf6c46c0eed096f1e8d203cae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1adc887cf6c46c0eed096f1e8d203cae">&#9670;&#160;</a></span>Convert_From_Raw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint8_t Convert_From_Raw </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>raw</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00251">251</a> of file <a class="el" href="a00326_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00326_a1adc887cf6c46c0eed096f1e8d203cae_icgraph.svg" width="650" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a8590bb5f278011ec7f33fd6b02e6ba93" name="a8590bb5f278011ec7f33fd6b02e6ba93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8590bb5f278011ec7f33fd6b02e6ba93">&#9670;&#160;</a></span>changeSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00326.html#a659bfa45ad96d6e745795d58c6053a94">FAN_SETTINGS_t</a> changeSpeed = <a class="el" href="a00326.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">CHANGE_SPEED</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00030">30</a> of file <a class="el" href="a00326_source.html">dev_fan.c</a>.</p>
+
+</div>
+</div>
+<a id="adaf3c18eacb83f7ffa95a34b90d5ad0d" name="adaf3c18eacb83f7ffa95a34b90d5ad0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf3c18eacb83f7ffa95a34b90d5ad0d">&#9670;&#160;</a></span>devFanDataPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00329.html#a8811ef66930b574a01bfaf769ce39679">FAN_DATA_t</a>* devFanDataPtr = &amp;<a class="el" href="a00529.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00031">31</a> of file <a class="el" href="a00326_source.html">dev_current_sensor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00326_source.html#l00022">22</a> of file <a class="el" href="a00326_source.html">dev_fan.c</a>.</p>
 
 </div>
 </div>

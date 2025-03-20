@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_common.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,45 +136,43 @@ $(document).ready(function(){initNavTree('a00470_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">pwrctrl.h</div></div>
+  <div class="headertitle"><div class="title">pwrctrl_common.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef APP_PWRCTRL_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define APP_PWRCTRL_H</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;pwrctrl_typedef.h&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="a00476.html">pwrctrl_common.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="a00482.html">pwrctrl_comm_interface.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="a00488.html">pwrctrl_isr.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="a00497.html">pwrctrl_pwm.h</a>&quot;</span></div>
+<a href="a00470.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* </span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * File:   pwrctrl_common.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Author: M15690</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Created on July 11, 2024, 9:20 PM</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifndef DEV_PWRCTRL_UTILS_H</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#define DEV_PWRCTRL_UTILS_H</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00761.html">POWER_CONTROL_t</a> <a class="code hl_variable" href="a00542.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00725.html">AVERAGING_t</a> <a class="code hl_variable" href="a00543.html#ga963f5607c8862374734b3cc799dedc68">vPrimAveraging</a>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00725.html">AVERAGING_t</a> <a class="code hl_variable" href="a00543.html#gaef7d489f0d36cd14c2f49022909e01b4">vSecAveraging</a>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00725.html">AVERAGING_t</a> <a class="code hl_variable" href="a00543.html#ga672f4741d032387a584ef0444f637cce">iSecAveraging</a>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00542.html#ga2c39b57545ef7b5c79bac36ab30da7d8">PwrCtrl_Initialize</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00542.html#ga48dcb018afa53b60b6112cde00561c4b">PwrCtrl_Execute</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> Dev_PwrCtrl_Suspend(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> Dev_PwrCtrl_ControlLoopInitialize(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00542.html#ga8c07187b0c96b5916e4b46daa47500c5">PwrCtrl_Reset</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif  </span><span class="comment">/* APP_PWRCTRL_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="ttc" id="aa00476_html"><div class="ttname"><a href="a00476.html">pwrctrl_common.h</a></div><div class="ttdoc">Contains the power control reusable functions.</div></div>
-<div class="ttc" id="aa00482_html"><div class="ttname"><a href="a00482.html">pwrctrl_comm_interface.h</a></div><div class="ttdoc">Contains public functions relevant for power control communication interface.</div></div>
-<div class="ttc" id="aa00488_html"><div class="ttname"><a href="a00488.html">pwrctrl_isr.h</a></div><div class="ttdoc">Contains public function relevant for power control interrupt.</div></div>
-<div class="ttc" id="aa00497_html"><div class="ttname"><a href="a00497.html">pwrctrl_pwm.h</a></div><div class="ttdoc">Contains public functions for PWM.</div></div>
-<div class="ttc" id="aa00542_html_ga2c39b57545ef7b5c79bac36ab30da7d8"><div class="ttname"><a href="a00542.html#ga2c39b57545ef7b5c79bac36ab30da7d8">PwrCtrl_Initialize</a></div><div class="ttdeci">void PwrCtrl_Initialize(void)</div><div class="ttdoc">Initialize the power control parameters.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00045">pwrctrl.c:45</a></div></div>
-<div class="ttc" id="aa00542_html_ga48dcb018afa53b60b6112cde00561c4b"><div class="ttname"><a href="a00542.html#ga48dcb018afa53b60b6112cde00561c4b">PwrCtrl_Execute</a></div><div class="ttdeci">void PwrCtrl_Execute(void)</div><div class="ttdoc">Executes the power control state machine.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00088">pwrctrl.c:88</a></div></div>
-<div class="ttc" id="aa00542_html_ga5762de26b3d1b822c6a4b9c1605cd387"><div class="ttname"><a href="a00542.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a></div><div class="ttdeci">POWER_CONTROL_t dab</div><div class="ttdoc">Global data object for a DAB Converter.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00028">pwrctrl.c:28</a></div></div>
-<div class="ttc" id="aa00542_html_ga8c07187b0c96b5916e4b46daa47500c5"><div class="ttname"><a href="a00542.html#ga8c07187b0c96b5916e4b46daa47500c5">PwrCtrl_Reset</a></div><div class="ttdeci">void PwrCtrl_Reset(void)</div><div class="ttdoc">Resets the power control properties.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00102">pwrctrl.c:102</a></div></div>
-<div class="ttc" id="aa00543_html_ga672f4741d032387a584ef0444f637cce"><div class="ttname"><a href="a00543.html#ga672f4741d032387a584ef0444f637cce">iSecAveraging</a></div><div class="ttdeci">AVERAGING_t iSecAveraging</div><div class="ttdoc">Data Object of secondary current averaging.</div><div class="ttdef"><b>Definition</b> <a href="a00491_source.html#l00050">pwrctrl_isr_extension.c:50</a></div></div>
-<div class="ttc" id="aa00543_html_ga963f5607c8862374734b3cc799dedc68"><div class="ttname"><a href="a00543.html#ga963f5607c8862374734b3cc799dedc68">vPrimAveraging</a></div><div class="ttdeci">AVERAGING_t vPrimAveraging</div><div class="ttdoc">Data Object of primary voltage averaging.</div><div class="ttdef"><b>Definition</b> <a href="a00491_source.html#l00034">pwrctrl_isr_extension.c:34</a></div></div>
-<div class="ttc" id="aa00543_html_gaef7d489f0d36cd14c2f49022909e01b4"><div class="ttname"><a href="a00543.html#gaef7d489f0d36cd14c2f49022909e01b4">vSecAveraging</a></div><div class="ttdeci">AVERAGING_t vSecAveraging</div><div class="ttdoc">Data Object of secondary voltage averaging.</div><div class="ttdef"><b>Definition</b> <a href="a00491_source.html#l00042">pwrctrl_isr_extension.c:42</a></div></div>
-<div class="ttc" id="aa00725_html"><div class="ttname"><a href="a00725.html">AVERAGING_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00476_source.html#l00017">pwrctrl_common.h:18</a></div></div>
-<div class="ttc" id="aa00761_html"><div class="ttname"><a href="a00761.html">POWER_CONTROL_s</a></div><div class="ttdoc">Power control API structure.</div><div class="ttdef"><b>Definition</b> <a href="a00503_source.html#l00167">pwrctrl_typedef.h:168</a></div></div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="a00719.html">   17</a></span><span class="keyword">struct </span><a class="code hl_struct" href="a00719.html">AVERAGING_s</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{  </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="a00719.html#a1bf80696497119c4e36460f57de7f667">   19</a></span>  uint32_t  <a class="code hl_variable" href="a00719.html#a1bf80696497119c4e36460f57de7f667">Accumulator</a>; </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="a00719.html#ac73dde33a2be13416f717c1ab8954227">   20</a></span>  uint16_t  <a class="code hl_variable" href="a00719.html#ac73dde33a2be13416f717c1ab8954227">Counter</a>; </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="a00719.html#a5c501c087c00d88f54766fff1bed2839">   21</a></span>  uint16_t  <a class="code hl_variable" href="a00719.html#a5c501c087c00d88f54766fff1bed2839">AveragingCount</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="a00719.html#ababc9b3b062bdea79c71035d651fbe79">   22</a></span>  uint16_t  <a class="code hl_variable" href="a00719.html#ababc9b3b062bdea79c71035d651fbe79">AverageValue</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="a00470.html#aeb85fd21821814ad43f0744c4bf7434e">   24</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00719.html">AVERAGING_s</a> <a class="code hl_struct" href="a00719.html">AVERAGING_t</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">extern</span> uint16_t <a class="code hl_function" href="a00542.html#gad68ead20ade98451df7ea1e4e923cbaa">PwrCtrl_UpdateAverage</a>(<a class="code hl_struct" href="a00719.html">AVERAGING_t</a>* data, uint16_t adcReading);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="a00542.html#ga59bb2fab32dc783d76f800283b4c7e2b">PwrCtrl_RampReference</a>(<a class="code hl_struct" href="a00743.html">START_UP_RAMP_t</a>* rampUp);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_PWRCTRL_UTILS_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="ttc" id="aa00542_html_ga59bb2fab32dc783d76f800283b4c7e2b"><div class="ttname"><a href="a00542.html#ga59bb2fab32dc783d76f800283b4c7e2b">PwrCtrl_RampReference</a></div><div class="ttdeci">bool PwrCtrl_RampReference(START_UP_RAMP_t *rampUp)</div><div class="ttdoc">Softly increment / decrement to the set reference target.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00046">pwrctrl_common.c:46</a></div></div>
+<div class="ttc" id="aa00542_html_gad68ead20ade98451df7ea1e4e923cbaa"><div class="ttname"><a href="a00542.html#gad68ead20ade98451df7ea1e4e923cbaa">PwrCtrl_UpdateAverage</a></div><div class="ttdeci">uint16_t PwrCtrl_UpdateAverage(AVERAGING_t *data, uint16_t adcReading)</div><div class="ttdoc">Average the raw data over number of samples.</div><div class="ttdef"><b>Definition</b> <a href="a00467_source.html#l00025">pwrctrl_common.c:25</a></div></div>
+<div class="ttc" id="aa00719_html"><div class="ttname"><a href="a00719.html">AVERAGING_s</a></div><div class="ttdef"><b>Definition</b> <a href="a00470_source.html#l00017">pwrctrl_common.h:18</a></div></div>
+<div class="ttc" id="aa00719_html_a1bf80696497119c4e36460f57de7f667"><div class="ttname"><a href="a00719.html#a1bf80696497119c4e36460f57de7f667">AVERAGING_s::Accumulator</a></div><div class="ttdeci">uint32_t Accumulator</div><div class="ttdef"><b>Definition</b> <a href="a00470_source.html#l00019">pwrctrl_common.h:19</a></div></div>
+<div class="ttc" id="aa00719_html_a5c501c087c00d88f54766fff1bed2839"><div class="ttname"><a href="a00719.html#a5c501c087c00d88f54766fff1bed2839">AVERAGING_s::AveragingCount</a></div><div class="ttdeci">uint16_t AveragingCount</div><div class="ttdef"><b>Definition</b> <a href="a00470_source.html#l00021">pwrctrl_common.h:21</a></div></div>
+<div class="ttc" id="aa00719_html_ababc9b3b062bdea79c71035d651fbe79"><div class="ttname"><a href="a00719.html#ababc9b3b062bdea79c71035d651fbe79">AVERAGING_s::AverageValue</a></div><div class="ttdeci">uint16_t AverageValue</div><div class="ttdef"><b>Definition</b> <a href="a00470_source.html#l00022">pwrctrl_common.h:22</a></div></div>
+<div class="ttc" id="aa00719_html_ac73dde33a2be13416f717c1ab8954227"><div class="ttname"><a href="a00719.html#ac73dde33a2be13416f717c1ab8954227">AVERAGING_s::Counter</a></div><div class="ttdeci">uint16_t Counter</div><div class="ttdef"><b>Definition</b> <a href="a00470_source.html#l00020">pwrctrl_common.h:20</a></div></div>
+<div class="ttc" id="aa00743_html"><div class="ttname"><a href="a00743.html">START_UP_RAMP_s</a></div><div class="ttdoc">Stores data related to the ramping up/down of the reference.</div><div class="ttdef"><b>Definition</b> <a href="a00497_source.html#l00098">pwrctrl_typedef.h:99</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

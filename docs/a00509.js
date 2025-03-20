@@ -1,14 +1,11 @@
 var a00509 =
 [
-    [ "VPRI_FACTOR", "a00509.html#ga838e39dc2b9489e0f7186265226749ad", null ],
-    [ "VPRI_OV_T_BLANK_CLEAR", "a00509.html#ga9a9b09ee6494d1465749a8e9fb0c8567", null ],
-    [ "VPRI_OV_T_BLANK_TRIG", "a00509.html#ga1184157d3e57ef49b0e628fa46030981", null ],
-    [ "VPRI_OV_THRES_CLEAR", "a00509.html#gaff26d74d808582c963415a071cdd5e0a", null ],
-    [ "VPRI_OV_THRES_TRIG", "a00509.html#ga3746b4dd49ef223031e563ac1621ac04", null ],
-    [ "VPRI_SCALER", "a00509.html#gab7a9741526251fdc69257a21c67188f4", null ],
-    [ "VPRI_UV_T_BLANK_CLEAR", "a00509.html#ga7fa4415a02bf9697187c8813fb0806e3", null ],
-    [ "VPRI_UV_T_BLANK_TRIG", "a00509.html#ga3fa103425c39e75be9e3fb38c8a5bdd7", null ],
-    [ "VPRI_UV_THRES_CLEAR", "a00509.html#gad4cc96b6dd68ecc9ed427346911e3f57", null ],
-    [ "VPRI_UV_THRES_TRIG", "a00509.html#ga7bdc220c327ec839fc16ba1edbf67b57", null ],
-    [ "VPRIM_LOAD_STEP_CLAMP", "a00509.html#ga2f270c8da43a9fbffba8b40815ac607a", null ]
+    [ "ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH", "a00509.html#ga32693322c9fff62a2374fd3de9d0f5e8", null ],
+    [ "ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW", "a00509.html#ga0ed005156ed4fc2064d588f00d44223d", null ],
+    [ "ISEC_LOAD_STEP_CLAMP", "a00509.html#ga9ba7015c9437b2c07790b380a9a48367", null ],
+    [ "ISEC_OC_T_BLANK_CLEAR", "a00509.html#ga5699b0f92b1002c48afde85f493ef541", null ],
+    [ "ISEC_OC_T_BLANK_TRIG", "a00509.html#gaf082faecd5f7c3303a4c765d8d8b0472", null ],
+    [ "ISEC_OC_THRES_CLEAR", "a00509.html#ga2a0efa36638d988404f55a254a4c62fe", null ],
+    [ "ISEC_OC_THRES_TRIG", "a00509.html#gac6376b7fb30da56ecf5719bad64079b7", null ],
+    [ "ISEC_SC_THRES_TRIG", "a00509.html#ga4ceda5524d91a9e630c2da6a209c2662", null ]
 ];

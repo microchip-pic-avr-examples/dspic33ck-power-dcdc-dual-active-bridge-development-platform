@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Device Layer</title>
+<title>Dual Active Bridge Development Board: MCC Custom Code PWM</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,46 +137,2160 @@ $(document).ready(function(){initNavTree('a00533.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a> &#124;
-<a href="#files">Files</a>  </div>
-  <div class="headertitle"><div class="title">Device Layer</div></div>
+<a href="#files">Files</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">MCC Custom Code PWM<div class="ingroups"><a class="el" href="a00532.html">Driver Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains all the application tasks that will be executed.  
+<p>Contain functions and data types as MCC extension for PWM.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Device Layer:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for MCC Custom Code PWM:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00533.svg" width="328" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00533.svg" width="319" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:a00534" id="r_a00534"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html">Current Sensor Calibration</a></td></tr>
-<tr class="memdesc:a00534"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Current Sensor Calibration device layer is a proprietary user code utilized for configuring the sensor properties. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00535" id="r_a00535"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html">Fan Control</a></td></tr>
-<tr class="memdesc:a00535"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Fan control device layer is a proprietary user code utilized for configuring the fan control properties. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00536" id="r_a00536"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html">LED Display</a></td></tr>
-<tr class="memdesc:a00536"><td class="mdescLeft">&#160;</td><td class="mdescRight">The LED device layer is the proprietary user code used to configure and drive the on-board debugging LED. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00537" id="r_a00537"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html">Temperature Detection</a></td></tr>
-<tr class="memdesc:a00537"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Temperature device layer is the proprietary user code used to configure and detect the board temperature. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00323" id="r_a00323"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html">device.h</a></td></tr>
-<tr class="memdesc:a00323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains h files that are part of device layer. <br /></td></tr>
+<tr class="memitem:a00353" id="r_a00353"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html">drv_custom_config_pwm.h</a></td></tr>
+<tr class="memdesc:a00353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains PWM initialization that was not supported by MCC generated code. <br  />
+ <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00362" id="r_a00362"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html">drv_mcc_extension_pwm.h</a></td></tr>
+<tr class="memdesc:a00362"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains public functions and defines for the MCC code extension for PWM. <br  />
+ <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gaef3365826de3843bc1f9708a5480f389" id="r_gaef3365826de3843bc1f9708a5480f389"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gaef3365826de3843bc1f9708a5480f389">PWM_PCI_ACCEPTANCE_CRITERIA_e</a> { <a class="el" href="a00533.html#ggaef3365826de3843bc1f9708a5480f389a477d2d5ad841654b48f0a690615fcfb0">PWM_PCI_ACCEPT_LEVEL_SENSITIVE</a> = 0
+, <a class="el" href="a00533.html#ggaef3365826de3843bc1f9708a5480f389a5a968264fc09d9bf0c3b3ffb6be495aa">PWM_PCI_ACCEPT_RISING_EDGE</a> = 1
+, <a class="el" href="a00533.html#ggaef3365826de3843bc1f9708a5480f389a35c66ac8bd163a95c45807ca5ce13650">PWM_PCI_ACCEPT_ANY_EDGE</a> = 2
+, <a class="el" href="a00533.html#ggaef3365826de3843bc1f9708a5480f389a8aedea04bf3572161cee5986666cd348">PWM_PCI_ACCEPT_LATCHED</a> = 3
+, <a class="el" href="a00533.html#ggaef3365826de3843bc1f9708a5480f389afab82fa9b554f5707c2ef20c610c971b">PWM_PCI_ACCEPT_LATCHED_RISING_EDGE</a> = 4
+, <a class="el" href="a00533.html#ggaef3365826de3843bc1f9708a5480f389aee1147c7b01322f5f01e3b45065c803a">PWM_PCI_ACCEPT_LATCHED_ANY_EDGE</a> = 5
+ }</td></tr>
+<tr class="memdesc:gaef3365826de3843bc1f9708a5480f389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PCI fault acceptance criteria.  <a href="a00533.html#gaef3365826de3843bc1f9708a5480f389">More...</a><br /></td></tr>
+<tr class="separator:gaef3365826de3843bc1f9708a5480f389"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e15ced014346498f61094bec762e6fc" id="r_ga4e15ced014346498f61094bec762e6fc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga4e15ced014346498f61094bec762e6fc">PWM_PCI_TERMTIME_AFTER_EVENT_e</a> { <a class="el" href="a00533.html#gga4e15ced014346498f61094bec762e6fcaa07ea241457b293072c6a63eda422c4f">PWM_PCI_TERMTIME_AFTER_EVENT_AT_EOC</a> = 0
+, <a class="el" href="a00533.html#gga4e15ced014346498f61094bec762e6fcaaaacffc53b746c53ed49a1625ea4c8af">PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE</a> = 1
+ }</td></tr>
+<tr class="memdesc:ga4e15ced014346498f61094bec762e6fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Settings for Termination Synchronization bit.  <a href="a00533.html#ga4e15ced014346498f61094bec762e6fc">More...</a><br /></td></tr>
+<tr class="separator:ga4e15ced014346498f61094bec762e6fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0b29dd7e830f18e6b01b336717e05a5d" id="r_ga0b29dd7e830f18e6b01b336717e05a5d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga0b29dd7e830f18e6b01b336717e05a5d">PWM_SOCS_e</a> { <a class="el" href="a00533.html#gga0b29dd7e830f18e6b01b336717e05a5da0a9e6554f2feae7cdae7fe6ed355a2a5">PWM_SOCS_SELF_TRIGGER</a> = 0
+, <a class="el" href="a00533.html#gga0b29dd7e830f18e6b01b336717e05a5daa0444a61c7a2f0198e2cae604244fd69">PWM_SOCS_PG1_OR_PG5</a> = 1
+, <a class="el" href="a00533.html#gga0b29dd7e830f18e6b01b336717e05a5da2a1de828332b66bc45d7b98ceb9c6ae1">PWM_SOCS_PG2_OR_PG6</a> = 2
+, <a class="el" href="a00533.html#gga0b29dd7e830f18e6b01b336717e05a5da075c3112ea32f890b93163f0ab0a125a">PWM_SOCS_PG3_OR_PG7</a> = 3
+, <a class="el" href="a00533.html#gga0b29dd7e830f18e6b01b336717e05a5da5cea63755ad0bb1b886d327c68d3bb49">PWM_SOCS_PG4_OR_PG8</a> = 4
+, <a class="el" href="a00533.html#gga0b29dd7e830f18e6b01b336717e05a5dafa982e3b992448dc744418866547922f">PWM_SOCS_TRIG_OR_PCI_SYNC</a> = 15
+ }</td></tr>
+<tr class="memdesc:ga0b29dd7e830f18e6b01b336717e05a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Settings for PWM Start-of_cycle Selection bit.  <a href="a00533.html#ga0b29dd7e830f18e6b01b336717e05a5d">More...</a><br /></td></tr>
+<tr class="separator:ga0b29dd7e830f18e6b01b336717e05a5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01ff1de1f9a878eac0461993cb031c97" id="r_ga01ff1de1f9a878eac0461993cb031c97"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga01ff1de1f9a878eac0461993cb031c97">PWM_UPDMOD_e</a> { <a class="el" href="a00533.html#gga01ff1de1f9a878eac0461993cb031c97a2e7dabcc34478b05e288d2bd45d7b470">PWM_UPDMOD_SOC</a> = 0
+, <a class="el" href="a00533.html#gga01ff1de1f9a878eac0461993cb031c97a303f8f9ef9928bd23c2cba4b43186c68">PWM_UPDMOD_IMMEDIATE</a> = 1
+, <a class="el" href="a00533.html#gga01ff1de1f9a878eac0461993cb031c97a74d5d5e878fc21ad0a88d6daecf6ae66">PWM_UPDMOD_CLIENT_SOC</a> = 2
+, <a class="el" href="a00533.html#gga01ff1de1f9a878eac0461993cb031c97a9979eb5bd01b9edd47dd57a5052530d1">PWM_UPDMOD_CLIENT_IMMEDIATE</a> = 3
+ }</td></tr>
+<tr class="memdesc:ga01ff1de1f9a878eac0461993cb031c97"><td class="mdescLeft">&#160;</td><td class="mdescRight">settings for PWM Buffer Update Mode Selection bits  <a href="a00533.html#ga01ff1de1f9a878eac0461993cb031c97">More...</a><br /></td></tr>
+<tr class="separator:ga01ff1de1f9a878eac0461993cb031c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c98a29992b38aa047c58988833e0f68" id="r_ga8c98a29992b38aa047c58988833e0f68"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga8c98a29992b38aa047c58988833e0f68">PWM_PCI_SOURCE_e</a> { <a class="el" href="a00533.html#gga8c98a29992b38aa047c58988833e0f68a55193742d1c356f3329cfbba388f26a0">PWM_PCI_SOURCE_PWM1</a> = 0
+, <a class="el" href="a00533.html#gga8c98a29992b38aa047c58988833e0f68af442ec530a4458fff398ac8ede717220">PWM_PCI_SOURCE_PWM2</a> = 1
+, <a class="el" href="a00533.html#gga8c98a29992b38aa047c58988833e0f68a518b44ec3fde669fcc50aba2c49757bb">PWM_PCI_SOURCE_PWM3</a> = 2
+, <a class="el" href="a00533.html#gga8c98a29992b38aa047c58988833e0f68a8b1a02811e68aa1563f1dbb13914a631">PWM_PCI_SOURCE_PWM4</a> = 3
+ }</td></tr>
+<tr class="memdesc:ga8c98a29992b38aa047c58988833e0f68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Settings for PWM Source for PCI Selection bits.  <a href="a00533.html#ga8c98a29992b38aa047c58988833e0f68">More...</a><br /></td></tr>
+<tr class="separator:ga8c98a29992b38aa047c58988833e0f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9221ab2ff1ca95690751acae1a2d0b1f" id="r_ga9221ab2ff1ca95690751acae1a2d0b1f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga9221ab2ff1ca95690751acae1a2d0b1f">RPnR_SOURCE_e</a> { <br />
+&#160;&#160;<a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fad1725f4b65c6deec9e3e7916a8f9841e">RPnR_SOURCE_DefaultPORT</a> = 0
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1faf24d89f58315e3ff21a22d2a2bce45d7">RPnR_SOURCE_U1TX</a> = 1
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fab5b5aff156a38e6ca9513ce927d932df">RPnR_SOURCE_U1RTS</a> = 2
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa8124336b92cc8b04948565016a91bfde">RPnR_SOURCE_U2TX</a> = 3
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fae3bcc1dbafa6c14439f9fcae30a9df72">RPnR_SOURCE_U2RTS</a> = 4
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa3f55d9e9eb6765fe237563214a4493ce">RPnR_SOURCE_SDO1</a> = 5
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1faddbd7e2e58e20b5b21edc501573f56a5">RPnR_SOURCE_SCK1</a> = 6
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1faac795c6703ae8b41be0203fe1f7c6b0e">RPnR_SOURCE_SS1</a> = 7
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa18f5b66cea17ea55291717e8281635da">RPnR_SOURCE_SDO2</a> = 8
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa995ae47d271b7bd171b963d631c0a819">RPnR_SOURCE_SCK2</a> = 9
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa02863aacdf88caa1e1314b164242327c">RPnR_SOURCE_SS2</a> = 10
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa12d7902f9dd0ca47b1687a93179188b1">RPnR_SOURCE_SDO3</a> = 11
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fabd7d5862496279d09d526171f2080488">RPnR_SOURCE_SCK3</a> = 12
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa319e85a61af57f83e4a5e1893e65a094">RPnR_SOURCE_SS3</a> = 13
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa7454b6cf305c39f53c7a5f643a521e38">RPnR_SOURCE_REFCLKO</a> = 14
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa3e7aecae8b3af05f4765821523bb6372">RPnR_SOURCE_OCM1</a> = 15
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa31904b6bab0f35ebe6ebd7fbb3dfaf67">RPnR_SOURCE_OCM2</a> = 16
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1faea4e90cb3b7bbd046a2ffc79841e7b0c">RPnR_SOURCE_OCM3</a> = 17
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa64d9622fcb20f9eb91eb467caaa91a24">RPnR_SOURCE_OCM4</a> = 18
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa54e56549e414321bdd558ac6f4493850">RPnR_SOURCE_OCM5</a> = 19
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa1426513fc4b65f95259308f10d7daea1">RPnR_SOURCE_OCM6</a> = 20
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa61b6e5b2190825ce1677ea187d3d17ea">RPnR_SOURCE_CAN1TX</a> = 21
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa0a70d903b078afe5eab0e1d2b627fb23">RPnR_SOURCE_CMP1</a> = 23
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1faa9243af4ca88dce5de51db0265466de8">RPnR_SOURCE_CMP2</a> = 24
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa0e9538a5b52517acf963eef9335d2d9e">RPnR_SOURCE_CMP3</a> = 25
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa73e3f2bf93901cf317ef11973174c421">RPnR_SOURCE_U3TX</a> = 27
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa9e97510a1f25bc64f2855b31e83484fc">RPnR_SOURCE_U3RTS</a> = 28
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa73d66bec415b76369184f4915a37d31e">RPnR_SOURCE_PWM4H</a> = 34
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fac82b740cdfdf3f973c828413706bf12b">RPnR_SOURCE_PWM4L</a> = 35
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fafc074a795c5d599eca5ce78fe9cd922b">RPnR_SOURCE_PWMEA</a> = 36
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fac45c820c45a6e7d392bca89fe3450167">RPnR_SOURCE_PWMEB</a> = 37
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa8a6d2868a44690e6ab0be3ea2c3de890">RPnR_SOURCE_QEICMP1</a> = 38
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fabdfa3ef7fd11a90b381229e30d0148c3">RPnR_SOURCE_QEICMP2</a> = 39
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1faca6efd0dcc7e87e07b3497fadf5595d5">RPnR_SOURCE_CLC1OUT</a> = 40
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa92a8ef4e1f070a6096c6a5d0541eea0c">RPnR_SOURCE_CLC2OUT</a> = 41
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1faae409646c5fc4ca5777396b57afa8736">RPnR_SOURCE_OCM7</a> = 42
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fab1614ff07358f8cbaf9a893faa315eb7">RPnR_SOURCE_OCM8</a> = 43
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa965ec867cb0a1c6b2768dd81fae05070">RPnR_SOURCE_PWMEC</a> = 44
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa564c6380dc417f945f6b89e4f052c4a6">RPnR_SOURCE_PWMED</a> = 45
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa72dd193773afddfabea60b3ee10d1c30">RPnR_SOURCE_PTGTRG24</a> = 46
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa3cb21493013c1f832614edaa806ddcba">RPnR_SOURCE_PTGTRG25</a> = 47
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa3311b72428a99b93cfcf8a65209f66c3">RPnR_SOURCE_SENT1OUT</a> = 48
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa5eba236ead000b5461fed90f382b2860">RPnR_SOURCE_SENT2OUT</a> = 49
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa7e56b275fcfa650c4f959a69af9c3e86">RPnR_SOURCE_MCCP9A</a> = 50
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa502350fade2dc0e0d4fb6bf8b7282d94">RPnR_SOURCE_MCCP9B</a> = 51
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fae480618499de3c3d1bebd4bbbef046e6">RPnR_SOURCE_MCCP9C</a> = 52
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fafe4c92187e84fb38466409758a2bebba">RPnR_SOURCE_MCCP9D</a> = 53
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa532113f5568a80b32d7089587ad5c08c">RPnR_SOURCE_MCCP9E</a> = 54
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fac77669ba0dc21fb58273d8b4f4429af8">RPnR_SOURCE_MCCP9F</a> = 55
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa74ceb61d10ef14c3db6fa00ea839cdcf">RPnR_SOURCE_CLC3OUT</a> = 59
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa09710ffbf9170fe7796c07ca74dd2a9b">RPnR_SOURCE_CLC4OUT</a> = 60
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fad2a3d2bf7e4bea6cde5f8c6c25925a32">RPnR_SOURCE_U1DTR</a> = 61
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1faea1c253188abc3d38b9a8666125f6f7b">RPnR_SOURCE_U2DTR</a> = 62
+, <a class="el" href="a00533.html#gga9221ab2ff1ca95690751acae1a2d0b1fa8c58122a19e8b95fe58f64959a8db483">RPnR_SOURCE_U3DTR</a> = 63
+<br />
+ }</td></tr>
+<tr class="memdesc:ga9221ab2ff1ca95690751acae1a2d0b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peripheral output for re-mappable pins.  <a href="a00533.html#ga9221ab2ff1ca95690751acae1a2d0b1f">More...</a><br /></td></tr>
+<tr class="separator:ga9221ab2ff1ca95690751acae1a2d0b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae09bb840daf8ba79a197d7813ac1f295" id="r_gae09bb840daf8ba79a197d7813ac1f295"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gae09bb840daf8ba79a197d7813ac1f295">RPnR_VIRTUAL_PIN_e</a> { <a class="el" href="a00533.html#ggae09bb840daf8ba79a197d7813ac1f295a2502e73ef7350759ef852bd04c4ac71f">RPnR_VIRTUAL_PIN_RP176</a> = 0
+, <a class="el" href="a00533.html#ggae09bb840daf8ba79a197d7813ac1f295a1531907d7cdd068362b160ebde565428">RPnR_VIRTUAL_PIN_RP177</a> = 1
+, <a class="el" href="a00533.html#ggae09bb840daf8ba79a197d7813ac1f295a8ffc38d31804ca95f36a3e4029432c92">RPnR_VIRTUAL_PIN_RP178</a> = 2
+, <a class="el" href="a00533.html#ggae09bb840daf8ba79a197d7813ac1f295a496d2fd4af9a7a09ecf31e7a63502082">RPnR_VIRTUAL_PIN_RP179</a> = 3
+, <a class="el" href="a00533.html#ggae09bb840daf8ba79a197d7813ac1f295ac7bf2c888ea4c0988e038c7f5f12db7f">RPnR_VIRTUAL_PIN_RP180</a> = 4
+, <a class="el" href="a00533.html#ggae09bb840daf8ba79a197d7813ac1f295a1761b058867efb8b039aabdb0f01b577">RPnR_VIRTUAL_PIN_RP181</a> = 5
+ }</td></tr>
+<tr class="memdesc:gae09bb840daf8ba79a197d7813ac1f295"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of re-mappable pins for dsPIC33CK256MP508.  <a href="a00533.html#gae09bb840daf8ba79a197d7813ac1f295">More...</a><br /></td></tr>
+<tr class="separator:gae09bb840daf8ba79a197d7813ac1f295"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga047f851c8ef37ed494a184f9dc539301" id="r_ga047f851c8ef37ed494a184f9dc539301"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga047f851c8ef37ed494a184f9dc539301">RPx_INPUT_e</a> { <br />
+&#160;&#160;<a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a8115ba67d4eedf3a16bc16d870f76b48">RPx_INPUT_VSS</a> = 0
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a379d8431be80082c8ef9fb5c0d287ca2">RPx_INPUT_CMP1</a> = 1
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a92d75319c3a1e620e5421b5993985235">RPx_INPUT_CMP2</a> = 2
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301aab6a340fd9ead86e7d59f73108c287cc">RPx_INPUT_CMP3</a> = 3
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ab5a5a9133bc019f3e13e056265a7fc1b">RPx_INPUT_PTG_TRIG_26</a> = 6
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ab3c0cbc2a023b2f40f4ca8224073122e">RPx_INPUT_PTG_TRIG_27</a> = 7
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301afc62402da3960ac5d22d19c730cac100">RPx_INPUT_PWM_EVENT_C</a> = 11
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a4504dd6b280154fb1ff6ba6bce5bc27f">RPx_INPUT_PWM_EVENT_D</a> = 12
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301af7e364b343ca92f031ac7bc33011f797">RPx_INPUT_PWM_EVENT_E</a> = 13
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ac3ad754457f6dde156ecd23b00f4f440">RPx_INPUT_RP32</a> = 32
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a6a6f0ccf8fa673d496decd283c96d07b">RPx_INPUT_RP33</a> = 33
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a390ce82a5654facdc31ab076bf4cb7ac">RPx_INPUT_RP34</a> = 34
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a2c2091759dc812edcd2df3a69c29437b">RPx_INPUT_RP35</a> = 35
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a7048ac801fbaa46c3ed47569052fd014">RPx_INPUT_RP36</a> = 36
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a5c20cc77fcb249d8d8b9c4231c7817b7">RPx_INPUT_RP37</a> = 37
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301abb733b7a2b425e98d00e2334b526829f">RPx_INPUT_RP38</a> = 38
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a37db12b43516d3d297756ad09765de70">RPx_INPUT_RP39</a> = 39
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301aaaf27cfe3e6cb49ce79b120de755dce0">RPx_INPUT_RP40</a> = 40
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a7302c85c927e4e2781f4d889d318987a">RPx_INPUT_RP41</a> = 41
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301af54cc3ee95bd1ddd0f867e3a6551a56e">RPx_INPUT_RP42</a> = 42
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a500a15f3e10b503e3407dcfc56eba7a2">RPx_INPUT_RP43</a> = 43
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a337e5263c5ca8926b0f085b71b806fcc">RPx_INPUT_RP44</a> = 44
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a91a7ba383ef7cfe7148ea82fa5bd9783">RPx_INPUT_RP45</a> = 45
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a28edc964a5310b0e7d13904e2a5fcd2f">RPx_INPUT_RP46</a> = 46
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301abf9a2c2b2c6ac26a656d5501d907ae8f">RPx_INPUT_RP47</a> = 47
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ac6dd33d1e9a5e15895cb468ade7e3d28">RPx_INPUT_RP48</a> = 48
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ae55cca859e99a8b29fc3d97dabc13f21">RPx_INPUT_RP49</a> = 49
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a46bd23f877386381d1a2ee4ed7cbb835">RPx_INPUT_RP50</a> = 50
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a372952455fcd8b3424fdcc48498e0b61">RPx_INPUT_RP51</a> = 51
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a7cf9c27f51cd6e27efb0e09741422b98">RPx_INPUT_RP52</a> = 52
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a6c2607752b77a9e73b2913403971a5ad">RPx_INPUT_RP53</a> = 53
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301afda443092348ebbbff67dc97a5dbc9ff">RPx_INPUT_RP54</a> = 54
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301afb102adc99d5e2e5234c4021a559e8c6">RPx_INPUT_RP55</a> = 55
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301adcc5b44e9075368274d444423ae859f9">RPx_INPUT_RP56</a> = 56
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301aa877c633650af766a2dd8b60c98b8e23">RPx_INPUT_RP57</a> = 57
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ac04868f634a8d8641bd3b2668ce9c41c">RPx_INPUT_RP58</a> = 58
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301aa447d648eb0172ebfcd4c3361677fd91">RPx_INPUT_RP59</a> = 59
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a597322a60d504b9660cd6f64b8feb36e">RPx_INPUT_RP60</a> = 60
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ae077caf9a6161bf588a00e7f54cf850a">RPx_INPUT_RP61</a> = 61
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a09eee8218e8694be6c7bfb6e6b953a50">RPx_INPUT_RP62</a> = 62
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a1de85cec62423d14617ff597664bc4ed">RPx_INPUT_RP63</a> = 63
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301aa438f210a2b90c4166520cd42474c868">RPx_INPUT_RP64</a> = 64
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a22f3a0f7326f1073684e3eefb8282d65">RPx_INPUT_RP65</a> = 65
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ae117bbc844e88fcd8abb75a1508f944b">RPx_INPUT_RP66</a> = 66
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a212b20c8e3cc6de85ed8be65196ee6ea">RPx_INPUT_RP67</a> = 67
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a4fcdf36ff73e38eeaeae12530429da8a">RPx_INPUT_RP68</a> = 68
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ae34360270ca29da625f73081c514878b">RPx_INPUT_RP69</a> = 69
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a97d5797a546894989ef362af76bcd884">RPx_INPUT_RP70</a> = 70
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a5844dd910871bd14117fc484f0de7f40">RPx_INPUT_RP71</a> = 71
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ab969866938456f4915051d9b7995ac68">RPx_INPUT_RP72</a> = 72
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a46cf71ededaf13f175ec0340f92b9a2a">RPx_INPUT_RP73</a> = 73
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a049df43f3d4a6148f87173c7549b42bc">RPx_INPUT_RP74</a> = 74
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301af5553a1c26f7b02348c898dbf6995013">RPx_INPUT_RP75</a> = 75
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a65eaaade6844b94de03ddeea7a4fae74">RPx_INPUT_RP76</a> = 76
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ab8904d645a2c7da7916114c5cd611cdb">RPx_INPUT_RP77</a> = 77
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ac87f14c56cfbec685fcf370502957e6f">RPx_INPUT_RP78</a> = 78
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a29f26fc64ca513583c979f29cf45f60d">RPx_INPUT_RP79</a> = 79
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ae23447915390e524812d9444bf843e28">RPx_INPUT_DAC3_pwm_req_on</a> = 164
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ab3f36461683ae76e024cedbb74a7fcf5">RPx_INPUT_DAC3_pwm_req_off</a> = 165
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301aae9504e4d28692a5670f4b43aa209c86">RPx_INPUT_DAC2_pwm_req_on</a> = 166
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ab3681ea9259b6babd9b12f070f79679f">RPx_INPUT_DAC2_pwm_req_off</a> = 167
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a4730e8319cf03ec37530952406c52445">RPx_INPUT_DAC1_pwm_req_on</a> = 168
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a5148c126f724833d132fec1d82837cff">RPx_INPUT_DAC1_pwm_req_off</a> = 169
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301adca0ee113f0d9fecaed3b350dc0b8a09">RPx_INPUT_RP176</a> = 176
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301ad17ab9fbda76593fa953b35016514404">RPx_INPUT_RP177</a> = 177
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a2e36a93c5f2fb27cc4b2ff72ccb31ca9">RPx_INPUT_RP178</a> = 178
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a51f9411e56a49dc0e89a4938df363e1a">RPx_INPUT_RP179</a> = 179
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a43d2537698c9eecda40e812ba9a2fcdb">RPx_INPUT_RP180</a> = 180
+, <a class="el" href="a00533.html#gga047f851c8ef37ed494a184f9dc539301a29c6edcaae2d9ac9f25e43033b6c6ee4">RPx_INPUT_RP181</a> = 181
+<br />
+ }</td></tr>
+<tr class="memdesc:ga047f851c8ef37ed494a184f9dc539301"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of output selection for re-mappable pins (taken from dsPIC33CK256MP508 datasheet)  <a href="a00533.html#ga047f851c8ef37ed494a184f9dc539301">More...</a><br /></td></tr>
+<tr class="separator:ga047f851c8ef37ed494a184f9dc539301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad8f073846a5234e9c38bbd51946704e1" id="r_gad8f073846a5234e9c38bbd51946704e1"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gad8f073846a5234e9c38bbd51946704e1">PWM_PCI_INPUT_e</a> { <a class="el" href="a00533.html#ggad8f073846a5234e9c38bbd51946704e1a42ac511e82dfa6ad2b93d88614cfa7ff">PWM_PCI_INPUT8</a> = 0
+, <a class="el" href="a00533.html#ggad8f073846a5234e9c38bbd51946704e1ac984fc606f03577da773beb7ec4a8e02">PWM_PCI_INPUT9</a> = 1
+, <a class="el" href="a00533.html#ggad8f073846a5234e9c38bbd51946704e1a14c3f352bfc96bb230756d6281300cc9">PWM_PCI_INPUT10</a> = 2
+, <a class="el" href="a00533.html#ggad8f073846a5234e9c38bbd51946704e1a4f0ee44c27f5fffc97ebcc47edd36f96">PWM_PCI_INPUT11</a> = 3
+ }</td></tr>
+<tr class="memdesc:gad8f073846a5234e9c38bbd51946704e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of PWM PCI inputs  <a href="a00533.html#gad8f073846a5234e9c38bbd51946704e1">More...</a><br /></td></tr>
+<tr class="separator:gad8f073846a5234e9c38bbd51946704e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad056c86678a704b4fe901a1a1b722302" id="r_gad056c86678a704b4fe901a1a1b722302"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gad056c86678a704b4fe901a1a1b722302">PWM_PCI_SOURCE_SELECT_e</a> { <br />
+&#160;&#160;<a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a3928e1e0b2b33ab6ce847967779e66a8">PWM_PCI_SOURCE_SELECT_CLC1</a> = 31
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a3957504a2e78af985b42357eadedf3f1">PWM_PCI_SOURCE_SELECT_CMP3</a> = 29
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302aabff08755ba6fa1befbefc64d4d6c77e">PWM_PCI_SOURCE_SELECT_CMP2</a> = 28
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a6d6344ea531445eae1672dcb533cffc0">PWM_PCI_SOURCE_SELECT_CMP1</a> = 27
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a812a29a10e7c31650380ce3eb8b867dd">PWM_PCI_SOURCE_SELECT_PWM_EVENT_D</a> = 26
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302af4d6d7f88555c163c82c105062e9200e">PWM_PCI_SOURCE_SELECT_PWM_EVENT_C</a> = 25
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a265f702bbabe5838c3f447c15a85c9fe">PWM_PCI_SOURCE_SELECT_PWM_EVENT_B</a> = 24
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302aef1d5b9511692e7f2e997ea7fafd6e21">PWM_PCI_SOURCE_SELECT_PWM_EVENT_A</a> = 23
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a121619f09e1b7bd6b0a93d449cb178bb">PWM_PCI_SOURCE_SELECT_PCI22</a> = 22
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a8b0641956523a9f2765fa7ecc5c7b5b7">PWM_PCI_SOURCE_SELECT_PCI21</a> = 21
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a9d6ad900e8b01aa2548615178a04453e">PWM_PCI_SOURCE_SELECT_PCI20</a> = 20
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302ab659eab5407b439be03b21ba31e776b6">PWM_PCI_SOURCE_SELECT_PCI19</a> = 19
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a649bb35e1de6bbb9282ab98b99631e72">PWM_PCI_SOURCE_SELECT_PCI18R</a> = 18
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a0d7606d7f52a7f63b4b6d797c36d5550">PWM_PCI_SOURCE_SELECT_PCI17R</a> = 17
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a0c037cf421adc1092fc1267fa1dd726e">PWM_PCI_SOURCE_SELECT_PCI16R</a> = 16
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a69df1ca2fd1c0a404d612579f3513657">PWM_PCI_SOURCE_SELECT_PCI15R</a> = 15
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a0e20af2bb0d37af0bda6c7fd353582ad">PWM_PCI_SOURCE_SELECT_PCI14R</a> = 14
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a0a583f395b7d36b42de4bb4198690711">PWM_PCI_SOURCE_SELECT_PCI13R</a> = 13
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302aac360c37cc0e053fb860563efc236cd3">PWM_PCI_SOURCE_SELECT_PCI12R</a> = 12
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302ad6ba0f00791f1353704b6982ca43a134">PWM_PCI_SOURCE_SELECT_PCI11R</a> = 11
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a5c79568857a02ddf6d5cc96e5a58a22e">PWM_PCI_SOURCE_SELECT_PCI10R</a> = 10
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302af403e9e049c28417d8de905e437469ed">PWM_PCI_SOURCE_SELECT_PCI9R</a> = 9
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302aab4896c0dc29107615abaccb1d430734">PWM_PCI_SOURCE_SELECT_PCI8R</a> = 8
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302a4800500650ffa237a49d2cdaa607300f">PWM_PCI_SOURCE_SELECT_COMBO_TRIG_B</a> = 3
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302ab721e670c534c15e2149f01234426898">PWM_PCI_SOURCE_SELECT_COMBO_TRIG_A</a> = 2
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302ab74c7f1845290f19b4a9b827a2b9eb2d">PWM_PCI_SOURCE_SELECT_PWMPCI_MUX</a> = 1
+, <a class="el" href="a00533.html#ggad056c86678a704b4fe901a1a1b722302aa039285ecd15acd467b32a8c5ff97747">PWM_PCI_SOURCE_SELECT_TIED_TO_0</a> = 0
+<br />
+ }</td></tr>
+<tr class="memdesc:gad056c86678a704b4fe901a1a1b722302"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of PWM PCI inputs.  <a href="a00533.html#gad056c86678a704b4fe901a1a1b722302">More...</a><br /></td></tr>
+<tr class="separator:gad056c86678a704b4fe901a1a1b722302"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac2cab6485574c36c666950a2317dc7cf" id="r_gac2cab6485574c36c666950a2317dc7cf"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gac2cab6485574c36c666950a2317dc7cf">PWM_PCI_ACCEPTANCE_QUALIFER_e</a> { <a class="el" href="a00533.html#ggac2cab6485574c36c666950a2317dc7cfaac9a8e7d36bd87fe3be61706bcdf7474">PWM_PCI_ACCEPTANCE_QUALIFER_NONE</a> = 0
+, <a class="el" href="a00533.html#ggac2cab6485574c36c666950a2317dc7cfa10fb58579c77e6301d84764e30125777">PWM_PCI_ACCEPTANCE_QUALIFER_DUTY</a> = 1
+, <a class="el" href="a00533.html#ggac2cab6485574c36c666950a2317dc7cfa8cf6fa7d206b8900b3f71b273e5f2d39">PWM_PCI_ACCEPTANCE_QUALIFER_LEB</a> = 2
+, <a class="el" href="a00533.html#ggac2cab6485574c36c666950a2317dc7cfab025c14360f92721f1612e44833cac7f">PWM_PCI_ACCEPTANCE_QUALIFER_PWM</a> = 3
+, <a class="el" href="a00533.html#ggac2cab6485574c36c666950a2317dc7cfaac94b4dccc2fee44971f2aef8eb5c231">PWM_PCI_ACCEPTANCE_QUALIFER_PCI_PWMPCI</a> = 4
+, <a class="el" href="a00533.html#ggac2cab6485574c36c666950a2317dc7cfabb12e6849c6e7f4ae3498198fb0d4123">PWM_PCI_ACCEPTANCE_QUALIFER_PCI_SOURCE8</a> = 5
+, <a class="el" href="a00533.html#ggac2cab6485574c36c666950a2317dc7cfac56efcc52b24c7ec1781ac9f16216290">PWM_PCI_ACCEPTANCE_QUALIFER_PCI_SOURCE9</a> = 6
+, <a class="el" href="a00533.html#ggac2cab6485574c36c666950a2317dc7cfabae188cd490f1be214bb6945e831b4e2">PWM_PCI_ACCEPTANCE_QUALIFER_SWPCI</a> = 7
+ }</td></tr>
+<tr class="memdesc:gac2cab6485574c36c666950a2317dc7cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of sources of PWM acceptance qualifiers.  <a href="a00533.html#gac2cab6485574c36c666950a2317dc7cf">More...</a><br /></td></tr>
+<tr class="separator:gac2cab6485574c36c666950a2317dc7cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafeb71123598f82008765e6eadaa5f1aa" id="r_gafeb71123598f82008765e6eadaa5f1aa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gafeb71123598f82008765e6eadaa5f1aa">PWM_TRIG_MODE_e</a> { <a class="el" href="a00533.html#ggafeb71123598f82008765e6eadaa5f1aaa4ed378bc19eab0f75bf50aa6c7a11107">PWM_TRIG_MODE_SINGLE</a> = 0
+, <a class="el" href="a00533.html#ggafeb71123598f82008765e6eadaa5f1aaa4b0cc41dbe140dd55ca1574b61b2c824">PWM_TRIG_MODE_RETRIGGERABLE</a> = 1
+ }</td></tr>
+<tr class="memdesc:gafeb71123598f82008765e6eadaa5f1aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM trigger mode.  <a href="a00533.html#gafeb71123598f82008765e6eadaa5f1aa">More...</a><br /></td></tr>
+<tr class="separator:gafeb71123598f82008765e6eadaa5f1aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a27920842bc2819ed1dadcebd80a8e5" id="r_ga9a27920842bc2819ed1dadcebd80a8e5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga9a27920842bc2819ed1dadcebd80a8e5">PWM_PCI_TERM_e</a> { <a class="el" href="a00533.html#gga9a27920842bc2819ed1dadcebd80a8e5adb6463b9273772f61b4b1568aa322e9f">PWM_PCI_TERM_MANUAL</a> = 0
+, <a class="el" href="a00533.html#gga9a27920842bc2819ed1dadcebd80a8e5ae90214b8dd07710cb7d72bf847b80f85">PWM_PCI_TERM_AUTO</a> = 1
+, <a class="el" href="a00533.html#gga9a27920842bc2819ed1dadcebd80a8e5abc1d6dfe4b17c51e64f57d26bf749ec7">PWM_PCI_TERM_PGxTRIGA</a> = 2
+, <a class="el" href="a00533.html#gga9a27920842bc2819ed1dadcebd80a8e5a7bd488c1409ec13b76a4fddd0d795f0c">PWM_PCI_TERM_PGxTRIGB</a> = 3
+, <a class="el" href="a00533.html#gga9a27920842bc2819ed1dadcebd80a8e5ad8655227c3f0a1274295da90b7e49931">PWM_PCI_TERM_PGxTRIGC</a> = 4
+, <a class="el" href="a00533.html#gga9a27920842bc2819ed1dadcebd80a8e5ad5ad5a1e22ed5515eafad72acd30ded9">PWM_PCI_TERM_PCI_SOURCE1</a> = 5
+, <a class="el" href="a00533.html#gga9a27920842bc2819ed1dadcebd80a8e5a03b65d4f9490c801893c5bfd77087db1">PWM_PCI_TERM_PCI_SOURCE8</a> = 6
+, <a class="el" href="a00533.html#gga9a27920842bc2819ed1dadcebd80a8e5aadba4dfe593bcef02724f6a0e93fe83f">PWM_PCI_TERM_PCI_SOURCE9</a> = 7
+ }</td></tr>
+<tr class="memdesc:ga9a27920842bc2819ed1dadcebd80a8e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM Termination event selection.  <a href="a00533.html#ga9a27920842bc2819ed1dadcebd80a8e5">More...</a><br /></td></tr>
+<tr class="separator:ga9a27920842bc2819ed1dadcebd80a8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabe6e603c1cc484cb6d89e8ee62843c1a" id="r_gabe6e603c1cc484cb6d89e8ee62843c1a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gabe6e603c1cc484cb6d89e8ee62843c1a">PWM_EVENT_SOURCE_e</a> { <br />
+&#160;&#160;<a class="el" href="a00533.html#ggabe6e603c1cc484cb6d89e8ee62843c1aadf62a5032e3e02bf3ee9551a12842272">PWM_EVENT_SOURCE_PGTRGSEL</a> = 0
+, <a class="el" href="a00533.html#ggabe6e603c1cc484cb6d89e8ee62843c1aaca6296af575b234365ba1f7257d67570">PWM_EVENT_SOURCE_PWM_GEN_OUTPUT</a> = 1
+, <a class="el" href="a00533.html#ggabe6e603c1cc484cb6d89e8ee62843c1aa299fe6478a64be27185fd56ed1eb5622">PWM_EVENT_SOURCE_PCI_SYNC_ACTIVE</a> = 2
+, <a class="el" href="a00533.html#ggabe6e603c1cc484cb6d89e8ee62843c1aa25638226a1572d36934776b7fcec50e6">PWM_EVENT_SOURCE_PCI_FF_ACTIVE</a> = 3
+, <a class="el" href="a00533.html#ggabe6e603c1cc484cb6d89e8ee62843c1aafdf823358ae075e8b308501996e26e25">PWM_EVENT_SOURCE_PCI_FF_CL_ACTIVE</a> = 4
+, <a class="el" href="a00533.html#ggabe6e603c1cc484cb6d89e8ee62843c1aa8c016158562ceb035682d8c4f03958ff">PWM_EVENT_SOURCE_PCI_FAULT_ACTIVE</a> = 5
+, <a class="el" href="a00533.html#ggabe6e603c1cc484cb6d89e8ee62843c1aa00cbed17b4cfd1ec492fc20542ba42a5">PWM_EVENT_SOURCE_CAHALF</a> = 6
+, <a class="el" href="a00533.html#ggabe6e603c1cc484cb6d89e8ee62843c1aae642d8d71389137cb415fb80b32c422d">PWM_EVENT_SOURCE_STEER</a> = 7
+, <a class="el" href="a00533.html#ggabe6e603c1cc484cb6d89e8ee62843c1aaf7e1b1b98ae14d0f6e2126611ff011a5">PWM_EVENT_SOURCE_ADC_TRIG1</a> = 8
+, <a class="el" href="a00533.html#ggabe6e603c1cc484cb6d89e8ee62843c1aa96cf7ab689254e451c2d602b0bfe82b4">PWM_EVENT_SOURCE_ADC_TRIG2</a> = 9
+, <br />
+&#160;&#160;<a class="el" href="a00533.html#ggabe6e603c1cc484cb6d89e8ee62843c1aac01876277ba5a263b3cba74cb9df18f9">PWM_EVENT_SOURCE_HR_ERROR_EVENT</a> = 15
+<br />
+ }</td></tr>
+<tr class="memdesc:gabe6e603c1cc484cb6d89e8ee62843c1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select event source for PWMEVTx register.  <a href="a00533.html#gabe6e603c1cc484cb6d89e8ee62843c1a">More...</a><br /></td></tr>
+<tr class="separator:gabe6e603c1cc484cb6d89e8ee62843c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadfcb461aa4d8fa0abd28661892fbf8a9" id="r_gadfcb461aa4d8fa0abd28661892fbf8a9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gadfcb461aa4d8fa0abd28661892fbf8a9">PWM_UPDTRG_e</a> { <a class="el" href="a00533.html#ggadfcb461aa4d8fa0abd28661892fbf8a9acecf1995fcc54a835cad1c0dddfae107">PWM_UPDTRG_MANUAL</a> = 0
+, <a class="el" href="a00533.html#ggadfcb461aa4d8fa0abd28661892fbf8a9a213ca8c087a7b2ce7042d93a0fac2008">PWM_UPDTRG_PGxDC</a> = 1
+, <a class="el" href="a00533.html#ggadfcb461aa4d8fa0abd28661892fbf8a9a9ebbaead0002e3bda06e91601f4555f2">PWM_UPDTRG_PGxPHASE</a> = 2
+, <a class="el" href="a00533.html#ggadfcb461aa4d8fa0abd28661892fbf8a9a51317f8a6d3ce5f87a8ef8691b8fdad6">PWM_UPDTRG_PGxTRIGA</a> = 3
+ }</td></tr>
+<tr class="memdesc:gadfcb461aa4d8fa0abd28661892fbf8a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Settings for Update Trigger Event.  <a href="a00533.html#gadfcb461aa4d8fa0abd28661892fbf8a9">More...</a><br /></td></tr>
+<tr class="separator:gadfcb461aa4d8fa0abd28661892fbf8a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga570d0ed080f3f351d98807804b16505b" id="r_ga570d0ed080f3f351d98807804b16505b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga570d0ed080f3f351d98807804b16505b">PWM_LATCH_MODE_e</a> { <a class="el" href="a00533.html#gga570d0ed080f3f351d98807804b16505baacd63d6bd39e33ee58d86ebe54f9e992">PWM_SET_DOMINANT_MODE</a> = 0
+, <a class="el" href="a00533.html#gga570d0ed080f3f351d98807804b16505ba4c345786fc281dc224635f0bf08ff856">PWM_RESET_DOMINANT_MODE</a> = 1
+ }</td></tr>
+<tr class="memdesc:ga570d0ed080f3f351d98807804b16505b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM trigger mode.  <a href="a00533.html#ga570d0ed080f3f351d98807804b16505b">More...</a><br /></td></tr>
+<tr class="separator:ga570d0ed080f3f351d98807804b16505b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga75195cbe78445ec1b19dcdf62f17cc0d" id="r_ga75195cbe78445ec1b19dcdf62f17cc0d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga75195cbe78445ec1b19dcdf62f17cc0d">PWM_FAULT_DATA_e</a> { <a class="el" href="a00533.html#gga75195cbe78445ec1b19dcdf62f17cc0da5c022639dbef3bc715cbd6037ae7fc40">PWM_FAULT_EVENT_PWMH</a> = 0
+, <a class="el" href="a00533.html#gga75195cbe78445ec1b19dcdf62f17cc0da1011f5d47718e497101be6499bbcf3a9">PWM_FAULT_EVENT_PWML</a> = 1
+ }</td></tr>
+<tr class="memdesc:ga75195cbe78445ec1b19dcdf62f17cc0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM fault data.  <a href="a00533.html#ga75195cbe78445ec1b19dcdf62f17cc0d">More...</a><br /></td></tr>
+<tr class="separator:ga75195cbe78445ec1b19dcdf62f17cc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gac779b9d8bce64e8de686bd78be25ea09" id="r_gac779b9d8bce64e8de686bd78be25ea09"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gac779b9d8bce64e8de686bd78be25ea09">DRV_Config_Custom_PWM</a> (void)</td></tr>
+<tr class="memdesc:gac779b9d8bce64e8de686bd78be25ea09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains PWM initialization that was not supported by MCC generated code.  <br /></td></tr>
+<tr class="separator:gac779b9d8bce64e8de686bd78be25ea09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga30d00d0393fc5b7bef92269fa3662a8f" id="r_ga30d00d0393fc5b7bef92269fa3662a8f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga30d00d0393fc5b7bef92269fa3662a8f">PWM_PCI_Fault_AcceptanceCriteria</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#a1d0f09aaa6f4143d969710bf122d52fa">PWM_PCI_ACCEPTANCE_CRITERIA_t</a> acpSetting)</td></tr>
+<tr class="memdesc:ga30d00d0393fc5b7bef92269fa3662a8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PCI fault acceptance criteria.  <br /></td></tr>
+<tr class="separator:ga30d00d0393fc5b7bef92269fa3662a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad5a761c41ee2484186cf1c56c684a980" id="r_gad5a761c41ee2484186cf1c56c684a980"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gad5a761c41ee2484186cf1c56c684a980">PWM_PCI_Fault_AcceptanceQualiferInvert</a> (uint16_t pwmIndex, bool invert)</td></tr>
+<tr class="memdesc:gad5a761c41ee2484186cf1c56c684a980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PCI polarity of PCI fault acceptance input.  <br /></td></tr>
+<tr class="separator:gad5a761c41ee2484186cf1c56c684a980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab27e1f37f8addc7a9c4154a9ebf3aced" id="r_gab27e1f37f8addc7a9c4154a9ebf3aced"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gab27e1f37f8addc7a9c4154a9ebf3aced">PWM_PCI_Sync_AcceptanceCriteria</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#a1d0f09aaa6f4143d969710bf122d52fa">PWM_PCI_ACCEPTANCE_CRITERIA_t</a> acpSetting)</td></tr>
+<tr class="memdesc:gab27e1f37f8addc7a9c4154a9ebf3aced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets PCI Synchronization Acceptance Criteria.  <br /></td></tr>
+<tr class="separator:gab27e1f37f8addc7a9c4154a9ebf3aced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e7243475a0867eddc73f8c453acf105" id="r_ga3e7243475a0867eddc73f8c453acf105"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga3e7243475a0867eddc73f8c453acf105">PWM_PCI_Fault_TimetoTerminateAfterEvent</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#ab182da272e16efbe7650b7a30d9fb273">PWM_PCI_TERMTIME_AFTER_EVENT_t</a> faultTerm)</td></tr>
+<tr class="memdesc:ga3e7243475a0867eddc73f8c453acf105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set TSYNCDIS bit to determine when PWM should stop after a fault occurs.  <br /></td></tr>
+<tr class="separator:ga3e7243475a0867eddc73f8c453acf105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga702e62d4fa4cbbbd0fd65f8cd80f7095" id="r_ga702e62d4fa4cbbbd0fd65f8cd80f7095"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga702e62d4fa4cbbbd0fd65f8cd80f7095">PWM_PCI_Sync_TimetoTerminateAfterEvent</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#ab182da272e16efbe7650b7a30d9fb273">PWM_PCI_TERMTIME_AFTER_EVENT_t</a> faultTerm)</td></tr>
+<tr class="memdesc:ga702e62d4fa4cbbbd0fd65f8cd80f7095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set TSYNCDIS bit to determine when PWM should stop after a sync event occurs.  <br /></td></tr>
+<tr class="separator:ga702e62d4fa4cbbbd0fd65f8cd80f7095"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga10cb2c761dd2b0342eb041d322806d3c" id="r_ga10cb2c761dd2b0342eb041d322806d3c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga10cb2c761dd2b0342eb041d322806d3c">PWM_StartOfCycleTrigger</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#a098813339254b68e76390aba72cb1d0c">PWM_SOCS_t</a> triggerSource)</td></tr>
+<tr class="memdesc:ga10cb2c761dd2b0342eb041d322806d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set SOCS field to determine start of cycle trigger.  <br /></td></tr>
+<tr class="separator:ga10cb2c761dd2b0342eb041d322806d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b10a356196006b27d3627380d4c048c" id="r_ga9b10a356196006b27d3627380d4c048c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga9b10a356196006b27d3627380d4c048c">PWM_UPDREQ_Broadcast_Enable</a> (uint16_t pwmIndex, bool enable)</td></tr>
+<tr class="memdesc:ga9b10a356196006b27d3627380d4c048c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable broadcasting of UPDREQ bit to other PWMs.  <br /></td></tr>
+<tr class="separator:ga9b10a356196006b27d3627380d4c048c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0f7a8e0588227a2a6e796a9386b16b96" id="r_ga0f7a8e0588227a2a6e796a9386b16b96"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga0f7a8e0588227a2a6e796a9386b16b96">PWM_Data_Update_Mode</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#ab279c1138d96cd8d60b908a574faf27d">PWM_UPDMOD_t</a> updateMode)</td></tr>
+<tr class="memdesc:ga0f7a8e0588227a2a6e796a9386b16b96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the PWM Data Update Mode.  <br /></td></tr>
+<tr class="separator:ga0f7a8e0588227a2a6e796a9386b16b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga72963b1e0a6c3825e7d9b1ec8de74e37" id="r_ga72963b1e0a6c3825e7d9b1ec8de74e37"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga72963b1e0a6c3825e7d9b1ec8de74e37">PWM_PCI_Source1</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#a02ab8c2fec422e9022d8c9a48d222be5">PWM_PCI_SOURCE_t</a> pciSource)</td></tr>
+<tr class="memdesc:ga72963b1e0a6c3825e7d9b1ec8de74e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM source for PCI selection bits (for PCI source 1)  <br /></td></tr>
+<tr class="separator:ga72963b1e0a6c3825e7d9b1ec8de74e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11f341f55080c38b45a5aee5df9a6439" id="r_ga11f341f55080c38b45a5aee5df9a6439"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga11f341f55080c38b45a5aee5df9a6439">RPnR_VirtualPin_Source</a> (<a class="el" href="a00362.html#a4b2fe48a3839fc3a3fbd3e2544f2af52">RPnR_VIRTUAL_PIN_t</a> virtualPin, <a class="el" href="a00362.html#a50d80b085de415bad89baf999f8adc10">RPnR_SOURCE_t</a> peripheral)</td></tr>
+<tr class="memdesc:ga11f341f55080c38b45a5aee5df9a6439"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set source for a virtual pin.  <br /></td></tr>
+<tr class="separator:ga11f341f55080c38b45a5aee5df9a6439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e8dcfa16c985992c333079671579dec" id="r_ga4e8dcfa16c985992c333079671579dec"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga4e8dcfa16c985992c333079671579dec">PWM_PCI_INPUT_MaptoPin</a> (<a class="el" href="a00362.html#a48bd262d93435ad38b7121322f0acc46">PWM_PCI_INPUT_t</a> pciIndex, <a class="el" href="a00362.html#a559ef347d2b10d3781efe9450fb1cd73">RPx_INPUT_t</a> pin)</td></tr>
+<tr class="memdesc:ga4e8dcfa16c985992c333079671579dec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map PWM PCI input to a pin.  <br /></td></tr>
+<tr class="separator:ga4e8dcfa16c985992c333079671579dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab19fcf0f9c39b45ec652f7dcc631245" id="r_gaab19fcf0f9c39b45ec652f7dcc631245"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gaab19fcf0f9c39b45ec652f7dcc631245">PWM_PCI_Sync_Source_Select</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#a5cbef8404dbdf24b2db0456d48998cc8">PWM_PCI_SOURCE_SELECT_t</a> pciSource)</td></tr>
+<tr class="memdesc:gaab19fcf0f9c39b45ec652f7dcc631245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PCI source (PSS field) for PCI Synchronization.  <br /></td></tr>
+<tr class="separator:gaab19fcf0f9c39b45ec652f7dcc631245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad15671d93a6113d53ca80a1d124a5194" id="r_gad15671d93a6113d53ca80a1d124a5194"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gad15671d93a6113d53ca80a1d124a5194">PWM_PCI_Fault_AcceptanceQualifierSource</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#a44808d89e75d2f7d3afef3aa0f50584b">PWM_PCI_ACCEPTANCE_QUALIFER_t</a> source)</td></tr>
+<tr class="memdesc:gad15671d93a6113d53ca80a1d124a5194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set source of fault PCI acceptance qualifier.  <br /></td></tr>
+<tr class="separator:gad15671d93a6113d53ca80a1d124a5194"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga51d53c1db006afc7c11a0ab15f07093d" id="r_ga51d53c1db006afc7c11a0ab15f07093d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga51d53c1db006afc7c11a0ab15f07093d">PWM_Trigger_Mode</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#a647048bb352c9a6a15bd2cb6c5c64f0c">PWM_TRIG_MODE_t</a> trigMode)</td></tr>
+<tr class="memdesc:ga51d53c1db006afc7c11a0ab15f07093d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set source of fault PCI acceptance qualifier.  <br /></td></tr>
+<tr class="separator:ga51d53c1db006afc7c11a0ab15f07093d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga04c1938935a9bb7447bd96bc79363fc1" id="r_ga04c1938935a9bb7447bd96bc79363fc1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga04c1938935a9bb7447bd96bc79363fc1">PWM_PCI_Sync_TerminationEventSelect</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#a025b987469217e0d7dae328925680ebe">PWM_PCI_TERM_t</a> termEvent)</td></tr>
+<tr class="memdesc:ga04c1938935a9bb7447bd96bc79363fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select termination event for SYNC PCI.  <br /></td></tr>
+<tr class="separator:ga04c1938935a9bb7447bd96bc79363fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaab156f2b7ad138cf32e734bbf7145ef4" id="r_gaab156f2b7ad138cf32e734bbf7145ef4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gaab156f2b7ad138cf32e734bbf7145ef4">PWM_Swap_PWMxL_and_PWMxH</a> (uint16_t pwmIndex, bool swapPWMH_PWML)</td></tr>
+<tr class="memdesc:gaab156f2b7ad138cf32e734bbf7145ef4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable/Disable the PWM instance output swap bit.  <br /></td></tr>
+<tr class="separator:gaab156f2b7ad138cf32e734bbf7145ef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga49a1745bb548f5687c7bb28d96610fa4" id="r_ga49a1745bb548f5687c7bb28d96610fa4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga49a1745bb548f5687c7bb28d96610fa4">PWM_EVENTA_Configure</a> (uint16_t pwmSource, <a class="el" href="a00362.html#ac94c9b7012ae59f2a0f0707959d8b640">PWM_EVENT_SOURCE_t</a> eventSource, bool invert, bool outputEnable, bool stretchDisable, bool outputSync)</td></tr>
+<tr class="memdesc:ga49a1745bb548f5687c7bb28d96610fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure PWM Event A register.  <br /></td></tr>
+<tr class="separator:ga49a1745bb548f5687c7bb28d96610fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa64683342142d7cbd8c6f3ab696ef606" id="r_gaa64683342142d7cbd8c6f3ab696ef606"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gaa64683342142d7cbd8c6f3ab696ef606">PWM_Data_Update_Trigger</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#a61085d045e57ad748837ab70ba517d57">PWM_UPDTRG_t</a> updateTrigger)</td></tr>
+<tr class="memdesc:gaa64683342142d7cbd8c6f3ab696ef606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM Register update trigger.  <br /></td></tr>
+<tr class="separator:gaa64683342142d7cbd8c6f3ab696ef606"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3c5b3a29c117bbadc07cbe5e6898d10f" id="r_ga3c5b3a29c117bbadc07cbe5e6898d10f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#ga3c5b3a29c117bbadc07cbe5e6898d10f">PWM_Fault_LatchMode</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#a8094057dd6a1ba4f444db98f9e166212">PWM_LATCH_MODE_t</a> latchMode)</td></tr>
+<tr class="memdesc:ga3c5b3a29c117bbadc07cbe5e6898d10f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the latch mode of fault PCI.  <br /></td></tr>
+<tr class="separator:ga3c5b3a29c117bbadc07cbe5e6898d10f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf5d1e32e8b272aa4785219fa041b394" id="r_gaaf5d1e32e8b272aa4785219fa041b394"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00533.html#gaaf5d1e32e8b272aa4785219fa041b394">PWM_Fault_DataMode</a> (uint16_t pwmIndex, <a class="el" href="a00362.html#a88427135dac5d6391152bd5262e488e6">PWM_FAULT_DATA_t</a> faultDataMode)</td></tr>
+<tr class="memdesc:gaaf5d1e32e8b272aa4785219fa041b394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the data mode of fault PCI.  <br /></td></tr>
+<tr class="separator:gaaf5d1e32e8b272aa4785219fa041b394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>The device layer covers all user tasks executed by the task scheduler. Each task is an independent entity called on its respective timing defined by the user. Tasks are proprietary user code modules representing specific functions of the application or end-product. <br  />
+<p>This documentation includes functions and data types for the PWM peripheral as an enhancement to the MCC Code Configurator. It provides application-specific PWM functions and includes essential PWM initialization that is not supported by the code generated by MCC. </p>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gabe6e603c1cc484cb6d89e8ee62843c1a" name="gabe6e603c1cc484cb6d89e8ee62843c1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabe6e603c1cc484cb6d89e8ee62843c1a">&#9670;&#160;</a></span>PWM_EVENT_SOURCE_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#gabe6e603c1cc484cb6d89e8ee62843c1a">PWM_EVENT_SOURCE_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggabe6e603c1cc484cb6d89e8ee62843c1aadf62a5032e3e02bf3ee9551a12842272" name="ggabe6e603c1cc484cb6d89e8ee62843c1aadf62a5032e3e02bf3ee9551a12842272"></a>PWM_EVENT_SOURCE_PGTRGSEL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggabe6e603c1cc484cb6d89e8ee62843c1aaca6296af575b234365ba1f7257d67570" name="ggabe6e603c1cc484cb6d89e8ee62843c1aaca6296af575b234365ba1f7257d67570"></a>PWM_EVENT_SOURCE_PWM_GEN_OUTPUT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggabe6e603c1cc484cb6d89e8ee62843c1aa299fe6478a64be27185fd56ed1eb5622" name="ggabe6e603c1cc484cb6d89e8ee62843c1aa299fe6478a64be27185fd56ed1eb5622"></a>PWM_EVENT_SOURCE_PCI_SYNC_ACTIVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggabe6e603c1cc484cb6d89e8ee62843c1aa25638226a1572d36934776b7fcec50e6" name="ggabe6e603c1cc484cb6d89e8ee62843c1aa25638226a1572d36934776b7fcec50e6"></a>PWM_EVENT_SOURCE_PCI_FF_ACTIVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggabe6e603c1cc484cb6d89e8ee62843c1aafdf823358ae075e8b308501996e26e25" name="ggabe6e603c1cc484cb6d89e8ee62843c1aafdf823358ae075e8b308501996e26e25"></a>PWM_EVENT_SOURCE_PCI_FF_CL_ACTIVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggabe6e603c1cc484cb6d89e8ee62843c1aa8c016158562ceb035682d8c4f03958ff" name="ggabe6e603c1cc484cb6d89e8ee62843c1aa8c016158562ceb035682d8c4f03958ff"></a>PWM_EVENT_SOURCE_PCI_FAULT_ACTIVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggabe6e603c1cc484cb6d89e8ee62843c1aa00cbed17b4cfd1ec492fc20542ba42a5" name="ggabe6e603c1cc484cb6d89e8ee62843c1aa00cbed17b4cfd1ec492fc20542ba42a5"></a>PWM_EVENT_SOURCE_CAHALF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggabe6e603c1cc484cb6d89e8ee62843c1aae642d8d71389137cb415fb80b32c422d" name="ggabe6e603c1cc484cb6d89e8ee62843c1aae642d8d71389137cb415fb80b32c422d"></a>PWM_EVENT_SOURCE_STEER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggabe6e603c1cc484cb6d89e8ee62843c1aaf7e1b1b98ae14d0f6e2126611ff011a5" name="ggabe6e603c1cc484cb6d89e8ee62843c1aaf7e1b1b98ae14d0f6e2126611ff011a5"></a>PWM_EVENT_SOURCE_ADC_TRIG1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggabe6e603c1cc484cb6d89e8ee62843c1aa96cf7ab689254e451c2d602b0bfe82b4" name="ggabe6e603c1cc484cb6d89e8ee62843c1aa96cf7ab689254e451c2d602b0bfe82b4"></a>PWM_EVENT_SOURCE_ADC_TRIG2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggabe6e603c1cc484cb6d89e8ee62843c1aac01876277ba5a263b3cba74cb9df18f9" name="ggabe6e603c1cc484cb6d89e8ee62843c1aac01876277ba5a263b3cba74cb9df18f9"></a>PWM_EVENT_SOURCE_HR_ERROR_EVENT&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l01092">1092</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga75195cbe78445ec1b19dcdf62f17cc0d" name="ga75195cbe78445ec1b19dcdf62f17cc0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga75195cbe78445ec1b19dcdf62f17cc0d">&#9670;&#160;</a></span>PWM_FAULT_DATA_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#ga75195cbe78445ec1b19dcdf62f17cc0d">PWM_FAULT_DATA_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga75195cbe78445ec1b19dcdf62f17cc0da5c022639dbef3bc715cbd6037ae7fc40" name="gga75195cbe78445ec1b19dcdf62f17cc0da5c022639dbef3bc715cbd6037ae7fc40"></a>PWM_FAULT_EVENT_PWMH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga75195cbe78445ec1b19dcdf62f17cc0da1011f5d47718e497101be6499bbcf3a9" name="gga75195cbe78445ec1b19dcdf62f17cc0da1011f5d47718e497101be6499bbcf3a9"></a>PWM_FAULT_EVENT_PWML&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l01255">1255</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga570d0ed080f3f351d98807804b16505b" name="ga570d0ed080f3f351d98807804b16505b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga570d0ed080f3f351d98807804b16505b">&#9670;&#160;</a></span>PWM_LATCH_MODE_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#ga570d0ed080f3f351d98807804b16505b">PWM_LATCH_MODE_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga570d0ed080f3f351d98807804b16505baacd63d6bd39e33ee58d86ebe54f9e992" name="gga570d0ed080f3f351d98807804b16505baacd63d6bd39e33ee58d86ebe54f9e992"></a>PWM_SET_DOMINANT_MODE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga570d0ed080f3f351d98807804b16505ba4c345786fc281dc224635f0bf08ff856" name="gga570d0ed080f3f351d98807804b16505ba4c345786fc281dc224635f0bf08ff856"></a>PWM_RESET_DOMINANT_MODE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l01200">1200</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gaef3365826de3843bc1f9708a5480f389" name="gaef3365826de3843bc1f9708a5480f389"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaef3365826de3843bc1f9708a5480f389">&#9670;&#160;</a></span>PWM_PCI_ACCEPTANCE_CRITERIA_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#gaef3365826de3843bc1f9708a5480f389">PWM_PCI_ACCEPTANCE_CRITERIA_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>&lt;&gt;  </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaef3365826de3843bc1f9708a5480f389a477d2d5ad841654b48f0a690615fcfb0" name="ggaef3365826de3843bc1f9708a5480f389a477d2d5ad841654b48f0a690615fcfb0"></a>PWM_PCI_ACCEPT_LEVEL_SENSITIVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggaef3365826de3843bc1f9708a5480f389a5a968264fc09d9bf0c3b3ffb6be495aa" name="ggaef3365826de3843bc1f9708a5480f389a5a968264fc09d9bf0c3b3ffb6be495aa"></a>PWM_PCI_ACCEPT_RISING_EDGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggaef3365826de3843bc1f9708a5480f389a35c66ac8bd163a95c45807ca5ce13650" name="ggaef3365826de3843bc1f9708a5480f389a35c66ac8bd163a95c45807ca5ce13650"></a>PWM_PCI_ACCEPT_ANY_EDGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggaef3365826de3843bc1f9708a5480f389a8aedea04bf3572161cee5986666cd348" name="ggaef3365826de3843bc1f9708a5480f389a8aedea04bf3572161cee5986666cd348"></a>PWM_PCI_ACCEPT_LATCHED&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggaef3365826de3843bc1f9708a5480f389afab82fa9b554f5707c2ef20c610c971b" name="ggaef3365826de3843bc1f9708a5480f389afab82fa9b554f5707c2ef20c610c971b"></a>PWM_PCI_ACCEPT_LATCHED_RISING_EDGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggaef3365826de3843bc1f9708a5480f389aee1147c7b01322f5f01e3b45065c803a" name="ggaef3365826de3843bc1f9708a5480f389aee1147c7b01322f5f01e3b45065c803a"></a>PWM_PCI_ACCEPT_LATCHED_ANY_EDGE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00029">29</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gac2cab6485574c36c666950a2317dc7cf" name="gac2cab6485574c36c666950a2317dc7cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac2cab6485574c36c666950a2317dc7cf">&#9670;&#160;</a></span>PWM_PCI_ACCEPTANCE_QUALIFER_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#gac2cab6485574c36c666950a2317dc7cf">PWM_PCI_ACCEPTANCE_QUALIFER_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggac2cab6485574c36c666950a2317dc7cfaac9a8e7d36bd87fe3be61706bcdf7474" name="ggac2cab6485574c36c666950a2317dc7cfaac9a8e7d36bd87fe3be61706bcdf7474"></a>PWM_PCI_ACCEPTANCE_QUALIFER_NONE&#160;</td><td class="fielddoc"><p>No acceptance qualifier is used (qualifier forced to ?1?) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac2cab6485574c36c666950a2317dc7cfa10fb58579c77e6301d84764e30125777" name="ggac2cab6485574c36c666950a2317dc7cfa10fb58579c77e6301d84764e30125777"></a>PWM_PCI_ACCEPTANCE_QUALIFER_DUTY&#160;</td><td class="fielddoc"><p>Duty cycle is active (base PWM Generator signal) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac2cab6485574c36c666950a2317dc7cfa8cf6fa7d206b8900b3f71b273e5f2d39" name="ggac2cab6485574c36c666950a2317dc7cfa8cf6fa7d206b8900b3f71b273e5f2d39"></a>PWM_PCI_ACCEPTANCE_QUALIFER_LEB&#160;</td><td class="fielddoc"><p>LEB is active. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac2cab6485574c36c666950a2317dc7cfab025c14360f92721f1612e44833cac7f" name="ggac2cab6485574c36c666950a2317dc7cfab025c14360f92721f1612e44833cac7f"></a>PWM_PCI_ACCEPTANCE_QUALIFER_PWM&#160;</td><td class="fielddoc"><p>PWM Generator is triggered. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac2cab6485574c36c666950a2317dc7cfaac94b4dccc2fee44971f2aef8eb5c231" name="ggac2cab6485574c36c666950a2317dc7cfaac94b4dccc2fee44971f2aef8eb5c231"></a>PWM_PCI_ACCEPTANCE_QUALIFER_PCI_PWMPCI&#160;</td><td class="fielddoc"><p>Selects PCI Source #1 (PWM Generator output selected by the PWMPCI[2:0] bits) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac2cab6485574c36c666950a2317dc7cfabb12e6849c6e7f4ae3498198fb0d4123" name="ggac2cab6485574c36c666950a2317dc7cfabb12e6849c6e7f4ae3498198fb0d4123"></a>PWM_PCI_ACCEPTANCE_QUALIFER_PCI_SOURCE8&#160;</td><td class="fielddoc"><p>Selects PCI Source #8. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac2cab6485574c36c666950a2317dc7cfac56efcc52b24c7ec1781ac9f16216290" name="ggac2cab6485574c36c666950a2317dc7cfac56efcc52b24c7ec1781ac9f16216290"></a>PWM_PCI_ACCEPTANCE_QUALIFER_PCI_SOURCE9&#160;</td><td class="fielddoc"><p>Selects PCI Source #9. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggac2cab6485574c36c666950a2317dc7cfabae188cd490f1be214bb6945e831b4e2" name="ggac2cab6485574c36c666950a2317dc7cfabae188cd490f1be214bb6945e831b4e2"></a>PWM_PCI_ACCEPTANCE_QUALIFER_SWPCI&#160;</td><td class="fielddoc"><p>SWPCI control bit only (qualifier forced to ?0?) </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00868">868</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gad8f073846a5234e9c38bbd51946704e1" name="gad8f073846a5234e9c38bbd51946704e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad8f073846a5234e9c38bbd51946704e1">&#9670;&#160;</a></span>PWM_PCI_INPUT_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#gad8f073846a5234e9c38bbd51946704e1">PWM_PCI_INPUT_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggad8f073846a5234e9c38bbd51946704e1a42ac511e82dfa6ad2b93d88614cfa7ff" name="ggad8f073846a5234e9c38bbd51946704e1a42ac511e82dfa6ad2b93d88614cfa7ff"></a>PWM_PCI_INPUT8&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad8f073846a5234e9c38bbd51946704e1ac984fc606f03577da773beb7ec4a8e02" name="ggad8f073846a5234e9c38bbd51946704e1ac984fc606f03577da773beb7ec4a8e02"></a>PWM_PCI_INPUT9&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad8f073846a5234e9c38bbd51946704e1a14c3f352bfc96bb230756d6281300cc9" name="ggad8f073846a5234e9c38bbd51946704e1a14c3f352bfc96bb230756d6281300cc9"></a>PWM_PCI_INPUT10&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad8f073846a5234e9c38bbd51946704e1a4f0ee44c27f5fffc97ebcc47edd36f96" name="ggad8f073846a5234e9c38bbd51946704e1a4f0ee44c27f5fffc97ebcc47edd36f96"></a>PWM_PCI_INPUT11&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00730">730</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga8c98a29992b38aa047c58988833e0f68" name="ga8c98a29992b38aa047c58988833e0f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8c98a29992b38aa047c58988833e0f68">&#9670;&#160;</a></span>PWM_PCI_SOURCE_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#ga8c98a29992b38aa047c58988833e0f68">PWM_PCI_SOURCE_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga8c98a29992b38aa047c58988833e0f68a55193742d1c356f3329cfbba388f26a0" name="gga8c98a29992b38aa047c58988833e0f68a55193742d1c356f3329cfbba388f26a0"></a>PWM_PCI_SOURCE_PWM1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga8c98a29992b38aa047c58988833e0f68af442ec530a4458fff398ac8ede717220" name="gga8c98a29992b38aa047c58988833e0f68af442ec530a4458fff398ac8ede717220"></a>PWM_PCI_SOURCE_PWM2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga8c98a29992b38aa047c58988833e0f68a518b44ec3fde669fcc50aba2c49757bb" name="gga8c98a29992b38aa047c58988833e0f68a518b44ec3fde669fcc50aba2c49757bb"></a>PWM_PCI_SOURCE_PWM3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga8c98a29992b38aa047c58988833e0f68a8b1a02811e68aa1563f1dbb13914a631" name="gga8c98a29992b38aa047c58988833e0f68a8b1a02811e68aa1563f1dbb13914a631"></a>PWM_PCI_SOURCE_PWM4&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00456">456</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gad056c86678a704b4fe901a1a1b722302" name="gad056c86678a704b4fe901a1a1b722302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad056c86678a704b4fe901a1a1b722302">&#9670;&#160;</a></span>PWM_PCI_SOURCE_SELECT_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#gad056c86678a704b4fe901a1a1b722302">PWM_PCI_SOURCE_SELECT_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a3928e1e0b2b33ab6ce847967779e66a8" name="ggad056c86678a704b4fe901a1a1b722302a3928e1e0b2b33ab6ce847967779e66a8"></a>PWM_PCI_SOURCE_SELECT_CLC1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a3957504a2e78af985b42357eadedf3f1" name="ggad056c86678a704b4fe901a1a1b722302a3957504a2e78af985b42357eadedf3f1"></a>PWM_PCI_SOURCE_SELECT_CMP3&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302aabff08755ba6fa1befbefc64d4d6c77e" name="ggad056c86678a704b4fe901a1a1b722302aabff08755ba6fa1befbefc64d4d6c77e"></a>PWM_PCI_SOURCE_SELECT_CMP2&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a6d6344ea531445eae1672dcb533cffc0" name="ggad056c86678a704b4fe901a1a1b722302a6d6344ea531445eae1672dcb533cffc0"></a>PWM_PCI_SOURCE_SELECT_CMP1&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a812a29a10e7c31650380ce3eb8b867dd" name="ggad056c86678a704b4fe901a1a1b722302a812a29a10e7c31650380ce3eb8b867dd"></a>PWM_PCI_SOURCE_SELECT_PWM_EVENT_D&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302af4d6d7f88555c163c82c105062e9200e" name="ggad056c86678a704b4fe901a1a1b722302af4d6d7f88555c163c82c105062e9200e"></a>PWM_PCI_SOURCE_SELECT_PWM_EVENT_C&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a265f702bbabe5838c3f447c15a85c9fe" name="ggad056c86678a704b4fe901a1a1b722302a265f702bbabe5838c3f447c15a85c9fe"></a>PWM_PCI_SOURCE_SELECT_PWM_EVENT_B&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302aef1d5b9511692e7f2e997ea7fafd6e21" name="ggad056c86678a704b4fe901a1a1b722302aef1d5b9511692e7f2e997ea7fafd6e21"></a>PWM_PCI_SOURCE_SELECT_PWM_EVENT_A&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a121619f09e1b7bd6b0a93d449cb178bb" name="ggad056c86678a704b4fe901a1a1b722302a121619f09e1b7bd6b0a93d449cb178bb"></a>PWM_PCI_SOURCE_SELECT_PCI22&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a8b0641956523a9f2765fa7ecc5c7b5b7" name="ggad056c86678a704b4fe901a1a1b722302a8b0641956523a9f2765fa7ecc5c7b5b7"></a>PWM_PCI_SOURCE_SELECT_PCI21&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;device pin </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a9d6ad900e8b01aa2548615178a04453e" name="ggad056c86678a704b4fe901a1a1b722302a9d6ad900e8b01aa2548615178a04453e"></a>PWM_PCI_SOURCE_SELECT_PCI20&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;device pin </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302ab659eab5407b439be03b21ba31e776b6" name="ggad056c86678a704b4fe901a1a1b722302ab659eab5407b439be03b21ba31e776b6"></a>PWM_PCI_SOURCE_SELECT_PCI19&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;device pin </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a649bb35e1de6bbb9282ab98b99631e72" name="ggad056c86678a704b4fe901a1a1b722302a649bb35e1de6bbb9282ab98b99631e72"></a>PWM_PCI_SOURCE_SELECT_PCI18R&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;device pin </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a0d7606d7f52a7f63b4b6d797c36d5550" name="ggad056c86678a704b4fe901a1a1b722302a0d7606d7f52a7f63b4b6d797c36d5550"></a>PWM_PCI_SOURCE_SELECT_PCI17R&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;RPn input </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a0c037cf421adc1092fc1267fa1dd726e" name="ggad056c86678a704b4fe901a1a1b722302a0c037cf421adc1092fc1267fa1dd726e"></a>PWM_PCI_SOURCE_SELECT_PCI16R&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;RPn input </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a69df1ca2fd1c0a404d612579f3513657" name="ggad056c86678a704b4fe901a1a1b722302a69df1ca2fd1c0a404d612579f3513657"></a>PWM_PCI_SOURCE_SELECT_PCI15R&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;RPn input </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a0e20af2bb0d37af0bda6c7fd353582ad" name="ggad056c86678a704b4fe901a1a1b722302a0e20af2bb0d37af0bda6c7fd353582ad"></a>PWM_PCI_SOURCE_SELECT_PCI14R&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;RPn input </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a0a583f395b7d36b42de4bb4198690711" name="ggad056c86678a704b4fe901a1a1b722302a0a583f395b7d36b42de4bb4198690711"></a>PWM_PCI_SOURCE_SELECT_PCI13R&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;RPn input </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302aac360c37cc0e053fb860563efc236cd3" name="ggad056c86678a704b4fe901a1a1b722302aac360c37cc0e053fb860563efc236cd3"></a>PWM_PCI_SOURCE_SELECT_PCI12R&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;RPn input </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302ad6ba0f00791f1353704b6982ca43a134" name="ggad056c86678a704b4fe901a1a1b722302ad6ba0f00791f1353704b6982ca43a134"></a>PWM_PCI_SOURCE_SELECT_PCI11R&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;RPn input </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a5c79568857a02ddf6d5cc96e5a58a22e" name="ggad056c86678a704b4fe901a1a1b722302a5c79568857a02ddf6d5cc96e5a58a22e"></a>PWM_PCI_SOURCE_SELECT_PCI10R&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;RPn input </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302af403e9e049c28417d8de905e437469ed" name="ggad056c86678a704b4fe901a1a1b722302af403e9e049c28417d8de905e437469ed"></a>PWM_PCI_SOURCE_SELECT_PCI9R&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;RPn input </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302aab4896c0dc29107615abaccb1d430734" name="ggad056c86678a704b4fe901a1a1b722302aab4896c0dc29107615abaccb1d430734"></a>PWM_PCI_SOURCE_SELECT_PCI8R&#160;</td><td class="fielddoc"><blockquote class="doxtable">
+<p>&zwj;RPn input </p>
+</blockquote>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302a4800500650ffa237a49d2cdaa607300f" name="ggad056c86678a704b4fe901a1a1b722302a4800500650ffa237a49d2cdaa607300f"></a>PWM_PCI_SOURCE_SELECT_COMBO_TRIG_B&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302ab721e670c534c15e2149f01234426898" name="ggad056c86678a704b4fe901a1a1b722302ab721e670c534c15e2149f01234426898"></a>PWM_PCI_SOURCE_SELECT_COMBO_TRIG_A&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302ab74c7f1845290f19b4a9b827a2b9eb2d" name="ggad056c86678a704b4fe901a1a1b722302ab74c7f1845290f19b4a9b827a2b9eb2d"></a>PWM_PCI_SOURCE_SELECT_PWMPCI_MUX&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggad056c86678a704b4fe901a1a1b722302aa039285ecd15acd467b32a8c5ff97747" name="ggad056c86678a704b4fe901a1a1b722302aa039285ecd15acd467b32a8c5ff97747"></a>PWM_PCI_SOURCE_SELECT_TIED_TO_0&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00779">779</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga9a27920842bc2819ed1dadcebd80a8e5" name="ga9a27920842bc2819ed1dadcebd80a8e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9a27920842bc2819ed1dadcebd80a8e5">&#9670;&#160;</a></span>PWM_PCI_TERM_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#ga9a27920842bc2819ed1dadcebd80a8e5">PWM_PCI_TERM_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga9a27920842bc2819ed1dadcebd80a8e5adb6463b9273772f61b4b1568aa322e9f" name="gga9a27920842bc2819ed1dadcebd80a8e5adb6463b9273772f61b4b1568aa322e9f"></a>PWM_PCI_TERM_MANUAL&#160;</td><td class="fielddoc"><p>Manual Terminate: Terminate on a write of ?1? to the SWTERM bit location. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9a27920842bc2819ed1dadcebd80a8e5ae90214b8dd07710cb7d72bf847b80f85" name="gga9a27920842bc2819ed1dadcebd80a8e5ae90214b8dd07710cb7d72bf847b80f85"></a>PWM_PCI_TERM_AUTO&#160;</td><td class="fielddoc"><p>Auto-Terminate: Terminate when PCI source transitions from active to inactive. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9a27920842bc2819ed1dadcebd80a8e5abc1d6dfe4b17c51e64f57d26bf749ec7" name="gga9a27920842bc2819ed1dadcebd80a8e5abc1d6dfe4b17c51e64f57d26bf749ec7"></a>PWM_PCI_TERM_PGxTRIGA&#160;</td><td class="fielddoc"><p>PGxTRIGA trigger event. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9a27920842bc2819ed1dadcebd80a8e5a7bd488c1409ec13b76a4fddd0d795f0c" name="gga9a27920842bc2819ed1dadcebd80a8e5a7bd488c1409ec13b76a4fddd0d795f0c"></a>PWM_PCI_TERM_PGxTRIGB&#160;</td><td class="fielddoc"><p>PGxTRIGB trigger event. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9a27920842bc2819ed1dadcebd80a8e5ad8655227c3f0a1274295da90b7e49931" name="gga9a27920842bc2819ed1dadcebd80a8e5ad8655227c3f0a1274295da90b7e49931"></a>PWM_PCI_TERM_PGxTRIGC&#160;</td><td class="fielddoc"><p>PGxTRIGC trigger event. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9a27920842bc2819ed1dadcebd80a8e5ad5ad5a1e22ed5515eafad72acd30ded9" name="gga9a27920842bc2819ed1dadcebd80a8e5ad5ad5a1e22ed5515eafad72acd30ded9"></a>PWM_PCI_TERM_PCI_SOURCE1&#160;</td><td class="fielddoc"><p>Selects PCI Source #1 (PWM Generator output selected by the PWMPCI[2:0] bits) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9a27920842bc2819ed1dadcebd80a8e5a03b65d4f9490c801893c5bfd77087db1" name="gga9a27920842bc2819ed1dadcebd80a8e5a03b65d4f9490c801893c5bfd77087db1"></a>PWM_PCI_TERM_PCI_SOURCE8&#160;</td><td class="fielddoc"><p>Selects PCI Source #8. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9a27920842bc2819ed1dadcebd80a8e5aadba4dfe593bcef02724f6a0e93fe83f" name="gga9a27920842bc2819ed1dadcebd80a8e5aadba4dfe593bcef02724f6a0e93fe83f"></a>PWM_PCI_TERM_PCI_SOURCE9&#160;</td><td class="fielddoc"><p>Selects PCI Source #9. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00986">986</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga4e15ced014346498f61094bec762e6fc" name="ga4e15ced014346498f61094bec762e6fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4e15ced014346498f61094bec762e6fc">&#9670;&#160;</a></span>PWM_PCI_TERMTIME_AFTER_EVENT_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#ga4e15ced014346498f61094bec762e6fc">PWM_PCI_TERMTIME_AFTER_EVENT_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>&lt;&gt;  </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga4e15ced014346498f61094bec762e6fcaa07ea241457b293072c6a63eda422c4f" name="gga4e15ced014346498f61094bec762e6fcaa07ea241457b293072c6a63eda422c4f"></a>PWM_PCI_TERMTIME_AFTER_EVENT_AT_EOC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga4e15ced014346498f61094bec762e6fcaaaacffc53b746c53ed49a1625ea4c8af" name="gga4e15ced014346498f61094bec762e6fcaaaacffc53b746c53ed49a1625ea4c8af"></a>PWM_PCI_TERMTIME_AFTER_EVENT_IMMEDIATE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00182">182</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga0b29dd7e830f18e6b01b336717e05a5d" name="ga0b29dd7e830f18e6b01b336717e05a5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0b29dd7e830f18e6b01b336717e05a5d">&#9670;&#160;</a></span>PWM_SOCS_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#ga0b29dd7e830f18e6b01b336717e05a5d">PWM_SOCS_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga0b29dd7e830f18e6b01b336717e05a5da0a9e6554f2feae7cdae7fe6ed355a2a5" name="gga0b29dd7e830f18e6b01b336717e05a5da0a9e6554f2feae7cdae7fe6ed355a2a5"></a>PWM_SOCS_SELF_TRIGGER&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga0b29dd7e830f18e6b01b336717e05a5daa0444a61c7a2f0198e2cae604244fd69" name="gga0b29dd7e830f18e6b01b336717e05a5daa0444a61c7a2f0198e2cae604244fd69"></a>PWM_SOCS_PG1_OR_PG5&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga0b29dd7e830f18e6b01b336717e05a5da2a1de828332b66bc45d7b98ceb9c6ae1" name="gga0b29dd7e830f18e6b01b336717e05a5da2a1de828332b66bc45d7b98ceb9c6ae1"></a>PWM_SOCS_PG2_OR_PG6&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga0b29dd7e830f18e6b01b336717e05a5da075c3112ea32f890b93163f0ab0a125a" name="gga0b29dd7e830f18e6b01b336717e05a5da075c3112ea32f890b93163f0ab0a125a"></a>PWM_SOCS_PG3_OR_PG7&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga0b29dd7e830f18e6b01b336717e05a5da5cea63755ad0bb1b886d327c68d3bb49" name="gga0b29dd7e830f18e6b01b336717e05a5da5cea63755ad0bb1b886d327c68d3bb49"></a>PWM_SOCS_PG4_OR_PG8&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga0b29dd7e830f18e6b01b336717e05a5dafa982e3b992448dc744418866547922f" name="gga0b29dd7e830f18e6b01b336717e05a5dafa982e3b992448dc744418866547922f"></a>PWM_SOCS_TRIG_OR_PCI_SYNC&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00285">285</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gafeb71123598f82008765e6eadaa5f1aa" name="gafeb71123598f82008765e6eadaa5f1aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafeb71123598f82008765e6eadaa5f1aa">&#9670;&#160;</a></span>PWM_TRIG_MODE_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#gafeb71123598f82008765e6eadaa5f1aa">PWM_TRIG_MODE_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggafeb71123598f82008765e6eadaa5f1aaa4ed378bc19eab0f75bf50aa6c7a11107" name="ggafeb71123598f82008765e6eadaa5f1aaa4ed378bc19eab0f75bf50aa6c7a11107"></a>PWM_TRIG_MODE_SINGLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggafeb71123598f82008765e6eadaa5f1aaa4b0cc41dbe140dd55ca1574b61b2c824" name="ggafeb71123598f82008765e6eadaa5f1aaa4b0cc41dbe140dd55ca1574b61b2c824"></a>PWM_TRIG_MODE_RETRIGGERABLE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00931">931</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga01ff1de1f9a878eac0461993cb031c97" name="ga01ff1de1f9a878eac0461993cb031c97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga01ff1de1f9a878eac0461993cb031c97">&#9670;&#160;</a></span>PWM_UPDMOD_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#ga01ff1de1f9a878eac0461993cb031c97">PWM_UPDMOD_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga01ff1de1f9a878eac0461993cb031c97a2e7dabcc34478b05e288d2bd45d7b470" name="gga01ff1de1f9a878eac0461993cb031c97a2e7dabcc34478b05e288d2bd45d7b470"></a>PWM_UPDMOD_SOC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga01ff1de1f9a878eac0461993cb031c97a303f8f9ef9928bd23c2cba4b43186c68" name="gga01ff1de1f9a878eac0461993cb031c97a303f8f9ef9928bd23c2cba4b43186c68"></a>PWM_UPDMOD_IMMEDIATE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga01ff1de1f9a878eac0461993cb031c97a74d5d5e878fc21ad0a88d6daecf6ae66" name="gga01ff1de1f9a878eac0461993cb031c97a74d5d5e878fc21ad0a88d6daecf6ae66"></a>PWM_UPDMOD_CLIENT_SOC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga01ff1de1f9a878eac0461993cb031c97a9979eb5bd01b9edd47dd57a5052530d1" name="gga01ff1de1f9a878eac0461993cb031c97a9979eb5bd01b9edd47dd57a5052530d1"></a>PWM_UPDMOD_CLIENT_IMMEDIATE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00395">395</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gadfcb461aa4d8fa0abd28661892fbf8a9" name="gadfcb461aa4d8fa0abd28661892fbf8a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadfcb461aa4d8fa0abd28661892fbf8a9">&#9670;&#160;</a></span>PWM_UPDTRG_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#gadfcb461aa4d8fa0abd28661892fbf8a9">PWM_UPDTRG_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggadfcb461aa4d8fa0abd28661892fbf8a9acecf1995fcc54a835cad1c0dddfae107" name="ggadfcb461aa4d8fa0abd28661892fbf8a9acecf1995fcc54a835cad1c0dddfae107"></a>PWM_UPDTRG_MANUAL&#160;</td><td class="fielddoc"><p>user must manual set UPDREQ bit to update </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggadfcb461aa4d8fa0abd28661892fbf8a9a213ca8c087a7b2ce7042d93a0fac2008" name="ggadfcb461aa4d8fa0abd28661892fbf8a9a213ca8c087a7b2ce7042d93a0fac2008"></a>PWM_UPDTRG_PGxDC&#160;</td><td class="fielddoc"><p>a write to PGxDC will update </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggadfcb461aa4d8fa0abd28661892fbf8a9a9ebbaead0002e3bda06e91601f4555f2" name="ggadfcb461aa4d8fa0abd28661892fbf8a9a9ebbaead0002e3bda06e91601f4555f2"></a>PWM_UPDTRG_PGxPHASE&#160;</td><td class="fielddoc"><p>a write to PGxPHASE will update </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggadfcb461aa4d8fa0abd28661892fbf8a9a51317f8a6d3ce5f87a8ef8691b8fdad6" name="ggadfcb461aa4d8fa0abd28661892fbf8a9a51317f8a6d3ce5f87a8ef8691b8fdad6"></a>PWM_UPDTRG_PGxTRIGA&#160;</td><td class="fielddoc"><p>a write to PGxTRIGA will update </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l01142">1142</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga9221ab2ff1ca95690751acae1a2d0b1f" name="ga9221ab2ff1ca95690751acae1a2d0b1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9221ab2ff1ca95690751acae1a2d0b1f">&#9670;&#160;</a></span>RPnR_SOURCE_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#ga9221ab2ff1ca95690751acae1a2d0b1f">RPnR_SOURCE_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fad1725f4b65c6deec9e3e7916a8f9841e" name="gga9221ab2ff1ca95690751acae1a2d0b1fad1725f4b65c6deec9e3e7916a8f9841e"></a>RPnR_SOURCE_DefaultPORT&#160;</td><td class="fielddoc"><p>RPn tied to Default Pin. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1faf24d89f58315e3ff21a22d2a2bce45d7" name="gga9221ab2ff1ca95690751acae1a2d0b1faf24d89f58315e3ff21a22d2a2bce45d7"></a>RPnR_SOURCE_U1TX&#160;</td><td class="fielddoc"><p>RPn tied to UART1 Transmit. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fab5b5aff156a38e6ca9513ce927d932df" name="gga9221ab2ff1ca95690751acae1a2d0b1fab5b5aff156a38e6ca9513ce927d932df"></a>RPnR_SOURCE_U1RTS&#160;</td><td class="fielddoc"><p>RPn tied to UART1 Request-to-Send. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa8124336b92cc8b04948565016a91bfde" name="gga9221ab2ff1ca95690751acae1a2d0b1fa8124336b92cc8b04948565016a91bfde"></a>RPnR_SOURCE_U2TX&#160;</td><td class="fielddoc"><p>RPn tied to UART2 Transmit. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fae3bcc1dbafa6c14439f9fcae30a9df72" name="gga9221ab2ff1ca95690751acae1a2d0b1fae3bcc1dbafa6c14439f9fcae30a9df72"></a>RPnR_SOURCE_U2RTS&#160;</td><td class="fielddoc"><p>RPn tied to UART2 Request-to-Send. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa3f55d9e9eb6765fe237563214a4493ce" name="gga9221ab2ff1ca95690751acae1a2d0b1fa3f55d9e9eb6765fe237563214a4493ce"></a>RPnR_SOURCE_SDO1&#160;</td><td class="fielddoc"><p>RPn tied to SPI1 Data Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1faddbd7e2e58e20b5b21edc501573f56a5" name="gga9221ab2ff1ca95690751acae1a2d0b1faddbd7e2e58e20b5b21edc501573f56a5"></a>RPnR_SOURCE_SCK1&#160;</td><td class="fielddoc"><p>RPn tied to SPI1 Clock Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1faac795c6703ae8b41be0203fe1f7c6b0e" name="gga9221ab2ff1ca95690751acae1a2d0b1faac795c6703ae8b41be0203fe1f7c6b0e"></a>RPnR_SOURCE_SS1&#160;</td><td class="fielddoc"><p>RPn tied to SPI1 Client Select. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa18f5b66cea17ea55291717e8281635da" name="gga9221ab2ff1ca95690751acae1a2d0b1fa18f5b66cea17ea55291717e8281635da"></a>RPnR_SOURCE_SDO2&#160;</td><td class="fielddoc"><p>RPn tied to SPI2 Data Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa995ae47d271b7bd171b963d631c0a819" name="gga9221ab2ff1ca95690751acae1a2d0b1fa995ae47d271b7bd171b963d631c0a819"></a>RPnR_SOURCE_SCK2&#160;</td><td class="fielddoc"><p>RPn tied to SPI2 Clock Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa02863aacdf88caa1e1314b164242327c" name="gga9221ab2ff1ca95690751acae1a2d0b1fa02863aacdf88caa1e1314b164242327c"></a>RPnR_SOURCE_SS2&#160;</td><td class="fielddoc"><p>RPn tied to SPI2 Client Select. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa12d7902f9dd0ca47b1687a93179188b1" name="gga9221ab2ff1ca95690751acae1a2d0b1fa12d7902f9dd0ca47b1687a93179188b1"></a>RPnR_SOURCE_SDO3&#160;</td><td class="fielddoc"><p>RPn tied to SPI3 Data Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fabd7d5862496279d09d526171f2080488" name="gga9221ab2ff1ca95690751acae1a2d0b1fabd7d5862496279d09d526171f2080488"></a>RPnR_SOURCE_SCK3&#160;</td><td class="fielddoc"><p>RPn tied to SPI3 Clock Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa319e85a61af57f83e4a5e1893e65a094" name="gga9221ab2ff1ca95690751acae1a2d0b1fa319e85a61af57f83e4a5e1893e65a094"></a>RPnR_SOURCE_SS3&#160;</td><td class="fielddoc"><p>RPn tied to SPI3 Client Select. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa7454b6cf305c39f53c7a5f643a521e38" name="gga9221ab2ff1ca95690751acae1a2d0b1fa7454b6cf305c39f53c7a5f643a521e38"></a>RPnR_SOURCE_REFCLKO&#160;</td><td class="fielddoc"><p>RPn tied to Reference Clock Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa3e7aecae8b3af05f4765821523bb6372" name="gga9221ab2ff1ca95690751acae1a2d0b1fa3e7aecae8b3af05f4765821523bb6372"></a>RPnR_SOURCE_OCM1&#160;</td><td class="fielddoc"><p>RPn tied to SCCP1 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa31904b6bab0f35ebe6ebd7fbb3dfaf67" name="gga9221ab2ff1ca95690751acae1a2d0b1fa31904b6bab0f35ebe6ebd7fbb3dfaf67"></a>RPnR_SOURCE_OCM2&#160;</td><td class="fielddoc"><p>RPn tied to SCCP2 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1faea4e90cb3b7bbd046a2ffc79841e7b0c" name="gga9221ab2ff1ca95690751acae1a2d0b1faea4e90cb3b7bbd046a2ffc79841e7b0c"></a>RPnR_SOURCE_OCM3&#160;</td><td class="fielddoc"><p>RPn tied to SCCP3 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa64d9622fcb20f9eb91eb467caaa91a24" name="gga9221ab2ff1ca95690751acae1a2d0b1fa64d9622fcb20f9eb91eb467caaa91a24"></a>RPnR_SOURCE_OCM4&#160;</td><td class="fielddoc"><p>RPn tied to SCCP4 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa54e56549e414321bdd558ac6f4493850" name="gga9221ab2ff1ca95690751acae1a2d0b1fa54e56549e414321bdd558ac6f4493850"></a>RPnR_SOURCE_OCM5&#160;</td><td class="fielddoc"><p>RPn tied to SCCP5 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa1426513fc4b65f95259308f10d7daea1" name="gga9221ab2ff1ca95690751acae1a2d0b1fa1426513fc4b65f95259308f10d7daea1"></a>RPnR_SOURCE_OCM6&#160;</td><td class="fielddoc"><p>RPn tied to SCCP6 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa61b6e5b2190825ce1677ea187d3d17ea" name="gga9221ab2ff1ca95690751acae1a2d0b1fa61b6e5b2190825ce1677ea187d3d17ea"></a>RPnR_SOURCE_CAN1TX&#160;</td><td class="fielddoc"><p>RPn tied to <a class="el" href="a00759.html" title="This defines the object required for the maintenance of the receive FIFO message object.">CAN1</a> Transmit. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa0a70d903b078afe5eab0e1d2b627fb23" name="gga9221ab2ff1ca95690751acae1a2d0b1fa0a70d903b078afe5eab0e1d2b627fb23"></a>RPnR_SOURCE_CMP1&#160;</td><td class="fielddoc"><p>RPn tied to Comparator 1 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1faa9243af4ca88dce5de51db0265466de8" name="gga9221ab2ff1ca95690751acae1a2d0b1faa9243af4ca88dce5de51db0265466de8"></a>RPnR_SOURCE_CMP2&#160;</td><td class="fielddoc"><p>RPn tied to Comparator 2 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa0e9538a5b52517acf963eef9335d2d9e" name="gga9221ab2ff1ca95690751acae1a2d0b1fa0e9538a5b52517acf963eef9335d2d9e"></a>RPnR_SOURCE_CMP3&#160;</td><td class="fielddoc"><p>RPn tied to Comparator 3 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa73e3f2bf93901cf317ef11973174c421" name="gga9221ab2ff1ca95690751acae1a2d0b1fa73e3f2bf93901cf317ef11973174c421"></a>RPnR_SOURCE_U3TX&#160;</td><td class="fielddoc"><p>RPn tied to UART3 Transmit. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa9e97510a1f25bc64f2855b31e83484fc" name="gga9221ab2ff1ca95690751acae1a2d0b1fa9e97510a1f25bc64f2855b31e83484fc"></a>RPnR_SOURCE_U3RTS&#160;</td><td class="fielddoc"><p>RPn tied to UART3 Request-to-Send. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa73d66bec415b76369184f4915a37d31e" name="gga9221ab2ff1ca95690751acae1a2d0b1fa73d66bec415b76369184f4915a37d31e"></a>RPnR_SOURCE_PWM4H&#160;</td><td class="fielddoc"><p>RPn tied to PWM4H Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fac82b740cdfdf3f973c828413706bf12b" name="gga9221ab2ff1ca95690751acae1a2d0b1fac82b740cdfdf3f973c828413706bf12b"></a>RPnR_SOURCE_PWM4L&#160;</td><td class="fielddoc"><p>RPn tied to PWM4L Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fafc074a795c5d599eca5ce78fe9cd922b" name="gga9221ab2ff1ca95690751acae1a2d0b1fafc074a795c5d599eca5ce78fe9cd922b"></a>RPnR_SOURCE_PWMEA&#160;</td><td class="fielddoc"><p>RPn tied to PWM Event A Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fac45c820c45a6e7d392bca89fe3450167" name="gga9221ab2ff1ca95690751acae1a2d0b1fac45c820c45a6e7d392bca89fe3450167"></a>RPnR_SOURCE_PWMEB&#160;</td><td class="fielddoc"><p>RPn tied to PWM Event B Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa8a6d2868a44690e6ab0be3ea2c3de890" name="gga9221ab2ff1ca95690751acae1a2d0b1fa8a6d2868a44690e6ab0be3ea2c3de890"></a>RPnR_SOURCE_QEICMP1&#160;</td><td class="fielddoc"><p>RPn tied to QEI1 Comparator Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fabdfa3ef7fd11a90b381229e30d0148c3" name="gga9221ab2ff1ca95690751acae1a2d0b1fabdfa3ef7fd11a90b381229e30d0148c3"></a>RPnR_SOURCE_QEICMP2&#160;</td><td class="fielddoc"><p>RPn tied to QEI2 Comparator Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1faca6efd0dcc7e87e07b3497fadf5595d5" name="gga9221ab2ff1ca95690751acae1a2d0b1faca6efd0dcc7e87e07b3497fadf5595d5"></a>RPnR_SOURCE_CLC1OUT&#160;</td><td class="fielddoc"><p>RPn tied to CLC1 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa92a8ef4e1f070a6096c6a5d0541eea0c" name="gga9221ab2ff1ca95690751acae1a2d0b1fa92a8ef4e1f070a6096c6a5d0541eea0c"></a>RPnR_SOURCE_CLC2OUT&#160;</td><td class="fielddoc"><p>RPn tied to CLC2 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1faae409646c5fc4ca5777396b57afa8736" name="gga9221ab2ff1ca95690751acae1a2d0b1faae409646c5fc4ca5777396b57afa8736"></a>RPnR_SOURCE_OCM7&#160;</td><td class="fielddoc"><p>RPn tied to SCCP7 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fab1614ff07358f8cbaf9a893faa315eb7" name="gga9221ab2ff1ca95690751acae1a2d0b1fab1614ff07358f8cbaf9a893faa315eb7"></a>RPnR_SOURCE_OCM8&#160;</td><td class="fielddoc"><p>RPn tied to SCCP8 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa965ec867cb0a1c6b2768dd81fae05070" name="gga9221ab2ff1ca95690751acae1a2d0b1fa965ec867cb0a1c6b2768dd81fae05070"></a>RPnR_SOURCE_PWMEC&#160;</td><td class="fielddoc"><p>RPn tied to PWM Event C Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa564c6380dc417f945f6b89e4f052c4a6" name="gga9221ab2ff1ca95690751acae1a2d0b1fa564c6380dc417f945f6b89e4f052c4a6"></a>RPnR_SOURCE_PWMED&#160;</td><td class="fielddoc"><p>RPn tied to PWM Event D Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa72dd193773afddfabea60b3ee10d1c30" name="gga9221ab2ff1ca95690751acae1a2d0b1fa72dd193773afddfabea60b3ee10d1c30"></a>RPnR_SOURCE_PTGTRG24&#160;</td><td class="fielddoc"><p>PTG Trigger Output 24. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa3cb21493013c1f832614edaa806ddcba" name="gga9221ab2ff1ca95690751acae1a2d0b1fa3cb21493013c1f832614edaa806ddcba"></a>RPnR_SOURCE_PTGTRG25&#160;</td><td class="fielddoc"><p>PTG Trigger Output 25. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa3311b72428a99b93cfcf8a65209f66c3" name="gga9221ab2ff1ca95690751acae1a2d0b1fa3311b72428a99b93cfcf8a65209f66c3"></a>RPnR_SOURCE_SENT1OUT&#160;</td><td class="fielddoc"><p>RPn tied to SENT1 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa5eba236ead000b5461fed90f382b2860" name="gga9221ab2ff1ca95690751acae1a2d0b1fa5eba236ead000b5461fed90f382b2860"></a>RPnR_SOURCE_SENT2OUT&#160;</td><td class="fielddoc"><p>RPn tied to SENT2 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa7e56b275fcfa650c4f959a69af9c3e86" name="gga9221ab2ff1ca95690751acae1a2d0b1fa7e56b275fcfa650c4f959a69af9c3e86"></a>RPnR_SOURCE_MCCP9A&#160;</td><td class="fielddoc"><p>RPn tied to MCCP9 Output A. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa502350fade2dc0e0d4fb6bf8b7282d94" name="gga9221ab2ff1ca95690751acae1a2d0b1fa502350fade2dc0e0d4fb6bf8b7282d94"></a>RPnR_SOURCE_MCCP9B&#160;</td><td class="fielddoc"><p>RPn tied to MCCP9 Output B. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fae480618499de3c3d1bebd4bbbef046e6" name="gga9221ab2ff1ca95690751acae1a2d0b1fae480618499de3c3d1bebd4bbbef046e6"></a>RPnR_SOURCE_MCCP9C&#160;</td><td class="fielddoc"><p>RPn tied to MCCP9 Output C. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fafe4c92187e84fb38466409758a2bebba" name="gga9221ab2ff1ca95690751acae1a2d0b1fafe4c92187e84fb38466409758a2bebba"></a>RPnR_SOURCE_MCCP9D&#160;</td><td class="fielddoc"><p>RPn tied to MCCP9 Output D. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa532113f5568a80b32d7089587ad5c08c" name="gga9221ab2ff1ca95690751acae1a2d0b1fa532113f5568a80b32d7089587ad5c08c"></a>RPnR_SOURCE_MCCP9E&#160;</td><td class="fielddoc"><p>RPn tied to MCCP9 Output E. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fac77669ba0dc21fb58273d8b4f4429af8" name="gga9221ab2ff1ca95690751acae1a2d0b1fac77669ba0dc21fb58273d8b4f4429af8"></a>RPnR_SOURCE_MCCP9F&#160;</td><td class="fielddoc"><p>RPn tied to MCCP9 Output F. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa74ceb61d10ef14c3db6fa00ea839cdcf" name="gga9221ab2ff1ca95690751acae1a2d0b1fa74ceb61d10ef14c3db6fa00ea839cdcf"></a>RPnR_SOURCE_CLC3OUT&#160;</td><td class="fielddoc"><p>RPn tied to CLC4 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa09710ffbf9170fe7796c07ca74dd2a9b" name="gga9221ab2ff1ca95690751acae1a2d0b1fa09710ffbf9170fe7796c07ca74dd2a9b"></a>RPnR_SOURCE_CLC4OUT&#160;</td><td class="fielddoc"><p>RPn tied to CLC4 Output. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fad2a3d2bf7e4bea6cde5f8c6c25925a32" name="gga9221ab2ff1ca95690751acae1a2d0b1fad2a3d2bf7e4bea6cde5f8c6c25925a32"></a>RPnR_SOURCE_U1DTR&#160;</td><td class="fielddoc"><p>RPn tied to UART1 DTR. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1faea1c253188abc3d38b9a8666125f6f7b" name="gga9221ab2ff1ca95690751acae1a2d0b1faea1c253188abc3d38b9a8666125f6f7b"></a>RPnR_SOURCE_U2DTR&#160;</td><td class="fielddoc"><p>RPn tied to UART2 DTR. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga9221ab2ff1ca95690751acae1a2d0b1fa8c58122a19e8b95fe58f64959a8db483" name="gga9221ab2ff1ca95690751acae1a2d0b1fa8c58122a19e8b95fe58f64959a8db483"></a>RPnR_SOURCE_U3DTR&#160;</td><td class="fielddoc"><p>RPn tied to UART3 DTR <br  />
  </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00520">520</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gae09bb840daf8ba79a197d7813ac1f295" name="gae09bb840daf8ba79a197d7813ac1f295"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae09bb840daf8ba79a197d7813ac1f295">&#9670;&#160;</a></span>RPnR_VIRTUAL_PIN_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#gae09bb840daf8ba79a197d7813ac1f295">RPnR_VIRTUAL_PIN_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggae09bb840daf8ba79a197d7813ac1f295a2502e73ef7350759ef852bd04c4ac71f" name="ggae09bb840daf8ba79a197d7813ac1f295a2502e73ef7350759ef852bd04c4ac71f"></a>RPnR_VIRTUAL_PIN_RP176&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggae09bb840daf8ba79a197d7813ac1f295a1531907d7cdd068362b160ebde565428" name="ggae09bb840daf8ba79a197d7813ac1f295a1531907d7cdd068362b160ebde565428"></a>RPnR_VIRTUAL_PIN_RP177&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggae09bb840daf8ba79a197d7813ac1f295a8ffc38d31804ca95f36a3e4029432c92" name="ggae09bb840daf8ba79a197d7813ac1f295a8ffc38d31804ca95f36a3e4029432c92"></a>RPnR_VIRTUAL_PIN_RP178&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggae09bb840daf8ba79a197d7813ac1f295a496d2fd4af9a7a09ecf31e7a63502082" name="ggae09bb840daf8ba79a197d7813ac1f295a496d2fd4af9a7a09ecf31e7a63502082"></a>RPnR_VIRTUAL_PIN_RP179&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggae09bb840daf8ba79a197d7813ac1f295ac7bf2c888ea4c0988e038c7f5f12db7f" name="ggae09bb840daf8ba79a197d7813ac1f295ac7bf2c888ea4c0988e038c7f5f12db7f"></a>RPnR_VIRTUAL_PIN_RP180&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggae09bb840daf8ba79a197d7813ac1f295a1761b058867efb8b039aabdb0f01b577" name="ggae09bb840daf8ba79a197d7813ac1f295a1761b058867efb8b039aabdb0f01b577"></a>RPnR_VIRTUAL_PIN_RP181&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00584">584</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga047f851c8ef37ed494a184f9dc539301" name="ga047f851c8ef37ed494a184f9dc539301"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga047f851c8ef37ed494a184f9dc539301">&#9670;&#160;</a></span>RPx_INPUT_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00533.html#ga047f851c8ef37ed494a184f9dc539301">RPx_INPUT_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a8115ba67d4eedf3a16bc16d870f76b48" name="gga047f851c8ef37ed494a184f9dc539301a8115ba67d4eedf3a16bc16d870f76b48"></a>RPx_INPUT_VSS&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a379d8431be80082c8ef9fb5c0d287ca2" name="gga047f851c8ef37ed494a184f9dc539301a379d8431be80082c8ef9fb5c0d287ca2"></a>RPx_INPUT_CMP1&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a92d75319c3a1e620e5421b5993985235" name="gga047f851c8ef37ed494a184f9dc539301a92d75319c3a1e620e5421b5993985235"></a>RPx_INPUT_CMP2&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301aab6a340fd9ead86e7d59f73108c287cc" name="gga047f851c8ef37ed494a184f9dc539301aab6a340fd9ead86e7d59f73108c287cc"></a>RPx_INPUT_CMP3&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ab5a5a9133bc019f3e13e056265a7fc1b" name="gga047f851c8ef37ed494a184f9dc539301ab5a5a9133bc019f3e13e056265a7fc1b"></a>RPx_INPUT_PTG_TRIG_26&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ab3c0cbc2a023b2f40f4ca8224073122e" name="gga047f851c8ef37ed494a184f9dc539301ab3c0cbc2a023b2f40f4ca8224073122e"></a>RPx_INPUT_PTG_TRIG_27&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301afc62402da3960ac5d22d19c730cac100" name="gga047f851c8ef37ed494a184f9dc539301afc62402da3960ac5d22d19c730cac100"></a>RPx_INPUT_PWM_EVENT_C&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a4504dd6b280154fb1ff6ba6bce5bc27f" name="gga047f851c8ef37ed494a184f9dc539301a4504dd6b280154fb1ff6ba6bce5bc27f"></a>RPx_INPUT_PWM_EVENT_D&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301af7e364b343ca92f031ac7bc33011f797" name="gga047f851c8ef37ed494a184f9dc539301af7e364b343ca92f031ac7bc33011f797"></a>RPx_INPUT_PWM_EVENT_E&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ac3ad754457f6dde156ecd23b00f4f440" name="gga047f851c8ef37ed494a184f9dc539301ac3ad754457f6dde156ecd23b00f4f440"></a>RPx_INPUT_RP32&#160;</td><td class="fielddoc"><p>Port Pin RB0. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a6a6f0ccf8fa673d496decd283c96d07b" name="gga047f851c8ef37ed494a184f9dc539301a6a6f0ccf8fa673d496decd283c96d07b"></a>RPx_INPUT_RP33&#160;</td><td class="fielddoc"><p>Port Pin RB1. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a390ce82a5654facdc31ab076bf4cb7ac" name="gga047f851c8ef37ed494a184f9dc539301a390ce82a5654facdc31ab076bf4cb7ac"></a>RPx_INPUT_RP34&#160;</td><td class="fielddoc"><p>Port Pin RB2. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a2c2091759dc812edcd2df3a69c29437b" name="gga047f851c8ef37ed494a184f9dc539301a2c2091759dc812edcd2df3a69c29437b"></a>RPx_INPUT_RP35&#160;</td><td class="fielddoc"><p>Port Pin RB3. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a7048ac801fbaa46c3ed47569052fd014" name="gga047f851c8ef37ed494a184f9dc539301a7048ac801fbaa46c3ed47569052fd014"></a>RPx_INPUT_RP36&#160;</td><td class="fielddoc"><p>Port Pin RB4. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a5c20cc77fcb249d8d8b9c4231c7817b7" name="gga047f851c8ef37ed494a184f9dc539301a5c20cc77fcb249d8d8b9c4231c7817b7"></a>RPx_INPUT_RP37&#160;</td><td class="fielddoc"><p>Port Pin RB5. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301abb733b7a2b425e98d00e2334b526829f" name="gga047f851c8ef37ed494a184f9dc539301abb733b7a2b425e98d00e2334b526829f"></a>RPx_INPUT_RP38&#160;</td><td class="fielddoc"><p>Port Pin RB6. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a37db12b43516d3d297756ad09765de70" name="gga047f851c8ef37ed494a184f9dc539301a37db12b43516d3d297756ad09765de70"></a>RPx_INPUT_RP39&#160;</td><td class="fielddoc"><p>Port Pin RB7. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301aaaf27cfe3e6cb49ce79b120de755dce0" name="gga047f851c8ef37ed494a184f9dc539301aaaf27cfe3e6cb49ce79b120de755dce0"></a>RPx_INPUT_RP40&#160;</td><td class="fielddoc"><p>Port Pin RB8. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a7302c85c927e4e2781f4d889d318987a" name="gga047f851c8ef37ed494a184f9dc539301a7302c85c927e4e2781f4d889d318987a"></a>RPx_INPUT_RP41&#160;</td><td class="fielddoc"><p>Port Pin RB9. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301af54cc3ee95bd1ddd0f867e3a6551a56e" name="gga047f851c8ef37ed494a184f9dc539301af54cc3ee95bd1ddd0f867e3a6551a56e"></a>RPx_INPUT_RP42&#160;</td><td class="fielddoc"><p>Port Pin RB10. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a500a15f3e10b503e3407dcfc56eba7a2" name="gga047f851c8ef37ed494a184f9dc539301a500a15f3e10b503e3407dcfc56eba7a2"></a>RPx_INPUT_RP43&#160;</td><td class="fielddoc"><p>Port Pin RB11. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a337e5263c5ca8926b0f085b71b806fcc" name="gga047f851c8ef37ed494a184f9dc539301a337e5263c5ca8926b0f085b71b806fcc"></a>RPx_INPUT_RP44&#160;</td><td class="fielddoc"><p>Port Pin RB12. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a91a7ba383ef7cfe7148ea82fa5bd9783" name="gga047f851c8ef37ed494a184f9dc539301a91a7ba383ef7cfe7148ea82fa5bd9783"></a>RPx_INPUT_RP45&#160;</td><td class="fielddoc"><p>Port Pin RB13. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a28edc964a5310b0e7d13904e2a5fcd2f" name="gga047f851c8ef37ed494a184f9dc539301a28edc964a5310b0e7d13904e2a5fcd2f"></a>RPx_INPUT_RP46&#160;</td><td class="fielddoc"><p>Port Pin RB14. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301abf9a2c2b2c6ac26a656d5501d907ae8f" name="gga047f851c8ef37ed494a184f9dc539301abf9a2c2b2c6ac26a656d5501d907ae8f"></a>RPx_INPUT_RP47&#160;</td><td class="fielddoc"><p>Port Pin RB15. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ac6dd33d1e9a5e15895cb468ade7e3d28" name="gga047f851c8ef37ed494a184f9dc539301ac6dd33d1e9a5e15895cb468ade7e3d28"></a>RPx_INPUT_RP48&#160;</td><td class="fielddoc"><p>Port Pin RC0. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ae55cca859e99a8b29fc3d97dabc13f21" name="gga047f851c8ef37ed494a184f9dc539301ae55cca859e99a8b29fc3d97dabc13f21"></a>RPx_INPUT_RP49&#160;</td><td class="fielddoc"><p>Port Pin RC1. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a46bd23f877386381d1a2ee4ed7cbb835" name="gga047f851c8ef37ed494a184f9dc539301a46bd23f877386381d1a2ee4ed7cbb835"></a>RPx_INPUT_RP50&#160;</td><td class="fielddoc"><p>Port Pin RC2. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a372952455fcd8b3424fdcc48498e0b61" name="gga047f851c8ef37ed494a184f9dc539301a372952455fcd8b3424fdcc48498e0b61"></a>RPx_INPUT_RP51&#160;</td><td class="fielddoc"><p>Port Pin RC3. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a7cf9c27f51cd6e27efb0e09741422b98" name="gga047f851c8ef37ed494a184f9dc539301a7cf9c27f51cd6e27efb0e09741422b98"></a>RPx_INPUT_RP52&#160;</td><td class="fielddoc"><p>Port Pin RC4. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a6c2607752b77a9e73b2913403971a5ad" name="gga047f851c8ef37ed494a184f9dc539301a6c2607752b77a9e73b2913403971a5ad"></a>RPx_INPUT_RP53&#160;</td><td class="fielddoc"><p>Port Pin RC5. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301afda443092348ebbbff67dc97a5dbc9ff" name="gga047f851c8ef37ed494a184f9dc539301afda443092348ebbbff67dc97a5dbc9ff"></a>RPx_INPUT_RP54&#160;</td><td class="fielddoc"><p>Port Pin RC6. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301afb102adc99d5e2e5234c4021a559e8c6" name="gga047f851c8ef37ed494a184f9dc539301afb102adc99d5e2e5234c4021a559e8c6"></a>RPx_INPUT_RP55&#160;</td><td class="fielddoc"><p>Port Pin RC7. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301adcc5b44e9075368274d444423ae859f9" name="gga047f851c8ef37ed494a184f9dc539301adcc5b44e9075368274d444423ae859f9"></a>RPx_INPUT_RP56&#160;</td><td class="fielddoc"><p>Port Pin RC8. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301aa877c633650af766a2dd8b60c98b8e23" name="gga047f851c8ef37ed494a184f9dc539301aa877c633650af766a2dd8b60c98b8e23"></a>RPx_INPUT_RP57&#160;</td><td class="fielddoc"><p>Port Pin RC9. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ac04868f634a8d8641bd3b2668ce9c41c" name="gga047f851c8ef37ed494a184f9dc539301ac04868f634a8d8641bd3b2668ce9c41c"></a>RPx_INPUT_RP58&#160;</td><td class="fielddoc"><p>Port Pin RC10. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301aa447d648eb0172ebfcd4c3361677fd91" name="gga047f851c8ef37ed494a184f9dc539301aa447d648eb0172ebfcd4c3361677fd91"></a>RPx_INPUT_RP59&#160;</td><td class="fielddoc"><p>Port Pin RC11. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a597322a60d504b9660cd6f64b8feb36e" name="gga047f851c8ef37ed494a184f9dc539301a597322a60d504b9660cd6f64b8feb36e"></a>RPx_INPUT_RP60&#160;</td><td class="fielddoc"><p>Port Pin RC12. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ae077caf9a6161bf588a00e7f54cf850a" name="gga047f851c8ef37ed494a184f9dc539301ae077caf9a6161bf588a00e7f54cf850a"></a>RPx_INPUT_RP61&#160;</td><td class="fielddoc"><p>Port Pin RC13. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a09eee8218e8694be6c7bfb6e6b953a50" name="gga047f851c8ef37ed494a184f9dc539301a09eee8218e8694be6c7bfb6e6b953a50"></a>RPx_INPUT_RP62&#160;</td><td class="fielddoc"><p>Port Pin RC14. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a1de85cec62423d14617ff597664bc4ed" name="gga047f851c8ef37ed494a184f9dc539301a1de85cec62423d14617ff597664bc4ed"></a>RPx_INPUT_RP63&#160;</td><td class="fielddoc"><p>Port Pin RC15. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301aa438f210a2b90c4166520cd42474c868" name="gga047f851c8ef37ed494a184f9dc539301aa438f210a2b90c4166520cd42474c868"></a>RPx_INPUT_RP64&#160;</td><td class="fielddoc"><p>Port Pin RD0. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a22f3a0f7326f1073684e3eefb8282d65" name="gga047f851c8ef37ed494a184f9dc539301a22f3a0f7326f1073684e3eefb8282d65"></a>RPx_INPUT_RP65&#160;</td><td class="fielddoc"><p>Port Pin RD1. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ae117bbc844e88fcd8abb75a1508f944b" name="gga047f851c8ef37ed494a184f9dc539301ae117bbc844e88fcd8abb75a1508f944b"></a>RPx_INPUT_RP66&#160;</td><td class="fielddoc"><p>Port Pin RD2. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a212b20c8e3cc6de85ed8be65196ee6ea" name="gga047f851c8ef37ed494a184f9dc539301a212b20c8e3cc6de85ed8be65196ee6ea"></a>RPx_INPUT_RP67&#160;</td><td class="fielddoc"><p>Port Pin RD3. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a4fcdf36ff73e38eeaeae12530429da8a" name="gga047f851c8ef37ed494a184f9dc539301a4fcdf36ff73e38eeaeae12530429da8a"></a>RPx_INPUT_RP68&#160;</td><td class="fielddoc"><p>Port Pin RD4. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ae34360270ca29da625f73081c514878b" name="gga047f851c8ef37ed494a184f9dc539301ae34360270ca29da625f73081c514878b"></a>RPx_INPUT_RP69&#160;</td><td class="fielddoc"><p>Port Pin RD5. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a97d5797a546894989ef362af76bcd884" name="gga047f851c8ef37ed494a184f9dc539301a97d5797a546894989ef362af76bcd884"></a>RPx_INPUT_RP70&#160;</td><td class="fielddoc"><p>Port Pin RD6. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a5844dd910871bd14117fc484f0de7f40" name="gga047f851c8ef37ed494a184f9dc539301a5844dd910871bd14117fc484f0de7f40"></a>RPx_INPUT_RP71&#160;</td><td class="fielddoc"><p>Port Pin RD7. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ab969866938456f4915051d9b7995ac68" name="gga047f851c8ef37ed494a184f9dc539301ab969866938456f4915051d9b7995ac68"></a>RPx_INPUT_RP72&#160;</td><td class="fielddoc"><p>Port Pin RD8. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a46cf71ededaf13f175ec0340f92b9a2a" name="gga047f851c8ef37ed494a184f9dc539301a46cf71ededaf13f175ec0340f92b9a2a"></a>RPx_INPUT_RP73&#160;</td><td class="fielddoc"><p>Port Pin RD9. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a049df43f3d4a6148f87173c7549b42bc" name="gga047f851c8ef37ed494a184f9dc539301a049df43f3d4a6148f87173c7549b42bc"></a>RPx_INPUT_RP74&#160;</td><td class="fielddoc"><p>Port Pin RD10. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301af5553a1c26f7b02348c898dbf6995013" name="gga047f851c8ef37ed494a184f9dc539301af5553a1c26f7b02348c898dbf6995013"></a>RPx_INPUT_RP75&#160;</td><td class="fielddoc"><p>Port Pin RD11. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a65eaaade6844b94de03ddeea7a4fae74" name="gga047f851c8ef37ed494a184f9dc539301a65eaaade6844b94de03ddeea7a4fae74"></a>RPx_INPUT_RP76&#160;</td><td class="fielddoc"><p>Port Pin RD12. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ab8904d645a2c7da7916114c5cd611cdb" name="gga047f851c8ef37ed494a184f9dc539301ab8904d645a2c7da7916114c5cd611cdb"></a>RPx_INPUT_RP77&#160;</td><td class="fielddoc"><p>Port Pin RD13. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ac87f14c56cfbec685fcf370502957e6f" name="gga047f851c8ef37ed494a184f9dc539301ac87f14c56cfbec685fcf370502957e6f"></a>RPx_INPUT_RP78&#160;</td><td class="fielddoc"><p>Port Pin RD14. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a29f26fc64ca513583c979f29cf45f60d" name="gga047f851c8ef37ed494a184f9dc539301a29f26fc64ca513583c979f29cf45f60d"></a>RPx_INPUT_RP79&#160;</td><td class="fielddoc"><p>Port Pin RD15. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ae23447915390e524812d9444bf843e28" name="gga047f851c8ef37ed494a184f9dc539301ae23447915390e524812d9444bf843e28"></a>RPx_INPUT_DAC3_pwm_req_on&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ab3f36461683ae76e024cedbb74a7fcf5" name="gga047f851c8ef37ed494a184f9dc539301ab3f36461683ae76e024cedbb74a7fcf5"></a>RPx_INPUT_DAC3_pwm_req_off&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301aae9504e4d28692a5670f4b43aa209c86" name="gga047f851c8ef37ed494a184f9dc539301aae9504e4d28692a5670f4b43aa209c86"></a>RPx_INPUT_DAC2_pwm_req_on&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ab3681ea9259b6babd9b12f070f79679f" name="gga047f851c8ef37ed494a184f9dc539301ab3681ea9259b6babd9b12f070f79679f"></a>RPx_INPUT_DAC2_pwm_req_off&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a4730e8319cf03ec37530952406c52445" name="gga047f851c8ef37ed494a184f9dc539301a4730e8319cf03ec37530952406c52445"></a>RPx_INPUT_DAC1_pwm_req_on&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a5148c126f724833d132fec1d82837cff" name="gga047f851c8ef37ed494a184f9dc539301a5148c126f724833d132fec1d82837cff"></a>RPx_INPUT_DAC1_pwm_req_off&#160;</td><td class="fielddoc"><p>Internal. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301adca0ee113f0d9fecaed3b350dc0b8a09" name="gga047f851c8ef37ed494a184f9dc539301adca0ee113f0d9fecaed3b350dc0b8a09"></a>RPx_INPUT_RP176&#160;</td><td class="fielddoc"><p>Virtual RPV0. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301ad17ab9fbda76593fa953b35016514404" name="gga047f851c8ef37ed494a184f9dc539301ad17ab9fbda76593fa953b35016514404"></a>RPx_INPUT_RP177&#160;</td><td class="fielddoc"><p>Virtual RPV1. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a2e36a93c5f2fb27cc4b2ff72ccb31ca9" name="gga047f851c8ef37ed494a184f9dc539301a2e36a93c5f2fb27cc4b2ff72ccb31ca9"></a>RPx_INPUT_RP178&#160;</td><td class="fielddoc"><p>Virtual RPV2. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a51f9411e56a49dc0e89a4938df363e1a" name="gga047f851c8ef37ed494a184f9dc539301a51f9411e56a49dc0e89a4938df363e1a"></a>RPx_INPUT_RP179&#160;</td><td class="fielddoc"><p>Virtual RPV3. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a43d2537698c9eecda40e812ba9a2fcdb" name="gga047f851c8ef37ed494a184f9dc539301a43d2537698c9eecda40e812ba9a2fcdb"></a>RPx_INPUT_RP180&#160;</td><td class="fielddoc"><p>Virtual RPV4. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga047f851c8ef37ed494a184f9dc539301a29c6edcaae2d9ac9f25e43033b6c6ee4" name="gga047f851c8ef37ed494a184f9dc539301a29c6edcaae2d9ac9f25e43033b6c6ee4"></a>RPx_INPUT_RP181&#160;</td><td class="fielddoc"><p>Virtual RPV5. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00652">652</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gac779b9d8bce64e8de686bd78be25ea09" name="gac779b9d8bce64e8de686bd78be25ea09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac779b9d8bce64e8de686bd78be25ea09">&#9670;&#160;</a></span>DRV_Config_Custom_PWM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void DRV_Config_Custom_PWM </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&lt;&gt; </p><dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This PWM initialization configures the PWM modules to be retriggerable for the cascaded PWM approach. Additionally, two PWM outputs were swapped to support the board's functionality. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00025">25</a> of file <a class="el" href="a00353_source.html">drv_custom_config_pwm.h</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00533_gac779b9d8bce64e8de686bd78be25ea09_cgraph.svg" width="464" height="222"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00533_gac779b9d8bce64e8de686bd78be25ea09_icgraph.svg" width="422" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga0f7a8e0588227a2a6e796a9386b16b96" name="ga0f7a8e0588227a2a6e796a9386b16b96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0f7a8e0588227a2a6e796a9386b16b96">&#9670;&#160;</a></span>PWM_Data_Update_Mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_Data_Update_Mode </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#ab279c1138d96cd8d60b908a574faf27d">PWM_UPDMOD_t</a>&#160;</td>
+          <td class="paramname"><em>updateMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">updateMode</td><td>Pointer to a power control data object of type PWM_UPDMOD_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function is used for register update synchronization between PWMs. Setting the MSTEN bit means that the UPDREQ flag is broadcast to other PWMs. If the UPDMOD field in the receiving PWM is set to "Client SOC" or "client immediate" then this will take effect and data update between different PWM modules can be implemented </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00417">417</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gaa64683342142d7cbd8c6f3ab696ef606" name="gaa64683342142d7cbd8c6f3ab696ef606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa64683342142d7cbd8c6f3ab696ef606">&#9670;&#160;</a></span>PWM_Data_Update_Trigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_Data_Update_Trigger </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a61085d045e57ad748837ab70ba517d57">PWM_UPDTRG_t</a>&#160;</td>
+          <td class="paramname"><em>updateTrigger</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">updateTrigger</td><td>Pointer to a power control data object of type PWM_UPDTRG_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function configures the PWM Event Trigger source for a particular PWM instance. <br  />
+ </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l01161">1161</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga49a1745bb548f5687c7bb28d96610fa4" name="ga49a1745bb548f5687c7bb28d96610fa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga49a1745bb548f5687c7bb28d96610fa4">&#9670;&#160;</a></span>PWM_EVENTA_Configure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_EVENTA_Configure </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmSource</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#ac94c9b7012ae59f2a0f0707959d8b640">PWM_EVENT_SOURCE_t</a>&#160;</td>
+          <td class="paramname"><em>eventSource</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>invert</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>outputEnable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>stretchDisable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>outputSync</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmSource</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">eventSource</td><td>Pointer to a power control data object of type PWM_EVENT_SOURCE_t </td></tr>
+    <tr><td class="paramname">invert</td><td>PWM Event Output Polarity </td></tr>
+    <tr><td class="paramname">outputEnable</td><td>PWM Event Output Enable </td></tr>
+    <tr><td class="paramname">stretchDisable</td><td>PWM Event Output Stretch Disable </td></tr>
+    <tr><td class="paramname">outputSync</td><td>PWM Event Output Sync </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function configures the PWM Event A (PWM event Output Control register). </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l01121">1121</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gaaf5d1e32e8b272aa4785219fa041b394" name="gaaf5d1e32e8b272aa4785219fa041b394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaf5d1e32e8b272aa4785219fa041b394">&#9670;&#160;</a></span>PWM_Fault_DataMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_Fault_DataMode </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a88427135dac5d6391152bd5262e488e6">PWM_FAULT_DATA_t</a>&#160;</td>
+          <td class="paramname"><em>faultDataMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">latch</td><td>Pointer to a power control data object of type PWM_FAULT_DATA_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function configures the PWM instance data mode for fault PCI. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l01271">1271</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00533_gaaf5d1e32e8b272aa4785219fa041b394_icgraph.svg" width="626" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga3c5b3a29c117bbadc07cbe5e6898d10f" name="ga3c5b3a29c117bbadc07cbe5e6898d10f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3c5b3a29c117bbadc07cbe5e6898d10f">&#9670;&#160;</a></span>PWM_Fault_LatchMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_Fault_LatchMode </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a8094057dd6a1ba4f444db98f9e166212">PWM_LATCH_MODE_t</a>&#160;</td>
+          <td class="paramname"><em>latchMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">latch</td><td>Pointer to a power control data object of type PWM_LATCH_MODE_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function configures the PWM instance latch mode for fault PCI. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l01216">1216</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga30d00d0393fc5b7bef92269fa3662a8f" name="ga30d00d0393fc5b7bef92269fa3662a8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga30d00d0393fc5b7bef92269fa3662a8f">&#9670;&#160;</a></span>PWM_PCI_Fault_AcceptanceCriteria()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_PCI_Fault_AcceptanceCriteria </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a1d0f09aaa6f4143d969710bf122d52fa">PWM_PCI_ACCEPTANCE_CRITERIA_t</a>&#160;</td>
+          <td class="paramname"><em>acpSetting</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">acpSetting</td><td>Pointer to a power control data object of type PWM_PCI_ACCEPTANCE_CRITERIA_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function sets the PCI fault Acceptance Criteria. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00051">51</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00533_ga30d00d0393fc5b7bef92269fa3662a8f_icgraph.svg" width="664" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gad5a761c41ee2484186cf1c56c684a980" name="gad5a761c41ee2484186cf1c56c684a980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad5a761c41ee2484186cf1c56c684a980">&#9670;&#160;</a></span>PWM_PCI_Fault_AcceptanceQualiferInvert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_PCI_Fault_AcceptanceQualiferInvert </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>invert</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">invert</td><td>Inverts the polarity </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function configures the polarity of the PCI fault acceptance qualifier. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00098">98</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gad15671d93a6113d53ca80a1d124a5194" name="gad15671d93a6113d53ca80a1d124a5194"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad15671d93a6113d53ca80a1d124a5194">&#9670;&#160;</a></span>PWM_PCI_Fault_AcceptanceQualifierSource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_PCI_Fault_AcceptanceQualifierSource </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a44808d89e75d2f7d3afef3aa0f50584b">PWM_PCI_ACCEPTANCE_QUALIFER_t</a>&#160;</td>
+          <td class="paramname"><em>source</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">source</td><td>Pointer to a power control data object of type PWM_PCI_ACCEPTANCE_QUALIFER_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function sets the PWM PCI Fault Acceptance qualifier source for a specific PWM instance. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00892">892</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga3e7243475a0867eddc73f8c453acf105" name="ga3e7243475a0867eddc73f8c453acf105"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3e7243475a0867eddc73f8c453acf105">&#9670;&#160;</a></span>PWM_PCI_Fault_TimetoTerminateAfterEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_PCI_Fault_TimetoTerminateAfterEvent </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#ab182da272e16efbe7650b7a30d9fb273">PWM_PCI_TERMTIME_AFTER_EVENT_t</a>&#160;</td>
+          <td class="paramname"><em>faultTerm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">acpSetting</td><td>Pointer to a power control data object of type PWM_PCI_TERMTIME_AFTER_EVENT_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function the Termination Synchronization bit for a particular PWM Fault PCI instance. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00199">199</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00533_ga3e7243475a0867eddc73f8c453acf105_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ga4e8dcfa16c985992c333079671579dec" name="ga4e8dcfa16c985992c333079671579dec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4e8dcfa16c985992c333079671579dec">&#9670;&#160;</a></span>PWM_PCI_INPUT_MaptoPin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_PCI_INPUT_MaptoPin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00362.html#a48bd262d93435ad38b7121322f0acc46">PWM_PCI_INPUT_t</a>&#160;</td>
+          <td class="paramname"><em>pciIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a559ef347d2b10d3781efe9450fb1cd73">RPx_INPUT_t</a>&#160;</td>
+          <td class="paramname"><em>pin</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pciIndex</td><td>Pointer to a power control data object of type PWM_PCI_INPUT_t </td></tr>
+    <tr><td class="paramname">pin</td><td>Pointer to a power control data object of type RPx_INPUT_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function maps thePCI input to a particular pin. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00748">748</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga72963b1e0a6c3825e7d9b1ec8de74e37" name="ga72963b1e0a6c3825e7d9b1ec8de74e37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga72963b1e0a6c3825e7d9b1ec8de74e37">&#9670;&#160;</a></span>PWM_PCI_Source1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_PCI_Source1 </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a02ab8c2fec422e9022d8c9a48d222be5">PWM_PCI_SOURCE_t</a>&#160;</td>
+          <td class="paramname"><em>pciSource</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">pciSource</td><td>Pointer to a power control data object of type PWM_PCI_SOURCE_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>The selected PWM Generator source does not affect the LEB counter. This source can be optionally used as a PCI input, PCI qualifier, PCI terminator or PCI terminator qualifier </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00481">481</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gab27e1f37f8addc7a9c4154a9ebf3aced" name="gab27e1f37f8addc7a9c4154a9ebf3aced"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab27e1f37f8addc7a9c4154a9ebf3aced">&#9670;&#160;</a></span>PWM_PCI_Sync_AcceptanceCriteria()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_PCI_Sync_AcceptanceCriteria </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a1d0f09aaa6f4143d969710bf122d52fa">PWM_PCI_ACCEPTANCE_CRITERIA_t</a>&#160;</td>
+          <td class="paramname"><em>acpSetting</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">acpSetting</td><td>Pointer to a power control data object of type PWM_PCI_ACCEPTANCE_CRITERIA_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function configures the PCI Synchronization Acceptance Criteria. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00142">142</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gaab19fcf0f9c39b45ec652f7dcc631245" name="gaab19fcf0f9c39b45ec652f7dcc631245"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab19fcf0f9c39b45ec652f7dcc631245">&#9670;&#160;</a></span>PWM_PCI_Sync_Source_Select()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_PCI_Sync_Source_Select </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a5cbef8404dbdf24b2db0456d48998cc8">PWM_PCI_SOURCE_SELECT_t</a>&#160;</td>
+          <td class="paramname"><em>pciSource</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">pciSource</td><td>Pointer to a power control data object of type PWM_PCI_SOURCE_SELECT_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function set the PWM PCI Synchronization source. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00827">827</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga04c1938935a9bb7447bd96bc79363fc1" name="ga04c1938935a9bb7447bd96bc79363fc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga04c1938935a9bb7447bd96bc79363fc1">&#9670;&#160;</a></span>PWM_PCI_Sync_TerminationEventSelect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_PCI_Sync_TerminationEventSelect </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a025b987469217e0d7dae328925680ebe">PWM_PCI_TERM_t</a>&#160;</td>
+          <td class="paramname"><em>termEvent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">termEvent</td><td>Pointer to a power control data object of type PWM_PCI_TERM_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function configures the PWM PCI Synchronization Termination event. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l01008">1008</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga702e62d4fa4cbbbd0fd65f8cd80f7095" name="ga702e62d4fa4cbbbd0fd65f8cd80f7095"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga702e62d4fa4cbbbd0fd65f8cd80f7095">&#9670;&#160;</a></span>PWM_PCI_Sync_TimetoTerminateAfterEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_PCI_Sync_TimetoTerminateAfterEvent </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#ab182da272e16efbe7650b7a30d9fb273">PWM_PCI_TERMTIME_AFTER_EVENT_t</a>&#160;</td>
+          <td class="paramname"><em>faultTerm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">acpSetting</td><td>Pointer to a power control data object of type PWM_PCI_TERMTIME_AFTER_EVENT_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function the Termination Synchronization bit for a particular PWM Synchronization PCI instance. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00245">245</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga10cb2c761dd2b0342eb041d322806d3c" name="ga10cb2c761dd2b0342eb041d322806d3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga10cb2c761dd2b0342eb041d322806d3c">&#9670;&#160;</a></span>PWM_StartOfCycleTrigger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_StartOfCycleTrigger </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a098813339254b68e76390aba72cb1d0c">PWM_SOCS_t</a>&#160;</td>
+          <td class="paramname"><em>triggerSource</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">triggerSource</td><td>Pointer to a power control data object of type PWM_SOCS_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function set the start-of-cycle of a particular PWM instance. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00305">305</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="gaab156f2b7ad138cf32e734bbf7145ef4" name="gaab156f2b7ad138cf32e734bbf7145ef4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaab156f2b7ad138cf32e734bbf7145ef4">&#9670;&#160;</a></span>PWM_Swap_PWMxL_and_PWMxH()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_Swap_PWMxL_and_PWMxH </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>swapPWMH_PWML</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">swapPWMH_PWML</td><td>enable/disable the PWM instance output swap bit </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function configures the PWM output as swapped output (PWMH output -&gt; PWML output; PWML output -&gt; PWMH output). </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l01053">1053</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00533_gaab156f2b7ad138cf32e734bbf7145ef4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ga51d53c1db006afc7c11a0ab15f07093d" name="ga51d53c1db006afc7c11a0ab15f07093d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga51d53c1db006afc7c11a0ab15f07093d">&#9670;&#160;</a></span>PWM_Trigger_Mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_Trigger_Mode </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a647048bb352c9a6a15bd2cb6c5c64f0c">PWM_TRIG_MODE_t</a>&#160;</td>
+          <td class="paramname"><em>trigMode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">trigMode</td><td>Pointer to a power control data object of type PWM_TRIG_MODE_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function configures the PWM instance trigger mode. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00947">947</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00533_ga51d53c1db006afc7c11a0ab15f07093d_icgraph.svg" width="610" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga9b10a356196006b27d3627380d4c048c" name="ga9b10a356196006b27d3627380d4c048c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9b10a356196006b27d3627380d4c048c">&#9670;&#160;</a></span>PWM_UPDREQ_Broadcast_Enable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void PWM_UPDREQ_Broadcast_Enable </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>pwmIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pwmIndex</td><td>PWM instance </td></tr>
+    <tr><td class="paramname">enable</td><td>enable the Master bit of a PWM instance </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function is used for register update synchronization between PWMs. Setting the MSTEN bit means that the UPDREQ flag is broadcast to other PWMs. If the UPDMOD field in the receiving PWM is set to "Client SOC" or "client immediate" then this will take effect and data update between different PWM modules can be implemented </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00353">353</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
+<a id="ga11f341f55080c38b45a5aee5df9a6439" name="ga11f341f55080c38b45a5aee5df9a6439"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga11f341f55080c38b45a5aee5df9a6439">&#9670;&#160;</a></span>RPnR_VirtualPin_Source()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void RPnR_VirtualPin_Source </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00362.html#a4b2fe48a3839fc3a3fbd3e2544f2af52">RPnR_VIRTUAL_PIN_t</a>&#160;</td>
+          <td class="paramname"><em>virtualPin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a50d80b085de415bad89baf999f8adc10">RPnR_SOURCE_t</a>&#160;</td>
+          <td class="paramname"><em>peripheral</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">virtualPin</td><td>Pointer to a power control data object of type RPnR_VIRTUAL_PIN_t </td></tr>
+    <tr><td class="paramname">peripheral</td><td>Pointer to a power control data object of type RPnR_SOURCE_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>These pins provide a simple way for inter-peripheral connection without utilizing a physical pin. For example, the output of the analog comparator can be connected to RP176 and the PWM Fault input can be configured for RP176 as well. This configuration allows the analog comparator to trigger PWM Faults without the use of an actual physical pin on the device </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00610">610</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_pwm.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

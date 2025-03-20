@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/os/os_watchdog.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/dcdt/pwrctrl_dcdt.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,19 +136,76 @@ $(document).ready(function(){initNavTree('a00443_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">os_watchdog.h</div></div>
+  <div class="headertitle"><div class="title">pwrctrl_dcdt.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef _OS_WATCHDOG_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define _OS_WATCHDOG_H</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keywordtype">void</span> OS_Watchdog_Init(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keywordtype">void</span> OS_Watchdog_Enable(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keywordtype">void</span> OS_Watchdog_Disable(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keywordtype">void</span> OS_Watchdog_KeepAlivePing(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#endif </span><span class="comment">/* _OS_WATCHDOG_H */</span><span class="preprocessor"></span></div>
+<a href="a00443.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">  @Company</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">    Microchip Technology Inc.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">  @File Name</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">    dev_TPBLPFC_typedef.h</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"></span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">  @Summary</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">    This is the generated driver implementation file using PIC24 / dsPIC33 / PIC32MM MCUs</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"></span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">  @Description</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">    This source file provides Controller settings for average current mode and voltage mode controller.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    Generation Information :</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">        Product Revision  :  PIC24 / dsPIC33 / PIC32MM MCUs - 1.167.0</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">        Device            :  dsPIC33CH512MP506S1      </span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    The generated drivers are tested against the following:</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">        Compiler          :  XC16 v1.70</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">        MPLAB             :  MPLAB X v6.00</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#ifndef _DRV_CONTROLLER_DAB_DCDC_H</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define _DRV_CONTROLLER_DAB_DCDC_H</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;<a class="code" href="a00452.html">smps_control.h</a>&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">//forward mode: primary to secondary</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;<a class="code" href="a00053.html">dab_psio/dcdt_generated_code/dab_psio_dcdt.h</a>&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;<a class="code" href="a00062.html">dab_pspo/dcdt_generated_code/dab_pspo_dcdt.h</a>&quot;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;dab_psvo/dcdt_generated_code/dab_psvo_dcdt.h&quot;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">//reverse mode: secondary to primary</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;dab_spio/dcdt_generated_code/dab_spio_dcdt.h&quot;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;dab_sppo/dcdt_generated_code/dab_sppo_dcdt.h&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;<a class="code" href="a00074.html">dab_spvo/dcdt_generated_code/dab_spvo_dcdt.h</a>&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00703.html">SMPS_2P2Z_T</a> <a class="code hl_variable" href="a00540.html#ga6f2fab45cc1fd91be7e11205806b6a63">VMC_2p2z</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00703.html">SMPS_2P2Z_T</a> <a class="code hl_variable" href="a00540.html#gaeb77b094c98ccef3e5592a3a906f3ff8">IMC_2p2z</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00703.html">SMPS_2P2Z_T</a> <a class="code hl_variable" href="a00540.html#ga5aad9c96a95744da30275ec0eacf4ae3">PMC_2p2z</a>; </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00703.html">SMPS_2P2Z_T</a> <a class="code hl_variable" href="a00540.html#ga4ad4c845903f7f89ed2a89ca3b575159">VMC_2p2z_Rev</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00703.html">SMPS_2P2Z_T</a> <a class="code hl_variable" href="a00540.html#gae39ac9d96a12def52fd0e134003f9c6e">IMC_2p2z_Rev</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00703.html">SMPS_2P2Z_T</a> <a class="code hl_variable" href="a00540.html#gaadbaf0cbd8e35968c28240f9f0bdd867">PMC_2p2z_Rev</a>; </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00540.html#ga4d5efa27da3185177a7e9451a59ced82">PwrCtrl_IComp_Initialize</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00540.html#ga8603aa8f7d4f64fa925228cf9c99de83">PwrCtrl_VComp_Initialize</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00540.html#ga5d45f928f4747df3d3fe50876e78efc5">PwrCtrl_PComp_Initialize</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00540.html#gae5d978249e235e284da922df5ec4363a">PwrCtrl_ResetControlLoopHistories</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">// END</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#endif  </span><span class="comment">/* XC_HEADER_TEMPLATE_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aa00053_html"><div class="ttname"><a href="a00053.html">dab_psio_dcdt.h</a></div><div class="ttdoc">Generated by the Microchip Digital Compensator Design Tool (DCDT), contains system summaries and digi...</div></div>
+<div class="ttc" id="aa00062_html"><div class="ttname"><a href="a00062.html">dab_pspo_dcdt.h</a></div><div class="ttdoc">Generated by the Microchip Digital Compensator Design Tool (DCDT), contains system summaries and digi...</div></div>
+<div class="ttc" id="aa00074_html"><div class="ttname"><a href="a00074.html">dab_spvo_dcdt.h</a></div><div class="ttdoc">Generated by the Microchip Digital Compensator Design Tool (DCDT), contains system summaries and digi...</div></div>
+<div class="ttc" id="aa00452_html"><div class="ttname"><a href="a00452.html">smps_control.h</a></div><div class="ttdoc">Contains the DCDT generated functions and data types.</div></div>
+<div class="ttc" id="aa00540_html_ga4ad4c845903f7f89ed2a89ca3b575159"><div class="ttname"><a href="a00540.html#ga4ad4c845903f7f89ed2a89ca3b575159">VMC_2p2z_Rev</a></div><div class="ttdeci">SMPS_2P2Z_T VMC_2p2z_Rev</div><div class="ttdoc">Data Object of voltage mode control generated by DCDT.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00070">pwrctrl_dcdt.c:70</a></div></div>
+<div class="ttc" id="aa00540_html_ga4d5efa27da3185177a7e9451a59ced82"><div class="ttname"><a href="a00540.html#ga4d5efa27da3185177a7e9451a59ced82">PwrCtrl_IComp_Initialize</a></div><div class="ttdeci">void PwrCtrl_IComp_Initialize(void)</div><div class="ttdoc">Initialize the Current Loop Control.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00369">pwrctrl_dcdt.c:369</a></div></div>
+<div class="ttc" id="aa00540_html_ga5aad9c96a95744da30275ec0eacf4ae3"><div class="ttname"><a href="a00540.html#ga5aad9c96a95744da30275ec0eacf4ae3">PMC_2p2z</a></div><div class="ttdeci">SMPS_2P2Z_T PMC_2p2z</div><div class="ttdoc">Data Object of power mode control.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00058">pwrctrl_dcdt.c:58</a></div></div>
+<div class="ttc" id="aa00540_html_ga5d45f928f4747df3d3fe50876e78efc5"><div class="ttname"><a href="a00540.html#ga5d45f928f4747df3d3fe50876e78efc5">PwrCtrl_PComp_Initialize</a></div><div class="ttdeci">void PwrCtrl_PComp_Initialize(void)</div><div class="ttdoc">Initialize the Power Loop Control.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00440">pwrctrl_dcdt.c:440</a></div></div>
+<div class="ttc" id="aa00540_html_ga6f2fab45cc1fd91be7e11205806b6a63"><div class="ttname"><a href="a00540.html#ga6f2fab45cc1fd91be7e11205806b6a63">VMC_2p2z</a></div><div class="ttdeci">SMPS_2P2Z_T VMC_2p2z</div><div class="ttdoc">Data Object of voltage mode control generated by DCDT.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00042">pwrctrl_dcdt.c:42</a></div></div>
+<div class="ttc" id="aa00540_html_ga8603aa8f7d4f64fa925228cf9c99de83"><div class="ttname"><a href="a00540.html#ga8603aa8f7d4f64fa925228cf9c99de83">PwrCtrl_VComp_Initialize</a></div><div class="ttdeci">void PwrCtrl_VComp_Initialize(void)</div><div class="ttdoc">Initialize the Voltage Loop Control.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00299">pwrctrl_dcdt.c:299</a></div></div>
+<div class="ttc" id="aa00540_html_gaadbaf0cbd8e35968c28240f9f0bdd867"><div class="ttname"><a href="a00540.html#gaadbaf0cbd8e35968c28240f9f0bdd867">PMC_2p2z_Rev</a></div><div class="ttdeci">SMPS_2P2Z_T PMC_2p2z_Rev</div><div class="ttdoc">Data Object of power mode control.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00086">pwrctrl_dcdt.c:86</a></div></div>
+<div class="ttc" id="aa00540_html_gae39ac9d96a12def52fd0e134003f9c6e"><div class="ttname"><a href="a00540.html#gae39ac9d96a12def52fd0e134003f9c6e">IMC_2p2z_Rev</a></div><div class="ttdeci">SMPS_2P2Z_T IMC_2p2z_Rev</div><div class="ttdoc">Data Object of current mode control.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00078">pwrctrl_dcdt.c:78</a></div></div>
+<div class="ttc" id="aa00540_html_gae5d978249e235e284da922df5ec4363a"><div class="ttname"><a href="a00540.html#gae5d978249e235e284da922df5ec4363a">PwrCtrl_ResetControlLoopHistories</a></div><div class="ttdeci">void PwrCtrl_ResetControlLoopHistories(void)</div><div class="ttdoc">Clear the control and error histories of the control loops.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00507">pwrctrl_dcdt.c:507</a></div></div>
+<div class="ttc" id="aa00540_html_gaeb77b094c98ccef3e5592a3a906f3ff8"><div class="ttname"><a href="a00540.html#gaeb77b094c98ccef3e5592a3a906f3ff8">IMC_2p2z</a></div><div class="ttdeci">SMPS_2P2Z_T IMC_2p2z</div><div class="ttdoc">Data Object of current mode control.</div><div class="ttdef"><b>Definition</b> <a href="a00440_source.html#l00050">pwrctrl_dcdt.c:50</a></div></div>
+<div class="ttc" id="aa00703_html"><div class="ttname"><a href="a00703.html">SMPS_2P2Z_T</a></div><div class="ttdef"><b>Definition</b> <a href="a00452_source.html#l00162">smps_control.h:163</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

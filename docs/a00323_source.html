@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/device.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_current_sensor.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,24 +136,26 @@ $(document).ready(function(){initNavTree('a00323_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">device.h</div></div>
+  <div class="headertitle"><div class="title">dev_current_sensor.h</div></div>
 </div><!--header-->
 <div class="contents">
 <a href="a00323.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DEVICE_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DEVICE_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DEV_CURRENT_SENSOR_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DEV_CURRENT_SENSOR_H</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="a00329.html">dev_current_sensor.h</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="a00335.html">dev_fan.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="a00347.html">dev_led.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="a00353.html">dev_temp.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif  </span><span class="comment">/* DEVICE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00528.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00528.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">extern</span> uint16_t <a class="code hl_function" href="a00528.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">extern</span> uint16_t <a class="code hl_function" href="a00528.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="ttc" id="aa00329_html"><div class="ttname"><a href="a00329.html">dev_current_sensor.h</a></div><div class="ttdoc">Contains current sensor public functions.</div></div>
-<div class="ttc" id="aa00335_html"><div class="ttname"><a href="a00335.html">dev_fan.h</a></div><div class="ttdoc">fan device driver</div></div>
-<div class="ttc" id="aa00347_html"><div class="ttname"><a href="a00347.html">dev_led.h</a></div><div class="ttdoc">led device driver</div></div>
-<div class="ttc" id="aa00353_html"><div class="ttname"><a href="a00353.html">dev_temp.h</a></div><div class="ttdoc">Contains temperature initialization and execution functions.</div></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_CURRENT_SENSOR_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="ttc" id="aa00528_html_ga218632f9814c3bf20c40cea0794ffc7d"><div class="ttname"><a href="a00528.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a></div><div class="ttdeci">uint16_t Dev_CurrentSensor_Get_CalibrationStatus(void)</div><div class="ttdoc">API function to get the calibration status.</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00101">dev_current_sensor.c:101</a></div></div>
+<div class="ttc" id="aa00528_html_ga494b4a948891fd5757ccc647f9962529"><div class="ttname"><a href="a00528.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a></div><div class="ttdeci">void Dev_CurrentSensor_Clr_Offset(void)</div><div class="ttdoc">API function to clear the sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00121">dev_current_sensor.c:121</a></div></div>
+<div class="ttc" id="aa00528_html_ga9f581abf52dc00ba320faafa189fafb9"><div class="ttname"><a href="a00528.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a></div><div class="ttdeci">uint16_t Dev_CurrentSensor_Get_Offset(void)</div><div class="ttdoc">API function to get the sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00111">dev_current_sensor.c:111</a></div></div>
+<div class="ttc" id="aa00528_html_gaaa75855922e60913d443c6203475256f"><div class="ttname"><a href="a00528.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a></div><div class="ttdeci">void Dev_CurrentSensorOffsetCal(void)</div><div class="ttdoc">Measures the currents sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00320_source.html#l00087">dev_current_sensor.c:87</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

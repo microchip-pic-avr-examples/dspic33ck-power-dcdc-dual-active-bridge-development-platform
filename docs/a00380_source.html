@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/fault/dev_vin_isolated.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/fault/fault.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,49 +136,50 @@ $(document).ready(function(){initNavTree('a00380_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">dev_vin_isolated.h</div></div>
+  <div class="headertitle"><div class="title">fault.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* </span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * File:   dev_vin_isolated.h</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Author: M15690</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Created on July 16, 2024, 4:13 PM</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DEV_VIN_ISOLATED_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DEV_VIN_ISOLATED_H</span></div>
+<a href="a00380.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DRV_PWRCTL_FAULT_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DRV_PWRCTL_FAULT_H</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#define OV_THRESHOLD_VOLT       900                                               </span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#define OV_THRESHOLD_SCALING    0.282                                              </span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#define OV_THRESHOLD_RAW        (OV_THRESHOLD_VOLT / OV_THRESHOLD_SCALING )             </span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#define OV_THRESHOLD_HYST 140               </span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#define OV_THRESHOLD_HYST_HALF (OV_THRESHOLD_HYST/2) </span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="a00122.html">cmp/cmp1.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="a00128.html">cmp/cmp3.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="a00380.html">fault.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="a00491.html">pwrctrl/pwrctrl_pwm.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;pwrctrl/pwrctrl_typedef.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="a00470.html">pwrctrl/pwrctrl_common.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;config/config.h&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">// functions with external linkage</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00545.html#gaaa5a7a6dc7ce982dec4f07edcd73e874">Fault_Initialize</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00545.html#gacd1ca209275dae0bc2388ac954858d83">Fault_Execute</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="a00380.html#aa3c792f843559d10b2bd2567747cd608">   30</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00380.html#aa3c792f843559d10b2bd2567747cd608">Dev_Fault_ClearHardwareFaults</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00545.html#ga8ed0fee0d3aff71d49470aab1728a6ae">Fault_Reset</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00545.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00545.html#ga35608d94d8d76de809bb7588a325abc9">Fault_Execute_100ms</a>(<span class="keywordtype">void</span>); </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define OV_UPPER_THRESHOLD_WITH_HYST  OV_THRESHOLD_RAW + OV_THRESHOLD_HYST_HALF</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">//#define OV_THRESHOLD_HYST 140    </span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#define OV_LOWER_THRESHOLD_WITH_HYST  OV_THRESHOLD_RAW - OV_THRESHOLD_HYST_HALF</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define UV_THRESHOLD_VOLT 500               </span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#define UV_THRESHOLD_SCALING 0.282                </span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#define UV_THRESHOLD_RAW  (UV_THRESHOLD_VOLT / UV_THRESHOLD_SCALING)              </span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#define UV_THRESHOLD_HYST 140               </span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#define UV_THRESHOLD_HYST_HALF (OV_THRESHOLD_HYST/2)</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define UV_UPPER_THRESHOLD_WITH_HYST  UV_THRESHOLD_RAW + UV_THRESHOLD_HYST_HALF</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">//#define UV_THRESHOLD_HYST 140    </span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define UV_LOWER_THRESHOLD_WITH_HYST  UV_THRESHOLD_RAW - UV_THRESHOLD_HYST_HALF</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#define FAULT_PERSISTENCE_COUNT            4</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">extern</span> <span class="keywordtype">void</span> Dev_VinIsolated_Initialize(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">extern</span> <span class="keywordtype">void</span> Dev_VinIsolated_Start(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_VIN_ISOLATED_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif  </span><span class="comment">/* DRV_PWRCTL_FAULT_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="ttc" id="aa00122_html"><div class="ttname"><a href="a00122.html">cmp1.h</a></div><div class="ttdoc">This is the generated driver header file for the CMP1 driver.</div></div>
+<div class="ttc" id="aa00128_html"><div class="ttname"><a href="a00128.html">cmp3.h</a></div><div class="ttdoc">This is the generated driver header file for the CMP3 driver.</div></div>
+<div class="ttc" id="aa00380_html"><div class="ttname"><a href="a00380.html">fault.h</a></div><div class="ttdoc">Contains public fault functions.</div></div>
+<div class="ttc" id="aa00380_html_aa3c792f843559d10b2bd2567747cd608"><div class="ttname"><a href="a00380.html#aa3c792f843559d10b2bd2567747cd608">Dev_Fault_ClearHardwareFaults</a></div><div class="ttdeci">void Dev_Fault_ClearHardwareFaults(void)</div></div>
+<div class="ttc" id="aa00470_html"><div class="ttname"><a href="a00470.html">pwrctrl_common.h</a></div><div class="ttdoc">Contains the power control reusable functions.</div></div>
+<div class="ttc" id="aa00491_html"><div class="ttname"><a href="a00491.html">pwrctrl_pwm.h</a></div><div class="ttdoc">Contains public functions for PWM.</div></div>
+<div class="ttc" id="aa00545_html_ga35608d94d8d76de809bb7588a325abc9"><div class="ttname"><a href="a00545.html#ga35608d94d8d76de809bb7588a325abc9">Fault_Execute_100ms</a></div><div class="ttdeci">void Fault_Execute_100ms(void)</div><div class="ttdoc">Fault evaluation for Temperature and other slow fault detection executed every 100ms.</div><div class="ttdef"><b>Definition</b> <a href="a00377_source.html#l00313">fault.c:313</a></div></div>
+<div class="ttc" id="aa00545_html_ga8ed0fee0d3aff71d49470aab1728a6ae"><div class="ttname"><a href="a00545.html#ga8ed0fee0d3aff71d49470aab1728a6ae">Fault_Reset</a></div><div class="ttdeci">void Fault_Reset(void)</div><div class="ttdoc">Clears the fault object flag bits.</div><div class="ttdef"><b>Definition</b> <a href="a00377_source.html#l00250">fault.c:250</a></div></div>
+<div class="ttc" id="aa00545_html_gaaa5a7a6dc7ce982dec4f07edcd73e874"><div class="ttname"><a href="a00545.html#gaaa5a7a6dc7ce982dec4f07edcd73e874">Fault_Initialize</a></div><div class="ttdeci">void Fault_Initialize(void)</div><div class="ttdoc">Initialize the fault objects.</div><div class="ttdef"><b>Definition</b> <a href="a00377_source.html#l00065">fault.c:65</a></div></div>
+<div class="ttc" id="aa00545_html_gacd1ca209275dae0bc2388ac954858d83"><div class="ttname"><a href="a00545.html#gacd1ca209275dae0bc2388ac954858d83">Fault_Execute</a></div><div class="ttdeci">void Fault_Execute(void)</div><div class="ttdoc">Executes the fault handlers.</div><div class="ttdef"><b>Definition</b> <a href="a00377_source.html#l00115">fault.c:115</a></div></div>
+<div class="ttc" id="aa00545_html_gaf27f2f24932cec222273df148f8765cb"><div class="ttname"><a href="a00545.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a></div><div class="ttdeci">void Fault_Handler(void)</div><div class="ttdoc">Handles the fault trip by turning off the power control switching.</div><div class="ttdef"><b>Definition</b> <a href="a00377_source.html#l00041">fault.c:41</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

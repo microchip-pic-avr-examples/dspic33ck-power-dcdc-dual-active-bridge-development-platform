@@ -1,9 +1,9 @@
 var a00513 =
 [
-    [ "I_SC_T_BLANK_CLEAR", "a00513.html#ga802cc98f6b8e4f4721492d0a53db2944", null ],
-    [ "IPRI_OC_T_BLANK_CLEAR", "a00513.html#gad15d6e4434542fae730a4c9b1981a82c", null ],
-    [ "IPRI_OC_T_BLANK_TRIG", "a00513.html#gafb965e297429b01ecde0a9399f302d26", null ],
-    [ "IPRI_OC_THRES_CLEAR", "a00513.html#ga69d668edae652db23814a4d1bbf0c3f2", null ],
-    [ "IPRI_OC_THRES_TRIG", "a00513.html#gaf8034f2a9a60a8cab6eab35481d514d1", null ],
-    [ "IPRI_SC_THRES_TRIG", "a00513.html#ga6ccef35604a0ba6693e0f56b6cd30de6", null ]
+    [ "AGC_CURRENT_FACTOR", "a00513.html#ga4022c2ca098b410cbcb0f16f2e4cc0ea", null ],
+    [ "AGC_MINIMUM_CURRENT_THRESHOLD", "a00513.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40", null ],
+    [ "AGC_VOLTAGE_FACTOR", "a00513.html#gacdae5309d1cb67f967c3b5b64b19d3af", null ],
+    [ "AGC_VOLTAGE_FACTOR_SEC", "a00513.html#gaf85ec768f2e621acc512b9246946f1eb", null ],
+    [ "POWER_FACTOR", "a00513.html#ga5d5113c068bc70c6666522402aa59bcf", null ],
+    [ "POWER_SCALER", "a00513.html#ga80914760246c425bc1536e1d809a071b", null ]
 ];

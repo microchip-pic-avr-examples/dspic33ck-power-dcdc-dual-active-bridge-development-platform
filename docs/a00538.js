@@ -1,8 +1,9 @@
 var a00538 =
 [
-    [ "MCC Custom Code PWM", "a00539.html", "a00539" ],
-    [ "MCC Custom Code ADC", "a00540.html", "a00540" ],
-    [ "drv_mcc_extension.h", "a00362.html", null ],
-    [ "mcc_custom_config.h", "a00374.html", null ],
-    [ "MCC_Custom_User_Config", "a00538.html#gafe646acf69be10085d651f4561909f69", null ]
+    [ "pwrctrl_pwm.c", "a00488.html", null ],
+    [ "pwrctrl_pwm.h", "a00491.html", null ],
+    [ "PwrCtrl_PWM_DAB_DirectionSpecificSwapCfg", "a00538.html#ga09cbca9d9eea8e033ba27cb0f77417c3", null ],
+    [ "PwrCtrl_PWM_Disable", "a00538.html#ga79ec0c0e524a03b3a3d423308b89bb99", null ],
+    [ "PwrCtrl_PWM_Enable", "a00538.html#gae20d34fb8fc7fbaa57f6c68b2907807f", null ],
+    [ "PwrCtrl_PWM_Update", "a00538.html#ga73f526371cadb7674354635462e836cc", null ]
 ];

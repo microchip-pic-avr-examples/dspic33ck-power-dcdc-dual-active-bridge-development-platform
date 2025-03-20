@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_iso_voltage_sense.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_led.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,149 +136,72 @@ $(document).ready(function(){initNavTree('a00341_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">dev_iso_voltage_sense.h</div></div>
+  <div class="headertitle"><div class="title">dev_led.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* Microchip Technology Inc. and its subsidiaries.  You may use this software </span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * and any derivatives exclusively with Microchip products. </span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * </span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * THIS SOFTWARE IS SUPPLIED BY MICROCHIP &quot;AS IS&quot;.  NO WARRANTIES, WHETHER </span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY IMPLIED </span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS FOR A </span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * PARTICULAR PURPOSE, OR ITS INTERACTION WITH MICROCHIP PRODUCTS, COMBINATION </span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * WITH ANY OTHER PRODUCTS, OR USE IN ANY APPLICATION. </span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, </span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND </span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS </span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE.  TO THE </span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * FULLEST EXTENT ALLOWED BY LAW, MICROCHIP&#39;S TOTAL LIABILITY ON ALL CLAIMS </span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF </span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE </span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * TERMS. </span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> */</span></div>
+<a href="a00341.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">// more than once.  </span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#ifndef DEV_LED_H</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define DEV_LED_H</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;xc.h&gt;</span>     <span class="comment">// include processor files - each processor file is guarded.  </span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;stdint.h&gt;</span> <span class="comment">// include standard integer data types</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// more than once.  </span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#ifndef DEV_ISO_VOLTAGE_SENSE_H</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#define DEV_ISO_VOLTAGE_SENSE_H</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;xc.h&gt;</span> <span class="comment">// include processor files - each processor file is guarded.  </span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &quot;input_capture/sccp2.h&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="a00341.html#a42308849576b2f1ead04e472d38985da">   31</a></span><span class="preprocessor">#define NUM_OF_LEDS     3</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+ <span class="comment">//</span><div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">//module API                mapped to   MCC custom labels</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="a00341.html#a61a32ccd374bf5d2904a973830ca2f7b">   41</a></span><span class="preprocessor">#define LED_Board_Red_On                LED_RED_SetHigh</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="a00341.html#af299247f6c447b7b376ced264d739cc5">   42</a></span><span class="preprocessor">#define LED_Board_Red_Off               LED_RED_SetLow</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="a00341.html#ae0de68d2452e62129bf0d5860dfb27d4">   43</a></span><span class="preprocessor">#define LED_Board_Red_Toggle_State      LED_RED_Toggle</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#define InputCapture_CallbackRegister   SCCP2_InputCapture_CallbackRegister     </span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define InputCapture_bufferoverflow     SCCP2_InputCapture_HasBufferOverflowed  </span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#define InputCapture_BufferEmpty        SCCP2_InputCapture_IsBufferEmpty        </span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define CCP_TIMER_HIGH_REG              CCP2TMRH                                </span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#define CCP_TIMER_LOW_REG               CCP2TMRL                                </span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#define CCP_INTERRUPT_FLAG              IFS1bits.CCP2IF                         </span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define CCP_BUF_L                       CCP2BUFL                                </span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#define CCP_INPUT_CAPTURE_BUFFER        4                                       </span></div>
- <span class="comment">// end of dev-vin-sccp-abstraction-macros</span><div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="a00341.html#aac93fadbf5a22e17126b58efc901e218">   45</a></span><span class="preprocessor">#define LED_Board_Green_On              LED_GREEN_SetHigh</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="a00341.html#ac5ccf337acbae5091e0cbc8148b0bcd7">   46</a></span><span class="preprocessor">#define LED_Board_Green_Off             LED_GREEN_SetLow</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="a00341.html#ad09b82a87c5196dacd7b0d7fb41f2e22">   47</a></span><span class="preprocessor">#define LED_Board_Green_Toggle_State    LED_GREEN_Toggle</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="a00341.html#ab985e272ea5eac0aa414c97b42bedfc6">   49</a></span><span class="preprocessor">#define LED_DP_PIM_on                   LED_DP_PIM_SetHigh</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="a00341.html#aa45b71b36f2f20f80f11eabfb6a696e2">   50</a></span><span class="preprocessor">#define LED_DP_PIM_off                  LED_DP_PIM_SetLow</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="a00341.html#a5f928ddff5ba51f3389a73185e9c856e">   51</a></span><span class="preprocessor">#define LED_DP_PIM_Toggle_State         LED_DP_PIM_Toggle</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+ <span class="comment">// end of dev-led-porting-macros</span><div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">//#define MAX_AVG_SHIFTING 6</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">//#define MAX_NUM_SAMPLES (1&lt;&lt;(MAX_AVG_SHIFTING))</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="a00341.html#a475de8c8db0474d30041ba8dd09bae62">   60</a></span><span class="preprocessor">#define LED_PIM_RED                 0  </span><span class="comment">//labeling</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="a00341.html#aeb672e6a70610b38fdc98e57cf0dbb1b">   61</a></span><span class="preprocessor">#define LED_BOARD_RED               1</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="a00341.html#a4747e134730e2696f0e8a34f81832b7d">   62</a></span><span class="preprocessor">#define LED_BOARD_GREEN             2</span></div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#define MAX_NUM_SAMPLES_ISO_BUFFER                 128          </span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#define MAX_NUM_SAMPLES_ISO_BUFFER_AS_EXP_OF_TWO   7            </span></div>
- <span class="comment">// end of dev-vin-sccp-avg-buffer-define-macros</span><div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#define OV_THRESHOLD_VOLT       900                                               </span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#define OV_THRESHOLD_SCALING    0.282                                              </span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#define OV_THRESHOLD_RAW        (OV_THRESHOLD_VOLT / OV_THRESHOLD_SCALING )             </span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#define OV_THRESHOLD_HYST 140               </span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#define OV_THRESHOLD_HYST_HALF (OV_THRESHOLD_HYST/2) </span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#define OV_UPPER_THRESHOLD_WITH_HYST  OV_THRESHOLD_RAW + OV_THRESHOLD_HYST_HALF</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">//#define OV_THRESHOLD_HYST 140    </span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#define OV_LOWER_THRESHOLD_WITH_HYST  OV_THRESHOLD_RAW - OV_THRESHOLD_HYST_HALF</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">#define UV_THRESHOLD_VOLT 500               </span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#define UV_THRESHOLD_SCALING 0.282                </span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#define UV_THRESHOLD_RAW  (UV_THRESHOLD_VOLT / UV_THRESHOLD_SCALING)              </span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#define UV_THRESHOLD_HYST 140               </span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#define UV_THRESHOLD_HYST_HALF (OV_THRESHOLD_HYST/2)</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#define UV_UPPER_THRESHOLD_WITH_HYST  UV_THRESHOLD_RAW + UV_THRESHOLD_HYST_HALF</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">//#define UV_THRESHOLD_HYST 140    </span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#define UV_LOWER_THRESHOLD_WITH_HYST  UV_THRESHOLD_RAW - UV_THRESHOLD_HYST_HALF</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        </div>
- <span class="comment">// end of dev-vin-sccp-sys-spec-macros</span><div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#define INTERRUPT_COUNTS_MIN    6           </span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="preprocessor">#define INTERRUPT_COUNTS_MAX    9           </span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#define FAULT_PERSISTENCE_COUNT  8          </span></div>
- <span class="comment">// end of dev-vin-sccp-fault-counts-macros</span><div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="foldopen" id="foldopen00128" data-start="{" data-end="};">
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="a00677.html">  128</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00677.html">iso_voltage</a> {</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="a00677.html#afef96784db1d5e946b11ee6a13b1b1c0">  129</a></span>    uint8_t     <a class="code hl_variable" href="a00677.html#afef96784db1d5e946b11ee6a13b1b1c0">error_flag</a>;                 </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="a00677.html#aeaf96ee6938bea2314c290a7aceffe34">  130</a></span>    uint8_t     <a class="code hl_variable" href="a00677.html#aeaf96ee6938bea2314c290a7aceffe34">over_voltage_flag</a>;          </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="a00677.html#a4928ed7605644a030deedfb9a66e6423">  131</a></span>    uint8_t     <a class="code hl_variable" href="a00677.html#a4928ed7605644a030deedfb9a66e6423">under_voltage_flag</a>;         </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="a00677.html#a37f9081b236fa981d01cc25a1e758b71">  132</a></span>    uint8_t     <a class="code hl_variable" href="a00677.html#a37f9081b236fa981d01cc25a1e758b71">no_signal_flag</a>;             </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="a00677.html#afd19992b906019d496441160a589d8e6">  133</a></span>    uint16_t    <a class="code hl_variable" href="a00677.html#afd19992b906019d496441160a589d8e6">voltage_raw</a>;                </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="a00677.html#aee01ff86eaaebfe6ac63e12f76bad45f">  134</a></span>    uint16_t    <a class="code hl_variable" href="a00677.html#aee01ff86eaaebfe6ac63e12f76bad45f">voltage_averaged</a>;           </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="a00677.html#a9d28ef607da9d827b7a84a53762ddc5b">  135</a></span>    uint16_t    <a class="code hl_variable" href="a00677.html#a9d28ef607da9d827b7a84a53762ddc5b">voltage_buffer</a>[MAX_NUM_SAMPLES_ISO_BUFFER]; </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="a00677.html#a47bba42074e93108d4dcbfee607716ce">  136</a></span>    uint16_t    <a class="code hl_variable" href="a00677.html#a47bba42074e93108d4dcbfee607716ce">voltage_buffer_idx</a>;         </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="a00677.html#ad4f64567943fe8c00dbd2d4233af5ba2">  137</a></span>    uint8_t     <a class="code hl_variable" href="a00677.html#ad4f64567943fe8c00dbd2d4233af5ba2">buffer_full</a>;                </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="a00677.html#a01157d1c9ff38caaefb920f452acebe4">  138</a></span>    uint8_t     <a class="code hl_variable" href="a00677.html#a01157d1c9ff38caaefb920f452acebe4">reset_buffer</a>;               </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>} <a class="code hl_struct" href="a00769.html">dev_iso_voltage_data_t</a>;</div>
-</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keyword">extern</span> <a class="code hl_struct" href="a00769.html">dev_iso_voltage_data_t</a>* dev_iso_voltage_data_ptr;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keywordtype">void</span> Dev_Iso_Voltage_Sens_Init(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keywordtype">void</span> Dev_Iso_Voltage_Task_1ms(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>uint16_t Dev_Get_Iso_Voltage(<span class="keywordtype">void</span>);     </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>uint16_t Dev_Get_Iso_Voltage_avg(<span class="keywordtype">void</span>); </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>uint8_t Dev_Iso_Voltage_Is_OV (<span class="keywordtype">void</span>);   </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>uint8_t Dev_Iso_Voltage_Is_UV (<span class="keywordtype">void</span>);   </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="keywordtype">void</span> Dev_Reset_Average_Buffer(<span class="keywordtype">void</span>);        </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_ISO_VOLTAGE_SENSE_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">//inline uint16_t Dev_Get_Iso_Voltage_avg_inline (void) {</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">//    //if (dev_iso_voltage_data_ptr-&gt;buffer_full)</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">//    //{</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">//        uint16_t index = 0;</span></div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">//        uint32_t sum = 0;</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">//        for (index = 0; index &lt;MAX_NUM_SAMPLES; index++)</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">//            sum +=dev_iso_voltage_data_ptr-&gt;voltage_buffer[index];</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">//        return (sum &gt;&gt; MAX_NUM_SAMPLES_AS_EXP_OF_TWO);</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">//    //}</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment">//    //else </span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment">//    //    return 0;</span></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment">//}</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">//inline uint16_t Dev_Get_Iso_Voltage_avg_inline (void){</span></div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">//     if (dev_iso_voltage_data_ptr-&gt;buffer_full)</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">//        return Iso_Calculate_Average(dev_iso_voltage_data_ptr-&gt;voltage_buffer, MAX_NUM_SAMPLES);</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">//    else </span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment">//        return 0;</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">//}</span></div>
-<div class="ttc" id="aa00677_html"><div class="ttname"><a href="a00677.html">iso_voltage</a></div><div class="ttdef"><b>Definition</b> <a href="a00341_source.html#l00128">dev_iso_voltage_sense.h:128</a></div></div>
-<div class="ttc" id="aa00677_html_a01157d1c9ff38caaefb920f452acebe4"><div class="ttname"><a href="a00677.html#a01157d1c9ff38caaefb920f452acebe4">iso_voltage::reset_buffer</a></div><div class="ttdeci">uint8_t reset_buffer</div><div class="ttdoc">reset voltage_buffer</div><div class="ttdef"><b>Definition</b> <a href="a00341_source.html#l00138">dev_iso_voltage_sense.h:138</a></div></div>
-<div class="ttc" id="aa00677_html_a37f9081b236fa981d01cc25a1e758b71"><div class="ttname"><a href="a00677.html#a37f9081b236fa981d01cc25a1e758b71">iso_voltage::no_signal_flag</a></div><div class="ttdeci">uint8_t no_signal_flag</div><div class="ttdoc">if no signal is present</div><div class="ttdef"><b>Definition</b> <a href="a00341_source.html#l00132">dev_iso_voltage_sense.h:132</a></div></div>
-<div class="ttc" id="aa00677_html_a47bba42074e93108d4dcbfee607716ce"><div class="ttname"><a href="a00677.html#a47bba42074e93108d4dcbfee607716ce">iso_voltage::voltage_buffer_idx</a></div><div class="ttdeci">uint16_t voltage_buffer_idx</div><div class="ttdoc">current index of averaging buffer</div><div class="ttdef"><b>Definition</b> <a href="a00341_source.html#l00136">dev_iso_voltage_sense.h:136</a></div></div>
-<div class="ttc" id="aa00677_html_a4928ed7605644a030deedfb9a66e6423"><div class="ttname"><a href="a00677.html#a4928ed7605644a030deedfb9a66e6423">iso_voltage::under_voltage_flag</a></div><div class="ttdeci">uint8_t under_voltage_flag</div><div class="ttdoc">under voltage flag</div><div class="ttdef"><b>Definition</b> <a href="a00341_source.html#l00131">dev_iso_voltage_sense.h:131</a></div></div>
-<div class="ttc" id="aa00677_html_a9d28ef607da9d827b7a84a53762ddc5b"><div class="ttname"><a href="a00677.html#a9d28ef607da9d827b7a84a53762ddc5b">iso_voltage::voltage_buffer</a></div><div class="ttdeci">uint16_t voltage_buffer[MAX_NUM_SAMPLES_ISO_BUFFER]</div><div class="ttdoc">buffer for averaging</div><div class="ttdef"><b>Definition</b> <a href="a00341_source.html#l00135">dev_iso_voltage_sense.h:135</a></div></div>
-<div class="ttc" id="aa00677_html_ad4f64567943fe8c00dbd2d4233af5ba2"><div class="ttname"><a href="a00677.html#ad4f64567943fe8c00dbd2d4233af5ba2">iso_voltage::buffer_full</a></div><div class="ttdeci">uint8_t buffer_full</div><div class="ttdoc">flag to monitor if full then allow averaging.</div><div class="ttdef"><b>Definition</b> <a href="a00341_source.html#l00137">dev_iso_voltage_sense.h:137</a></div></div>
-<div class="ttc" id="aa00677_html_aeaf96ee6938bea2314c290a7aceffe34"><div class="ttname"><a href="a00677.html#aeaf96ee6938bea2314c290a7aceffe34">iso_voltage::over_voltage_flag</a></div><div class="ttdeci">uint8_t over_voltage_flag</div><div class="ttdoc">Over voltage flag.</div><div class="ttdef"><b>Definition</b> <a href="a00341_source.html#l00130">dev_iso_voltage_sense.h:130</a></div></div>
-<div class="ttc" id="aa00677_html_aee01ff86eaaebfe6ac63e12f76bad45f"><div class="ttname"><a href="a00677.html#aee01ff86eaaebfe6ac63e12f76bad45f">iso_voltage::voltage_averaged</a></div><div class="ttdeci">uint16_t voltage_averaged</div><div class="ttdoc">voltage averaged raw</div><div class="ttdef"><b>Definition</b> <a href="a00341_source.html#l00134">dev_iso_voltage_sense.h:134</a></div></div>
-<div class="ttc" id="aa00677_html_afd19992b906019d496441160a589d8e6"><div class="ttname"><a href="a00677.html#afd19992b906019d496441160a589d8e6">iso_voltage::voltage_raw</a></div><div class="ttdeci">uint16_t voltage_raw</div><div class="ttdoc">voltage value raw</div><div class="ttdef"><b>Definition</b> <a href="a00341_source.html#l00133">dev_iso_voltage_sense.h:133</a></div></div>
-<div class="ttc" id="aa00677_html_afef96784db1d5e946b11ee6a13b1b1c0"><div class="ttname"><a href="a00677.html#afef96784db1d5e946b11ee6a13b1b1c0">iso_voltage::error_flag</a></div><div class="ttdeci">uint8_t error_flag</div><div class="ttdoc">error_flag</div><div class="ttdef"><b>Definition</b> <a href="a00341_source.html#l00129">dev_iso_voltage_sense.h:129</a></div></div>
-<div class="ttc" id="aa00769_html"><div class="ttname"><a href="a00769.html">dev_iso_voltage_data_t</a></div><div class="ttdoc">a custom data type for isolated voltage measurement</div></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="a00341.html#af50bb2f71c69952dc0a1b0a5bf943d60">   65</a></span><span class="preprocessor">#define BLINK_100ms_INTERVAL       1 </span><span class="comment">//blink is ticked from 100ms Task. Adjust if faster Tick rate is used</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="a00341.html#a6b6174d3dbb46d28d4ad20ad4c762e89">   66</a></span><span class="preprocessor">#define BLINK_SLOW_INTERVAL        (BLINK_100ms_INTERVAL*20) </span><span class="comment">//( *100ms)    2 sec</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="a00341.html#aa79ae5803dc1df4832d901732c227b6b">   67</a></span><span class="preprocessor">#define BLINK_FAST_INTERVAL        (BLINK_100ms_INTERVAL*2)  </span><span class="comment">//             0.5</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="a00341.html#ae2ec6c3e936dcaccf4bc733c26bbc32b">   68</a></span><span class="preprocessor">#define BLINK_INTERVAL             (BLINK_100ms_INTERVAL*5)  </span><span class="comment">//             0.5                      </span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+ <span class="comment">// end of dev-led-enums-public</span><div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00530.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00530.html#ga6fc0416c8ff212d938628b290a18a390">Dev_LED_On</a>(uint8_t led_id);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00530.html#ga645c25dba273dcf25dc202d31f441154">Dev_LED_Off</a>(uint8_t led_id);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00530.html#gacf12fda3f7d99f77a0e68b846273984f">Dev_LED_Toggle</a>(uint8_t led_id);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00530.html#gaf44b310330b9dbf4597275fdade9b5f7">Dev_LED_Blink</a>(uint8_t led_id);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00530.html#ga371fdb6009ec0f15b00e75ad4ef4d177">Dev_LED_Blink_Slow</a>(uint8_t led_id);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00530.html#ga9a710b93c9efd76f1c850ee4415f736c">Dev_LED_Blink_Fast</a>(uint8_t led_id);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">//void Dev_LED_Blink_Iter(uint8_t led_id, uint8_t count);</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00530.html#gad26b3effecb0675aad3bcba8993a0bb2">Dev_LED_Task_100ms</a>();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_LED_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="ttc" id="aa00530_html_ga2d2db02502e7b576a9149d114f303daa"><div class="ttname"><a href="a00530.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a></div><div class="ttdeci">void Dev_LED_Initialize(void)</div><div class="ttdoc">This function contains the LED initialization.</div><div class="ttdef"><b>Definition</b> <a href="a00338_source.html#l00078">dev_led.c:78</a></div></div>
+<div class="ttc" id="aa00530_html_ga371fdb6009ec0f15b00e75ad4ef4d177"><div class="ttname"><a href="a00530.html#ga371fdb6009ec0f15b00e75ad4ef4d177">Dev_LED_Blink_Slow</a></div><div class="ttdeci">void Dev_LED_Blink_Slow(uint8_t led_id)</div><div class="ttdoc">Set the LED in SLOW blinking mode.</div><div class="ttdef"><b>Definition</b> <a href="a00338_source.html#l00192">dev_led.c:192</a></div></div>
+<div class="ttc" id="aa00530_html_ga645c25dba273dcf25dc202d31f441154"><div class="ttname"><a href="a00530.html#ga645c25dba273dcf25dc202d31f441154">Dev_LED_Off</a></div><div class="ttdeci">void Dev_LED_Off(uint8_t led_id)</div><div class="ttdoc">Switch off the LED.</div><div class="ttdef"><b>Definition</b> <a href="a00338_source.html#l00118">dev_led.c:118</a></div></div>
+<div class="ttc" id="aa00530_html_ga6fc0416c8ff212d938628b290a18a390"><div class="ttname"><a href="a00530.html#ga6fc0416c8ff212d938628b290a18a390">Dev_LED_On</a></div><div class="ttdeci">void Dev_LED_On(uint8_t led_id)</div><div class="ttdoc">Switch on the LED.</div><div class="ttdef"><b>Definition</b> <a href="a00338_source.html#l00094">dev_led.c:94</a></div></div>
+<div class="ttc" id="aa00530_html_ga9a710b93c9efd76f1c850ee4415f736c"><div class="ttname"><a href="a00530.html#ga9a710b93c9efd76f1c850ee4415f736c">Dev_LED_Blink_Fast</a></div><div class="ttdeci">void Dev_LED_Blink_Fast(uint8_t led_id)</div><div class="ttdoc">Set the LED in FAST blinking mode.</div><div class="ttdef"><b>Definition</b> <a href="a00338_source.html#l00207">dev_led.c:207</a></div></div>
+<div class="ttc" id="aa00530_html_gacf12fda3f7d99f77a0e68b846273984f"><div class="ttname"><a href="a00530.html#gacf12fda3f7d99f77a0e68b846273984f">Dev_LED_Toggle</a></div><div class="ttdeci">void Dev_LED_Toggle(uint8_t led_id)</div><div class="ttdoc">Toggles the LED state.</div><div class="ttdef"><b>Definition</b> <a href="a00338_source.html#l00142">dev_led.c:142</a></div></div>
+<div class="ttc" id="aa00530_html_gad26b3effecb0675aad3bcba8993a0bb2"><div class="ttname"><a href="a00530.html#gad26b3effecb0675aad3bcba8993a0bb2">Dev_LED_Task_100ms</a></div><div class="ttdeci">void Dev_LED_Task_100ms()</div><div class="ttdoc">This function needs to be called every 100ms and contains the code to update the status of the LEDs.</div><div class="ttdef"><b>Definition</b> <a href="a00338_source.html#l00224">dev_led.c:224</a></div></div>
+<div class="ttc" id="aa00530_html_gaf44b310330b9dbf4597275fdade9b5f7"><div class="ttname"><a href="a00530.html#gaf44b310330b9dbf4597275fdade9b5f7">Dev_LED_Blink</a></div><div class="ttdeci">void Dev_LED_Blink(uint8_t led_id)</div><div class="ttdoc">Set the LED in blinking mode.</div><div class="ttdef"><b>Definition</b> <a href="a00338_source.html#l00161">dev_led.c:161</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Communication Layer</title>
+<title>Dual Active Bridge Development Board: PBV Data DAB App</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,29 +137,549 @@ $(document).ready(function(){initNavTree('a00525.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a>  </div>
-  <div class="headertitle"><div class="title">Communication Layer</div></div>
+<a href="#files">Files</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">PBV Data DAB App<div class="ingroups"><a class="el" href="a00519.html">Communication Layer</a> &raquo; <a class="el" href="a00520.html">Power Board Visualizer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The communication layer establish the data to be displayed and the communication connection between the device and the application board to display in the GUI.  
+<p>This is the main application file.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Communication Layer:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for PBV Data DAB App:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00525.svg" width="363" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00525.svg" width="352" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:a00526" id="r_a00526"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html">Power Board Visualizer</a></td></tr>
-<tr class="memdesc:a00526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver for Power Board Visualizer. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:a00284" id="r_a00284"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00284.html">PBV_DAB_frame_map.h</a></td></tr>
+<tr class="memdesc:a00284"><td class="mdescLeft">&#160;</td><td class="mdescRight">app PBV DAB Frame map file Example <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga00307bed276aca52423f1e10365e3334" id="r_ga00307bed276aca52423f1e10365e3334"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga00307bed276aca52423f1e10365e3334">App_PBV_DAB_Init</a> ()</td></tr>
+<tr class="memdesc:ga00307bed276aca52423f1e10365e3334"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the local pbv objects. these objects are then passed on to the app_PBV_init function to initialize the CAN/UART objects.  <br /></td></tr>
+<tr class="separator:ga00307bed276aca52423f1e10365e3334"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4de477d51ea04cdcfcb1e3eb3ef0053a" id="r_ga4de477d51ea04cdcfcb1e3eb3ef0053a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga4de477d51ea04cdcfcb1e3eb3ef0053a">App_PBV_DAB_Task_10ms</a> (void)</td></tr>
+<tr class="memdesc:ga4de477d51ea04cdcfcb1e3eb3ef0053a"><td class="mdescLeft">&#160;</td><td class="mdescRight">10ms PBV task to be execution  <br /></td></tr>
+<tr class="separator:ga4de477d51ea04cdcfcb1e3eb3ef0053a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad255673713bb77bc36791875207a4393" id="r_gad255673713bb77bc36791875207a4393"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#gad255673713bb77bc36791875207a4393">App_PBV_DAB_Task_1s</a> (void)</td></tr>
+<tr class="memdesc:gad255673713bb77bc36791875207a4393"><td class="mdescLeft">&#160;</td><td class="mdescRight">1 second PBV task to be execution  <br /></td></tr>
+<tr class="separator:gad255673713bb77bc36791875207a4393"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga79ec24216fcdceeda0313df0193990ee" id="r_ga79ec24216fcdceeda0313df0193990ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00647.html">PBV_Datatype_TX_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga79ec24216fcdceeda0313df0193990ee">App_PB_DAB_Get_TX_ASCII_ptr</a> (void)</td></tr>
+<tr class="memdesc:ga79ec24216fcdceeda0313df0193990ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to send log messages from other files.  <br /></td></tr>
+<tr class="separator:ga79ec24216fcdceeda0313df0193990ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2b5ec7aa4bf88b00eaa69cfeba83160" id="r_gaf2b5ec7aa4bf88b00eaa69cfeba83160"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#gaf2b5ec7aa4bf88b00eaa69cfeba83160">App_PBV_DAB_Process_Rx_Data</a> (uint16_t *data)</td></tr>
+<tr class="memdesc:gaf2b5ec7aa4bf88b00eaa69cfeba83160"><td class="mdescLeft">&#160;</td><td class="mdescRight">process received data  <br /></td></tr>
+<tr class="separator:gaf2b5ec7aa4bf88b00eaa69cfeba83160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae7f76d2864d9f99538052487fb4c9570" id="r_gae7f76d2864d9f99538052487fb4c9570"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#gae7f76d2864d9f99538052487fb4c9570">protocolID</a> (uint16_t protocol_ID, uint16_t length, uint8_t *data)</td></tr>
+<tr class="memdesc:gae7f76d2864d9f99538052487fb4c9570"><td class="mdescLeft">&#160;</td><td class="mdescRight">default callback  <br /></td></tr>
+<tr class="separator:gae7f76d2864d9f99538052487fb4c9570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6cf2376a2bcc430349e1744fc506dbdf" id="r_ga6cf2376a2bcc430349e1744fc506dbdf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga6cf2376a2bcc430349e1744fc506dbdf">FIRMWARE_PROTOCOL_ID</a>&#160;&#160;&#160;0x1000</td></tr>
+<tr class="memdesc:ga6cf2376a2bcc430349e1744fc506dbdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Firmware ID.  <br /></td></tr>
+<tr class="separator:ga6cf2376a2bcc430349e1744fc506dbdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga75af25c76e9ef3e1ba4bc883a5f6d4f5" id="r_ga75af25c76e9ef3e1ba4bc883a5f6d4f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga75af25c76e9ef3e1ba4bc883a5f6d4f5">PBV_TX_PROTOCOL_ID</a>&#160;&#160;&#160;0x404</td></tr>
+<tr class="memdesc:ga75af25c76e9ef3e1ba4bc883a5f6d4f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID on which data is transmitted by dsPIC33.  <br /></td></tr>
+<tr class="separator:ga75af25c76e9ef3e1ba4bc883a5f6d4f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1e8299e4f0d398aa254b25b863a6d47b" id="r_ga1e8299e4f0d398aa254b25b863a6d47b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga1e8299e4f0d398aa254b25b863a6d47b">PBV_LOG_ID</a>&#160;&#160;&#160;0x300</td></tr>
+<tr class="memdesc:ga1e8299e4f0d398aa254b25b863a6d47b"><td class="mdescLeft">&#160;</td><td class="mdescRight">ID on which log data is sent.  <br /></td></tr>
+<tr class="separator:ga1e8299e4f0d398aa254b25b863a6d47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1b7b386520b21da3729e15cd26207365" id="r_ga1b7b386520b21da3729e15cd26207365"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga1b7b386520b21da3729e15cd26207365">PBV_CMD_ID_DAB_ON_REV</a>&#160;&#160;&#160;0x5502</td></tr>
+<tr class="memdesc:ga1b7b386520b21da3729e15cd26207365"><td class="mdescLeft">&#160;</td><td class="mdescRight">turn DAB on - REVERSED discharge mode  <br /></td></tr>
+<tr class="separator:ga1b7b386520b21da3729e15cd26207365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga62fdc237d6b3d6aa2c0c25b6ecb00d2d" id="r_ga62fdc237d6b3d6aa2c0c25b6ecb00d2d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga62fdc237d6b3d6aa2c0c25b6ecb00d2d">PBV_CMD_ID_DAB_ON</a>&#160;&#160;&#160;0x5501</td></tr>
+<tr class="memdesc:ga62fdc237d6b3d6aa2c0c25b6ecb00d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">turn DAB on  <br /></td></tr>
+<tr class="separator:ga62fdc237d6b3d6aa2c0c25b6ecb00d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa818c5afef2b3e33c5de712535d2a0b" id="r_gaaa818c5afef2b3e33c5de712535d2a0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#gaaa818c5afef2b3e33c5de712535d2a0b">PBV_CMD_ID_DAB_OFF</a>&#160;&#160;&#160;0x5500</td></tr>
+<tr class="memdesc:gaaa818c5afef2b3e33c5de712535d2a0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">turn DAB off  <br /></td></tr>
+<tr class="separator:gaaa818c5afef2b3e33c5de712535d2a0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacc02c51548e170216482c9ec63095cbd" id="r_gacc02c51548e170216482c9ec63095cbd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#gacc02c51548e170216482c9ec63095cbd">PBV_CMD_ID_FREQ_CHANGE</a>&#160;&#160;&#160;0xBBBB</td></tr>
+<tr class="memdesc:gacc02c51548e170216482c9ec63095cbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">change DAB switching frequency  <br /></td></tr>
+<tr class="separator:gacc02c51548e170216482c9ec63095cbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1a16e205c5cdb5eef74680a430fbf26f" id="r_ga1a16e205c5cdb5eef74680a430fbf26f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga1a16e205c5cdb5eef74680a430fbf26f">PBV_CMD_ID_FAN_SPEED</a>&#160;&#160;&#160;0xCCCC</td></tr>
+<tr class="memdesc:ga1a16e205c5cdb5eef74680a430fbf26f"><td class="mdescLeft">&#160;</td><td class="mdescRight">set fan speed  <br /></td></tr>
+<tr class="separator:ga1a16e205c5cdb5eef74680a430fbf26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6b94edba8b69d6e4e75d16515192decf" id="r_ga6b94edba8b69d6e4e75d16515192decf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga6b94edba8b69d6e4e75d16515192decf">PBV_CMD_ID_VLOOPREV_REF_SET</a>&#160;&#160;&#160;0xDDDC</td></tr>
+<tr class="memdesc:ga6b94edba8b69d6e4e75d16515192decf"><td class="mdescLeft">&#160;</td><td class="mdescRight">set voltage loop reference reverse mode  <br /></td></tr>
+<tr class="separator:ga6b94edba8b69d6e4e75d16515192decf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5ba560edfe0a5539560dda1d9b10e8e" id="r_gae5ba560edfe0a5539560dda1d9b10e8e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#gae5ba560edfe0a5539560dda1d9b10e8e">PBV_CMD_ID_ILOOP_REF_SET</a>&#160;&#160;&#160;0xDDDD</td></tr>
+<tr class="memdesc:gae5ba560edfe0a5539560dda1d9b10e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">set current loop reference  <br /></td></tr>
+<tr class="separator:gae5ba560edfe0a5539560dda1d9b10e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9edafe7db394b4dad8369cba7e2b50ce" id="r_ga9edafe7db394b4dad8369cba7e2b50ce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga9edafe7db394b4dad8369cba7e2b50ce">PBV_CMD_ID_VLOOP_REF_SET</a>&#160;&#160;&#160;0xDDDE</td></tr>
+<tr class="memdesc:ga9edafe7db394b4dad8369cba7e2b50ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">set voltage loop reference  <br /></td></tr>
+<tr class="separator:ga9edafe7db394b4dad8369cba7e2b50ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1d4818470bcd6185d9298b1f57efa854" id="r_ga1d4818470bcd6185d9298b1f57efa854"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga1d4818470bcd6185d9298b1f57efa854">PBV_CMD_ID_PLOOP_REF_SET</a>&#160;&#160;&#160;0xDDDF</td></tr>
+<tr class="memdesc:ga1d4818470bcd6185d9298b1f57efa854"><td class="mdescLeft">&#160;</td><td class="mdescRight">set voltage loop reference  <br /></td></tr>
+<tr class="separator:ga1d4818470bcd6185d9298b1f57efa854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga43cb2ce1ccb1f3605b1f476a803cf899" id="r_ga43cb2ce1ccb1f3605b1f476a803cf899"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#ga43cb2ce1ccb1f3605b1f476a803cf899">PBV_CMD_ID_PHASE_CHANGE</a>&#160;&#160;&#160;0xEE01</td></tr>
+<tr class="memdesc:ga43cb2ce1ccb1f3605b1f476a803cf899"><td class="mdescLeft">&#160;</td><td class="mdescRight">set control phase  <br /></td></tr>
+<tr class="separator:ga43cb2ce1ccb1f3605b1f476a803cf899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa884de9b9e6ecfdfd1b7e184de4f7c7a" id="r_gaa884de9b9e6ecfdfd1b7e184de4f7c7a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00525.html#gaa884de9b9e6ecfdfd1b7e184de4f7c7a">PBV_CMD_ID_P2S_PHASE_TARGET</a>&#160;&#160;&#160;0xEE02</td></tr>
+<tr class="memdesc:gaa884de9b9e6ecfdfd1b7e184de4f7c7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">set control phase  <br /></td></tr>
+<tr class="separator:gaa884de9b9e6ecfdfd1b7e184de4f7c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>The communication layer facilitates the display of data and the connection between a device and an application board to show metrics like voltage, current, and energy consumption in the GUI. It employs tools or software to graphically represent power distribution and consumption, offering real-time monitoring, data logging, and analytics to help users manage the power supply effectively. </p>
+<p>This is the main application file. Here there are tasks that run at different frequencies checking for any received messages and triggering sending of messages. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga6cf2376a2bcc430349e1744fc506dbdf" name="ga6cf2376a2bcc430349e1744fc506dbdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6cf2376a2bcc430349e1744fc506dbdf">&#9670;&#160;</a></span>FIRMWARE_PROTOCOL_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FIRMWARE_PROTOCOL_ID&#160;&#160;&#160;0x1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00036">36</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="gaaa818c5afef2b3e33c5de712535d2a0b" name="gaaa818c5afef2b3e33c5de712535d2a0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaa818c5afef2b3e33c5de712535d2a0b">&#9670;&#160;</a></span>PBV_CMD_ID_DAB_OFF</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_CMD_ID_DAB_OFF&#160;&#160;&#160;0x5500</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00044">44</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="ga62fdc237d6b3d6aa2c0c25b6ecb00d2d" name="ga62fdc237d6b3d6aa2c0c25b6ecb00d2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga62fdc237d6b3d6aa2c0c25b6ecb00d2d">&#9670;&#160;</a></span>PBV_CMD_ID_DAB_ON</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_CMD_ID_DAB_ON&#160;&#160;&#160;0x5501</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00043">43</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="ga1b7b386520b21da3729e15cd26207365" name="ga1b7b386520b21da3729e15cd26207365"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1b7b386520b21da3729e15cd26207365">&#9670;&#160;</a></span>PBV_CMD_ID_DAB_ON_REV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_CMD_ID_DAB_ON_REV&#160;&#160;&#160;0x5502</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00042">42</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="ga1a16e205c5cdb5eef74680a430fbf26f" name="ga1a16e205c5cdb5eef74680a430fbf26f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1a16e205c5cdb5eef74680a430fbf26f">&#9670;&#160;</a></span>PBV_CMD_ID_FAN_SPEED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_CMD_ID_FAN_SPEED&#160;&#160;&#160;0xCCCC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00046">46</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="gacc02c51548e170216482c9ec63095cbd" name="gacc02c51548e170216482c9ec63095cbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacc02c51548e170216482c9ec63095cbd">&#9670;&#160;</a></span>PBV_CMD_ID_FREQ_CHANGE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_CMD_ID_FREQ_CHANGE&#160;&#160;&#160;0xBBBB</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00045">45</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="gae5ba560edfe0a5539560dda1d9b10e8e" name="gae5ba560edfe0a5539560dda1d9b10e8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae5ba560edfe0a5539560dda1d9b10e8e">&#9670;&#160;</a></span>PBV_CMD_ID_ILOOP_REF_SET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_CMD_ID_ILOOP_REF_SET&#160;&#160;&#160;0xDDDD</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00049">49</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="gaa884de9b9e6ecfdfd1b7e184de4f7c7a" name="gaa884de9b9e6ecfdfd1b7e184de4f7c7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa884de9b9e6ecfdfd1b7e184de4f7c7a">&#9670;&#160;</a></span>PBV_CMD_ID_P2S_PHASE_TARGET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_CMD_ID_P2S_PHASE_TARGET&#160;&#160;&#160;0xEE02</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00054">54</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="ga43cb2ce1ccb1f3605b1f476a803cf899" name="ga43cb2ce1ccb1f3605b1f476a803cf899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga43cb2ce1ccb1f3605b1f476a803cf899">&#9670;&#160;</a></span>PBV_CMD_ID_PHASE_CHANGE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_CMD_ID_PHASE_CHANGE&#160;&#160;&#160;0xEE01</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00053">53</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="ga1d4818470bcd6185d9298b1f57efa854" name="ga1d4818470bcd6185d9298b1f57efa854"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1d4818470bcd6185d9298b1f57efa854">&#9670;&#160;</a></span>PBV_CMD_ID_PLOOP_REF_SET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_CMD_ID_PLOOP_REF_SET&#160;&#160;&#160;0xDDDF</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00051">51</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="ga9edafe7db394b4dad8369cba7e2b50ce" name="ga9edafe7db394b4dad8369cba7e2b50ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9edafe7db394b4dad8369cba7e2b50ce">&#9670;&#160;</a></span>PBV_CMD_ID_VLOOP_REF_SET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_CMD_ID_VLOOP_REF_SET&#160;&#160;&#160;0xDDDE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00050">50</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="ga6b94edba8b69d6e4e75d16515192decf" name="ga6b94edba8b69d6e4e75d16515192decf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6b94edba8b69d6e4e75d16515192decf">&#9670;&#160;</a></span>PBV_CMD_ID_VLOOPREV_REF_SET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_CMD_ID_VLOOPREV_REF_SET&#160;&#160;&#160;0xDDDC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00048">48</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="ga1e8299e4f0d398aa254b25b863a6d47b" name="ga1e8299e4f0d398aa254b25b863a6d47b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1e8299e4f0d398aa254b25b863a6d47b">&#9670;&#160;</a></span>PBV_LOG_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_LOG_ID&#160;&#160;&#160;0x300</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00038">38</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="ga75af25c76e9ef3e1ba4bc883a5f6d4f5" name="ga75af25c76e9ef3e1ba4bc883a5f6d4f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga75af25c76e9ef3e1ba4bc883a5f6d4f5">&#9670;&#160;</a></span>PBV_TX_PROTOCOL_ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_TX_PROTOCOL_ID&#160;&#160;&#160;0x404</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00037">37</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga79ec24216fcdceeda0313df0193990ee" name="ga79ec24216fcdceeda0313df0193990ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga79ec24216fcdceeda0313df0193990ee">&#9670;&#160;</a></span>App_PB_DAB_Get_TX_ASCII_ptr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00647.html">PBV_Datatype_TX_t</a> * App_PB_DAB_Get_TX_ASCII_ptr </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="a00647.html">PBV_Datatype_TX_t</a> *</dd></dl>
+<p>This function can be used to send log messages from other files. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00208">208</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+
+</div>
+</div>
+<a id="ga00307bed276aca52423f1e10365e3334" name="ga00307bed276aca52423f1e10365e3334"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga00307bed276aca52423f1e10365e3334">&#9670;&#160;</a></span>App_PBV_DAB_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App_PBV_DAB_Init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Public Functions Definitions</p>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function initializes the local pbv objects. these objects are then passed on to the app_PBV_init function to initialize the CAN/UART objects. RX object just needs state change. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00099">99</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00525_ga00307bed276aca52423f1e10365e3334_cgraph.svg" width="298" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gaf2b5ec7aa4bf88b00eaa69cfeba83160" name="gaf2b5ec7aa4bf88b00eaa69cfeba83160"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf2b5ec7aa4bf88b00eaa69cfeba83160">&#9670;&#160;</a></span>App_PBV_DAB_Process_Rx_Data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App_PBV_DAB_Process_Rx_Data </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>pointer to received data</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function transfer the data coming from the Power Board Visualizer to the MCU to process the action taken by the user in the Dual active Bridge Board. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00271">271</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00525_gaf2b5ec7aa4bf88b00eaa69cfeba83160_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00525_gaf2b5ec7aa4bf88b00eaa69cfeba83160_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ga4de477d51ea04cdcfcb1e3eb3ef0053a" name="ga4de477d51ea04cdcfcb1e3eb3ef0053a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4de477d51ea04cdcfcb1e3eb3ef0053a">&#9670;&#160;</a></span>App_PBV_DAB_Task_10ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App_PBV_DAB_Task_10ms </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This is high frequency task to simulate sending of high frequency numeric data. Also to check if there are any messages received, must be done at a high enough rate to ensure that the messages are not dropped. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00125">125</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00525_ga4de477d51ea04cdcfcb1e3eb3ef0053a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00525_ga4de477d51ea04cdcfcb1e3eb3ef0053a_icgraph.svg" width="340" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gad255673713bb77bc36791875207a4393" name="gad255673713bb77bc36791875207a4393"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad255673713bb77bc36791875207a4393">&#9670;&#160;</a></span>App_PBV_DAB_Task_1s()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App_PBV_DAB_Task_1s </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">void</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This is a slow task simulating the low speed sending of ascii data it sends the firmware id, and the switches to the log id. </p>
+<p>&lt; reinit to new id</p>
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00154">154</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00525_gad255673713bb77bc36791875207a4393_cgraph.svg" width="416" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00525_gad255673713bb77bc36791875207a4393_icgraph.svg" width="304" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gae7f76d2864d9f99538052487fb4c9570" name="gae7f76d2864d9f99538052487fb4c9570"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae7f76d2864d9f99538052487fb4c9570">&#9670;&#160;</a></span>protocolID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void protocolID </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>protocol_ID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">protocal_ID</td><td>indicates the protocol ID for the PBV </td></tr>
+    <tr><td class="paramname">length</td><td>length of the data </td></tr>
+    <tr><td class="paramname">data</td><td>pointer to the data</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function defines the PBV protocol ID for specific data received. </p><dl class="section note"><dt>Note</dt><dd>This function defines the PBV protocol ID for specific data received. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00281_source.html#l00369">369</a> of file <a class="el" href="a00281_source.html">PBV_dab_frame_map.c</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00525_gae7f76d2864d9f99538052487fb4c9570_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00525_gae7f76d2864d9f99538052487fb4c9570_icgraph.svg" width="468" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

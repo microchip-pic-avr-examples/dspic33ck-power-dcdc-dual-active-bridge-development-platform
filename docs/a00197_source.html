@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/interrupt_types.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/reset.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('a00197_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">interrupt_types.h</div></div>
+  <div class="headertitle"><div class="title">reset.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
@@ -161,23 +161,23 @@ $(document).ready(function(){initNavTree('a00197_source.html',''); initResizable
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    THIS SOFTWARE.</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#ifndef INTERRUPT_TYPES_H</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define INTERRUPT_TYPES_H</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#ifndef RESET_H</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define    RESET_H</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">enum</span> INTERRUPT_PRIORITY</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    INTERRUPT_PRIORITY_1 = 1,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    INTERRUPT_PRIORITY_2 = 2,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    INTERRUPT_PRIORITY_3 = 3,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    INTERRUPT_PRIORITY_4 = 4,</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    INTERRUPT_PRIORITY_5 = 5,</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    INTERRUPT_PRIORITY_6 = 6,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    INTERRUPT_PRIORITY_7 = 7,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    INTERRUPT_MAX_PRIORITY = 7</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &quot;<a class="code" href="a00200.html">reset_types.h</a>&quot;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>uint16_t <a class="code hl_function" href="a00562.html#gaa218141dacf762880dc162a2f499657c">RESET_CauseGet</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="a00562.html#ga40e7771ae89212f587dfacec87076438">   63</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00562.html#ga40e7771ae89212f587dfacec87076438">RESET_CauseHandler</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00562.html#gab767709d3fa8a3900d01d4bd65158049">RESET_CauseClearAll</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#endif    </span><span class="comment">/* RESET_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aa00200_html"><div class="ttname"><a href="a00200.html">reset_types.h</a></div><div class="ttdoc">This is the generated driver types header file for the RESET driver.</div></div>
+<div class="ttc" id="aa00562_html_ga40e7771ae89212f587dfacec87076438"><div class="ttname"><a href="a00562.html#ga40e7771ae89212f587dfacec87076438">RESET_CauseHandler</a></div><div class="ttdeci">void RESET_CauseHandler(void)</div><div class="ttdoc">It handles the reset cause by clearing the cause register values. This is a weak attribute function....</div></div>
+<div class="ttc" id="aa00562_html_gaa218141dacf762880dc162a2f499657c"><div class="ttname"><a href="a00562.html#gaa218141dacf762880dc162a2f499657c">RESET_CauseGet</a></div><div class="ttdeci">uint16_t RESET_CauseGet(void)</div><div class="ttdoc">Returns the cause of previous reset.</div><div class="ttdef"><b>Definition</b> <a href="a00221_source.html#l00158">reset.c:158</a></div></div>
+<div class="ttc" id="aa00562_html_gab767709d3fa8a3900d01d4bd65158049"><div class="ttname"><a href="a00562.html#gab767709d3fa8a3900d01d4bd65158049">RESET_CauseClearAll</a></div><div class="ttdeci">void RESET_CauseClearAll(void)</div><div class="ttdoc">Clears the Reset Cause register.</div><div class="ttdef"><b>Definition</b> <a href="a00221_source.html#l00198">reset.c:198</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

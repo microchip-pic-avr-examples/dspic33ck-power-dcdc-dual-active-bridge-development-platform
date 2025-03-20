@@ -1,47 +1,15 @@
 var a00529 =
 [
-    [ "PBV_Datatype_TX_t", "a00653.html", [
-      [ "Data_Buffer", "a00653.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50", null ],
-      [ "Length", "a00653.html#a930e5a4d8414c0427fe5c636062579db", null ],
-      [ "PBV_Message_State", "a00653.html#a91c81f1c5a476778f2b9faf3f36cfd7e", null ],
-      [ "PBV_Protcol_ID", "a00653.html#a0825cb65b385f89880718e0654f07fb6", null ],
-      [ "PBV_Signal_Ascii", "a00653.html#a885bf5a8fec6c0b6af1dfc8d6a78c368", null ]
-    ] ],
-    [ "PBV_Datatype_RX_t", "a00657.html", [
-      [ "Callback_Function", "a00657.html#ab7942a7d2614f936c173cc0239fc9e07", null ],
-      [ "Data_Buffer", "a00657.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50", null ],
-      [ "Length", "a00657.html#a930e5a4d8414c0427fe5c636062579db", null ],
-      [ "PBV_Message_State", "a00657.html#a30afce7d5f8aa2a94029446cfe2f4a36", null ],
-      [ "PBV_Protcol_ID", "a00657.html#a0825cb65b385f89880718e0654f07fb6", null ]
-    ] ],
-    [ "PBV_MESSAGE_RX_STATE", "a00529.html#ga26db6be2cdb24ea5b5c7c70d0a6c3b25", [
-      [ "PBV_MESSAGE_RECEIVED", "a00529.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25ac36f583a85f8a64d2acbd4d9b448da91", null ],
-      [ "PBV_MESSAGE_READY_TO_RECEIVE", "a00529.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25a194a96a562c6685141b95b9f70100945", null ],
-      [ "PBV_STATE_RECEIVING", "a00529.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25aaa64e0649433884fd0bde3a67db72c8e", null ],
-      [ "PBV_MESSAGE_RX_ERROR", "a00529.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25aec84c3a41f51e515332f122bbc982c83", null ]
-    ] ],
-    [ "PBV_MESSAGE_TX_STATE", "a00529.html#gad6a8f9f019d4804bbaa6370fa9dc74e4", [
-      [ "PBV_MESSAGE_TRANSMITTED", "a00529.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4a332681d4fa0e1d061bbbc4c11855d073", null ],
-      [ "PBV_MESSAGE_INIT", "a00529.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4a4e5a244a7ef71a86c1aeea8b2205c2df", null ],
-      [ "PBV_MESSAGE_TRANSMIT_START", "a00529.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4aaefca80eb0e1efe7661e9651e60eb1cf", null ],
-      [ "PBV_MESSAGE_TRANSMITTING", "a00529.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4ab499d51ce9c035cda510f8108209d78f", null ],
-      [ "PBV_MESSAGE_TX_ERROR", "a00529.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4a4f1a8d1d39e171ab526f52413e3f6e5c", null ]
-    ] ],
-    [ "PBV_SIGNAL_ASCII_MODE", "a00529.html#gabec937769d77285d1b9cc8cd5cae957b", [
-      [ "PBV_SIGNAL_MODE", "a00529.html#ggabec937769d77285d1b9cc8cd5cae957ba7872ad957b7cdf2a5e1c874a31235dbf", null ],
-      [ "PBV_ASCII_MODE", "a00529.html#ggabec937769d77285d1b9cc8cd5cae957ba709216fec5fab27b5647077bef347b82", null ]
-    ] ],
-    [ "App_PBV_Init", "a00529.html#ga240a50c9b64de11e7ecb765451da38a1", null ],
-    [ "App_PBV_Re_Init", "a00529.html#gab70a27b3aad7113c3983e82413ca5e4f", null ],
-    [ "App_PBV_Task", "a00529.html#ga779af4e1b7fd3111ccb7ade537d98efb", null ],
-    [ "App_PBV_Task_100us", "a00529.html#ga148dc2088cd891c3b3fbf77229504f3f", null ],
-    [ "App_PBV_Task_10ms", "a00529.html#ga29c25924bdc76c615288681bf1b17893", null ],
-    [ "App_Read_Received_From_PBV", "a00529.html#ga7b078af24577006b714fabf52a93c4f1", null ],
-    [ "App_Receive_From_PBV", "a00529.html#gaf88c754c75b6057cf183685d282a2fe6", null ],
-    [ "App_Send_To_PBV", "a00529.html#ga39ed8d2ee366abaf4aa95a424f9108e3", null ],
-    [ "PBV_Change_from_Eight_to_Sixteen", "a00529.html#gaf92cac9156ceacf492c28455ba3c75f5", null ],
-    [ "PBV_Change_from_Sixteen_to_Eight", "a00529.html#ga1e6458a65d5d665835759cfc42280c1b", null ],
-    [ "appPbvFuncs", "a00529.html#ga40c15cce2e781ba3b9268150395d466c", null ],
-    [ "appPbvToSystemPtr", "a00529.html#ga5acff66c0316c83c9e40c586b573cdcb", null ],
-    [ "appSystemToPbvPtr", "a00529.html#ga7b84a5cf46437e02c28cbf7093de26f4", null ]
+    [ "dev_fan.c", "a00326.html", null ],
+    [ "dev_fan.h", "a00329.html", null ],
+    [ "Calculate_Speed", "a00529.html#ga66c5db181798514534d7f97b622ca35e", null ],
+    [ "Convert_From_Percentage", "a00529.html#ga3ba0ef09cbd1274a9c325fc04cab411d", null ],
+    [ "Dev_Fan_Initialize", "a00529.html#gad4274efc956bcca058565b186c2fd1a0", null ],
+    [ "Dev_Fan_Set_Override", "a00529.html#gabf5c734c9834b070c4adf1af69e9f048", null ],
+    [ "Dev_Fan_Set_Speed", "a00529.html#ga5cfd61659ae6b17ad25e51bfc211723b", null ],
+    [ "Dev_Fan_Task_100ms", "a00529.html#ga1bd7dce99469a41bbb705d939ea512ad", null ],
+    [ "Dev_Fan_Task_1s", "a00529.html#gafd7dde7baca2e1dd3a745bf5f8258da7", null ],
+    [ "Override_Speed", "a00529.html#ga0d2b426f7411623a821415f02956aac8", null ],
+    [ "Update_Speed", "a00529.html#gad7e38e334c2209a2a296bf3f573fed78", null ],
+    [ "devFanData", "a00529.html#ga52debd393de750722aca541b24b1bc6d", null ]
 ];
