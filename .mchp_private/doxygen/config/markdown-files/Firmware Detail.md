@@ -60,9 +60,9 @@ The project files are organized as follows:
 The firmware block diagram illustrates the use of the dspic33C for a Dual Active Bridge converter. The following provides a detailed explanation of the firmware development for this application.
 
 ---
-## Modes of Operation
+## DAB Output Voltage Selection
 
-The DAB board operates in two modes, capable of outputting either 400V or 800V, depending on the user-specified settings. These modes are controlled by two defines in the config/config.h file:
+The DAB board operates in two levels, capable of outputting either 400V or 800V, depending on the user-specified settings. These voltage levels are controlled by two defines in the config/config.h file:
 
     #define DCDC400V_SYSTEM
 
@@ -75,6 +75,50 @@ The 800V battery system operates within a voltage range of approximately 600V (d
 Typically, a single-phase totem pole combined with a DAB DC/DC converter is used for the 400V system (450V input, 300V to 450V output). For the 800V system, a three-phase totem pole combined with a DAB DC/DC converter is recommended (800V input, 600V to 900V output).
 
 When switching between modes, the fault protection thresholds are automatically adjusted to match the selected voltage range.
+
+---
+## Mode of Operation
+The Dual Active Bridge (DAB) application is designed to operate in two distinct modes: forward and reverse. This dual-mode capability allows the system to function bidirectionally, transferring power in both directions. Users can easily switch between these operational modes using the Power Board Visualizer, a tool that provides a graphical interface for managing and configuring the power board settings.
+
+In the figures below, a comparison of forward and reverse operation is shown. Observe the 180° phase difference in the current waveform, which translates to positive or negative active power flow.
+
+<p>
+  <center>
+    <img src="images/dab-forward-waveform.jpg" alt="forward-mode" width="450">
+    <br>
+    DAB Forward Mode waveform
+  </center>
+</p>
+
+<span id="dab-forward-waveform"><a name="dab-forward-waveform"> </a></span>
+
+<p>
+  <center>
+    <img src="images/dab-reverse-waveform.jpg" alt="reverse-mode" width="450">
+    <br>
+    DAB Reverse Mode waveform
+  </center>
+</p>
+
+<span id="dab-reverse-waveform"><a name="dab-reverse-waveform"> </a></span>
+
+When transitioning the mode of operation of the Dual Active Bridge (DAB) from forward to reverse, it is crucial to consider the voltage on the primary side. The isolated voltage sensing circuit, which is responsible for monitoring the primary side voltage, requires a voltage higher than 100V to function reliably. If the primary side voltage falls below this threshold, the circuit may not operate correctly, leading to unreliable performance and inaccurate voltage measurements.
+
+To ensure the isolated voltage sensing circuit operates correctly, it is essential to maintain the primary side voltage above 100V. This voltage level is necessary for the proper powering of the circuit components, including the optocouplers and the analog-to-digital converters (ADCs) used for digitizing the sensed voltages.
+
+Additionally, when initiating the reverse mode operation, a careful ramp-up sequence must be followed. This precaution is necessary to prevent dangerous voltage overshoots, which can occur if the voltage increases too rapidly. 
+
+By adhering to a controlled ramp-up procedure, the system can gradually adjust to the reverse mode, ensuring stable and safe operation. This involves managing the slew rate of the voltage increase to avoid sudden spikes that could result in overshoot. Proper ramp control is critical for maintaining the integrity and safety of the system during mode transitions.
+
+<p>
+  <center>
+    <img src="images/hardware-mode-transition.jpg" alt="hardware-mode-transition" width="800">
+    <br>
+    DAB Block Diagram
+  </center>
+</p>
+
+<span id="hardware-mode-transition"><a name="hardware-mode-transition"> </a></span>
 
 ---
 ## Converter State Machine
@@ -240,6 +284,17 @@ In a cascaded PWM configuration, the first PWM triggers subsequent PWMs in seque
   </center>
 </p>
 
+In the forward mode of the DAB converter, the PWM signals are configured to control the power flow from the primary side to the secondary side. In reverse mode, the power flow is reversed, going from the secondary side back to the primary side. This reversal requires a different configuration of the PWM signals to ensure proper operation. Specifically, for proper control in reverse mode, the complementary outputs of PWM2 and PWM3 need to be swapped. This means that the signal originally output on PWM2H in forward mode should now be output on PWM2L, and vice versa. This swapping ensures that the switching sequence of the transistors is correct for the reverse power flow.
+
+
+<p>
+  <center>
+    <img src="images/dab-pwm-signals.jpg" alt="DAB PWM signals" width="800">
+    <br>
+    PWM signals for Forward and Reverse Mode Operation
+  </center>
+</p>
+
 ---
 ## Power Control Compensator
 In this project, the Microchip [Digital Compensator Design Tool](https://www.microchip.com/en-us/development-tool/dcdt) has been employed for managing control loops. This software utility is specifically designed to aid engineers in the development and optimization of digital compensators for power supply systems. The tool streamlines the design process of digital control loops by offering an intuitive interface for configuring and tuning compensators. 
@@ -271,7 +326,7 @@ In this application, the Voltage loop and Power Loop is executed every 10KHz, wi
 
 ---
 
-&copy; 2024, Microchip Technology Inc.
+&copy; 2025, Microchip Technology Inc.
 
 ---
 
