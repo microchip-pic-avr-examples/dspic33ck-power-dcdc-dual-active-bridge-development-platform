@@ -1,8 +1,13 @@
 var a00729 =
 [
-    [ "AgcFactor", "a00729.html#ad2437ec40aae749bff226d6a65e0b464", null ],
-    [ "Enable", "a00729.html#a3348c072797d519fa8f99e521ab65a69", null ],
-    [ "Feedback", "a00729.html#aa1bd4a14393dc18506716866224cbae8", null ],
-    [ "Output", "a00729.html#a255356ba374a77c95d307ba0bf811554", null ],
-    [ "Reference", "a00729.html#a727f4f7790931ccc89ce7743dbe80b4e", null ]
+    [ "ControlDutyCycle", "a00729.html#a5eb08d6bfe077124da067795181f03a2", null ],
+    [ "ControlPeriod", "a00729.html#a2b3122d0cc562492b079305016344571", null ],
+    [ "ControlPhase", "a00729.html#ab2fe25cd913f397b52515ce1f98d31dc", null ],
+    [ "ControlPhase_P2S_Degreex10", "a00729.html#a2f9a96c90798708142be79f979e0e723", null ],
+    [ "ControlPhase_P2S_Target", "a00729.html#a1b2f921d9eb1d364246e97c1f0d00b99", null ],
+    [ "DeadTimeHigh", "a00729.html#a54a8a0e5503b84ab2643656320c176b4", null ],
+    [ "DeadTimeLow", "a00729.html#aa24ebdbedfb58e84843be95b5138b1ed", null ],
+    [ "LowPowerSlowMode", "a00729.html#aa6105071906dfaff3e2062b6406ceb17", null ],
+    [ "PBVControlPhaseTarget", "a00729.html#afe456845608e185d7666f1e8db9f118e", null ],
+    [ "PBVPeriodTarget", "a00729.html#aa9fe0fb976db533a369cd12c3589765e", null ]
 ];

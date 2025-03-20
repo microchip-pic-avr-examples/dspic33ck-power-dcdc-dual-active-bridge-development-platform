@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: State Machine</title>
+<title>Dual Active Bridge Development Board: Conversion Macros</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,345 +136,74 @@ $(document).ready(function(){initNavTree('a00521.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">State Machine<div class="ingroups"><a class="el" href="a00517.html">Power Control</a></div></div></div>
+  <div class="headertitle"><div class="title">Conversion Macros<div class="ingroups"><a class="el" href="a00532.html">Configuration Layer</a> &raquo; <a class="el" href="a00520.html">Temperature Feedback</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains the state machine of the power control.  
+<p>Conversion macros for user-declarations of Temperature Feedback parameters details Conversion macros converting physical quantities of parameters into binary (integer) numbers for registers and variables.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for State Machine:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Conversion Macros:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00521.svg" width="267" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00521.svg" width="344" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00476" id="r_a00476"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00476.html">pwrctrl_sm.c</a></td></tr>
-<tr class="memdesc:a00476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains power control state machine functions that is executed every 100us. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga2408c0b52cd2c2487f43716f261434e6" id="r_ga2408c0b52cd2c2487f43716f261434e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00521.html#ga2408c0b52cd2c2487f43716f261434e6">PwrCtrl_StateMachine</a> (<a class="el" href="a00737.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:ga2408c0b52cd2c2487f43716f261434e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages the power control state machine.  <br /></td></tr>
-<tr class="separator:ga2408c0b52cd2c2487f43716f261434e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8307344d190a5459682d315fc7bfe198" id="r_ga8307344d190a5459682d315fc7bfe198"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00521.html#ga8307344d190a5459682d315fc7bfe198">PCS_INIT_handler</a> (<a class="el" href="a00737.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:ga8307344d190a5459682d315fc7bfe198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes function for initialze state machine.  <br /></td></tr>
-<tr class="separator:ga8307344d190a5459682d315fc7bfe198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaad6ef2378120876a621b349c1380aef7" id="r_gaad6ef2378120876a621b349c1380aef7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00521.html#gaad6ef2378120876a621b349c1380aef7">PCS_WAIT_IF_FAULT_ACTIVE_handler</a> (<a class="el" href="a00737.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:gaad6ef2378120876a621b349c1380aef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the fault handler state machine.  <br /></td></tr>
-<tr class="separator:gaad6ef2378120876a621b349c1380aef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga42f7c8f65745b2f81bb6dbd381ea8121" id="r_ga42f7c8f65745b2f81bb6dbd381ea8121"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00521.html#ga42f7c8f65745b2f81bb6dbd381ea8121">PCS_STANDBY_handler</a> (<a class="el" href="a00737.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:ga42f7c8f65745b2f81bb6dbd381ea8121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes Standby State machine.  <br /></td></tr>
-<tr class="separator:ga42f7c8f65745b2f81bb6dbd381ea8121"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabda6b853bb6547821acd0ec87e0a4842" id="r_gabda6b853bb6547821acd0ec87e0a4842"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00521.html#gabda6b853bb6547821acd0ec87e0a4842">PCS_SOFT_START_handler</a> (<a class="el" href="a00737.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:gabda6b853bb6547821acd0ec87e0a4842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power control soft start state machine.  <br /></td></tr>
-<tr class="separator:gabda6b853bb6547821acd0ec87e0a4842"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8752fbb48416e60141e205f1cbda0f98" id="r_ga8752fbb48416e60141e205f1cbda0f98"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00521.html#ga8752fbb48416e60141e205f1cbda0f98">PCS_UP_AND_RUNNING_handler</a> (<a class="el" href="a00737.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:ga8752fbb48416e60141e205f1cbda0f98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the Online state.  <br /></td></tr>
-<tr class="separator:ga8752fbb48416e60141e205f1cbda0f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga14e5a0b582b1666590c4d1854ab1fe6f" id="r_ga14e5a0b582b1666590c4d1854ab1fe6f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00521.html#ga14e5a0b582b1666590c4d1854ab1fe6f">TEMPERATURE_FACTOR</a>&#160;&#160;&#160;(int16_t)(<a class="el" href="a00520.html#gab586eaca5d59d97c5a098f782633d74c">TEMPERATURE_GAIN</a> * pow(2.0, 15))</td></tr>
+<tr class="separator:ga14e5a0b582b1666590c4d1854ab1fe6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga138123533833c44398978f96b0f31764" id="r_ga138123533833c44398978f96b0f31764"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00521.html#ga138123533833c44398978f96b0f31764">L_TEMPERATURE_THRESHOLD</a>&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00520.html#gaf96b37309868a2ca71aec09e1d2180bc">NOMINAL_TEMPERATURE_THRESHOLD</a> - <a class="el" href="a00520.html#ga46b916cf898ceb2557a12f208380c5d5">TEMPERATURE_HYSTERESIS</a>)</td></tr>
+<tr class="separator:ga138123533833c44398978f96b0f31764"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3aa6d37a535571959d177257ff529478" id="r_ga3aa6d37a535571959d177257ff529478"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00521.html#ga3aa6d37a535571959d177257ff529478">H_TEMPERATURE_THRESHOLD</a>&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00520.html#gaf96b37309868a2ca71aec09e1d2180bc">NOMINAL_TEMPERATURE_THRESHOLD</a> + <a class="el" href="a00520.html#ga46b916cf898ceb2557a12f208380c5d5">TEMPERATURE_HYSTERESIS</a>)</td></tr>
+<tr class="separator:ga3aa6d37a535571959d177257ff529478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document covers the state machine execution. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ga8307344d190a5459682d315fc7bfe198" name="ga8307344d190a5459682d315fc7bfe198"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8307344d190a5459682d315fc7bfe198">&#9670;&#160;</a></span>PCS_INIT_handler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PCS_INIT_handler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00737.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function resets the conditional flag bits, ensures PWM output is disabled and run the initial current calibration offset. After this, the state machine moves to checking the fault handler. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00476_source.html#l00110">110</a> of file <a class="el" href="a00476_source.html">pwrctrl_sm.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00521_ga8307344d190a5459682d315fc7bfe198_cgraph.svg" width="619" height="323"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00521_ga8307344d190a5459682d315fc7bfe198_icgraph.svg" width="502" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gabda6b853bb6547821acd0ec87e0a4842" name="gabda6b853bb6547821acd0ec87e0a4842"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabda6b853bb6547821acd0ec87e0a4842">&#9670;&#160;</a></span>PCS_SOFT_START_handler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PCS_SOFT_START_handler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00737.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function gradually ramps up the references of the power control. The control loop references are gradually incremented until in reached the desired power control reference. When this is achieved, the next state will <br  />
- be assigned to STATE_ONLINE. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00476_source.html#l00238">238</a> of file <a class="el" href="a00476_source.html">pwrctrl_sm.c</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00521_gabda6b853bb6547821acd0ec87e0a4842_cgraph.svg" width="656" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00521_gabda6b853bb6547821acd0ec87e0a4842_icgraph.svg" width="562" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga42f7c8f65745b2f81bb6dbd381ea8121" name="ga42f7c8f65745b2f81bb6dbd381ea8121"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga42f7c8f65745b2f81bb6dbd381ea8121">&#9670;&#160;</a></span>PCS_STANDBY_handler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PCS_STANDBY_handler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00737.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function waits until there is no fault event that has occurred and when the power control enable bit is set. When Enable bit is set, <br  />
- reset the fault objects status bits, reset PWM control settings, enable the power control running bit, enable PWM physical output, initialize control loop references and then move to the next state STATE_SOFT_START.</p>
-<dl class="section note"><dt>Note</dt><dd>In this application the power control enable bit is controlled externally by Power Board Visualizer. <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00476_source.html#l00176">176</a> of file <a class="el" href="a00476_source.html">pwrctrl_sm.c</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00521_ga42f7c8f65745b2f81bb6dbd381ea8121_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00521_ga42f7c8f65745b2f81bb6dbd381ea8121_icgraph.svg" width="542" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga8752fbb48416e60141e205f1cbda0f98" name="ga8752fbb48416e60141e205f1cbda0f98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8752fbb48416e60141e205f1cbda0f98">&#9670;&#160;</a></span>PCS_UP_AND_RUNNING_handler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PCS_UP_AND_RUNNING_handler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00737.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function keeps checks if there is fault event that occurred, if power control Enable has been disabled and if there is changes in the power control references. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00476_source.html#l00288">288</a> of file <a class="el" href="a00476_source.html">pwrctrl_sm.c</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00521_ga8752fbb48416e60141e205f1cbda0f98_cgraph.svg" width="634" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00521_ga8752fbb48416e60141e205f1cbda0f98_icgraph.svg" width="548" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gaad6ef2378120876a621b349c1380aef7" name="gaad6ef2378120876a621b349c1380aef7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaad6ef2378120876a621b349c1380aef7">&#9670;&#160;</a></span>PCS_WAIT_IF_FAULT_ACTIVE_handler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void PCS_WAIT_IF_FAULT_ACTIVE_handler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00737.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function checks if there is fault event that occurred. When there is no fault event, the state machine moves to StandBy state. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00476_source.html#l00151">151</a> of file <a class="el" href="a00476_source.html">pwrctrl_sm.c</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00521_gaad6ef2378120876a621b349c1380aef7_icgraph.svg" width="528" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga2408c0b52cd2c2487f43716f261434e6" name="ga2408c0b52cd2c2487f43716f261434e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2408c0b52cd2c2487f43716f261434e6">&#9670;&#160;</a></span>PwrCtrl_StateMachine()</h2>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga3aa6d37a535571959d177257ff529478" name="ga3aa6d37a535571959d177257ff529478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3aa6d37a535571959d177257ff529478">&#9670;&#160;</a></span>H_TEMPERATURE_THRESHOLD</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void PwrCtrl_StateMachine </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00737.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
+          <td class="memname">#define H_TEMPERATURE_THRESHOLD&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00520.html#gaf96b37309868a2ca71aec09e1d2180bc">NOMINAL_TEMPERATURE_THRESHOLD</a> + <a class="el" href="a00520.html#ga46b916cf898ceb2557a12f208380c5d5">TEMPERATURE_HYSTERESIS</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function manages the state machine of the converter. There are five states in this function as follows:</p><ul>
-<li>STATE_INITIALIZE - This state resets the conditional flag bits, ensures PWM output is disabled and run the initial current calibration offset.</li>
-<li>STATE_FAULT_DETECTION - This state checks if there is fault event that occurred.</li>
-<li>STATE_STANDBY This state waits until there is no fault event that has occurred and when the power control enable bit is set.</li>
-<li>STATE_SOFT_START - This state gradually ramps up the references of the power control. The control loop references are gradually incremented until in reached the desired power control reference.</li>
-<li>STATE_ONLINE - This state keeps checks if there is fault event that occurred, if power control Enable has been disabled and if there is changes in the power control references. </li>
-</ul>
 
-<p class="definition">Definition at line <a class="el" href="a00476_source.html#l00070">70</a> of file <a class="el" href="a00476_source.html">pwrctrl_sm.c</a>.</p>
-<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00160">160</a> of file <a class="el" href="a00314_source.html">macros.h</a>.</p>
+
 </div>
-<div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00521_ga2408c0b52cd2c2487f43716f261434e6_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-<div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+<a id="ga138123533833c44398978f96b0f31764" name="ga138123533833c44398978f96b0f31764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga138123533833c44398978f96b0f31764">&#9670;&#160;</a></span>L_TEMPERATURE_THRESHOLD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define L_TEMPERATURE_THRESHOLD&#160;&#160;&#160;(uint16_t)(<a class="el" href="a00520.html#gaf96b37309868a2ca71aec09e1d2180bc">NOMINAL_TEMPERATURE_THRESHOLD</a> - <a class="el" href="a00520.html#ga46b916cf898ceb2557a12f208380c5d5">TEMPERATURE_HYSTERESIS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00159">159</a> of file <a class="el" href="a00314_source.html">macros.h</a>.</p>
+
 </div>
-<div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00521_ga2408c0b52cd2c2487f43716f261434e6_icgraph.svg" width="328" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+<a id="ga14e5a0b582b1666590c4d1854ab1fe6f" name="ga14e5a0b582b1666590c4d1854ab1fe6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga14e5a0b582b1666590c4d1854ab1fe6f">&#9670;&#160;</a></span>TEMPERATURE_FACTOR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TEMPERATURE_FACTOR&#160;&#160;&#160;(int16_t)(<a class="el" href="a00520.html#gab586eaca5d59d97c5a098f782633d74c">TEMPERATURE_GAIN</a> * pow(2.0, 15))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00314_source.html#l00157">157</a> of file <a class="el" href="a00314_source.html">macros.h</a>.</p>
 
 </div>
 </div>

@@ -1,13 +1,13 @@
 var a00709 =
 [
-    [ "ISecAverage", "a00709.html#a852e1ba399fd7762820a5a48b277e235", null ],
-    [ "ISecAverageRectified", "a00709.html#a2ebeb1daee42d50afad2f53cfe8f8548", null ],
-    [ "ISecSensorOffset", "a00709.html#aad3cd92609bdf3ca099564c676a824cb", null ],
-    [ "ISensePrimary", "a00709.html#a4bb8d9e45d3b1791b7597c46356d6f7f", null ],
-    [ "ISenseSecondary", "a00709.html#ab69cdd1acf7db7e5e2521d1afe46d8f9", null ],
-    [ "SecPower", "a00709.html#a6961d340d23b02e801410da9d41e9c20", null ],
-    [ "Temperature", "a00709.html#ad389e5a23077ca8d6548dffd7f5ec1c1", null ],
-    [ "VPriVoltage", "a00709.html#a05578776f684221691f412d73de487ea", null ],
-    [ "VRail_5V", "a00709.html#acc72d884c453d1343c8e836369311454", null ],
-    [ "VSecVoltage", "a00709.html#a4e6e0db2e515990bc32d13435a75b50e", null ]
+    [ "aCoefficients", "a00709.html#a9b53207353649ed96836db0f78300815", null ],
+    [ "bCoefficients", "a00709.html#ad1355dec3eb324d2eab4aeec3949315b", null ],
+    [ "controlHistory", "a00709.html#a01aaca2f4f21e2a7913a2b6e26378d9d", null ],
+    [ "errorHistory", "a00709.html#a2156cbcc870b55a05790b35d7a994ed2", null ],
+    [ "KfactorCoeffsB", "a00709.html#a8c6507769bb4ff1f72e51636286bebc8", null ],
+    [ "maxOutput", "a00709.html#a52e0ede1d35abbd1205991bf926b0123", null ],
+    [ "minOutput", "a00709.html#a0e61035e2b3233a7d496c3eb2f098969", null ],
+    [ "postScaler", "a00709.html#a63cf6fa1fea56820d41793296704eecb", null ],
+    [ "postShift", "a00709.html#a136ef863c1c5b2eee03c1223f4b7baef", null ],
+    [ "preShift", "a00709.html#ab80a85b190b1a682766250d4e72ba6fd", null ]
 ];

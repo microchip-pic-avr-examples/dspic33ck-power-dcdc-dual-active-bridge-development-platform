@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/cmp/cmp3.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/can/can_types.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,119 +137,382 @@ $(document).ready(function(){initNavTree('a00113.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">cmp3.h File Reference<div class="ingroups"><a class="el" href="a00530.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00535.html">CMP DAC Driver</a></div></div></div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle"><div class="title">can_types.h File Reference<div class="ingroups"><a class="el" href="a00554.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00557.html">CAN FD Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the generated driver header file for the CMP3 driver.  
+<p>This is the generated driver types header file for the CAN driver using CCL.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
-<code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &quot;cmp_interface.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for cmp3.h:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for can_types.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00114.svg" width="176" height="219"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00114.svg" width="156" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00115.svg" width="100%" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00115.svg" width="532" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00113_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:gab6e9410546f7aab50a5d27a81d0989f6" id="r_gab6e9410546f7aab50a5d27a81d0989f6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gab6e9410546f7aab50a5d27a81d0989f6">CMP_IPRI_SC_Initialize</a>&#160;&#160;&#160;<a class="el" href="a00535.html#gad18bcc8357cf844e1e1526f100f81154">CMP3_Initialize</a></td></tr>
-<tr class="memdesc:gab6e9410546f7aab50a5d27a81d0989f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00535.html#gad18bcc8357cf844e1e1526f100f81154">CMP3_Initialize</a> API.  <br /></td></tr>
-<tr class="separator:gab6e9410546f7aab50a5d27a81d0989f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac6490ae4382f1ab9d4f4218f94c710f8" id="r_gac6490ae4382f1ab9d4f4218f94c710f8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gac6490ae4382f1ab9d4f4218f94c710f8">CMP_IPRI_SC_Deinitialize</a>&#160;&#160;&#160;<a class="el" href="a00535.html#ga9f7e809f9b5addaa7971b43504fecd73">CMP3_Deinitialize</a></td></tr>
-<tr class="memdesc:gac6490ae4382f1ab9d4f4218f94c710f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00535.html#ga9f7e809f9b5addaa7971b43504fecd73">CMP3_Deinitialize</a> API.  <br /></td></tr>
-<tr class="separator:gac6490ae4382f1ab9d4f4218f94c710f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga610ba68613c7350381de4d3503a2312a" id="r_ga610ba68613c7350381de4d3503a2312a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga610ba68613c7350381de4d3503a2312a">CMP_IPRI_SC_StatusGet</a>&#160;&#160;&#160;<a class="el" href="a00535.html#ga1f8da3d5ca79eeff2f2d0af0cfe7964a">CMP3_StatusGet</a></td></tr>
-<tr class="memdesc:ga610ba68613c7350381de4d3503a2312a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00535.html#ga1f8da3d5ca79eeff2f2d0af0cfe7964a">CMP3_StatusGet</a> API.  <br /></td></tr>
-<tr class="separator:ga610ba68613c7350381de4d3503a2312a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga97848def7224eb7036b79df287c8162d" id="r_ga97848def7224eb7036b79df287c8162d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga97848def7224eb7036b79df287c8162d">CMP_IPRI_SC_Enable</a>&#160;&#160;&#160;<a class="el" href="a00535.html#ga31429eb81465c3430d254b6649622c74">CMP3_Enable</a></td></tr>
-<tr class="memdesc:ga97848def7224eb7036b79df287c8162d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00535.html#ga31429eb81465c3430d254b6649622c74">CMP3_Enable</a> API.  <br /></td></tr>
-<tr class="separator:ga97848def7224eb7036b79df287c8162d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac44d6913fe24ad793896af83503a8bc3" id="r_gac44d6913fe24ad793896af83503a8bc3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gac44d6913fe24ad793896af83503a8bc3">CMP_IPRI_SC_Disable</a>&#160;&#160;&#160;<a class="el" href="a00535.html#ga6fd939135087eca4400ba73172acd6f4">CMP3_Disable</a></td></tr>
-<tr class="memdesc:gac44d6913fe24ad793896af83503a8bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00535.html#ga6fd939135087eca4400ba73172acd6f4">CMP3_Disable</a> API.  <br /></td></tr>
-<tr class="separator:gac44d6913fe24ad793896af83503a8bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga596f523f69486e7c350097edc2ccce89" id="r_ga596f523f69486e7c350097edc2ccce89"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga596f523f69486e7c350097edc2ccce89">CMP_IPRI_SC_DACEnable</a>&#160;&#160;&#160;<a class="el" href="a00535.html#gadf91ce0ea5a1ba21daeb96fa3e14fea3">CMP3_DACEnable</a></td></tr>
-<tr class="memdesc:ga596f523f69486e7c350097edc2ccce89"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00535.html#gadf91ce0ea5a1ba21daeb96fa3e14fea3">CMP3_DACEnable</a> API.  <br /></td></tr>
-<tr class="separator:ga596f523f69486e7c350097edc2ccce89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4c7e41aa56773e036ae6ffee1335b5fd" id="r_ga4c7e41aa56773e036ae6ffee1335b5fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga4c7e41aa56773e036ae6ffee1335b5fd">CMP_IPRI_SC_DACDisable</a>&#160;&#160;&#160;<a class="el" href="a00535.html#gae8fc6e741033d7c25cce81d0ccdfd7b8">CMP3_DACDisable</a></td></tr>
-<tr class="memdesc:ga4c7e41aa56773e036ae6ffee1335b5fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00535.html#gae8fc6e741033d7c25cce81d0ccdfd7b8">CMP3_DACDisable</a> API.  <br /></td></tr>
-<tr class="separator:ga4c7e41aa56773e036ae6ffee1335b5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga427c1e93b73f03b0f62bc6c4fb252dd0" id="r_ga427c1e93b73f03b0f62bc6c4fb252dd0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga427c1e93b73f03b0f62bc6c4fb252dd0">CMP_IPRI_SC_DACDataWrite</a>&#160;&#160;&#160;<a class="el" href="a00535.html#ga9e6f3ad2d6195a668dd0f5acea2c65fc">CMP3_DACDataWrite</a></td></tr>
-<tr class="memdesc:ga427c1e93b73f03b0f62bc6c4fb252dd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00535.html#ga9e6f3ad2d6195a668dd0f5acea2c65fc">CMP3_DACDataWrite</a> API.  <br /></td></tr>
-<tr class="separator:ga427c1e93b73f03b0f62bc6c4fb252dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4c7e41aa56773e036ae6ffee1335b5fd" id="r_ga4c7e41aa56773e036ae6ffee1335b5fd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga4c7e41aa56773e036ae6ffee1335b5fd">CMP_IPRI_SC_DACDisable</a>&#160;&#160;&#160;<a class="el" href="a00535.html#gae8fc6e741033d7c25cce81d0ccdfd7b8">CMP3_DACDisable</a></td></tr>
-<tr class="memdesc:ga4c7e41aa56773e036ae6ffee1335b5fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00535.html#gae8fc6e741033d7c25cce81d0ccdfd7b8">CMP3_DACDisable</a> API.  <br /></td></tr>
-<tr class="separator:ga4c7e41aa56773e036ae6ffee1335b5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4144d139fc97c70c341f61433011e1d2" id="r_ga4144d139fc97c70c341f61433011e1d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga4144d139fc97c70c341f61433011e1d2">CMP_IPRI_SC_EventCallbackRegister</a>&#160;&#160;&#160;<a class="el" href="a00535.html#ga0d7c1a0ccd35767078e0a677eff7e5d9">CMP3_EventCallbackRegister</a></td></tr>
-<tr class="memdesc:ga4144d139fc97c70c341f61433011e1d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00535.html#ga0d7c1a0ccd35767078e0a677eff7e5d9">CMP3_EventCallbackRegister</a> API.  <br /></td></tr>
-<tr class="separator:ga4144d139fc97c70c341f61433011e1d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga01aadd8c78f442bc5bfaa50e5ce4bb7c" id="r_ga01aadd8c78f442bc5bfaa50e5ce4bb7c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga01aadd8c78f442bc5bfaa50e5ce4bb7c">CMP_IPRI_SC_Tasks</a>&#160;&#160;&#160;<a class="el" href="a00535.html#ga41ed6738ab0aa8a63737e8bebfdf1ebf">CMP3_Tasks</a></td></tr>
-<tr class="memdesc:ga01aadd8c78f442bc5bfaa50e5ce4bb7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00535.html#ga41ed6738ab0aa8a63737e8bebfdf1ebf">CMP3_Tasks</a> API.  <br /></td></tr>
-<tr class="separator:ga01aadd8c78f442bc5bfaa50e5ce4bb7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00589.html">CAN_MSG_FIELD</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This data structure used to configure the message fields. Some of the fields formatType and brs data should match with the CAN FD configuration in Melody MCC user interface.  <a href="a00589.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html">CAN_MSG_OBJ</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This data structure used to configure the CAN FD message object.  <a href="a00593.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gad18bcc8357cf844e1e1526f100f81154" id="r_gad18bcc8357cf844e1e1526f100f81154"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gad18bcc8357cf844e1e1526f100f81154">CMP3_Initialize</a> (void)</td></tr>
-<tr class="memdesc:gad18bcc8357cf844e1e1526f100f81154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the CMP3 module.  <br /></td></tr>
-<tr class="separator:gad18bcc8357cf844e1e1526f100f81154"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9f7e809f9b5addaa7971b43504fecd73" id="r_ga9f7e809f9b5addaa7971b43504fecd73"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga9f7e809f9b5addaa7971b43504fecd73">CMP3_Deinitialize</a> (void)</td></tr>
-<tr class="memdesc:ga9f7e809f9b5addaa7971b43504fecd73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the CMP3 to POR values.  <br /></td></tr>
-<tr class="separator:ga9f7e809f9b5addaa7971b43504fecd73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1f8da3d5ca79eeff2f2d0af0cfe7964a" id="r_ga1f8da3d5ca79eeff2f2d0af0cfe7964a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga1f8da3d5ca79eeff2f2d0af0cfe7964a">CMP3_StatusGet</a> (void)</td></tr>
-<tr class="memdesc:ga1f8da3d5ca79eeff2f2d0af0cfe7964a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the comparator output status.  <br /></td></tr>
-<tr class="separator:ga1f8da3d5ca79eeff2f2d0af0cfe7964a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga31429eb81465c3430d254b6649622c74" id="r_ga31429eb81465c3430d254b6649622c74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga31429eb81465c3430d254b6649622c74">CMP3_Enable</a> (void)</td></tr>
-<tr class="memdesc:ga31429eb81465c3430d254b6649622c74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the common DAC module.  <br /></td></tr>
-<tr class="separator:ga31429eb81465c3430d254b6649622c74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6fd939135087eca4400ba73172acd6f4" id="r_ga6fd939135087eca4400ba73172acd6f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga6fd939135087eca4400ba73172acd6f4">CMP3_Disable</a> (void)</td></tr>
-<tr class="memdesc:ga6fd939135087eca4400ba73172acd6f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the common DAC module.  <br /></td></tr>
-<tr class="separator:ga6fd939135087eca4400ba73172acd6f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadf91ce0ea5a1ba21daeb96fa3e14fea3" id="r_gadf91ce0ea5a1ba21daeb96fa3e14fea3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gadf91ce0ea5a1ba21daeb96fa3e14fea3">CMP3_DACEnable</a> (void)</td></tr>
-<tr class="memdesc:gadf91ce0ea5a1ba21daeb96fa3e14fea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the individual DAC module.  <br /></td></tr>
-<tr class="separator:gadf91ce0ea5a1ba21daeb96fa3e14fea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae8fc6e741033d7c25cce81d0ccdfd7b8" id="r_gae8fc6e741033d7c25cce81d0ccdfd7b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gae8fc6e741033d7c25cce81d0ccdfd7b8">CMP3_DACDisable</a> (void)</td></tr>
-<tr class="memdesc:gae8fc6e741033d7c25cce81d0ccdfd7b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the individual DAC module.  <br /></td></tr>
-<tr class="separator:gae8fc6e741033d7c25cce81d0ccdfd7b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9e6f3ad2d6195a668dd0f5acea2c65fc" id="r_ga9e6f3ad2d6195a668dd0f5acea2c65fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga9e6f3ad2d6195a668dd0f5acea2c65fc">CMP3_DACDataWrite</a> (size_t value)</td></tr>
-<tr class="memdesc:ga9e6f3ad2d6195a668dd0f5acea2c65fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">CMP DAC Data write to register.  <br /></td></tr>
-<tr class="separator:ga9e6f3ad2d6195a668dd0f5acea2c65fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0d7c1a0ccd35767078e0a677eff7e5d9" id="r_ga0d7c1a0ccd35767078e0a677eff7e5d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga0d7c1a0ccd35767078e0a677eff7e5d9">CMP3_EventCallbackRegister</a> (void(*handler)(void))</td></tr>
-<tr class="memdesc:ga0d7c1a0ccd35767078e0a677eff7e5d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for CMP3 Event event.  <br /></td></tr>
-<tr class="separator:ga0d7c1a0ccd35767078e0a677eff7e5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga03c26aa9550cc743bfe7997ece67d858" id="r_ga03c26aa9550cc743bfe7997ece67d858"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga03c26aa9550cc743bfe7997ece67d858">CMP3_EventCallback</a> (void)</td></tr>
-<tr class="memdesc:ga03c26aa9550cc743bfe7997ece67d858"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using <br  />
- CMP3_EventCallbackRegister.  <br /></td></tr>
-<tr class="separator:ga03c26aa9550cc743bfe7997ece67d858"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga41ed6738ab0aa8a63737e8bebfdf1ebf" id="r_ga41ed6738ab0aa8a63737e8bebfdf1ebf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga41ed6738ab0aa8a63737e8bebfdf1ebf">CMP3_Tasks</a> (void)</td></tr>
-<tr class="memdesc:ga41ed6738ab0aa8a63737e8bebfdf1ebf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Task function can be called in the main application using the High Speed Comparator, when interrupts are not used. This would thus introduce the polling mode feature of the Analog Comparator.  <br /></td></tr>
-<tr class="separator:ga41ed6738ab0aa8a63737e8bebfdf1ebf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga8d83dcb02dc2386593cfef2b3a4634e8" id="r_ga8d83dcb02dc2386593cfef2b3a4634e8"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00585.html">CMP_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga8d83dcb02dc2386593cfef2b3a4634e8">CMP_IPRI_SC</a></td></tr>
-<tr class="memdesc:ga8d83dcb02dc2386593cfef2b3a4634e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00585.html" title="Structure containing the function pointers of CMP driver.">CMP_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. CMP_DAC1 can be changed by the user in the CMP user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
-<tr class="separator:ga8d83dcb02dc2386593cfef2b3a4634e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a9d0c6dd31287128e134ac6b9bff44251" id="r_a9d0c6dd31287128e134ac6b9bff44251"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00113.html#a9d0c6dd31287128e134ac6b9bff44251">CAN_MSG_OBJ_BRS_MODE</a> { <a class="el" href="a00113.html#a9d0c6dd31287128e134ac6b9bff44251ad189a0413635875f72aa7f3e19fa3b76">CAN_NON_BRS_MODE</a> = 0
+, <a class="el" href="a00113.html#a9d0c6dd31287128e134ac6b9bff44251a163d2efa1a0bfac7393629954473074f">CAN_BRS_MODE</a> = 1
+ }</td></tr>
+<tr class="separator:a9d0c6dd31287128e134ac6b9bff44251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ae4cfc09e6a9d163dfecc9dc1205887" id="r_a2ae4cfc09e6a9d163dfecc9dc1205887"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00113.html#a2ae4cfc09e6a9d163dfecc9dc1205887">CAN_MSG_OBJ_ID_TYPE</a> { <a class="el" href="a00113.html#a2ae4cfc09e6a9d163dfecc9dc1205887a6a4b3fe5c5268555f38f24777919943e">CAN_FRAME_STD</a> = 0
+, <a class="el" href="a00113.html#a2ae4cfc09e6a9d163dfecc9dc1205887a93187f78c390a454e83f9db0816e4229">CAN_FRAME_EXT</a> = 1
+ }</td></tr>
+<tr class="separator:a2ae4cfc09e6a9d163dfecc9dc1205887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f9f1cb3967f6f3bcd9c5af1708a7bf0" id="r_a4f9f1cb3967f6f3bcd9c5af1708a7bf0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00113.html#a4f9f1cb3967f6f3bcd9c5af1708a7bf0">CAN_MSG_OBJ_FRAME_TYPE</a> { <a class="el" href="a00113.html#a4f9f1cb3967f6f3bcd9c5af1708a7bf0a6ecca1e3eba0ac7333b06c88fde51c34">CAN_FRAME_DATA</a> = 0
+, <a class="el" href="a00113.html#a4f9f1cb3967f6f3bcd9c5af1708a7bf0aa5dab80f277d4eb5608f7c51e0e7821b">CAN_FRAME_RTR</a> = 1
+ }</td></tr>
+<tr class="separator:a4f9f1cb3967f6f3bcd9c5af1708a7bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6be63497f4398ded461055d4b5f8fc1a" id="r_a6be63497f4398ded461055d4b5f8fc1a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00113.html#a6be63497f4398ded461055d4b5f8fc1a">CAN_MSG_OBJ_TYPE</a> { <a class="el" href="a00113.html#a6be63497f4398ded461055d4b5f8fc1aab27fa8ba336155fbf8b4da780fa3f796">CAN_2_0_FORMAT</a> = 0
+, <a class="el" href="a00113.html#a6be63497f4398ded461055d4b5f8fc1aae186e5eb9f08a5e8d661e2fa83500d2c">CAN_FD_FORMAT</a> = 1
+ }</td></tr>
+<tr class="separator:a6be63497f4398ded461055d4b5f8fc1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac37a68dffec74794a3a4a35ed97dc78f" id="r_ac37a68dffec74794a3a4a35ed97dc78f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00113.html#ac37a68dffec74794a3a4a35ed97dc78f">CAN_TX_MSG_REQUEST_STATUS</a> { <a class="el" href="a00113.html#ac37a68dffec74794a3a4a35ed97dc78fa706c09b2fe5a0f66eb5de8cd1d10eb60">CAN_TX_MSG_REQUEST_SUCCESS</a> = 0
+, <a class="el" href="a00113.html#ac37a68dffec74794a3a4a35ed97dc78fa9df7200fea85311a621893b998638b3c">CAN_TX_MSG_REQUEST_DLC_EXCEED_ERROR</a> = 1
+, <a class="el" href="a00113.html#ac37a68dffec74794a3a4a35ed97dc78fa10c26420e4ecb32acf9681b8bf82c8f1">CAN_TX_MSG_REQUEST_BRS_ERROR</a> = 2
+, <a class="el" href="a00113.html#ac37a68dffec74794a3a4a35ed97dc78faf8b85649062e019846de22af7ba9b2c7">CAN_TX_MSG_REQUEST_FIFO_FULL</a> = 3
+ }</td></tr>
+<tr class="separator:ac37a68dffec74794a3a4a35ed97dc78f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf6f08edd09adf034118a73a7acea9f9" id="r_adf6f08edd09adf034118a73a7acea9f9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00113.html#adf6f08edd09adf034118a73a7acea9f9">CAN_OP_MODES</a> { <a class="el" href="a00113.html#adf6f08edd09adf034118a73a7acea9f9abcb8d7f150e61bd9e037729e75d725ea">CAN_NORMAL_FD_MODE</a> = 0x0
+, <a class="el" href="a00113.html#adf6f08edd09adf034118a73a7acea9f9a32b3f8fc79f3c7bc425c2b5210d51c4a">CAN_DISABLE_MODE</a> = 0x1
+, <a class="el" href="a00113.html#adf6f08edd09adf034118a73a7acea9f9a8611e4b0659822cb6884e1b56c1b4f49">CAN_INTERNAL_LOOPBACK_MODE</a> = 0x2
+, <a class="el" href="a00113.html#adf6f08edd09adf034118a73a7acea9f9a26235b6e55aa176156126830508fcf77">CAN_LISTEN_ONLY_MODE</a> = 0x3
+, <a class="el" href="a00113.html#adf6f08edd09adf034118a73a7acea9f9aed7a0f764d7b00b8fbfb3dd348a207d5">CAN_CONFIGURATION_MODE</a> = 0x4
+, <a class="el" href="a00113.html#adf6f08edd09adf034118a73a7acea9f9ae09483fc4ba4e1920c1d9849039068ab">CAN_EXTERNAL_LOOPBACK_MODE</a> = 0x5
+, <a class="el" href="a00113.html#adf6f08edd09adf034118a73a7acea9f9abe71a3c45e347e25289e6dd429f47a4c">CAN_NORMAL_2_0_MODE</a> = 0x6
+, <a class="el" href="a00113.html#adf6f08edd09adf034118a73a7acea9f9a5401fc57e16b751f391dfcbb28dec885">CAN_RESTRICTED_OPERATION_MODE</a> =0x7
+ }</td></tr>
+<tr class="separator:adf6f08edd09adf034118a73a7acea9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89d5894e1e1c614eb64d163304613f19" id="r_a89d5894e1e1c614eb64d163304613f19"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00113.html#a89d5894e1e1c614eb64d163304613f19">CAN_OP_MODE_STATUS</a> { <a class="el" href="a00113.html#a89d5894e1e1c614eb64d163304613f19ae296371b842557f61dfda2775a45a589">CAN_OP_MODE_REQUEST_SUCCESS</a>
+, <a class="el" href="a00113.html#a89d5894e1e1c614eb64d163304613f19abdbae12a637dd536b0803e7bf17c477a">CAN_OP_MODE_REQUEST_FAIL</a>
+, <a class="el" href="a00113.html#a89d5894e1e1c614eb64d163304613f19a3802b1de5642c1b7167b5fe64e69cac7">CAN_OP_MODE_SYS_ERROR_OCCURED</a>
+ }</td></tr>
+<tr class="separator:a89d5894e1e1c614eb64d163304613f19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b83a493815db579d910f8280984c50b" id="r_a5b83a493815db579d910f8280984c50b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00113.html#a5b83a493815db579d910f8280984c50b">CAN_TX_FIFO_STATUS</a> { <a class="el" href="a00113.html#a5b83a493815db579d910f8280984c50bad31e6f793edf2f736e4c4a60f026d23f">CAN_TX_FIFO_FULL</a>
+, <a class="el" href="a00113.html#a5b83a493815db579d910f8280984c50ba826d247b73cb06d3147d6d54c50f8a49">CAN_TX_FIFO_AVAILABLE</a>
+ }</td></tr>
+<tr class="separator:a5b83a493815db579d910f8280984c50b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a9938afb627b3bf31c880764369958b" id="r_a2a9938afb627b3bf31c880764369958b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958b">CAN_DLC</a> { <br />
+&#160;&#160;<a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958ba427e227720a7bc90e8f8b9e791930d36">DLC_0</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958ba941dea7a2717225441282554b8897a14">DLC_1</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958ba5b05fa3c3deaff75412bed7a990112e5">DLC_2</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958baa7da3eeafcb2f31c4ed963d64bf57bb9">DLC_3</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958baca2c532fd43dd1a3ff4ad4adab164dec">DLC_4</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958ba4826684ad2d4bce3b4db51511591ec4b">DLC_5</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958badc6382dece6eabfe90b384ea81aa52af">DLC_6</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958baf00d10bdba4a4d0644f6922ff32092dd">DLC_7</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958ba8da7ee87e15bafbf86ad79aa0ef84f81">DLC_8</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958ba6435d730600ccf11c876bc8f7eef848d">DLC_12</a>
+, <br />
+&#160;&#160;<a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958ba8e4590a62c88fc20ba5ad23f59c3ec95">DLC_16</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958ba55e30728404450961604fdedde09cd90">DLC_20</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958ba34933c93e8ef002c763a5684f398161d">DLC_24</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958bae054fb8470b82f4e429a984bcffb9b2d">DLC_32</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958ba98810b0337c668b23f563cb809170bd0">DLC_48</a>
+, <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958bacfe430aa44be121e6c217a87cd28c7c4">DLC_64</a>
+<br />
+ }</td></tr>
+<tr class="separator:a2a9938afb627b3bf31c880764369958b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad96894be14c629e4cc0b30ebca9aea5c" id="r_ad96894be14c629e4cc0b30ebca9aea5c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00113.html#ad96894be14c629e4cc0b30ebca9aea5c">CAN_RX_FIFO_STATUS</a> { <a class="el" href="a00113.html#ad96894be14c629e4cc0b30ebca9aea5ca67a1de8064a6e0c5971ef7b82e504fd1">CAN_RX_MSG_NOT_AVAILABLE</a> = 0x0
+, <a class="el" href="a00113.html#ad96894be14c629e4cc0b30ebca9aea5ca92f060d5d17b47ffbf967465d103831e">CAN_RX_MSG_AVAILABLE</a> = 0x1
+, <a class="el" href="a00113.html#ad96894be14c629e4cc0b30ebca9aea5ca6140c9d04050e22a897d27715f2d5877">CAN_RX_MSG_OVERFLOW</a> = 0x8
+ }</td></tr>
+<tr class="separator:ad96894be14c629e4cc0b30ebca9aea5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>CMP3 Generated Driver Header File</p>
+<div class="textblock"><p>CAN Generated Driver Types Header File</p>
 <div class="fragment"></div><!-- fragment -->
-<p class="definition">Definition in file <a class="el" href="a00113_source.html">cmp3.h</a>.</p>
-</div></div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00113_source.html">can_types.h</a>.</p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a2a9938afb627b3bf31c880764369958b" name="a2a9938afb627b3bf31c880764369958b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a9938afb627b3bf31c880764369958b">&#9670;&#160;</a></span>CAN_DLC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00113.html#a2a9938afb627b3bf31c880764369958b">CAN_DLC</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958ba427e227720a7bc90e8f8b9e791930d36" name="a2a9938afb627b3bf31c880764369958ba427e227720a7bc90e8f8b9e791930d36"></a>DLC_0&#160;</td><td class="fielddoc"><p>Data length count 0 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958ba941dea7a2717225441282554b8897a14" name="a2a9938afb627b3bf31c880764369958ba941dea7a2717225441282554b8897a14"></a>DLC_1&#160;</td><td class="fielddoc"><p>Data length count 1 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958ba5b05fa3c3deaff75412bed7a990112e5" name="a2a9938afb627b3bf31c880764369958ba5b05fa3c3deaff75412bed7a990112e5"></a>DLC_2&#160;</td><td class="fielddoc"><p>Data length count 2 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958baa7da3eeafcb2f31c4ed963d64bf57bb9" name="a2a9938afb627b3bf31c880764369958baa7da3eeafcb2f31c4ed963d64bf57bb9"></a>DLC_3&#160;</td><td class="fielddoc"><p>Data length count 3 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958baca2c532fd43dd1a3ff4ad4adab164dec" name="a2a9938afb627b3bf31c880764369958baca2c532fd43dd1a3ff4ad4adab164dec"></a>DLC_4&#160;</td><td class="fielddoc"><p>Data length count 4 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958ba4826684ad2d4bce3b4db51511591ec4b" name="a2a9938afb627b3bf31c880764369958ba4826684ad2d4bce3b4db51511591ec4b"></a>DLC_5&#160;</td><td class="fielddoc"><p>Data length count 5 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958badc6382dece6eabfe90b384ea81aa52af" name="a2a9938afb627b3bf31c880764369958badc6382dece6eabfe90b384ea81aa52af"></a>DLC_6&#160;</td><td class="fielddoc"><p>Data length count 6 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958baf00d10bdba4a4d0644f6922ff32092dd" name="a2a9938afb627b3bf31c880764369958baf00d10bdba4a4d0644f6922ff32092dd"></a>DLC_7&#160;</td><td class="fielddoc"><p>Data length count 7 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958ba8da7ee87e15bafbf86ad79aa0ef84f81" name="a2a9938afb627b3bf31c880764369958ba8da7ee87e15bafbf86ad79aa0ef84f81"></a>DLC_8&#160;</td><td class="fielddoc"><p>Data length count 8 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958ba6435d730600ccf11c876bc8f7eef848d" name="a2a9938afb627b3bf31c880764369958ba6435d730600ccf11c876bc8f7eef848d"></a>DLC_12&#160;</td><td class="fielddoc"><p>Data length count 12 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958ba8e4590a62c88fc20ba5ad23f59c3ec95" name="a2a9938afb627b3bf31c880764369958ba8e4590a62c88fc20ba5ad23f59c3ec95"></a>DLC_16&#160;</td><td class="fielddoc"><p>Data length count 16 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958ba55e30728404450961604fdedde09cd90" name="a2a9938afb627b3bf31c880764369958ba55e30728404450961604fdedde09cd90"></a>DLC_20&#160;</td><td class="fielddoc"><p>Data length count 20 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958ba34933c93e8ef002c763a5684f398161d" name="a2a9938afb627b3bf31c880764369958ba34933c93e8ef002c763a5684f398161d"></a>DLC_24&#160;</td><td class="fielddoc"><p>Data length count 24 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958bae054fb8470b82f4e429a984bcffb9b2d" name="a2a9938afb627b3bf31c880764369958bae054fb8470b82f4e429a984bcffb9b2d"></a>DLC_32&#160;</td><td class="fielddoc"><p>Data length count 32 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958ba98810b0337c668b23f563cb809170bd0" name="a2a9938afb627b3bf31c880764369958ba98810b0337c668b23f563cb809170bd0"></a>DLC_48&#160;</td><td class="fielddoc"><p>Data length count 48 </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2a9938afb627b3bf31c880764369958bacfe430aa44be121e6c217a87cd28c7c4" name="a2a9938afb627b3bf31c880764369958bacfe430aa44be121e6c217a87cd28c7c4"></a>DLC_64&#160;</td><td class="fielddoc"><p>Data length count 64 </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00176">176</a> of file <a class="el" href="a00113_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="a9d0c6dd31287128e134ac6b9bff44251" name="a9d0c6dd31287128e134ac6b9bff44251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d0c6dd31287128e134ac6b9bff44251">&#9670;&#160;</a></span>CAN_MSG_OBJ_BRS_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00113.html#a9d0c6dd31287128e134ac6b9bff44251">CAN_MSG_OBJ_BRS_MODE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9d0c6dd31287128e134ac6b9bff44251ad189a0413635875f72aa7f3e19fa3b76" name="a9d0c6dd31287128e134ac6b9bff44251ad189a0413635875f72aa7f3e19fa3b76"></a>CAN_NON_BRS_MODE&#160;</td><td class="fielddoc"><p>Disable BRS Mode (Supported only in CAN FD mode) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9d0c6dd31287128e134ac6b9bff44251a163d2efa1a0bfac7393629954473074f" name="a9d0c6dd31287128e134ac6b9bff44251a163d2efa1a0bfac7393629954473074f"></a>CAN_BRS_MODE&#160;</td><td class="fielddoc"><p>Enable BRS Mode (Supported only in CAN FD mode) </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00079">79</a> of file <a class="el" href="a00113_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="a4f9f1cb3967f6f3bcd9c5af1708a7bf0" name="a4f9f1cb3967f6f3bcd9c5af1708a7bf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f9f1cb3967f6f3bcd9c5af1708a7bf0">&#9670;&#160;</a></span>CAN_MSG_OBJ_FRAME_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00113.html#a4f9f1cb3967f6f3bcd9c5af1708a7bf0">CAN_MSG_OBJ_FRAME_TYPE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4f9f1cb3967f6f3bcd9c5af1708a7bf0a6ecca1e3eba0ac7333b06c88fde51c34" name="a4f9f1cb3967f6f3bcd9c5af1708a7bf0a6ecca1e3eba0ac7333b06c88fde51c34"></a>CAN_FRAME_DATA&#160;</td><td class="fielddoc"><p>Data Frame CAN message object </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4f9f1cb3967f6f3bcd9c5af1708a7bf0aa5dab80f277d4eb5608f7c51e0e7821b" name="a4f9f1cb3967f6f3bcd9c5af1708a7bf0aa5dab80f277d4eb5608f7c51e0e7821b"></a>CAN_FRAME_RTR&#160;</td><td class="fielddoc"><p>Remote Transmit Request Frame CAN message object </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00101">101</a> of file <a class="el" href="a00113_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="a2ae4cfc09e6a9d163dfecc9dc1205887" name="a2ae4cfc09e6a9d163dfecc9dc1205887"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ae4cfc09e6a9d163dfecc9dc1205887">&#9670;&#160;</a></span>CAN_MSG_OBJ_ID_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00113.html#a2ae4cfc09e6a9d163dfecc9dc1205887">CAN_MSG_OBJ_ID_TYPE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2ae4cfc09e6a9d163dfecc9dc1205887a6a4b3fe5c5268555f38f24777919943e" name="a2ae4cfc09e6a9d163dfecc9dc1205887a6a4b3fe5c5268555f38f24777919943e"></a>CAN_FRAME_STD&#160;</td><td class="fielddoc"><p>Standard ID CAN message object </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2ae4cfc09e6a9d163dfecc9dc1205887a93187f78c390a454e83f9db0816e4229" name="a2ae4cfc09e6a9d163dfecc9dc1205887a93187f78c390a454e83f9db0816e4229"></a>CAN_FRAME_EXT&#160;</td><td class="fielddoc"><p>Extended ID CAN message object </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00090">90</a> of file <a class="el" href="a00113_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="a6be63497f4398ded461055d4b5f8fc1a" name="a6be63497f4398ded461055d4b5f8fc1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6be63497f4398ded461055d4b5f8fc1a">&#9670;&#160;</a></span>CAN_MSG_OBJ_TYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00113.html#a6be63497f4398ded461055d4b5f8fc1a">CAN_MSG_OBJ_TYPE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6be63497f4398ded461055d4b5f8fc1aab27fa8ba336155fbf8b4da780fa3f796" name="a6be63497f4398ded461055d4b5f8fc1aab27fa8ba336155fbf8b4da780fa3f796"></a>CAN_2_0_FORMAT&#160;</td><td class="fielddoc"><p>CAN 2.0 Message format </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6be63497f4398ded461055d4b5f8fc1aae186e5eb9f08a5e8d661e2fa83500d2c" name="a6be63497f4398ded461055d4b5f8fc1aae186e5eb9f08a5e8d661e2fa83500d2c"></a>CAN_FD_FORMAT&#160;</td><td class="fielddoc"><p>CAN FD Message format (Supported only in CAN FD mode) </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00112">112</a> of file <a class="el" href="a00113_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="a89d5894e1e1c614eb64d163304613f19" name="a89d5894e1e1c614eb64d163304613f19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89d5894e1e1c614eb64d163304613f19">&#9670;&#160;</a></span>CAN_OP_MODE_STATUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00113.html#a89d5894e1e1c614eb64d163304613f19">CAN_OP_MODE_STATUS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a89d5894e1e1c614eb64d163304613f19ae296371b842557f61dfda2775a45a589" name="a89d5894e1e1c614eb64d163304613f19ae296371b842557f61dfda2775a45a589"></a>CAN_OP_MODE_REQUEST_SUCCESS&#160;</td><td class="fielddoc"><p>Defines the requested operation mode set successfully </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a89d5894e1e1c614eb64d163304613f19abdbae12a637dd536b0803e7bf17c477a" name="a89d5894e1e1c614eb64d163304613f19abdbae12a637dd536b0803e7bf17c477a"></a>CAN_OP_MODE_REQUEST_FAIL&#160;</td><td class="fielddoc"><p>Defines the requested operation mode set failure. Set configuration mode before setting CAN normal or debug operation mode. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a89d5894e1e1c614eb64d163304613f19a3802b1de5642c1b7167b5fe64e69cac7" name="a89d5894e1e1c614eb64d163304613f19a3802b1de5642c1b7167b5fe64e69cac7"></a>CAN_OP_MODE_SYS_ERROR_OCCURED&#160;</td><td class="fielddoc"><p>Defines the system error occurred while setting operation mode. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00153">153</a> of file <a class="el" href="a00113_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="adf6f08edd09adf034118a73a7acea9f9" name="adf6f08edd09adf034118a73a7acea9f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf6f08edd09adf034118a73a7acea9f9">&#9670;&#160;</a></span>CAN_OP_MODES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00113.html#adf6f08edd09adf034118a73a7acea9f9">CAN_OP_MODES</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adf6f08edd09adf034118a73a7acea9f9abcb8d7f150e61bd9e037729e75d725ea" name="adf6f08edd09adf034118a73a7acea9f9abcb8d7f150e61bd9e037729e75d725ea"></a>CAN_NORMAL_FD_MODE&#160;</td><td class="fielddoc"><p>CAN FD Normal Operation Mode (Supported only in CAN FD mode) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf6f08edd09adf034118a73a7acea9f9a32b3f8fc79f3c7bc425c2b5210d51c4a" name="adf6f08edd09adf034118a73a7acea9f9a32b3f8fc79f3c7bc425c2b5210d51c4a"></a>CAN_DISABLE_MODE&#160;</td><td class="fielddoc"><p>CAN Disable Operation Mode </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf6f08edd09adf034118a73a7acea9f9a8611e4b0659822cb6884e1b56c1b4f49" name="adf6f08edd09adf034118a73a7acea9f9a8611e4b0659822cb6884e1b56c1b4f49"></a>CAN_INTERNAL_LOOPBACK_MODE&#160;</td><td class="fielddoc"><p>CAN Internal Loopback Operation Mode </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf6f08edd09adf034118a73a7acea9f9a26235b6e55aa176156126830508fcf77" name="adf6f08edd09adf034118a73a7acea9f9a26235b6e55aa176156126830508fcf77"></a>CAN_LISTEN_ONLY_MODE&#160;</td><td class="fielddoc"><p>CAN Listen only Operation Mode </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf6f08edd09adf034118a73a7acea9f9aed7a0f764d7b00b8fbfb3dd348a207d5" name="adf6f08edd09adf034118a73a7acea9f9aed7a0f764d7b00b8fbfb3dd348a207d5"></a>CAN_CONFIGURATION_MODE&#160;</td><td class="fielddoc"><p>CAN Configuration Operation Mode </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf6f08edd09adf034118a73a7acea9f9ae09483fc4ba4e1920c1d9849039068ab" name="adf6f08edd09adf034118a73a7acea9f9ae09483fc4ba4e1920c1d9849039068ab"></a>CAN_EXTERNAL_LOOPBACK_MODE&#160;</td><td class="fielddoc"><p>CAN External loopback Operation Mode </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf6f08edd09adf034118a73a7acea9f9abe71a3c45e347e25289e6dd429f47a4c" name="adf6f08edd09adf034118a73a7acea9f9abe71a3c45e347e25289e6dd429f47a4c"></a>CAN_NORMAL_2_0_MODE&#160;</td><td class="fielddoc"><p>CAN 2.0 Operation Mode </p>
+</td></tr>
+<tr><td class="fieldname"><a id="adf6f08edd09adf034118a73a7acea9f9a5401fc57e16b751f391dfcbb28dec885" name="adf6f08edd09adf034118a73a7acea9f9a5401fc57e16b751f391dfcbb28dec885"></a>CAN_RESTRICTED_OPERATION_MODE&#160;</td><td class="fielddoc"><p>CAN Restricted Operation Mode </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00136">136</a> of file <a class="el" href="a00113_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="ad96894be14c629e4cc0b30ebca9aea5c" name="ad96894be14c629e4cc0b30ebca9aea5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad96894be14c629e4cc0b30ebca9aea5c">&#9670;&#160;</a></span>CAN_RX_FIFO_STATUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00113.html#ad96894be14c629e4cc0b30ebca9aea5c">CAN_RX_FIFO_STATUS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad96894be14c629e4cc0b30ebca9aea5ca67a1de8064a6e0c5971ef7b82e504fd1" name="ad96894be14c629e4cc0b30ebca9aea5ca67a1de8064a6e0c5971ef7b82e504fd1"></a>CAN_RX_MSG_NOT_AVAILABLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad96894be14c629e4cc0b30ebca9aea5ca92f060d5d17b47ffbf967465d103831e" name="ad96894be14c629e4cc0b30ebca9aea5ca92f060d5d17b47ffbf967465d103831e"></a>CAN_RX_MSG_AVAILABLE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad96894be14c629e4cc0b30ebca9aea5ca6140c9d04050e22a897d27715f2d5877" name="ad96894be14c629e4cc0b30ebca9aea5ca6140c9d04050e22a897d27715f2d5877"></a>CAN_RX_MSG_OVERFLOW&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00205">205</a> of file <a class="el" href="a00113_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="a5b83a493815db579d910f8280984c50b" name="a5b83a493815db579d910f8280984c50b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b83a493815db579d910f8280984c50b">&#9670;&#160;</a></span>CAN_TX_FIFO_STATUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00113.html#a5b83a493815db579d910f8280984c50b">CAN_TX_FIFO_STATUS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5b83a493815db579d910f8280984c50bad31e6f793edf2f736e4c4a60f026d23f" name="a5b83a493815db579d910f8280984c50bad31e6f793edf2f736e4c4a60f026d23f"></a>CAN_TX_FIFO_FULL&#160;</td><td class="fielddoc"><p>Defines the Transmit FIFO is full </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5b83a493815db579d910f8280984c50ba826d247b73cb06d3147d6d54c50f8a49" name="a5b83a493815db579d910f8280984c50ba826d247b73cb06d3147d6d54c50f8a49"></a>CAN_TX_FIFO_AVAILABLE&#160;</td><td class="fielddoc"><p>Defines the Transmit FIFO is available </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00165">165</a> of file <a class="el" href="a00113_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+<a id="ac37a68dffec74794a3a4a35ed97dc78f" name="ac37a68dffec74794a3a4a35ed97dc78f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac37a68dffec74794a3a4a35ed97dc78f">&#9670;&#160;</a></span>CAN_TX_MSG_REQUEST_STATUS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00113.html#ac37a68dffec74794a3a4a35ed97dc78f">CAN_TX_MSG_REQUEST_STATUS</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac37a68dffec74794a3a4a35ed97dc78fa706c09b2fe5a0f66eb5de8cd1d10eb60" name="ac37a68dffec74794a3a4a35ed97dc78fa706c09b2fe5a0f66eb5de8cd1d10eb60"></a>CAN_TX_MSG_REQUEST_SUCCESS&#160;</td><td class="fielddoc"><p>Transmit message object successfully placed into Transmit FIFO </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac37a68dffec74794a3a4a35ed97dc78fa9df7200fea85311a621893b998638b3c" name="ac37a68dffec74794a3a4a35ed97dc78fa9df7200fea85311a621893b998638b3c"></a>CAN_TX_MSG_REQUEST_DLC_EXCEED_ERROR&#160;</td><td class="fielddoc"><p>Transmit message object DLC size is more than Transmit FIFO configured DLC size </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac37a68dffec74794a3a4a35ed97dc78fa10c26420e4ecb32acf9681b8bf82c8f1" name="ac37a68dffec74794a3a4a35ed97dc78fa10c26420e4ecb32acf9681b8bf82c8f1"></a>CAN_TX_MSG_REQUEST_BRS_ERROR&#160;</td><td class="fielddoc"><p>Transmit FIFO is configured has Non BRS mode and CAN TX Message object has BRS enabled </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac37a68dffec74794a3a4a35ed97dc78faf8b85649062e019846de22af7ba9b2c7" name="ac37a68dffec74794a3a4a35ed97dc78faf8b85649062e019846de22af7ba9b2c7"></a>CAN_TX_MSG_REQUEST_FIFO_FULL&#160;</td><td class="fielddoc"><p>Transmit FIFO is Full </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00123">123</a> of file <a class="el" href="a00113_source.html">can_types.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

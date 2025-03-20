@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: OS_RESET_RESETCAUSEBITS_t Struct Reference</title>
+<title>Dual Active Bridge Development Board: FAN_DATA_s Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,64 +138,202 @@ $(document).ready(function(){initNavTree('a00673.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">OS_RESET_RESETCAUSEBITS_t Struct Reference</div></div>
+  <div class="headertitle"><div class="title">FAN_DATA_s Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00395_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/sources/os/os_reset.h</a>&gt;</code></p>
+<p>A custom data type for fan.  
+ <a href="a00673.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00335_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/sources/device/dev_fan.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for OS_RESET_RESETCAUSEBITS_t:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for FAN_DATA_s:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00671.svg" width="227" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00671.svg" width="159" height="251"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:af7905814a554a97a8db48d413ca5aa21" id="r_af7905814a554a97a8db48d413ca5aa21"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00673.html#af7905814a554a97a8db48d413ca5aa21">reset_by_watchdog</a>:1</td></tr>
-<tr class="separator:af7905814a554a97a8db48d413ca5aa21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf71f3d8410c1f1dbbc96680a92c49af" id="r_adf71f3d8410c1f1dbbc96680a92c49af"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom">: 5</td></tr>
-<tr class="separator:adf71f3d8410c1f1dbbc96680a92c49af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5d31528415a4ed9cf81ebfd785128c2" id="r_ad5d31528415a4ed9cf81ebfd785128c2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00673.html#ad5d31528415a4ed9cf81ebfd785128c2">CurrentSpeedPercent</a></td></tr>
+<tr class="memdesc:ad5d31528415a4ed9cf81ebfd785128c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current Speed in percentage.  <br /></td></tr>
+<tr class="separator:ad5d31528415a4ed9cf81ebfd785128c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad26b627b999dd76f16aa4a9e36470c91" id="r_ad26b627b999dd76f16aa4a9e36470c91"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00673.html#ad26b627b999dd76f16aa4a9e36470c91">TargetSpeedPercent</a></td></tr>
+<tr class="memdesc:ad26b627b999dd76f16aa4a9e36470c91"><td class="mdescLeft">&#160;</td><td class="mdescRight">targetted Speed in percentage  <br /></td></tr>
+<tr class="separator:ad26b627b999dd76f16aa4a9e36470c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad407e9ccc871b7dc9cca12bde19c730d" id="r_ad407e9ccc871b7dc9cca12bde19c730d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00673.html#ad407e9ccc871b7dc9cca12bde19c730d">MaxSpeedPercent</a></td></tr>
+<tr class="memdesc:ad407e9ccc871b7dc9cca12bde19c730d"><td class="mdescLeft">&#160;</td><td class="mdescRight">based on period value (CCXPRL). Use this to limit the fan max speed  <br /></td></tr>
+<tr class="separator:ad407e9ccc871b7dc9cca12bde19c730d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c53383b26fe25c1a65efe0e9b6ed9cf" id="r_a4c53383b26fe25c1a65efe0e9b6ed9cf"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00673.html#a4c53383b26fe25c1a65efe0e9b6ed9cf">Tick</a></td></tr>
+<tr class="memdesc:a4c53383b26fe25c1a65efe0e9b6ed9cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the execution rate in multiples of 100ms  <br /></td></tr>
+<tr class="separator:a4c53383b26fe25c1a65efe0e9b6ed9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ea3b4a0033803dc206c7e104ab29ca8" id="r_a6ea3b4a0033803dc206c7e104ab29ca8"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00673.html#a6ea3b4a0033803dc206c7e104ab29ca8">StepSizePercent</a></td></tr>
+<tr class="memdesc:a6ea3b4a0033803dc206c7e104ab29ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the increment rate per tick in percentage  <br /></td></tr>
+<tr class="separator:a6ea3b4a0033803dc206c7e104ab29ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2a920307a7df3fdd9d9ef56b0fbac82" id="r_ac2a920307a7df3fdd9d9ef56b0fbac82"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00673.html#ac2a920307a7df3fdd9d9ef56b0fbac82">TargetSpeedRaw</a></td></tr>
+<tr class="memdesc:ac2a920307a7df3fdd9d9ef56b0fbac82"><td class="mdescLeft">&#160;</td><td class="mdescRight">targetted value raw.  <br /></td></tr>
+<tr class="separator:ac2a920307a7df3fdd9d9ef56b0fbac82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833f5d95cb05c7446c9493ce32cd6a4e" id="r_a833f5d95cb05c7446c9493ce32cd6a4e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00673.html#a833f5d95cb05c7446c9493ce32cd6a4e">CurrentSpeedRaw</a></td></tr>
+<tr class="memdesc:a833f5d95cb05c7446c9493ce32cd6a4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">current value raw.  <br /></td></tr>
+<tr class="separator:a833f5d95cb05c7446c9493ce32cd6a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17841407278bd546565d170f7b6e9e78" id="r_a17841407278bd546565d170f7b6e9e78"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00673.html#a17841407278bd546565d170f7b6e9e78">MaxSpeedRaw</a></td></tr>
+<tr class="memdesc:a17841407278bd546565d170f7b6e9e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">based on period value (CCXPRL).  <br /></td></tr>
+<tr class="separator:a17841407278bd546565d170f7b6e9e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f9053371e35277861b7403cd46b0d98" id="r_a4f9053371e35277861b7403cd46b0d98"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00673.html#a4f9053371e35277861b7403cd46b0d98">OverrideFlag</a></td></tr>
+<tr class="memdesc:a4f9053371e35277861b7403cd46b0d98"><td class="mdescLeft">&#160;</td><td class="mdescRight">override flag. sets tick value to 1, step_size to 20 and target to 100%  <br /></td></tr>
+<tr class="separator:a4f9053371e35277861b7403cd46b0d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00395_source.html#l00007">7</a> of file <a class="el" href="a00395_source.html">os_reset.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00050">50</a> of file <a class="el" href="a00335_source.html">dev_fan.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="adf71f3d8410c1f1dbbc96680a92c49af" name="adf71f3d8410c1f1dbbc96680a92c49af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf71f3d8410c1f1dbbc96680a92c49af">&#9670;&#160;</a></span>__pad0__</h2>
+<a id="ad5d31528415a4ed9cf81ebfd785128c2" name="ad5d31528415a4ed9cf81ebfd785128c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5d31528415a4ed9cf81ebfd785128c2">&#9670;&#160;</a></span>CurrentSpeedPercent</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned __pad0__</td>
+          <td class="memname">uint8_t CurrentSpeedPercent</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00395_source.html#l00010">10</a> of file <a class="el" href="a00395_source.html">os_reset.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00051">51</a> of file <a class="el" href="a00335_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
-<a id="af7905814a554a97a8db48d413ca5aa21" name="af7905814a554a97a8db48d413ca5aa21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7905814a554a97a8db48d413ca5aa21">&#9670;&#160;</a></span>reset_by_watchdog</h2>
+<a id="a833f5d95cb05c7446c9493ce32cd6a4e" name="a833f5d95cb05c7446c9493ce32cd6a4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a833f5d95cb05c7446c9493ce32cd6a4e">&#9670;&#160;</a></span>CurrentSpeedRaw</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool reset_by_watchdog</td>
+          <td class="memname">uint16_t CurrentSpeedRaw</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00395_source.html#l00009">9</a> of file <a class="el" href="a00395_source.html">os_reset.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00057">57</a> of file <a class="el" href="a00335_source.html">dev_fan.h</a>.</p>
+
+</div>
+</div>
+<a id="ad407e9ccc871b7dc9cca12bde19c730d" name="ad407e9ccc871b7dc9cca12bde19c730d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad407e9ccc871b7dc9cca12bde19c730d">&#9670;&#160;</a></span>MaxSpeedPercent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t MaxSpeedPercent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00053">53</a> of file <a class="el" href="a00335_source.html">dev_fan.h</a>.</p>
+
+</div>
+</div>
+<a id="a17841407278bd546565d170f7b6e9e78" name="a17841407278bd546565d170f7b6e9e78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17841407278bd546565d170f7b6e9e78">&#9670;&#160;</a></span>MaxSpeedRaw</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t MaxSpeedRaw</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00058">58</a> of file <a class="el" href="a00335_source.html">dev_fan.h</a>.</p>
+
+</div>
+</div>
+<a id="a4f9053371e35277861b7403cd46b0d98" name="a4f9053371e35277861b7403cd46b0d98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f9053371e35277861b7403cd46b0d98">&#9670;&#160;</a></span>OverrideFlag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t OverrideFlag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00059">59</a> of file <a class="el" href="a00335_source.html">dev_fan.h</a>.</p>
+
+</div>
+</div>
+<a id="a6ea3b4a0033803dc206c7e104ab29ca8" name="a6ea3b4a0033803dc206c7e104ab29ca8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ea3b4a0033803dc206c7e104ab29ca8">&#9670;&#160;</a></span>StepSizePercent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t StepSizePercent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00055">55</a> of file <a class="el" href="a00335_source.html">dev_fan.h</a>.</p>
+
+</div>
+</div>
+<a id="ad26b627b999dd76f16aa4a9e36470c91" name="ad26b627b999dd76f16aa4a9e36470c91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad26b627b999dd76f16aa4a9e36470c91">&#9670;&#160;</a></span>TargetSpeedPercent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t TargetSpeedPercent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00052">52</a> of file <a class="el" href="a00335_source.html">dev_fan.h</a>.</p>
+
+</div>
+</div>
+<a id="ac2a920307a7df3fdd9d9ef56b0fbac82" name="ac2a920307a7df3fdd9d9ef56b0fbac82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2a920307a7df3fdd9d9ef56b0fbac82">&#9670;&#160;</a></span>TargetSpeedRaw</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t TargetSpeedRaw</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00056">56</a> of file <a class="el" href="a00335_source.html">dev_fan.h</a>.</p>
+
+</div>
+</div>
+<a id="a4c53383b26fe25c1a65efe0e9b6ed9cf" name="a4c53383b26fe25c1a65efe0e9b6ed9cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c53383b26fe25c1a65efe0e9b6ed9cf">&#9670;&#160;</a></span>Tick</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Tick</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00335_source.html#l00054">54</a> of file <a class="el" href="a00335_source.html">dev_fan.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dspic33ck-dab.X/sources/os/<a class="el" href="a00395_source.html">os_reset.h</a></li>
+<li>dspic33ck-dab.X/sources/device/<a class="el" href="a00335_source.html">dev_fan.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

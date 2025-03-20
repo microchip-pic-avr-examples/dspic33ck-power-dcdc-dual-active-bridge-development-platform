@@ -1,9 +1,10 @@
 var a00545 =
 [
-    [ "clock.c", "a00188.html", null ],
-    [ "CLOCK_InstructionFrequencyGet", "a00545.html#ga7c2fd6abb192260205b77d167d8e78da", null ],
-    [ "CLOCK_PeripheralFrequencyGet", "a00545.html#ga192799fb698929f78edb9653d4eea55c", null ],
-    [ "CLOCK_SystemFrequencyGet", "a00545.html#gae20bf0a12edd902aa2ee56554d6d4790", null ],
-    [ "CLOCK_AuxPllLockStatusGet", "a00545.html#ga0153c20a7c603596e5722a8b45571d4a", null ],
-    [ "CLOCK_Initialize", "a00545.html#ga98390d19c7087c52765eab23eb8ded96", null ]
+    [ "pwrctrl_sm.c", "a00500.html", null ],
+    [ "PCS_INIT_handler", "a00545.html#ga8307344d190a5459682d315fc7bfe198", null ],
+    [ "PCS_SOFT_START_handler", "a00545.html#gabda6b853bb6547821acd0ec87e0a4842", null ],
+    [ "PCS_STANDBY_handler", "a00545.html#ga42f7c8f65745b2f81bb6dbd381ea8121", null ],
+    [ "PCS_UP_AND_RUNNING_handler", "a00545.html#ga8752fbb48416e60141e205f1cbda0f98", null ],
+    [ "PCS_WAIT_IF_FAULT_ACTIVE_handler", "a00545.html#gaad6ef2378120876a621b349c1380aef7", null ],
+    [ "PwrCtrl_StateMachine", "a00545.html#ga2408c0b52cd2c2487f43716f261434e6", null ]
 ];

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: STATUS_FLAGS_s Struct Reference</title>
+<title>Dual Active Bridge Development Board: SMPS_PID_T Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,116 +138,172 @@ $(document).ready(function(){initNavTree('a00713.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">STATUS_FLAGS_s Struct Reference<div class="ingroups"><a class="el" href="a00517.html">Power Control</a> &raquo; <a class="el" href="a00525.html">Power Control Data Types</a></div></div></div>
+  <div class="headertitle"><div class="title">SMPS_PID_T Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Power converter status flags.  
- <a href="a00713.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00479_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/sources/pwrctrl/pwrctrl_typedef.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00458_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/sources/pwrctrl/dcdt/smps_control.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for STATUS_FLAGS_s:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for SMPS_PID_T:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00711.svg" width="138" height="166"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00711.svg" width="123" height="230"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a0c93560c24f1a0a5f8e916b88596571b" id="r_a0c93560c24f1a0a5f8e916b88596571b"><td class="memItemLeft" >union {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a900b69af7d674b8db3bceae754b4955a" id="r_a900b69af7d674b8db3bceae754b4955a"><td class="memItemLeft" >&#160;&#160;&#160;uint16_t&#160;&#160;&#160;<a class="el" href="a00713.html#a900b69af7d674b8db3bceae754b4955a">value</a>&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="separator:a900b69af7d674b8db3bceae754b4955a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c93560c24f1a0a5f8e916b88596571b" id="r_a0c93560c24f1a0a5f8e916b88596571b"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom">&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="separator:a0c93560c24f1a0a5f8e916b88596571b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d14568609b32117e0f022cbb8948134" id="r_a4d14568609b32117e0f022cbb8948134"><td class="memItemLeft" align="right" valign="top">int16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00713.html#a4d14568609b32117e0f022cbb8948134">abcCoefficients</a></td></tr>
+<tr class="separator:a4d14568609b32117e0f022cbb8948134"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2156cbcc870b55a05790b35d7a994ed2" id="r_a2156cbcc870b55a05790b35d7a994ed2"><td class="memItemLeft" align="right" valign="top">int16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00713.html#a2156cbcc870b55a05790b35d7a994ed2">errorHistory</a></td></tr>
+<tr class="separator:a2156cbcc870b55a05790b35d7a994ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af05b261d43618dff3f93cec9ee47a9f5" id="r_af05b261d43618dff3f93cec9ee47a9f5"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00713.html#af05b261d43618dff3f93cec9ee47a9f5">controlHistory</a></td></tr>
+<tr class="separator:af05b261d43618dff3f93cec9ee47a9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63cf6fa1fea56820d41793296704eecb" id="r_a63cf6fa1fea56820d41793296704eecb"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00713.html#a63cf6fa1fea56820d41793296704eecb">postScaler</a></td></tr>
+<tr class="separator:a63cf6fa1fea56820d41793296704eecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f13a524c5792321a38ee41d3023ca8d" id="r_a3f13a524c5792321a38ee41d3023ca8d"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00713.html#a3f13a524c5792321a38ee41d3023ca8d">preShift</a></td></tr>
+<tr class="separator:a3f13a524c5792321a38ee41d3023ca8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a136ef863c1c5b2eee03c1223f4b7baef" id="r_a136ef863c1c5b2eee03c1223f4b7baef"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00713.html#a136ef863c1c5b2eee03c1223f4b7baef">postShift</a></td></tr>
+<tr class="separator:a136ef863c1c5b2eee03c1223f4b7baef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e61035e2b3233a7d496c3eb2f098969" id="r_a0e61035e2b3233a7d496c3eb2f098969"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00713.html#a0e61035e2b3233a7d496c3eb2f098969">minOutput</a></td></tr>
+<tr class="separator:a0e61035e2b3233a7d496c3eb2f098969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52e0ede1d35abbd1205991bf926b0123" id="r_a52e0ede1d35abbd1205991bf926b0123"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00713.html#a52e0ede1d35abbd1205991bf926b0123">maxOutput</a></td></tr>
+<tr class="separator:a52e0ede1d35abbd1205991bf926b0123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This data structure is used to indicate when the there is a fault or running power supply. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00079">79</a> of file <a class="el" href="a00479_source.html">pwrctrl_typedef.h</a>.</p>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="a00458_source.html#l00198">198</a> of file <a class="el" href="a00458_source.html">smps_control.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="a0c93560c24f1a0a5f8e916b88596571b" name="a0c93560c24f1a0a5f8e916b88596571b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c93560c24f1a0a5f8e916b88596571b">&#9670;&#160;</a></span>[union]</h2>
+<a id="a4d14568609b32117e0f022cbb8948134" name="a4d14568609b32117e0f022cbb8948134"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d14568609b32117e0f022cbb8948134">&#9670;&#160;</a></span>abcCoefficients</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">union  { ... } </td>
+          <td class="memname">int16_t* abcCoefficients</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="a00458_source.html#l00200">200</a> of file <a class="el" href="a00458_source.html">smps_control.h</a>.</p>
+
 </div>
 </div>
-<a id="ab17555f3ee595c55c595050bf51ef37b" name="ab17555f3ee595c55c595050bf51ef37b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab17555f3ee595c55c595050bf51ef37b">&#9670;&#160;</a></span>FaultActive</h2>
+<a id="af05b261d43618dff3f93cec9ee47a9f5" name="af05b261d43618dff3f93cec9ee47a9f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af05b261d43618dff3f93cec9ee47a9f5">&#9670;&#160;</a></span>controlHistory</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned FaultActive</td>
+          <td class="memname">int16_t controlHistory</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00083">83</a> of file <a class="el" href="a00479_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00458_source.html#l00205">205</a> of file <a class="el" href="a00458_source.html">smps_control.h</a>.</p>
 
 </div>
 </div>
-<a id="a180e365a3f5a6999428d31f218afae4d" name="a180e365a3f5a6999428d31f218afae4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a180e365a3f5a6999428d31f218afae4d">&#9670;&#160;</a></span>notUsed</h2>
+<a id="a2156cbcc870b55a05790b35d7a994ed2" name="a2156cbcc870b55a05790b35d7a994ed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2156cbcc870b55a05790b35d7a994ed2">&#9670;&#160;</a></span>errorHistory</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned notUsed</td>
+          <td class="memname">int16_t* errorHistory</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00084">84</a> of file <a class="el" href="a00479_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00458_source.html#l00203">203</a> of file <a class="el" href="a00458_source.html">smps_control.h</a>.</p>
 
 </div>
 </div>
-<a id="aa54b2d19226054f61f2998337cebcb5a" name="aa54b2d19226054f61f2998337cebcb5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa54b2d19226054f61f2998337cebcb5a">&#9670;&#160;</a></span>Running</h2>
+<a id="a52e0ede1d35abbd1205991bf926b0123" name="a52e0ede1d35abbd1205991bf926b0123"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52e0ede1d35abbd1205991bf926b0123">&#9670;&#160;</a></span>maxOutput</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned Running</td>
+          <td class="memname">uint16_t maxOutput</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00082">82</a> of file <a class="el" href="a00479_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00458_source.html#l00210">210</a> of file <a class="el" href="a00458_source.html">smps_control.h</a>.</p>
 
 </div>
 </div>
-<a id="a900b69af7d674b8db3bceae754b4955a" name="a900b69af7d674b8db3bceae754b4955a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a900b69af7d674b8db3bceae754b4955a">&#9670;&#160;</a></span>value</h2>
+<a id="a0e61035e2b3233a7d496c3eb2f098969" name="a0e61035e2b3233a7d496c3eb2f098969"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e61035e2b3233a7d496c3eb2f098969">&#9670;&#160;</a></span>minOutput</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t value</td>
+          <td class="memname">uint16_t minOutput</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00086">86</a> of file <a class="el" href="a00479_source.html">pwrctrl_typedef.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00458_source.html#l00209">209</a> of file <a class="el" href="a00458_source.html">smps_control.h</a>.</p>
+
+</div>
+</div>
+<a id="a63cf6fa1fea56820d41793296704eecb" name="a63cf6fa1fea56820d41793296704eecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63cf6fa1fea56820d41793296704eecb">&#9670;&#160;</a></span>postScaler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t postScaler</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00458_source.html#l00206">206</a> of file <a class="el" href="a00458_source.html">smps_control.h</a>.</p>
+
+</div>
+</div>
+<a id="a136ef863c1c5b2eee03c1223f4b7baef" name="a136ef863c1c5b2eee03c1223f4b7baef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a136ef863c1c5b2eee03c1223f4b7baef">&#9670;&#160;</a></span>postShift</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t postShift</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00458_source.html#l00208">208</a> of file <a class="el" href="a00458_source.html">smps_control.h</a>.</p>
+
+</div>
+</div>
+<a id="a3f13a524c5792321a38ee41d3023ca8d" name="a3f13a524c5792321a38ee41d3023ca8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f13a524c5792321a38ee41d3023ca8d">&#9670;&#160;</a></span>preShift</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t preShift</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00458_source.html#l00207">207</a> of file <a class="el" href="a00458_source.html">smps_control.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dspic33ck-dab.X/sources/pwrctrl/<a class="el" href="a00479_source.html">pwrctrl_typedef.h</a></li>
+<li>dspic33ck-dab.X/sources/pwrctrl/dcdt/<a class="el" href="a00458_source.html">smps_control.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

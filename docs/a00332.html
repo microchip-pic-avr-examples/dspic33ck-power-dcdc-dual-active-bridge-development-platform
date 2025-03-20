@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_temp.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_fan.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,150 +137,130 @@ $(document).ready(function(){initNavTree('a00332.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">dev_temp.h File Reference<div class="ingroups"><a class="el" href="a00509.html">Device Layer</a> &raquo; <a class="el" href="a00513.html">Temperature Detection</a></div></div></div>
+  <div class="headertitle"><div class="title">dev_fan.c File Reference<div class="ingroups"><a class="el" href="a00533.html">Device Layer</a> &raquo; <a class="el" href="a00535.html">Fan Control</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains temperature initialization and execution functions.  
+<p>Contains fan initialization and execution functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00068_source.html">adc/adc1.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00335_source.html">dev_fan.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00353_source.html">dev_temp.h</a>&quot;</code><br />
+<code>#include &quot;config/macros.h&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for dev_temp.h:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for dev_fan.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00333.svg" width="458" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00334.svg" width="100%" height="476"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00333.svg" width="100%" height="576"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="a00332_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00657.html">TEMP_SETTINGS_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A custom data type for temperature measurement.  <a href="a00657.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:a5c9b55ac632674b69d9ebbc6ccd4c4f0" id="r_a5c9b55ac632674b69d9ebbc6ccd4c4f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#a5c9b55ac632674b69d9ebbc6ccd4c4f0">MAX_NUM_SAMPLES_TEMP_BUFFER</a>&#160;&#160;&#160;64</td></tr>
-<tr class="memdesc:a5c9b55ac632674b69d9ebbc6ccd4c4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">These have to be renamed to make the temp device driver abstract.  <br /></td></tr>
-<tr class="separator:a5c9b55ac632674b69d9ebbc6ccd4c4f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9ec1b8463b839bf9d8e8dffb6dbc281" id="r_af9ec1b8463b839bf9d8e8dffb6dbc281"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#af9ec1b8463b839bf9d8e8dffb6dbc281">MAX_NUM_SAMPLES_TEMP_BUFFER_AS_EXP_OF_TWO</a>&#160;&#160;&#160;6</td></tr>
-<tr class="memdesc:af9ec1b8463b839bf9d8e8dffb6dbc281"><td class="mdescLeft">&#160;</td><td class="mdescRight">for bit shifting  <br /></td></tr>
-<tr class="separator:af9ec1b8463b839bf9d8e8dffb6dbc281"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a01967840b431008a1b1a2528d97b612d" id="r_a01967840b431008a1b1a2528d97b612d"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00657.html">TEMP_SETTINGS_s</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a></td></tr>
-<tr class="separator:a01967840b431008a1b1a2528d97b612d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a659bfa45ad96d6e745795d58c6053a94" id="r_a659bfa45ad96d6e745795d58c6053a94"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00332.html#afd4e54e729c2947c072af93c0bac2524">FAN_SETTINGS_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#a659bfa45ad96d6e745795d58c6053a94">FAN_SETTINGS_t</a></td></tr>
+<tr class="separator:a659bfa45ad96d6e745795d58c6053a94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:afd4e54e729c2947c072af93c0bac2524" id="r_afd4e54e729c2947c072af93c0bac2524"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#afd4e54e729c2947c072af93c0bac2524">FAN_SETTINGS_e</a> { <a class="el" href="a00332.html#afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd">NO_CHANGE</a> = 0
+, <a class="el" href="a00332.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">CHANGE_SPEED</a> = 1
+ }</td></tr>
+<tr class="separator:afd4e54e729c2947c072af93c0bac2524"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga777c30f75162d97f4e112d1fc8d49f87" id="r_ga777c30f75162d97f4e112d1fc8d49f87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#ga777c30f75162d97f4e112d1fc8d49f87">Dev_Temp_Initialize</a> (void)</td></tr>
-<tr class="memdesc:ga777c30f75162d97f4e112d1fc8d49f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the temperature data structure.  <br /></td></tr>
-<tr class="separator:ga777c30f75162d97f4e112d1fc8d49f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga642e882a6d78b8915f39b54f7183f71f" id="r_ga642e882a6d78b8915f39b54f7183f71f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#ga642e882a6d78b8915f39b54f7183f71f">Dev_Temp_Task_100ms</a> (void)</td></tr>
-<tr class="memdesc:ga642e882a6d78b8915f39b54f7183f71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the Temperature reading every 100ms.  <br /></td></tr>
-<tr class="separator:ga642e882a6d78b8915f39b54f7183f71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac9618e1ca87e77920c94cdfdcc80321a" id="r_gac9618e1ca87e77920c94cdfdcc80321a"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a> ()</td></tr>
-<tr class="memdesc:gac9618e1ca87e77920c94cdfdcc80321a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This converts the raw values to temperature celcius as per device lookup table.  <br /></td></tr>
-<tr class="separator:gac9618e1ca87e77920c94cdfdcc80321a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2d219d0b5470ff7bae4c51c403c19065" id="r_ga2d219d0b5470ff7bae4c51c403c19065"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#ga2d219d0b5470ff7bae4c51c403c19065">Dev_Temp_AverageValue</a> (void)</td></tr>
-<tr class="memdesc:ga2d219d0b5470ff7bae4c51c403c19065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the average adc temperature reading.  <br /></td></tr>
-<tr class="separator:ga2d219d0b5470ff7bae4c51c403c19065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga595a5dbd8f35a5e37d5fa77cfcd756a5" id="r_ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#ga595a5dbd8f35a5e37d5fa77cfcd756a5">Dev_Temp_Is_Over_Temperature</a> ()</td></tr>
-<tr class="memdesc:ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the status of the Over Temperature flag.  <br /></td></tr>
-<tr class="separator:ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6ce3446cb43022df6a5a96c90ec70a17" id="r_ga6ce3446cb43022df6a5a96c90ec70a17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#ga6ce3446cb43022df6a5a96c90ec70a17">Dev_Temp_Get_ADC_Sample</a> (void)</td></tr>
-<tr class="memdesc:ga6ce3446cb43022df6a5a96c90ec70a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the temperature ADC sample.  <br /></td></tr>
-<tr class="separator:ga6ce3446cb43022df6a5a96c90ec70a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ba0ef09cbd1274a9c325fc04cab411d" id="r_ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga3ba0ef09cbd1274a9c325fc04cab411d">Convert_From_Percentage</a> (uint8_t percentage_value)</td></tr>
+<tr class="memdesc:ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the percentage value to number of ticks.  <br /></td></tr>
+<tr class="separator:ga3ba0ef09cbd1274a9c325fc04cab411d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1adc887cf6c46c0eed096f1e8d203cae" id="r_a1adc887cf6c46c0eed096f1e8d203cae"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#a1adc887cf6c46c0eed096f1e8d203cae">Convert_From_Raw</a> (uint16_t raw)</td></tr>
+<tr class="memdesc:a1adc887cf6c46c0eed096f1e8d203cae"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <br /></td></tr>
+<tr class="separator:a1adc887cf6c46c0eed096f1e8d203cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0d2b426f7411623a821415f02956aac8" id="r_ga0d2b426f7411623a821415f02956aac8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga0d2b426f7411623a821415f02956aac8">Override_Speed</a> (void)</td></tr>
+<tr class="memdesc:ga0d2b426f7411623a821415f02956aac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override the fan speed with maximum speed.  <br /></td></tr>
+<tr class="separator:ga0d2b426f7411623a821415f02956aac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga66c5db181798514534d7f97b622ca35e" id="r_ga66c5db181798514534d7f97b622ca35e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga66c5db181798514534d7f97b622ca35e">Calculate_Speed</a> (void)</td></tr>
+<tr class="memdesc:ga66c5db181798514534d7f97b622ca35e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the fan speed.  <br /></td></tr>
+<tr class="separator:ga66c5db181798514534d7f97b622ca35e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7e38e334c2209a2a296bf3f573fed78" id="r_gad7e38e334c2209a2a296bf3f573fed78"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gad7e38e334c2209a2a296bf3f573fed78">Update_Speed</a> (void)</td></tr>
+<tr class="memdesc:gad7e38e334c2209a2a296bf3f573fed78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the fan speed.  <br /></td></tr>
+<tr class="separator:gad7e38e334c2209a2a296bf3f573fed78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad4274efc956bcca058565b186c2fd1a0" id="r_gad4274efc956bcca058565b186c2fd1a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gad4274efc956bcca058565b186c2fd1a0">Dev_Fan_Initialize</a> (void)</td></tr>
+<tr class="memdesc:gad4274efc956bcca058565b186c2fd1a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function initializes the fan object.  <br /></td></tr>
+<tr class="separator:gad4274efc956bcca058565b186c2fd1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1bd7dce99469a41bbb705d939ea512ad" id="r_ga1bd7dce99469a41bbb705d939ea512ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga1bd7dce99469a41bbb705d939ea512ad">Dev_Fan_Task_100ms</a> (void)</td></tr>
+<tr class="memdesc:ga1bd7dce99469a41bbb705d939ea512ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">this function needs to be called every 100ms it contains the code to update the status of the fan  <br /></td></tr>
+<tr class="separator:ga1bd7dce99469a41bbb705d939ea512ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd7dde7baca2e1dd3a745bf5f8258da7" id="r_gafd7dde7baca2e1dd3a745bf5f8258da7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gafd7dde7baca2e1dd3a745bf5f8258da7">Dev_Fan_Task_1s</a> (void)</td></tr>
+<tr class="memdesc:gafd7dde7baca2e1dd3a745bf5f8258da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function needs to be called every 1s to keep the temperature of the board at a certain temperature.  <br /></td></tr>
+<tr class="separator:gafd7dde7baca2e1dd3a745bf5f8258da7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf5c734c9834b070c4adf1af69e9f048" id="r_gabf5c734c9834b070c4adf1af69e9f048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gabf5c734c9834b070c4adf1af69e9f048">Dev_Fan_Set_Override</a> (void)</td></tr>
+<tr class="memdesc:gabf5c734c9834b070c4adf1af69e9f048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fan override bit and the fan speed.  <br /></td></tr>
+<tr class="separator:gabf5c734c9834b070c4adf1af69e9f048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5cfd61659ae6b17ad25e51bfc211723b" id="r_ga5cfd61659ae6b17ad25e51bfc211723b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga5cfd61659ae6b17ad25e51bfc211723b">Dev_Fan_Set_Speed</a> (uint8_t target_speed_percent)</td></tr>
+<tr class="memdesc:ga5cfd61659ae6b17ad25e51bfc211723b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the fan speed.  <br /></td></tr>
+<tr class="separator:ga5cfd61659ae6b17ad25e51bfc211723b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a3a0ce5751f12de74b0f17cee832c51cb" id="r_a3a0ce5751f12de74b0f17cee832c51cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00332.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#a3a0ce5751f12de74b0f17cee832c51cb">devTempDataPtr</a></td></tr>
-<tr class="memdesc:a3a0ce5751f12de74b0f17cee832c51cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">dev temp data object pointer external  <br /></td></tr>
-<tr class="separator:a3a0ce5751f12de74b0f17cee832c51cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac4362e7ed233e3ac6e62b7f6f49a80d0" id="r_gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00332.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a></td></tr>
-<tr class="memdesc:gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of temperature settings.  <br /></td></tr>
-<tr class="separator:gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga52debd393de750722aca541b24b1bc6d" id="r_ga52debd393de750722aca541b24b1bc6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00335.html#a8811ef66930b574a01bfaf769ce39679">FAN_DATA_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a></td></tr>
+<tr class="memdesc:ga52debd393de750722aca541b24b1bc6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of fan.  <br /></td></tr>
+<tr class="separator:ga52debd393de750722aca541b24b1bc6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf3c18eacb83f7ffa95a34b90d5ad0d" id="r_adaf3c18eacb83f7ffa95a34b90d5ad0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00335.html#a8811ef66930b574a01bfaf769ce39679">FAN_DATA_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#adaf3c18eacb83f7ffa95a34b90d5ad0d">devFanDataPtr</a> = &amp;<a class="el" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a></td></tr>
+<tr class="separator:adaf3c18eacb83f7ffa95a34b90d5ad0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8590bb5f278011ec7f33fd6b02e6ba93" id="r_a8590bb5f278011ec7f33fd6b02e6ba93"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00332.html#a659bfa45ad96d6e745795d58c6053a94">FAN_SETTINGS_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#a8590bb5f278011ec7f33fd6b02e6ba93">changeSpeed</a> = <a class="el" href="a00332.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">CHANGE_SPEED</a></td></tr>
+<tr class="separator:a8590bb5f278011ec7f33fd6b02e6ba93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains temperature public functions and macros.</p>
-<p>temperature device driver</p>
-<p>&lt;&gt;</p>
-<dl class="section author"><dt>Author</dt><dd>M70027 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>04/03/2024 </dd></dl>
+<div class="textblock"><p>&lt;&gt; </p>
 
-<p class="definition">Definition in file <a class="el" href="a00332_source.html">dev_temp.h</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a5c9b55ac632674b69d9ebbc6ccd4c4f0" name="a5c9b55ac632674b69d9ebbc6ccd4c4f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c9b55ac632674b69d9ebbc6ccd4c4f0">&#9670;&#160;</a></span>MAX_NUM_SAMPLES_TEMP_BUFFER</h2>
+<p class="definition">Definition in file <a class="el" href="a00332_source.html">dev_fan.c</a>.</p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a659bfa45ad96d6e745795d58c6053a94" name="a659bfa45ad96d6e745795d58c6053a94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a659bfa45ad96d6e745795d58c6053a94">&#9670;&#160;</a></span>FAN_SETTINGS_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAX_NUM_SAMPLES_TEMP_BUFFER&#160;&#160;&#160;64</td>
+          <td class="memname">typedef enum <a class="el" href="a00332.html#afd4e54e729c2947c072af93c0bac2524">FAN_SETTINGS_e</a> <a class="el" href="a00332.html#a659bfa45ad96d6e745795d58c6053a94">FAN_SETTINGS_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>@ </p>
-<p>defines the temperature threshold raw average calculated using 64 samples </p>
 
-<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00035">35</a> of file <a class="el" href="a00332_source.html">dev_temp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00028">28</a> of file <a class="el" href="a00332_source.html">dev_fan.c</a>.</p>
 
 </div>
 </div>
-<a id="af9ec1b8463b839bf9d8e8dffb6dbc281" name="af9ec1b8463b839bf9d8e8dffb6dbc281"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9ec1b8463b839bf9d8e8dffb6dbc281">&#9670;&#160;</a></span>MAX_NUM_SAMPLES_TEMP_BUFFER_AS_EXP_OF_TWO</h2>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="afd4e54e729c2947c072af93c0bac2524" name="afd4e54e729c2947c072af93c0bac2524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd4e54e729c2947c072af93c0bac2524">&#9670;&#160;</a></span>FAN_SETTINGS_e</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAX_NUM_SAMPLES_TEMP_BUFFER_AS_EXP_OF_TWO&#160;&#160;&#160;6</td>
+          <td class="memname">enum <a class="el" href="a00332.html#afd4e54e729c2947c072af93c0bac2524">FAN_SETTINGS_e</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd" name="afd4e54e729c2947c072af93c0bac2524a7fb0c1cca10ff57ae7aa3878ba530fbd"></a>NO_CHANGE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc" name="afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc"></a>CHANGE_SPEED&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
-<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00036">36</a> of file <a class="el" href="a00332_source.html">dev_temp.h</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a01967840b431008a1b1a2528d97b612d" name="a01967840b431008a1b1a2528d97b612d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01967840b431008a1b1a2528d97b612d">&#9670;&#160;</a></span>TEMP_SETTINGS_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct <a class="el" href="a00657.html">TEMP_SETTINGS_s</a> <a class="el" href="a00332.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00054">54</a> of file <a class="el" href="a00332_source.html">dev_temp.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00024">24</a> of file <a class="el" href="a00332_source.html">dev_fan.c</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a3a0ce5751f12de74b0f17cee832c51cb" name="a3a0ce5751f12de74b0f17cee832c51cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a0ce5751f12de74b0f17cee832c51cb">&#9670;&#160;</a></span>devTempDataPtr</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a1adc887cf6c46c0eed096f1e8d203cae" name="a1adc887cf6c46c0eed096f1e8d203cae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1adc887cf6c46c0eed096f1e8d203cae">&#9670;&#160;</a></span>Convert_From_Raw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,18 +269,70 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00332.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a>* devTempDataPtr</td>
+          <td class="memname">static uint8_t Convert_From_Raw </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>raw</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>pointer to the Object 'dev_Temp_data_t', providing access to all control and monitoring values. To access it, add the header file to the project, and then the pointer can be used to access the dev_temp_data_type members. </p>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00329_source.html#l00031">31</a> of file <a class="el" href="a00329_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00251">251</a> of file <a class="el" href="a00332_source.html">dev_fan.c</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00332_a1adc887cf6c46c0eed096f1e8d203cae_icgraph.svg" width="650" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a8590bb5f278011ec7f33fd6b02e6ba93" name="a8590bb5f278011ec7f33fd6b02e6ba93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8590bb5f278011ec7f33fd6b02e6ba93">&#9670;&#160;</a></span>changeSpeed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00332.html#a659bfa45ad96d6e745795d58c6053a94">FAN_SETTINGS_t</a> changeSpeed = <a class="el" href="a00332.html#afd4e54e729c2947c072af93c0bac2524aab816fbde648afd9543ad00d4902dcbc">CHANGE_SPEED</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00030">30</a> of file <a class="el" href="a00332_source.html">dev_fan.c</a>.</p>
+
+</div>
+</div>
+<a id="adaf3c18eacb83f7ffa95a34b90d5ad0d" name="adaf3c18eacb83f7ffa95a34b90d5ad0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adaf3c18eacb83f7ffa95a34b90d5ad0d">&#9670;&#160;</a></span>devFanDataPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00335.html#a8811ef66930b574a01bfaf769ce39679">FAN_DATA_t</a>* devFanDataPtr = &amp;<a class="el" href="a00535.html#ga52debd393de750722aca541b24b1bc6d">devFanData</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00332_source.html#l00022">22</a> of file <a class="el" href="a00332_source.html">dev_fan.c</a>.</p>
 
 </div>
 </div>

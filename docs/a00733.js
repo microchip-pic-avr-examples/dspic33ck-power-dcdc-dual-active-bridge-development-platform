@@ -1,9 +1,13 @@
 var a00733 =
 [
-    [ "ChargingState", "a00733.html#ae3595664cdc2ecd4b147334fe73c47be", null ],
-    [ "Enable", "a00733.html#a3348c072797d519fa8f99e521ab65a69", null ],
-    [ "IReference", "a00733.html#a77adde2f7eb1f326d84f31bf34c99b99", null ],
-    [ "PwrReference", "a00733.html#a19c96c8c63b39d18db0eae64f208dcf7", null ],
-    [ "VPriReference", "a00733.html#aa7c7be85fbd243019a3d4117936a5eb6", null ],
-    [ "VSecReference", "a00733.html#aa9713a077db135ad061aae799db7be2c", null ]
+    [ "ISecAverage", "a00733.html#a852e1ba399fd7762820a5a48b277e235", null ],
+    [ "ISecAverageRectified", "a00733.html#a2ebeb1daee42d50afad2f53cfe8f8548", null ],
+    [ "ISecSensorOffset", "a00733.html#aad3cd92609bdf3ca099564c676a824cb", null ],
+    [ "ISensePrimary", "a00733.html#a4bb8d9e45d3b1791b7597c46356d6f7f", null ],
+    [ "ISenseSecondary", "a00733.html#ab69cdd1acf7db7e5e2521d1afe46d8f9", null ],
+    [ "SecPower", "a00733.html#a6961d340d23b02e801410da9d41e9c20", null ],
+    [ "Temperature", "a00733.html#ad389e5a23077ca8d6548dffd7f5ec1c1", null ],
+    [ "VPriVoltage", "a00733.html#a05578776f684221691f412d73de487ea", null ],
+    [ "VRail_5V", "a00733.html#acc72d884c453d1343c8e836369311454", null ],
+    [ "VSecVoltage", "a00733.html#a4e6e0db2e515990bc32d13435a75b50e", null ]
 ];

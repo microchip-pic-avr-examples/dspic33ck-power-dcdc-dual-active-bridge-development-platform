@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Conversion Macros</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_isr.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,201 +136,85 @@ $(document).ready(function(){initNavTree('a00485.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Conversion Macros<div class="ingroups"><a class="el" href="a00508.html">Configuration Layer</a> &raquo; <a class="el" href="a00484.html">Primary Voltage Feedback</a></div></div></div>
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">pwrctrl_isr.c File Reference<div class="ingroups"><a class="el" href="a00541.html">Power Control</a> &raquo; <a class="el" href="a00543.html">Interrupt Routine and Functions</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Conversion macros for user-declarations of Primary Voltage Feedback parameters.  
+<p>Contains Control loop interrupt Callback that acquires the ADC raw data and process it in the control loop, and use the control output for the PWM distribution for this converter.  
 <a href="#details">More...</a></p>
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Conversion Macros:</div>
+<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00248_source.html">timer/sccp1.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00089_source.html">adc/adc1.h</a>&quot;</code><br />
+<code>#include &quot;system/pins.h&quot;</code><br />
+<code>#include &quot;config/macros.h&quot;</code><br />
+<code>#include &quot;config/config.h&quot;</code><br />
+<code>#include &quot;pwrctrl.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00386_source.html">fault/fault.h</a>&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pwrctrl_isr.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00485.svg" width="366" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00486.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
+</div>
+<p><a href="a00485_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="memitem:ga3746b4dd49ef223031e563ac1621ac04" id="r_ga3746b4dd49ef223031e563ac1621ac04"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#ga3746b4dd49ef223031e563ac1621ac04">VPRI_OV_THRES_TRIG</a>&#160;&#160;&#160;(<a class="el" href="a00499.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00484.html#ga3de0595efbf0659d33138d8f32e9e34e">VPRI_OV_THRES_TRIG_VOLTS</a>,<a class="el" href="a00484.html#gae3dffcdc110b55af6c257bfc0748cf81">VPRI_SNS_GAIN</a>,<a class="el" href="a00484.html#ga35eab816332f1b3d80d161f125c5044a">VPRI_SNS_OFS</a>))</td></tr>
-<tr class="separator:ga3746b4dd49ef223031e563ac1621ac04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaff26d74d808582c963415a071cdd5e0a" id="r_gaff26d74d808582c963415a071cdd5e0a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#gaff26d74d808582c963415a071cdd5e0a">VPRI_OV_THRES_CLEAR</a>&#160;&#160;&#160;(<a class="el" href="a00499.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00484.html#gae8ebc2c2c94c46d6bfbdc05ac7ffdecb">VPRI_OV_THRES_CLEAR_VOLTS</a>,<a class="el" href="a00484.html#gae3dffcdc110b55af6c257bfc0748cf81">VPRI_SNS_GAIN</a>,<a class="el" href="a00484.html#ga35eab816332f1b3d80d161f125c5044a">VPRI_SNS_OFS</a>))</td></tr>
-<tr class="separator:gaff26d74d808582c963415a071cdd5e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1184157d3e57ef49b0e628fa46030981" id="r_ga1184157d3e57ef49b0e628fa46030981"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#ga1184157d3e57ef49b0e628fa46030981">VPRI_OV_T_BLANK_TRIG</a>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00484.html#gaf81643989e826fa9c4349f4184a56a0d">VPRI_OV_T_BLANK_TRIG_SEC</a> / <a class="el" href="a00486.html#ga77d2a7b05664c0c08ce317f942deca00">VSEC_OV_TICK_SEC</a>)))</td></tr>
-<tr class="separator:ga1184157d3e57ef49b0e628fa46030981"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9a9b09ee6494d1465749a8e9fb0c8567" id="r_ga9a9b09ee6494d1465749a8e9fb0c8567"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#ga9a9b09ee6494d1465749a8e9fb0c8567">VPRI_OV_T_BLANK_CLEAR</a>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00484.html#gae45b4bac6339131a7cb30567551a2cd5">VPRI_OV_T_BLANK_CLEAR_SEC</a> / <a class="el" href="a00486.html#ga77d2a7b05664c0c08ce317f942deca00">VSEC_OV_TICK_SEC</a>)))</td></tr>
-<tr class="separator:ga9a9b09ee6494d1465749a8e9fb0c8567"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7bdc220c327ec839fc16ba1edbf67b57" id="r_ga7bdc220c327ec839fc16ba1edbf67b57"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#ga7bdc220c327ec839fc16ba1edbf67b57">VPRI_UV_THRES_TRIG</a>&#160;&#160;&#160;(<a class="el" href="a00499.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00484.html#ga886eaaa750e2ef06f90bdd463c7f6346">VPRI_UV_THRES_TRIG_VOLTS</a>,<a class="el" href="a00484.html#gae3dffcdc110b55af6c257bfc0748cf81">VPRI_SNS_GAIN</a>,<a class="el" href="a00484.html#ga35eab816332f1b3d80d161f125c5044a">VPRI_SNS_OFS</a>))</td></tr>
-<tr class="separator:ga7bdc220c327ec839fc16ba1edbf67b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad4cc96b6dd68ecc9ed427346911e3f57" id="r_gad4cc96b6dd68ecc9ed427346911e3f57"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#gad4cc96b6dd68ecc9ed427346911e3f57">VPRI_UV_THRES_CLEAR</a>&#160;&#160;&#160;(<a class="el" href="a00499.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00484.html#gaf0c600dfc98788eda04c6051f1e67dff">VPRI_UV_THRES_CLEAR_VOLTS</a>,<a class="el" href="a00484.html#gae3dffcdc110b55af6c257bfc0748cf81">VPRI_SNS_GAIN</a>,<a class="el" href="a00484.html#ga35eab816332f1b3d80d161f125c5044a">VPRI_SNS_OFS</a>))</td></tr>
-<tr class="separator:gad4cc96b6dd68ecc9ed427346911e3f57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3fa103425c39e75be9e3fb38c8a5bdd7" id="r_ga3fa103425c39e75be9e3fb38c8a5bdd7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#ga3fa103425c39e75be9e3fb38c8a5bdd7">VPRI_UV_T_BLANK_TRIG</a>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00484.html#ga6ff4ff92efb2e17e98e3b963e6dc0cae">VPRI_UV_T_BLANK_TRIG_SEC</a> / <a class="el" href="a00486.html#gab4b4e960335284c22232a1a6fcb41573">VSEC_UV_TICK_SEC</a>)))</td></tr>
-<tr class="separator:ga3fa103425c39e75be9e3fb38c8a5bdd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7fa4415a02bf9697187c8813fb0806e3" id="r_ga7fa4415a02bf9697187c8813fb0806e3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#ga7fa4415a02bf9697187c8813fb0806e3">VPRI_UV_T_BLANK_CLEAR</a>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00484.html#gae060c2f32be9e0c4fbe4d30968d86a50">VPRI_UV_T_BLANK_CLEAR_SEC</a> / <a class="el" href="a00486.html#gab4b4e960335284c22232a1a6fcb41573">VSEC_UV_TICK_SEC</a>)))</td></tr>
-<tr class="separator:ga7fa4415a02bf9697187c8813fb0806e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab7a9741526251fdc69257a21c67188f4" id="r_gab7a9741526251fdc69257a21c67188f4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#gab7a9741526251fdc69257a21c67188f4">VPRI_SCALER</a>&#160;&#160;&#160;(10u)</td></tr>
-<tr class="separator:gab7a9741526251fdc69257a21c67188f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga838e39dc2b9489e0f7186265226749ad" id="r_ga838e39dc2b9489e0f7186265226749ad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#ga838e39dc2b9489e0f7186265226749ad">VPRI_FACTOR</a>&#160;&#160;&#160;(uint16_t)((1 / <a class="el" href="a00484.html#gab88335efd29659386531beabaffdf660">VPRI_VOLTAGE_GAIN</a>) * <a class="el" href="a00485.html#gab7a9741526251fdc69257a21c67188f4">VPRI_SCALER</a>)</td></tr>
-<tr class="separator:ga838e39dc2b9489e0f7186265226749ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gabda1b0b4f44a931cc725c3f5fa45be7b" id="r_gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gabda1b0b4f44a931cc725c3f5fa45be7b">PwrCtrl_PrimToSecPHDegree</a> (void)</td></tr>
+<tr class="memdesc:gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members with phase values normalized in degree.  <br /></td></tr>
+<tr class="separator:gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80c3a681fbe9c0d7041146d82134f0cb" id="r_ga80c3a681fbe9c0d7041146d82134f0cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga80c3a681fbe9c0d7041146d82134f0cb">PwrCtrl_DeadTimeAdjust</a> (void)</td></tr>
+<tr class="memdesc:ga80c3a681fbe9c0d7041146d82134f0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members dead time based on load.  <br /></td></tr>
+<tr class="separator:ga80c3a681fbe9c0d7041146d82134f0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4d366f40ad4926202db3d6334f0cc41" id="r_ac4d366f40ad4926202db3d6334f0cc41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#ac4d366f40ad4926202db3d6334f0cc41">PwrCtrl_PeriodModulator</a> (void)</td></tr>
+<tr class="separator:ac4d366f40ad4926202db3d6334f0cc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa34c5b66d8f20f01daef50d0e88cf20e" id="r_gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gaa34c5b66d8f20f01daef50d0e88cf20e">PwrCtrl_UpdateADConverterData</a> (void)</td></tr>
+<tr class="memdesc:gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members with ADC raw values.  <br /></td></tr>
+<tr class="separator:gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2eeebdb0cef4bbfeed446752525dd879" id="r_ga2eeebdb0cef4bbfeed446752525dd879"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga2eeebdb0cef4bbfeed446752525dd879">PwrCtrl_ControlLoopExecute</a> (void)</td></tr>
+<tr class="memdesc:ga2eeebdb0cef4bbfeed446752525dd879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power converter control loop.  <br /></td></tr>
+<tr class="separator:ga2eeebdb0cef4bbfeed446752525dd879"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaf49f142990b8dc3f750e88365bf8fed" id="r_gaaf49f142990b8dc3f750e88365bf8fed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gaaf49f142990b8dc3f750e88365bf8fed">PwrCtrl_10KHzVPLoopPrepareData</a> (void)</td></tr>
+<tr class="memdesc:gaaf49f142990b8dc3f750e88365bf8fed"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function prepares the data for control loop and selects which control loop will be executed.  <br /></td></tr>
+<tr class="separator:gaaf49f142990b8dc3f750e88365bf8fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae32c9e5ed4d1fb98fc13b26601782c10" id="r_gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gae32c9e5ed4d1fb98fc13b26601782c10">ControlLoop_Interrupt_CallBack</a> (void)</td></tr>
+<tr class="memdesc:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power converter control loop.  <br /></td></tr>
+<tr class="separator:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>These conversion macros are used to convert user settings defined as physical quantities into binary (integer) numbers, which will be written to registers and variables and used in calculations throughout the firmware. </p>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga838e39dc2b9489e0f7186265226749ad" name="ga838e39dc2b9489e0f7186265226749ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga838e39dc2b9489e0f7186265226749ad">&#9670;&#160;</a></span>VPRI_FACTOR</h2>
+<div class="textblock"><p>&lt;&gt; </p>
+
+<p class="definition">Definition in file <a class="el" href="a00485_source.html">pwrctrl_isr.c</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="ac4d366f40ad4926202db3d6334f0cc41" name="ac4d366f40ad4926202db3d6334f0cc41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4d366f40ad4926202db3d6334f0cc41">&#9670;&#160;</a></span>PwrCtrl_PeriodModulator()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define VPRI_FACTOR&#160;&#160;&#160;(uint16_t)((1 / <a class="el" href="a00484.html#gab88335efd29659386531beabaffdf660">VPRI_VOLTAGE_GAIN</a>) * <a class="el" href="a00485.html#gab7a9741526251fdc69257a21c67188f4">VPRI_SCALER</a>)</td>
+          <td class="memname">void PwrCtrl_PeriodModulator </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00135">135</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
-
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00485_ac4d366f40ad4926202db3d6334f0cc41_icgraph.svg" width="368" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<a id="ga9a9b09ee6494d1465749a8e9fb0c8567" name="ga9a9b09ee6494d1465749a8e9fb0c8567"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9a9b09ee6494d1465749a8e9fb0c8567">&#9670;&#160;</a></span>VPRI_OV_T_BLANK_CLEAR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define VPRI_OV_T_BLANK_CLEAR&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00484.html#gae45b4bac6339131a7cb30567551a2cd5">VPRI_OV_T_BLANK_CLEAR_SEC</a> / <a class="el" href="a00486.html#ga77d2a7b05664c0c08ce317f942deca00">VSEC_OV_TICK_SEC</a>)))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00126">126</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="ga1184157d3e57ef49b0e628fa46030981" name="ga1184157d3e57ef49b0e628fa46030981"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1184157d3e57ef49b0e628fa46030981">&#9670;&#160;</a></span>VPRI_OV_T_BLANK_TRIG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define VPRI_OV_T_BLANK_TRIG&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00484.html#gaf81643989e826fa9c4349f4184a56a0d">VPRI_OV_T_BLANK_TRIG_SEC</a> / <a class="el" href="a00486.html#ga77d2a7b05664c0c08ce317f942deca00">VSEC_OV_TICK_SEC</a>)))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00125">125</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="gaff26d74d808582c963415a071cdd5e0a" name="gaff26d74d808582c963415a071cdd5e0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaff26d74d808582c963415a071cdd5e0a">&#9670;&#160;</a></span>VPRI_OV_THRES_CLEAR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define VPRI_OV_THRES_CLEAR&#160;&#160;&#160;(<a class="el" href="a00499.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00484.html#gae8ebc2c2c94c46d6bfbdc05ac7ffdecb">VPRI_OV_THRES_CLEAR_VOLTS</a>,<a class="el" href="a00484.html#gae3dffcdc110b55af6c257bfc0748cf81">VPRI_SNS_GAIN</a>,<a class="el" href="a00484.html#ga35eab816332f1b3d80d161f125c5044a">VPRI_SNS_OFS</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00124">124</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="ga3746b4dd49ef223031e563ac1621ac04" name="ga3746b4dd49ef223031e563ac1621ac04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3746b4dd49ef223031e563ac1621ac04">&#9670;&#160;</a></span>VPRI_OV_THRES_TRIG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define VPRI_OV_THRES_TRIG&#160;&#160;&#160;(<a class="el" href="a00499.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00484.html#ga3de0595efbf0659d33138d8f32e9e34e">VPRI_OV_THRES_TRIG_VOLTS</a>,<a class="el" href="a00484.html#gae3dffcdc110b55af6c257bfc0748cf81">VPRI_SNS_GAIN</a>,<a class="el" href="a00484.html#ga35eab816332f1b3d80d161f125c5044a">VPRI_SNS_OFS</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00123">123</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="gab7a9741526251fdc69257a21c67188f4" name="gab7a9741526251fdc69257a21c67188f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab7a9741526251fdc69257a21c67188f4">&#9670;&#160;</a></span>VPRI_SCALER</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define VPRI_SCALER&#160;&#160;&#160;(10u)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00134">134</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="ga7fa4415a02bf9697187c8813fb0806e3" name="ga7fa4415a02bf9697187c8813fb0806e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7fa4415a02bf9697187c8813fb0806e3">&#9670;&#160;</a></span>VPRI_UV_T_BLANK_CLEAR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define VPRI_UV_T_BLANK_CLEAR&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00484.html#gae060c2f32be9e0c4fbe4d30968d86a50">VPRI_UV_T_BLANK_CLEAR_SEC</a> / <a class="el" href="a00486.html#gab4b4e960335284c22232a1a6fcb41573">VSEC_UV_TICK_SEC</a>)))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00131">131</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="ga3fa103425c39e75be9e3fb38c8a5bdd7" name="ga3fa103425c39e75be9e3fb38c8a5bdd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3fa103425c39e75be9e3fb38c8a5bdd7">&#9670;&#160;</a></span>VPRI_UV_T_BLANK_TRIG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define VPRI_UV_T_BLANK_TRIG&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00499.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00484.html#ga6ff4ff92efb2e17e98e3b963e6dc0cae">VPRI_UV_T_BLANK_TRIG_SEC</a> / <a class="el" href="a00486.html#gab4b4e960335284c22232a1a6fcb41573">VSEC_UV_TICK_SEC</a>)))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00130">130</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="gad4cc96b6dd68ecc9ed427346911e3f57" name="gad4cc96b6dd68ecc9ed427346911e3f57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad4cc96b6dd68ecc9ed427346911e3f57">&#9670;&#160;</a></span>VPRI_UV_THRES_CLEAR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define VPRI_UV_THRES_CLEAR&#160;&#160;&#160;(<a class="el" href="a00499.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00484.html#gaf0c600dfc98788eda04c6051f1e67dff">VPRI_UV_THRES_CLEAR_VOLTS</a>,<a class="el" href="a00484.html#gae3dffcdc110b55af6c257bfc0748cf81">VPRI_SNS_GAIN</a>,<a class="el" href="a00484.html#ga35eab816332f1b3d80d161f125c5044a">VPRI_SNS_OFS</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00129">129</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
-
-</div>
-</div>
-<a id="ga7bdc220c327ec839fc16ba1edbf67b57" name="ga7bdc220c327ec839fc16ba1edbf67b57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7bdc220c327ec839fc16ba1edbf67b57">&#9670;&#160;</a></span>VPRI_UV_THRES_TRIG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define VPRI_UV_THRES_TRIG&#160;&#160;&#160;(<a class="el" href="a00499.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00484.html#ga886eaaa750e2ef06f90bdd463c7f6346">VPRI_UV_THRES_TRIG_VOLTS</a>,<a class="el" href="a00484.html#gae3dffcdc110b55af6c257bfc0748cf81">VPRI_SNS_GAIN</a>,<a class="el" href="a00484.html#ga35eab816332f1b3d80d161f125c5044a">VPRI_SNS_OFS</a>))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00128">128</a> of file <a class="el" href="a00293_source.html">macros.h</a>.</p>
 
 </div>
 </div>

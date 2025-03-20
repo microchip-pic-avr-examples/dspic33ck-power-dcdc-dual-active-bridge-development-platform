@@ -1,10 +1,8 @@
 var a00518 =
 [
-    [ "pwrctrl.c", "a00443.html", null ],
-    [ "PwrCtrl_ControlLoopInitialize", "a00518.html#gae58162e874535adf2003e9ed8a13b656", null ],
-    [ "PwrCtrl_Execute", "a00518.html#ga48dcb018afa53b60b6112cde00561c4b", null ],
-    [ "PwrCtrl_Initialize", "a00518.html#ga2c39b57545ef7b5c79bac36ab30da7d8", null ],
-    [ "PwrCtrl_Reset", "a00518.html#ga8c07187b0c96b5916e4b46daa47500c5", null ],
-    [ "PwrCtrl_StartUpInitialize", "a00518.html#ga45940145031d4886842c27f5e5277e9b", null ],
-    [ "dab", "a00518.html#ga5762de26b3d1b822c6a4b9c1605cd387", null ]
+    [ "Conversion Macros", "a00519.html", "a00519" ],
+    [ "AGC_MINIMUM_ISEC_THRESHOLD", "a00518.html#ga2d6249446db551d0d518cad5fcd5a0ff", null ],
+    [ "AGC_MINIMUM_VIN_THRESHOLD", "a00518.html#gafe9bc7e554222335c9b10bda87709883", null ],
+    [ "AGC_MINIMUM_VIN_THRESHOLD_SEC", "a00518.html#ga73ac2fb840e4ddfb6c430e67a7ecae4b", null ],
+    [ "VPLOOP_ILOOP_EXE_RATIO", "a00518.html#ga43edf0d1b9579419b244048d67b8744c", null ]
 ];

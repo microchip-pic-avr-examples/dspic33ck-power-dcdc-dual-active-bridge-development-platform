@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Smps-2p2z-dspic-description</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_sm.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,107 +136,60 @@ $(document).ready(function(){initNavTree('a00500.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Smps-2p2z-dspic-description<div class="ingroups"><a class="el" href="a00531.html">Hide-content</a></div></div></div>
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">pwrctrl_sm.c File Reference<div class="ingroups"><a class="el" href="a00541.html">Power Control</a> &raquo; <a class="el" href="a00545.html">State Machine</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Smps-2p2z-dspic-description:</div>
+
+<p>Contains power control state machine functions that is executed every 100us.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stddef.h&gt;</code><br />
+<code>#include &quot;pwrctrl.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00173_source.html">pwm_hs/pwm.h</a>&quot;</code><br />
+<code>#include &quot;config/macros.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00323_source.html">device/device.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00386_source.html">fault/fault.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00449_source.html">dcdt/pwrctrl_dcdt.h</a>&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pwrctrl_sm.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00500.svg" width="343" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00501.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-<p>Operation:</p>
-<div class="fragment"><div class="line">                                          Wcp0   ( S + Wcz1 )               </div>
-<div class="line">  Calculate the transfer function Hc(s) = ---- X ------------------------   </div>
-<div class="line">                                           S     ( S + Wcp1 )( S + Wcp2 )   </div>
-<div class="line">                                           </div>
-<div class="line">    Error Normalization</div>
-<div class="line">      ------------</div>
-<div class="line">     |   prsft    |</div>
-<div class="line">      ------------</div>
-<div class="line">Reference   |       e(n)          e(n-1)        e(n-2)</div>
-<div class="line">Input       |             --------      --------</div>
-<div class="line">        -   -   -        |        |    |        |</div>
-<div class="line">  o----|-|-|x|-|x|----o-&gt;| z^(-1) |-o-&gt;| z^(-1) |-o          Post</div>
-<div class="line">        -   -   -     |  |        | |  |        | |         Scaling</div>
-<div class="line">        |      NORM   |   --------  |   --------  |</div>
-<div class="line">        |             |             |             |          --------</div>
-<div class="line">Measured|            ---           ---           ---       |          |     - - - - - - - - - -</div>
-<div class="line">Input   |       B0=&gt;| X |     B1=&gt;| X |     B2=&gt;| X |      |posft     |    |                   |</div>
-<div class="line">        |            ---           ---           ---       |postScalar|    |     P O W E R     |</div>
-<div class="line">        |             |             |             |         ----------     |     P L A N T     |</div>
-<div class="line">        |            -------------------------------------        |        |                   |</div>
-<div class="line">        |           |                                     | U[n] ---       |                   |</div>
-<div class="line">        |           |        A C C U M U L A T O R        |--o--| X |------O Duty Ratio=&gt;PWM  |</div>
-<div class="line">        |           |                                     |  |   ---       |                   |</div>
-<div class="line">        |            -------------------------------------   |             | Voltage/Current   |</div>
-<div class="line">        |             |              |                       |             |      Feedback     |</div>
-<div class="line">        |            ---            ---                      |             |         O         |</div>
-<div class="line">        |       A2=&gt;| X |      A1=&gt;| X |                     |             |         |         |</div>
-<div class="line">        |            ---            ---                      |              - - - - - - - - - -</div>
-<div class="line">        |             |              |                       |                      |</div>
-<div class="line">        |             |   --------   |  --------             |                      | A/D</div>
-<div class="line">        |             |  |        |  | |        |            |                      | Input</div>
-<div class="line">        |             o--| z^(-1) |&lt;-o-| z^(-1) |&lt;-----------                       |</div>
-<div class="line">        |                |        |    |        |                                   |</div>
-<div class="line">        |                 --------      --------                                    |</div>
-<div class="line">        |                  u[n-2]        u[n-1]                                     |</div>
-<div class="line">        |                                                                           |</div>
-<div class="line">        |                                                                           |</div>
-<div class="line">         ---------------------------------------------------------------------------</div>
-<div class="line"> </div>
-<div class="line">   controlHistory[n] = errorHistory[n]   * bCoefficients[0]</div>
-<div class="line">                     + errorHistory[n-1] * bCoefficients[1]</div>
-<div class="line">                     + errorHistory[n-2] * bCoefficients[2]</div>
-<div class="line">                     + controlHistory[n-1] * aCoefficients[0]</div>
-<div class="line">                     + controlHistory[n-2] * aCoefficients[1]</div>
-<div class="line"> </div>
-<div class="line">  where:</div>
-<div class="line"> </div>
-<div class="line">   aCoefficients[0]  = A1</div>
-<div class="line">   aCoefficients[1]  = A2</div>
-<div class="line">   bCoefficients[0]  = B0</div>
-<div class="line">   bCoefficients[1]  = B1</div>
-<div class="line">   bCoefficients[2]  = B2</div>
-<div class="line">   controlHistory[0] = u(n)</div>
-<div class="line">   controlHistory[1] = u(n-1)</div>
-<div class="line">   errorHistory[0]   = e(n) =&gt; most recent error {(controlReference) - (sourceRegister)}</div>
-<div class="line">   errorHistory[1]   = e(n-1)</div>
-<div class="line">   errorHistory[2]   = e(n-2)</div>
-<div class="line">   preShift          = prsft    =&gt; pre scaling factor for Q15 normalization purposes</div>
-<div class="line">   postShift         = posft    =&gt; post scaling factor for normalization purposes</div>
-<div class="line">   postScaler        = postScaler =&gt; post scaling coefficient for normalization purpose</div>
-<div class="line"> </div>
-<div class="line">   Function call inputs:</div>
-<div class="line">   sourceRegister    = ADBUFx  =&gt; measured feedback input   </div>
-<div class="line">   controlReference  = V_ref    =&gt; reference voltage</div>
-<div class="line">   targetRegister = PDCx =&gt; output duty cycle</div>
-<div class="line"> </div>
-<div class="line">  where:</div>
-<div class="line"> </div>
-<div class="line">   aCoefficients, bCoefficients, controlHistory, errorHistory, </div>
-<div class="line">   preShift and postShift are all members of the data structure <a class="code hl_struct" href="a00685.html">SMPS_2P2Z_T</a>.</div>
-<div class="line"> </div>
-<div class="line"> Input:</div>
-<div class="line">       w0 = Address of <a class="code hl_struct" href="a00685.html">SMPS_2P2Z_T</a> data structure</div>
-<div class="line">       w1 = Address of the Source Register (Input)</div>
-<div class="line">       w2 = Control Reference</div>
-<div class="line">       w3 = Address of the Target Register (Output)</div>
-<div class="line"> Return:</div>
-<div class="line">       w0 = Address of <a class="code hl_struct" href="a00685.html">SMPS_2P2Z_T</a> data structure</div>
-<div class="line">       w1 = Address of the Source Register (Input)</div>
-<div class="line">       w2 = Control Reference</div>
-<div class="line">       w3 = Address of the Target Register (Output)</div>
-<div class="line"> </div>
-<div class="line"> System resources usage:</div>
-<div class="line">       {w4..w5}        saved, used, restored</div>
-<div class="line">       {w8,w10}        saved, used, restored</div>
-<div class="line">        AccA           used, not restored</div>
-<div class="line">        CORCON         saved, used, restored</div>
-<div class="ttc" id="aa00685_html"><div class="ttname"><a href="a00685.html">SMPS_2P2Z_T</a></div><div class="ttdef"><b>Definition</b> <a href="a00437_source.html#l00162">smps_control.h:163</a></div></div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The function in this assembly file requires CORCON register to be setup in a certain state in order to operate correctly. Due to this requirement, this function will save the CORCON register on the stack in the beginning of the function and restore it before the function return. After saving the CORCON register, this function writes to all bits of the CORCON register. Thus, for the brief duration when this function is executing, the state of CORCON register may be different from its state as set by the function caller. This may change the CPU core behaviour with respect to exception processing latency, DO loop termination, CPU interrupt priority level and DSP-engine behaviour. </dd></dl>
-</div><!-- contents -->
+</div>
+<p><a href="a00500_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga8307344d190a5459682d315fc7bfe198" id="r_ga8307344d190a5459682d315fc7bfe198"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#ga8307344d190a5459682d315fc7bfe198">PCS_INIT_handler</a> (<a class="el" href="a00761.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
+<tr class="memdesc:ga8307344d190a5459682d315fc7bfe198"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes function for initialze state machine.  <br /></td></tr>
+<tr class="separator:ga8307344d190a5459682d315fc7bfe198"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaad6ef2378120876a621b349c1380aef7" id="r_gaad6ef2378120876a621b349c1380aef7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#gaad6ef2378120876a621b349c1380aef7">PCS_WAIT_IF_FAULT_ACTIVE_handler</a> (<a class="el" href="a00761.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
+<tr class="memdesc:gaad6ef2378120876a621b349c1380aef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the fault handler state machine.  <br /></td></tr>
+<tr class="separator:gaad6ef2378120876a621b349c1380aef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga42f7c8f65745b2f81bb6dbd381ea8121" id="r_ga42f7c8f65745b2f81bb6dbd381ea8121"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#ga42f7c8f65745b2f81bb6dbd381ea8121">PCS_STANDBY_handler</a> (<a class="el" href="a00761.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
+<tr class="memdesc:ga42f7c8f65745b2f81bb6dbd381ea8121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes Standby State machine.  <br /></td></tr>
+<tr class="separator:ga42f7c8f65745b2f81bb6dbd381ea8121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabda6b853bb6547821acd0ec87e0a4842" id="r_gabda6b853bb6547821acd0ec87e0a4842"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#gabda6b853bb6547821acd0ec87e0a4842">PCS_SOFT_START_handler</a> (<a class="el" href="a00761.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
+<tr class="memdesc:gabda6b853bb6547821acd0ec87e0a4842"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power control soft start state machine.  <br /></td></tr>
+<tr class="separator:gabda6b853bb6547821acd0ec87e0a4842"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8752fbb48416e60141e205f1cbda0f98" id="r_ga8752fbb48416e60141e205f1cbda0f98"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#ga8752fbb48416e60141e205f1cbda0f98">PCS_UP_AND_RUNNING_handler</a> (<a class="el" href="a00761.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
+<tr class="memdesc:ga8752fbb48416e60141e205f1cbda0f98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the Online state.  <br /></td></tr>
+<tr class="separator:ga8752fbb48416e60141e205f1cbda0f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2408c0b52cd2c2487f43716f261434e6" id="r_ga2408c0b52cd2c2487f43716f261434e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html#ga2408c0b52cd2c2487f43716f261434e6">PwrCtrl_StateMachine</a> (<a class="el" href="a00761.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
+<tr class="memdesc:ga2408c0b52cd2c2487f43716f261434e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages the power control state machine.  <br /></td></tr>
+<tr class="separator:ga2408c0b52cd2c2487f43716f261434e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>&lt;&gt; </p>
+
+<p class="definition">Definition in file <a class="el" href="a00500_source.html">pwrctrl_sm.c</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

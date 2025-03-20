@@ -1,20 +1,13 @@
 var a00512 =
 [
-    [ "dev_led.c", "a00323.html", null ],
-    [ "dev_led.h", "a00326.html", null ],
-    [ "LED_STATE_BLINK", "a00512.html#gae7328822ca8e2fd16a638854eeae068b", null ],
-    [ "LED_STATE_BLINK_COUNT", "a00512.html#gaaa38f6cc3eb9957214f94466dd2650cc", null ],
-    [ "LED_STATE_BLINK_FAST", "a00512.html#ga065311bdf1ad091dc6f4aa643bd59f48", null ],
-    [ "LED_STATE_BLINK_SLOW", "a00512.html#gac387d5ec1a81ff6058b9bf31e5809e9d", null ],
-    [ "LED_STATE_OFF", "a00512.html#ga900bdeb2c6d6ab966bad8f4fd78e8cd2", null ],
-    [ "LED_STATE_ON", "a00512.html#ga04ba0e3f7ea33a087f01b2745a2de63b", null ],
-    [ "Dev_LED_Blink", "a00512.html#gaf44b310330b9dbf4597275fdade9b5f7", null ],
-    [ "Dev_LED_Blink_Fast", "a00512.html#ga9a710b93c9efd76f1c850ee4415f736c", null ],
-    [ "Dev_LED_Blink_Iter", "a00512.html#gab8abb73dda8dc3829d57da8c681f4931", null ],
-    [ "Dev_LED_Blink_Slow", "a00512.html#ga371fdb6009ec0f15b00e75ad4ef4d177", null ],
-    [ "Dev_LED_Initialize", "a00512.html#ga2d2db02502e7b576a9149d114f303daa", null ],
-    [ "Dev_LED_Off", "a00512.html#ga645c25dba273dcf25dc202d31f441154", null ],
-    [ "Dev_LED_On", "a00512.html#ga6fc0416c8ff212d938628b290a18a390", null ],
-    [ "Dev_LED_Task_100ms", "a00512.html#gad26b3effecb0675aad3bcba8993a0bb2", null ],
-    [ "Dev_LED_Toggle", "a00512.html#gacf12fda3f7d99f77a0e68b846273984f", null ]
+    [ "Conversion Macros", "a00513.html", "a00513" ],
+    [ "IPRI_CT_SNS_GAIN", "a00512.html#gadd3268f777497752594e03ab7c9ed8bd", null ],
+    [ "IPRI_CT_SNS_OFS", "a00512.html#gae03bb48f1dee21d88493adfa4fd939d8", null ],
+    [ "IPRI_OC_T_BLANK_CLEAR_SEC", "a00512.html#gab24221cdd03e9a0deab655553752bc26", null ],
+    [ "IPRI_OC_T_BLANK_TRIG_SEC", "a00512.html#gaa26d53ce604d0b5ce4b8e6bad69d2eca", null ],
+    [ "IPRI_OC_THRES_CLEAR_AMPS", "a00512.html#ga3d9ec4eb82b3b94114525bf01962d585", null ],
+    [ "IPRI_OC_THRES_TRIG_AMPS", "a00512.html#gaf66f7333079207c329017043676a1fcb", null ],
+    [ "IPRI_OC_TICK_SEC", "a00512.html#ga4487a40d5ee45b46fff78d92d3570251", null ],
+    [ "IPRI_SC_THRES_TRIG_AMPS", "a00512.html#gab55238e2900bea980e7be8e9d488683e", null ],
+    [ "T_ADC_SAMPLE_SECS", "a00512.html#ga629c6b42f4e4f0bb7b45a365327216c8", null ]
 ];

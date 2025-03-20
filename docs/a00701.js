@@ -1,7 +1,7 @@
 var a00701 =
 [
-    [ "Accumulator", "a00701.html#a1bf80696497119c4e36460f57de7f667", null ],
-    [ "AverageValue", "a00701.html#ababc9b3b062bdea79c71035d651fbe79", null ],
-    [ "AveragingCount", "a00701.html#a5c501c087c00d88f54766fff1bed2839", null ],
-    [ "Counter", "a00701.html#ac73dde33a2be13416f717c1ab8954227", null ]
+    [ "hour", "a00701.html#ae5af4ff48939d13d480f87e56a9385d6", null ],
+    [ "millisecond", "a00701.html#a2c2fc9077af4f9594b4433cd53e39f47", null ],
+    [ "minute", "a00701.html#a8ff981ec55c945940f4a0da7d8709b3c", null ],
+    [ "second", "a00701.html#a8459fc4e94de7eefc74991e41779c8fc", null ]
 ];

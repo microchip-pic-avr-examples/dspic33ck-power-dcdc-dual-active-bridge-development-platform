@@ -1,7 +1,11 @@
 var a00541 =
 [
-    [ "WATCHDOG_CLR_KEY", "a00541.html#ga9fe59f55f06cfb2df71dcf9f0b64cd3c", null ],
-    [ "WATCHDOG_TimerClear", "a00541.html#ga0709c01950447ea286ea4538174a7a82", null ],
-    [ "WATCHDOG_TimerSoftwareDisable", "a00541.html#ga74fb697367e441a6ac0a56e33794ebc4", null ],
-    [ "WATCHDOG_TimerSoftwareEnable", "a00541.html#gaf945fced45ce9cc9a9922d8f31e09e67", null ]
+    [ "Power Control Configuration", "a00542.html", "a00542" ],
+    [ "Interrupt Routine and Functions", "a00543.html", "a00543" ],
+    [ "PWM Configuration", "a00544.html", "a00544" ],
+    [ "State Machine", "a00545.html", "a00545" ],
+    [ "Control Loop Configuration", "a00546.html", "a00546" ],
+    [ "Power Control Communication Interface", "a00547.html", "a00547" ],
+    [ "Useful Functions", "a00548.html", "a00548" ],
+    [ "Power Control Data Types", "a00549.html", "a00549" ]
 ];

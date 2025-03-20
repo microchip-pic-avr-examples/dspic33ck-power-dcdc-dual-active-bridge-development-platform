@@ -1,12 +1,12 @@
 var a00681 =
 [
-    [ "aCoefficients", "a00681.html#a9b53207353649ed96836db0f78300815", null ],
-    [ "bCoefficients", "a00681.html#ad1355dec3eb324d2eab4aeec3949315b", null ],
-    [ "controlHistory", "a00681.html#a01aaca2f4f21e2a7913a2b6e26378d9d", null ],
-    [ "errorHistory", "a00681.html#a2156cbcc870b55a05790b35d7a994ed2", null ],
-    [ "maxOutput", "a00681.html#a52e0ede1d35abbd1205991bf926b0123", null ],
-    [ "minOutput", "a00681.html#a0e61035e2b3233a7d496c3eb2f098969", null ],
-    [ "postScaler", "a00681.html#a63cf6fa1fea56820d41793296704eecb", null ],
-    [ "postShift", "a00681.html#a136ef863c1c5b2eee03c1223f4b7baef", null ],
-    [ "preShift", "a00681.html#ab80a85b190b1a682766250d4e72ba6fd", null ]
+    [ "AdcAverage", "a00681.html#ab3ddfcd824de2587d479076324c61bfa", null ],
+    [ "AdcReading", "a00681.html#aadb6f8d669172a241150025a40fcf44d", null ],
+    [ "BufferFull", "a00681.html#af15f06d55d9455ee4404bd24e08d67f4", null ],
+    [ "BufferIndex", "a00681.html#a894ac46d26a1a6eeaf39098ee8083ccf", null ],
+    [ "OverTemperatureFlag", "a00681.html#a4905336182a9fec2c6e219631604c50f", null ],
+    [ "ResetBuffer", "a00681.html#afad405df907341bbd9f263b80aac92ce", null ],
+    [ "SensorLost", "a00681.html#a9bd7d10eb7cc3c2d2fcd07bd6a58da84", null ],
+    [ "TempBuffer", "a00681.html#a665c9a1e8efc7255becd331cb622ab85", null ],
+    [ "TemperatureCelcius", "a00681.html#abf8f604e028adbffcfed2825d3e9384e", null ]
 ];

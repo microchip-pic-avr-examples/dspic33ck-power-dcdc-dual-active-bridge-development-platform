@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: PBV_Datatype_RX_t Struct Reference</title>
+<title>Dual Active Bridge Development Board: TIMER_INTERFACE Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,128 +138,221 @@ $(document).ready(function(){initNavTree('a00633.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">PBV_Datatype_RX_t Struct Reference<div class="ingroups"><a class="el" href="a00501.html">Communication Layer</a> &raquo; <a class="el" href="a00502.html">Power Board Visualizer</a> &raquo; <a class="el" href="a00505.html">PBV Interface</a></div></div></div>
+  <div class="headertitle"><div class="title">TIMER_INTERFACE Struct Reference<div class="ingroups"><a class="el" href="a00554.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00571.html">Timer Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><br  />
-  
+<p>Structure containing the function pointers of TIMER driver.  
  <a href="a00633.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00275_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/sources/comm/PBV_interface.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00257_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/mcc_generated_files/timer/timer_interface.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for PBV_Datatype_RX_t:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for TIMER_INTERFACE:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00631.svg" width="159" height="166"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00631.svg" width="179" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a930e5a4d8414c0427fe5c636062579db" id="r_a930e5a4d8414c0427fe5c636062579db"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#a930e5a4d8414c0427fe5c636062579db">Length</a></td></tr>
-<tr class="memdesc:a930e5a4d8414c0427fe5c636062579db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of received message in Bytes.  <br /></td></tr>
-<tr class="separator:a930e5a4d8414c0427fe5c636062579db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0825cb65b385f89880718e0654f07fb6" id="r_a0825cb65b385f89880718e0654f07fb6"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#a0825cb65b385f89880718e0654f07fb6">PBV_Protcol_ID</a></td></tr>
-<tr class="memdesc:a0825cb65b385f89880718e0654f07fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protocol ID of the received message.  <br /></td></tr>
-<tr class="separator:a0825cb65b385f89880718e0654f07fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7942a7d2614f936c173cc0239fc9e07" id="r_ab7942a7d2614f936c173cc0239fc9e07"><td class="memItemLeft" align="right" valign="top">func_p&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#ab7942a7d2614f936c173cc0239fc9e07">Callback_Function</a></td></tr>
-<tr class="memdesc:ab7942a7d2614f936c173cc0239fc9e07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback function.  <br /></td></tr>
-<tr class="separator:ab7942a7d2614f936c173cc0239fc9e07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30afce7d5f8aa2a94029446cfe2f4a36" id="r_a30afce7d5f8aa2a94029446cfe2f4a36"><td class="memItemLeft" align="right" valign="top">PBV_MESSAGE_RX_STATE_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#a30afce7d5f8aa2a94029446cfe2f4a36">PBV_Message_State</a></td></tr>
-<tr class="memdesc:a30afce7d5f8aa2a94029446cfe2f4a36"><td class="mdescLeft">&#160;</td><td class="mdescRight">State of the received message.  <br /></td></tr>
-<tr class="separator:a30afce7d5f8aa2a94029446cfe2f4a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e589bbf7c5e6c3eb82a0e22fe8e8e50" id="r_a4e589bbf7c5e6c3eb82a0e22fe8e8e50"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">Data_Buffer</a></td></tr>
-<tr class="memdesc:a4e589bbf7c5e6c3eb82a0e22fe8e8e50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Received Data pointer.  <br /></td></tr>
-<tr class="separator:a4e589bbf7c5e6c3eb82a0e22fe8e8e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afea2a7e78ccb7643d694c4bd7fa2ed5f" id="r_afea2a7e78ccb7643d694c4bd7fa2ed5f"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#afea2a7e78ccb7643d694c4bd7fa2ed5f">Initialize</a> )(void)</td></tr>
+<tr class="memdesc:afea2a7e78ccb7643d694c4bd7fa2ed5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to MCCPx_Timer_Initialize or SCCPx_Timer_Initialize or TMRx_Initialize e.g. <a class="el" href="a00571.html#gaf803d32453022c0508ffb40f6163635d">SCCP1_Timer_Initialize</a> or <a class="el" href="a00571.html#gaeca9435d024c8eeada966c9dffbb8427">TMR1_Initialize</a>.  <br /></td></tr>
+<tr class="separator:afea2a7e78ccb7643d694c4bd7fa2ed5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6aa2863d2196e9f95f70fde91049ee6" id="r_ab6aa2863d2196e9f95f70fde91049ee6"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#ab6aa2863d2196e9f95f70fde91049ee6">Deinitialize</a> )(void)</td></tr>
+<tr class="memdesc:ab6aa2863d2196e9f95f70fde91049ee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to MCCPx_Timer_Deinitialize or SCCPx_Timer_Deinitialize or TMRx_Deinitialize e.g. <a class="el" href="a00571.html#ga6fcb5250c0ea0bb4adfe21449c91fbe2">SCCP1_Timer_Deinitialize</a> or <a class="el" href="a00571.html#ga2841c95f77415643312872bc9e042fd9">TMR1_Deinitialize</a>.  <br /></td></tr>
+<tr class="separator:ab6aa2863d2196e9f95f70fde91049ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a758d4ba329d806525e4a916f4683cd98" id="r_a758d4ba329d806525e4a916f4683cd98"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#a758d4ba329d806525e4a916f4683cd98">Start</a> )(void)</td></tr>
+<tr class="memdesc:a758d4ba329d806525e4a916f4683cd98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to MCCPx_Timer_Start or SCCPx_Timer_Start or TMRx_Start e.g. <a class="el" href="a00571.html#gab627b2912f0bca5e5194bc9afdef8072">SCCP1_Timer_Start</a> or <a class="el" href="a00571.html#gafed3745413684e23104d29539be4f2e5">TMR1_Start</a>.  <br /></td></tr>
+<tr class="separator:a758d4ba329d806525e4a916f4683cd98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9085da955869b5ee4581824b0869d210" id="r_a9085da955869b5ee4581824b0869d210"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#a9085da955869b5ee4581824b0869d210">Stop</a> )(void)</td></tr>
+<tr class="memdesc:a9085da955869b5ee4581824b0869d210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to MCCPx_Timer_Stop or SCCPx_Timer_Stop or TMRx_Stop e.g. <a class="el" href="a00571.html#ga1bd3863ac997aca4d96df728c9260148">SCCP1_Timer_Stop</a> or <a class="el" href="a00571.html#ga27bf11425ad1e1d2e8e16a14aebb5a9c">TMR1_Stop</a>.  <br /></td></tr>
+<tr class="separator:a9085da955869b5ee4581824b0869d210"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d4ca553733a468f91aeb200f8440685" id="r_a9d4ca553733a468f91aeb200f8440685"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#a9d4ca553733a468f91aeb200f8440685">PeriodSet</a> )(uint32_t count)</td></tr>
+<tr class="memdesc:a9d4ca553733a468f91aeb200f8440685"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to MCCPx_Timer_PeriodSet or SCCPx_Timer_PeriodSet or TMRx_PeriodSet e.g. <a class="el" href="a00571.html#ga3df341502631224f4ba59b364cf0cedc">SCCP1_Timer_PeriodSet</a> or <a class="el" href="a00571.html#gaee0dcecbe2ec34ee2a5ab9e263b63ca3">TMR1_PeriodSet</a>.  <br /></td></tr>
+<tr class="separator:a9d4ca553733a468f91aeb200f8440685"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dedbf0c7d35427fa5c7d7627371cba1" id="r_a9dedbf0c7d35427fa5c7d7627371cba1"><td class="memItemLeft" align="right" valign="top">uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#a9dedbf0c7d35427fa5c7d7627371cba1">PeriodGet</a> )(void)</td></tr>
+<tr class="memdesc:a9dedbf0c7d35427fa5c7d7627371cba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to MCCPx_Timer_PeriodGet or SCCPx_Timer_PeriodGet or TMRx_PeriodGet e.g. <a class="el" href="a00571.html#ga6dd389b4ae5e59e21d829f992cb3d236">SCCP1_Timer_PeriodGet</a> or <a class="el" href="a00571.html#ga1a457e2e1f171e9320d31501cef3ff7f">TMR1_PeriodGet</a>.  <br /></td></tr>
+<tr class="separator:a9dedbf0c7d35427fa5c7d7627371cba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bfca0e3c07096d3729aa5718e498b05" id="r_a3bfca0e3c07096d3729aa5718e498b05"><td class="memItemLeft" align="right" valign="top">uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#a3bfca0e3c07096d3729aa5718e498b05">CounterGet</a> )(void)</td></tr>
+<tr class="memdesc:a3bfca0e3c07096d3729aa5718e498b05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to MCCPx_Timer_CounterGet or SCCPx_Timer_CounterGet or TMRx_CounterGet e.g. <a class="el" href="a00571.html#gadb90546ecea9d034b65d7d0def616e2f">SCCP1_Timer_CounterGet</a> or <a class="el" href="a00571.html#ga6498e2fb4a5faf4e92d1ca88edafa1dc">TMR1_CounterGet</a>.  <br /></td></tr>
+<tr class="separator:a3bfca0e3c07096d3729aa5718e498b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ac86c80e790956adc78b492ab2769c4" id="r_a4ac86c80e790956adc78b492ab2769c4"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#a4ac86c80e790956adc78b492ab2769c4">InterruptPrioritySet</a> )(enum INTERRUPT_PRIORITY priority)</td></tr>
+<tr class="memdesc:a4ac86c80e790956adc78b492ab2769c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to MCCPx_Timer_InterruptPrioritySet or SCCPx_Timer_InterruptPrioritySet or TMRx_InterruptPrioritySet e.g. <a class="el" href="a00571.html#gaf8c308992dceeaa52d8282b679835e10">SCCP1_Timer_InterruptPrioritySet</a> or <a class="el" href="a00571.html#gae817aeb318bfedb428c2e0a237b1a7b3">TMR1_InterruptPrioritySet</a>.  <br /></td></tr>
+<tr class="separator:a4ac86c80e790956adc78b492ab2769c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0201c541ecfbc1b5a4048e7d7487003a" id="r_a0201c541ecfbc1b5a4048e7d7487003a"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#a0201c541ecfbc1b5a4048e7d7487003a">TimeoutCallbackRegister</a> )(void(*CallbackHandler)(void))</td></tr>
+<tr class="memdesc:a0201c541ecfbc1b5a4048e7d7487003a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to MCCPx_TimeoutCallbackRegister or SCCPx_TimeoutCallbackRegister or TMRx_TimeoutCallbackRegister e.g. <a class="el" href="a00571.html#ga8a590ad3bfed4acd59a1881e29d08e64">SCCP1_TimeoutCallbackRegister</a> or <a class="el" href="a00571.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a>.  <br /></td></tr>
+<tr class="separator:a0201c541ecfbc1b5a4048e7d7487003a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cd6ba5da58bb0185a3939d1fdcd25f5" id="r_a1cd6ba5da58bb0185a3939d1fdcd25f5"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00633.html#a1cd6ba5da58bb0185a3939d1fdcd25f5">Tasks</a> )(void)</td></tr>
+<tr class="memdesc:a1cd6ba5da58bb0185a3939d1fdcd25f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to MCCPx_Timer_Tasks or SCCPx_Timer_Tasks or TMRx_Tasks e.g. SCCP1_Timer_Tasks or TMR1_Tasks (Supported only in polling mode)  <br /></td></tr>
+<tr class="separator:a1cd6ba5da58bb0185a3939d1fdcd25f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>pbv App RX data type definition structure </p>
-
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00089">89</a> of file <a class="el" href="a00275_source.html">PBV_interface.h</a>.</p>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00060">60</a> of file <a class="el" href="a00257_source.html">timer_interface.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="ab7942a7d2614f936c173cc0239fc9e07" name="ab7942a7d2614f936c173cc0239fc9e07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7942a7d2614f936c173cc0239fc9e07">&#9670;&#160;</a></span>Callback_Function</h2>
+<a id="a3bfca0e3c07096d3729aa5718e498b05" name="a3bfca0e3c07096d3729aa5718e498b05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bfca0e3c07096d3729aa5718e498b05">&#9670;&#160;</a></span>CounterGet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">func_p Callback_Function</td>
+          <td class="memname">uint32_t(* CounterGet) (void)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00092">92</a> of file <a class="el" href="a00275_source.html">PBV_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00085">85</a> of file <a class="el" href="a00257_source.html">timer_interface.h</a>.</p>
 
 </div>
 </div>
-<a id="a4e589bbf7c5e6c3eb82a0e22fe8e8e50" name="a4e589bbf7c5e6c3eb82a0e22fe8e8e50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e589bbf7c5e6c3eb82a0e22fe8e8e50">&#9670;&#160;</a></span>Data_Buffer</h2>
+<a id="ab6aa2863d2196e9f95f70fde91049ee6" name="ab6aa2863d2196e9f95f70fde91049ee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6aa2863d2196e9f95f70fde91049ee6">&#9670;&#160;</a></span>Deinitialize</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t* Data_Buffer</td>
+          <td class="memname">void(* Deinitialize) (void)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00094">94</a> of file <a class="el" href="a00275_source.html">PBV_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00065">65</a> of file <a class="el" href="a00257_source.html">timer_interface.h</a>.</p>
 
 </div>
 </div>
-<a id="a930e5a4d8414c0427fe5c636062579db" name="a930e5a4d8414c0427fe5c636062579db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a930e5a4d8414c0427fe5c636062579db">&#9670;&#160;</a></span>Length</h2>
+<a id="afea2a7e78ccb7643d694c4bd7fa2ed5f" name="afea2a7e78ccb7643d694c4bd7fa2ed5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afea2a7e78ccb7643d694c4bd7fa2ed5f">&#9670;&#160;</a></span>Initialize</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Length</td>
+          <td class="memname">void(* Initialize) (void)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00090">90</a> of file <a class="el" href="a00275_source.html">PBV_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00062">62</a> of file <a class="el" href="a00257_source.html">timer_interface.h</a>.</p>
 
 </div>
 </div>
-<a id="a30afce7d5f8aa2a94029446cfe2f4a36" name="a30afce7d5f8aa2a94029446cfe2f4a36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30afce7d5f8aa2a94029446cfe2f4a36">&#9670;&#160;</a></span>PBV_Message_State</h2>
+<a id="a4ac86c80e790956adc78b492ab2769c4" name="a4ac86c80e790956adc78b492ab2769c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ac86c80e790956adc78b492ab2769c4">&#9670;&#160;</a></span>InterruptPrioritySet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">PBV_MESSAGE_RX_STATE_t PBV_Message_State</td>
+          <td class="memname">void(* InterruptPrioritySet) (enum INTERRUPT_PRIORITY priority)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00093">93</a> of file <a class="el" href="a00275_source.html">PBV_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00088">88</a> of file <a class="el" href="a00257_source.html">timer_interface.h</a>.</p>
 
 </div>
 </div>
-<a id="a0825cb65b385f89880718e0654f07fb6" name="a0825cb65b385f89880718e0654f07fb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0825cb65b385f89880718e0654f07fb6">&#9670;&#160;</a></span>PBV_Protcol_ID</h2>
+<a id="a9dedbf0c7d35427fa5c7d7627371cba1" name="a9dedbf0c7d35427fa5c7d7627371cba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dedbf0c7d35427fa5c7d7627371cba1">&#9670;&#160;</a></span>PeriodGet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t PBV_Protcol_ID</td>
+          <td class="memname">uint32_t(* PeriodGet) (void)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00091">91</a> of file <a class="el" href="a00275_source.html">PBV_interface.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00082">82</a> of file <a class="el" href="a00257_source.html">timer_interface.h</a>.</p>
+
+</div>
+</div>
+<a id="a9d4ca553733a468f91aeb200f8440685" name="a9d4ca553733a468f91aeb200f8440685"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d4ca553733a468f91aeb200f8440685">&#9670;&#160;</a></span>PeriodSet</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* PeriodSet) (uint32_t count)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00079">79</a> of file <a class="el" href="a00257_source.html">timer_interface.h</a>.</p>
+
+</div>
+</div>
+<a id="a758d4ba329d806525e4a916f4683cd98" name="a758d4ba329d806525e4a916f4683cd98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a758d4ba329d806525e4a916f4683cd98">&#9670;&#160;</a></span>Start</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* Start) (void)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00068">68</a> of file <a class="el" href="a00257_source.html">timer_interface.h</a>.</p>
+
+</div>
+</div>
+<a id="a9085da955869b5ee4581824b0869d210" name="a9085da955869b5ee4581824b0869d210"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9085da955869b5ee4581824b0869d210">&#9670;&#160;</a></span>Stop</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* Stop) (void)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00071">71</a> of file <a class="el" href="a00257_source.html">timer_interface.h</a>.</p>
+
+</div>
+</div>
+<a id="a1cd6ba5da58bb0185a3939d1fdcd25f5" name="a1cd6ba5da58bb0185a3939d1fdcd25f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cd6ba5da58bb0185a3939d1fdcd25f5">&#9670;&#160;</a></span>Tasks</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* Tasks) (void)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00094">94</a> of file <a class="el" href="a00257_source.html">timer_interface.h</a>.</p>
+
+</div>
+</div>
+<a id="a0201c541ecfbc1b5a4048e7d7487003a" name="a0201c541ecfbc1b5a4048e7d7487003a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0201c541ecfbc1b5a4048e7d7487003a">&#9670;&#160;</a></span>TimeoutCallbackRegister</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* TimeoutCallbackRegister) (void(*CallbackHandler)(void))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00257_source.html#l00091">91</a> of file <a class="el" href="a00257_source.html">timer_interface.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dspic33ck-dab.X/sources/comm/<a class="el" href="a00275_source.html">PBV_interface.h</a></li>
+<li>dspic33ck-dab.X/mcc_generated_files/timer/<a class="el" href="a00257_source.html">timer_interface.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

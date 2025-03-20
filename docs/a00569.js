@@ -1,6 +1,9 @@
 var a00569 =
 [
-    [ "data", "a00569.html#abe222f6d3581e7920dcad5306cc906a8", null ],
-    [ "field", "a00569.html#a3db823a278f5d389e9b29a698d10ee68", null ],
-    [ "msgId", "a00569.html#a92de58c41afbd447b2536d5c9eb7b0f2", null ]
+    [ "clock.c", "a00209.html", null ],
+    [ "CLOCK_InstructionFrequencyGet", "a00569.html#ga7c2fd6abb192260205b77d167d8e78da", null ],
+    [ "CLOCK_PeripheralFrequencyGet", "a00569.html#ga192799fb698929f78edb9653d4eea55c", null ],
+    [ "CLOCK_SystemFrequencyGet", "a00569.html#gae20bf0a12edd902aa2ee56554d6d4790", null ],
+    [ "CLOCK_AuxPllLockStatusGet", "a00569.html#ga0153c20a7c603596e5722a8b45571d4a", null ],
+    [ "CLOCK_Initialize", "a00569.html#ga98390d19c7087c52765eab23eb8ded96", null ]
 ];

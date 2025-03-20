@@ -1,10 +1,14 @@
 var a00625 =
 [
-    [ "init", "a00625.html#a2349c43259a9d3c23a516c9b4ad6baaa", null ],
-    [ "linkDataRX", "a00625.html#acf3107157116c08f212dafb02c8128f5", null ],
-    [ "linkDataTX", "a00625.html#a4156ff07130f03dfbd50bf7c30493bfb", null ],
-    [ "reinit", "a00625.html#aad1488054aade0d9770cbae5597a8db9", null ],
-    [ "rxGui", "a00625.html#add9801b083b7d6f3f7bbb0f1d9a55773", null ],
-    [ "txGui", "a00625.html#adca8b72baa17241a6989f96a073cc51c", null ],
-    [ "txGuiAscii", "a00625.html#a8ee94030daa6ae1784d3a4c1efd446eb", null ]
+    [ "CallbackRegister", "a00625.html#a093b973db37c8958d7c5537c554bba2e", null ],
+    [ "DeadTimeSet", "a00625.html#a8664b14f1d9b71751ac0ec06bbb7f420", null ],
+    [ "Deinitialize", "a00625.html#ab6aa2863d2196e9f95f70fde91049ee6", null ],
+    [ "Disable", "a00625.html#a7fd5c6c55c6a76c4d35e3f81609fab87", null ],
+    [ "DutyCycleSet", "a00625.html#ab807c7b68893dc14af8b465526e3afbf", null ],
+    [ "Enable", "a00625.html#a04c571590cd163f474c876943a39e0f1", null ],
+    [ "Initialize", "a00625.html#afea2a7e78ccb7643d694c4bd7fa2ed5f", null ],
+    [ "OutputModeSet", "a00625.html#ae4a35aeba6a1f972341bd6e6eef6c952", null ],
+    [ "PeriodSet", "a00625.html#a8bfc1b042d812297e2bdeb23c78c6a1f", null ],
+    [ "SoftwareTriggerSet", "a00625.html#a6b902e9f14be393d2ca10c5748326a48", null ],
+    [ "Tasks", "a00625.html#a1cd6ba5da58bb0185a3939d1fdcd25f5", null ]
 ];

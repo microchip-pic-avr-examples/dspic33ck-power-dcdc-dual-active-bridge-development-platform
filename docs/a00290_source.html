@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/config/hardware.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/comm/PBV_DAB_frame_map.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,62 +136,32 @@ $(document).ready(function(){initNavTree('a00290_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">hardware.h</div></div>
+  <div class="headertitle"><div class="title">PBV_DAB_frame_map.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// more than once.  </span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef HARDWARE_H</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define HARDWARE_H</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// hardware constants (voltage &amp; current sense, gains and offsets)</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// VPRI_SNS_GAIN: VPRI_SNS = VPRI * VPRI_SNS_GAIN + VPRI_SNS_OFS</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#if defined (VPRI_OPTOCOUPLER_POLARITY) &amp;&amp; (VPRI_OPTOCOUPLER_POLARITY ==  true)</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">    #define VPRI_SNS_GAIN               (float)(-3.600e-3)   </span><span class="comment">// V/V  </span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">    #define VPRI_SNS_OFS                (3.3183)   </span><span class="comment">// V</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="a00484.html#gae3dffcdc110b55af6c257bfc0748cf81">   19</a></span><span class="preprocessor">    #define VPRI_SNS_GAIN               (float)(3.600e-3)   </span><span class="comment">// V/V  </span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="a00484.html#ga35eab816332f1b3d80d161f125c5044a">   20</a></span><span class="preprocessor">    #define VPRI_SNS_OFS                (0.0)   </span><span class="comment">// V</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="a00484.html#gab88335efd29659386531beabaffdf660">   23</a></span><span class="preprocessor">#define VPRI_VOLTAGE_GAIN            (float)0.2229 </span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
- <span class="comment">// end of group primary-voltage-feedback ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// VSEC_SNS = VSEC * VSEC_SNS_GAIN</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="a00486.html#gadbb92791a446721a3d4af49d713520ca">   32</a></span><span class="preprocessor">#define VSEC_SNS_GAIN               (3.18e-3)   </span><span class="comment">// V/V</span></div>
- // end of group ~~~~~~~~~~~~~~~~~~~~<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">// IPRI_CT_SNS = IPRI_CT * IPRI_CT_SNS_GAIN + IPRI_CT_SNS_OFS</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// note that the IPRI_CT_SNS is rectified via hardware</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="a00488.html#gadd3268f777497752594e03ab7c9ed8bd">   42</a></span><span class="preprocessor">#define IPRI_CT_SNS_GAIN            (82.5e-3)  </span><span class="comment">// V/A</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="a00488.html#gae03bb48f1dee21d88493adfa4fd939d8">   43</a></span><span class="preprocessor">#define IPRI_CT_SNS_OFS             (0.0)      </span><span class="comment">// V</span></div>
- // end of group ~~~~~~~~~~~~~~~~~~~~<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">// ISEC_CT_SNS = ISEC_CT * ISEC_CT_SNS_GAIN + ISEC_CT_SNS_OFS</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">// note that the ISEC_CT_SNS is rectified on the power board</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="a00490.html#gad565ee56fd67a47693480901f73b5e2c">   52</a></span><span class="preprocessor">#define ISEC_CT_SNS_GAIN            (66.0e-3)   </span><span class="comment">// V/A</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="a00490.html#ga167708b374334a691b34a153fc97ded0">   53</a></span><span class="preprocessor">#define ISEC_CT_SNS_OFS             (0.0)     </span><span class="comment">// V</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">// ISEC_AVG_SNS = ISEC_AVG * ISEC_AVG_SNS_GAIN + ISEC_AVG_SNS_OFS</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="a00490.html#gaa04f0731e5ca53dd3034155ddec2fb51">   56</a></span><span class="preprocessor">#define ISEC_AVG_SNS_GAIN           (25.0e-3)   </span><span class="comment">// V/A</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="a00490.html#ga3ddd48524fd57578569ad30b31317bee">   57</a></span><span class="preprocessor">#define ISEC_AVG_SNS_OFS            (1.65)      </span><span class="comment">// V</span></div>
- // end of group ~~~~~~~~~~~~~~~~~~~~<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">// VRAIL_5V_SNS = VRAIL_5V * VRAIL_5V_SNS_GAIN</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="a00492.html#ga69d0570890525bf6e42a39e93cd23541">   65</a></span><span class="preprocessor">#define VRAIL_5V_SNS_GAIN           (0.5)       </span><span class="comment">// V/V</span></div>
- // end of group ~~~~~~~~~~~~~~~~~~~~<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="a00496.html#gab586eaca5d59d97c5a098f782633d74c">   72</a></span><span class="preprocessor">#define TEMPERATURE_GAIN           (-0.029)       </span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="a00496.html#gac02a5a67e0612d6cb90e61cc23398701">   73</a></span><span class="preprocessor">#define TEMPERATURE_OFFSET          115u</span></div>
- <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#endif  </span><span class="comment">/* HARDWARE_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<a href="a00290.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// more than once.  </span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef APP_PBV_DAB_FRAME_MAP_H</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define APP_PBV_DAB_FRAME_MAP_H</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;xc.h&gt;</span> <span class="comment">// include processor files - each processor file is guarded.  </span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;PBV_interface.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00531.html#ga00307bed276aca52423f1e10365e3334">App_PBV_DAB_Init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00531.html#ga4de477d51ea04cdcfcb1e3eb3ef0053a">App_PBV_DAB_Task_10ms</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00531.html#gad255673713bb77bc36791875207a4393">App_PBV_DAB_Task_1s</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="a00290.html#a6b4fd2864720192132d4e7ad69d6738a">   22</a></span><a class="code hl_struct" href="a00653.html">PBV_Datatype_TX_t</a> * <a class="code hl_function" href="a00290.html#a6b4fd2864720192132d4e7ad69d6738a">App_PBV_DAB_Get_TX_Log_ptr</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif  </span><span class="comment">/* APP_PBV_DAB_FRAME_MAP_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="ttc" id="aa00290_html_a6b4fd2864720192132d4e7ad69d6738a"><div class="ttname"><a href="a00290.html#a6b4fd2864720192132d4e7ad69d6738a">App_PBV_DAB_Get_TX_Log_ptr</a></div><div class="ttdeci">PBV_Datatype_TX_t * App_PBV_DAB_Get_TX_Log_ptr(void)</div></div>
+<div class="ttc" id="aa00531_html_ga00307bed276aca52423f1e10365e3334"><div class="ttname"><a href="a00531.html#ga00307bed276aca52423f1e10365e3334">App_PBV_DAB_Init</a></div><div class="ttdeci">void App_PBV_DAB_Init(void)</div><div class="ttdoc">This function initializes the local pbv objects. these objects are then passed on to the app_PBV_init...</div><div class="ttdef"><b>Definition</b> <a href="a00287_source.html#l00099">PBV_dab_frame_map.c:99</a></div></div>
+<div class="ttc" id="aa00531_html_ga4de477d51ea04cdcfcb1e3eb3ef0053a"><div class="ttname"><a href="a00531.html#ga4de477d51ea04cdcfcb1e3eb3ef0053a">App_PBV_DAB_Task_10ms</a></div><div class="ttdeci">void App_PBV_DAB_Task_10ms(void)</div><div class="ttdoc">10ms PBV task to be execution</div><div class="ttdef"><b>Definition</b> <a href="a00287_source.html#l00125">PBV_dab_frame_map.c:125</a></div></div>
+<div class="ttc" id="aa00531_html_gad255673713bb77bc36791875207a4393"><div class="ttname"><a href="a00531.html#gad255673713bb77bc36791875207a4393">App_PBV_DAB_Task_1s</a></div><div class="ttdeci">void App_PBV_DAB_Task_1s(void)</div><div class="ttdoc">1 second PBV task to be execution</div><div class="ttdef"><b>Definition</b> <a href="a00287_source.html#l00154">PBV_dab_frame_map.c:154</a></div></div>
+<div class="ttc" id="aa00653_html"><div class="ttname"><a href="a00653.html">PBV_Datatype_TX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00296_source.html#l00075">PBV_interface.h:75</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

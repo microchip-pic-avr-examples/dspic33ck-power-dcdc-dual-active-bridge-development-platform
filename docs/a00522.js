@@ -1,20 +1,16 @@
 var a00522 =
 [
-    [ "smps_2p2z_dspic.s", "a00431.html", null ],
-    [ "XFT_smps_2p2z_dspic.s", "a00440.html", null ],
-    [ "dab_psio_dcdt.h", "a00047.html", null ],
-    [ "dab_pspo_dcdt.h", "a00056.html", null ],
-    [ "dab_spvo_dcdt.h", "a00059.html", null ],
-    [ "pwrctrl_dcdt.c", "a00425.html", null ],
-    [ "pwrctrl_dcdt.h", "a00428.html", null ],
-    [ "smps_control.h", "a00437.html", null ],
-    [ "__attribute__", "a00522.html#ga3e431d7a1eef24adda9ba74cba5e5ce4", null ],
-    [ "__attribute__", "a00522.html#gace6ab8444e1493b1c2750447a51b9b93", null ],
-    [ "PwrCtrl_IComp_Initialize", "a00522.html#ga4d5efa27da3185177a7e9451a59ced82", null ],
-    [ "PwrCtrl_PComp_Initialize", "a00522.html#ga5d45f928f4747df3d3fe50876e78efc5", null ],
-    [ "PwrCtrl_ResetControlLoopHistories", "a00522.html#gae5d978249e235e284da922df5ec4363a", null ],
-    [ "PwrCtrl_VComp_Initialize", "a00522.html#ga8603aa8f7d4f64fa925228cf9c99de83", null ],
-    [ "IMC_2p2z", "a00522.html#gaeb77b094c98ccef3e5592a3a906f3ff8", null ],
-    [ "PMC_2p2z", "a00522.html#ga5aad9c96a95744da30275ec0eacf4ae3", null ],
-    [ "VMC_2p2z", "a00522.html#ga6f2fab45cc1fd91be7e11205806b6a63", null ]
+    [ "CURRENT_CALIBRATION", "a00522.html#ga4dac1dfb10918e33515fd140e62a247e", null ],
+    [ "DAC_DEBUG", "a00522.html#ga06a509daec59519381724d6f4c6c9a98", null ],
+    [ "DCDC400V_SYSTEM", "a00522.html#ga643cae3876a193f7910cdd4963d6cc3f", null ],
+    [ "DCDC800V_SYSTEM", "a00522.html#gab82279541c39e463eca29e7804800145", null ],
+    [ "ENABLE_VLOOP_AGC", "a00522.html#gaad5ce0d0b910332d668b5c4287e15ff8", null ],
+    [ "ILOOP_K_TEST", "a00522.html#gaccdf71de5e6aec4e90fd7bfb8fcd3c2a", null ],
+    [ "OPEN_LOOP_PBV", "a00522.html#ga98d40d6d77de8363187fdb3b1c6da065", null ],
+    [ "OPEN_LOOP_POTI", "a00522.html#gaffb8d78227a5b391853bbce53ca09857", null ],
+    [ "PBV_CANFD", "a00522.html#ga1151367cf9963cedbb90f4d5940d22b8", null ],
+    [ "PBV_UART", "a00522.html#ga3bf2f552a3148e521b11370c78f22121", null ],
+    [ "PERIOD_MODULATION_DEMO", "a00522.html#ga45df5256ba4c507175bdb3138ff68f1d", null ],
+    [ "VLOOP_K_TEST", "a00522.html#gadaccebd7ddfc29f20ceda103ad3aa1a1", null ],
+    [ "VPRI_OPTOCOUPLER_POLARITY", "a00522.html#ga9da067b210e8083bb0545db1930060dc", null ]
 ];

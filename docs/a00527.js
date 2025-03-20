@@ -1,13 +1,13 @@
 var a00527 =
 [
-    [ "fault.c", "a00362.html", null ],
-    [ "fault.h", "a00365.html", null ],
-    [ "fault_comm_interface.c", "a00374.html", null ],
-    [ "fault_comm_interface.h", "a00377.html", null ],
-    [ "Fault_EnableShortCircuitProtection", "a00527.html#gaa8479905c2a8b34126d4fe56c1882b1b", null ],
-    [ "Fault_Execute", "a00527.html#gacd1ca209275dae0bc2388ac954858d83", null ],
-    [ "Fault_Execute_100ms", "a00527.html#ga35608d94d8d76de809bb7588a325abc9", null ],
-    [ "Fault_Handler", "a00527.html#gaf27f2f24932cec222273df148f8765cb", null ],
-    [ "Fault_Initialize", "a00527.html#gaaa5a7a6dc7ce982dec4f07edcd73e874", null ],
-    [ "Fault_Reset", "a00527.html#ga8ed0fee0d3aff71d49470aab1728a6ae", null ]
+    [ "PBV_CAN_Init", "a00527.html#ga79f8710b3f0d8c70122b335311789f84", null ],
+    [ "PBV_CAN_Link_Data_RX", "a00527.html#ga75e58befa8b1fe6733bfe6cbab86e7ed", null ],
+    [ "PBV_CAN_Link_Data_TX", "a00527.html#ga324f8d21b38a8db2c2eff48363fc09cd", null ],
+    [ "PBV_CAN_Receive_from_GUI", "a00527.html#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a", null ],
+    [ "PBV_CAN_Reinit", "a00527.html#ga857a8826c159110cf094721b35f5637d", null ],
+    [ "PBV_CAN_Transmit_Ascii_to_GUI", "a00527.html#ga8a1a918272c7acb8edadb6686bdf7410", null ],
+    [ "PBV_CAN_Transmit_to_GUI", "a00527.html#gae06ebd7cad07c3a104d5b46c6f6323dc", null ],
+    [ "pbvCanObjectAscii", "a00527.html#ga83ff770dbe2c555914a0a8817520e6ff", null ],
+    [ "pbvCanObjectRx", "a00527.html#ga9ceb5cc979f0da93465c1599bc5fcd4e", null ],
+    [ "pbvCanObjectTx", "a00527.html#gab3e1f18d37c5cf8872a425dc2dc82f01", null ]
 ];

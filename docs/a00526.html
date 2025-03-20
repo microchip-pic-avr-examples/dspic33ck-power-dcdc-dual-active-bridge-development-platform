@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Fault Monitor</title>
+<title>Dual Active Bridge Development Board: Power Board Visualizer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,31 +138,54 @@ $(document).ready(function(){initNavTree('a00526.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#groups">Modules</a>  </div>
-  <div class="headertitle"><div class="title">Fault Monitor</div></div>
+  <div class="headertitle"><div class="title">Power Board Visualizer<div class="ingroups"><a class="el" href="a00525.html">Communication Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The Fault Handler is an independent firmware task which is used to define certain so-called Fault Objects.  
+<p>Driver for Power Board Visualizer.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Fault Monitor:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Power Board Visualizer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00526.svg" width="292" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00526.svg" width="560" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
 Modules</h2></td></tr>
-<tr class="memitem:a00527" id="r_a00527"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html">Fault Configuration</a></td></tr>
-<tr class="memdesc:a00527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains functions that initialize, execute and handles the power supply fault. <br /></td></tr>
+<tr class="memitem:a00527" id="r_a00527"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html">CAN Communication</a></td></tr>
+<tr class="memdesc:a00527"><td class="mdescLeft">&#160;</td><td class="mdescRight">This abstracts the MCC driver api. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00528" id="r_a00528"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00528.html">Generic Fault Driver</a></td></tr>
-<tr class="memdesc:a00528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains generic fault functions. <br /></td></tr>
+<tr class="memitem:a00528" id="r_a00528"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00528.html">UART Communication</a></td></tr>
+<tr class="memdesc:a00528"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is where the framing/deframing and transmission happens for UART frames. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00529" id="r_a00529"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html">PBV Interface</a></td></tr>
+<tr class="memdesc:a00529"><td class="mdescLeft">&#160;</td><td class="mdescRight">These implement the PBV state machine of RX and TX, as well as link data that is received by peripherals to application. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00530" id="r_a00530"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00530.html">User Configuration</a></td></tr>
+<tr class="memdesc:a00530"><td class="mdescLeft">&#160;</td><td class="mdescRight">This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00531" id="r_a00531"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html">PBV Data DAB App</a></td></tr>
+<tr class="memdesc:a00531"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the main application file. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Fault monitor is one of the vital components in creating different power supply applications. It is responsible for the protection of power supply including the monitoring and handling of faults that may be encountered while power supply is in operation. It is implemented as high-priority task included in the real-time operating system. Thresholds are being set for voltage, current, and temperature level that are being monitored if user-defined fault objects violate the minimum and maximum input and output voltage and current, and maximum temperature level allowed. Once the fault monitor objects detect a fault, this will trigger the fault responses and respond immediately. </p>
+<p>The Power Board Visualizer is a tool or system designed to monitor and display the status and performance of a power distribution board. It typically provides real-time data on various parameters such as voltage, current, and power consumption, helping users to manage and optimize power usage effectively.</p>
+<p>Communication with the Power Board Visualizer is often facilitated through two primary protocols:</p>
+<ul>
+<li>CAN (Controller Area Network):<ul>
+<li>Purpose: CAN is a robust vehicle bus standard designed to allow microcontrollers and devices to communicate with each other without a host computer.</li>
+<li>Usage: In the context of the Power Board Visualizer, CAN is used for high-speed, reliable communication between the power board and the visualizer, ensuring that data is transmitted efficiently even in electrically noisy environments.</li>
+</ul>
+</li>
+<li>UART (Universal Asynchronous Receiver-Transmitter):<ul>
+<li>Purpose: UART is a hardware communication protocol that uses asynchronous serial communication with configurable speed.</li>
+<li>Usage: UART is typically used for simpler, point-to-point communication between the power board and the visualizer. It is suitable for lower-speed data transmission and is often used for initial setup, debugging, or communication with peripheral devices.</li>
+</ul>
+</li>
+</ul>
+<p>Together, these communication protocols enable the Power Board Visualizer to effectively gather and display critical power management data, ensuring efficient monitoring and control of power distribution systems. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

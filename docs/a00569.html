@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: CAN_MSG_OBJ Struct Reference</title>
+<title>Dual Active Bridge Development Board: Clock Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,90 +137,166 @@ $(document).ready(function(){initNavTree('a00569.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Data Fields</a>  </div>
-  <div class="headertitle"><div class="title">CAN_MSG_OBJ Struct Reference<div class="ingroups"><a class="el" href="a00530.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00533.html">CAN FD Driver</a></div></div></div>
+<a href="#files">Files</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">Clock Driver<div class="ingroups"><a class="el" href="a00554.html">MPLABX MCC Melody Code Generator</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This data structure used to configure the CAN FD message object.  
- <a href="a00569.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00092_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/mcc_generated_files/can/can_types.h</a>&gt;</code></p>
+<p>Clock configurator driver for System and Peripheral Clock using dsPIC MCUs.  
+<a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CAN_MSG_OBJ:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Clock Driver:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00567.svg" width="131" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00569.svg" width="302" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Data Fields</h2></td></tr>
-<tr class="memitem:a92de58c41afbd447b2536d5c9eb7b0f2" id="r_a92de58c41afbd447b2536d5c9eb7b0f2"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#a92de58c41afbd447b2536d5c9eb7b0f2">msgId</a></td></tr>
-<tr class="separator:a92de58c41afbd447b2536d5c9eb7b0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3db823a278f5d389e9b29a698d10ee68" id="r_a3db823a278f5d389e9b29a698d10ee68"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="a00565.html">CAN_MSG_FIELD</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#a3db823a278f5d389e9b29a698d10ee68">field</a></td></tr>
-<tr class="separator:a3db823a278f5d389e9b29a698d10ee68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe222f6d3581e7920dcad5306cc906a8" id="r_abe222f6d3581e7920dcad5306cc906a8"><td class="memItemLeft" align="right" valign="top">uint8_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#abe222f6d3581e7920dcad5306cc906a8">data</a></td></tr>
-<tr class="separator:abe222f6d3581e7920dcad5306cc906a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:a00209" id="r_a00209"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00209.html">clock.c</a></td></tr>
+<tr class="memdesc:a00209"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated source file for CLOCK driver. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:gae20bf0a12edd902aa2ee56554d6d4790" id="r_gae20bf0a12edd902aa2ee56554d6d4790"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#gae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</a>()&#160;&#160;&#160;(200000000UL)</td></tr>
+<tr class="memdesc:gae20bf0a12edd902aa2ee56554d6d4790"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to read the System clock (FOSC) Frequency configured in the MCC Melody User Interface.  <br /></td></tr>
+<tr class="separator:gae20bf0a12edd902aa2ee56554d6d4790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga192799fb698929f78edb9653d4eea55c" id="r_ga192799fb698929f78edb9653d4eea55c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#ga192799fb698929f78edb9653d4eea55c">CLOCK_PeripheralFrequencyGet</a>()&#160;&#160;&#160;((uint32_t)<a class="el" href="a00569.html#gae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</a>() / (uint32_t)2)</td></tr>
+<tr class="memdesc:ga192799fb698929f78edb9653d4eea55c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to read the Peripheral Clock (FP) Frequency configured in the MCC Melody User Interface.  <br /></td></tr>
+<tr class="separator:ga192799fb698929f78edb9653d4eea55c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c2fd6abb192260205b77d167d8e78da" id="r_ga7c2fd6abb192260205b77d167d8e78da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#ga7c2fd6abb192260205b77d167d8e78da">CLOCK_InstructionFrequencyGet</a>()&#160;&#160;&#160;((uint32_t)<a class="el" href="a00569.html#gae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</a>() / (uint32_t)2)</td></tr>
+<tr class="memdesc:ga7c2fd6abb192260205b77d167d8e78da"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro is used to read the Instruction Clock (FCY) Frequency configured in the MCC Melody User Interface.  <br /></td></tr>
+<tr class="separator:ga7c2fd6abb192260205b77d167d8e78da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga98390d19c7087c52765eab23eb8ded96" id="r_ga98390d19c7087c52765eab23eb8ded96"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#ga98390d19c7087c52765eab23eb8ded96">CLOCK_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga98390d19c7087c52765eab23eb8ded96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes all the INTERNAL OSCILLATOR sources and clock switch configurations.  <br /></td></tr>
+<tr class="separator:ga98390d19c7087c52765eab23eb8ded96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0153c20a7c603596e5722a8b45571d4a" id="r_ga0153c20a7c603596e5722a8b45571d4a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00569.html#ga0153c20a7c603596e5722a8b45571d4a">CLOCK_AuxPllLockStatusGet</a> (void)</td></tr>
+<tr class="memdesc:ga0153c20a7c603596e5722a8b45571d4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns Auxiliary PLL status.  <br /></td></tr>
+<tr class="separator:ga0153c20a7c603596e5722a8b45571d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00067">67</a> of file <a class="el" href="a00092_source.html">can_types.h</a>.</p>
-</div><h2 class="groupheader">Field Documentation</h2>
-<a id="abe222f6d3581e7920dcad5306cc906a8" name="abe222f6d3581e7920dcad5306cc906a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe222f6d3581e7920dcad5306cc906a8">&#9670;&#160;</a></span>data</h2>
+<dl class="section version"><dt>Version</dt><dd>Firmware Driver Version 1.0.2</dd>
+<dd>
+PLIB Version 1.4.1</dd></dl>
+<div class="fragment"></div><!-- fragment --><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga7c2fd6abb192260205b77d167d8e78da" name="ga7c2fd6abb192260205b77d167d8e78da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7c2fd6abb192260205b77d167d8e78da">&#9670;&#160;</a></span>CLOCK_InstructionFrequencyGet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t* data</td>
+          <td class="memname">#define CLOCK_InstructionFrequencyGet</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td>&#160;&#160;&#160;((uint32_t)<a class="el" href="a00569.html#gae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</a>() / (uint32_t)2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Pointer to message data </p>
 
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00071">71</a> of file <a class="el" href="a00092_source.html">can_types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00188_source.html#l00064">64</a> of file <a class="el" href="a00188_source.html">clock.h</a>.</p>
 
 </div>
 </div>
-<a id="a3db823a278f5d389e9b29a698d10ee68" name="a3db823a278f5d389e9b29a698d10ee68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3db823a278f5d389e9b29a698d10ee68">&#9670;&#160;</a></span>field</h2>
+<a id="ga192799fb698929f78edb9653d4eea55c" name="ga192799fb698929f78edb9653d4eea55c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga192799fb698929f78edb9653d4eea55c">&#9670;&#160;</a></span>CLOCK_PeripheralFrequencyGet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="a00565.html">CAN_MSG_FIELD</a> field</td>
+          <td class="memname">#define CLOCK_PeripheralFrequencyGet</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td>&#160;&#160;&#160;((uint32_t)<a class="el" href="a00569.html#gae20bf0a12edd902aa2ee56554d6d4790">CLOCK_SystemFrequencyGet</a>() / (uint32_t)2)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Defines the <a class="el" href="a00565.html">CAN_MSG_FIELD</a> CAN TX/RX Message Object Control </p>
 
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00070">70</a> of file <a class="el" href="a00092_source.html">can_types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00188_source.html#l00057">57</a> of file <a class="el" href="a00188_source.html">clock.h</a>.</p>
 
 </div>
 </div>
-<a id="a92de58c41afbd447b2536d5c9eb7b0f2" name="a92de58c41afbd447b2536d5c9eb7b0f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92de58c41afbd447b2536d5c9eb7b0f2">&#9670;&#160;</a></span>msgId</h2>
+<a id="gae20bf0a12edd902aa2ee56554d6d4790" name="gae20bf0a12edd902aa2ee56554d6d4790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae20bf0a12edd902aa2ee56554d6d4790">&#9670;&#160;</a></span>CLOCK_SystemFrequencyGet</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t msgId</td>
+          <td class="memname">#define CLOCK_SystemFrequencyGet</td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td>&#160;&#160;&#160;(200000000UL)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the CAN Message ID </p>
 
-<p class="definition">Definition at line <a class="el" href="a00092_source.html#l00069">69</a> of file <a class="el" href="a00092_source.html">can_types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00188_source.html#l00050">50</a> of file <a class="el" href="a00188_source.html">clock.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>dspic33ck-dab.X/mcc_generated_files/can/<a class="el" href="a00092_source.html">can_types.h</a></li>
-</ul>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga0153c20a7c603596e5722a8b45571d4a" name="ga0153c20a7c603596e5722a8b45571d4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0153c20a7c603596e5722a8b45571d4a">&#9670;&#160;</a></span>CLOCK_AuxPllLockStatusGet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CLOCK_AuxPllLockStatusGet </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00569.html#ga98390d19c7087c52765eab23eb8ded96">CLOCK_Initialize()</a> should be called for the associated function to work. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true - Auxiliary PLL locked </dd>
+<dd>
+false - Auxiliary PLL not locked </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00209_source.html#l00108">108</a> of file <a class="el" href="a00209_source.html">clock.c</a>.</p>
+
+</div>
+</div>
+<a id="ga98390d19c7087c52765eab23eb8ded96" name="ga98390d19c7087c52765eab23eb8ded96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga98390d19c7087c52765eab23eb8ded96">&#9670;&#160;</a></span>CLOCK_Initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CLOCK_Initialize </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00209_source.html#l00043">43</a> of file <a class="el" href="a00209_source.html">clock.c</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00569_ga98390d19c7087c52765eab23eb8ded96_icgraph.svg" width="308" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/pwm/src/sccp3.c File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/crc/crc.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -139,120 +139,92 @@ $(document).ready(function(){initNavTree('a00149.html',''); initResizable(); });
   <div class="summary">
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">sccp3.c File Reference<div class="ingroups"><a class="el" href="a00530.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00537.html">PWM Driver</a></div></div></div>
+  <div class="headertitle"><div class="title">crc.h File Reference<div class="ingroups"><a class="el" href="a00554.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00560.html">CRC Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the generated driver source file for SCCP3 driver.  
+<p>This is the generated driver header file for the CRC driver.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
-<code>#include &lt;stddef.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00146_source.html">../sccp3.h</a>&quot;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00155_source.html">crc_types.h</a>&quot;</code><br />
+<code>#include &quot;crc_interface.h&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for sccp3.c:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for crc.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00150.svg" width="342" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00150.svg" width="390" height="203"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00151.svg" width="532" height="160"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00149_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga809f90ef20376e690eb52fbb4a0c9cb3" id="r_ga809f90ef20376e690eb52fbb4a0c9cb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga809f90ef20376e690eb52fbb4a0c9cb3">SCCP3_PWM_Initialize</a> (void)</td></tr>
-<tr class="memdesc:ga809f90ef20376e690eb52fbb4a0c9cb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the SCCP3 Pulse driver. This function must be called before any other SCCP3 function is called.  <br /></td></tr>
-<tr class="separator:ga809f90ef20376e690eb52fbb4a0c9cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6fb7818d3569a39f7d21903c81e78aa7" id="r_ga6fb7818d3569a39f7d21903c81e78aa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga6fb7818d3569a39f7d21903c81e78aa7">SCCP3_PWM_Deinitialize</a> (void)</td></tr>
-<tr class="memdesc:ga6fb7818d3569a39f7d21903c81e78aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the SCCP3 to POR values.  <br /></td></tr>
-<tr class="separator:ga6fb7818d3569a39f7d21903c81e78aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6f57d725bb9b840c8b4f3be0ff8d832e" id="r_ga6f57d725bb9b840c8b4f3be0ff8d832e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga6f57d725bb9b840c8b4f3be0ff8d832e">SCCP3_PWM_Enable</a> (void)</td></tr>
-<tr class="memdesc:ga6f57d725bb9b840c8b4f3be0ff8d832e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the SCCP3 module.  <br /></td></tr>
-<tr class="separator:ga6f57d725bb9b840c8b4f3be0ff8d832e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga215716b466252c678c01cf0db83dcc4a" id="r_ga215716b466252c678c01cf0db83dcc4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga215716b466252c678c01cf0db83dcc4a">SCCP3_PWM_Disable</a> (void)</td></tr>
-<tr class="memdesc:ga215716b466252c678c01cf0db83dcc4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the SCCP3 module.  <br /></td></tr>
-<tr class="separator:ga215716b466252c678c01cf0db83dcc4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga09fe5a6d2e2fde0eee0f9d1b1e4462d9" id="r_ga09fe5a6d2e2fde0eee0f9d1b1e4462d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga09fe5a6d2e2fde0eee0f9d1b1e4462d9">SCCP3_PWM_PeriodSet</a> (size_t periodCount)</td></tr>
-<tr class="memdesc:ga09fe5a6d2e2fde0eee0f9d1b1e4462d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the cycle width.  <br /></td></tr>
-<tr class="separator:ga09fe5a6d2e2fde0eee0f9d1b1e4462d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4217568ce7d40ce04f74c937347811f9" id="r_ga4217568ce7d40ce04f74c937347811f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga4217568ce7d40ce04f74c937347811f9">SCCP3_PWM_DutyCycleSet</a> (size_t dutyCycleCount)</td></tr>
-<tr class="memdesc:ga4217568ce7d40ce04f74c937347811f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ON pulse width.  <br /></td></tr>
-<tr class="separator:ga4217568ce7d40ce04f74c937347811f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab26ef78a582b1a03658191fdbd113eeb" id="r_gab26ef78a582b1a03658191fdbd113eeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gab26ef78a582b1a03658191fdbd113eeb">SCCP3_PWM_SoftwareTriggerSet</a> (void)</td></tr>
-<tr class="memdesc:gab26ef78a582b1a03658191fdbd113eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function sets the manual trigger.  <br /></td></tr>
-<tr class="separator:gab26ef78a582b1a03658191fdbd113eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf9818122aff50cd60e48c543286f1996" id="r_gaf9818122aff50cd60e48c543286f1996"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaf9818122aff50cd60e48c543286f1996">SCCP3_PWM_CallbackRegister</a> (void(*handler)(void))</td></tr>
-<tr class="memdesc:gaf9818122aff50cd60e48c543286f1996"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for SCCP3 PWM event.  <br /></td></tr>
-<tr class="separator:gaf9818122aff50cd60e48c543286f1996"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a201468129b483039afc5a619e2d31097" id="r_a201468129b483039afc5a619e2d31097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a201468129b483039afc5a619e2d31097">__attribute__</a> ((weak))</td></tr>
-<tr class="separator:a201468129b483039afc5a619e2d31097"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaab00ca303a8991de3bc06795d1fa8878" id="r_gaab00ca303a8991de3bc06795d1fa8878"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaab00ca303a8991de3bc06795d1fa8878">SCCP3_PWM_Tasks</a> (void)</td></tr>
-<tr class="memdesc:gaab00ca303a8991de3bc06795d1fa8878"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is used to implement the tasks for polled implementations.  <br /></td></tr>
-<tr class="separator:gaab00ca303a8991de3bc06795d1fa8878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2b4567df8569d3ef2268f89ce5230cb6" id="r_ga2b4567df8569d3ef2268f89ce5230cb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga2b4567df8569d3ef2268f89ce5230cb6">CRC_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga2b4567df8569d3ef2268f89ce5230cb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the CRC module. This function sets the polynomial and data width; data and seed shift; updates the polynomial and shifts the seed value. After the function is called, the CRC module is ready to calculate the CRC of a data buffer.  <br /></td></tr>
+<tr class="separator:ga2b4567df8569d3ef2268f89ce5230cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacc78d7c2e55e48b64e49c0505145b145" id="r_gacc78d7c2e55e48b64e49c0505145b145"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gacc78d7c2e55e48b64e49c0505145b145">CRC_Deinitialize</a> (void)</td></tr>
+<tr class="memdesc:gacc78d7c2e55e48b64e49c0505145b145"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes CRC to POR values.  <br /></td></tr>
+<tr class="separator:gacc78d7c2e55e48b64e49c0505145b145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga93df614b326f4c56400a8515d4cd7cb9" id="r_ga93df614b326f4c56400a8515d4cd7cb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga93df614b326f4c56400a8515d4cd7cb9">CRC_SeedSet</a> (uint32_t seed, enum <a class="el" href="a00155.html#ada1c18391bf657479988adbfcc035607">CRC_SEED_METHOD</a> seedMethod, enum <a class="el" href="a00155.html#abb206e74952718e1db3a800b67f77cb6">CRC_SEED_DIRECTION</a> seedDirection)</td></tr>
+<tr class="memdesc:ga93df614b326f4c56400a8515d4cd7cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the CRC seed with method and direction.  <br /></td></tr>
+<tr class="separator:ga93df614b326f4c56400a8515d4cd7cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9deaccba0d18fa00991e60c07770f9d5" id="r_ga9deaccba0d18fa00991e60c07770f9d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga9deaccba0d18fa00991e60c07770f9d5">CRC_CalculateBufferStart</a> (void *buffer, uint32_t sizeBytes)</td></tr>
+<tr class="memdesc:ga9deaccba0d18fa00991e60c07770f9d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRC module calculation on a buffer in data space.  <br /></td></tr>
+<tr class="separator:ga9deaccba0d18fa00991e60c07770f9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3c107761015dff9b719960a7cae0fc7" id="r_gaf3c107761015dff9b719960a7cae0fc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gaf3c107761015dff9b719960a7cae0fc7">CRC_CalculateProgramStart</a> (uint32_t startAddr, uint32_t sizeBytes)</td></tr>
+<tr class="memdesc:gaf3c107761015dff9b719960a7cae0fc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the CRC calculation on a buffer in program space.  <br /></td></tr>
+<tr class="separator:gaf3c107761015dff9b719960a7cae0fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga464220e3c2951fa8617f8b73806d508f" id="r_ga464220e3c2951fa8617f8b73806d508f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga464220e3c2951fa8617f8b73806d508f">CRC_EventCallbackRegister</a> (void(*handler)(void))</td></tr>
+<tr class="memdesc:ga464220e3c2951fa8617f8b73806d508f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for CRC Event event.  <br /></td></tr>
+<tr class="separator:ga464220e3c2951fa8617f8b73806d508f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9077e2fdee5d83f83d2639a92fc7c78" id="r_gac9077e2fdee5d83f83d2639a92fc7c78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gac9077e2fdee5d83f83d2639a92fc7c78">CRC_EventCallback</a> (void)</td></tr>
+<tr class="memdesc:gac9077e2fdee5d83f83d2639a92fc7c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using <br  />
+ CRC_EventCallbackRegister.  <br /></td></tr>
+<tr class="separator:gac9077e2fdee5d83f83d2639a92fc7c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac36ee878e4256e6b5c82e180f5196b40" id="r_gac36ee878e4256e6b5c82e180f5196b40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gac36ee878e4256e6b5c82e180f5196b40">CRC_Tasks</a> (void)</td></tr>
+<tr class="memdesc:gac36ee878e4256e6b5c82e180f5196b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function cycles through the CRC calculations. <br  />
+ This function will load the CRC module FIFO with the buffer data.  <br /></td></tr>
+<tr class="separator:gac36ee878e4256e6b5c82e180f5196b40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf55c3e382b50ab182645f68e85873e0a" id="r_gaf55c3e382b50ab182645f68e85873e0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gaf55c3e382b50ab182645f68e85873e0a">CRC_CalculationIsDone</a> (void)</td></tr>
+<tr class="memdesc:gaf55c3e382b50ab182645f68e85873e0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the CRC calculation complete status <br  />
+  <br /></td></tr>
+<tr class="separator:gaf55c3e382b50ab182645f68e85873e0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga595814562acde8c6c22c92af9c33ca16" id="r_ga595814562acde8c6c22c92af9c33ca16"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga595814562acde8c6c22c92af9c33ca16">CRC_CalculationResultGet</a> (bool reverse, uint32_t xorValue)</td></tr>
+<tr class="memdesc:ga595814562acde8c6c22c92af9c33ca16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the CRC result if the calculation is done.  <br /></td></tr>
+<tr class="separator:ga595814562acde8c6c22c92af9c33ca16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3a06d9e9df1840cb7bda3f8c3b48f14e" id="r_ga3a06d9e9df1840cb7bda3f8c3b48f14e"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga3a06d9e9df1840cb7bda3f8c3b48f14e">CRC_CalculationResultRawGet</a> (void)</td></tr>
+<tr class="memdesc:ga3a06d9e9df1840cb7bda3f8c3b48f14e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the CRC raw result if the calculation is done.  <br /></td></tr>
+<tr class="separator:ga3a06d9e9df1840cb7bda3f8c3b48f14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae32b26f5e43c6cb51a808454b8645c3a" id="r_gae32b26f5e43c6cb51a808454b8645c3a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gae32b26f5e43c6cb51a808454b8645c3a">CRC_CalculationResultReverseGet</a> (void)</td></tr>
+<tr class="memdesc:gae32b26f5e43c6cb51a808454b8645c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the CRC reversed value of result if the calculation is done.  <br /></td></tr>
+<tr class="separator:gae32b26f5e43c6cb51a808454b8645c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad79b80b3d8a690fbfa807ce0a3a7d399" id="r_gad79b80b3d8a690fbfa807ce0a3a7d399"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#gad79b80b3d8a690fbfa807ce0a3a7d399">CRC_CalculationResultXORGet</a> (uint32_t xorValue)</td></tr>
+<tr class="memdesc:gad79b80b3d8a690fbfa807ce0a3a7d399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the CRC XOR'd value of the result if the calculation is done.  <br /></td></tr>
+<tr class="separator:gad79b80b3d8a690fbfa807ce0a3a7d399"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a35426a55a2a3d2c96463ba5780f144f8" id="r_a35426a55a2a3d2c96463ba5780f144f8"><td class="memItemLeft" align="right" valign="top">static void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a35426a55a2a3d2c96463ba5780f144f8">SCCP3_PWMHandler</a> )(void) = NULL</td></tr>
-<tr class="separator:a35426a55a2a3d2c96463ba5780f144f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaefb33d483bc26188d3a5d7f31fe21c42" id="r_gaefb33d483bc26188d3a5d7f31fe21c42"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00601.html">PWM_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaefb33d483bc26188d3a5d7f31fe21c42">FAN_PWM</a></td></tr>
-<tr class="memdesc:gaefb33d483bc26188d3a5d7f31fe21c42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00601.html" title="Structure containing the function pointers of PWM generator driver.">PWM_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. PWM1 can be changed by the user in the MCCP user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
-<tr class="separator:gaefb33d483bc26188d3a5d7f31fe21c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1065ec72a69750ea4b5815f6504d8798" id="r_ga1065ec72a69750ea4b5815f6504d8798"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00613.html">CRC_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00560.html#ga1065ec72a69750ea4b5815f6504d8798">CRC</a></td></tr>
+<tr class="memdesc:ga1065ec72a69750ea4b5815f6504d8798"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00613.html" title="Structure containing the function pointers of CRC driver.">CRC_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. CRC can be changed by the user in the CRC user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
+<tr class="separator:ga1065ec72a69750ea4b5815f6504d8798"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>SCCP3 Generated Driver Source File</p>
+<div class="textblock"><p>This is the generated driver source file for the CRC driver.</p>
+<p>CRC Generated Driver Header File</p>
+<div class="fragment"></div><!-- fragment --><p> CRC Generated Driver Source File</p>
 <div class="fragment"></div><!-- fragment -->
-<p class="definition">Definition in file <a class="el" href="a00149_source.html">sccp3.c</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a201468129b483039afc5a619e2d31097" name="a201468129b483039afc5a619e2d31097"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a201468129b483039afc5a619e2d31097">&#9670;&#160;</a></span>__attribute__()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void __attribute__ </td>
-          <td>(</td>
-          <td class="paramtype">(weak)&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00155">155</a> of file <a class="el" href="a00149_source.html">sccp3.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a35426a55a2a3d2c96463ba5780f144f8" name="a35426a55a2a3d2c96463ba5780f144f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35426a55a2a3d2c96463ba5780f144f8">&#9670;&#160;</a></span>SCCP3_PWMHandler</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* SCCP3_PWMHandler) (void) </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> = NULL</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00046">46</a> of file <a class="el" href="a00149_source.html">sccp3.c</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00149_source.html">crc.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

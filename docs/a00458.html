@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_comm_interface.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/dcdt/smps_control.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,117 +137,176 @@ $(document).ready(function(){initNavTree('a00458.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">pwrctrl_comm_interface.h File Reference<div class="ingroups"><a class="el" href="a00517.html">Power Control</a> &raquo; <a class="el" href="a00523.html">Power Control Communication Interface</a></div></div></div>
+  <div class="headertitle"><div class="title">smps_control.h File Reference<div class="ingroups"><a class="el" href="a00541.html">Power Control</a> &raquo; <a class="el" href="a00546.html">Control Loop Configuration</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains public functions relevant for power control communication interface. <br  />
+<p>Contains the DCDT generated functions and data types. <br  />
   
 <a href="#details">More...</a></p>
-<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for smps_control.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00459.svg" width="196" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00460.svg" width="100%" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="a00458_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00705.html">SMPS_3P3Z_T</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00709.html">SMPS_2P2Z_T</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00713.html">SMPS_PID_T</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00717.html">SMPS_Controller_Options_T</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00721.html">XFT_SMPS_2P2Z_T</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gae5e607ebc1cfbf0fcb8caa5775d5e782" id="r_gae5e607ebc1cfbf0fcb8caa5775d5e782"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#gae5e607ebc1cfbf0fcb8caa5775d5e782">Dev_PwrCtrl_SetState</a> (uint16_t reference)</td></tr>
-<tr class="memdesc:gae5e607ebc1cfbf0fcb8caa5775d5e782"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the power control State.  <br /></td></tr>
-<tr class="separator:gae5e607ebc1cfbf0fcb8caa5775d5e782"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga75fdd46231baccc4830fa08d2b39a3d2" id="r_ga75fdd46231baccc4830fa08d2b39a3d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga75fdd46231baccc4830fa08d2b39a3d2">PwrCtrl_SetPeriodTarget</a> (uint16_t reference)</td></tr>
-<tr class="memdesc:ga75fdd46231baccc4830fa08d2b39a3d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the target period.  <br /></td></tr>
-<tr class="separator:ga75fdd46231baccc4830fa08d2b39a3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae62d241af8152bb7989d448f30adc55e" id="r_gae62d241af8152bb7989d448f30adc55e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#gae62d241af8152bb7989d448f30adc55e">PwrCtrl_SetPhaseTarget</a> (uint16_t reference)</td></tr>
-<tr class="memdesc:gae62d241af8152bb7989d448f30adc55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the target PWM phase.  <br /></td></tr>
-<tr class="separator:gae62d241af8152bb7989d448f30adc55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga80737f595e2855e9361772d2c1a9852d" id="r_ga80737f595e2855e9361772d2c1a9852d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga80737f595e2855e9361772d2c1a9852d">PwrCtrl_SetP2SPhaseTarget</a> (uint16_t reference)</td></tr>
-<tr class="memdesc:ga80737f595e2855e9361772d2c1a9852d"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the target prim to sec phase which will steer other modulation.  <br /></td></tr>
-<tr class="separator:ga80737f595e2855e9361772d2c1a9852d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga071b955cb9687b27b8ce895a29febc66" id="r_ga071b955cb9687b27b8ce895a29febc66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga071b955cb9687b27b8ce895a29febc66">PwrCtrl_SetEnable</a> (bool enable)</td></tr>
-<tr class="memdesc:ga071b955cb9687b27b8ce895a29febc66"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the power control enable bit.  <br /></td></tr>
-<tr class="separator:ga071b955cb9687b27b8ce895a29febc66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga919933b7bef6f9fa8094848c413e7881" id="r_ga919933b7bef6f9fa8094848c413e7881"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga919933b7bef6f9fa8094848c413e7881">PwrCtrl_SetVSecReference</a> (uint16_t reference)</td></tr>
-<tr class="memdesc:ga919933b7bef6f9fa8094848c413e7881"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the secondary voltage controller reference.  <br /></td></tr>
-<tr class="separator:ga919933b7bef6f9fa8094848c413e7881"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga70c7b962e7df84e7d49fd37a76826059" id="r_ga70c7b962e7df84e7d49fd37a76826059"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga70c7b962e7df84e7d49fd37a76826059">PwrCtrl_SetIReference</a> (uint16_t reference)</td></tr>
-<tr class="memdesc:ga70c7b962e7df84e7d49fd37a76826059"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the current controller reference.  <br /></td></tr>
-<tr class="separator:ga70c7b962e7df84e7d49fd37a76826059"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga574faff7b911d52ae6d2cf53b68a8963" id="r_ga574faff7b911d52ae6d2cf53b68a8963"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga574faff7b911d52ae6d2cf53b68a8963">PwrCtrl_SetPwrReference</a> (uint16_t reference)</td></tr>
-<tr class="memdesc:ga574faff7b911d52ae6d2cf53b68a8963"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the power controller reference.  <br /></td></tr>
-<tr class="separator:ga574faff7b911d52ae6d2cf53b68a8963"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5d7bb399a6595288fdee50a716248786" id="r_ga5d7bb399a6595288fdee50a716248786"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga5d7bb399a6595288fdee50a716248786">PwrCtrl_GetPhase_P2SDegree</a> (void)</td></tr>
-<tr class="memdesc:ga5d7bb399a6595288fdee50a716248786"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the power control State.  <br /></td></tr>
-<tr class="separator:ga5d7bb399a6595288fdee50a716248786"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a896f23a8b36846c241697d85fe836dd7" id="r_a896f23a8b36846c241697d85fe836dd7"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#a896f23a8b36846c241697d85fe836dd7">Dev_PwrCtrl_GetAdc_Vpri</a> (void)</td></tr>
-<tr class="separator:a896f23a8b36846c241697d85fe836dd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96927eaff219e7917b625da4a2846797" id="r_a96927eaff219e7917b625da4a2846797"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#a96927eaff219e7917b625da4a2846797">Dev_PwrCtrl_GetAdc_Vsec</a> (void)</td></tr>
-<tr class="separator:a96927eaff219e7917b625da4a2846797"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6450795c316e2284ae94eb16f0da1fe8" id="r_ga6450795c316e2284ae94eb16f0da1fe8"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga6450795c316e2284ae94eb16f0da1fe8">PwrCtrl_GetAdc_Ipri_ct</a> (void)</td></tr>
-<tr class="memdesc:ga6450795c316e2284ae94eb16f0da1fe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for primary current transformer current.  <br /></td></tr>
-<tr class="separator:ga6450795c316e2284ae94eb16f0da1fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab6b145022a1725eaf38c5d0b1864983f" id="r_gab6b145022a1725eaf38c5d0b1864983f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#gab6b145022a1725eaf38c5d0b1864983f">PwrCtrl_GetAdc_Isec_ct</a> (void)</td></tr>
-<tr class="memdesc:gab6b145022a1725eaf38c5d0b1864983f"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for secondary current transformer current.  <br /></td></tr>
-<tr class="separator:gab6b145022a1725eaf38c5d0b1864983f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga641e888682922358719d9a3c62b37634" id="r_ga641e888682922358719d9a3c62b37634"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga641e888682922358719d9a3c62b37634">PwrCtrl_GetAdc_Isec_avg</a> (void)</td></tr>
-<tr class="memdesc:ga641e888682922358719d9a3c62b37634"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for secondary average current.  <br /></td></tr>
-<tr class="separator:ga641e888682922358719d9a3c62b37634"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac82d4ab7cf3f3ca8180033a4d17d789f" id="r_gac82d4ab7cf3f3ca8180033a4d17d789f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#gac82d4ab7cf3f3ca8180033a4d17d789f">PwrCtrl_GetAdc_Temperature</a> (void)</td></tr>
-<tr class="memdesc:gac82d4ab7cf3f3ca8180033a4d17d789f"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for temperature.  <br /></td></tr>
-<tr class="separator:gac82d4ab7cf3f3ca8180033a4d17d789f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf0b0a68f7829d9f898c6f0840a77c065" id="r_gaf0b0a68f7829d9f898c6f0840a77c065"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#gaf0b0a68f7829d9f898c6f0840a77c065">PwrCtrl_GetAdc_Vrail_5V</a> (void)</td></tr>
-<tr class="memdesc:gaf0b0a68f7829d9f898c6f0840a77c065"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for 5V rail.  <br /></td></tr>
-<tr class="separator:gaf0b0a68f7829d9f898c6f0840a77c065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6ea3a7d0d8075757d7dd3fc4ddaca1f5" id="r_ga6ea3a7d0d8075757d7dd3fc4ddaca1f5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga6ea3a7d0d8075757d7dd3fc4ddaca1f5">Dev_PwrCtrl_Get_Period</a> (void)</td></tr>
-<tr class="memdesc:ga6ea3a7d0d8075757d7dd3fc4ddaca1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the PWM period.  <br /></td></tr>
-<tr class="separator:ga6ea3a7d0d8075757d7dd3fc4ddaca1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadd921f8c68bb08d611f3fd7ab03e60ee" id="r_gadd921f8c68bb08d611f3fd7ab03e60ee"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#gadd921f8c68bb08d611f3fd7ab03e60ee">Dev_PwrCtrl_Get_PwmprdTarget</a> (void)</td></tr>
-<tr class="memdesc:gadd921f8c68bb08d611f3fd7ab03e60ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the PWM period target.  <br /></td></tr>
-<tr class="separator:gadd921f8c68bb08d611f3fd7ab03e60ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0a4bc9ff1027ccd07af11d8bd2865219" id="r_ga0a4bc9ff1027ccd07af11d8bd2865219"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga0a4bc9ff1027ccd07af11d8bd2865219">Dev_PwrCtrl_Get_State</a> (void)</td></tr>
-<tr class="memdesc:ga0a4bc9ff1027ccd07af11d8bd2865219"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the current state of the state machine.  <br /></td></tr>
-<tr class="separator:ga0a4bc9ff1027ccd07af11d8bd2865219"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab500c9c4e05b023607a8e72ababe07b3" id="r_gab500c9c4e05b023607a8e72ababe07b3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#gab500c9c4e05b023607a8e72ababe07b3">Dev_PwrCtrl_Get_Status</a> (void)</td></tr>
-<tr class="memdesc:gab500c9c4e05b023607a8e72ababe07b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the power control status.  <br /></td></tr>
-<tr class="separator:gab500c9c4e05b023607a8e72ababe07b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7a61c299efe9f39fbddb6d902d4b3adc" id="r_ga7a61c299efe9f39fbddb6d902d4b3adc"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga7a61c299efe9f39fbddb6d902d4b3adc">Dev_PwrCtrl_Get_EnableFlag</a> (void)</td></tr>
-<tr class="memdesc:ga7a61c299efe9f39fbddb6d902d4b3adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the state of the power control enable bit.  <br /></td></tr>
-<tr class="separator:ga7a61c299efe9f39fbddb6d902d4b3adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad6514b638a32baed68543a56bedd5c5d" id="r_gad6514b638a32baed68543a56bedd5c5d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#gad6514b638a32baed68543a56bedd5c5d">Dev_PwrCtrl_Get_DutyCycle</a> (void)</td></tr>
-<tr class="memdesc:gad6514b638a32baed68543a56bedd5c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the PWM duty cycle.  <br /></td></tr>
-<tr class="separator:gad6514b638a32baed68543a56bedd5c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafe5653e08d77956b5b4fbbcc4305870e" id="r_gafe5653e08d77956b5b4fbbcc4305870e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#gafe5653e08d77956b5b4fbbcc4305870e">Dev_PwrCtrl_Get_SecPower</a> (void)</td></tr>
-<tr class="memdesc:gafe5653e08d77956b5b4fbbcc4305870e"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the secondary power.  <br /></td></tr>
-<tr class="separator:gafe5653e08d77956b5b4fbbcc4305870e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga70a3c74e48285c709f735a499a3024dc" id="r_ga70a3c74e48285c709f735a499a3024dc"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga70a3c74e48285c709f735a499a3024dc">Dev_PwrCtrl_GetAveraging_Vprim</a> (void)</td></tr>
-<tr class="memdesc:ga70a3c74e48285c709f735a499a3024dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the average value of the sampled ADC for primary voltage.  <br /></td></tr>
-<tr class="separator:ga70a3c74e48285c709f735a499a3024dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5178aaea783edff228941c4ecf749a90" id="r_ga5178aaea783edff228941c4ecf749a90"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga5178aaea783edff228941c4ecf749a90">Dev_PwrCtrl_GetAveraging_Vsec</a> (void)</td></tr>
-<tr class="memdesc:ga5178aaea783edff228941c4ecf749a90"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the average value of the sampled ADC for secondary voltage.  <br /></td></tr>
-<tr class="separator:ga5178aaea783edff228941c4ecf749a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga346aaaf8b8cf0266d9873405945c55dd" id="r_ga346aaaf8b8cf0266d9873405945c55dd"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00523.html#ga346aaaf8b8cf0266d9873405945c55dd">Dev_PwrCtrl_GetAveraging_Isec</a> (void)</td></tr>
-<tr class="memdesc:ga346aaaf8b8cf0266d9873405945c55dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the average value of the sampled ADC for secondary current.  <br /></td></tr>
-<tr class="separator:ga346aaaf8b8cf0266d9873405945c55dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4201f46447c8802666c1fe6ade902908" id="r_a4201f46447c8802666c1fe6ade902908"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#a4201f46447c8802666c1fe6ade902908">SMPS_Controller3P3ZInitialize</a> (<a class="el" href="a00705.html">SMPS_3P3Z_T</a> *controllerData)</td></tr>
+<tr class="separator:a4201f46447c8802666c1fe6ade902908"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ba04b5d00e0c881d269a9429b3ed34b" id="r_a8ba04b5d00e0c881d269a9429b3ed34b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#a8ba04b5d00e0c881d269a9429b3ed34b">SMPS_Controller3P3ZUpdate</a> (<a class="el" href="a00705.html">SMPS_3P3Z_T</a> *controllerData, volatile uint16_t *controllerInputRegister, int16_t reference, volatile uint16_t *controllerOutputRegister)</td></tr>
+<tr class="separator:a8ba04b5d00e0c881d269a9429b3ed34b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3b1b597d1863e3a36a426c85d7a2862" id="r_ad3b1b597d1863e3a36a426c85d7a2862"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#ad3b1b597d1863e3a36a426c85d7a2862">SMPS_Controller2P2ZUpdate_HW_Accel</a> (void)</td></tr>
+<tr class="separator:ad3b1b597d1863e3a36a426c85d7a2862"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d5d0902200bbea692053e0d366488d4" id="r_a3d5d0902200bbea692053e0d366488d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#a3d5d0902200bbea692053e0d366488d4">SMPS_Controller3P3ZUpdate_HW_Accel</a> (void)</td></tr>
+<tr class="separator:a3d5d0902200bbea692053e0d366488d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1277e1038046b837b803cd2ee3a2e102" id="r_a1277e1038046b837b803cd2ee3a2e102"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#a1277e1038046b837b803cd2ee3a2e102">SMPS_Controller4P4ZUpdate_HW_Accel</a> (void)</td></tr>
+<tr class="separator:a1277e1038046b837b803cd2ee3a2e102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab27323a90d36c5fcc1d4f4a69c3f31b4" id="r_ab27323a90d36c5fcc1d4f4a69c3f31b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#ab27323a90d36c5fcc1d4f4a69c3f31b4">SMPS_ControllerPIDUpdate_HW_Accel</a> (void)</td></tr>
+<tr class="separator:ab27323a90d36c5fcc1d4f4a69c3f31b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d0d916c7a3ca172408fcded86a6baa2" id="r_a8d0d916c7a3ca172408fcded86a6baa2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#a8d0d916c7a3ca172408fcded86a6baa2">SMPS_Controller2P2ZInitialize</a> (<a class="el" href="a00709.html">SMPS_2P2Z_T</a> *controllerData)</td></tr>
+<tr class="separator:a8d0d916c7a3ca172408fcded86a6baa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4c8852561395f2969c08ff062325e03" id="r_ac4c8852561395f2969c08ff062325e03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#ac4c8852561395f2969c08ff062325e03">SMPS_Controller2P2ZUpdate</a> (<a class="el" href="a00709.html">SMPS_2P2Z_T</a> *controllerData, volatile uint16_t *controllerInputRegister, int16_t reference, volatile uint16_t *controllerOutputRegister)</td></tr>
+<tr class="separator:ac4c8852561395f2969c08ff062325e03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad495211ff0d3998ba64f08121e48db0a" id="r_ad495211ff0d3998ba64f08121e48db0a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#ad495211ff0d3998ba64f08121e48db0a">SMPS_ControllerPIDInitialize</a> (<a class="el" href="a00713.html">SMPS_PID_T</a> *controllerData)</td></tr>
+<tr class="separator:ad495211ff0d3998ba64f08121e48db0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4544d10d35a258c38c4caf0302cc39" id="r_a3b4544d10d35a258c38c4caf0302cc39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#a3b4544d10d35a258c38c4caf0302cc39">SMPS_ControllerPIDUpdate</a> (<a class="el" href="a00713.html">SMPS_PID_T</a> *controllerData, volatile uint16_t *controllerInputRegister, int16_t reference, volatile uint16_t *controllerOutputRegister)</td></tr>
+<tr class="separator:a3b4544d10d35a258c38c4caf0302cc39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fd6e889896907ceaae34b73435d5627" id="r_a4fd6e889896907ceaae34b73435d5627"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00458.html#a4fd6e889896907ceaae34b73435d5627">XFT_SMPS_Controller2P2ZUpdate</a> (<a class="el" href="a00709.html">SMPS_2P2Z_T</a> *controllerData, volatile uint16_t *controllerInputRegister, int16_t reference, volatile uint16_t *controllerOutputRegister)</td></tr>
+<tr class="separator:a4fd6e889896907ceaae34b73435d5627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><br  />
+<div class="textblock"><p>Company: Microchip Technology Inc. File Name: smps_interfaces.h</p>
+<p>Summary: This header file lists the interfaces used by the Switch Mode Power Supply compensator library.</p>
+<p>Description: SMPS Control (Compensator) library interface header file</p>
+<p>This header file lists the type defines for structures used by the SMPS library. Library function definitions are also listed along with information regarding the arguments of each library function. <br  />
  &lt;&gt; </p>
 
-<p class="definition">Definition in file <a class="el" href="a00458_source.html">pwrctrl_comm_interface.h</a>.</p>
+<p class="definition">Definition in file <a class="el" href="a00458_source.html">smps_control.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a896f23a8b36846c241697d85fe836dd7" name="a896f23a8b36846c241697d85fe836dd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a896f23a8b36846c241697d85fe836dd7">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAdc_Vpri()</h2>
+<a id="a8d0d916c7a3ca172408fcded86a6baa2" name="a8d0d916c7a3ca172408fcded86a6baa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d0d916c7a3ca172408fcded86a6baa2">&#9670;&#160;</a></span>SMPS_Controller2P2ZInitialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Dev_PwrCtrl_GetAdc_Vpri </td>
+          <td class="memname">void SMPS_Controller2P2ZInitialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00709.html">SMPS_2P2Z_T</a> *&#160;</td>
+          <td class="paramname"><em>controllerData</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function: void SMPS_2P2ZInitialize(void)</p>
+<p>Summary: This function clears the <a class="el" href="a00709.html">SMPS_2P2Z_T</a> data structure arrays</p>
+<p>Description: This function clears the <a class="el" href="a00709.html">SMPS_2P2Z_T</a> data history structure arrays. It's recommended to clear the error-history and controller-history arrays before 2P2Z controller implementation.</p>
+<p>Conditions: None. Input: SMPS_2P2Z_T* - This parameter is a pointer to a <a class="el" href="a00709.html">SMPS_2P2Z_T</a> type structure Return: void Example: <code lang="c++"> <a class="el" href="a00709.html">SMPS_2P2Z_T</a> controller2P2Z; SMPS_Controller2P2ZUpdateInitialize(&amp;controller2P2Z); </code> </p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00458_a8d0d916c7a3ca172408fcded86a6baa2_icgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac4c8852561395f2969c08ff062325e03" name="ac4c8852561395f2969c08ff062325e03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4c8852561395f2969c08ff062325e03">&#9670;&#160;</a></span>SMPS_Controller2P2ZUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SMPS_Controller2P2ZUpdate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00709.html">SMPS_2P2Z_T</a> *&#160;</td>
+          <td class="paramname"><em>controllerData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile uint16_t *&#160;</td>
+          <td class="paramname"><em>controllerInputRegister</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>reference</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile uint16_t *&#160;</td>
+          <td class="paramname"><em>controllerOutputRegister</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function: \ \</p>
+<p><code> void <a class="el" href="a00458.html#ac4c8852561395f2969c08ff062325e03">SMPS_Controller2P2ZUpdate(SMPS_2P2Z_T* controllerData,
+                                     volatile uint16_t* controllerInputRegister,
+                                     int16_t reference,
+                                     volatile uint16_t* controllerOutputRegister)</a>;</code></p>
+<p><code> </code> Summary: This function calls the SMPS_Controller2P2ZUpdate controller</p>
+<p>Description: This function updates the 2P2Z controller and can be called as soon as the coefficients have been loaded into their arrays.</p>
+<p>Conditions: Before the controller can be used, it has to be initialized. The data structure has to be filled by copying the pointers to the coefficient, error and controller history arrays to the structure and the physical clamping limits of the output value. In the function call pointers to the Input source register, reference value, and pointer to the output register need to be called. Input: <a class="el" href="a00709.html">SMPS_2P2Z_T</a> * controllerData - This parameter is a pointer to a <a class="el" href="a00709.html">SMPS_2P2Z_T</a> type structure</p>
+<p>uint16_t* controllerInputRegister - This parameter is a pointer to the \input source register or variable being tracked by the 2P2Z (e.g. ADCBUF0).</p>
+<p>int16_t reference - This parameter is a signed integer value that will be used by the controller as the feedback reference or set-point.</p>
+<p>uint16_t* controllerOutputRegister - This parameter is a pointer to the Control loop target register of the calculated result(e.g. PDC1). Return: void Example: <code lang="c++"> int16_t controlReference; <a class="el" href="a00709.html">SMPS_2P2Z_T</a> controller2P2Z; SMPS_Controller2P2ZUpdate(&amp;controller2P2Z,&amp;ADCBUF0,controlReference,&amp;PDC1) </code> </p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00458_ac4c8852561395f2969c08ff062325e03_icgraph.svg" width="631" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad3b1b597d1863e3a36a426c85d7a2862" name="ad3b1b597d1863e3a36a426c85d7a2862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3b1b597d1863e3a36a426c85d7a2862">&#9670;&#160;</a></span>SMPS_Controller2P2ZUpdate_HW_Accel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SMPS_Controller2P2ZUpdate_HW_Accel </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -255,17 +314,105 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Function: void <a class="el" href="a00458.html#ad3b1b597d1863e3a36a426c85d7a2862">SMPS_Controller2P2ZUpdate_HW_Accel( void )</a>;</p>
+<p>Summary: This function calls the 2-Pole, 2-Zero compensator/controller.</p>
+<p>Description: This function updates the duty cycle register (PDCx) once every function call. There are three options via the structure <a class="el" href="a00717.html">SMPS_Controller_Options_T</a> which allows the user to select whether the trigger update is enabled. The options are as follows:</p>
+<ol type="1">
+<li>No trigger option is selected.</li>
+<li><p class="startli">Trigger On-Time is selected:</p>
+<p class="startli">Trigger Register = PDCx/2 + Delay</p>
+</li>
+<li><p class="startli">Trigger Off-Time is selected:</p>
+<p class="startli">Trigger Register = PDCx + (PTPER - PDCx)/2 + Delay</p>
+</li>
+</ol>
+<p>It's recommended to clear the error-history and controller-history arrays before 2P2Z controller implementation.</p>
+<p>Conditions: For use with the new 'dsPIC33EPGS' parts that have the Alternate Working (Alt-W) register context features.</p>
+<p>Input: None. Return: Void. </p>
 
 </div>
 </div>
-<a id="a96927eaff219e7917b625da4a2846797" name="a96927eaff219e7917b625da4a2846797"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96927eaff219e7917b625da4a2846797">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAdc_Vsec()</h2>
+<a id="a4201f46447c8802666c1fe6ade902908" name="a4201f46447c8802666c1fe6ade902908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4201f46447c8802666c1fe6ade902908">&#9670;&#160;</a></span>SMPS_Controller3P3ZInitialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Dev_PwrCtrl_GetAdc_Vsec </td>
+          <td class="memname">void SMPS_Controller3P3ZInitialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00705.html">SMPS_3P3Z_T</a> *&#160;</td>
+          <td class="paramname"><em>controllerData</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function: void SMPS_3P3ZInitialize( SMPS_3P3Z_T *controller_data )</p>
+<p>Summary: This function clears the <a class="el" href="a00705.html">SMPS_3P3Z_T</a> data history structure arrays</p>
+<p>Description: This function clears the <a class="el" href="a00705.html">SMPS_3P3Z_T</a> data history structure arrays. It's recommended to clear the error-history and controller-history arrays before 3P3Z controller implementation. Conditions: None. Input: <a class="el" href="a00705.html">SMPS_3P3Z_T</a> * - This parameter is a pointer to a <a class="el" href="a00705.html">SMPS_3P3Z_T</a> type structure Return: Void. Example: <code lang="c++"> <a class="el" href="a00705.html">SMPS_3P3Z_T</a> controller3P3Z; SMPS_3P3ZInitialize(&amp;controller3P3Z); </code> </p>
+
+</div>
+</div>
+<a id="a8ba04b5d00e0c881d269a9429b3ed34b" name="a8ba04b5d00e0c881d269a9429b3ed34b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ba04b5d00e0c881d269a9429b3ed34b">&#9670;&#160;</a></span>SMPS_Controller3P3ZUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SMPS_Controller3P3ZUpdate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00705.html">SMPS_3P3Z_T</a> *&#160;</td>
+          <td class="paramname"><em>controllerData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile uint16_t *&#160;</td>
+          <td class="paramname"><em>controllerInputRegister</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>reference</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile uint16_t *&#160;</td>
+          <td class="paramname"><em>controllerOutputRegister</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function: \ \</p>
+<p><code lang="c++"> void <a class="el" href="a00458.html#a8ba04b5d00e0c881d269a9429b3ed34b">SMPS_Controller3P3ZUpdate(SMPS_3P3Z_T* controllerData,
+                                   volatile uint16_t* controllerInputRegister,
+                                   int16_t reference,
+                                   volatile uint16_t* controllerOutputRegister)</a>; </code></p>
+<p>Summary: This function calls the SMPS_Controller3P3ZUpdate controller</p>
+<p>Description: This function updates the 3P3Z controller and can be called as soon as the coefficients have been loaded into their arrays.</p>
+<p>Conditions: Before the controller can be used, it has to be initialized. The data structure has to be filled by copying the pointers to the coefficient, error and controller history arrays to the structure and the physical clamping limits of the output value. In the function call pointers to the Input source register, reference value, and pointer to the output register need to be called.</p>
+<p>Input: <a class="el" href="a00705.html">SMPS_3P3Z_T</a> * controllerData - This parameter is a pointer to a <a class="el" href="a00705.html">SMPS_3P3Z_T</a> type structure</p>
+<p>uint16_t* controllerInputRegister - This parameter is a pointer to the \input source register or variable being tracked by the 3P3Z (e.g. ADCBUF0).</p>
+<p>int16_t reference - This parameter is a signed integer value that will be used by the controller as the feedback reference or set-point.</p>
+<p>uint16_t* controllerOutputRegister - This parameter is a pointer to the Control loop target register of the calculated result(e.g. PDC1). Return: void Example: <code lang="c++"> int16_t controlReference; <a class="el" href="a00705.html">SMPS_3P3Z_T</a> controller3P3Z; SMPS_Controller3P3ZUpdate(&amp;controller3P3Z,&amp;ADCBUF0,controlReference,&amp;PDC1) </code> </p>
+
+</div>
+</div>
+<a id="a3d5d0902200bbea692053e0d366488d4" name="a3d5d0902200bbea692053e0d366488d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d5d0902200bbea692053e0d366488d4">&#9670;&#160;</a></span>SMPS_Controller3P3ZUpdate_HW_Accel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SMPS_Controller3P3ZUpdate_HW_Accel </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -273,6 +420,215 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Function: void <a class="el" href="a00458.html#a3d5d0902200bbea692053e0d366488d4">SMPS_Controller3P3ZUpdate_HW_Accel( void )</a>;</p>
+<p>Summary: This function calls the 3-Pole, 3-Zero compensator/controller.</p>
+<p>Description: This function updates the duty cycle register (PDCx) once every function call. There are three options via the structure <a class="el" href="a00717.html">SMPS_Controller_Options_T</a> which allows the user to select whether the trigger update is enabled. The options are as follows:</p>
+<ol type="1">
+<li>No trigger option is selected.</li>
+<li><p class="startli">Trigger On-Time is selected:</p>
+<p class="startli">Trigger Register = PDCx/2 + Delay</p>
+</li>
+<li><p class="startli">Trigger Off-Time is selected:</p>
+<p class="startli">Trigger Register = PDCx + (PTPER - PDCx)/2 + Delay</p>
+</li>
+</ol>
+<p>It's recommended to clear the error-history and controller-history arrays before the calling the 3P23 compensator/controller.</p>
+<p>Conditions: For use with the new 'dsPIC33EPGS' parts that have the Alternate Working (Alt-W) register context features.</p>
+<p>Input: None. Return: Void. </p>
+
+</div>
+</div>
+<a id="a1277e1038046b837b803cd2ee3a2e102" name="a1277e1038046b837b803cd2ee3a2e102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1277e1038046b837b803cd2ee3a2e102">&#9670;&#160;</a></span>SMPS_Controller4P4ZUpdate_HW_Accel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SMPS_Controller4P4ZUpdate_HW_Accel </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function: void <a class="el" href="a00458.html#a1277e1038046b837b803cd2ee3a2e102">SMPS_Controller4P4ZUpdate_HW_Accel( void )</a>;</p>
+<p>Summary: This function calls the 4-Pole, 4-Zero compensator/controller.</p>
+<p>Description: This function updates the duty cycle register (PDCx) once every function call. There are three options via the structure <a class="el" href="a00717.html">SMPS_Controller_Options_T</a> which allows the user to select whether the trigger update is enabled. The options are as follows:</p>
+<ol type="1">
+<li>No trigger option is selected.</li>
+<li><p class="startli">Trigger On-Time is selected:</p>
+<p class="startli">Trigger Register = PDCx/2 + Delay</p>
+</li>
+<li><p class="startli">Trigger Off-Time is selected:</p>
+<p class="startli">Trigger Register = PDCx + (PTPER - PDCx)/2 + Delay</p>
+</li>
+</ol>
+<p>It's recommended to clear the error-history and controller-history arrays before the calling the 4P4P compensator/controller.</p>
+<p>Conditions: For use with the new 'dsPIC33EPGS' parts that have the Alternate Working (Alt-W) register context features.</p>
+<p>Input: None. Return: Void. </p>
+
+</div>
+</div>
+<a id="ad495211ff0d3998ba64f08121e48db0a" name="ad495211ff0d3998ba64f08121e48db0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad495211ff0d3998ba64f08121e48db0a">&#9670;&#160;</a></span>SMPS_ControllerPIDInitialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SMPS_ControllerPIDInitialize </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00713.html">SMPS_PID_T</a> *&#160;</td>
+          <td class="paramname"><em>controllerData</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function: void SMPS_PIDInitialize( SMPS_PID_T *controller_data )</p>
+<p>Summary: This function clears the <a class="el" href="a00713.html">SMPS_PID_T</a> data structure arrays</p>
+<p>Description: This function clears the <a class="el" href="a00713.html">SMPS_PID_T</a> data history structure arrays. It's recommended to clear the error-history and controller-history arrays before PID controller implementation.</p>
+<p>Conditions: None. Input: SMPS_PID_T* - This parameter is a pointer to a <a class="el" href="a00713.html">SMPS_PID_T</a> type structure Return: void Example: <code lang="c++"> <a class="el" href="a00713.html">SMPS_PID_T</a> controllerPID; SMPS_ControllerPIDUpdateInitialize(&amp;controllerPID); </code> </p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00458_ad495211ff0d3998ba64f08121e48db0a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3b4544d10d35a258c38c4caf0302cc39" name="a3b4544d10d35a258c38c4caf0302cc39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4544d10d35a258c38c4caf0302cc39">&#9670;&#160;</a></span>SMPS_ControllerPIDUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SMPS_ControllerPIDUpdate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00713.html">SMPS_PID_T</a> *&#160;</td>
+          <td class="paramname"><em>controllerData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile uint16_t *&#160;</td>
+          <td class="paramname"><em>controllerInputRegister</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>reference</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile uint16_t *&#160;</td>
+          <td class="paramname"><em>controllerOutputRegister</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function: \ \</p>
+<p><code> void <a class="el" href="a00458.html#a3b4544d10d35a258c38c4caf0302cc39">SMPS_ControllerPIDUpdate(SMPS_PID_T* controllerData,
+                                 volatile uint16_t* controllerInputRegister,
+                                 int16_t reference,
+                                 volatile uint16_t* controllerOutputRegister)</a>; </code></p>
+<p>Summary: This function calls the SMPS_ControllerPIDUpdate controller</p>
+<p>Description: This function updates the PID controller and can be called as soon as the coefficients have been loaded into their arrays.</p>
+<p>Conditions: Before the controller can be used, it has to be initialized. The data structure has to be filled by copying the pointers to the coefficient, error and controller history arrays to the structure and the physical clamping limits of the output value. In the function call pointers to the Input source register, reference value, and pointer to the output register need to be called.</p>
+<p>Input: <a class="el" href="a00713.html">SMPS_PID_T</a> * controllerData - This parameter is a pointer to a <a class="el" href="a00713.html">SMPS_PID_T</a> type structure</p>
+<p>uint16_t* controllerInputRegister - This parameter is a pointer to the \input source register or variable being tracked by the PID (e.g. ADCBUF0).</p>
+<p>int16_t reference - This parameter is a signed integer value that will be used by the controller as the feedback reference or set-point.</p>
+<p>uint16_t* controllerOutputRegister - This parameter is a pointer to the Control loop target register of the calculated result(e.g. PDC1). Return: void Example: <code lang="c++"> int16_t controlReference; <a class="el" href="a00713.html">SMPS_PID_T</a> controllerPID; SMPS_ControllerPIDUpdate(&amp;controllerPID,&amp;ADCBUF0,controlReference,&amp;PDC1) </code> </p>
+
+</div>
+</div>
+<a id="ab27323a90d36c5fcc1d4f4a69c3f31b4" name="ab27323a90d36c5fcc1d4f4a69c3f31b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab27323a90d36c5fcc1d4f4a69c3f31b4">&#9670;&#160;</a></span>SMPS_ControllerPIDUpdate_HW_Accel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SMPS_ControllerPIDUpdate_HW_Accel </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Function: void <a class="el" href="a00458.html#ab27323a90d36c5fcc1d4f4a69c3f31b4">SMPS_ControllerPIDUpdate_HW_Accel( void )</a>;</p>
+<p>Summary: This function calls the PID compensator/controller.</p>
+<p>Description: This function updates the duty cycle register (PDCx) once every function call. There are three options via the structure <a class="el" href="a00717.html">SMPS_Controller_Options_T</a> which allows the user to select whether the trigger update is enabled. The options are as follows:</p>
+<ol type="1">
+<li>No trigger option is selected.</li>
+<li><p class="startli">Trigger On-Time is selected:</p>
+<p class="startli">Trigger Register = PDCx/2 + Delay</p>
+</li>
+<li><p class="startli">Trigger Off-Time is selected:</p>
+<p class="startli">Trigger Register = PDCx + (PTPER - PDCx)/2 + Delay</p>
+</li>
+</ol>
+<p>It's recommended to clear the error-history and controller-history arrays before the calling the PID compensator/controller.</p>
+<p>Conditions: For use with the new 'dsPIC33EPGS' parts that have the Alternate Working (Alt-W) register context features.</p>
+<p>Input: None. Return: Void. </p>
+
+</div>
+</div>
+<a id="a4fd6e889896907ceaae34b73435d5627" name="a4fd6e889896907ceaae34b73435d5627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fd6e889896907ceaae34b73435d5627">&#9670;&#160;</a></span>XFT_SMPS_Controller2P2ZUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XFT_SMPS_Controller2P2ZUpdate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00709.html">SMPS_2P2Z_T</a> *&#160;</td>
+          <td class="paramname"><em>controllerData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile uint16_t *&#160;</td>
+          <td class="paramname"><em>controllerInputRegister</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>reference</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile uint16_t *&#160;</td>
+          <td class="paramname"><em>controllerOutputRegister</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00458_a4fd6e889896907ceaae34b73435d5627_icgraph.svg" width="660" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>

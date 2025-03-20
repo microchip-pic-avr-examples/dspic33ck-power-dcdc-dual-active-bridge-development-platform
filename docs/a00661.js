@@ -1,13 +1,10 @@
 var a00661 =
 [
-    [ "CounterReset", "a00661.html#aa0edd97925490e413dd660faa944ac2d", null ],
-    [ "CounterSet", "a00661.html#abd60c5f6c857aba89b79ed3912e92561", null ],
-    [ "FaultActive", "a00661.html#a1f8690ab82873811964f062a76d15fe7", null ],
-    [ "FaultCode", "a00661.html#a48d214f48d00e2178310f94faf613b2a", null ],
-    [ "FaultCounter", "a00661.html#a1ab3fa6c23f578b903365ceac7d6924a", null ],
-    [ "FaultLatch", "a00661.html#a4789222e3347d2016dd8af50cabd4b14", null ],
-    [ "Val1_Hysteresis", "a00661.html#a2a3b491ddd84f3397021f935033f3aa2", null ],
-    [ "Val1_Threshold", "a00661.html#a5edf921fa44db4fc0b59e47bb5fd0dfd", null ],
-    [ "Val2_Hysteresis", "a00661.html#a8e9aca4cd2e220497c2dc9aee4278e12", null ],
-    [ "Val2_Threshold", "a00661.html#ad968f59d734c469b74fb82587f59e07a", null ]
+    [ "CRC", "a00661.html#afb8cac113b1a41d1c48d80018ddb6744", null ],
+    [ "data", "a00661.html#af6818e30aac80097c9ba1786e8408956", null ],
+    [ "Length_in_Bytes", "a00661.html#a3b818f332a9c32b3297efe5f9c6b021d", null ],
+    [ "Offset", "a00661.html#ae6e68acb116dc3b5f8a7354c7f7d4146", null ],
+    [ "PBV_Header", "a00661.html#a84122a7e2f523d0278895ca4f5d8748c", null ],
+    [ "Protocol_ID", "a00661.html#abfd2be56b2355b0fadf7124f95b00431", null ],
+    [ "UART_Frame_State", "a00661.html#a86b4ce2d2304f1de364f16d241b9c7d6", null ]
 ];

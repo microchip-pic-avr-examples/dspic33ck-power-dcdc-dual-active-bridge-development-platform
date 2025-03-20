@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/pwm_hs/src/pwm.c File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/pwm/pwm_types.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,101 +137,66 @@ $(document).ready(function(){initNavTree('a00164.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">pwm.c File Reference<div class="ingroups"><a class="el" href="a00530.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00538.html">PWM HS Driver</a></div></div></div>
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle"><div class="title">pwm_types.h File Reference<div class="ingroups"><a class="el" href="a00554.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00561.html">PWM Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the generated driver source file for PWM driver.  
+<p>This is the generated driver types header file for the PWM driver.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="a00152_source.html">../pwm.h</a>&quot;</code><br />
-</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pwm.c:</div>
+<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00165.svg" width="456" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00166.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="a00164_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga2cdee1aefacc04ad6ed59618550226d0" id="r_ga2cdee1aefacc04ad6ed59618550226d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#ga2cdee1aefacc04ad6ed59618550226d0">PWM_Initialize</a> (void)</td></tr>
-<tr class="memdesc:ga2cdee1aefacc04ad6ed59618550226d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes PWM module, using the given initialization data.  <br /></td></tr>
-<tr class="separator:ga2cdee1aefacc04ad6ed59618550226d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3ec1e3d2d4ba199e07f31f46e5f58a02" id="r_ga3ec1e3d2d4ba199e07f31f46e5f58a02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#ga3ec1e3d2d4ba199e07f31f46e5f58a02">PWM_Deinitialize</a> (void)</td></tr>
-<tr class="memdesc:ga3ec1e3d2d4ba199e07f31f46e5f58a02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the PWM to POR values.  <br /></td></tr>
-<tr class="separator:ga3ec1e3d2d4ba199e07f31f46e5f58a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafb860e72fa5f565c22ceb026b37eb901" id="r_gafb860e72fa5f565c22ceb026b37eb901"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#gafb860e72fa5f565c22ceb026b37eb901">PWM_GeneratorEOCEventCallbackRegister</a> (void(*callback)(enum <a class="el" href="a00161.html#aa552a948d5b08cc9a8345234b82fe5a8">PWM_GENERATOR</a> genNum))</td></tr>
-<tr class="memdesc:gafb860e72fa5f565c22ceb026b37eb901"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback <a class="el" href="a00538.html#ga3bd2ebdd8c0f5cbd912d441ad8bf0253">PWM_GeneratorEOCEventCallback</a> and to define custom callback for PWM EOCEvent event.  <br /></td></tr>
-<tr class="separator:gafb860e72fa5f565c22ceb026b37eb901"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a201468129b483039afc5a619e2d31097" id="r_a201468129b483039afc5a619e2d31097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00164.html#a201468129b483039afc5a619e2d31097">__attribute__</a> ((weak))</td></tr>
-<tr class="separator:a201468129b483039afc5a619e2d31097"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaab52ca9a8ec34bfe428e7fe5ee6d516c" id="r_gaab52ca9a8ec34bfe428e7fe5ee6d516c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#gaab52ca9a8ec34bfe428e7fe5ee6d516c">PWM_GeneratorTasks</a> (enum <a class="el" href="a00161.html#aa552a948d5b08cc9a8345234b82fe5a8">PWM_GENERATOR</a> intGen)</td></tr>
-<tr class="memdesc:gaab52ca9a8ec34bfe428e7fe5ee6d516c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a tasks function for PWM1.  <br /></td></tr>
-<tr class="separator:gaab52ca9a8ec34bfe428e7fe5ee6d516c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:aa65543ac108c6e47119ff08eedf2aa6d" id="r_aa65543ac108c6e47119ff08eedf2aa6d"><td class="memItemLeft" align="right" valign="top">static void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00164.html#aa65543ac108c6e47119ff08eedf2aa6d">PWM_GeneratorEOCEventHandler</a> )(enum <a class="el" href="a00161.html#aa552a948d5b08cc9a8345234b82fe5a8">PWM_GENERATOR</a> genNum) = NULL</td></tr>
-<tr class="separator:aa65543ac108c6e47119ff08eedf2aa6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2700168de102c09567fc66ed547ec4bb" id="r_ga2700168de102c09567fc66ed547ec4bb"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00605.html">PWM_HS_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#ga2700168de102c09567fc66ed547ec4bb">PWM_HS</a></td></tr>
-<tr class="memdesc:ga2700168de102c09567fc66ed547ec4bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00605.html" title="Structure containing the function pointers of PWM driver.">PWM_HS_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. PWM_HS can be changed by the user in the PWM user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
-<tr class="separator:ga2700168de102c09567fc66ed547ec4bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a2aa62dfcdb1a141d86f4a895a77e8963" id="r_a2aa62dfcdb1a141d86f4a895a77e8963"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00164.html#a2aa62dfcdb1a141d86f4a895a77e8963">PWM_OUTPUT_MODES</a> { <a class="el" href="a00164.html#a2aa62dfcdb1a141d86f4a895a77e8963ac8601192d048c27eeb1aa5b2dc81a6b4">OUTPUT_SCAN_MODE</a> = 0x6
+, <a class="el" href="a00164.html#a2aa62dfcdb1a141d86f4a895a77e8963aaf10d7579e0dfaf6b0531937293d5e8e">BRUSH_DC_OUTPUT_FORWARD</a> = 0x5
+, <a class="el" href="a00164.html#a2aa62dfcdb1a141d86f4a895a77e8963a64e3214bd746ba44fe0e621152542c65">BRUSH_DC_OUTPUT_REVERSE</a> = 0x4
+, <a class="el" href="a00164.html#a2aa62dfcdb1a141d86f4a895a77e8963a1c9824670a80147490dfa7ab04f98f88">HALF_BRIDGE_OUTPUT</a> = 0x2
+, <a class="el" href="a00164.html#a2aa62dfcdb1a141d86f4a895a77e8963a6cfd29362d2a3d56c1216b53dc03eba3">PUSH_PULL_OUTPUT</a> = 0x1
+, <a class="el" href="a00164.html#a2aa62dfcdb1a141d86f4a895a77e8963a840dc10f5875fd85f91d2b46f1c83d45">STEERABLE_SINGLE_OUTPUT</a> = 0x0
+ }</td></tr>
+<tr class="separator:a2aa62dfcdb1a141d86f4a895a77e8963"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>PWM Generated Driver Source File</p>
+<div class="textblock"><p>PWM Generated Driver Types Header File</p>
 <div class="fragment"></div><!-- fragment -->
-<p class="definition">Definition in file <a class="el" href="a00164_source.html">pwm.c</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a201468129b483039afc5a619e2d31097" name="a201468129b483039afc5a619e2d31097"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a201468129b483039afc5a619e2d31097">&#9670;&#160;</a></span>__attribute__()</h2>
+<p class="definition">Definition in file <a class="el" href="a00164_source.html">pwm_types.h</a>.</p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a2aa62dfcdb1a141d86f4a895a77e8963" name="a2aa62dfcdb1a141d86f4a895a77e8963"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2aa62dfcdb1a141d86f4a895a77e8963">&#9670;&#160;</a></span>PWM_OUTPUT_MODES</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void __attribute__ </td>
-          <td>(</td>
-          <td class="paramtype">(weak)&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">enum <a class="el" href="a00164.html#a2aa62dfcdb1a141d86f4a895a77e8963">PWM_OUTPUT_MODES</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00519">519</a> of file <a class="el" href="a00164_source.html">pwm.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="aa65543ac108c6e47119ff08eedf2aa6d" name="aa65543ac108c6e47119ff08eedf2aa6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa65543ac108c6e47119ff08eedf2aa6d">&#9670;&#160;</a></span>PWM_GeneratorEOCEventHandler</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void(* PWM_GeneratorEOCEventHandler) (enum <a class="el" href="a00161.html#aa552a948d5b08cc9a8345234b82fe5a8">PWM_GENERATOR</a> genNum) </td>
-          <td>(</td>
-          <td class="paramtype">enum <a class="el" href="a00161.html#aa552a948d5b08cc9a8345234b82fe5a8">PWM_GENERATOR</a>&#160;</td>
-          <td class="paramname"><em>genNum</em></td><td>)</td>
-          <td> = NULL</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2aa62dfcdb1a141d86f4a895a77e8963ac8601192d048c27eeb1aa5b2dc81a6b4" name="a2aa62dfcdb1a141d86f4a895a77e8963ac8601192d048c27eeb1aa5b2dc81a6b4"></a>OUTPUT_SCAN_MODE&#160;</td><td class="fielddoc"><p>Output Scan Mode </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2aa62dfcdb1a141d86f4a895a77e8963aaf10d7579e0dfaf6b0531937293d5e8e" name="a2aa62dfcdb1a141d86f4a895a77e8963aaf10d7579e0dfaf6b0531937293d5e8e"></a>BRUSH_DC_OUTPUT_FORWARD&#160;</td><td class="fielddoc"><p>Brush DC Output Forward Mode </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2aa62dfcdb1a141d86f4a895a77e8963a64e3214bd746ba44fe0e621152542c65" name="a2aa62dfcdb1a141d86f4a895a77e8963a64e3214bd746ba44fe0e621152542c65"></a>BRUSH_DC_OUTPUT_REVERSE&#160;</td><td class="fielddoc"><p>Brush DC Output Reverse Mode </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2aa62dfcdb1a141d86f4a895a77e8963a1c9824670a80147490dfa7ab04f98f88" name="a2aa62dfcdb1a141d86f4a895a77e8963a1c9824670a80147490dfa7ab04f98f88"></a>HALF_BRIDGE_OUTPUT&#160;</td><td class="fielddoc"><p>Half Bridge Output Mode </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2aa62dfcdb1a141d86f4a895a77e8963a6cfd29362d2a3d56c1216b53dc03eba3" name="a2aa62dfcdb1a141d86f4a895a77e8963a6cfd29362d2a3d56c1216b53dc03eba3"></a>PUSH_PULL_OUTPUT&#160;</td><td class="fielddoc"><p>Push Pull Output Mode </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a2aa62dfcdb1a141d86f4a895a77e8963a840dc10f5875fd85f91d2b46f1c83d45" name="a2aa62dfcdb1a141d86f4a895a77e8963a840dc10f5875fd85f91d2b46f1c83d45"></a>STEERABLE_SINGLE_OUTPUT&#160;</td><td class="fielddoc"><p>Steerable Single Output Mode </p>
+</td></tr>
 </table>
-</div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00045">45</a> of file <a class="el" href="a00164_source.html">pwm.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00051">51</a> of file <a class="el" href="a00164_source.html">pwm_types.h</a>.</p>
 
 </div>
 </div>

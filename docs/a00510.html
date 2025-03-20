@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Current Sensor Calibration</title>
+<title>Dual Active Bridge Development Board: Secondary Voltage Feedback</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,263 +137,261 @@ $(document).ready(function(){initNavTree('a00510.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">Current Sensor Calibration<div class="ingroups"><a class="el" href="a00509.html">Device Layer</a></div></div></div>
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Secondary Voltage Feedback<div class="ingroups"><a class="el" href="a00532.html">Configuration Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The Current Sensor Calibration device layer is a proprietary user code utilized for configuring the sensor properties.  
+<p>Declaration of Secondary Voltage Feedback parameters, fault configuration and macros.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Current Sensor Calibration:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Secondary Voltage Feedback:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00510.svg" width="328" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00510.svg" width="502" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00305" id="r_a00305"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00305.html">dev_current_sensor.c</a></td></tr>
-<tr class="memdesc:a00305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains current sensor initialization and calibration evaluation. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00511" id="r_a00511"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00511.html">Conversion Macros</a></td></tr>
+<tr class="memdesc:a00511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of Secondary Voltage Feedback parameters. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00308" id="r_a00308"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00308.html">dev_current_sensor.h</a></td></tr>
-<tr class="memdesc:a00308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains current sensor public functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00645.html">SENSOR_OFFSET_CAL_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores data related to sensor calibration, including data related to sensor offset.  <a href="a00645.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga03e8d61bbc0f4b686c400440f80dcf69" id="r_ga03e8d61bbc0f4b686c400440f80dcf69"><td class="memItemLeft" align="right" valign="top">static void __inline__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#ga03e8d61bbc0f4b686c400440f80dcf69">Dev_SensorOffsetCal</a> (<a class="el" href="a00305.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> *sensor, uint16_t adcReading)</td></tr>
-<tr class="memdesc:ga03e8d61bbc0f4b686c400440f80dcf69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the sensor offset.  <br /></td></tr>
-<tr class="separator:ga03e8d61bbc0f4b686c400440f80dcf69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaa75855922e60913d443c6203475256f" id="r_gaaa75855922e60913d443c6203475256f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a> (void)</td></tr>
-<tr class="memdesc:gaaa75855922e60913d443c6203475256f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measures the currents sensor offset.  <br /></td></tr>
-<tr class="separator:gaaa75855922e60913d443c6203475256f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga218632f9814c3bf20c40cea0794ffc7d" id="r_ga218632f9814c3bf20c40cea0794ffc7d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a> (void)</td></tr>
-<tr class="memdesc:ga218632f9814c3bf20c40cea0794ffc7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the calibration status.  <br /></td></tr>
-<tr class="separator:ga218632f9814c3bf20c40cea0794ffc7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9f581abf52dc00ba320faafa189fafb9" id="r_ga9f581abf52dc00ba320faafa189fafb9"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a> (void)</td></tr>
-<tr class="memdesc:ga9f581abf52dc00ba320faafa189fafb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the sensor offset.  <br /></td></tr>
-<tr class="separator:ga9f581abf52dc00ba320faafa189fafb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga494b4a948891fd5757ccc647f9962529" id="r_ga494b4a948891fd5757ccc647f9962529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a> (void)</td></tr>
-<tr class="memdesc:ga494b4a948891fd5757ccc647f9962529"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to clear the sensor offset.  <br /></td></tr>
-<tr class="separator:ga494b4a948891fd5757ccc647f9962529"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:gaf2e1ab5706d4b7e1a47eea25ce323c5f" id="r_gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00305.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">isecAvgCurrentSensor</a></td></tr>
-<tr class="memdesc:gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of sensor offset calibration.  <br /></td></tr>
-<tr class="separator:gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7f1d859f3effd96e6613130af09fc0b" id="r_gaf7f1d859f3effd96e6613130af09fc0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#gaf7f1d859f3effd96e6613130af09fc0b">VSEC_OV_THRES_TRIG_VOLTS</a>&#160;&#160;&#160;(float)(500.0)</td></tr>
+<tr class="separator:gaf7f1d859f3effd96e6613130af09fc0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1003ede83a567c60837872c8542824b" id="r_gab1003ede83a567c60837872c8542824b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#gab1003ede83a567c60837872c8542824b">VSEC_OV_THRES_CLEAR_VOLTS</a>&#160;&#160;&#160;(float) (20.0)</td></tr>
+<tr class="separator:gab1003ede83a567c60837872c8542824b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf49c547355152112f9ae4b26555d57e2" id="r_gaf49c547355152112f9ae4b26555d57e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#gaf49c547355152112f9ae4b26555d57e2">VSEC_OV_T_BLANK_TRIG_SEC</a>&#160;&#160;&#160;(float)  (1.0e-3)</td></tr>
+<tr class="separator:gaf49c547355152112f9ae4b26555d57e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5128a30f14a7b25809efe09d606b8055" id="r_ga5128a30f14a7b25809efe09d606b8055"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#ga5128a30f14a7b25809efe09d606b8055">VSEC_OV_T_BLANK_CLEAR_SEC</a>&#160;&#160;&#160;(float) (10.0e-3)</td></tr>
+<tr class="separator:ga5128a30f14a7b25809efe09d606b8055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77d2a7b05664c0c08ce317f942deca00" id="r_ga77d2a7b05664c0c08ce317f942deca00"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#ga77d2a7b05664c0c08ce317f942deca00">VSEC_OV_TICK_SEC</a>&#160;&#160;&#160;(<a class="el" href="a00512.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td></tr>
+<tr class="separator:ga77d2a7b05664c0c08ce317f942deca00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab7c6ea26f50ee59cfffa63274edbd8ea" id="r_gab7c6ea26f50ee59cfffa63274edbd8ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#gab7c6ea26f50ee59cfffa63274edbd8ea">VSEC_UV_THRES_TRIG_VOLTS</a>&#160;&#160;&#160;(float)(100.0)</td></tr>
+<tr class="separator:gab7c6ea26f50ee59cfffa63274edbd8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad401641684f506e72d672405e4e80bba" id="r_gad401641684f506e72d672405e4e80bba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#gad401641684f506e72d672405e4e80bba">VSEC_UV_THRES_CLEAR_VOLTS</a>&#160;&#160;&#160;(float) (50.0)</td></tr>
+<tr class="separator:gad401641684f506e72d672405e4e80bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacaf7eee4f78c07c9647a18ca030da57d" id="r_gacaf7eee4f78c07c9647a18ca030da57d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#gacaf7eee4f78c07c9647a18ca030da57d">VSEC_UV_T_BLANK_TRIG_SEC</a>&#160;&#160;&#160;(float)  (0.0)</td></tr>
+<tr class="separator:gacaf7eee4f78c07c9647a18ca030da57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga683160afa1313d6ba361e499e367a976" id="r_ga683160afa1313d6ba361e499e367a976"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#ga683160afa1313d6ba361e499e367a976">VSEC_UV_T_BLANK_CLEAR_SEC</a>&#160;&#160;&#160;(float)  (0.0)</td></tr>
+<tr class="separator:ga683160afa1313d6ba361e499e367a976"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab4b4e960335284c22232a1a6fcb41573" id="r_gab4b4e960335284c22232a1a6fcb41573"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#gab4b4e960335284c22232a1a6fcb41573">VSEC_UV_TICK_SEC</a>&#160;&#160;&#160;(<a class="el" href="a00512.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td></tr>
+<tr class="separator:gab4b4e960335284c22232a1a6fcb41573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad65db8b07e7c77b600ab24be46652e8b" id="r_gad65db8b07e7c77b600ab24be46652e8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#gad65db8b07e7c77b600ab24be46652e8b">VSEC_LOAD_STEP_CLAMPING_VOLTS</a>&#160;&#160;&#160;(float) (16)</td></tr>
+<tr class="separator:gad65db8b07e7c77b600ab24be46652e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae3f52347b2b4a59f50701b297dd93e08" id="r_gae3f52347b2b4a59f50701b297dd93e08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#gae3f52347b2b4a59f50701b297dd93e08">VPRIM_LOAD_STEP_CLAMPING_VOLTS</a>&#160;&#160;&#160;(float) (16)</td></tr>
+<tr class="separator:gae3f52347b2b4a59f50701b297dd93e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadbb92791a446721a3d4af49d713520ca" id="r_gadbb92791a446721a3d4af49d713520ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00510.html#gadbb92791a446721a3d4af49d713520ca">VSEC_SNS_GAIN</a>&#160;&#160;&#160;(3.18e-3)</td></tr>
+<tr class="separator:gadbb92791a446721a3d4af49d713520ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ga494b4a948891fd5757ccc647f9962529" name="ga494b4a948891fd5757ccc647f9962529"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga494b4a948891fd5757ccc647f9962529">&#9670;&#160;</a></span>Dev_CurrentSensor_Clr_Offset()</h2>
+<p>Declaration of Secondary Voltage Feedback parameters, fault configuration and macros </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="gae3f52347b2b4a59f50701b297dd93e08" name="gae3f52347b2b4a59f50701b297dd93e08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae3f52347b2b4a59f50701b297dd93e08">&#9670;&#160;</a></span>VPRIM_LOAD_STEP_CLAMPING_VOLTS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_CurrentSensor_Clr_Offset </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">#define VPRIM_LOAD_STEP_CLAMPING_VOLTS&#160;&#160;&#160;(float) (16)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00121">121</a> of file <a class="el" href="a00305_source.html">dev_current_sensor.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00510_ga494b4a948891fd5757ccc647f9962529_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00153">153</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga218632f9814c3bf20c40cea0794ffc7d" name="ga218632f9814c3bf20c40cea0794ffc7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga218632f9814c3bf20c40cea0794ffc7d">&#9670;&#160;</a></span>Dev_CurrentSensor_Get_CalibrationStatus()</h2>
+<a id="gad65db8b07e7c77b600ab24be46652e8b" name="gad65db8b07e7c77b600ab24be46652e8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad65db8b07e7c77b600ab24be46652e8b">&#9670;&#160;</a></span>VSEC_LOAD_STEP_CLAMPING_VOLTS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Dev_CurrentSensor_Get_CalibrationStatus </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">#define VSEC_LOAD_STEP_CLAMPING_VOLTS&#160;&#160;&#160;(float) (16)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>true calibration complete </dd>
-<dd>
-false calibration is not complete </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00101">101</a> of file <a class="el" href="a00305_source.html">dev_current_sensor.c</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00510_ga218632f9814c3bf20c40cea0794ffc7d_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00152">152</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga9f581abf52dc00ba320faafa189fafb9" name="ga9f581abf52dc00ba320faafa189fafb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9f581abf52dc00ba320faafa189fafb9">&#9670;&#160;</a></span>Dev_CurrentSensor_Get_Offset()</h2>
+<a id="ga5128a30f14a7b25809efe09d606b8055" name="ga5128a30f14a7b25809efe09d606b8055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5128a30f14a7b25809efe09d606b8055">&#9670;&#160;</a></span>VSEC_OV_T_BLANK_CLEAR_SEC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Dev_CurrentSensor_Get_Offset </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">#define VSEC_OV_T_BLANK_CLEAR_SEC&#160;&#160;&#160;(float) (10.0e-3)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>value current sensor offset value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00111">111</a> of file <a class="el" href="a00305_source.html">dev_current_sensor.c</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00510_ga9f581abf52dc00ba320faafa189fafb9_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00138">138</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gaaa75855922e60913d443c6203475256f" name="gaaa75855922e60913d443c6203475256f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaaa75855922e60913d443c6203475256f">&#9670;&#160;</a></span>Dev_CurrentSensorOffsetCal()</h2>
+<a id="gaf49c547355152112f9ae4b26555d57e2" name="gaf49c547355152112f9ae4b26555d57e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf49c547355152112f9ae4b26555d57e2">&#9670;&#160;</a></span>VSEC_OV_T_BLANK_TRIG_SEC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Dev_CurrentSensorOffsetCal </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">#define VSEC_OV_T_BLANK_TRIG_SEC&#160;&#160;&#160;(float)  (1.0e-3)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function continuously evaluate the current sensor ADC value until the calibration has been completed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00087">87</a> of file <a class="el" href="a00305_source.html">dev_current_sensor.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00510_gaaa75855922e60913d443c6203475256f_cgraph.svg" width="428" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00510_gaaa75855922e60913d443c6203475256f_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00137">137</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga03e8d61bbc0f4b686c400440f80dcf69" name="ga03e8d61bbc0f4b686c400440f80dcf69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga03e8d61bbc0f4b686c400440f80dcf69">&#9670;&#160;</a></span>Dev_SensorOffsetCal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void __inline__ Dev_SensorOffsetCal </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00305.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> *&#160;</td>
-          <td class="paramname"><em>sensor</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>adcReading</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sensor</td><td>pointer to object of type SENSOR_OFFSET_CAL_t </td></tr>
-    <tr><td class="paramname">adcReading</td><td>most recent ADC reading </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function takes number of samples of adc sample for averaging before acquiring the sensor offset value and checks if it is in the acceptable range before setting the calibration bit complete. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00057">57</a> of file <a class="el" href="a00305_source.html">dev_current_sensor.c</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00510_ga03e8d61bbc0f4b686c400440f80dcf69_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="gaf2e1ab5706d4b7e1a47eea25ce323c5f" name="gaf2e1ab5706d4b7e1a47eea25ce323c5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf2e1ab5706d4b7e1a47eea25ce323c5f">&#9670;&#160;</a></span>isecAvgCurrentSensor</h2>
+<a id="gab1003ede83a567c60837872c8542824b" name="gab1003ede83a567c60837872c8542824b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab1003ede83a567c60837872c8542824b">&#9670;&#160;</a></span>VSEC_OV_THRES_CLEAR_VOLTS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00305.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> isecAvgCurrentSensor</td>
+          <td class="memname">#define VSEC_OV_THRES_CLEAR_VOLTS&#160;&#160;&#160;(float) (20.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {.CalibrationComplete = <span class="keyword">false</span>,</div>
-<div class="line">                                               .Accumulator = 0,</div>
-<div class="line">                                               .MeasurementCounter = 0,</div>
-<div class="line">                                               .LimitHigh = <a class="code hl_define" href="a00491.html#ga32693322c9fff62a2374fd3de9d0f5e8">ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</a>,</div>
-<div class="line">                                               .LimitLow = <a class="code hl_define" href="a00491.html#ga0ed005156ed4fc2064d588f00d44223d">ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</a>}</div>
-<div class="ttc" id="aa00491_html_ga0ed005156ed4fc2064d588f00d44223d"><div class="ttname"><a href="a00491.html#ga0ed005156ed4fc2064d588f00d44223d">ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</a></div><div class="ttdeci">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00084">macros.h:84</a></div></div>
-<div class="ttc" id="aa00491_html_ga32693322c9fff62a2374fd3de9d0f5e8"><div class="ttname"><a href="a00491.html#ga32693322c9fff62a2374fd3de9d0f5e8">ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</a></div><div class="ttdeci">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00083">macros.h:83</a></div></div>
-</div><!-- fragment --><p>The 'isecAvgCurrentSensor' data object holds the averaging parameter of the sensor offset calibration. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00040">40</a> of file <a class="el" href="a00305_source.html">dev_current_sensor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00132">132</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gaf7f1d859f3effd96e6613130af09fc0b" name="gaf7f1d859f3effd96e6613130af09fc0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf7f1d859f3effd96e6613130af09fc0b">&#9670;&#160;</a></span>VSEC_OV_THRES_TRIG_VOLTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_OV_THRES_TRIG_VOLTS&#160;&#160;&#160;(float)(500.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00131">131</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga77d2a7b05664c0c08ce317f942deca00" name="ga77d2a7b05664c0c08ce317f942deca00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga77d2a7b05664c0c08ce317f942deca00">&#9670;&#160;</a></span>VSEC_OV_TICK_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_OV_TICK_SEC&#160;&#160;&#160;(<a class="el" href="a00512.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00139">139</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gadbb92791a446721a3d4af49d713520ca" name="gadbb92791a446721a3d4af49d713520ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadbb92791a446721a3d4af49d713520ca">&#9670;&#160;</a></span>VSEC_SNS_GAIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_SNS_GAIN&#160;&#160;&#160;(3.18e-3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00032">32</a> of file <a class="el" href="a00311_source.html">hardware.h</a>.</p>
+
+</div>
+</div>
+<a id="ga683160afa1313d6ba361e499e367a976" name="ga683160afa1313d6ba361e499e367a976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga683160afa1313d6ba361e499e367a976">&#9670;&#160;</a></span>VSEC_UV_T_BLANK_CLEAR_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_UV_T_BLANK_CLEAR_SEC&#160;&#160;&#160;(float)  (0.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00149">149</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gacaf7eee4f78c07c9647a18ca030da57d" name="gacaf7eee4f78c07c9647a18ca030da57d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacaf7eee4f78c07c9647a18ca030da57d">&#9670;&#160;</a></span>VSEC_UV_T_BLANK_TRIG_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_UV_T_BLANK_TRIG_SEC&#160;&#160;&#160;(float)  (0.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00148">148</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gad401641684f506e72d672405e4e80bba" name="gad401641684f506e72d672405e4e80bba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad401641684f506e72d672405e4e80bba">&#9670;&#160;</a></span>VSEC_UV_THRES_CLEAR_VOLTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_UV_THRES_CLEAR_VOLTS&#160;&#160;&#160;(float) (50.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00143">143</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gab7c6ea26f50ee59cfffa63274edbd8ea" name="gab7c6ea26f50ee59cfffa63274edbd8ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab7c6ea26f50ee59cfffa63274edbd8ea">&#9670;&#160;</a></span>VSEC_UV_THRES_TRIG_VOLTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_UV_THRES_TRIG_VOLTS&#160;&#160;&#160;(float)(100.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00142">142</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gab4b4e960335284c22232a1a6fcb41573" name="gab4b4e960335284c22232a1a6fcb41573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab4b4e960335284c22232a1a6fcb41573">&#9670;&#160;</a></span>VSEC_UV_TICK_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_UV_TICK_SEC&#160;&#160;&#160;(<a class="el" href="a00512.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00150">150</a> of file <a class="el" href="a00308_source.html">config.h</a>.</p>
 
 </div>
 </div>

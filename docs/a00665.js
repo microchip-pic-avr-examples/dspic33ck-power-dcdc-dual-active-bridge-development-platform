@@ -1,12 +1,10 @@
 var a00665 =
 [
-    [ "IPrimaryOCP", "a00665.html#a9aa55289e8d0d3f1cd2c1b979707653a", null ],
-    [ "ISecondaryOCP", "a00665.html#a5c0ebb178553b28679126e15448f3680", null ],
-    [ "ISenseSCP", "a00665.html#af268179095dc26cb1a693ef5621c70c6", null ],
-    [ "PowerSupplyOTP", "a00665.html#a480a8e0249740ab8759aeee1c804ba5c", null ],
-    [ "VPrimaryOVP", "a00665.html#a67a6d7934156a505fe648c5a895795ed", null ],
-    [ "VPrimaryUVP", "a00665.html#a6b578aa818e3a0cd2e97b1f83d9243b6", null ],
-    [ "VRail_5V", "a00665.html#a0c6c9adf47adaed77dbc76be05305b1d", null ],
-    [ "VSecondaryOVP", "a00665.html#a4a4096da1c84272a28022842417dc638", null ],
-    [ "VSecondaryUVP", "a00665.html#a2d333978582de1786722d8740564ea3c", null ]
+    [ "CRC", "a00665.html#afb8cac113b1a41d1c48d80018ddb6744", null ],
+    [ "data", "a00665.html#abe222f6d3581e7920dcad5306cc906a8", null ],
+    [ "Length_in_Bytes", "a00665.html#a3b818f332a9c32b3297efe5f9c6b021d", null ],
+    [ "Offset", "a00665.html#ae6e68acb116dc3b5f8a7354c7f7d4146", null ],
+    [ "PBV_Header", "a00665.html#a84122a7e2f523d0278895ca4f5d8748c", null ],
+    [ "Protocol_ID", "a00665.html#abfd2be56b2355b0fadf7124f95b00431", null ],
+    [ "UART_Frame_State", "a00665.html#a86b4ce2d2304f1de364f16d241b9c7d6", null ]
 ];

@@ -1,20 +1,9 @@
 var a00553 =
 [
-    [ "adcMulticoreInterface", "a00553.html#a0fc678a1f390350d2dcccc4642004209", null ],
-    [ "ChannelSelect", "a00553.html#a34e9e7c166666ac3e8298e735925c288", null ],
-    [ "CommonCallbackRegister", "a00553.html#a55a433809ba4b94a177b9ab6ea136c82", null ],
-    [ "ConversionResultGet", "a00553.html#a43a7b9627f6354ec9372f61d7541acbd", null ],
-    [ "Deinitialize", "a00553.html#ab6aa2863d2196e9f95f70fde91049ee6", null ],
-    [ "Disable", "a00553.html#a7fd5c6c55c6a76c4d35e3f81609fab87", null ],
-    [ "Enable", "a00553.html#a04c571590cd163f474c876943a39e0f1", null ],
-    [ "Initialize", "a00553.html#afea2a7e78ccb7643d694c4bd7fa2ed5f", null ],
-    [ "InterruptDisable", "a00553.html#ad47cbb6a16eedbb47b44799ddeeaf1d0", null ],
-    [ "InterruptEnable", "a00553.html#a507fd2a1482b0387c85f4d7c93e63e37", null ],
-    [ "InterruptFlagClear", "a00553.html#ac333c30536a23ef637a08a1c0c3e7002", null ],
-    [ "InterruptPrioritySet", "a00553.html#a696054b07c8e4ca35fc6462a99cb0767", null ],
-    [ "IsConversionComplete", "a00553.html#a88ee9d7b9f1b1b6cbd7d63ada0983b6c", null ],
-    [ "ResolutionSet", "a00553.html#a40bfcec0fd49b45da14f36bab525382c", null ],
-    [ "SoftwareTriggerDisable", "a00553.html#acf8f490dff795aee221269798e98f0b0", null ],
-    [ "SoftwareTriggerEnable", "a00553.html#acf7a00f6739fe4180244f9236fbc70fe", null ],
-    [ "Tasks", "a00553.html#a1cd6ba5da58bb0185a3939d1fdcd25f5", null ]
+    [ "Tasks_100ms", "a00553.html#ga6d5c487ee3f418e6d0432867d11adaed", null ],
+    [ "Tasks_10ms", "a00553.html#ga05751024e03719cbe14d88fb0af408dd", null ],
+    [ "Tasks_1ms", "a00553.html#ga3644aab65c940684125864b9f6fd1d47", null ],
+    [ "Tasks_1s", "a00553.html#gac181d28cf7f396a9ee79b7c8b76b97ad", null ],
+    [ "Tasks_Background", "a00553.html#ga77974d0a54f4172e2867de5980fc598f", null ],
+    [ "Tasks_Realtime_1ms", "a00553.html#ga4bcf2a4c1b64471da77bdd8bb7ebf77d", null ]
 ];

@@ -1,8 +1,7 @@
 var a00565 =
 [
-    [ "brs", "a00565.html#ae8b17a0932ca0baafa19b60e06fb2ed9", null ],
-    [ "dlc", "a00565.html#ab4d50729bdfb45cf06faa799877f71e6", null ],
-    [ "formatType", "a00565.html#a6d037b9c22db4004322cb0840853edeb", null ],
-    [ "frameType", "a00565.html#a168da43d2a5c2406e469b93b9370a9da", null ],
-    [ "idType", "a00565.html#ae64211504f2eaef4481b381cc65167da", null ]
+    [ "WATCHDOG_CLR_KEY", "a00565.html#ga9fe59f55f06cfb2df71dcf9f0b64cd3c", null ],
+    [ "WATCHDOG_TimerClear", "a00565.html#ga0709c01950447ea286ea4538174a7a82", null ],
+    [ "WATCHDOG_TimerSoftwareDisable", "a00565.html#ga74fb697367e441a6ac0a56e33794ebc4", null ],
+    [ "WATCHDOG_TimerSoftwareEnable", "a00565.html#gaf945fced45ce9cc9a9922d8f31e09e67", null ]
 ];

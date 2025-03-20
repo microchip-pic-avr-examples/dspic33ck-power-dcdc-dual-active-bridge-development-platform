@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Timer Driver</title>
+<title>Dual Active Bridge Development Board: Power Control Communication Interface</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,558 +138,123 @@ $(document).ready(function(){initNavTree('a00547.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
-<a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">Timer Driver<div class="ingroups"><a class="el" href="a00530.html">MPLABX MCC Melody Code Generator</a></div></div></div>
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">Power Control Communication Interface<div class="ingroups"><a class="el" href="a00541.html">Power Control</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Timer Driver is a 16-bit timer or 32-bit timer that can operate as a free-running interval timer using dsPIC MCUs.  
+<p>Contains functions use to interface to Graphical User Interface or Power Board Visualizer.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Timer Driver:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Power Control Communication Interface:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00547.svg" width="300" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00547.svg" width="358" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00227" id="r_a00227"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00227.html">sccp1.h</a></td></tr>
-<tr class="memdesc:a00227"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver header file for the SCCP1-TIMER driver. <br /></td></tr>
+<tr class="memitem:a00479" id="r_a00479"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00479.html">pwrctrl_comm_interface.c</a></td></tr>
+<tr class="memdesc:a00479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains power control interface with communication/gui. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00230" id="r_a00230"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00230.html">sccp1.c</a></td></tr>
-<tr class="memdesc:a00230"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver source file for SCCP1-TIMER driver. <br /></td></tr>
+<tr class="memitem:a00482" id="r_a00482"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html">pwrctrl_comm_interface.h</a></td></tr>
+<tr class="memdesc:a00482"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains public functions relevant for power control communication interface. <br  />
+ <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00233" id="r_a00233"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html">tmr1.c</a></td></tr>
-<tr class="memdesc:a00233"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver source file for TMR1 driver. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00239" id="r_a00239"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00239.html">tmr1.h</a></td></tr>
-<tr class="memdesc:a00239"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver header file for the TMR1 driver. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00609.html">TIMER_INTERFACE</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure containing the function pointers of TIMER driver.  <a href="a00609.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:gaf8150f40492bede30ec10712234692f1" id="r_gaf8150f40492bede30ec10712234692f1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gaf8150f40492bede30ec10712234692f1">CTRLLOOP_EXE_Initialize</a>&#160;&#160;&#160;<a class="el" href="a00547.html#gaf803d32453022c0508ffb40f6163635d">SCCP1_Timer_Initialize</a></td></tr>
-<tr class="memdesc:gaf8150f40492bede30ec10712234692f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#gaf803d32453022c0508ffb40f6163635d">SCCP1_Timer_Initialize</a> API.  <br /></td></tr>
-<tr class="separator:gaf8150f40492bede30ec10712234692f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga059dba1e1e4c66e5161e2cd09774266d" id="r_ga059dba1e1e4c66e5161e2cd09774266d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga059dba1e1e4c66e5161e2cd09774266d">CTRLLOOP_EXE_Deinitialize</a>&#160;&#160;&#160;<a class="el" href="a00547.html#ga6fcb5250c0ea0bb4adfe21449c91fbe2">SCCP1_Timer_Deinitialize</a></td></tr>
-<tr class="memdesc:ga059dba1e1e4c66e5161e2cd09774266d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#ga6fcb5250c0ea0bb4adfe21449c91fbe2">SCCP1_Timer_Deinitialize</a> API.  <br /></td></tr>
-<tr class="separator:ga059dba1e1e4c66e5161e2cd09774266d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0790fb4fa85bc7a1e3a331793e6df137" id="r_ga0790fb4fa85bc7a1e3a331793e6df137"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga0790fb4fa85bc7a1e3a331793e6df137">CTRLLOOP_EXE_Tasks</a>&#160;&#160;&#160;SCCP1_Timer_Tasks</td></tr>
-<tr class="memdesc:ga0790fb4fa85bc7a1e3a331793e6df137"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for SCCP1_Timer_Tasks API.  <br /></td></tr>
-<tr class="separator:ga0790fb4fa85bc7a1e3a331793e6df137"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac032d5ef3ea0dc37c04cf79c57c2abda" id="r_gac032d5ef3ea0dc37c04cf79c57c2abda"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gac032d5ef3ea0dc37c04cf79c57c2abda">CTRLLOOP_EXE_Start</a>&#160;&#160;&#160;<a class="el" href="a00547.html#gab627b2912f0bca5e5194bc9afdef8072">SCCP1_Timer_Start</a></td></tr>
-<tr class="memdesc:gac032d5ef3ea0dc37c04cf79c57c2abda"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#gab627b2912f0bca5e5194bc9afdef8072">SCCP1_Timer_Start</a> API.  <br /></td></tr>
-<tr class="separator:gac032d5ef3ea0dc37c04cf79c57c2abda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5052753697971429a36a56fd5b74d589" id="r_ga5052753697971429a36a56fd5b74d589"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga5052753697971429a36a56fd5b74d589">CTRLLOOP_EXE_Stop</a>&#160;&#160;&#160;<a class="el" href="a00547.html#ga1bd3863ac997aca4d96df728c9260148">SCCP1_Timer_Stop</a></td></tr>
-<tr class="memdesc:ga5052753697971429a36a56fd5b74d589"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#ga1bd3863ac997aca4d96df728c9260148">SCCP1_Timer_Stop</a> API.  <br /></td></tr>
-<tr class="separator:ga5052753697971429a36a56fd5b74d589"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa6fc487ede4013ff45a671449b9c98b2" id="r_gaa6fc487ede4013ff45a671449b9c98b2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gaa6fc487ede4013ff45a671449b9c98b2">CTRLLOOP_EXE_PeriodSet</a>&#160;&#160;&#160;<a class="el" href="a00547.html#ga3df341502631224f4ba59b364cf0cedc">SCCP1_Timer_PeriodSet</a></td></tr>
-<tr class="memdesc:gaa6fc487ede4013ff45a671449b9c98b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#ga3df341502631224f4ba59b364cf0cedc">SCCP1_Timer_PeriodSet</a> API.  <br /></td></tr>
-<tr class="separator:gaa6fc487ede4013ff45a671449b9c98b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga39be89ffe7aa7b01d5bda8c99bfc4494" id="r_ga39be89ffe7aa7b01d5bda8c99bfc4494"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga39be89ffe7aa7b01d5bda8c99bfc4494">CTRLLOOP_EXE_PeriodGet</a>&#160;&#160;&#160;<a class="el" href="a00547.html#ga6dd389b4ae5e59e21d829f992cb3d236">SCCP1_Timer_PeriodGet</a></td></tr>
-<tr class="memdesc:ga39be89ffe7aa7b01d5bda8c99bfc4494"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#ga6dd389b4ae5e59e21d829f992cb3d236">SCCP1_Timer_PeriodGet</a> API.  <br /></td></tr>
-<tr class="separator:ga39be89ffe7aa7b01d5bda8c99bfc4494"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1ac3eaa672aed8c00795c6def406aea9" id="r_ga1ac3eaa672aed8c00795c6def406aea9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga1ac3eaa672aed8c00795c6def406aea9">CTRLLOOP_EXE_CounterGet</a>&#160;&#160;&#160;<a class="el" href="a00547.html#gadb90546ecea9d034b65d7d0def616e2f">SCCP1_Timer_CounterGet</a></td></tr>
-<tr class="memdesc:ga1ac3eaa672aed8c00795c6def406aea9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#gadb90546ecea9d034b65d7d0def616e2f">SCCP1_Timer_CounterGet</a> API.  <br /></td></tr>
-<tr class="separator:ga1ac3eaa672aed8c00795c6def406aea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad76965af801a65c72d44193914cf5097" id="r_gad76965af801a65c72d44193914cf5097"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gad76965af801a65c72d44193914cf5097">CTRLLOOP_EXE_Counter16BitGet</a>&#160;&#160;&#160;<a class="el" href="a00547.html#gad543e627d9e6a349261178f1f3a093fe">SCCP1_Timer_Counter16BitGet</a></td></tr>
-<tr class="memdesc:gad76965af801a65c72d44193914cf5097"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#gad543e627d9e6a349261178f1f3a093fe">SCCP1_Timer_Counter16BitGet</a> API.  <br /></td></tr>
-<tr class="separator:gad76965af801a65c72d44193914cf5097"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3f972fff23744869477988d452553d8d" id="r_ga3f972fff23744869477988d452553d8d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga3f972fff23744869477988d452553d8d">CTRLLOOP_EXE_InterruptPrioritySet</a>&#160;&#160;&#160;<a class="el" href="a00547.html#gaf8c308992dceeaa52d8282b679835e10">SCCP1_Timer_InterruptPrioritySet</a></td></tr>
-<tr class="memdesc:ga3f972fff23744869477988d452553d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#gaf8c308992dceeaa52d8282b679835e10">SCCP1_Timer_InterruptPrioritySet</a> API.  <br /></td></tr>
-<tr class="separator:ga3f972fff23744869477988d452553d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad490cf391da32a13c351da4504552883" id="r_gad490cf391da32a13c351da4504552883"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gad490cf391da32a13c351da4504552883">CTRLLOOP_EXE_TimeoutCallbackRegister</a>&#160;&#160;&#160;<a class="el" href="a00547.html#ga8997d5f758579b5b3629655f9972efaf">SCCP1_Timer_TimeoutCallbackRegister</a></td></tr>
-<tr class="memdesc:gad490cf391da32a13c351da4504552883"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#ga8997d5f758579b5b3629655f9972efaf">SCCP1_Timer_TimeoutCallbackRegister</a> API.  <br /></td></tr>
-<tr class="separator:gad490cf391da32a13c351da4504552883"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac11c35cf02cfa081af695c9ad0144394" id="r_gac11c35cf02cfa081af695c9ad0144394"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gac11c35cf02cfa081af695c9ad0144394">TIMER_PERIODCOUNTSET_API_SUPPORT</a>&#160;&#160;&#160;false</td></tr>
-<tr class="memdesc:gac11c35cf02cfa081af695c9ad0144394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines the deprecated SCCPx_Timer_PeriodCountSet or TMRx_PeriodCountSet API. Set it to true for backward compatibility.  <br /></td></tr>
-<tr class="separator:gac11c35cf02cfa081af695c9ad0144394"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7a9360dec794f08b98b90533d0d87ef5" id="r_ga7a9360dec794f08b98b90533d0d87ef5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga7a9360dec794f08b98b90533d0d87ef5">Timer1_Initialize</a>&#160;&#160;&#160;<a class="el" href="a00547.html#gaeca9435d024c8eeada966c9dffbb8427">TMR1_Initialize</a></td></tr>
-<tr class="memdesc:ga7a9360dec794f08b98b90533d0d87ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#gaeca9435d024c8eeada966c9dffbb8427">TMR1_Initialize</a> API.  <br /></td></tr>
-<tr class="separator:ga7a9360dec794f08b98b90533d0d87ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga55a72f26af13432a3db96be1d984b899" id="r_ga55a72f26af13432a3db96be1d984b899"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga55a72f26af13432a3db96be1d984b899">Timer1_Deinitialize</a>&#160;&#160;&#160;<a class="el" href="a00547.html#ga2841c95f77415643312872bc9e042fd9">TMR1_Deinitialize</a></td></tr>
-<tr class="memdesc:ga55a72f26af13432a3db96be1d984b899"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#ga2841c95f77415643312872bc9e042fd9">TMR1_Deinitialize</a> API.  <br /></td></tr>
-<tr class="separator:ga55a72f26af13432a3db96be1d984b899"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaca3fcbafabd00cd1491c27b936b16551" id="r_gaca3fcbafabd00cd1491c27b936b16551"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gaca3fcbafabd00cd1491c27b936b16551">Timer1_Start</a>&#160;&#160;&#160;<a class="el" href="a00547.html#gafed3745413684e23104d29539be4f2e5">TMR1_Start</a></td></tr>
-<tr class="memdesc:gaca3fcbafabd00cd1491c27b936b16551"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#gafed3745413684e23104d29539be4f2e5">TMR1_Start</a> API.  <br /></td></tr>
-<tr class="separator:gaca3fcbafabd00cd1491c27b936b16551"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3441b968c7eb5533731c3f1faf6373df" id="r_ga3441b968c7eb5533731c3f1faf6373df"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga3441b968c7eb5533731c3f1faf6373df">Timer1_Stop</a>&#160;&#160;&#160;<a class="el" href="a00547.html#ga27bf11425ad1e1d2e8e16a14aebb5a9c">TMR1_Stop</a></td></tr>
-<tr class="memdesc:ga3441b968c7eb5533731c3f1faf6373df"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#ga27bf11425ad1e1d2e8e16a14aebb5a9c">TMR1_Stop</a> API.  <br /></td></tr>
-<tr class="separator:ga3441b968c7eb5533731c3f1faf6373df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae2ad5317cbaf74d6d6ba4d95bf29ec69" id="r_gae2ad5317cbaf74d6d6ba4d95bf29ec69"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gae2ad5317cbaf74d6d6ba4d95bf29ec69">Timer1_PeriodSet</a>&#160;&#160;&#160;<a class="el" href="a00547.html#gaee0dcecbe2ec34ee2a5ab9e263b63ca3">TMR1_PeriodSet</a></td></tr>
-<tr class="memdesc:gae2ad5317cbaf74d6d6ba4d95bf29ec69"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#gaee0dcecbe2ec34ee2a5ab9e263b63ca3">TMR1_PeriodSet</a> API.  <br /></td></tr>
-<tr class="separator:gae2ad5317cbaf74d6d6ba4d95bf29ec69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf355277e21588ad4dfd44bf09cd1cf16" id="r_gaf355277e21588ad4dfd44bf09cd1cf16"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gaf355277e21588ad4dfd44bf09cd1cf16">Timer1_PeriodGet</a>&#160;&#160;&#160;<a class="el" href="a00547.html#ga1a457e2e1f171e9320d31501cef3ff7f">TMR1_PeriodGet</a></td></tr>
-<tr class="memdesc:gaf355277e21588ad4dfd44bf09cd1cf16"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#ga1a457e2e1f171e9320d31501cef3ff7f">TMR1_PeriodGet</a> API.  <br /></td></tr>
-<tr class="separator:gaf355277e21588ad4dfd44bf09cd1cf16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3bfaddd795c95d3a8e37a627470ba95f" id="r_ga3bfaddd795c95d3a8e37a627470ba95f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga3bfaddd795c95d3a8e37a627470ba95f">Timer1_CounterGet</a>&#160;&#160;&#160;<a class="el" href="a00547.html#ga6498e2fb4a5faf4e92d1ca88edafa1dc">TMR1_CounterGet</a></td></tr>
-<tr class="memdesc:ga3bfaddd795c95d3a8e37a627470ba95f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#ga6498e2fb4a5faf4e92d1ca88edafa1dc">TMR1_CounterGet</a> API.  <br /></td></tr>
-<tr class="separator:ga3bfaddd795c95d3a8e37a627470ba95f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa3062d0930c5fe1ddbd7e6d22a31d807" id="r_gaa3062d0930c5fe1ddbd7e6d22a31d807"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gaa3062d0930c5fe1ddbd7e6d22a31d807">Timer1_Counter16BitGet</a>&#160;&#160;&#160;<a class="el" href="a00547.html#ga90e3025b8fc72c8eb9753a1e8b3d9578">TMR1_Counter16BitGet</a></td></tr>
-<tr class="memdesc:gaa3062d0930c5fe1ddbd7e6d22a31d807"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#ga90e3025b8fc72c8eb9753a1e8b3d9578">TMR1_Counter16BitGet</a> API.  <br /></td></tr>
-<tr class="separator:gaa3062d0930c5fe1ddbd7e6d22a31d807"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga976cad07a190522f38297875719b6669" id="r_ga976cad07a190522f38297875719b6669"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga976cad07a190522f38297875719b6669">Timer1_InterruptPrioritySet</a>&#160;&#160;&#160;<a class="el" href="a00547.html#gae817aeb318bfedb428c2e0a237b1a7b3">TMR1_InterruptPrioritySet</a></td></tr>
-<tr class="memdesc:ga976cad07a190522f38297875719b6669"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#gae817aeb318bfedb428c2e0a237b1a7b3">TMR1_InterruptPrioritySet</a> API.  <br /></td></tr>
-<tr class="separator:ga976cad07a190522f38297875719b6669"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadeaada1e4bb45544d41037e6619b7188" id="r_gadeaada1e4bb45544d41037e6619b7188"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gadeaada1e4bb45544d41037e6619b7188">Timer1_TimeoutCallbackRegister</a>&#160;&#160;&#160;<a class="el" href="a00547.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a></td></tr>
-<tr class="memdesc:gadeaada1e4bb45544d41037e6619b7188"><td class="mdescLeft">&#160;</td><td class="mdescRight">This macro defines the Custom Name for <a class="el" href="a00547.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a> API.  <br /></td></tr>
-<tr class="separator:gadeaada1e4bb45544d41037e6619b7188"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaf803d32453022c0508ffb40f6163635d" id="r_gaf803d32453022c0508ffb40f6163635d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gaf803d32453022c0508ffb40f6163635d">SCCP1_Timer_Initialize</a> (void)</td></tr>
-<tr class="memdesc:gaf803d32453022c0508ffb40f6163635d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the SCCP1 module.  <br /></td></tr>
-<tr class="separator:gaf803d32453022c0508ffb40f6163635d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6fcb5250c0ea0bb4adfe21449c91fbe2" id="r_ga6fcb5250c0ea0bb4adfe21449c91fbe2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga6fcb5250c0ea0bb4adfe21449c91fbe2">SCCP1_Timer_Deinitialize</a> (void)</td></tr>
-<tr class="memdesc:ga6fcb5250c0ea0bb4adfe21449c91fbe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the SCCP1 to POR values.  <br /></td></tr>
-<tr class="separator:ga6fcb5250c0ea0bb4adfe21449c91fbe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab627b2912f0bca5e5194bc9afdef8072" id="r_gab627b2912f0bca5e5194bc9afdef8072"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gab627b2912f0bca5e5194bc9afdef8072">SCCP1_Timer_Start</a> (void)</td></tr>
-<tr class="memdesc:gab627b2912f0bca5e5194bc9afdef8072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer.  <br /></td></tr>
-<tr class="separator:gab627b2912f0bca5e5194bc9afdef8072"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1bd3863ac997aca4d96df728c9260148" id="r_ga1bd3863ac997aca4d96df728c9260148"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga1bd3863ac997aca4d96df728c9260148">SCCP1_Timer_Stop</a> (void)</td></tr>
-<tr class="memdesc:ga1bd3863ac997aca4d96df728c9260148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer.  <br /></td></tr>
-<tr class="separator:ga1bd3863ac997aca4d96df728c9260148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3df341502631224f4ba59b364cf0cedc" id="r_ga3df341502631224f4ba59b364cf0cedc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga3df341502631224f4ba59b364cf0cedc">SCCP1_Timer_PeriodSet</a> (uint32_t count)</td></tr>
-<tr class="memdesc:ga3df341502631224f4ba59b364cf0cedc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the SCCP1-Timer period count value.  <br /></td></tr>
-<tr class="separator:ga3df341502631224f4ba59b364cf0cedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6dd389b4ae5e59e21d829f992cb3d236" id="r_ga6dd389b4ae5e59e21d829f992cb3d236"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga6dd389b4ae5e59e21d829f992cb3d236">SCCP1_Timer_PeriodGet</a> (void)</td></tr>
-<tr class="memdesc:ga6dd389b4ae5e59e21d829f992cb3d236"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function gets the SCCP1-Timer period count value.  <br /></td></tr>
-<tr class="separator:ga6dd389b4ae5e59e21d829f992cb3d236"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gadb90546ecea9d034b65d7d0def616e2f" id="r_gadb90546ecea9d034b65d7d0def616e2f"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gadb90546ecea9d034b65d7d0def616e2f">SCCP1_Timer_CounterGet</a> (void)</td></tr>
-<tr class="memdesc:gadb90546ecea9d034b65d7d0def616e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function gets the SCCP1-Timer elapsed count value.  <br /></td></tr>
-<tr class="separator:gadb90546ecea9d034b65d7d0def616e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad543e627d9e6a349261178f1f3a093fe" id="r_gad543e627d9e6a349261178f1f3a093fe"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gad543e627d9e6a349261178f1f3a093fe">SCCP1_Timer_Counter16BitGet</a> (void)</td></tr>
-<tr class="memdesc:gad543e627d9e6a349261178f1f3a093fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function gets the SCCP1-Timer least significant 16 bit elapsed count value.  <br /></td></tr>
-<tr class="separator:gad543e627d9e6a349261178f1f3a093fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf8c308992dceeaa52d8282b679835e10" id="r_gaf8c308992dceeaa52d8282b679835e10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gaf8c308992dceeaa52d8282b679835e10">SCCP1_Timer_InterruptPrioritySet</a> (enum INTERRUPT_PRIORITY priority)</td></tr>
-<tr class="memdesc:gaf8c308992dceeaa52d8282b679835e10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Interrupt Priority Value.  <br /></td></tr>
-<tr class="separator:gaf8c308992dceeaa52d8282b679835e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8997d5f758579b5b3629655f9972efaf" id="r_ga8997d5f758579b5b3629655f9972efaf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga8997d5f758579b5b3629655f9972efaf">SCCP1_Timer_TimeoutCallbackRegister</a> (void(*handler)(void))</td></tr>
-<tr class="memdesc:ga8997d5f758579b5b3629655f9972efaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for SCCP1 Timeout event.  <br /></td></tr>
-<tr class="separator:ga8997d5f758579b5b3629655f9972efaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8a590ad3bfed4acd59a1881e29d08e64" id="r_ga8a590ad3bfed4acd59a1881e29d08e64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga8a590ad3bfed4acd59a1881e29d08e64">SCCP1_TimeoutCallbackRegister</a> (void *handler) <a class="el" href="a00080.html#a201468129b483039afc5a619e2d31097">__attribute__</a>((deprecated(&quot;\nThis will be removed in future MCC releases. \nUse <a class="el" href="a00547.html#ga8997d5f758579b5b3629655f9972efaf">SCCP1_Timer_TimeoutCallbackRegister</a> instead. &quot;)))</td></tr>
-<tr class="memdesc:ga8a590ad3bfed4acd59a1881e29d08e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for SCCP1 Timeout event.  <br /></td></tr>
-<tr class="separator:ga8a590ad3bfed4acd59a1881e29d08e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5477b39dcbd952bf6e17ad435f59dbef" id="r_ga5477b39dcbd952bf6e17ad435f59dbef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga5477b39dcbd952bf6e17ad435f59dbef">SCCP1_TimeoutCallback</a> (void)</td></tr>
-<tr class="memdesc:ga5477b39dcbd952bf6e17ad435f59dbef"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using <a class="el" href="a00547.html#ga8997d5f758579b5b3629655f9972efaf">SCCP1_Timer_TimeoutCallbackRegister</a>.  <br /></td></tr>
-<tr class="separator:ga5477b39dcbd952bf6e17ad435f59dbef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaeca9435d024c8eeada966c9dffbb8427" id="r_gaeca9435d024c8eeada966c9dffbb8427"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gaeca9435d024c8eeada966c9dffbb8427">TMR1_Initialize</a> (void)</td></tr>
-<tr class="memdesc:gaeca9435d024c8eeada966c9dffbb8427"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the TMR1 module.  <br /></td></tr>
-<tr class="separator:gaeca9435d024c8eeada966c9dffbb8427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2841c95f77415643312872bc9e042fd9" id="r_ga2841c95f77415643312872bc9e042fd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga2841c95f77415643312872bc9e042fd9">TMR1_Deinitialize</a> (void)</td></tr>
-<tr class="memdesc:ga2841c95f77415643312872bc9e042fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the TMR1 to POR values.  <br /></td></tr>
-<tr class="separator:ga2841c95f77415643312872bc9e042fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafed3745413684e23104d29539be4f2e5" id="r_gafed3745413684e23104d29539be4f2e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gafed3745413684e23104d29539be4f2e5">TMR1_Start</a> (void)</td></tr>
-<tr class="memdesc:gafed3745413684e23104d29539be4f2e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer.  <br /></td></tr>
-<tr class="separator:gafed3745413684e23104d29539be4f2e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga27bf11425ad1e1d2e8e16a14aebb5a9c" id="r_ga27bf11425ad1e1d2e8e16a14aebb5a9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga27bf11425ad1e1d2e8e16a14aebb5a9c">TMR1_Stop</a> (void)</td></tr>
-<tr class="memdesc:ga27bf11425ad1e1d2e8e16a14aebb5a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer.  <br /></td></tr>
-<tr class="separator:ga27bf11425ad1e1d2e8e16a14aebb5a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaee0dcecbe2ec34ee2a5ab9e263b63ca3" id="r_gaee0dcecbe2ec34ee2a5ab9e263b63ca3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gaee0dcecbe2ec34ee2a5ab9e263b63ca3">TMR1_PeriodSet</a> (uint32_t count)</td></tr>
-<tr class="memdesc:gaee0dcecbe2ec34ee2a5ab9e263b63ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the TMR1 period count value.  <br /></td></tr>
-<tr class="separator:gaee0dcecbe2ec34ee2a5ab9e263b63ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1a457e2e1f171e9320d31501cef3ff7f" id="r_ga1a457e2e1f171e9320d31501cef3ff7f"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga1a457e2e1f171e9320d31501cef3ff7f">TMR1_PeriodGet</a> (void)</td></tr>
-<tr class="memdesc:ga1a457e2e1f171e9320d31501cef3ff7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function gets the TMR1 period count value.  <br /></td></tr>
-<tr class="separator:ga1a457e2e1f171e9320d31501cef3ff7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6498e2fb4a5faf4e92d1ca88edafa1dc" id="r_ga6498e2fb4a5faf4e92d1ca88edafa1dc"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga6498e2fb4a5faf4e92d1ca88edafa1dc">TMR1_CounterGet</a> (void)</td></tr>
-<tr class="memdesc:ga6498e2fb4a5faf4e92d1ca88edafa1dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function gets the TMR1 elapsed time value.  <br /></td></tr>
-<tr class="separator:ga6498e2fb4a5faf4e92d1ca88edafa1dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga90e3025b8fc72c8eb9753a1e8b3d9578" id="r_ga90e3025b8fc72c8eb9753a1e8b3d9578"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga90e3025b8fc72c8eb9753a1e8b3d9578">TMR1_Counter16BitGet</a> (void)</td></tr>
-<tr class="memdesc:ga90e3025b8fc72c8eb9753a1e8b3d9578"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function gets the 16 bit TMR1 elapsed time value.  <br /></td></tr>
-<tr class="separator:ga90e3025b8fc72c8eb9753a1e8b3d9578"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae817aeb318bfedb428c2e0a237b1a7b3" id="r_gae817aeb318bfedb428c2e0a237b1a7b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gae817aeb318bfedb428c2e0a237b1a7b3">TMR1_InterruptPrioritySet</a> (enum INTERRUPT_PRIORITY priority)</td></tr>
-<tr class="memdesc:gae817aeb318bfedb428c2e0a237b1a7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the TMR1 interrupt priority value.  <br /></td></tr>
-<tr class="separator:gae817aeb318bfedb428c2e0a237b1a7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacf9de8f06456af5b10227545089697ff" id="r_gacf9de8f06456af5b10227545089697ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a> (void(*handler)(void))</td></tr>
-<tr class="memdesc:gacf9de8f06456af5b10227545089697ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for TMR1 Timeout event.  <br /></td></tr>
-<tr class="separator:gacf9de8f06456af5b10227545089697ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga68e2de2fe38060ac6e5538406974ed3d" id="r_ga68e2de2fe38060ac6e5538406974ed3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga68e2de2fe38060ac6e5538406974ed3d">TMR1_TimeoutCallback</a> (void)</td></tr>
-<tr class="memdesc:ga68e2de2fe38060ac6e5538406974ed3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using <a class="el" href="a00547.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a>.  <br /></td></tr>
-<tr class="separator:ga68e2de2fe38060ac6e5538406974ed3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga56d847de2589dfb5bbce07a29fd5ef15" id="r_ga56d847de2589dfb5bbce07a29fd5ef15"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00609.html">TIMER_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga56d847de2589dfb5bbce07a29fd5ef15">CTRLLOOP_EXE</a></td></tr>
-<tr class="memdesc:ga56d847de2589dfb5bbce07a29fd5ef15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00609.html" title="Structure containing the function pointers of TIMER driver.">TIMER_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. Timer1 can be changed by the user in the TIMER user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
-<tr class="separator:ga56d847de2589dfb5bbce07a29fd5ef15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4146a540908bbc651749031d3f3c1456" id="r_ga4146a540908bbc651749031d3f3c1456"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00609.html">TIMER_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga4146a540908bbc651749031d3f3c1456">Timer1</a></td></tr>
-<tr class="memdesc:ga4146a540908bbc651749031d3f3c1456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00609.html" title="Structure containing the function pointers of TIMER driver.">TIMER_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. Timer1 can be changed by the user in the TIMER user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
-<tr class="separator:ga4146a540908bbc651749031d3f3c1456"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d7bb399a6595288fdee50a716248786" id="r_ga5d7bb399a6595288fdee50a716248786"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga5d7bb399a6595288fdee50a716248786">PwrCtrl_GetPhase_P2SDegree</a> (void)</td></tr>
+<tr class="memdesc:ga5d7bb399a6595288fdee50a716248786"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the power control State.  <br /></td></tr>
+<tr class="separator:ga5d7bb399a6595288fdee50a716248786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5e607ebc1cfbf0fcb8caa5775d5e782" id="r_gae5e607ebc1cfbf0fcb8caa5775d5e782"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gae5e607ebc1cfbf0fcb8caa5775d5e782">Dev_PwrCtrl_SetState</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:gae5e607ebc1cfbf0fcb8caa5775d5e782"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the power control State.  <br /></td></tr>
+<tr class="separator:gae5e607ebc1cfbf0fcb8caa5775d5e782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70c7b962e7df84e7d49fd37a76826059" id="r_ga70c7b962e7df84e7d49fd37a76826059"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga70c7b962e7df84e7d49fd37a76826059">PwrCtrl_SetIReference</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:ga70c7b962e7df84e7d49fd37a76826059"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the current controller reference.  <br /></td></tr>
+<tr class="separator:ga70c7b962e7df84e7d49fd37a76826059"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga919933b7bef6f9fa8094848c413e7881" id="r_ga919933b7bef6f9fa8094848c413e7881"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga919933b7bef6f9fa8094848c413e7881">PwrCtrl_SetVSecReference</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:ga919933b7bef6f9fa8094848c413e7881"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the secondary voltage controller reference.  <br /></td></tr>
+<tr class="separator:ga919933b7bef6f9fa8094848c413e7881"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad75e0996f58a7795b51212ca644aebd3" id="r_gad75e0996f58a7795b51212ca644aebd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gad75e0996f58a7795b51212ca644aebd3">PwrCtrl_SetVPriReference</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:gad75e0996f58a7795b51212ca644aebd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the primary voltage controller reference, in reverse mode.  <br /></td></tr>
+<tr class="separator:gad75e0996f58a7795b51212ca644aebd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga574faff7b911d52ae6d2cf53b68a8963" id="r_ga574faff7b911d52ae6d2cf53b68a8963"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga574faff7b911d52ae6d2cf53b68a8963">PwrCtrl_SetPwrReference</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:ga574faff7b911d52ae6d2cf53b68a8963"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the power controller reference.  <br /></td></tr>
+<tr class="separator:ga574faff7b911d52ae6d2cf53b68a8963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga75fdd46231baccc4830fa08d2b39a3d2" id="r_ga75fdd46231baccc4830fa08d2b39a3d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga75fdd46231baccc4830fa08d2b39a3d2">PwrCtrl_SetPeriodTarget</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:ga75fdd46231baccc4830fa08d2b39a3d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the target period.  <br /></td></tr>
+<tr class="separator:ga75fdd46231baccc4830fa08d2b39a3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae62d241af8152bb7989d448f30adc55e" id="r_gae62d241af8152bb7989d448f30adc55e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gae62d241af8152bb7989d448f30adc55e">PwrCtrl_SetPhaseTarget</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:gae62d241af8152bb7989d448f30adc55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the target PWM phase.  <br /></td></tr>
+<tr class="separator:gae62d241af8152bb7989d448f30adc55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga80737f595e2855e9361772d2c1a9852d" id="r_ga80737f595e2855e9361772d2c1a9852d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga80737f595e2855e9361772d2c1a9852d">PwrCtrl_SetP2SPhaseTarget</a> (uint16_t reference)</td></tr>
+<tr class="memdesc:ga80737f595e2855e9361772d2c1a9852d"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the target prim to sec phase which will steer other modulation.  <br /></td></tr>
+<tr class="separator:ga80737f595e2855e9361772d2c1a9852d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae5951bb40b236569aa345e1753808858" id="r_gae5951bb40b236569aa345e1753808858"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gae5951bb40b236569aa345e1753808858">PwrCtrl_SetEnable</a> (PWR_CTRL_CHARGE_STATE_t setVal)</td></tr>
+<tr class="memdesc:gae5951bb40b236569aa345e1753808858"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to set the power control state forward, reverse or stop.  <br /></td></tr>
+<tr class="separator:gae5951bb40b236569aa345e1753808858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6450795c316e2284ae94eb16f0da1fe8" id="r_ga6450795c316e2284ae94eb16f0da1fe8"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga6450795c316e2284ae94eb16f0da1fe8">PwrCtrl_GetAdc_Ipri_ct</a> (void)</td></tr>
+<tr class="memdesc:ga6450795c316e2284ae94eb16f0da1fe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for primary current transformer current.  <br /></td></tr>
+<tr class="separator:ga6450795c316e2284ae94eb16f0da1fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab6b145022a1725eaf38c5d0b1864983f" id="r_gab6b145022a1725eaf38c5d0b1864983f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gab6b145022a1725eaf38c5d0b1864983f">PwrCtrl_GetAdc_Isec_ct</a> (void)</td></tr>
+<tr class="memdesc:gab6b145022a1725eaf38c5d0b1864983f"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for secondary current transformer current.  <br /></td></tr>
+<tr class="separator:gab6b145022a1725eaf38c5d0b1864983f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga641e888682922358719d9a3c62b37634" id="r_ga641e888682922358719d9a3c62b37634"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga641e888682922358719d9a3c62b37634">PwrCtrl_GetAdc_Isec_avg</a> (void)</td></tr>
+<tr class="memdesc:ga641e888682922358719d9a3c62b37634"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for secondary average current.  <br /></td></tr>
+<tr class="separator:ga641e888682922358719d9a3c62b37634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac82d4ab7cf3f3ca8180033a4d17d789f" id="r_gac82d4ab7cf3f3ca8180033a4d17d789f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gac82d4ab7cf3f3ca8180033a4d17d789f">PwrCtrl_GetAdc_Temperature</a> (void)</td></tr>
+<tr class="memdesc:gac82d4ab7cf3f3ca8180033a4d17d789f"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for temperature.  <br /></td></tr>
+<tr class="separator:gac82d4ab7cf3f3ca8180033a4d17d789f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf0b0a68f7829d9f898c6f0840a77c065" id="r_gaf0b0a68f7829d9f898c6f0840a77c065"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gaf0b0a68f7829d9f898c6f0840a77c065">PwrCtrl_GetAdc_Vrail_5V</a> (void)</td></tr>
+<tr class="memdesc:gaf0b0a68f7829d9f898c6f0840a77c065"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the raw ADC value for 5V rail.  <br /></td></tr>
+<tr class="separator:gaf0b0a68f7829d9f898c6f0840a77c065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ea3a7d0d8075757d7dd3fc4ddaca1f5" id="r_ga6ea3a7d0d8075757d7dd3fc4ddaca1f5"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga6ea3a7d0d8075757d7dd3fc4ddaca1f5">Dev_PwrCtrl_Get_Period</a> (void)</td></tr>
+<tr class="memdesc:ga6ea3a7d0d8075757d7dd3fc4ddaca1f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the PWM period.  <br /></td></tr>
+<tr class="separator:ga6ea3a7d0d8075757d7dd3fc4ddaca1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6514b638a32baed68543a56bedd5c5d" id="r_gad6514b638a32baed68543a56bedd5c5d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gad6514b638a32baed68543a56bedd5c5d">Dev_PwrCtrl_Get_DutyCycle</a> (void)</td></tr>
+<tr class="memdesc:gad6514b638a32baed68543a56bedd5c5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the PWM duty cycle.  <br /></td></tr>
+<tr class="separator:gad6514b638a32baed68543a56bedd5c5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0a4bc9ff1027ccd07af11d8bd2865219" id="r_ga0a4bc9ff1027ccd07af11d8bd2865219"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga0a4bc9ff1027ccd07af11d8bd2865219">Dev_PwrCtrl_Get_State</a> (void)</td></tr>
+<tr class="memdesc:ga0a4bc9ff1027ccd07af11d8bd2865219"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the current state of the state machine.  <br /></td></tr>
+<tr class="separator:ga0a4bc9ff1027ccd07af11d8bd2865219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga38c9df41272022b3faee9715120a597c" id="r_ga38c9df41272022b3faee9715120a597c"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga38c9df41272022b3faee9715120a597c">Dev_PwrCtrl_Get_PowerDir</a> (void)</td></tr>
+<tr class="memdesc:ga38c9df41272022b3faee9715120a597c"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the direction of configure power flow.  <br /></td></tr>
+<tr class="separator:ga38c9df41272022b3faee9715120a597c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab500c9c4e05b023607a8e72ababe07b3" id="r_gab500c9c4e05b023607a8e72ababe07b3"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gab500c9c4e05b023607a8e72ababe07b3">Dev_PwrCtrl_Get_Status</a> (void)</td></tr>
+<tr class="memdesc:gab500c9c4e05b023607a8e72ababe07b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the power control status.  <br /></td></tr>
+<tr class="separator:gab500c9c4e05b023607a8e72ababe07b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7a61c299efe9f39fbddb6d902d4b3adc" id="r_ga7a61c299efe9f39fbddb6d902d4b3adc"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga7a61c299efe9f39fbddb6d902d4b3adc">Dev_PwrCtrl_Get_EnableFlag</a> (void)</td></tr>
+<tr class="memdesc:ga7a61c299efe9f39fbddb6d902d4b3adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the state of the power control enable bit.  <br /></td></tr>
+<tr class="separator:ga7a61c299efe9f39fbddb6d902d4b3adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadd921f8c68bb08d611f3fd7ab03e60ee" id="r_gadd921f8c68bb08d611f3fd7ab03e60ee"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gadd921f8c68bb08d611f3fd7ab03e60ee">Dev_PwrCtrl_Get_PwmprdTarget</a> (void)</td></tr>
+<tr class="memdesc:gadd921f8c68bb08d611f3fd7ab03e60ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the PWM period target.  <br /></td></tr>
+<tr class="separator:gadd921f8c68bb08d611f3fd7ab03e60ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafe5653e08d77956b5b4fbbcc4305870e" id="r_gafe5653e08d77956b5b4fbbcc4305870e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#gafe5653e08d77956b5b4fbbcc4305870e">Dev_PwrCtrl_Get_SecPower</a> (void)</td></tr>
+<tr class="memdesc:gafe5653e08d77956b5b4fbbcc4305870e"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the secondary power.  <br /></td></tr>
+<tr class="separator:gafe5653e08d77956b5b4fbbcc4305870e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70a3c74e48285c709f735a499a3024dc" id="r_ga70a3c74e48285c709f735a499a3024dc"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga70a3c74e48285c709f735a499a3024dc">Dev_PwrCtrl_GetAveraging_Vprim</a> (void)</td></tr>
+<tr class="memdesc:ga70a3c74e48285c709f735a499a3024dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the average value of the sampled ADC for primary voltage.  <br /></td></tr>
+<tr class="separator:ga70a3c74e48285c709f735a499a3024dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5178aaea783edff228941c4ecf749a90" id="r_ga5178aaea783edff228941c4ecf749a90"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga5178aaea783edff228941c4ecf749a90">Dev_PwrCtrl_GetAveraging_Vsec</a> (void)</td></tr>
+<tr class="memdesc:ga5178aaea783edff228941c4ecf749a90"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the average value of the sampled ADC for secondary voltage.  <br /></td></tr>
+<tr class="separator:ga5178aaea783edff228941c4ecf749a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga346aaaf8b8cf0266d9873405945c55dd" id="r_ga346aaaf8b8cf0266d9873405945c55dd"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00547.html#ga346aaaf8b8cf0266d9873405945c55dd">Dev_PwrCtrl_GetAveraging_Isec</a> (void)</td></tr>
+<tr class="memdesc:ga346aaaf8b8cf0266d9873405945c55dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the average value of the sampled ADC for secondary current.  <br /></td></tr>
+<tr class="separator:ga346aaaf8b8cf0266d9873405945c55dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="fragment"></div><!-- fragment --><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="gad76965af801a65c72d44193914cf5097" name="gad76965af801a65c72d44193914cf5097"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad76965af801a65c72d44193914cf5097">&#9670;&#160;</a></span>CTRLLOOP_EXE_Counter16BitGet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CTRLLOOP_EXE_Counter16BitGet&#160;&#160;&#160;<a class="el" href="a00547.html#gad543e627d9e6a349261178f1f3a093fe">SCCP1_Timer_Counter16BitGet</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00114">114</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga1ac3eaa672aed8c00795c6def406aea9" name="ga1ac3eaa672aed8c00795c6def406aea9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1ac3eaa672aed8c00795c6def406aea9">&#9670;&#160;</a></span>CTRLLOOP_EXE_CounterGet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CTRLLOOP_EXE_CounterGet&#160;&#160;&#160;<a class="el" href="a00547.html#gadb90546ecea9d034b65d7d0def616e2f">SCCP1_Timer_CounterGet</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00109">109</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga059dba1e1e4c66e5161e2cd09774266d" name="ga059dba1e1e4c66e5161e2cd09774266d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga059dba1e1e4c66e5161e2cd09774266d">&#9670;&#160;</a></span>CTRLLOOP_EXE_Deinitialize</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CTRLLOOP_EXE_Deinitialize&#160;&#160;&#160;<a class="el" href="a00547.html#ga6fcb5250c0ea0bb4adfe21449c91fbe2">SCCP1_Timer_Deinitialize</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00070">70</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="gaf8150f40492bede30ec10712234692f1" name="gaf8150f40492bede30ec10712234692f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf8150f40492bede30ec10712234692f1">&#9670;&#160;</a></span>CTRLLOOP_EXE_Initialize</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CTRLLOOP_EXE_Initialize&#160;&#160;&#160;<a class="el" href="a00547.html#gaf803d32453022c0508ffb40f6163635d">SCCP1_Timer_Initialize</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00065">65</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga3f972fff23744869477988d452553d8d" name="ga3f972fff23744869477988d452553d8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3f972fff23744869477988d452553d8d">&#9670;&#160;</a></span>CTRLLOOP_EXE_InterruptPrioritySet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CTRLLOOP_EXE_InterruptPrioritySet&#160;&#160;&#160;<a class="el" href="a00547.html#gaf8c308992dceeaa52d8282b679835e10">SCCP1_Timer_InterruptPrioritySet</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00119">119</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga39be89ffe7aa7b01d5bda8c99bfc4494" name="ga39be89ffe7aa7b01d5bda8c99bfc4494"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga39be89ffe7aa7b01d5bda8c99bfc4494">&#9670;&#160;</a></span>CTRLLOOP_EXE_PeriodGet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CTRLLOOP_EXE_PeriodGet&#160;&#160;&#160;<a class="el" href="a00547.html#ga6dd389b4ae5e59e21d829f992cb3d236">SCCP1_Timer_PeriodGet</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00104">104</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="gaa6fc487ede4013ff45a671449b9c98b2" name="gaa6fc487ede4013ff45a671449b9c98b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa6fc487ede4013ff45a671449b9c98b2">&#9670;&#160;</a></span>CTRLLOOP_EXE_PeriodSet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CTRLLOOP_EXE_PeriodSet&#160;&#160;&#160;<a class="el" href="a00547.html#ga3df341502631224f4ba59b364cf0cedc">SCCP1_Timer_PeriodSet</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00099">99</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="gac032d5ef3ea0dc37c04cf79c57c2abda" name="gac032d5ef3ea0dc37c04cf79c57c2abda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac032d5ef3ea0dc37c04cf79c57c2abda">&#9670;&#160;</a></span>CTRLLOOP_EXE_Start</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CTRLLOOP_EXE_Start&#160;&#160;&#160;<a class="el" href="a00547.html#gab627b2912f0bca5e5194bc9afdef8072">SCCP1_Timer_Start</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00080">80</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga5052753697971429a36a56fd5b74d589" name="ga5052753697971429a36a56fd5b74d589"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5052753697971429a36a56fd5b74d589">&#9670;&#160;</a></span>CTRLLOOP_EXE_Stop</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CTRLLOOP_EXE_Stop&#160;&#160;&#160;<a class="el" href="a00547.html#ga1bd3863ac997aca4d96df728c9260148">SCCP1_Timer_Stop</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00085">85</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga0790fb4fa85bc7a1e3a331793e6df137" name="ga0790fb4fa85bc7a1e3a331793e6df137"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga0790fb4fa85bc7a1e3a331793e6df137">&#9670;&#160;</a></span>CTRLLOOP_EXE_Tasks</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CTRLLOOP_EXE_Tasks&#160;&#160;&#160;SCCP1_Timer_Tasks</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00075">75</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="gad490cf391da32a13c351da4504552883" name="gad490cf391da32a13c351da4504552883"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad490cf391da32a13c351da4504552883">&#9670;&#160;</a></span>CTRLLOOP_EXE_TimeoutCallbackRegister</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define CTRLLOOP_EXE_TimeoutCallbackRegister&#160;&#160;&#160;<a class="el" href="a00547.html#ga8997d5f758579b5b3629655f9972efaf">SCCP1_Timer_TimeoutCallbackRegister</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00125">125</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="gaa3062d0930c5fe1ddbd7e6d22a31d807" name="gaa3062d0930c5fe1ddbd7e6d22a31d807"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa3062d0930c5fe1ddbd7e6d22a31d807">&#9670;&#160;</a></span>Timer1_Counter16BitGet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define Timer1_Counter16BitGet&#160;&#160;&#160;<a class="el" href="a00547.html#ga90e3025b8fc72c8eb9753a1e8b3d9578">TMR1_Counter16BitGet</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00108">108</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga3bfaddd795c95d3a8e37a627470ba95f" name="ga3bfaddd795c95d3a8e37a627470ba95f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3bfaddd795c95d3a8e37a627470ba95f">&#9670;&#160;</a></span>Timer1_CounterGet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define Timer1_CounterGet&#160;&#160;&#160;<a class="el" href="a00547.html#ga6498e2fb4a5faf4e92d1ca88edafa1dc">TMR1_CounterGet</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00103">103</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga55a72f26af13432a3db96be1d984b899" name="ga55a72f26af13432a3db96be1d984b899"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga55a72f26af13432a3db96be1d984b899">&#9670;&#160;</a></span>Timer1_Deinitialize</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define Timer1_Deinitialize&#160;&#160;&#160;<a class="el" href="a00547.html#ga2841c95f77415643312872bc9e042fd9">TMR1_Deinitialize</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00069">69</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga7a9360dec794f08b98b90533d0d87ef5" name="ga7a9360dec794f08b98b90533d0d87ef5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7a9360dec794f08b98b90533d0d87ef5">&#9670;&#160;</a></span>Timer1_Initialize</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define Timer1_Initialize&#160;&#160;&#160;<a class="el" href="a00547.html#gaeca9435d024c8eeada966c9dffbb8427">TMR1_Initialize</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00064">64</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga976cad07a190522f38297875719b6669" name="ga976cad07a190522f38297875719b6669"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga976cad07a190522f38297875719b6669">&#9670;&#160;</a></span>Timer1_InterruptPrioritySet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define Timer1_InterruptPrioritySet&#160;&#160;&#160;<a class="el" href="a00547.html#gae817aeb318bfedb428c2e0a237b1a7b3">TMR1_InterruptPrioritySet</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00113">113</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="gaf355277e21588ad4dfd44bf09cd1cf16" name="gaf355277e21588ad4dfd44bf09cd1cf16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf355277e21588ad4dfd44bf09cd1cf16">&#9670;&#160;</a></span>Timer1_PeriodGet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define Timer1_PeriodGet&#160;&#160;&#160;<a class="el" href="a00547.html#ga1a457e2e1f171e9320d31501cef3ff7f">TMR1_PeriodGet</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00098">98</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="gae2ad5317cbaf74d6d6ba4d95bf29ec69" name="gae2ad5317cbaf74d6d6ba4d95bf29ec69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae2ad5317cbaf74d6d6ba4d95bf29ec69">&#9670;&#160;</a></span>Timer1_PeriodSet</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define Timer1_PeriodSet&#160;&#160;&#160;<a class="el" href="a00547.html#gaee0dcecbe2ec34ee2a5ab9e263b63ca3">TMR1_PeriodSet</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00093">93</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="gaca3fcbafabd00cd1491c27b936b16551" name="gaca3fcbafabd00cd1491c27b936b16551"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaca3fcbafabd00cd1491c27b936b16551">&#9670;&#160;</a></span>Timer1_Start</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define Timer1_Start&#160;&#160;&#160;<a class="el" href="a00547.html#gafed3745413684e23104d29539be4f2e5">TMR1_Start</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00074">74</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga3441b968c7eb5533731c3f1faf6373df" name="ga3441b968c7eb5533731c3f1faf6373df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3441b968c7eb5533731c3f1faf6373df">&#9670;&#160;</a></span>Timer1_Stop</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define Timer1_Stop&#160;&#160;&#160;<a class="el" href="a00547.html#ga27bf11425ad1e1d2e8e16a14aebb5a9c">TMR1_Stop</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00079">79</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="gadeaada1e4bb45544d41037e6619b7188" name="gadeaada1e4bb45544d41037e6619b7188"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadeaada1e4bb45544d41037e6619b7188">&#9670;&#160;</a></span>Timer1_TimeoutCallbackRegister</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define Timer1_TimeoutCallbackRegister&#160;&#160;&#160;<a class="el" href="a00547.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00118">118</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="gac11c35cf02cfa081af695c9ad0144394" name="gac11c35cf02cfa081af695c9ad0144394"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac11c35cf02cfa081af695c9ad0144394">&#9670;&#160;</a></span>TIMER_PERIODCOUNTSET_API_SUPPORT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TIMER_PERIODCOUNTSET_API_SUPPORT&#160;&#160;&#160;false</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00236_source.html#l00053">53</a> of file <a class="el" href="a00236_source.html">timer_interface.h</a>.</p>
-
-</div>
-</div>
+<p>This document covers the functions that sets or gets the power control properties relevant to the Power Board Visualizer. </p>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ga5477b39dcbd952bf6e17ad435f59dbef" name="ga5477b39dcbd952bf6e17ad435f59dbef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5477b39dcbd952bf6e17ad435f59dbef">&#9670;&#160;</a></span>SCCP1_TimeoutCallback()</h2>
+<a id="gad6514b638a32baed68543a56bedd5c5d" name="gad6514b638a32baed68543a56bedd5c5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad6514b638a32baed68543a56bedd5c5d">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_DutyCycle()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SCCP1_TimeoutCallback </td>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_DutyCycle </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -697,132 +262,27 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>value DAB duty cycle </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00198">198</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00547_ga5477b39dcbd952bf6e17ad435f59dbef_icgraph.svg" width="562" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00547_gad6514b638a32baed68543a56bedd5c5d_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="ga8a590ad3bfed4acd59a1881e29d08e64" name="ga8a590ad3bfed4acd59a1881e29d08e64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8a590ad3bfed4acd59a1881e29d08e64">&#9670;&#160;</a></span>SCCP1_TimeoutCallbackRegister()</h2>
+<a id="ga7a61c299efe9f39fbddb6d902d4b3adc" name="ga7a61c299efe9f39fbddb6d902d4b3adc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7a61c299efe9f39fbddb6d902d4b3adc">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_EnableFlag()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SCCP1_TimeoutCallbackRegister </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>handler</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>- Address of the callback function. <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00230_source.html#l00184">184</a> of file <a class="el" href="a00230_source.html">sccp1.c</a>.</p>
-
-</div>
-</div>
-<a id="gad543e627d9e6a349261178f1f3a093fe" name="gad543e627d9e6a349261178f1f3a093fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad543e627d9e6a349261178f1f3a093fe">&#9670;&#160;</a></span>SCCP1_Timer_Counter16BitGet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint16_t SCCP1_Timer_Counter16BitGet </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Least significant 16 bit elapsed count value of the timer <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00215">215</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="gadb90546ecea9d034b65d7d0def616e2f" name="gadb90546ecea9d034b65d7d0def616e2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gadb90546ecea9d034b65d7d0def616e2f">&#9670;&#160;</a></span>SCCP1_Timer_CounterGet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint32_t SCCP1_Timer_CounterGet </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Elapsed count value of the timer <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00197">197</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga6fcb5250c0ea0bb4adfe21449c91fbe2" name="ga6fcb5250c0ea0bb4adfe21449c91fbe2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6fcb5250c0ea0bb4adfe21449c91fbe2">&#9670;&#160;</a></span>SCCP1_Timer_Deinitialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SCCP1_Timer_Deinitialize </td>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_EnableFlag </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -830,27 +290,22 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true flag bit is enabled </dd>
+<dd>
+false flag bit is disabled </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00230_source.html#l00115">115</a> of file <a class="el" href="a00230_source.html">sccp1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00239">239</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
 
 </div>
 </div>
-<a id="gaf803d32453022c0508ffb40f6163635d" name="gaf803d32453022c0508ffb40f6163635d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf803d32453022c0508ffb40f6163635d">&#9670;&#160;</a></span>SCCP1_Timer_Initialize()</h2>
+<a id="ga6ea3a7d0d8075757d7dd3fc4ddaca1f5" name="ga6ea3a7d0d8075757d7dd3fc4ddaca1f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6ea3a7d0d8075757d7dd3fc4ddaca1f5">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_Period()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SCCP1_Timer_Initialize </td>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_Period </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -858,135 +313,223 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>value DAB period </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00230_source.html#l00075">75</a> of file <a class="el" href="a00230_source.html">sccp1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00188">188</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga38c9df41272022b3faee9715120a597c" name="ga38c9df41272022b3faee9715120a597c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga38c9df41272022b3faee9715120a597c">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_PowerDir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_PowerDir </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>value DAB power direction </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00218">218</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gadd921f8c68bb08d611f3fd7ab03e60ee" name="gadd921f8c68bb08d611f3fd7ab03e60ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadd921f8c68bb08d611f3fd7ab03e60ee">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_PwmprdTarget()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_PwmprdTarget </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>value DAB PWM period target value </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00249">249</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gafe5653e08d77956b5b4fbbcc4305870e" name="gafe5653e08d77956b5b4fbbcc4305870e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafe5653e08d77956b5b4fbbcc4305870e">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_SecPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_SecPower </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>value Secondary Power value </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00259">259</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga0a4bc9ff1027ccd07af11d8bd2865219" name="ga0a4bc9ff1027ccd07af11d8bd2865219"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0a4bc9ff1027ccd07af11d8bd2865219">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_State()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_State </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>value DAB state machine </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00208">208</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gab500c9c4e05b023607a8e72ababe07b3" name="gab500c9c4e05b023607a8e72ababe07b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab500c9c4e05b023607a8e72ababe07b3">&#9670;&#160;</a></span>Dev_PwrCtrl_Get_Status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_Get_Status </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>value DAB power control status </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00228">228</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga346aaaf8b8cf0266d9873405945c55dd" name="ga346aaaf8b8cf0266d9873405945c55dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga346aaaf8b8cf0266d9873405945c55dd">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAveraging_Isec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAveraging_Isec </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>value Secondary Current Average Value </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00287">287</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga70a3c74e48285c709f735a499a3024dc" name="ga70a3c74e48285c709f735a499a3024dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga70a3c74e48285c709f735a499a3024dc">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAveraging_Vprim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAveraging_Vprim </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>value Primary voltage average </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00268">268</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga5178aaea783edff228941c4ecf749a90" name="ga5178aaea783edff228941c4ecf749a90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5178aaea783edff228941c4ecf749a90">&#9670;&#160;</a></span>Dev_PwrCtrl_GetAveraging_Vsec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_PwrCtrl_GetAveraging_Vsec </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>value Secondary voltage average </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00277">277</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gae5e607ebc1cfbf0fcb8caa5775d5e782" name="gae5e607ebc1cfbf0fcb8caa5775d5e782"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae5e607ebc1cfbf0fcb8caa5775d5e782">&#9670;&#160;</a></span>Dev_PwrCtrl_SetState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_PwrCtrl_SetState </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00028">28</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00547_gaf803d32453022c0508ffb40f6163635d_cgraph.svg" width="423" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00547_gae5e607ebc1cfbf0fcb8caa5775d5e782_cgraph.svg" width="610" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00547_gaf803d32453022c0508ffb40f6163635d_icgraph.svg" width="346" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00547_gae5e607ebc1cfbf0fcb8caa5775d5e782_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="gaf8c308992dceeaa52d8282b679835e10" name="gaf8c308992dceeaa52d8282b679835e10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf8c308992dceeaa52d8282b679835e10">&#9670;&#160;</a></span>SCCP1_Timer_InterruptPrioritySet()</h2>
+<a id="ga6450795c316e2284ae94eb16f0da1fe8" name="ga6450795c316e2284ae94eb16f0da1fe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6450795c316e2284ae94eb16f0da1fe8">&#9670;&#160;</a></span>PwrCtrl_GetAdc_Ipri_ct()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SCCP1_Timer_InterruptPrioritySet </td>
-          <td>(</td>
-          <td class="paramtype">enum INTERRUPT_PRIORITY&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00230_source.html#l00171">171</a> of file <a class="el" href="a00230_source.html">sccp1.c</a>.</p>
-
-</div>
-</div>
-<a id="ga6dd389b4ae5e59e21d829f992cb3d236" name="ga6dd389b4ae5e59e21d829f992cb3d236"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6dd389b4ae5e59e21d829f992cb3d236">&#9670;&#160;</a></span>SCCP1_Timer_PeriodGet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint32_t SCCP1_Timer_PeriodGet </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00547.html#gaf803d32453022c0508ffb40f6163635d">SCCP1_Timer_Initialize</a> must be called </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Period count value <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00227_source.html#l00179">179</a> of file <a class="el" href="a00227_source.html">sccp1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga3df341502631224f4ba59b364cf0cedc" name="ga3df341502631224f4ba59b364cf0cedc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3df341502631224f4ba59b364cf0cedc">&#9670;&#160;</a></span>SCCP1_Timer_PeriodSet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SCCP1_Timer_PeriodSet </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>count</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00547.html#gaf803d32453022c0508ffb40f6163635d">SCCP1_Timer_Initialize</a> must be called </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">count</td><td>- period value </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00230_source.html#l00156">156</a> of file <a class="el" href="a00230_source.html">sccp1.c</a>.</p>
-
-</div>
-</div>
-<a id="gab627b2912f0bca5e5194bc9afdef8072" name="gab627b2912f0bca5e5194bc9afdef8072"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab627b2912f0bca5e5194bc9afdef8072">&#9670;&#160;</a></span>SCCP1_Timer_Start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SCCP1_Timer_Start </td>
+          <td class="memname">uint16_t PwrCtrl_GetAdc_Ipri_ct </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -994,28 +537,20 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00547.html#gaf803d32453022c0508ffb40f6163635d">SCCP1_Timer_Initialize</a> must be called </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>value Primary current transformer ADC value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00230_source.html#l00138">138</a> of file <a class="el" href="a00230_source.html">sccp1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00138">138</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
 
 </div>
 </div>
-<a id="ga1bd3863ac997aca4d96df728c9260148" name="ga1bd3863ac997aca4d96df728c9260148"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1bd3863ac997aca4d96df728c9260148">&#9670;&#160;</a></span>SCCP1_Timer_Stop()</h2>
+<a id="ga641e888682922358719d9a3c62b37634" name="ga641e888682922358719d9a3c62b37634"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga641e888682922358719d9a3c62b37634">&#9670;&#160;</a></span>PwrCtrl_GetAdc_Isec_avg()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SCCP1_Timer_Stop </td>
+          <td class="memname">uint16_t PwrCtrl_GetAdc_Isec_avg </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1023,133 +558,69 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00547.html#gaf803d32453022c0508ffb40f6163635d">SCCP1_Timer_Initialize</a> must be called </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>value Secondary current average ADC value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00230_source.html#l00147">147</a> of file <a class="el" href="a00230_source.html">sccp1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00158">158</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
 
 </div>
 </div>
-<a id="ga8997d5f758579b5b3629655f9972efaf" name="ga8997d5f758579b5b3629655f9972efaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8997d5f758579b5b3629655f9972efaf">&#9670;&#160;</a></span>SCCP1_Timer_TimeoutCallbackRegister()</h2>
+<a id="gab6b145022a1725eaf38c5d0b1864983f" name="gab6b145022a1725eaf38c5d0b1864983f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab6b145022a1725eaf38c5d0b1864983f">&#9670;&#160;</a></span>PwrCtrl_GetAdc_Isec_ct()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void SCCP1_Timer_TimeoutCallbackRegister </td>
+          <td class="memname">uint16_t PwrCtrl_GetAdc_Isec_ct </td>
           <td>(</td>
-          <td class="paramtype">void(*)(void)&#160;</td>
-          <td class="paramname"><em>handler</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>- Address of the callback function. <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>value Secondary current transformer ADC value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00230_source.html#l00176">176</a> of file <a class="el" href="a00230_source.html">sccp1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00148">148</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gac82d4ab7cf3f3ca8180033a4d17d789f" name="gac82d4ab7cf3f3ca8180033a4d17d789f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac82d4ab7cf3f3ca8180033a4d17d789f">&#9670;&#160;</a></span>PwrCtrl_GetAdc_Temperature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t PwrCtrl_GetAdc_Temperature </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>value temperature ADC value </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00168">168</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
 <div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00547_ga8997d5f758579b5b3629655f9972efaf_icgraph.svg" width="600" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00547_gac82d4ab7cf3f3ca8180033a4d17d789f_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="ga90e3025b8fc72c8eb9753a1e8b3d9578" name="ga90e3025b8fc72c8eb9753a1e8b3d9578"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga90e3025b8fc72c8eb9753a1e8b3d9578">&#9670;&#160;</a></span>TMR1_Counter16BitGet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint16_t TMR1_Counter16BitGet </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>16 bit elapsed count value of the timer </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00192">192</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga6498e2fb4a5faf4e92d1ca88edafa1dc" name="ga6498e2fb4a5faf4e92d1ca88edafa1dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6498e2fb4a5faf4e92d1ca88edafa1dc">&#9670;&#160;</a></span>TMR1_CounterGet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint32_t TMR1_CounterGet </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Elapsed count value of the timer </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00181">181</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="ga2841c95f77415643312872bc9e042fd9" name="ga2841c95f77415643312872bc9e042fd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2841c95f77415643312872bc9e042fd9">&#9670;&#160;</a></span>TMR1_Deinitialize()</h2>
+<a id="gaf0b0a68f7829d9f898c6f0840a77c065" name="gaf0b0a68f7829d9f898c6f0840a77c065"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf0b0a68f7829d9f898c6f0840a77c065">&#9670;&#160;</a></span>PwrCtrl_GetAdc_Vrail_5V()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void TMR1_Deinitialize </td>
+          <td class="memname">uint16_t PwrCtrl_GetAdc_Vrail_5V </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1157,339 +628,261 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>value 5V rail ADC value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00085">85</a> of file <a class="el" href="a00233_source.html">tmr1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00178">178</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga5d7bb399a6595288fdee50a716248786" name="ga5d7bb399a6595288fdee50a716248786"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5d7bb399a6595288fdee50a716248786">&#9670;&#160;</a></span>PwrCtrl_GetPhase_P2SDegree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t PwrCtrl_GetPhase_P2SDegree </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>value Control phase between primary and secondary bridge multiplied by 10 for more degrees resolution </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00018">18</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="gae5951bb40b236569aa345e1753808858" name="gae5951bb40b236569aa345e1753808858"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae5951bb40b236569aa345e1753808858">&#9670;&#160;</a></span>PwrCtrl_SetEnable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PwrCtrl_SetEnable </td>
+          <td>(</td>
+          <td class="paramtype">PWR_CTRL_CHARGE_STATE_t&#160;</td>
+          <td class="paramname"><em>setVal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00111">111</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00547_ga2841c95f77415643312872bc9e042fd9_cgraph.svg" width="274" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00547_gae5951bb40b236569aa345e1753808858_cgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00547_gae5951bb40b236569aa345e1753808858_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="gaeca9435d024c8eeada966c9dffbb8427" name="gaeca9435d024c8eeada966c9dffbb8427"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaeca9435d024c8eeada966c9dffbb8427">&#9670;&#160;</a></span>TMR1_Initialize()</h2>
+<a id="ga70c7b962e7df84e7d49fd37a76826059" name="ga70c7b962e7df84e7d49fd37a76826059"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga70c7b962e7df84e7d49fd37a76826059">&#9670;&#160;</a></span>PwrCtrl_SetIReference()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void TMR1_Initialize </td>
+          <td class="memname">void PwrCtrl_SetIReference </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00071">71</a> of file <a class="el" href="a00233_source.html">tmr1.c</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00547_gaeca9435d024c8eeada966c9dffbb8427_cgraph.svg" width="375" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00042">42</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00547_gaeca9435d024c8eeada966c9dffbb8427_icgraph.svg" width="298" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00547_ga70c7b962e7df84e7d49fd37a76826059_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="gae817aeb318bfedb428c2e0a237b1a7b3" name="gae817aeb318bfedb428c2e0a237b1a7b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae817aeb318bfedb428c2e0a237b1a7b3">&#9670;&#160;</a></span>TMR1_InterruptPrioritySet()</h2>
+<a id="ga80737f595e2855e9361772d2c1a9852d" name="ga80737f595e2855e9361772d2c1a9852d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga80737f595e2855e9361772d2c1a9852d">&#9670;&#160;</a></span>PwrCtrl_SetP2SPhaseTarget()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void TMR1_InterruptPrioritySet </td>
+          <td class="memname">void PwrCtrl_SetP2SPhaseTarget </td>
           <td>(</td>
-          <td class="paramtype">enum INTERRUPT_PRIORITY&#160;</td>
-          <td class="paramname"><em>priority</em></td><td>)</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">priority</td><td>- value of interrupt priority </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00119">119</a> of file <a class="el" href="a00233_source.html">tmr1.c</a>.</p>
-
-</div>
-</div>
-<a id="ga1a457e2e1f171e9320d31501cef3ff7f" name="ga1a457e2e1f171e9320d31501cef3ff7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1a457e2e1f171e9320d31501cef3ff7f">&#9670;&#160;</a></span>TMR1_PeriodGet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint32_t TMR1_PeriodGet </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of clock counts </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00239_source.html#l00170">170</a> of file <a class="el" href="a00239_source.html">tmr1.h</a>.</p>
-
-</div>
-</div>
-<a id="gaee0dcecbe2ec34ee2a5ab9e263b63ca3" name="gaee0dcecbe2ec34ee2a5ab9e263b63ca3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaee0dcecbe2ec34ee2a5ab9e263b63ca3">&#9670;&#160;</a></span>TMR1_PeriodSet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TMR1_PeriodSet </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>count</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">count</td><td>- number of clock counts </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00114">114</a> of file <a class="el" href="a00233_source.html">tmr1.c</a>.</p>
-
-</div>
-</div>
-<a id="gafed3745413684e23104d29539be4f2e5" name="gafed3745413684e23104d29539be4f2e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafed3745413684e23104d29539be4f2e5">&#9670;&#160;</a></span>TMR1_Start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TMR1_Start </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00547.html#gaeca9435d024c8eeada966c9dffbb8427">TMR1_Initialize</a> must be called </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00094">94</a> of file <a class="el" href="a00233_source.html">tmr1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00101">101</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
 <div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00547_gafed3745413684e23104d29539be4f2e5_icgraph.svg" width="436" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00547_ga80737f595e2855e9361772d2c1a9852d_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="ga27bf11425ad1e1d2e8e16a14aebb5a9c" name="ga27bf11425ad1e1d2e8e16a14aebb5a9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga27bf11425ad1e1d2e8e16a14aebb5a9c">&#9670;&#160;</a></span>TMR1_Stop()</h2>
+<a id="ga75fdd46231baccc4830fa08d2b39a3d2" name="ga75fdd46231baccc4830fa08d2b39a3d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga75fdd46231baccc4830fa08d2b39a3d2">&#9670;&#160;</a></span>PwrCtrl_SetPeriodTarget()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void TMR1_Stop </td>
+          <td class="memname">void PwrCtrl_SetPeriodTarget </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00547.html#gaeca9435d024c8eeada966c9dffbb8427">TMR1_Initialize</a> must be called </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00105">105</a> of file <a class="el" href="a00233_source.html">tmr1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00082">82</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
 <div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00547_ga27bf11425ad1e1d2e8e16a14aebb5a9c_icgraph.svg" width="274" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00547_ga75fdd46231baccc4830fa08d2b39a3d2_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="ga68e2de2fe38060ac6e5538406974ed3d" name="ga68e2de2fe38060ac6e5538406974ed3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga68e2de2fe38060ac6e5538406974ed3d">&#9670;&#160;</a></span>TMR1_TimeoutCallback()</h2>
+<a id="gae62d241af8152bb7989d448f30adc55e" name="gae62d241af8152bb7989d448f30adc55e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae62d241af8152bb7989d448f30adc55e">&#9670;&#160;</a></span>PwrCtrl_SetPhaseTarget()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void TMR1_TimeoutCallback </td>
+          <td class="memname">void PwrCtrl_SetPhaseTarget </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00092">92</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
 <div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-10-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00547_ga68e2de2fe38060ac6e5538406974ed3d_icgraph.svg" width="504" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00547_gae62d241af8152bb7989d448f30adc55e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="gacf9de8f06456af5b10227545089697ff" name="gacf9de8f06456af5b10227545089697ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gacf9de8f06456af5b10227545089697ff">&#9670;&#160;</a></span>TMR1_TimeoutCallbackRegister()</h2>
+<a id="ga574faff7b911d52ae6d2cf53b68a8963" name="ga574faff7b911d52ae6d2cf53b68a8963"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga574faff7b911d52ae6d2cf53b68a8963">&#9670;&#160;</a></span>PwrCtrl_SetPwrReference()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void TMR1_TimeoutCallbackRegister </td>
+          <td class="memname">void PwrCtrl_SetPwrReference </td>
           <td>(</td>
-          <td class="paramtype">void(*)(void)&#160;</td>
-          <td class="paramname"><em>handler</em></td><td>)</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>- Address of the callback function. <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00124">124</a> of file <a class="el" href="a00233_source.html">tmr1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00072">72</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
 <div id="dynsection-11" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-11-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00547_gacf9de8f06456af5b10227545089697ff_icgraph.svg" width="552" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00547_ga574faff7b911d52ae6d2cf53b68a8963_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ga56d847de2589dfb5bbce07a29fd5ef15" name="ga56d847de2589dfb5bbce07a29fd5ef15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga56d847de2589dfb5bbce07a29fd5ef15">&#9670;&#160;</a></span>CTRLLOOP_EXE</h2>
+<a id="gad75e0996f58a7795b51212ca644aebd3" name="gad75e0996f58a7795b51212ca644aebd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad75e0996f58a7795b51212ca644aebd3">&#9670;&#160;</a></span>PwrCtrl_SetVPriReference()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const struct <a class="el" href="a00609.html">TIMER_INTERFACE</a> CTRLLOOP_EXE</td>
+          <td class="memname">void PwrCtrl_SetVPriReference </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00230_source.html#l00057">57</a> of file <a class="el" href="a00230_source.html">sccp1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00062">62</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+<div id="dynsection-12" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-12-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00547_gad75e0996f58a7795b51212ca644aebd3_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
-<a id="ga4146a540908bbc651749031d3f3c1456" name="ga4146a540908bbc651749031d3f3c1456"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4146a540908bbc651749031d3f3c1456">&#9670;&#160;</a></span>Timer1</h2>
+<a id="ga919933b7bef6f9fa8094848c413e7881" name="ga919933b7bef6f9fa8094848c413e7881"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga919933b7bef6f9fa8094848c413e7881">&#9670;&#160;</a></span>PwrCtrl_SetVSecReference()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const struct <a class="el" href="a00609.html">TIMER_INTERFACE</a> Timer1</td>
+          <td class="memname">void PwrCtrl_SetVSecReference </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>reference</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00233_source.html#l00053">53</a> of file <a class="el" href="a00233_source.html">tmr1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00052">52</a> of file <a class="el" href="a00479_source.html">pwrctrl_comm_interface.c</a>.</p>
+<div id="dynsection-13" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-13-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00547_ga919933b7bef6f9fa8094848c413e7881_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>

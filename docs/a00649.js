@@ -1,12 +1,10 @@
 var a00649 =
 [
-    [ "CurrentSpeedPercent", "a00649.html#ad5d31528415a4ed9cf81ebfd785128c2", null ],
-    [ "CurrentSpeedRaw", "a00649.html#a833f5d95cb05c7446c9493ce32cd6a4e", null ],
-    [ "MaxSpeedPercent", "a00649.html#ad407e9ccc871b7dc9cca12bde19c730d", null ],
-    [ "MaxSpeedRaw", "a00649.html#a17841407278bd546565d170f7b6e9e78", null ],
-    [ "OverrideFlag", "a00649.html#a4f9053371e35277861b7403cd46b0d98", null ],
-    [ "StepSizePercent", "a00649.html#a6ea3b4a0033803dc206c7e104ab29ca8", null ],
-    [ "TargetSpeedPercent", "a00649.html#ad26b627b999dd76f16aa4a9e36470c91", null ],
-    [ "TargetSpeedRaw", "a00649.html#ac2a920307a7df3fdd9d9ef56b0fbac82", null ],
-    [ "Tick", "a00649.html#a4c53383b26fe25c1a65efe0e9b6ed9cf", null ]
+    [ "init", "a00649.html#a2349c43259a9d3c23a516c9b4ad6baaa", null ],
+    [ "linkDataRX", "a00649.html#acf3107157116c08f212dafb02c8128f5", null ],
+    [ "linkDataTX", "a00649.html#a4156ff07130f03dfbd50bf7c30493bfb", null ],
+    [ "reinit", "a00649.html#aad1488054aade0d9770cbae5597a8db9", null ],
+    [ "rxGui", "a00649.html#add9801b083b7d6f3f7bbb0f1d9a55773", null ],
+    [ "txGui", "a00649.html#adca8b72baa17241a6989f96a073cc51c", null ],
+    [ "txGuiAscii", "a00649.html#a8ee94030daa6ae1784d3a4c1efd446eb", null ]
 ];

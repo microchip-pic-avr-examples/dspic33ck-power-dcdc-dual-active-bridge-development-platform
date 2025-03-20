@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_current_sensor.c Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/config/comms_config.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,118 +136,24 @@ $(document).ready(function(){initNavTree('a00305_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">dev_current_sensor.c</div></div>
+  <div class="headertitle"><div class="title">comms_config.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00305.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;config/macros.h&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="a00068.html">adc/adc1.h</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="a00305.html#a175e2f52c3522e4154a8d21da88426df">   13</a></span><span class="preprocessor">#define SENSOR_OFFSET_NUM_MEASUREMENTS      (1000) </span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="a00645.html">   22</a></span><span class="keyword">struct </span><a class="code hl_struct" href="a00645.html">SENSOR_OFFSET_CAL_s</a></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{  </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="a00645.html#a1bf80696497119c4e36460f57de7f667">   24</a></span>  uint32_t  <a class="code hl_variable" href="a00645.html#a1bf80696497119c4e36460f57de7f667">Accumulator</a>; </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="a00645.html#a439f5c23e968e4d9d17def3e46ca3aff">   25</a></span>  uint16_t  <a class="code hl_variable" href="a00645.html#a439f5c23e968e4d9d17def3e46ca3aff">MeasurementCounter</a>; </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="a00645.html#ae6e68acb116dc3b5f8a7354c7f7d4146">   26</a></span>  uint16_t  <a class="code hl_variable" href="a00645.html#ae6e68acb116dc3b5f8a7354c7f7d4146">Offset</a>; </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="a00645.html#adf25ddb38dbda4b3bf8401ccfa38187f">   27</a></span>  <span class="keywordtype">bool</span>      <a class="code hl_variable" href="a00645.html#adf25ddb38dbda4b3bf8401ccfa38187f">CalibrationComplete</a>; </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="a00645.html#a26af6df9982c908f6c04dac5febbfabe">   28</a></span>  uint16_t  <a class="code hl_variable" href="a00645.html#a26af6df9982c908f6c04dac5febbfabe">LimitHigh</a>;  </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="a00645.html#a807559395dd14cc8be15101fbc71677d">   29</a></span>  uint16_t  <a class="code hl_variable" href="a00645.html#a807559395dd14cc8be15101fbc71677d">LimitLow</a>; </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
-</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="a00305.html#a11d4505c8c67dc1bff5d289e1232b593">   31</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00645.html">SENSOR_OFFSET_CAL_s</a> <a class="code hl_struct" href="a00645.html">SENSOR_OFFSET_CAL_t</a>;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="a00510.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">   40</a></span><a class="code hl_struct" href="a00645.html">SENSOR_OFFSET_CAL_t</a> <a class="code hl_variable" href="a00510.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">isecAvgCurrentSensor</a> = {.<a class="code hl_variable" href="a00645.html#adf25ddb38dbda4b3bf8401ccfa38187f">CalibrationComplete</a> = <span class="keyword">false</span>,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                                               .Accumulator = 0,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                                               .MeasurementCounter = 0,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                                               .LimitHigh = <a class="code hl_define" href="a00491.html#ga32693322c9fff62a2374fd3de9d0f5e8">ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</a>,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                                               .LimitLow = <a class="code hl_define" href="a00491.html#ga0ed005156ed4fc2064d588f00d44223d">ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</a>};</div>
-</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="a00510.html#ga03e8d61bbc0f4b686c400440f80dcf69">   57</a></span><span class="keyword">static</span> <span class="keywordtype">void</span> __inline__ <a class="code hl_function" href="a00510.html#ga03e8d61bbc0f4b686c400440f80dcf69">Dev_SensorOffsetCal</a>(<a class="code hl_struct" href="a00645.html">SENSOR_OFFSET_CAL_t</a>* sensor, uint16_t adcReading)</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">// current sensor offset is not measured</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    sensor-&gt;<a class="code hl_variable" href="a00645.html#a1bf80696497119c4e36460f57de7f667">Accumulator</a> += adcReading;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">if</span> (++sensor-&gt;<a class="code hl_variable" href="a00645.html#a439f5c23e968e4d9d17def3e46ca3aff">MeasurementCounter</a> &gt;= <a class="code hl_define" href="a00305.html#a175e2f52c3522e4154a8d21da88426df">SENSOR_OFFSET_NUM_MEASUREMENTS</a>)</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="comment">// average to determine the offset      </span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        uint16_t offset = (uint16_t) (__builtin_divud(sensor-&gt;<a class="code hl_variable" href="a00645.html#a1bf80696497119c4e36460f57de7f667">Accumulator</a>, sensor-&gt;<a class="code hl_variable" href="a00645.html#a439f5c23e968e4d9d17def3e46ca3aff">MeasurementCounter</a>));</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        sensor-&gt;<a class="code hl_variable" href="a00645.html#a1bf80696497119c4e36460f57de7f667">Accumulator</a> = 0;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        sensor-&gt;<a class="code hl_variable" href="a00645.html#a439f5c23e968e4d9d17def3e46ca3aff">MeasurementCounter</a> = 0;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="comment">// check if result is within acceptable limits</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">if</span> ((offset &lt; sensor-&gt;<a class="code hl_variable" href="a00645.html#a26af6df9982c908f6c04dac5febbfabe">LimitHigh</a>) &amp;&amp; (offset &gt; sensor-&gt;<a class="code hl_variable" href="a00645.html#a807559395dd14cc8be15101fbc71677d">LimitLow</a>))</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="comment">// measured offset is reasonable. Update stored value and exit</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            sensor-&gt;<a class="code hl_variable" href="a00645.html#ae6e68acb116dc3b5f8a7354c7f7d4146">Offset</a> = offset;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            sensor-&gt;<a class="code hl_variable" href="a00645.html#adf25ddb38dbda4b3bf8401ccfa38187f">CalibrationComplete</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }    </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
-</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="a00510.html#gaaa75855922e60913d443c6203475256f">   87</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00510.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>{</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00510.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">isecAvgCurrentSensor</a>.<a class="code hl_variable" href="a00645.html#adf25ddb38dbda4b3bf8401ccfa38187f">CalibrationComplete</a>)</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    {</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <a class="code hl_function" href="a00510.html#ga03e8d61bbc0f4b686c400440f80dcf69">Dev_SensorOffsetCal</a>(&amp;<a class="code hl_variable" href="a00510.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">isecAvgCurrentSensor</a>, <a class="code hl_function" href="a00532.html#gaf4b6f81a05012533b633a78dad7b6a98">ADC1_ConversionResultGet</a>(<a class="code hl_enumvalue" href="a00077.html#aecdfe48b0bc36d2dd1f99274613a6c92aff3c288303ba35d2b135c74ac1fc5ecd">ISEC_AVG</a>));</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
-</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="a00510.html#ga218632f9814c3bf20c40cea0794ffc7d">  101</a></span>uint16_t <a class="code hl_function" href="a00510.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00510.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">isecAvgCurrentSensor</a>.<a class="code hl_variable" href="a00645.html#adf25ddb38dbda4b3bf8401ccfa38187f">CalibrationComplete</a>);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
-</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="a00510.html#ga9f581abf52dc00ba320faafa189fafb9">  111</a></span>uint16_t <a class="code hl_function" href="a00510.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>{</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordflow">return</span>(<a class="code hl_variable" href="a00510.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">isecAvgCurrentSensor</a>.<a class="code hl_variable" href="a00645.html#ae6e68acb116dc3b5f8a7354c7f7d4146">Offset</a>); </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}</div>
-</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="foldopen" id="foldopen00121" data-start="{" data-end="}">
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="a00510.html#ga494b4a948891fd5757ccc647f9962529">  121</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00510.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>{</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_variable" href="a00510.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">isecAvgCurrentSensor</a>.<a class="code hl_variable" href="a00645.html#adf25ddb38dbda4b3bf8401ccfa38187f">CalibrationComplete</a>=<span class="keyword">false</span>; </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
-</div>
-<div class="ttc" id="aa00068_html"><div class="ttname"><a href="a00068.html">adc1.h</a></div><div class="ttdoc">This is the generated driver header file for the ADC1 driver.</div></div>
-<div class="ttc" id="aa00077_html_aecdfe48b0bc36d2dd1f99274613a6c92aff3c288303ba35d2b135c74ac1fc5ecd"><div class="ttname"><a href="a00077.html#aecdfe48b0bc36d2dd1f99274613a6c92aff3c288303ba35d2b135c74ac1fc5ecd">ISEC_AVG</a></div><div class="ttdeci">@ ISEC_AVG</div><div class="ttdef"><b>Definition</b> <a href="a00077_source.html#l00063">adc_types.h:63</a></div></div>
-<div class="ttc" id="aa00305_html_a175e2f52c3522e4154a8d21da88426df"><div class="ttname"><a href="a00305.html#a175e2f52c3522e4154a8d21da88426df">SENSOR_OFFSET_NUM_MEASUREMENTS</a></div><div class="ttdeci">#define SENSOR_OFFSET_NUM_MEASUREMENTS</div><div class="ttdoc">Number of measurement to calculate the average over.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00013">dev_current_sensor.c:13</a></div></div>
-<div class="ttc" id="aa00491_html_ga0ed005156ed4fc2064d588f00d44223d"><div class="ttname"><a href="a00491.html#ga0ed005156ed4fc2064d588f00d44223d">ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</a></div><div class="ttdeci">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00084">macros.h:84</a></div></div>
-<div class="ttc" id="aa00491_html_ga32693322c9fff62a2374fd3de9d0f5e8"><div class="ttname"><a href="a00491.html#ga32693322c9fff62a2374fd3de9d0f5e8">ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</a></div><div class="ttdeci">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00083">macros.h:83</a></div></div>
-<div class="ttc" id="aa00510_html_ga03e8d61bbc0f4b686c400440f80dcf69"><div class="ttname"><a href="a00510.html#ga03e8d61bbc0f4b686c400440f80dcf69">Dev_SensorOffsetCal</a></div><div class="ttdeci">static void __inline__ Dev_SensorOffsetCal(SENSOR_OFFSET_CAL_t *sensor, uint16_t adcReading)</div><div class="ttdoc">Measure the sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00057">dev_current_sensor.c:57</a></div></div>
-<div class="ttc" id="aa00510_html_ga218632f9814c3bf20c40cea0794ffc7d"><div class="ttname"><a href="a00510.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a></div><div class="ttdeci">uint16_t Dev_CurrentSensor_Get_CalibrationStatus(void)</div><div class="ttdoc">API function to get the calibration status.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00101">dev_current_sensor.c:101</a></div></div>
-<div class="ttc" id="aa00510_html_ga494b4a948891fd5757ccc647f9962529"><div class="ttname"><a href="a00510.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a></div><div class="ttdeci">void Dev_CurrentSensor_Clr_Offset(void)</div><div class="ttdoc">API function to clear the sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00121">dev_current_sensor.c:121</a></div></div>
-<div class="ttc" id="aa00510_html_ga9f581abf52dc00ba320faafa189fafb9"><div class="ttname"><a href="a00510.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a></div><div class="ttdeci">uint16_t Dev_CurrentSensor_Get_Offset(void)</div><div class="ttdoc">API function to get the sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00111">dev_current_sensor.c:111</a></div></div>
-<div class="ttc" id="aa00510_html_gaaa75855922e60913d443c6203475256f"><div class="ttname"><a href="a00510.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a></div><div class="ttdeci">void Dev_CurrentSensorOffsetCal(void)</div><div class="ttdoc">Measures the currents sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00087">dev_current_sensor.c:87</a></div></div>
-<div class="ttc" id="aa00510_html_gaf2e1ab5706d4b7e1a47eea25ce323c5f"><div class="ttname"><a href="a00510.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">isecAvgCurrentSensor</a></div><div class="ttdeci">SENSOR_OFFSET_CAL_t isecAvgCurrentSensor</div><div class="ttdoc">Data Object of sensor offset calibration.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00040">dev_current_sensor.c:40</a></div></div>
-<div class="ttc" id="aa00532_html_gaf4b6f81a05012533b633a78dad7b6a98"><div class="ttname"><a href="a00532.html#gaf4b6f81a05012533b633a78dad7b6a98">ADC1_ConversionResultGet</a></div><div class="ttdeci">static uint16_t ADC1_ConversionResultGet(enum ADC_CHANNEL channel)</div><div class="ttdoc">Returns the conversion value for the channel selected.</div><div class="ttdef"><b>Definition</b> <a href="a00068_source.html#l00178">adc1.h:178</a></div></div>
-<div class="ttc" id="aa00645_html"><div class="ttname"><a href="a00645.html">SENSOR_OFFSET_CAL_s</a></div><div class="ttdoc">Stores data related to sensor calibration, including data related to sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00022">dev_current_sensor.c:23</a></div></div>
-<div class="ttc" id="aa00645_html_a1bf80696497119c4e36460f57de7f667"><div class="ttname"><a href="a00645.html#a1bf80696497119c4e36460f57de7f667">SENSOR_OFFSET_CAL_s::Accumulator</a></div><div class="ttdeci">uint32_t Accumulator</div><div class="ttdoc">used for sensor offset measurement at startup</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00024">dev_current_sensor.c:24</a></div></div>
-<div class="ttc" id="aa00645_html_a26af6df9982c908f6c04dac5febbfabe"><div class="ttname"><a href="a00645.html#a26af6df9982c908f6c04dac5febbfabe">SENSOR_OFFSET_CAL_s::LimitHigh</a></div><div class="ttdeci">uint16_t LimitHigh</div><div class="ttdoc">upper bound of what offset should be, offset needs to be &lt; limitHigh and &gt; limitLow for sensorCalibra...</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00028">dev_current_sensor.c:28</a></div></div>
-<div class="ttc" id="aa00645_html_a439f5c23e968e4d9d17def3e46ca3aff"><div class="ttname"><a href="a00645.html#a439f5c23e968e4d9d17def3e46ca3aff">SENSOR_OFFSET_CAL_s::MeasurementCounter</a></div><div class="ttdeci">uint16_t MeasurementCounter</div><div class="ttdoc">used for sensor offset measurement at startup</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00025">dev_current_sensor.c:25</a></div></div>
-<div class="ttc" id="aa00645_html_a807559395dd14cc8be15101fbc71677d"><div class="ttname"><a href="a00645.html#a807559395dd14cc8be15101fbc71677d">SENSOR_OFFSET_CAL_s::LimitLow</a></div><div class="ttdeci">uint16_t LimitLow</div><div class="ttdoc">low bound of what offset should be</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00029">dev_current_sensor.c:29</a></div></div>
-<div class="ttc" id="aa00645_html_adf25ddb38dbda4b3bf8401ccfa38187f"><div class="ttname"><a href="a00645.html#adf25ddb38dbda4b3bf8401ccfa38187f">SENSOR_OFFSET_CAL_s::CalibrationComplete</a></div><div class="ttdeci">bool CalibrationComplete</div><div class="ttdoc">set to true if the sensor is calibrated</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00027">dev_current_sensor.c:27</a></div></div>
-<div class="ttc" id="aa00645_html_ae6e68acb116dc3b5f8a7354c7f7d4146"><div class="ttname"><a href="a00645.html#ae6e68acb116dc3b5f8a7354c7f7d4146">SENSOR_OFFSET_CAL_s::Offset</a></div><div class="ttdeci">uint16_t Offset</div><div class="ttdoc">measured offset</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00026">dev_current_sensor.c:26</a></div></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/* </span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @file    comms_config.h   </span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @author  </span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @brief   project configuration</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef COMMS_CONFIG_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define COMMS_CONFIG_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// PBV working with CAN OR UART</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="a00522.html#ga3bf2f552a3148e521b11370c78f22121">   15</a></span><span class="preprocessor">#define PBV_UART                0   </span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="a00522.html#ga1151367cf9963cedbb90f4d5940d22b8">   16</a></span><span class="preprocessor">#define PBV_CANFD               1   </span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif  </span><span class="comment">/*  COMMS_CONFIG_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

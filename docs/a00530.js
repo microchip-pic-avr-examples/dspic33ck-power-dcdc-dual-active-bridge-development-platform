@@ -1,21 +1,13 @@
 var a00530 =
 [
-    [ "ADC Multicore Driver", "a00532.html", "a00532" ],
-    [ "CAN FD Driver", "a00533.html", "a00533" ],
-    [ "CLC Driver", "a00534.html", "a00534" ],
-    [ "CMP DAC Driver", "a00535.html", "a00535" ],
-    [ "CRC Driver", "a00536.html", "a00536" ],
-    [ "PWM Driver", "a00537.html", "a00537" ],
-    [ "PWM HS Driver", "a00538.html", "a00538" ],
-    [ "DMT Driver", "a00539.html", "a00539" ],
-    [ "Interrupt Driver", "a00540.html", "a00540" ],
-    [ "WDT Driver", "a00541.html", "a00541" ],
-    [ "Pins Driver", "a00542.html", "a00542" ],
-    [ "System Driver", "a00543.html", "a00543" ],
-    [ "Reset Driver", "a00544.html", "a00544" ],
-    [ "Clock Driver", "a00545.html", "a00545" ],
-    [ "Traps Driver", "a00546.html", "a00546" ],
-    [ "Timer Driver", "a00547.html", "a00547" ],
-    [ "UART Driver", "a00548.html", "a00548" ],
-    [ "CONFIGBITS Driver", "a00549.html", null ]
+    [ "APP_PBV_INTF_API_s", "a00649.html", [
+      [ "init", "a00649.html#a2349c43259a9d3c23a516c9b4ad6baaa", null ],
+      [ "linkDataRX", "a00649.html#acf3107157116c08f212dafb02c8128f5", null ],
+      [ "linkDataTX", "a00649.html#a4156ff07130f03dfbd50bf7c30493bfb", null ],
+      [ "reinit", "a00649.html#aad1488054aade0d9770cbae5597a8db9", null ],
+      [ "rxGui", "a00649.html#add9801b083b7d6f3f7bbb0f1d9a55773", null ],
+      [ "txGui", "a00649.html#adca8b72baa17241a6989f96a073cc51c", null ],
+      [ "txGuiAscii", "a00649.html#a8ee94030daa6ae1784d3a4c1efd446eb", null ]
+    ] ],
+    [ "appPbvFuncs", "a00530.html#ga40c15cce2e781ba3b9268150395d466c", null ]
 ];

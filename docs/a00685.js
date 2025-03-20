@@ -1,13 +1,13 @@
 var a00685 =
 [
-    [ "aCoefficients", "a00685.html#a9b53207353649ed96836db0f78300815", null ],
-    [ "bCoefficients", "a00685.html#ad1355dec3eb324d2eab4aeec3949315b", null ],
-    [ "controlHistory", "a00685.html#a01aaca2f4f21e2a7913a2b6e26378d9d", null ],
-    [ "errorHistory", "a00685.html#a2156cbcc870b55a05790b35d7a994ed2", null ],
-    [ "KfactorCoeffsB", "a00685.html#a8c6507769bb4ff1f72e51636286bebc8", null ],
-    [ "maxOutput", "a00685.html#a52e0ede1d35abbd1205991bf926b0123", null ],
-    [ "minOutput", "a00685.html#a0e61035e2b3233a7d496c3eb2f098969", null ],
-    [ "postScaler", "a00685.html#a63cf6fa1fea56820d41793296704eecb", null ],
-    [ "postShift", "a00685.html#a136ef863c1c5b2eee03c1223f4b7baef", null ],
-    [ "preShift", "a00685.html#ab80a85b190b1a682766250d4e72ba6fd", null ]
+    [ "CounterReset", "a00685.html#aa0edd97925490e413dd660faa944ac2d", null ],
+    [ "CounterSet", "a00685.html#abd60c5f6c857aba89b79ed3912e92561", null ],
+    [ "FaultActive", "a00685.html#a1f8690ab82873811964f062a76d15fe7", null ],
+    [ "FaultCode", "a00685.html#a48d214f48d00e2178310f94faf613b2a", null ],
+    [ "FaultCounter", "a00685.html#a1ab3fa6c23f578b903365ceac7d6924a", null ],
+    [ "FaultLatch", "a00685.html#a4789222e3347d2016dd8af50cabd4b14", null ],
+    [ "Val1_Hysteresis", "a00685.html#a2a3b491ddd84f3397021f935033f3aa2", null ],
+    [ "Val1_Threshold", "a00685.html#a5edf921fa44db4fc0b59e47bb5fd0dfd", null ],
+    [ "Val2_Hysteresis", "a00685.html#a8e9aca4cd2e220497c2dc9aee4278e12", null ],
+    [ "Val2_Threshold", "a00685.html#ad968f59d734c469b74fb82587f59e07a", null ]
 ];

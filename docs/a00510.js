@@ -1,19 +1,17 @@
 var a00510 =
 [
-    [ "dev_current_sensor.c", "a00305.html", null ],
-    [ "dev_current_sensor.h", "a00308.html", null ],
-    [ "SENSOR_OFFSET_CAL_s", "a00645.html", [
-      [ "Accumulator", "a00645.html#a1bf80696497119c4e36460f57de7f667", null ],
-      [ "CalibrationComplete", "a00645.html#adf25ddb38dbda4b3bf8401ccfa38187f", null ],
-      [ "LimitHigh", "a00645.html#a26af6df9982c908f6c04dac5febbfabe", null ],
-      [ "LimitLow", "a00645.html#a807559395dd14cc8be15101fbc71677d", null ],
-      [ "MeasurementCounter", "a00645.html#a439f5c23e968e4d9d17def3e46ca3aff", null ],
-      [ "Offset", "a00645.html#ae6e68acb116dc3b5f8a7354c7f7d4146", null ]
-    ] ],
-    [ "Dev_CurrentSensor_Clr_Offset", "a00510.html#ga494b4a948891fd5757ccc647f9962529", null ],
-    [ "Dev_CurrentSensor_Get_CalibrationStatus", "a00510.html#ga218632f9814c3bf20c40cea0794ffc7d", null ],
-    [ "Dev_CurrentSensor_Get_Offset", "a00510.html#ga9f581abf52dc00ba320faafa189fafb9", null ],
-    [ "Dev_CurrentSensorOffsetCal", "a00510.html#gaaa75855922e60913d443c6203475256f", null ],
-    [ "Dev_SensorOffsetCal", "a00510.html#ga03e8d61bbc0f4b686c400440f80dcf69", null ],
-    [ "isecAvgCurrentSensor", "a00510.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f", null ]
+    [ "Conversion Macros", "a00511.html", "a00511" ],
+    [ "VPRIM_LOAD_STEP_CLAMPING_VOLTS", "a00510.html#gae3f52347b2b4a59f50701b297dd93e08", null ],
+    [ "VSEC_LOAD_STEP_CLAMPING_VOLTS", "a00510.html#gad65db8b07e7c77b600ab24be46652e8b", null ],
+    [ "VSEC_OV_T_BLANK_CLEAR_SEC", "a00510.html#ga5128a30f14a7b25809efe09d606b8055", null ],
+    [ "VSEC_OV_T_BLANK_TRIG_SEC", "a00510.html#gaf49c547355152112f9ae4b26555d57e2", null ],
+    [ "VSEC_OV_THRES_CLEAR_VOLTS", "a00510.html#gab1003ede83a567c60837872c8542824b", null ],
+    [ "VSEC_OV_THRES_TRIG_VOLTS", "a00510.html#gaf7f1d859f3effd96e6613130af09fc0b", null ],
+    [ "VSEC_OV_TICK_SEC", "a00510.html#ga77d2a7b05664c0c08ce317f942deca00", null ],
+    [ "VSEC_SNS_GAIN", "a00510.html#gadbb92791a446721a3d4af49d713520ca", null ],
+    [ "VSEC_UV_T_BLANK_CLEAR_SEC", "a00510.html#ga683160afa1313d6ba361e499e367a976", null ],
+    [ "VSEC_UV_T_BLANK_TRIG_SEC", "a00510.html#gacaf7eee4f78c07c9647a18ca030da57d", null ],
+    [ "VSEC_UV_THRES_CLEAR_VOLTS", "a00510.html#gad401641684f506e72d672405e4e80bba", null ],
+    [ "VSEC_UV_THRES_TRIG_VOLTS", "a00510.html#gab7c6ea26f50ee59cfffa63274edbd8ea", null ],
+    [ "VSEC_UV_TICK_SEC", "a00510.html#gab4b4e960335284c22232a1a6fcb41573", null ]
 ];

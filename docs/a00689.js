@@ -1,11 +1,12 @@
 var a00689 =
 [
-    [ "abcCoefficients", "a00689.html#a4d14568609b32117e0f022cbb8948134", null ],
-    [ "controlHistory", "a00689.html#af05b261d43618dff3f93cec9ee47a9f5", null ],
-    [ "errorHistory", "a00689.html#a2156cbcc870b55a05790b35d7a994ed2", null ],
-    [ "maxOutput", "a00689.html#a52e0ede1d35abbd1205991bf926b0123", null ],
-    [ "minOutput", "a00689.html#a0e61035e2b3233a7d496c3eb2f098969", null ],
-    [ "postScaler", "a00689.html#a63cf6fa1fea56820d41793296704eecb", null ],
-    [ "postShift", "a00689.html#a136ef863c1c5b2eee03c1223f4b7baef", null ],
-    [ "preShift", "a00689.html#a3f13a524c5792321a38ee41d3023ca8d", null ]
+    [ "IPrimaryOCP", "a00689.html#a9aa55289e8d0d3f1cd2c1b979707653a", null ],
+    [ "ISecondaryOCP", "a00689.html#a5c0ebb178553b28679126e15448f3680", null ],
+    [ "ISenseSCP", "a00689.html#af268179095dc26cb1a693ef5621c70c6", null ],
+    [ "PowerSupplyOTP", "a00689.html#a480a8e0249740ab8759aeee1c804ba5c", null ],
+    [ "VPrimaryOVP", "a00689.html#a67a6d7934156a505fe648c5a895795ed", null ],
+    [ "VPrimaryUVP", "a00689.html#a6b578aa818e3a0cd2e97b1f83d9243b6", null ],
+    [ "VRail_5V", "a00689.html#a0c6c9adf47adaed77dbc76be05305b1d", null ],
+    [ "VSecondaryOVP", "a00689.html#a4a4096da1c84272a28022842417dc638", null ],
+    [ "VSecondaryUVP", "a00689.html#a2d333978582de1786722d8740564ea3c", null ]
 ];

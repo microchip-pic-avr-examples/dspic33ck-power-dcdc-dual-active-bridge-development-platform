@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/traps.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/src/interrupt.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,10 +136,10 @@ $(document).ready(function(){initNavTree('a00221_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">traps.h</div></div>
+  <div class="headertitle"><div class="title">interrupt.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="a00221.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">© [2024] Microchip Technology Inc. and its subsidiaries.</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span> </div>
@@ -161,36 +161,41 @@ $(document).ready(function(){initNavTree('a00221_source.html',''); initResizable
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    THIS SOFTWARE.</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#ifndef TRAPS_H</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define TRAPS_H</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// Section: Included Files</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// Section: Includes</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;../interrupt.h&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// Section: Driver Interface Function Definitions</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">// Section: Data Type Definitions</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">enum</span> TRAPS_ERROR_CODE </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">// Traps</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    TRAPS_OSC_FAIL = 0, </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    TRAPS_STACK_ERR = 1, </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    TRAPS_ADDRESS_ERR = 2, </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    TRAPS_MATH_ERR = 3, </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    TRAPS_HARD_ERR = 7, </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    TRAPS_DAE_ERR = 9, </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    TRAPS_DOOVR_ERR = 10, </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    TRAPS_APLL_ERR = 11, </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    TRAPS_NVM_ERR = 12, </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    TRAPS_CAN_ERR = 13, </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">// Section: Driver Interface Function</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="a00546.html#ga0333bbed0a73350c26f5e7c151de564f">   76</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00546.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a>(uint16_t code);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="ttc" id="aa00546_html_ga0333bbed0a73350c26f5e7c151de564f"><div class="ttname"><a href="a00546.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a></div><div class="ttdeci">void TRAPS_halt_on_error(uint16_t code)</div><div class="ttdoc">Stores the trap error code and waits forever. This is a weak attribute function. The user can overrid...</div></div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="}">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="a00564.html#ga5c526129ee879458dff6755f5768a6e3">   44</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00564.html#ga5c526129ee879458dff6755f5768a6e3">INTERRUPT_Initialize</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment">// CCT1: CCP1 Timer Event</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// Priority: 5</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    IPC1bits.CCT1IP = 5;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// DMT: Dead Man Timer</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="comment">// Priority: 1</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    IPC11bits.DMTIP = 1;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// T1: Timer 1</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">// Priority: 3</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    IPC0bits.T1IP = 3;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="a00564.html#ga2b6583be540877d43388113fdc5bd110">   60</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00564.html#ga2b6583be540877d43388113fdc5bd110">INTERRUPT_Deinitialize</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">//POR default value of priority</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    IPC1bits.CCT1IP = 4;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    IPC11bits.DMTIP = 4;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    IPC0bits.T1IP = 4;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>}</div>
+</div>
+<div class="ttc" id="aa00564_html_ga2b6583be540877d43388113fdc5bd110"><div class="ttname"><a href="a00564.html#ga2b6583be540877d43388113fdc5bd110">INTERRUPT_Deinitialize</a></div><div class="ttdeci">void INTERRUPT_Deinitialize(void)</div><div class="ttdoc">Deinitializes the INTERRUPT to POR values.</div><div class="ttdef"><b>Definition</b> <a href="a00221_source.html#l00060">interrupt.c:60</a></div></div>
+<div class="ttc" id="aa00564_html_ga5c526129ee879458dff6755f5768a6e3"><div class="ttname"><a href="a00564.html#ga5c526129ee879458dff6755f5768a6e3">INTERRUPT_Initialize</a></div><div class="ttdeci">void INTERRUPT_Initialize(void)</div><div class="ttdoc">Initializes the interrupt priorities of the modules that have been configured.</div><div class="ttdef"><b>Definition</b> <a href="a00221_source.html#l00044">interrupt.c:44</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
