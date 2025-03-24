@@ -167,6 +167,10 @@ Related Documentation</h2>
 <ul>
 <li><a href="https://microchip-pic-avr-examples.github.io/dspic33ck-power-dcdc-dual-active-bridge-development-platform/">Online Firmware Documentation of this Code Example</a></li>
 </ul>
+<p><b>Firmware Version</b></p><ul>
+<li>[Forward Direction Operation Firmware Code version 1.0]()</li>
+<li>[Forward and Reverse Direction Operation Firmware Code version 2.0]()</li>
+</ul>
 <p><b>Hardware Documentation</b></p>
 <ul>
 <li><a href="https://www.microchip.com/en-us/tools-resources/reference-designs/11-kw-dual-active-bridge-dc-dc-demonstration-application">11kW Dual Active Bridge DC-DC Demonstration Application</a></li>
@@ -249,7 +253,8 @@ Quick Start Guide</h2>
 <p>After completing the hardware setup, go to the power board visualizer XMLs folder. Open the appropriate project using Power Board Visualizer. Once the project is open, you will see the following screen.</p>
 <center><a href="images/dab-pbv.jpg" target="_blank" rel="nofollow"><img src="images/dab-pbv.jpg" alt="DAB project running on Power Board Visualizer GUI" width="800" class="inline"/> </a> </center> <center>  DAB project running on Power Board Visualizer GUI  </center> <ol type="1">
 <li>Start Fwd / Stop / Start Rev Button<ul>
-<li>This button toggles the application on and off and allows user to select the mode of operation, either forward mode or reverse mode operation. To carefully transition the mode from forward to reverse operation, and vice versa, the operation needs to be stop first. Each button press sends a corresponding message over CANFD. For detailed CAN message descriptions, click on the Info tab.</li>
+<li>This button toggles the application on and off and allows user to select the mode of operation, either forward mode or reverse mode operation. Each button press sends a corresponding message over CANFD. For detailed CAN message descriptions, click on the Info tab.</li>
+<li><b> NOTE: </b> To carefully transition the mode from forward to reverse operation, and vice versa, the operation needs to be stop first.</li>
 </ul>
 </li>
 <li>Voltage Output for Forward and Reverse operation, Current Output, and Power Output Reference Sliders<ul>
