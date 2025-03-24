@@ -210,8 +210,8 @@ void PwrCtrl_10KHzVPLoopPrepareData(void)
  *    Until voltage readings become reliable, P and I references are forced to minimum safe values.
  *    This achieves very slow ramp up of voltage across output capacitors.
  *********************************************************************************/
-#define MIN_REFERENCE_THRESHOLD_IV (10)
-#define MIN_REFERENCE_THRESHOLD_P  (15)
+#define MIN_REFERENCE_THRESHOLD_IV (10)//roughly 300mA
+#define MIN_REFERENCE_THRESHOLD_P  (15)//
 #define PIRM_MIN_VOLTAGE_55V       (250)
 #define PRIMARY_VOLTAGE_MODE_SENSOR_SAFE_CHECK() do { \
     if (dab.Properties.IReference > MIN_REFERENCE_THRESHOLD_IV) \
