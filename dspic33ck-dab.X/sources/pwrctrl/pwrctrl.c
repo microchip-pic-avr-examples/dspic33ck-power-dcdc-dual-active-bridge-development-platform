@@ -186,7 +186,7 @@ void PwrCtrl_ControlLoopInitialize(void)
 static void PwrCtrl_StartUpInitialize(void)
 {
     // Initialize Voltage ramp-up settings
-    dab.VRamp.ptrReference = &dab.VLoop.Reference;
+    dab.VRamp.ptrReference = (uint16_t *)&dab.VLoop.Reference;
     
 
     if(dab.PowerDirection == PWR_CTRL_DISCHARGING)
