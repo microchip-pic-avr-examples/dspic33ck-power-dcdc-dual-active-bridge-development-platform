@@ -44,6 +44,10 @@ __Firmware Documentation__
 
 - [Online Firmware Documentation of this Code Example](https://microchip-pic-avr-examples.github.io/dspic33ck-power-dcdc-dual-active-bridge-development-platform/)
 
+__Firmware Version__ 
+- [Forward Direction Operation Firmware Code version 1.0]()
+- [Forward and Reverse Direction Operation Firmware Code version 2.0]()
+
 __Hardware Documentation__
 
 - [11kW Dual Active Bridge DC-DC Demonstration Application](https://www.microchip.com/en-us/tools-resources/reference-designs/11-kw-dual-active-bridge-dc-dc-demonstration-application)
@@ -161,7 +165,8 @@ DAB project running on Power Board Visualizer GUI
 
 
 1. Start Fwd / Stop / Start Rev Button
-	- This button toggles the application on and off and allows user to select the mode of operation, either forward mode or reverse mode operation. To carefully transition the mode from forward to reverse operation, and vice versa, the operation needs to be stop first. Each button press sends a corresponding message over CANFD. For detailed CAN message descriptions, click on the Info tab.
+	- This button toggles the application on and off and allows user to select the mode of operation, either forward mode or reverse mode operation. Each button press sends a corresponding message over CANFD. For detailed CAN message descriptions, click on the Info tab.
+	- <b> NOTE: </b> To carefully transition the mode from forward to reverse operation, and vice versa, the operation needs to be stop first.
 2. Voltage Output for Forward and Reverse operation, Current Output, and Power Output Reference Sliders
 	- These sliders are used to set reference values for output voltage, current, and power for the DAB. The lowest value among them will control the output. Ensure to press the Set button below the slider to communicate the reference value to the microcontroller. A dedicated voltage output setup for Forward and reverse operation is provided to the user.
 3. Comm Status and COM Selector

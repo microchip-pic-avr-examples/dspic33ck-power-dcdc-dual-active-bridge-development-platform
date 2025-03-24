@@ -84,7 +84,7 @@ In the figures below, a comparison of forward and reverse operation is shown. Ob
 
 <p>
   <center>
-    <img src="images/dab-forward-waveform.jpg" alt="forward-mode" width="450">
+    <img src="images/dab-forward-waveform.jpg" alt="forward-mode" width="600">
     <br>
     DAB Forward Mode waveform
   </center>
@@ -94,7 +94,7 @@ In the figures below, a comparison of forward and reverse operation is shown. Ob
 
 <p>
   <center>
-    <img src="images/dab-reverse-waveform.jpg" alt="reverse-mode" width="450">
+    <img src="images/dab-reverse-waveform.jpg" alt="reverse-mode" width="600">
     <br>
     DAB Reverse Mode waveform
   </center>
@@ -104,7 +104,7 @@ In the figures below, a comparison of forward and reverse operation is shown. Ob
 
 When transitioning the mode of operation of the Dual Active Bridge (DAB) from forward to reverse, it is crucial to consider the voltage on the primary side. The isolated voltage sensing circuit, which is responsible for monitoring the primary side voltage, requires a voltage higher than 100V to function reliably. If the primary side voltage falls below this threshold, the circuit may not operate correctly, leading to unreliable performance and inaccurate voltage measurements.
 
-To ensure the isolated voltage sensing circuit operates correctly, it is essential to maintain the primary side voltage above 100V. This voltage level is necessary for the proper powering of the circuit components, including the optocouplers and the analog-to-digital converters (ADCs) used for digitizing the sensed voltages.
+To ensure the isolated voltage sensing circuit operates correctly, it is essential to maintain the primary side voltage above 100V. This voltage level is necessary for the proper powering of the circuit components specially the PIC16 device that detects the primary voltage.
 
 Additionally, when initiating the reverse mode operation, a careful ramp-up sequence must be followed. This precaution is necessary to prevent dangerous voltage overshoots, which can occur if the voltage increases too rapidly. 
 
@@ -284,7 +284,7 @@ In a cascaded PWM configuration, the first PWM triggers subsequent PWMs in seque
   </center>
 </p>
 
-In the forward mode of the DAB converter, the PWM signals are configured to control the power flow from the primary side to the secondary side. In reverse mode, the power flow is reversed, going from the secondary side back to the primary side. This reversal requires a different configuration of the PWM signals to ensure proper operation. Specifically, for proper control in reverse mode, the complementary outputs of PWM2 and PWM3 need to be swapped. This means that the signal originally output on PWM2H in forward mode should now be output on PWM2L, and vice versa. This swapping ensures that the switching sequence of the transistors is correct for the reverse power flow.
+In the forward mode of the DAB converter, the PWM signals are configured to control the power flow from the primary side to the secondary side. In reverse mode, the power flow is reversed, going from the secondary side back to the primary side. This reversal requires a different configuration of the PWM signals to ensure proper operation. Specifically, for proper control in reverse mode, the complementary outputs of PWM2 and PWM3 need to be swapped. This means that the signal originally output on PWM2H in forward mode should now be output on PWM2L, and vice versa. This swapping ensures that the switching sequence of the transistors is correct for the reverse power flow. The figure below shows how the PWM works from no power to full power operation for both forward and reverse operating mode. 
 
 
 <p>
@@ -299,12 +299,30 @@ In the forward mode of the DAB converter, the PWM signals are configured to cont
 ## Power Control Compensator
 In this project, the Microchip [Digital Compensator Design Tool](https://www.microchip.com/en-us/development-tool/dcdt) has been employed for managing control loops. This software utility is specifically designed to aid engineers in the development and optimization of digital compensators for power supply systems. The tool streamlines the design process of digital control loops by offering an intuitive interface for configuring and tuning compensators. 
 
-This tool generates control loop files that are essential for code development. These files can be found in the directory pwrctrl/dcdt/. In the file pwrctrl_dcdt.c, users need to initialize the A- and B- coefficients of the control loop from DCDT, as well as set the scaling and limits for the control loop output. The control loop compensator is executed within the control loop interrupt service routine. This application includes three compensators: Voltage Loop, Current Loop, and Power Loop. The compensators are configured to allow users to adjust their limits in the Power Board Visualizer. The compensator with the lowest reference threshold will take precedence in controlling the loop.
+This tool generates control loop files that are essential for code development. These files can be found in the directory pwrctrl/dcdt/. In the file pwrctrl_dcdt.c, users need to initialize the A- and B- coefficients of the control loop from DCDT, as well as set the scaling and limits for the control loop output. The control loop compensator is executed within the control loop interrupt service routine. This application includes three compensators: Voltage Loop, Current Loop, and Power Loop. The compensators are configured to allow users to adjust their limits in the Power Board Visualizer. The compensator with the lowest reference threshold will take precedence in controlling the loop. 
 
 <p>
   <center>
     <img src="images/pbv-control-loop.jpg" width="600"></p>
     DAB Power Board Visualizer Control Loop 
+  </center>
+</p>
+
+Each mode of operation of the DAB (forward/reverse) features distinct control loops for voltage, current, and power.
+
+Charging Direction:
+- Current Loop: Utilizes the rectified current sensor value.
+- Battery Voltage Loop: Regulates battery voltage, handling conditions such as end of charge and disconnected wires.
+- Power Loop: Sets an adjustable power limit based on various charging profiles.
+
+Discharge Direction:
+- Current Loop: Utilizes the rectified current sensor value.
+- Intermediate Voltage Loop: Regulates intermediate voltage as power flows towards the inverter and grid.
+- Power Loop: Sets an adjustable power limit based on various discharge profiles.
+<p>
+  <center>
+    <img src="images/dab-compensator.jpg" width="800"></p>
+    DAB compensators for forward and reverse mode
   </center>
 </p>
 

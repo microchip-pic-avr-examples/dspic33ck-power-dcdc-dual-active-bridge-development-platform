@@ -185,8 +185,8 @@
  * @{
  ******************************************************************************/
 #define DAC_DEBUG           false    ///< test values with PIM DAC output
-#define OPEN_LOOP_POTI      false    ///< test the code with Digital Power Development Board; runs in openloop using potentiometer
-#define OPEN_LOOP_PBV       false    ///< use Power Board visualizer to change the parameters in Open loop operation
+#define OPEN_LOOP_POTI      true    ///< test the code with Digital Power Development Board; runs in openloop using potentiometer
+#define OPEN_LOOP_PBV       true    ///< use Power Board visualizer to change the parameters in Open loop operation
 
 #if((OPEN_LOOP_POTI == true) || (OPEN_LOOP_PBV == true))
 #define CURRENT_CALIBRATION             false  ///< Enable current calibration
