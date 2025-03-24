@@ -21,6 +21,7 @@
 #include "fault_common.h"
 #include "fault.h"
 #include "fault_comm_interface.h"
+#include "../driver/mcc_extension/drv_mcc_extension_pwm.h"
 
 // PRIVATE FUNCTIONS
 static void Fault_EnableShortCircuitProtection(void);
@@ -162,10 +163,7 @@ void Fault_Execute(void)
     //it is still captured inside PWM generator as fault signal.
     //act on this signal if detected, as generic Short Circuit detection fault.
     //PWM signals are already turned off by HW, so adjust SW flow accordingly
-    if((PG1STATbits.FLTACT)||
-        (PG2STATbits.FLTACT)||
-            (PG3STATbits.FLTACT)||
-            (PG4STATbits.FLTACT))
+    if(FAULT_ACTIVE)
     {
         Fault_Handler();
         

@@ -20,7 +20,7 @@ uint8_t PBV_CAN_Transmit_to_GUI();
 uint8_t PBV_CAN_Transmit_Ascii_to_GUI();
 void PBV_CAN_Reinit(PBV_Datatype_TX_t * ptr);
 void PBV_CAN_Link_Data_TX(PBV_Datatype_TX_t * ptr);
-void PBV_CAN_Link_Data_RX(PBV_Datatype_RX_t * ptr);
+int PBV_CAN_Link_Data_RX(PBV_Datatype_RX_t * ptr);
 
 #endif  /* APP_PBV_CAN_INTERFACE_H */
 

@@ -160,8 +160,8 @@ void App_PBV_DAB_Task_1s(void)
     
     if (appPbvDabAsciiPtr->PBV_Protcol_ID == FIRMWARE_PROTOCOL_ID)
     {
-        strcpy(&PBVBuffer[0], (uint8_t *)FIRMWARE_VERSION_STRING);
-        strcpy(&PBVBuffer[10], (uint8_t *)FIRMWARE_NAME);
+        strcpy((char *)&PBVBuffer[0], (char *)FIRMWARE_VERSION_STRING);
+        strcpy((char *)&PBVBuffer[10], (char *)FIRMWARE_NAME);
         appPbvDabAsciiPtr->Data_Buffer = &PBVBuffer[0];
                 
         App_Send_To_PBV(appPbvDabAsciiPtr);
@@ -181,14 +181,14 @@ void App_PBV_DAB_Task_1s(void)
             if(!(OneSecCounter%20))
             {
  //                                    "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef";   
-                sprintf(&PBVBuffer[0], "\rDAB board heat sink Temperature is %d degree Celsius  ", Dev_Temp_Get_Temperature_Celcius() );
+                sprintf((char *)&PBVBuffer[0], "\rDAB board heat sink Temperature is %d degree Celsius  ", Dev_Temp_Get_Temperature_Celcius() );
             }
             else
-            sprintf(&PBVBuffer[0], "\r Dual Active Bridge. 64B fixed length Log. MsgNo %d ", OneSecCounter);
+            sprintf((char *)&PBVBuffer[0], "\r Dual Active Bridge. 64B fixed length Log. MsgNo %d ", OneSecCounter);
         }
         else
         {   
-            sprintf(&PBVBuffer[0], "\r Dual Active Bridge. AFTER RESET SYSTEM STARTUP  " ); 
+            sprintf((char *)&PBVBuffer[0], "\r Dual Active Bridge. AFTER RESET SYSTEM STARTUP  " ); 
         }
 
         appPbvDabAsciiPtr->Data_Buffer =&PBVBuffer[0];

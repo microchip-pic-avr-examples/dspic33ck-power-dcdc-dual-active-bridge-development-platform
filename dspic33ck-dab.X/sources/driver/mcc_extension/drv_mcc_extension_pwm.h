@@ -1303,5 +1303,11 @@ inline static void PWM_Fault_DataMode(uint16_t pwmIndex, PWM_FAULT_DATA_t faultD
     };
 }
 
+
+#define FAULT_ACTIVE (PG1STATbits.FLTACT)||\
+                     (PG2STATbits.FLTACT)||\
+                     (PG3STATbits.FLTACT)||\
+                     (PG4STATbits.FLTACT)\
+        
 #endif	/* DRV_MCC_EXTENSION_PWM_H */
 

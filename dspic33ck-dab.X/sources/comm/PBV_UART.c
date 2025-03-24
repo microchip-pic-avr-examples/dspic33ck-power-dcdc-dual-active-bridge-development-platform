@@ -559,13 +559,14 @@ void PBV_UART_Link_Data_TX(PBV_Datatype_TX_t * ptr)
  * @return  void
  * @details Links the data from received frame to the calling application    
  **********************************************************************************/
-void PBV_UART_Link_Data_RX(PBV_Datatype_RX_t * ptr)
+int PBV_UART_Link_Data_RX(PBV_Datatype_RX_t * ptr)
 {
     if (ptr->PBV_Message_State == PBV_MESSAGE_RECEIVED){
         ptr->PBV_Protcol_ID = pbvUartObjectRx.Protocol_ID;
         ptr->Data_Buffer = pbvUartObjectRx.data;
         ptr->Length = pbvUartObjectRx.Length_in_Bytes;
     } 
+    return 0;
 }
 
 /*********************************************************************************

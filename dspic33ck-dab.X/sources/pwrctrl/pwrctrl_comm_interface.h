@@ -17,6 +17,7 @@ void PwrCtrl_SetEnable(PWR_CTRL_CHARGE_STATE_t setVal);
 void PwrCtrl_SetVSecReference(uint16_t reference);
 void PwrCtrl_SetIReference(uint16_t reference);
 void PwrCtrl_SetPwrReference(uint16_t reference);
+void PwrCtrl_SetVPriReference(uint16_t reference);
 
 // "get" APIs
 uint16_t PwrCtrl_GetPhase_P2SDegree(void);
