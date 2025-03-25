@@ -28,8 +28,8 @@
  *  select code sections depending on the availability of firmware version-specific
  *  features or limitations.
  **********************************************************************************/
-#define FIRMWARE_VERSION_MAJOR    (0x00)
-#define FIRMWARE_VERSION_MINOR    (0x02)
+#define FIRMWARE_VERSION_MAJOR    (0x02)
+#define FIRMWARE_VERSION_MINOR    (0x00)
 #define FIRMWARE_VERSION_REVISION (0x0000)
 //#define FIRMWARE_VERSION_REVISION (0x0002) //reverse/discharger mode implementation
 //#define FIRMWARE_VERSION_REVISION (0x0003) //load disconnect supress while not up and running state. Avoids false detection during ref transitions
@@ -47,7 +47,7 @@
  *  number REV.
  *  This string may be used to be displayed in terminal windows or LC displays.
  **********************************************************************************/
-#define FIRMWARE_VERSION_STRING "00.02.0000" 
+#define FIRMWARE_VERSION_STRING "02.00.0000" 
 /*********************************************************************************
  * @ingroup apps-layer-properties-public-defines
  * @brief   Start screen string of second line showing firmware name
