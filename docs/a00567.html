@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: CONFIGBITS Driver</title>
+<title>Dual Active Bridge Development Board: Traps Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,24 +136,71 @@ $(document).ready(function(){initNavTree('a00567.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">CONFIGBITS Driver<div class="ingroups"><a class="el" href="a00548.html">MPLABX MCC Melody Code Generator</a></div></div></div>
+  <div class="summary">
+<a href="#files">Files</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">Traps Driver<div class="ingroups"><a class="el" href="a00551.html">MPLABX MCC Melody Code Generator</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Device Configuration Bits using dsPIC MCUs.  
-</p>
+<p>Traps driver with handler for all types of traps using dsPIC MCUs.  
+<a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CONFIGBITS Driver:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Traps Driver:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00567.svg" width="346" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00567.svg" width="300" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<p>/**</p>
-<dl class="section version"><dt>Version</dt><dd>Firmware Driver Version 1.0.1</dd>
-<dd>
-PLIB Version 1.2.2</dd></dl>
-<div class="fragment"></div><!-- fragment --></div><!-- contents -->
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:a00230" id="r_a00230"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00230.html">traps.c</a></td></tr>
+<tr class="memdesc:a00230"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver source file for TRAPS driver. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga0333bbed0a73350c26f5e7c151de564f" id="r_ga0333bbed0a73350c26f5e7c151de564f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00567.html#ga0333bbed0a73350c26f5e7c151de564f">TRAPS_halt_on_error</a> (uint16_t code)</td></tr>
+<tr class="memdesc:ga0333bbed0a73350c26f5e7c151de564f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the trap error code and waits forever. This is a weak attribute function. The user can override and implement the same function without weak attribute.  <br /></td></tr>
+<tr class="separator:ga0333bbed0a73350c26f5e7c151de564f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="fragment"></div><!-- fragment --><h2 class="groupheader">Function Documentation</h2>
+<a id="ga0333bbed0a73350c26f5e7c151de564f" name="ga0333bbed0a73350c26f5e7c151de564f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0333bbed0a73350c26f5e7c151de564f">&#9670;&#160;</a></span>TRAPS_halt_on_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TRAPS_halt_on_error </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">code</td><td>- trap error code </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>none <br  />
+ </dd></dl>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00567_ga0333bbed0a73350c26f5e7c151de564f_icgraph.svg" width="314" height="291"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

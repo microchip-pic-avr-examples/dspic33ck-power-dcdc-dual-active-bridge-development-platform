@@ -1,14 +1,17 @@
 var a00505 =
 [
-    [ "VSEC_FACTOR", "a00505.html#ga87426af9b5f855874eedc446074b5b7b", null ],
-    [ "VSEC_LOAD_STEP_CLAMP", "a00505.html#gaf68a4a402cbda8d11a24ba119c2c9aa1", null ],
-    [ "VSEC_OV_T_BLANK_CLEAR", "a00505.html#gafa2427e85d2f9ac0723ed0ed23af656d", null ],
-    [ "VSEC_OV_T_BLANK_TRIG", "a00505.html#ga5a408a256fc1b9b921330828dea28789", null ],
-    [ "VSEC_OV_THRES_CLEAR", "a00505.html#gacefdf0fe6bfec783e2318f5470f4aa2f", null ],
-    [ "VSEC_OV_THRES_TRIG", "a00505.html#ga2cedf2c418fcc28d45db230262989756", null ],
-    [ "VSEC_SCALER", "a00505.html#ga93b81b121d48dd0d5cd464d10740fa88", null ],
-    [ "VSEC_UV_T_BLANK_CLEAR", "a00505.html#gaf6ea7359d607b7241085b9ac7fbdb26b", null ],
-    [ "VSEC_UV_T_BLANK_TRIG", "a00505.html#ga995d68e6451585c1667fd9193c7f0f85", null ],
-    [ "VSEC_UV_THRES_CLEAR", "a00505.html#gafeabe557b94a2db2232adcb85e4616dc", null ],
-    [ "VSEC_UV_THRES_TRIG", "a00505.html#ga3139033462285507b81adb23bbd3931e", null ]
+    [ "Conversion Macros", "a00506.html", "a00506" ],
+    [ "VPRI_OV_T_BLANK_CLEAR_SEC", "a00505.html#gae45b4bac6339131a7cb30567551a2cd5", null ],
+    [ "VPRI_OV_T_BLANK_TRIG_SEC", "a00505.html#gaf81643989e826fa9c4349f4184a56a0d", null ],
+    [ "VPRI_OV_THRES_CLEAR_VOLTS", "a00505.html#gae8ebc2c2c94c46d6bfbdc05ac7ffdecb", null ],
+    [ "VPRI_OV_THRES_TRIG_VOLTS", "a00505.html#ga3de0595efbf0659d33138d8f32e9e34e", null ],
+    [ "VPRI_OV_TICK_SEC", "a00505.html#gab881ac722074c5a0c9a96b33737b44f2", null ],
+    [ "VPRI_SNS_GAIN", "a00505.html#gae3dffcdc110b55af6c257bfc0748cf81", null ],
+    [ "VPRI_SNS_OFS", "a00505.html#ga35eab816332f1b3d80d161f125c5044a", null ],
+    [ "VPRI_UV_T_BLANK_CLEAR_SEC", "a00505.html#gae060c2f32be9e0c4fbe4d30968d86a50", null ],
+    [ "VPRI_UV_T_BLANK_TRIG_SEC", "a00505.html#ga6ff4ff92efb2e17e98e3b963e6dc0cae", null ],
+    [ "VPRI_UV_THRES_CLEAR_VOLTS", "a00505.html#gaf0c600dfc98788eda04c6051f1e67dff", null ],
+    [ "VPRI_UV_THRES_TRIG_VOLTS", "a00505.html#ga886eaaa750e2ef06f90bdd463c7f6346", null ],
+    [ "VPRI_UV_TICK_SEC", "a00505.html#gac8e4597345a6c7e57405fa9084be0dcb", null ],
+    [ "VPRI_VOLTAGE_GAIN", "a00505.html#gab88335efd29659386531beabaffdf660", null ]
 ];

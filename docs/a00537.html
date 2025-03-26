@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Interrupt Routine and Functions</title>
+<title>Dual Active Bridge Development Board: MCC Custom Code ADC</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,165 +138,261 @@ $(document).ready(function(){initNavTree('a00537.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">Interrupt Routine and Functions<div class="ingroups"><a class="el" href="a00535.html">Power Control</a></div></div></div>
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">MCC Custom Code ADC<div class="ingroups"><a class="el" href="a00535.html">Driver Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains the interrupt routine and other functions called in the interrupt.  
+<p>Contain functions and data types as MCC extension for ADC.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Interrupt Routine and Functions:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for MCC Custom Code ADC:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00537.svg" width="278" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00537.svg" width="312" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00479" id="r_a00479"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00479.html">pwrctrl_isr.c</a></td></tr>
-<tr class="memdesc:a00479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains Control loop interrupt Callback that acquires the ADC raw data and process it in the control loop, and use the control output for the PWM distribution for this converter. <br /></td></tr>
+<tr class="memitem:a00353" id="r_a00353"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html">drv_custom_config_adc.h</a></td></tr>
+<tr class="memdesc:a00353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains ADC initialization that was not supported by MCC generated code. <br  />
+ <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00482" id="r_a00482"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html">pwrctrl_isr.h</a></td></tr>
-<tr class="memdesc:a00482"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains public function relevant for power control interrupt. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00485" id="r_a00485"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html">pwrctrl_isr_extension.c</a></td></tr>
-<tr class="memdesc:a00485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains some of the functions used in the interrupt service routine of control loop. <br /></td></tr>
+<tr class="memitem:a00362" id="r_a00362"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html">drv_mcc_extension_adc.h</a></td></tr>
+<tr class="memdesc:a00362"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains public functions and defines for the MCC code extension for ADC. <br  />
+ <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ga9bdc078fe328d76d13c139cab37a7a24" id="r_ga9bdc078fe328d76d13c139cab37a7a24"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga9bdc078fe328d76d13c139cab37a7a24">MIN_REFERENCE_THRESHOLD_IV</a>&#160;&#160;&#160;(10)</td></tr>
-<tr class="memdesc:ga9bdc078fe328d76d13c139cab37a7a24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power converter control loop.  <br /></td></tr>
-<tr class="separator:ga9bdc078fe328d76d13c139cab37a7a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga7b9b42cf017f1b61599aee687cc2803a" id="r_ga7b9b42cf017f1b61599aee687cc2803a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga7b9b42cf017f1b61599aee687cc2803a">ADC_FILTER_MODE_e</a> { <a class="el" href="a00537.html#gga7b9b42cf017f1b61599aee687cc2803aa92b3f4d7ad60ba627e8913772ab28791">ADC_FILTER_MODE_OVERSAMPLING</a> = 0
+, <a class="el" href="a00537.html#gga7b9b42cf017f1b61599aee687cc2803aa7744c10b74df8d669851f30b101554ac">ADC_FILTER_MODE_AVERAGING</a> = 3
+ }</td></tr>
+<tr class="memdesc:ga7b9b42cf017f1b61599aee687cc2803a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC Filter Modes of operation.  <a href="a00537.html#ga7b9b42cf017f1b61599aee687cc2803a">More...</a><br /></td></tr>
+<tr class="separator:ga7b9b42cf017f1b61599aee687cc2803a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade4789b79009bb5798d22406600442a8" id="r_gade4789b79009bb5798d22406600442a8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gade4789b79009bb5798d22406600442a8">ADC_FILTER_OVRSAM_AVG_e</a> { <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8ac592295deb7ffa249a21e64907cf2c13">ADC_FILTER_OVRSAM_AVG_2x</a> = 0
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8a1a5c4a9f038101bad68a56ce52a7b99f">ADC_FILTER_OVRSAM_AVG_4x</a> = 1
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8a01fffdf4afdc19bc3f00de0d152dcd63">ADC_FILTER_OVRSAM_AVG_8x</a> = 2
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8a6943e4ed06207ea3d52435cd23c7612e">ADC_FILTER_OVRSAM_AVG_16x</a> = 3
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8a6e9e2dd1ce8aa49c2fa9235dad126d50">ADC_FILTER_OVRSAM_AVG_32x</a> = 4
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8a56481c3dd7f242f83dac9be77ac97d93">ADC_FILTER_OVRSAM_AVG_64x</a> = 5
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8aded484f19a56bac94569c4768bf26b16">ADC_FILTER_OVRSAM_AVG_128x</a> = 6
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8a70761444839d59d84be99373fb963124">ADC_FILTER_OVRSAM_AVG_256x</a> = 7
+ }</td></tr>
+<tr class="memdesc:gade4789b79009bb5798d22406600442a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC Filter Oversampling Ratio when in averaging mode.  <a href="a00537.html#gade4789b79009bb5798d22406600442a8">More...</a><br /></td></tr>
+<tr class="separator:gade4789b79009bb5798d22406600442a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gae32c9e5ed4d1fb98fc13b26601782c10" id="r_gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gae32c9e5ed4d1fb98fc13b26601782c10">ControlLoop_Interrupt_CallBack</a> (void)</td></tr>
-<tr class="memdesc:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power converter control loop.  <br /></td></tr>
-<tr class="separator:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa34c5b66d8f20f01daef50d0e88cf20e" id="r_gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaa34c5b66d8f20f01daef50d0e88cf20e">PwrCtrl_UpdateADConverterData</a> (void)</td></tr>
-<tr class="memdesc:gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members with ADC raw values.  <br /></td></tr>
-<tr class="separator:gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaf49f142990b8dc3f750e88365bf8fed" id="r_gaaf49f142990b8dc3f750e88365bf8fed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaaf49f142990b8dc3f750e88365bf8fed">PwrCtrl_10KHzVPLoopPrepareData</a> (void)</td></tr>
-<tr class="memdesc:gaaf49f142990b8dc3f750e88365bf8fed"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function prepares the data for control loop and selects which control loop will be executed.  <br /></td></tr>
-<tr class="separator:gaaf49f142990b8dc3f750e88365bf8fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8e52f74dc17c38d13a3980af0968fc2f" id="r_ga8e52f74dc17c38d13a3980af0968fc2f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga8e52f74dc17c38d13a3980af0968fc2f">PwrCtrl_AdaptiveGainUpdate</a> (void)</td></tr>
-<tr class="memdesc:ga8e52f74dc17c38d13a3980af0968fc2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Adaptive gain for the power converter control loop.  <br /></td></tr>
-<tr class="separator:ga8e52f74dc17c38d13a3980af0968fc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabda1b0b4f44a931cc725c3f5fa45be7b" id="r_gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gabda1b0b4f44a931cc725c3f5fa45be7b">PwrCtrl_PrimToSecPHDegree</a> (void)</td></tr>
-<tr class="memdesc:gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members with phase values normalized in degree.  <br /></td></tr>
-<tr class="separator:gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga80c3a681fbe9c0d7041146d82134f0cb" id="r_ga80c3a681fbe9c0d7041146d82134f0cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga80c3a681fbe9c0d7041146d82134f0cb">PwrCtrl_DeadTimeAdjust</a> (void)</td></tr>
-<tr class="memdesc:ga80c3a681fbe9c0d7041146d82134f0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members dead time based on load.  <br /></td></tr>
-<tr class="separator:ga80c3a681fbe9c0d7041146d82134f0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga963f5607c8862374734b3cc799dedc68" id="r_ga963f5607c8862374734b3cc799dedc68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00470.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga963f5607c8862374734b3cc799dedc68">vPrimAveraging</a></td></tr>
-<tr class="memdesc:ga963f5607c8862374734b3cc799dedc68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of primary voltage averaging.  <br /></td></tr>
-<tr class="separator:ga963f5607c8862374734b3cc799dedc68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaef7d489f0d36cd14c2f49022909e01b4" id="r_gaef7d489f0d36cd14c2f49022909e01b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00470.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaef7d489f0d36cd14c2f49022909e01b4">vSecAveraging</a></td></tr>
-<tr class="memdesc:gaef7d489f0d36cd14c2f49022909e01b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of secondary voltage averaging.  <br /></td></tr>
-<tr class="separator:gaef7d489f0d36cd14c2f49022909e01b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga672f4741d032387a584ef0444f637cce" id="r_ga672f4741d032387a584ef0444f637cce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00470.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga672f4741d032387a584ef0444f637cce">iSecAveraging</a></td></tr>
-<tr class="memdesc:ga672f4741d032387a584ef0444f637cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of secondary current averaging.  <br /></td></tr>
-<tr class="separator:ga672f4741d032387a584ef0444f637cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae714c168949aee8009c9482933cd85dc" id="r_gae714c168949aee8009c9482933cd85dc"><td class="memItemLeft" align="right" valign="top">static __inline__ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gae714c168949aee8009c9482933cd85dc">DRV_Config_Custom_ADC</a> (void)</td></tr>
+<tr class="memdesc:gae714c168949aee8009c9482933cd85dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Customize configuration for ADC.  <br /></td></tr>
+<tr class="separator:gae714c168949aee8009c9482933cd85dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga71c6250f386033c07dae0150d67b100f" id="r_ga71c6250f386033c07dae0150d67b100f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga71c6250f386033c07dae0150d67b100f">ADC_Filter_Enable</a> (uint16_t filterIndex, bool enable)</td></tr>
+<tr class="memdesc:ga71c6250f386033c07dae0150d67b100f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the ADC filter feature of the ADC.  <br /></td></tr>
+<tr class="separator:ga71c6250f386033c07dae0150d67b100f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ef63752d3c218e541d437721a3559fa" id="r_ga6ef63752d3c218e541d437721a3559fa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga6ef63752d3c218e541d437721a3559fa">ADC_Filter_Mode</a> (uint16_t filterIndex, <a class="el" href="a00362.html#a799f42245358585723c53fb29008fda3">ADC_FILTER_MODE_t</a> mode)</td></tr>
+<tr class="memdesc:ga6ef63752d3c218e541d437721a3559fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ADC instance filter mode.  <br /></td></tr>
+<tr class="separator:ga6ef63752d3c218e541d437721a3559fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7475de7e65b22a255c8587d7535359b3" id="r_ga7475de7e65b22a255c8587d7535359b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga7475de7e65b22a255c8587d7535359b3">ADC_Filter_Averaging</a> (uint16_t filterIndex, <a class="el" href="a00362.html#ac8993058275f94e962b30da4ae3b2e8a">ADC_FILTER_OVRSAM_AVG_t</a> averagingRatio)</td></tr>
+<tr class="memdesc:ga7475de7e65b22a255c8587d7535359b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ADC instance number of samples to average.  <br /></td></tr>
+<tr class="separator:ga7475de7e65b22a255c8587d7535359b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0645000c951ca217ee18beb7233da254" id="r_ga0645000c951ca217ee18beb7233da254"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga0645000c951ca217ee18beb7233da254">ADC_Filter_Input</a> (uint16_t filterIndex, uint16_t channelIndex)</td></tr>
+<tr class="memdesc:ga0645000c951ca217ee18beb7233da254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ADC instance to be filtered.  <br /></td></tr>
+<tr class="separator:ga0645000c951ca217ee18beb7233da254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee0723998267abf6433b4b008758506b" id="r_gaee0723998267abf6433b4b008758506b"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaee0723998267abf6433b4b008758506b">ADC_Filter_GetResult</a> (uint16_t filterIndex)</td></tr>
+<tr class="memdesc:gaee0723998267abf6433b4b008758506b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the ADC filter result.  <br /></td></tr>
+<tr class="separator:gaee0723998267abf6433b4b008758506b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga11363ccc92069cb46ab0e2d92e552bce" id="r_ga11363ccc92069cb46ab0e2d92e552bce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga11363ccc92069cb46ab0e2d92e552bce">ADC_CHANNEL_VSEC</a>&#160;&#160;&#160;(2)</td></tr>
+<tr class="memdesc:ga11363ccc92069cb46ab0e2d92e552bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC2 is routed to Secondary Voltage.  <br /></td></tr>
+<tr class="separator:ga11363ccc92069cb46ab0e2d92e552bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadf9f8157c3d4ae8423c8d6d4a6b172d9" id="r_gadf9f8157c3d4ae8423c8d6d4a6b172d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gadf9f8157c3d4ae8423c8d6d4a6b172d9">ADC_CHANNEL_IPRI_CT</a>&#160;&#160;&#160;(7)</td></tr>
+<tr class="memdesc:gadf9f8157c3d4ae8423c8d6d4a6b172d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC7 is routed to Primary CT Current.  <br /></td></tr>
+<tr class="separator:gadf9f8157c3d4ae8423c8d6d4a6b172d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf584f4955263417a4aa580f4ee138a95" id="r_gaf584f4955263417a4aa580f4ee138a95"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaf584f4955263417a4aa580f4ee138a95">ADC_CHANNEL_VPRI</a>&#160;&#160;&#160;(10)</td></tr>
+<tr class="memdesc:gaf584f4955263417a4aa580f4ee138a95"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC10 is routed to Primary Voltage.  <br /></td></tr>
+<tr class="separator:gaf584f4955263417a4aa580f4ee138a95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7e176664c3a3e340c070fe54d507b800" id="r_ga7e176664c3a3e340c070fe54d507b800"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga7e176664c3a3e340c070fe54d507b800">ADC_CHANNEL_TEMP</a>&#160;&#160;&#160;(14)</td></tr>
+<tr class="memdesc:ga7e176664c3a3e340c070fe54d507b800"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC14 is routed to Temperature.  <br /></td></tr>
+<tr class="separator:ga7e176664c3a3e340c070fe54d507b800"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3499fc44fc64cc81aec9e488617d675a" id="r_ga3499fc44fc64cc81aec9e488617d675a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga3499fc44fc64cc81aec9e488617d675a">ADC_CHANNEL_VRAIL_5V</a>&#160;&#160;&#160;(19)</td></tr>
+<tr class="memdesc:ga3499fc44fc64cc81aec9e488617d675a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC19 is routed to 5V rail.  <br /></td></tr>
+<tr class="separator:ga3499fc44fc64cc81aec9e488617d675a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6dd6396aac82b663b437a43b80be4fe0" id="r_ga6dd6396aac82b663b437a43b80be4fe0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga6dd6396aac82b663b437a43b80be4fe0">ADC_CHANNEL_ISEC_CT</a>&#160;&#160;&#160;(0)</td></tr>
+<tr class="memdesc:ga6dd6396aac82b663b437a43b80be4fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC0 is routed to Secondary CT Current.  <br /></td></tr>
+<tr class="separator:ga6dd6396aac82b663b437a43b80be4fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga61417f0641a547b21b6f6811ab077179" id="r_ga61417f0641a547b21b6f6811ab077179"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga61417f0641a547b21b6f6811ab077179">ADC_CHANNEL_ISEC_AVG</a>&#160;&#160;&#160;(1)</td></tr>
+<tr class="memdesc:ga61417f0641a547b21b6f6811ab077179"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC1 is routed to Secondary Average Current.  <br /></td></tr>
+<tr class="separator:ga61417f0641a547b21b6f6811ab077179"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document includes the interrupt function in power control. </p>
+<p>This documentation includes functions and data types for the ADC peripheral as an enhancement to the MCC Code Configurator. It provides application-specific ADC functions and includes essential ADC initialization that is not supported by the code generated by MCC. </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga9bdc078fe328d76d13c139cab37a7a24" name="ga9bdc078fe328d76d13c139cab37a7a24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9bdc078fe328d76d13c139cab37a7a24">&#9670;&#160;</a></span>MIN_REFERENCE_THRESHOLD_IV</h2>
+<a id="gadf9f8157c3d4ae8423c8d6d4a6b172d9" name="gadf9f8157c3d4ae8423c8d6d4a6b172d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadf9f8157c3d4ae8423c8d6d4a6b172d9">&#9670;&#160;</a></span>ADC_CHANNEL_IPRI_CT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MIN_REFERENCE_THRESHOLD_IV&#160;&#160;&#160;(10)</td>
+          <td class="memname">#define ADC_CHANNEL_IPRI_CT&#160;&#160;&#160;(7)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function is called to execute the control loop of the power converter. It comprise of Voltage Loop control (VLoop), Power Loop control (PLoop) and Current Loop Control (ILoop). Vloop and PLoop is ten times slower than the current loop with interleaved execution while Iloop is executed every time this function is called. <br  />
- In reverse mode of power flow, voltage sensor is not working reliably below 100V. <br  />
- In order to avoid possible voltage overshoot, checking needs to be done against a minimum voltage threshold When under voltage detected, makes it mandatory to ramp up reverse mode voltage very very slowly, without sensing Until voltage readings become reliable, P and I references are forced to minimum safe values. This achieves very slow ramp up of voltage across output capacitors. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00213">213</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00021">21</a> of file <a class="el" href="a00353_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="ga61417f0641a547b21b6f6811ab077179" name="ga61417f0641a547b21b6f6811ab077179"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga61417f0641a547b21b6f6811ab077179">&#9670;&#160;</a></span>ADC_CHANNEL_ISEC_AVG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_ISEC_AVG&#160;&#160;&#160;(1)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00028">28</a> of file <a class="el" href="a00353_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="ga6dd6396aac82b663b437a43b80be4fe0" name="ga6dd6396aac82b663b437a43b80be4fe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6dd6396aac82b663b437a43b80be4fe0">&#9670;&#160;</a></span>ADC_CHANNEL_ISEC_CT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_ISEC_CT&#160;&#160;&#160;(0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00027">27</a> of file <a class="el" href="a00353_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="ga7e176664c3a3e340c070fe54d507b800" name="ga7e176664c3a3e340c070fe54d507b800"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7e176664c3a3e340c070fe54d507b800">&#9670;&#160;</a></span>ADC_CHANNEL_TEMP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_TEMP&#160;&#160;&#160;(14)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00023">23</a> of file <a class="el" href="a00353_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="gaf584f4955263417a4aa580f4ee138a95" name="gaf584f4955263417a4aa580f4ee138a95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf584f4955263417a4aa580f4ee138a95">&#9670;&#160;</a></span>ADC_CHANNEL_VPRI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_VPRI&#160;&#160;&#160;(10)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00022">22</a> of file <a class="el" href="a00353_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="ga3499fc44fc64cc81aec9e488617d675a" name="ga3499fc44fc64cc81aec9e488617d675a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3499fc44fc64cc81aec9e488617d675a">&#9670;&#160;</a></span>ADC_CHANNEL_VRAIL_5V</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_VRAIL_5V&#160;&#160;&#160;(19)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00024">24</a> of file <a class="el" href="a00353_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="ga11363ccc92069cb46ab0e2d92e552bce" name="ga11363ccc92069cb46ab0e2d92e552bce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga11363ccc92069cb46ab0e2d92e552bce">&#9670;&#160;</a></span>ADC_CHANNEL_VSEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ADC_CHANNEL_VSEC&#160;&#160;&#160;(2)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00020">20</a> of file <a class="el" href="a00353_source.html">drv_custom_config_adc.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga7b9b42cf017f1b61599aee687cc2803a" name="ga7b9b42cf017f1b61599aee687cc2803a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7b9b42cf017f1b61599aee687cc2803a">&#9670;&#160;</a></span>ADC_FILTER_MODE_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00537.html#ga7b9b42cf017f1b61599aee687cc2803a">ADC_FILTER_MODE_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>&lt;&gt;  </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga7b9b42cf017f1b61599aee687cc2803aa92b3f4d7ad60ba627e8913772ab28791" name="gga7b9b42cf017f1b61599aee687cc2803aa92b3f4d7ad60ba627e8913772ab28791"></a>ADC_FILTER_MODE_OVERSAMPLING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="gga7b9b42cf017f1b61599aee687cc2803aa7744c10b74df8d669851f30b101554ac" name="gga7b9b42cf017f1b61599aee687cc2803aa7744c10b74df8d669851f30b101554ac"></a>ADC_FILTER_MODE_AVERAGING&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00020">20</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="gade4789b79009bb5798d22406600442a8" name="gade4789b79009bb5798d22406600442a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gade4789b79009bb5798d22406600442a8">&#9670;&#160;</a></span>ADC_FILTER_OVRSAM_AVG_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00537.html#gade4789b79009bb5798d22406600442a8">ADC_FILTER_OVRSAM_AVG_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>&lt;&gt;  </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8ac592295deb7ffa249a21e64907cf2c13" name="ggade4789b79009bb5798d22406600442a8ac592295deb7ffa249a21e64907cf2c13"></a>ADC_FILTER_OVRSAM_AVG_2x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8a1a5c4a9f038101bad68a56ce52a7b99f" name="ggade4789b79009bb5798d22406600442a8a1a5c4a9f038101bad68a56ce52a7b99f"></a>ADC_FILTER_OVRSAM_AVG_4x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8a01fffdf4afdc19bc3f00de0d152dcd63" name="ggade4789b79009bb5798d22406600442a8a01fffdf4afdc19bc3f00de0d152dcd63"></a>ADC_FILTER_OVRSAM_AVG_8x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8a6943e4ed06207ea3d52435cd23c7612e" name="ggade4789b79009bb5798d22406600442a8a6943e4ed06207ea3d52435cd23c7612e"></a>ADC_FILTER_OVRSAM_AVG_16x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8a6e9e2dd1ce8aa49c2fa9235dad126d50" name="ggade4789b79009bb5798d22406600442a8a6e9e2dd1ce8aa49c2fa9235dad126d50"></a>ADC_FILTER_OVRSAM_AVG_32x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8a56481c3dd7f242f83dac9be77ac97d93" name="ggade4789b79009bb5798d22406600442a8a56481c3dd7f242f83dac9be77ac97d93"></a>ADC_FILTER_OVRSAM_AVG_64x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8aded484f19a56bac94569c4768bf26b16" name="ggade4789b79009bb5798d22406600442a8aded484f19a56bac94569c4768bf26b16"></a>ADC_FILTER_OVRSAM_AVG_128x&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ggade4789b79009bb5798d22406600442a8a70761444839d59d84be99373fb963124" name="ggade4789b79009bb5798d22406600442a8a70761444839d59d84be99373fb963124"></a>ADC_FILTER_OVRSAM_AVG_256x&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00032">32</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_adc.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gae32c9e5ed4d1fb98fc13b26601782c10" name="gae32c9e5ed4d1fb98fc13b26601782c10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae32c9e5ed4d1fb98fc13b26601782c10">&#9670;&#160;</a></span>ControlLoop_Interrupt_CallBack()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ControlLoop_Interrupt_CallBack </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This interrupt function is a timing interrupt executed every 100KHz and calls an ADC function that updates the DAB data member with ADC raw values. The fault check is also called in this function to detect any fault events. It is followed by the control loop execution for Voltage, Current and Power Loop Controllers. The end result of the control loop is handed over to the PWM distribution. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00479_source.html#l00046">46</a> of file <a class="el" href="a00479_source.html">pwrctrl_isr.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00537_gae32c9e5ed4d1fb98fc13b26601782c10_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="gaaf49f142990b8dc3f750e88365bf8fed" name="gaaf49f142990b8dc3f750e88365bf8fed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaaf49f142990b8dc3f750e88365bf8fed">&#9670;&#160;</a></span>PwrCtrl_10KHzVPLoopPrepareData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PwrCtrl_10KHzVPLoopPrepareData </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function prepares the data for Voltage loop control and Power loop control. The enable bit of these control loops are manage in this function in which the VLoop and PLoop are enabled at 10KHz with 180 degrees phase. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00112">112</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00537_gaaf49f142990b8dc3f750e88365bf8fed_cgraph.svg" width="474" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00537_gaaf49f142990b8dc3f750e88365bf8fed_icgraph.svg" width="431" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga8e52f74dc17c38d13a3980af0968fc2f" name="ga8e52f74dc17c38d13a3980af0968fc2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8e52f74dc17c38d13a3980af0968fc2f">&#9670;&#160;</a></span>PwrCtrl_AdaptiveGainUpdate()</h2>
+<a id="ga7475de7e65b22a255c8587d7535359b3" name="ga7475de7e65b22a255c8587d7535359b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7475de7e65b22a255c8587d7535359b3">&#9670;&#160;</a></span>ADC_Filter_Averaging()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,7 +401,259 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void PwrCtrl_AdaptiveGainUpdate </td>
+          <td class="memname">static void ADC_Filter_Averaging </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>filterIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#ac8993058275f94e962b30da4ae3b2e8a">ADC_FILTER_OVRSAM_AVG_t</a>&#160;</td>
+          <td class="paramname"><em>averagingRatio</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filterIndex</td><td>ADC filter index (four indexes available for ADC filter) </td></tr>
+    <tr><td class="paramname">averagingRatio</td><td>Pointer to a power control data object of type ADC_FILTER_OVRSAM_AVG_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function sets the number of samples to average in the particular ADC instance. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00116">116</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_adc.h</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00537_ga7475de7e65b22a255c8587d7535359b3_icgraph.svg" width="384" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga71c6250f386033c07dae0150d67b100f" name="ga71c6250f386033c07dae0150d67b100f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga71c6250f386033c07dae0150d67b100f">&#9670;&#160;</a></span>ADC_Filter_Enable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void ADC_Filter_Enable </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>filterIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filterIndex</td><td>ADC filter index (four indexes available for ADC filter) </td></tr>
+    <tr><td class="paramname">enable</td><td>ADC filter enable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function enables the ADC feature of the ADC instance. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00054">54</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_adc.h</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00537_ga71c6250f386033c07dae0150d67b100f_icgraph.svg" width="368" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gaee0723998267abf6433b4b008758506b" name="gaee0723998267abf6433b4b008758506b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaee0723998267abf6433b4b008758506b">&#9670;&#160;</a></span>ADC_Filter_GetResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint16_t ADC_Filter_GetResult </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>filterIndex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filterIndex</td><td>ADC filter index (four indexes available for ADC filter) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>filterResult result of the filtered ADC</dd></dl>
+<p>This function gives the value of the ADC filter output. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00178">178</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="ga0645000c951ca217ee18beb7233da254" name="ga0645000c951ca217ee18beb7233da254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0645000c951ca217ee18beb7233da254">&#9670;&#160;</a></span>ADC_Filter_Input()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void ADC_Filter_Input </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>filterIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>channelIndex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filterIndex</td><td>ADC filter index (four indexes available for ADC filter) </td></tr>
+    <tr><td class="paramname">channelIndex</td><td>ADC channel </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function sets up the ADC filter for the specific ADC instance. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00146">146</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_adc.h</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00537_ga0645000c951ca217ee18beb7233da254_icgraph.svg" width="356" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga6ef63752d3c218e541d437721a3559fa" name="ga6ef63752d3c218e541d437721a3559fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6ef63752d3c218e541d437721a3559fa">&#9670;&#160;</a></span>ADC_Filter_Mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void ADC_Filter_Mode </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>filterIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00362.html#a799f42245358585723c53fb29008fda3">ADC_FILTER_MODE_t</a>&#160;</td>
+          <td class="paramname"><em>mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filterIndex</td><td>ADC filter index (four indexes available for ADC filter) </td></tr>
+    <tr><td class="paramname">mode</td><td>Pointer to a power control data object of type ADC_FILTER_MODE_t </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function set the ADC instance filter mode either OverSampling mode or Averaging mode. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00085">85</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_adc.h</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00537_ga6ef63752d3c218e541d437721a3559fa_icgraph.svg" width="360" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gae714c168949aee8009c9482933cd85dc" name="gae714c168949aee8009c9482933cd85dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae714c168949aee8009c9482933cd85dc">&#9670;&#160;</a></span>DRV_Config_Custom_ADC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static __inline__ void DRV_Config_Custom_ADC </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -319,162 +667,16 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>AGC is a specific method for tuning the overall feedback loop gain during runtime. This function handles the calculation of the gain at a particular input voltage. AGC is active when it is above the minimum AGC input voltage. </p>
+<p>This function initializes the ADC module to use the ADC Filter mode (averaging mode) to some of the ADC being sampled in the application. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00391">391</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00537_ga8e52f74dc17c38d13a3980af0968fc2f_icgraph.svg" width="666" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga80c3a681fbe9c0d7041146d82134f0cb" name="ga80c3a681fbe9c0d7041146d82134f0cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga80c3a681fbe9c0d7041146d82134f0cb">&#9670;&#160;</a></span>PwrCtrl_DeadTimeAdjust()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PwrCtrl_DeadTimeAdjust </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function updates the DAB data members dead time based on load. The phase and dead-time in this function is based on the actual board test. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00460">460</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00353_source.html#l00039">39</a> of file <a class="el" href="a00353_source.html">drv_custom_config_adc.h</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00537_ga80c3a681fbe9c0d7041146d82134f0cb_icgraph.svg" width="368" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00537_gae714c168949aee8009c9482933cd85dc_cgraph.svg" width="384" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="gabda1b0b4f44a931cc725c3f5fa45be7b" name="gabda1b0b4f44a931cc725c3f5fa45be7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gabda1b0b4f44a931cc725c3f5fa45be7b">&#9670;&#160;</a></span>PwrCtrl_PrimToSecPHDegree()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PwrCtrl_PrimToSecPHDegree </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function updates the DAB data members with phase values normalized in degree. The calculated phase is scaled by 10x to have better phase resolution. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00432">432</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00537_gabda1b0b4f44a931cc725c3f5fa45be7b_icgraph.svg" width="396" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gaa34c5b66d8f20f01daef50d0e88cf20e" name="gaa34c5b66d8f20f01daef50d0e88cf20e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa34c5b66d8f20f01daef50d0e88cf20e">&#9670;&#160;</a></span>PwrCtrl_UpdateADConverterData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PwrCtrl_UpdateADConverterData </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function is called every 100KHz and triggers the ADC module. This also handles the updating of DAB data members with its latest ADC raw values and collection of data for averaging. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00065">65</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00537_gaa34c5b66d8f20f01daef50d0e88cf20e_cgraph.svg" width="460" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00537_gaa34c5b66d8f20f01daef50d0e88cf20e_icgraph.svg" width="414" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ga672f4741d032387a584ef0444f637cce" name="ga672f4741d032387a584ef0444f637cce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga672f4741d032387a584ef0444f637cce">&#9670;&#160;</a></span>iSecAveraging</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00470.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a> iSecAveraging</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The 'IsecAveraging' data object holds the averaging parameter of the Secondary Current. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00050">50</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
-
-</div>
-</div>
-<a id="ga963f5607c8862374734b3cc799dedc68" name="ga963f5607c8862374734b3cc799dedc68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga963f5607c8862374734b3cc799dedc68">&#9670;&#160;</a></span>vPrimAveraging</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00470.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a> vPrimAveraging</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The 'VprimAveraging' data object holds the averaging parameter of the Primary Voltage. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00034">34</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
-
-</div>
-</div>
-<a id="gaef7d489f0d36cd14c2f49022909e01b4" name="gaef7d489f0d36cd14c2f49022909e01b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaef7d489f0d36cd14c2f49022909e01b4">&#9670;&#160;</a></span>vSecAveraging</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00470.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a> vSecAveraging</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The 'VsecAveraging' data object holds the averaging parameter of the Secondary Voltage. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00042">42</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
 
 </div>
 </div>

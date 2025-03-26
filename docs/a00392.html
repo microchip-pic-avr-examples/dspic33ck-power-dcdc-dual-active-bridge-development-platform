@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/fault/fault_comm_interface.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/fault/fault_comm_interface.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,37 +137,115 @@ $(document).ready(function(){initNavTree('a00392.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">fault_comm_interface.h File Reference<div class="ingroups"><a class="el" href="a00544.html">Fault Monitor</a> &raquo; <a class="el" href="a00545.html">Fault Configuration</a></div></div></div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">fault_comm_interface.c File Reference<div class="ingroups"><a class="el" href="a00547.html">Fault Monitor</a> &raquo; <a class="el" href="a00548.html">Fault Configuration</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Contains API functions for fault protection.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00389_source.html">fault_common.h</a>&quot;</code><br />
+<code>#include &quot;pwrctrl/pwrctrl.h&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for fault_comm_interface.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00394.svg" width="403" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00393.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="a00392_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a6f1a85030a64f0ae5d9d6f1996af14a5" id="r_a6f1a85030a64f0ae5d9d6f1996af14a5"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2a">FAULTLOG_FLAGS_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00392.html#a6f1a85030a64f0ae5d9d6f1996af14a5">FAULTLOG_FLAGS_t</a></td></tr>
+<tr class="separator:a6f1a85030a64f0ae5d9d6f1996af14a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a0d2cc7237edf1228c3329f67a3119e2a" id="r_a0d2cc7237edf1228c3329f67a3119e2a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2a">FAULTLOG_FLAGS_e</a> { <br />
+&#160;&#160;<a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2aa65b0fa921916128c70bab291f95bc01c">FLT_VPRI_OVP</a>
+, <a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2aa9d9da0300a77e6460a4626aa59ff09f9">FLT_VPRI_UVP</a>
+, <a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2aa75e71d3ae7bb8950c757d56da762a3a9">FLT_VSEC_OVP</a>
+, <a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2aa04caaf36c1fae0fa625f633a105f5523">FLT_VSEC_UVP</a>
+, <a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2aa1d67ec13a8041f8815f0272bcccab6aa">FLT_IPRI_OCP</a>
+, <a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2aa33d798f9c8b9ecb3dc166773da13fe16">FLT_ISEC_OCP</a>
+, <a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2aa8a536c52c3cd60ed37aab277f96f036e">FLT_ISNS_SCP</a>
+, <a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2aa25d4d68269d2c266566b592f8da18792">FLT_DAB_TEMP</a>
+, <a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2aaa132cfc52f40d41c36e22136e4ea22d5">FLT_RAIL_5V</a>
+, <a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2aa67690bc21f4dfe94557a45fa0bc79b9f">FLT_LOAD_DISCONNECT</a>
+, <br />
+&#160;&#160;<a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2aa589b7d94a3d91d145720e2fed0eb3a05">RESET</a>
+<br />
+ }</td></tr>
+<tr class="separator:a0d2cc7237edf1228c3329f67a3119e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a525a7d54ffe10a34fc0de37c1d43aa6a" id="r_a525a7d54ffe10a34fc0de37c1d43aa6a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00392.html#a525a7d54ffe10a34fc0de37c1d43aa6a">Fault_GetFlags</a> (void)</td></tr>
 <tr class="separator:a525a7d54ffe10a34fc0de37c1d43aa6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a0b92b835c70ac5377be52d14b4758422" id="r_a0b92b835c70ac5377be52d14b4758422"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00392.html#a0b92b835c70ac5377be52d14b4758422">loadDisconnect</a></td></tr>
+<tr class="separator:a0b92b835c70ac5377be52d14b4758422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a6f1a85030a64f0ae5d9d6f1996af14a5" name="a6f1a85030a64f0ae5d9d6f1996af14a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f1a85030a64f0ae5d9d6f1996af14a5">&#9670;&#160;</a></span>FAULTLOG_FLAGS_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2a">FAULTLOG_FLAGS_e</a> <a class="el" href="a00392.html#a6f1a85030a64f0ae5d9d6f1996af14a5">FAULTLOG_FLAGS_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00392_source.html#l00024">24</a> of file <a class="el" href="a00392_source.html">fault_comm_interface.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a0d2cc7237edf1228c3329f67a3119e2a" name="a0d2cc7237edf1228c3329f67a3119e2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d2cc7237edf1228c3329f67a3119e2a">&#9670;&#160;</a></span>FAULTLOG_FLAGS_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00392.html#a0d2cc7237edf1228c3329f67a3119e2a">FAULTLOG_FLAGS_e</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0d2cc7237edf1228c3329f67a3119e2aa65b0fa921916128c70bab291f95bc01c" name="a0d2cc7237edf1228c3329f67a3119e2aa65b0fa921916128c70bab291f95bc01c"></a>FLT_VPRI_OVP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0d2cc7237edf1228c3329f67a3119e2aa9d9da0300a77e6460a4626aa59ff09f9" name="a0d2cc7237edf1228c3329f67a3119e2aa9d9da0300a77e6460a4626aa59ff09f9"></a>FLT_VPRI_UVP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0d2cc7237edf1228c3329f67a3119e2aa75e71d3ae7bb8950c757d56da762a3a9" name="a0d2cc7237edf1228c3329f67a3119e2aa75e71d3ae7bb8950c757d56da762a3a9"></a>FLT_VSEC_OVP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0d2cc7237edf1228c3329f67a3119e2aa04caaf36c1fae0fa625f633a105f5523" name="a0d2cc7237edf1228c3329f67a3119e2aa04caaf36c1fae0fa625f633a105f5523"></a>FLT_VSEC_UVP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0d2cc7237edf1228c3329f67a3119e2aa1d67ec13a8041f8815f0272bcccab6aa" name="a0d2cc7237edf1228c3329f67a3119e2aa1d67ec13a8041f8815f0272bcccab6aa"></a>FLT_IPRI_OCP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0d2cc7237edf1228c3329f67a3119e2aa33d798f9c8b9ecb3dc166773da13fe16" name="a0d2cc7237edf1228c3329f67a3119e2aa33d798f9c8b9ecb3dc166773da13fe16"></a>FLT_ISEC_OCP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0d2cc7237edf1228c3329f67a3119e2aa8a536c52c3cd60ed37aab277f96f036e" name="a0d2cc7237edf1228c3329f67a3119e2aa8a536c52c3cd60ed37aab277f96f036e"></a>FLT_ISNS_SCP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0d2cc7237edf1228c3329f67a3119e2aa25d4d68269d2c266566b592f8da18792" name="a0d2cc7237edf1228c3329f67a3119e2aa25d4d68269d2c266566b592f8da18792"></a>FLT_DAB_TEMP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0d2cc7237edf1228c3329f67a3119e2aaa132cfc52f40d41c36e22136e4ea22d5" name="a0d2cc7237edf1228c3329f67a3119e2aaa132cfc52f40d41c36e22136e4ea22d5"></a>FLT_RAIL_5V&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0d2cc7237edf1228c3329f67a3119e2aa67690bc21f4dfe94557a45fa0bc79b9f" name="a0d2cc7237edf1228c3329f67a3119e2aa67690bc21f4dfe94557a45fa0bc79b9f"></a>FLT_LOAD_DISCONNECT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a0d2cc7237edf1228c3329f67a3119e2aa589b7d94a3d91d145720e2fed0eb3a05" name="a0d2cc7237edf1228c3329f67a3119e2aa589b7d94a3d91d145720e2fed0eb3a05"></a>RESET&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00392_source.html#l00011">11</a> of file <a class="el" href="a00392_source.html">fault_comm_interface.c</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a525a7d54ffe10a34fc0de37c1d43aa6a" name="a525a7d54ffe10a34fc0de37c1d43aa6a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a525a7d54ffe10a34fc0de37c1d43aa6a">&#9670;&#160;</a></span>Fault_GetFlags()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">uint16_t Fault_GetFlags </td>
@@ -177,14 +255,9 @@ Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00389_source.html#l00028">28</a> of file <a class="el" href="a00389_source.html">fault_comm_interface.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00392_source.html#l00028">28</a> of file <a class="el" href="a00392_source.html">fault_comm_interface.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -192,6 +265,31 @@ Functions</h2></td></tr>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><iframe scrolling="no" frameborder="0" src="a00392_a525a7d54ffe10a34fc0de37c1d43aa6a_icgraph.svg" width="467" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a0b92b835c70ac5377be52d14b4758422" name="a0b92b835c70ac5377be52d14b4758422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b92b835c70ac5377be52d14b4758422">&#9670;&#160;</a></span>loadDisconnect</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool loadDisconnect</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00380_source.html#l00029">29</a> of file <a class="el" href="a00380_source.html">fault.c</a>.</p>
 
 </div>
 </div>

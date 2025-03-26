@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Temperature Detection</title>
+<title>Dual Active Bridge Development Board: Current Sensor Calibration</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,115 +138,130 @@ $(document).ready(function(){initNavTree('a00531.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">Temperature Detection<div class="ingroups"><a class="el" href="a00527.html">Device Layer</a></div></div></div>
+  <div class="headertitle"><div class="title">Current Sensor Calibration<div class="ingroups"><a class="el" href="a00530.html">Device Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The Temperature device layer is the proprietary user code used to configure and detect the board temperature.  
+<p>The Current Sensor Calibration device layer is a proprietary user code utilized for configuring the sensor properties.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Temperature Detection:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Current Sensor Calibration:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00531.svg" width="307" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00531.svg" width="328" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00347" id="r_a00347"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00347.html">dev_temp.h</a></td></tr>
-<tr class="memdesc:a00347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains temperature initialization and execution functions. <br /></td></tr>
+<tr class="memitem:a00323" id="r_a00323"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html">dev_current_sensor.c</a></td></tr>
+<tr class="memdesc:a00323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains current sensor initialization and calibration evaluation. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00326" id="r_a00326"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00326.html">dev_current_sensor.h</a></td></tr>
+<tr class="memdesc:a00326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains current sensor public functions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00666.html">SENSOR_OFFSET_CAL_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores data related to sensor calibration, including data related to sensor offset.  <a href="a00666.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga777c30f75162d97f4e112d1fc8d49f87" id="r_ga777c30f75162d97f4e112d1fc8d49f87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#ga777c30f75162d97f4e112d1fc8d49f87">Dev_Temp_Initialize</a> (void)</td></tr>
-<tr class="memdesc:ga777c30f75162d97f4e112d1fc8d49f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the temperature data structure.  <br /></td></tr>
-<tr class="separator:ga777c30f75162d97f4e112d1fc8d49f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga642e882a6d78b8915f39b54f7183f71f" id="r_ga642e882a6d78b8915f39b54f7183f71f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#ga642e882a6d78b8915f39b54f7183f71f">Dev_Temp_Task_100ms</a> (void)</td></tr>
-<tr class="memdesc:ga642e882a6d78b8915f39b54f7183f71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the Temperature reading every 100ms.  <br /></td></tr>
-<tr class="separator:ga642e882a6d78b8915f39b54f7183f71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2d219d0b5470ff7bae4c51c403c19065" id="r_ga2d219d0b5470ff7bae4c51c403c19065"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#ga2d219d0b5470ff7bae4c51c403c19065">Dev_Temp_AverageValue</a> (void)</td></tr>
-<tr class="memdesc:ga2d219d0b5470ff7bae4c51c403c19065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the average adc temperature reading.  <br /></td></tr>
-<tr class="separator:ga2d219d0b5470ff7bae4c51c403c19065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac9618e1ca87e77920c94cdfdcc80321a" id="r_gac9618e1ca87e77920c94cdfdcc80321a"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a> (void)</td></tr>
-<tr class="memdesc:gac9618e1ca87e77920c94cdfdcc80321a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This converts the raw values to temperature celcius as per device lookup table.  <br /></td></tr>
-<tr class="separator:gac9618e1ca87e77920c94cdfdcc80321a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga595a5dbd8f35a5e37d5fa77cfcd756a5" id="r_ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#ga595a5dbd8f35a5e37d5fa77cfcd756a5">Dev_Temp_Is_Over_Temperature</a> (void)</td></tr>
-<tr class="memdesc:ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the status of the Over Temperature flag.  <br /></td></tr>
-<tr class="separator:ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6ce3446cb43022df6a5a96c90ec70a17" id="r_ga6ce3446cb43022df6a5a96c90ec70a17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#ga6ce3446cb43022df6a5a96c90ec70a17">Dev_Temp_Get_ADC_Sample</a> (void)</td></tr>
-<tr class="memdesc:ga6ce3446cb43022df6a5a96c90ec70a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the temperature ADC sample.  <br /></td></tr>
-<tr class="separator:ga6ce3446cb43022df6a5a96c90ec70a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaed1c98bc3ba65035d1ac0bdda433d812" id="r_gaed1c98bc3ba65035d1ac0bdda433d812"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#gaed1c98bc3ba65035d1ac0bdda433d812">Average_Temp_ADC_Samples</a> (void)</td></tr>
-<tr class="memdesc:gaed1c98bc3ba65035d1ac0bdda433d812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the temperature average value.  <br /></td></tr>
-<tr class="separator:gaed1c98bc3ba65035d1ac0bdda433d812"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga87aa48cb3d8848b8dc9bee6ce978b1b1" id="r_ga87aa48cb3d8848b8dc9bee6ce978b1b1"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#ga87aa48cb3d8848b8dc9bee6ce978b1b1">Temp_Calculate_Average</a> (uint16_t *buffer, uint16_t length)</td></tr>
-<tr class="memdesc:ga87aa48cb3d8848b8dc9bee6ce978b1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Averages the temperature ADC samples.  <br /></td></tr>
-<tr class="separator:ga87aa48cb3d8848b8dc9bee6ce978b1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga03e8d61bbc0f4b686c400440f80dcf69" id="r_ga03e8d61bbc0f4b686c400440f80dcf69"><td class="memItemLeft" align="right" valign="top">static void __inline__&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#ga03e8d61bbc0f4b686c400440f80dcf69">Dev_SensorOffsetCal</a> (<a class="el" href="a00323.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> *sensor, uint16_t adcReading)</td></tr>
+<tr class="memdesc:ga03e8d61bbc0f4b686c400440f80dcf69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measure the sensor offset.  <br /></td></tr>
+<tr class="separator:ga03e8d61bbc0f4b686c400440f80dcf69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa75855922e60913d443c6203475256f" id="r_gaaa75855922e60913d443c6203475256f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a> (void)</td></tr>
+<tr class="memdesc:gaaa75855922e60913d443c6203475256f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measures the currents sensor offset.  <br /></td></tr>
+<tr class="separator:gaaa75855922e60913d443c6203475256f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga218632f9814c3bf20c40cea0794ffc7d" id="r_ga218632f9814c3bf20c40cea0794ffc7d"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a> (void)</td></tr>
+<tr class="memdesc:ga218632f9814c3bf20c40cea0794ffc7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the calibration status.  <br /></td></tr>
+<tr class="separator:ga218632f9814c3bf20c40cea0794ffc7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9f581abf52dc00ba320faafa189fafb9" id="r_ga9f581abf52dc00ba320faafa189fafb9"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a> (void)</td></tr>
+<tr class="memdesc:ga9f581abf52dc00ba320faafa189fafb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to get the sensor offset.  <br /></td></tr>
+<tr class="separator:ga9f581abf52dc00ba320faafa189fafb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga494b4a948891fd5757ccc647f9962529" id="r_ga494b4a948891fd5757ccc647f9962529"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a> (void)</td></tr>
+<tr class="memdesc:ga494b4a948891fd5757ccc647f9962529"><td class="mdescLeft">&#160;</td><td class="mdescRight">API function to clear the sensor offset.  <br /></td></tr>
+<tr class="separator:ga494b4a948891fd5757ccc647f9962529"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:gac4362e7ed233e3ac6e62b7f6f49a80d0" id="r_gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00347.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a></td></tr>
-<tr class="memdesc:gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of temperature settings.  <br /></td></tr>
-<tr class="separator:gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf2e1ab5706d4b7e1a47eea25ce323c5f" id="r_gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00323.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00531.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f">isecAvgCurrentSensor</a></td></tr>
+<tr class="memdesc:gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of sensor offset calibration.  <br /></td></tr>
+<tr class="separator:gaf2e1ab5706d4b7e1a47eea25ce323c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gaed1c98bc3ba65035d1ac0bdda433d812" name="gaed1c98bc3ba65035d1ac0bdda433d812"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaed1c98bc3ba65035d1ac0bdda433d812">&#9670;&#160;</a></span>Average_Temp_ADC_Samples()</h2>
+<a id="ga494b4a948891fd5757ccc647f9962529" name="ga494b4a948891fd5757ccc647f9962529"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga494b4a948891fd5757ccc647f9962529">&#9670;&#160;</a></span>Dev_CurrentSensor_Clr_Offset()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static uint16_t Average_Temp_ADC_Samples </td>
+          <td class="memname">void Dev_CurrentSensor_Clr_Offset </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function returns the average result of the temperature ADC samples. </p>
+<dl class="section return"><dt>Returns</dt><dd>none </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00139">139</a> of file <a class="el" href="a00344_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00323_source.html#l00121">121</a> of file <a class="el" href="a00323_source.html">dev_current_sensor.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00531_gaed1c98bc3ba65035d1ac0bdda433d812_cgraph.svg" width="424" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00531_ga494b4a948891fd5757ccc647f9962529_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
+
+</div>
+</div>
+<a id="ga218632f9814c3bf20c40cea0794ffc7d" name="ga218632f9814c3bf20c40cea0794ffc7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga218632f9814c3bf20c40cea0794ffc7d">&#9670;&#160;</a></span>Dev_CurrentSensor_Get_CalibrationStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Dev_CurrentSensor_Get_CalibrationStatus </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>true calibration complete </dd>
+<dd>
+false calibration is not complete </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00323_source.html#l00101">101</a> of file <a class="el" href="a00323_source.html">dev_current_sensor.c</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00531_gaed1c98bc3ba65035d1ac0bdda433d812_icgraph.svg" width="570" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00531_ga218632f9814c3bf20c40cea0794ffc7d_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="ga2d219d0b5470ff7bae4c51c403c19065" name="ga2d219d0b5470ff7bae4c51c403c19065"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga2d219d0b5470ff7bae4c51c403c19065">&#9670;&#160;</a></span>Dev_Temp_AverageValue()</h2>
+<a id="ga9f581abf52dc00ba320faafa189fafb9" name="ga9f581abf52dc00ba320faafa189fafb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9f581abf52dc00ba320faafa189fafb9">&#9670;&#160;</a></span>Dev_CurrentSensor_Get_Offset()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Dev_Temp_AverageValue </td>
+          <td class="memname">uint16_t Dev_CurrentSensor_Get_Offset </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -254,59 +269,27 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function returns the average ADC temperature reading. </p>
+<dl class="section return"><dt>Returns</dt><dd>value current sensor offset value </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00073">73</a> of file <a class="el" href="a00344_source.html">dev_temp.c</a>.</p>
-
-</div>
-</div>
-<a id="ga6ce3446cb43022df6a5a96c90ec70a17" name="ga6ce3446cb43022df6a5a96c90ec70a17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6ce3446cb43022df6a5a96c90ec70a17">&#9670;&#160;</a></span>Dev_Temp_Get_ADC_Sample()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_Temp_Get_ADC_Sample </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function gets the temperature ADC sample and adds it to the temperature buffer for averaging use. </p>
-<p>&lt; store last 128 values and then average</p>
-<p>&lt; flag to monitor if full then do averaging.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00117">117</a> of file <a class="el" href="a00344_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00323_source.html#l00111">111</a> of file <a class="el" href="a00323_source.html">dev_current_sensor.c</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00531_ga6ce3446cb43022df6a5a96c90ec70a17_cgraph.svg" width="447" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00531_ga6ce3446cb43022df6a5a96c90ec70a17_icgraph.svg" width="566" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00531_ga9f581abf52dc00ba320faafa189fafb9_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="gac9618e1ca87e77920c94cdfdcc80321a" name="gac9618e1ca87e77920c94cdfdcc80321a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac9618e1ca87e77920c94cdfdcc80321a">&#9670;&#160;</a></span>Dev_Temp_Get_Temperature_Celcius()</h2>
+<a id="gaaa75855922e60913d443c6203475256f" name="gaaa75855922e60913d443c6203475256f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaaa75855922e60913d443c6203475256f">&#9670;&#160;</a></span>Dev_CurrentSensorOffsetCal()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int8_t Dev_Temp_Get_Temperature_Celcius </td>
+          <td class="memname">void Dev_CurrentSensorOffsetCal </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -315,109 +298,28 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function takes in the current adc values and get the closest high temperature value in the lookup table. i.e. if the averaged value is 3195, it will return the temperature value corresponding to 3079 i.e. 65. This value is offset by 40 degrees to avoid working with negative. </p>
+<p>This function continuously evaluate the current sensor ADC value until the calibration has been completed. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00087">87</a> of file <a class="el" href="a00344_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00323_source.html#l00087">87</a> of file <a class="el" href="a00323_source.html">dev_current_sensor.c</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00531_gaaa75855922e60913d443c6203475256f_cgraph.svg" width="428" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00531_gac9618e1ca87e77920c94cdfdcc80321a_icgraph.svg" width="566" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00531_gaaa75855922e60913d443c6203475256f_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="ga777c30f75162d97f4e112d1fc8d49f87" name="ga777c30f75162d97f4e112d1fc8d49f87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga777c30f75162d97f4e112d1fc8d49f87">&#9670;&#160;</a></span>Dev_Temp_Initialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_Temp_Initialize </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the temperature data structure. </p>
-<p>&lt; Over temperature flag</p>
-<p>&lt; if Sensor is present <br  />
-</p>
-<p>&lt; temperature raw</p>
-<p>&lt; temperature raw</p>
-<p>&lt; temperature celcius.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00045">45</a> of file <a class="el" href="a00344_source.html">dev_temp.c</a>.</p>
-
-</div>
-</div>
-<a id="ga595a5dbd8f35a5e37d5fa77cfcd756a5" name="ga595a5dbd8f35a5e37d5fa77cfcd756a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga595a5dbd8f35a5e37d5fa77cfcd756a5">&#9670;&#160;</a></span>Dev_Temp_Is_Over_Temperature()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t Dev_Temp_Is_Over_Temperature </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>true Over temperature is detected </dd>
-<dd>
-false Over temperature is not detected</dd></dl>
-<p>This function returns the status of the Over Temperature flag. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00105">105</a> of file <a class="el" href="a00344_source.html">dev_temp.c</a>.</p>
-
-</div>
-</div>
-<a id="ga642e882a6d78b8915f39b54f7183f71f" name="ga642e882a6d78b8915f39b54f7183f71f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga642e882a6d78b8915f39b54f7183f71f">&#9670;&#160;</a></span>Dev_Temp_Task_100ms()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Dev_Temp_Task_100ms </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function executes temperature reading every 100ms </p>
-
-<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00060">60</a> of file <a class="el" href="a00344_source.html">dev_temp.c</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00531_ga642e882a6d78b8915f39b54f7183f71f_cgraph.svg" width="662" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00531_ga642e882a6d78b8915f39b54f7183f71f_icgraph.svg" width="324" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga87aa48cb3d8848b8dc9bee6ce978b1b1" name="ga87aa48cb3d8848b8dc9bee6ce978b1b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga87aa48cb3d8848b8dc9bee6ce978b1b1">&#9670;&#160;</a></span>Temp_Calculate_Average()</h2>
+<a id="ga03e8d61bbc0f4b686c400440f80dcf69" name="ga03e8d61bbc0f4b686c400440f80dcf69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga03e8d61bbc0f4b686c400440f80dcf69">&#9670;&#160;</a></span>Dev_SensorOffsetCal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -426,16 +328,16 @@ false Over temperature is not detected</dd></dl>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static uint16_t Temp_Calculate_Average </td>
+          <td class="memname">static void __inline__ Dev_SensorOffsetCal </td>
           <td>(</td>
-          <td class="paramtype">uint16_t *&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
+          <td class="paramtype"><a class="el" href="a00323.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> *&#160;</td>
+          <td class="paramname"><em>sensor</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>length</em>&#160;</td>
+          <td class="paramname"><em>adcReading</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -449,35 +351,49 @@ false Over temperature is not detected</dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sensor</td><td>pointer to object of type SENSOR_OFFSET_CAL_t </td></tr>
+    <tr><td class="paramname">adcReading</td><td>most recent ADC reading </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function averages the temperature ADC samples. </p>
+<p>This function takes number of samples of adc sample for averaging before acquiring the sensor offset value and checks if it is in the acceptable range before setting the calibration bit complete. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00153">153</a> of file <a class="el" href="a00344_source.html">dev_temp.c</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+<p class="definition">Definition at line <a class="el" href="a00323_source.html#l00057">57</a> of file <a class="el" href="a00323_source.html">dev_current_sensor.c</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00531_ga87aa48cb3d8848b8dc9bee6ce978b1b1_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00531_ga03e8d61bbc0f4b686c400440f80dcf69_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="gac4362e7ed233e3ac6e62b7f6f49a80d0" name="gac4362e7ed233e3ac6e62b7f6f49a80d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac4362e7ed233e3ac6e62b7f6f49a80d0">&#9670;&#160;</a></span>devTempData</h2>
+<a id="gaf2e1ab5706d4b7e1a47eea25ce323c5f" name="gaf2e1ab5706d4b7e1a47eea25ce323c5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf2e1ab5706d4b7e1a47eea25ce323c5f">&#9670;&#160;</a></span>isecAvgCurrentSensor</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00347.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a> devTempData</td>
+          <td class="memname"><a class="el" href="a00323.html#a11d4505c8c67dc1bff5d289e1232b593">SENSOR_OFFSET_CAL_t</a> isecAvgCurrentSensor</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The 'devTempData' data object holds the settings for temperature sensor. </p>
+<b>Initial value:</b><div class="fragment"><div class="line">= {.CalibrationComplete = <span class="keyword">false</span>,</div>
+<div class="line">                                               .Accumulator = 0,</div>
+<div class="line">                                               .MeasurementCounter = 0,</div>
+<div class="line">                                               .LimitHigh = <a class="code hl_define" href="a00512.html#ga32693322c9fff62a2374fd3de9d0f5e8">ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</a>,</div>
+<div class="line">                                               .LimitLow = <a class="code hl_define" href="a00512.html#ga0ed005156ed4fc2064d588f00d44223d">ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</a>}</div>
+<div class="ttc" id="aa00512_html_ga0ed005156ed4fc2064d588f00d44223d"><div class="ttname"><a href="a00512.html#ga0ed005156ed4fc2064d588f00d44223d">ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</a></div><div class="ttdeci">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00084">macros.h:84</a></div></div>
+<div class="ttc" id="aa00512_html_ga32693322c9fff62a2374fd3de9d0f5e8"><div class="ttname"><a href="a00512.html#ga32693322c9fff62a2374fd3de9d0f5e8">ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</a></div><div class="ttdeci">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH</div><div class="ttdef"><b>Definition</b> <a href="a00311_source.html#l00083">macros.h:83</a></div></div>
+</div><!-- fragment --><p>The 'isecAvgCurrentSensor' data object holds the averaging parameter of the sensor offset calibration. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00344_source.html#l00030">30</a> of file <a class="el" href="a00344_source.html">dev_temp.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00323_source.html#l00040">40</a> of file <a class="el" href="a00323_source.html">dev_current_sensor.c</a>.</p>
 
 </div>
 </div>

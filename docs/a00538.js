@@ -1,9 +1,11 @@
 var a00538 =
 [
-    [ "pwrctrl_pwm.c", "a00488.html", null ],
-    [ "pwrctrl_pwm.h", "a00491.html", null ],
-    [ "PwrCtrl_PWM_DAB_DirectionSpecificSwapCfg", "a00538.html#ga09cbca9d9eea8e033ba27cb0f77417c3", null ],
-    [ "PwrCtrl_PWM_Disable", "a00538.html#ga79ec0c0e524a03b3a3d423308b89bb99", null ],
-    [ "PwrCtrl_PWM_Enable", "a00538.html#gae20d34fb8fc7fbaa57f6c68b2907807f", null ],
-    [ "PwrCtrl_PWM_Update", "a00538.html#ga73f526371cadb7674354635462e836cc", null ]
+    [ "Power Control Configuration", "a00539.html", "a00539" ],
+    [ "Interrupt Routine and Functions", "a00540.html", "a00540" ],
+    [ "PWM Configuration", "a00541.html", "a00541" ],
+    [ "State Machine", "a00542.html", "a00542" ],
+    [ "Control Loop Configuration", "a00543.html", "a00543" ],
+    [ "Power Control Communication Interface", "a00544.html", "a00544" ],
+    [ "Useful Functions", "a00545.html", "a00545" ],
+    [ "Power Control Data Types", "a00546.html", "a00546" ]
 ];

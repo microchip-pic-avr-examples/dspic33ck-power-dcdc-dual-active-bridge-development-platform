@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/config/useful_macros.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/config/macros.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,84 +136,150 @@ $(document).ready(function(){initNavTree('a00311_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">useful_macros.h</div></div>
+  <div class="headertitle"><div class="title">macros.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// more than once.  </span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef USEFUL_MACROS_H</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define USEFUL_MACROS_H</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;xc.h&gt;</span> <span class="comment">// include processor files - each processor file is guarded.  </span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">   13</a></span><span class="preprocessor">#define _rnd(a)    ((int16_t)((a)+((a)&lt;0?-0.5:0.5)))</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="a00517.html#gad8a68cbc825e50630b93047279a32718">   14</a></span><span class="preprocessor">#define _min(a,b)  (((a)&gt;(b)) ? (b):(a))</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="a00517.html#ga7742fa23cad0b81a56daae0c5ad63c8b">   15</a></span><span class="preprocessor">#define _max(a,b)  (((a)&gt;(b)) ? (a):(b))</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="a00517.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">   17</a></span><span class="preprocessor">#define _rnd_int32_t(a)    ((int32_t)((a)+((a)&lt;0?-0.5:0.5)))</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">// following 2 macros used to get high byte and low byte of a word</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="a00517.html#gad7e3572e4f8ef715cd1e722691f87b54">   20</a></span><span class="preprocessor">#define WordLowByte(word)   ((uint8_t) (word &amp; 0x00FF))</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="a00517.html#ga6f8b8bc288578b9150234364ccb5a6f0">   21</a></span><span class="preprocessor">#define WordHighByte(word)  ((uint8_t) (word &gt;&gt; 8))</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// to convert number to QFORMAT (positive) with max resolution, multiply by 2^QFORMAT_SHIFT</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">// this gives max possibly resolution with 15 bits available</span></div>
-<div class="foldopen" id="foldopen00025" data-start="" data-end="">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="a00517.html#gafae5fd95c828eb48279a0cbf470d1b45">   25</a></span><span class="preprocessor">#define QFORMAT_SHIFT(value)  ((value) &lt; ((float)(1&lt;&lt;0)) ? (15) : \</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;1)) ? (14) : \</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;2)) ? (13) : \</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;3)) ? (12) : \</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;4)) ? (11) : \</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;5)) ? (10) : \</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;6)) ? (9) : \</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;7)) ? (8) : \</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;8)) ? (7) : \</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;9)) ? (6) : \</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;10)) ? (5) : \</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;11)) ? (4) : \</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;13)) ? (3) : \</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;13)) ? (2) : \</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">                              ((value) &lt; ((float)(1&lt;&lt;14)) ? (1) : (0))))))))))))))))</span></div>
-</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">// TIME_TO_TICKS: convert time in seconds to counter ticks</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="a00517.html#gaa1550b4b116085f90e0cd704f1b078b9">   42</a></span><span class="preprocessor">#define TIME_TO_TICKS(time, tick_period)    (_rnd(time/tick_period))</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">// RMS_TO_PEAK: sqrt(2): rms to peak-peak is 2*sqrt(2), so rms to peak is sqrt(2)</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="a00517.html#gac24ae161523eadceef352918d1ebb0c8">   45</a></span><span class="preprocessor">#define RMS_TO_PEAK           (1.414213562)</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">// AVG_TO_RMS: PI / (2* sqrt(2)) = 1.11</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="a00517.html#gaec140a01387ddcbb23059abeb73d163e">   48</a></span><span class="preprocessor">#define AVG_TO_RMS            (1.11)</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="a00517.html#gada5ead94c63caa7198833caee45bcd9a">   50</a></span><span class="preprocessor">#define RMS_TO_AVG            (1.0/AVG_TO_RMS)</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef MACROS_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define MACROS_H</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;xc.h&gt;</span> <span class="comment">// include processor files - each processor file is guarded.  </span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdint.h&gt;</span> <span class="comment">// include standard integer data types</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span> <span class="comment">// include standard boolean data types</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;stddef.h&gt;</span> <span class="comment">// include standard definition data types</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;math.h&gt;</span> <span class="comment">// include standard math functions library</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;useful_macros.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;config.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;hardware.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">//device specific setup</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">// DO NOT MODIFY</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define PWM_CLOCK_FREQUENCY     (float)4.0e+9 </span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define ADC_RESOLUTION          4095 </span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define ADC_REFERENCE           (float)3.3  </span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define ADC_SCALER              (float)(1.0 / ADC_RESOLUTION) </span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">//#define PHASE_DEGREES           360U    ///&lt; Maximum Phase degree </span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define PHASE_180_SCALER        (float)(1.0 / 180)</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="a00504.html#gafd17199da18b5a3321b37016464983b0">   37</a></span><span class="preprocessor">#define PWM_CLOCK_PERIOD       (float)(1.0 / PWM_CLOCK_FREQUENCY) </span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="a00504.html#ga6b442951e644a17742ef24efa981f4c2">   38</a></span><span class="preprocessor">#define MAX_SWITCHING_PERIOD   (float)(1.0/MINIMUM_SWITCHING_FREQUENCY)   </span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="a00504.html#ga5ed32182c39d3e960b242387f435759b">   39</a></span><span class="preprocessor">#define MIN_SWITCHING_PERIOD   (float)(1.0/MAXIMUM_SWITCHING_FREQUENCY)   </span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="a00504.html#ga186594aa5d23f8d898758992a70b2d13">   40</a></span><span class="preprocessor">#define MAX_PWM_PERIOD         (uint16_t)(float)(MAX_SWITCHING_PERIOD / PWM_CLOCK_PERIOD) </span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="a00504.html#gaab2f7ae5f2d6809dd3894e30692f30b1">   41</a></span><span class="preprocessor">#define MIN_PWM_PERIOD         (uint16_t)(float)(MIN_SWITCHING_PERIOD / PWM_CLOCK_PERIOD) </span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="a00504.html#gaf207f331e3e052a4ad198b0837e64cd9">   42</a></span><span class="preprocessor">#define PERIOD_RANGE           (uint16_t)(MAX_PWM_PERIOD - MIN_PWM_PERIOD)  </span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="a00504.html#ga437af142b62c5aaa24e036a25b81bdd1">   43</a></span><span class="preprocessor">#define ADC_PERIOD_RANGE       (uint16_t)(float)(PERIOD_RANGE / ADC_RESOLUTION) </span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">//#define CONTROL_PHASE_RAD      (uint16_t)(float)(PHASE_DEGREES / 180) ///&lt; This sets the maximum PWM phase of the converter</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">//#define MIN_PER_CONTROL_PHASE  (uint16_t)(float)(MIN_PWM_PERIOD / CONTROL_PHASE_RAD)</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">//#define MAX_PER_CONTROL_PHASE  (uint16_t)(float)(MAX_PWM_PERIOD / CONTROL_PHASE_RAD)</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="a00504.html#gabc0fa5be333bec97b04a2dbdd15b1042">   49</a></span><span class="preprocessor">#define MIN_PWM_DEAD_TIME   (uint16_t)(MINIMUM_DEADTIME / (float)PWM_CLOCK_PERIOD) </span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="a00504.html#ga1ca2efa729e26db33b57a3c71e9fd8ac">   50</a></span><span class="preprocessor">#define MAX_PWM_DEAD_TIME   (uint16_t)(MAXIMUM_DEADTIME / (float)PWM_CLOCK_PERIOD) </span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">// convert frequency in Hz to integer setting that can be loaded into the PWMxPER register</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">// PWM_HR_EDGE_ALIGNED_PGxPER: high resolution, edge aligned mode</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">// assuming a PWM clock frequency of 4GHz</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="a00517.html#ga67a05b5f54847bdcf3a4f8505a8ddf5d">   55</a></span><span class="preprocessor">#define PWM_HR_EDGE_ALIGNED_PGxPER(freq_hz)     ((uint16_t)(_rnd_int32_t((8.0*500.0e+6)/(float)freq_hz)-8.0))</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// convert duty cycle in percent to an integer that can be loaded into the PGxDC register</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">// duty_percent should be between 0 and 100</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="a00517.html#ga1651dc9a22fef1ab2af194db866dd73f">   59</a></span><span class="preprocessor">#define PWM_HR_EDGE_ALIGNED_PGxDC(PGxPER, duty_percent)      ((uint16_t)(_rnd_int32_t((PGxPER+8)*(duty_percent/100.0))))</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">// convert trigger offset in seconds to an integer that can be loaded into PGxTRIGy register</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="a00517.html#ga788298696055df15aab198a429d96ed3">   62</a></span><span class="preprocessor">#define PWM_HR_PGxTRIGy(trigger_offset)        ((uint16_t)(_rnd_int32_t(8.0*500.0e+6*trigger_offset)))</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">// converter dead times in seconds to integer that can be loaded into PGxDTy register</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="a00517.html#gae9dd7d65ec0c724eb6a3a944f9b60ec0">   65</a></span><span class="preprocessor">#define PWM_HR_PGxDTy(dead_time)                ((uint16_t)(_rnd_int32_t(8.0*500.0e+6*dead_time)))</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">// convert a threshold in engineering units (volts,amps etc,) or amps to ADC threshold</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">// formula is:</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">// integer threshold = (volts or amps threshold)*gain + offset</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="a00517.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">   70</a></span><span class="preprocessor">#define UNITS_FROM_ENG_TO_ADC(threshold, gain, offset)       (_rnd((((float)threshold*(float)gain) + (float)offset)/3.3*4095.0))</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="a00517.html#ga5032cd832e55c41df8dc512000cc9c0d">   72</a></span><span class="preprocessor">#define UNITS_FROM_ADC_TO_ENG(AdcValue, Gain)       (_rnd((((float)AdcValue /(float)Gain))/4095.0 * 3.3))</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
- <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#endif  </span><span class="comment">/* USEFUL_MACROS_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="a00504.html#gad6a2ee2364ce0f4f20b7527a1e95d181">   52</a></span><span class="preprocessor">#define MIN_PHASE_SHIFTED_PULSE   (uint16_t)(MINIMUM_PHASESHIFTED_PULSE / (float)PWM_CLOCK_PERIOD) </span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="a00504.html#ga8a2a936326c4e675da1e98a8661843ff">   54</a></span><span class="preprocessor">#define DEGREES_PHASE_10x                   (10u)   </span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="a00504.html#ga985f58915c79f9f205b0ad2c51f53a2a">   55</a></span><span class="preprocessor">#define DEGREES_PHASE_SCALER                (10u)</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="a00504.html#ga2aa2f9a51e6d0c4f080cd83ae96989bd">   56</a></span><span class="preprocessor">#define DEGREES_PHASE_SCALING_10            ((pow(2.0, DEGREES_PHASE_SCALER)) / DEGREES_PHASE_10x)</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="a00504.html#gad5d86e418e1507f6584595a8ed8b5e10">   57</a></span><span class="preprocessor">#define DEGREES_PHASE_FACTOR                ((PRI_TO_SEC_PHASE_DEGREES_LIMIT * ((DEGREES_PHASE_SCALER)* DEGREES_PHASE_10x)))</span></div>
+ <span class="comment">// end of group pwm-macros ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">// fault related</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">// convert a threshold in engineering units (volts,amps etc,) or amps to ADC threshold</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">// formula is:</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">// integer threshold = (volts or amps threshold)*gain + offset</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">// convert fault thresholds and delays into integers that can be used by the firmware</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="a00512.html#gac6376b7fb30da56ecf5719bad64079b7">   71</a></span><span class="preprocessor">#define ISEC_OC_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(ISEC_OC_THRES_TRIG_AMPS,ISEC_CT_SNS_GAIN,ISEC_CT_SNS_OFS))</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="a00512.html#ga2a0efa36638d988404f55a254a4c62fe">   72</a></span><span class="preprocessor">#define ISEC_OC_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(ISEC_OC_THRES_CLEAR_AMPS,ISEC_CT_SNS_GAIN,ISEC_CT_SNS_OFS))</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="a00512.html#gaf082faecd5f7c3303a4c765d8d8b0472">   73</a></span><span class="preprocessor">#define ISEC_OC_T_BLANK_TRIG                ((uint16_t)(_rnd(ISEC_OC_T_BLANK_TRIG_SEC / ISEC_OC_TICK_SEC)))</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="a00512.html#ga5699b0f92b1002c48afde85f493ef541">   74</a></span><span class="preprocessor">#define ISEC_OC_T_BLANK_CLEAR               ((uint16_t)(_rnd(ISEC_OC_T_BLANK_CLEAR_SEC / ISEC_OC_TICK_SEC)))</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="a00512.html#ga4ceda5524d91a9e630c2da6a209c2662">   76</a></span><span class="preprocessor">#define ISEC_SC_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(ISEC_SC_THRES_TRIG_AMPS,ISEC_CT_SNS_GAIN,ISEC_CT_SNS_OFS))  </span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="a00512.html#ga9ba7015c9437b2c07790b380a9a48367">   77</a></span><span class="preprocessor">#define ISEC_LOAD_STEP_CLAMP                (UNITS_FROM_ENG_TO_ADC(ISEC_LOAD_STEP_CLAMPING_AMPS,ISEC_AVG_SNS_GAIN,0))</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">// parameters related to secondary current sensor calibration</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">// allowing for +/-5% from ideal</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="a00512.html#ga32693322c9fff62a2374fd3de9d0f5e8">   83</a></span><span class="preprocessor">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH      (_rnd((ISEC_AVG_SNS_OFS*1.05)/3.3*4096.0))</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="a00512.html#ga0ed005156ed4fc2064d588f00d44223d">   84</a></span><span class="preprocessor">#define ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW       (_rnd((ISEC_AVG_SNS_OFS*0.95)/3.3*4096.0))</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="a00510.html#gaf8034f2a9a60a8cab6eab35481d514d1">   92</a></span><span class="preprocessor">#define IPRI_OC_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(IPRI_OC_THRES_TRIG_AMPS,IPRI_CT_SNS_GAIN,IPRI_CT_SNS_OFS))</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="a00510.html#ga69d668edae652db23814a4d1bbf0c3f2">   93</a></span><span class="preprocessor">#define IPRI_OC_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(IPRI_OC_THRES_CLEAR_AMPS,IPRI_CT_SNS_GAIN,IPRI_CT_SNS_OFS))</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="a00510.html#gafb965e297429b01ecde0a9399f302d26">   94</a></span><span class="preprocessor">#define IPRI_OC_T_BLANK_TRIG                ((uint16_t)(_rnd(IPRI_OC_T_BLANK_TRIG_SEC / IPRI_OC_TICK_SEC)))      </span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="a00510.html#gad15d6e4434542fae730a4c9b1981a82c">   95</a></span><span class="preprocessor">#define IPRI_OC_T_BLANK_CLEAR               ((uint16_t)(_rnd(IPRI_OC_T_BLANK_CLEAR_SEC / IPRI_OC_TICK_SEC))) </span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="a00510.html#ga6ccef35604a0ba6693e0f56b6cd30de6">   97</a></span><span class="preprocessor">#define IPRI_SC_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(IPRI_SC_THRES_TRIG_AMPS,IPRI_CT_SNS_GAIN,IPRI_CT_SNS_OFS))</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="a00510.html#ga802cc98f6b8e4f4721492d0a53db2944">   98</a></span><span class="preprocessor">#define I_SC_T_BLANK_CLEAR                  ((uint16_t)(_rnd(I_SC_T_BLANK_CLEAR_SEC / I_SC_TICK_SEC)))</span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="a00508.html#ga2cedf2c418fcc28d45db230262989756">  105</a></span><span class="preprocessor">#define VSEC_OV_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(VSEC_OV_THRES_TRIG_VOLTS,VSEC_SNS_GAIN,0.0))</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="a00508.html#gacefdf0fe6bfec783e2318f5470f4aa2f">  106</a></span><span class="preprocessor">#define VSEC_OV_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(VSEC_OV_THRES_CLEAR_VOLTS,VSEC_SNS_GAIN,0.0))</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="a00508.html#ga5a408a256fc1b9b921330828dea28789">  107</a></span><span class="preprocessor">#define VSEC_OV_T_BLANK_TRIG                ((uint16_t)(_rnd(VSEC_OV_T_BLANK_TRIG_SEC / VSEC_OV_TICK_SEC)))  </span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="a00508.html#gafa2427e85d2f9ac0723ed0ed23af656d">  108</a></span><span class="preprocessor">#define VSEC_OV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VSEC_OV_T_BLANK_CLEAR_SEC / VSEC_OV_TICK_SEC)))  </span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="a00508.html#ga3139033462285507b81adb23bbd3931e">  110</a></span><span class="preprocessor">#define VSEC_UV_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(VSEC_UV_THRES_TRIG_VOLTS,VSEC_SNS_GAIN,0.0))</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="a00508.html#gafeabe557b94a2db2232adcb85e4616dc">  111</a></span><span class="preprocessor">#define VSEC_UV_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(VSEC_UV_THRES_CLEAR_VOLTS,VSEC_SNS_GAIN,0.0))</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="a00508.html#ga995d68e6451585c1667fd9193c7f0f85">  112</a></span><span class="preprocessor">#define VSEC_UV_T_BLANK_TRIG                ((uint16_t)(_rnd(VSEC_UV_T_BLANK_TRIG_SEC / VSEC_UV_TICK_SEC)))    </span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="a00508.html#gaf6ea7359d607b7241085b9ac7fbdb26b">  113</a></span><span class="preprocessor">#define VSEC_UV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VSEC_UV_T_BLANK_CLEAR_SEC / VSEC_UV_TICK_SEC)))    </span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="a00508.html#gaf68a4a402cbda8d11a24ba119c2c9aa1">  115</a></span><span class="preprocessor">#define VSEC_LOAD_STEP_CLAMP                (UNITS_FROM_ENG_TO_ADC(VSEC_LOAD_STEP_CLAMPING_VOLTS,VSEC_SNS_GAIN,0.0))</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="a00508.html#ga93b81b121d48dd0d5cd464d10740fa88">  117</a></span><span class="preprocessor">#define VSEC_SCALER                         (10u)</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="a00508.html#ga87426af9b5f855874eedc446074b5b7b">  118</a></span><span class="preprocessor">#define VSEC_FACTOR                         (uint16_t)((1 / VSEC_VOLTAGE_GAIN) * VSEC_SCALER) </span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="a00506.html#ga3746b4dd49ef223031e563ac1621ac04">  125</a></span><span class="preprocessor">#define VPRI_OV_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(VPRI_OV_THRES_TRIG_VOLTS,VPRI_SNS_GAIN,VPRI_SNS_OFS))</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="a00506.html#gaff26d74d808582c963415a071cdd5e0a">  126</a></span><span class="preprocessor">#define VPRI_OV_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(VPRI_OV_THRES_CLEAR_VOLTS,VPRI_SNS_GAIN,VPRI_SNS_OFS))</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="a00506.html#ga1184157d3e57ef49b0e628fa46030981">  127</a></span><span class="preprocessor">#define VPRI_OV_T_BLANK_TRIG                ((uint16_t)(_rnd(VPRI_OV_T_BLANK_TRIG_SEC / VSEC_OV_TICK_SEC))) </span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="a00506.html#ga9a9b09ee6494d1465749a8e9fb0c8567">  128</a></span><span class="preprocessor">#define VPRI_OV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VPRI_OV_T_BLANK_CLEAR_SEC / VSEC_OV_TICK_SEC))) </span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="a00506.html#ga7bdc220c327ec839fc16ba1edbf67b57">  130</a></span><span class="preprocessor">#define VPRI_UV_THRES_TRIG                  (UNITS_FROM_ENG_TO_ADC(VPRI_UV_THRES_TRIG_VOLTS,VPRI_SNS_GAIN,VPRI_SNS_OFS))</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="a00506.html#gad4cc96b6dd68ecc9ed427346911e3f57">  131</a></span><span class="preprocessor">#define VPRI_UV_THRES_CLEAR                 (UNITS_FROM_ENG_TO_ADC(VPRI_UV_THRES_CLEAR_VOLTS,VPRI_SNS_GAIN,VPRI_SNS_OFS))</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="a00506.html#ga3fa103425c39e75be9e3fb38c8a5bdd7">  132</a></span><span class="preprocessor">#define VPRI_UV_T_BLANK_TRIG                ((uint16_t)(_rnd(VPRI_UV_T_BLANK_TRIG_SEC / VSEC_UV_TICK_SEC))) </span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="a00506.html#ga7fa4415a02bf9697187c8813fb0806e3">  133</a></span><span class="preprocessor">#define VPRI_UV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VPRI_UV_T_BLANK_CLEAR_SEC / VSEC_UV_TICK_SEC))) </span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="a00506.html#ga2f270c8da43a9fbffba8b40815ac607a">  135</a></span><span class="preprocessor">#define VPRIM_LOAD_STEP_CLAMP                (UNITS_FROM_ENG_TO_ADC( VPRIM_LOAD_STEP_CLAMPING_VOLTS,VPRI_SNS_GAIN,0.0))</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="a00506.html#gab7a9741526251fdc69257a21c67188f4">  137</a></span><span class="preprocessor">#define VPRI_SCALER                         (10u)</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="a00506.html#ga838e39dc2b9489e0f7186265226749ad">  138</a></span><span class="preprocessor">#define VPRI_FACTOR                         (uint16_t)((1 / VPRI_VOLTAGE_GAIN) * VPRI_SCALER) </span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="a00514.html#gae66c69a25a09bf23a8542f9e2ca4b016">  146</a></span><span class="preprocessor">#define VRAIL_5V_UV_THRES_TRIG              (UNITS_FROM_ENG_TO_ADC(VRAIL_5V_UV_THRES_TRIG_VOLTS,VRAIL_5V_SNS_GAIN,0.0))</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="a00514.html#gaeffd832d63247c37746ec9a51023126f">  147</a></span><span class="preprocessor">#define VRAIL_5V_UV_THRES_CLEAR             (UNITS_FROM_ENG_TO_ADC(VRAIL_5V_UV_THRES_CLEAR_VOLTS,VRAIL_5V_SNS_GAIN,0.0))</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="a00514.html#ga573c9325062416430b7fdc8f41a93988">  148</a></span><span class="preprocessor">#define VRAIL_5V_UV_T_BLANK_TRIG            ((uint16_t)(_rnd(VRAIL_5V_UV_T_BLANK_TRIG_SEC / VRAIL_5V_UV_TICK_SEC)))  </span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="a00514.html#ga197548e0249065a587df067bb2b6bfb6">  149</a></span><span class="preprocessor">#define VRAIL_5V_UV_T_BLANK_CLEAR           ((uint16_t)(_rnd(VRAIL_5V_UV_T_BLANK_CLEAR_SEC / VRAIL_5V_UV_TICK_SEC)))  </span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="a00518.html#ga14e5a0b582b1666590c4d1854ab1fe6f">  157</a></span><span class="preprocessor">#define TEMPERATURE_FACTOR              (int16_t)(TEMPERATURE_GAIN * pow(2.0, 15))</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="a00518.html#ga138123533833c44398978f96b0f31764">  159</a></span><span class="preprocessor">#define L_TEMPERATURE_THRESHOLD        (uint16_t)(NOMINAL_TEMPERATURE_THRESHOLD - TEMPERATURE_HYSTERESIS)</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="a00518.html#ga3aa6d37a535571959d177257ff529478">  160</a></span><span class="preprocessor">#define H_TEMPERATURE_THRESHOLD        (uint16_t)(NOMINAL_TEMPERATURE_THRESHOLD + TEMPERATURE_HYSTERESIS)</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="a00516.html#ga80914760246c425bc1536e1d809a071b">  168</a></span><span class="preprocessor">#define POWER_SCALER                        (14u)</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="a00516.html#ga5d5113c068bc70c6666522402aa59bcf">  169</a></span><span class="preprocessor">#define POWER_FACTOR                        (uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, POWER_SCALER))) / ((ADC_RESOLUTION * VSEC_SNS_GAIN) * (ADC_RESOLUTION * ISEC_AVG_SNS_GAIN))) </span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="a00516.html#gacdae5309d1cb67f967c3b5b64b19d3af">  171</a></span><span class="preprocessor">#define AGC_VOLTAGE_FACTOR                      (uint32_t)(AGC_MINIMUM_VIN_THRESHOLD * pow(2.0, 15))</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="a00516.html#gaf85ec768f2e621acc512b9246946f1eb">  172</a></span><span class="preprocessor">#define AGC_VOLTAGE_FACTOR_SEC                  (uint32_t)(AGC_MINIMUM_VIN_THRESHOLD_SEC * pow(2.0, 15))</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="a00516.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40">  173</a></span><span class="preprocessor">#define AGC_MINIMUM_CURRENT_THRESHOLD                   (UNITS_FROM_ENG_TO_ADC(AGC_MINIMUM_ISEC_THRESHOLD,ISEC_AVG_SNS_GAIN,0.0))</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="a00516.html#ga4022c2ca098b410cbcb0f16f2e4cc0ea">  174</a></span><span class="preprocessor">#define AGC_CURRENT_FACTOR                      (uint32_t)(AGC_MINIMUM_CURRENT_THRESHOLD * pow(2.0, 15))</span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="preprocessor">#endif  </span><span class="comment">/* MACROS_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

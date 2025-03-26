@@ -1,11 +1,9 @@
 var a00561 =
 [
-    [ "system.c", "a00224.html", null ],
-    [ "system_types.h", "a00233.html", null ],
-    [ "SYSTEM_CORCONInitialize", "a00561.html#gadfc9074510e56ffe6a1cd6a369572012", null ],
-    [ "SYSTEM_CORCONModeOperatingSet", "a00561.html#ga03a302c67ebdc2113217ff9f786f3fa5", null ],
-    [ "SYSTEM_CORCONRegisterValueGet", "a00561.html#ga906ec8b17069b8ae45a7984007408111", null ],
-    [ "SYSTEM_CORCONRegisterValueSet", "a00561.html#ga08500caeb97c4fb0c4e6c8270bb2a094", null ],
-    [ "SYSTEM_DeviceIdRegisterAddressGet", "a00561.html#ga0f14d5c31cd3b70956b04ee8b07c9be4", null ],
-    [ "SYSTEM_Initialize", "a00561.html#ga5e8391114a0cf91ac20002be25e3d352", null ]
+    [ "interrupt.c", "a00218.html", null ],
+    [ "INTERRUPT_Deinitialize", "a00561.html#ga2b6583be540877d43388113fdc5bd110", null ],
+    [ "INTERRUPT_GlobalDisable", "a00561.html#gac2f23c6185e515ff80fb2f2549b0f10d", null ],
+    [ "INTERRUPT_GlobalEnable", "a00561.html#ga0e88e5f65ed34a762b4f9059e2a033ed", null ],
+    [ "INTERRUPT_Initialize", "a00561.html#ga5c526129ee879458dff6755f5768a6e3", null ],
+    [ "INTERRUPT_VectorNumberGet", "a00561.html#ga4f2787d36434a2df6c0c6009108da708", null ]
 ];

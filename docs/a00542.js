@@ -1,7 +1,10 @@
 var a00542 =
 [
-    [ "pwrctrl_common.c", "a00467.html", null ],
-    [ "pwrctrl_common.h", "a00470.html", null ],
-    [ "PwrCtrl_RampReference", "a00542.html#ga59bb2fab32dc783d76f800283b4c7e2b", null ],
-    [ "PwrCtrl_UpdateAverage", "a00542.html#gad68ead20ade98451df7ea1e4e923cbaa", null ]
+    [ "pwrctrl_sm.c", "a00497.html", null ],
+    [ "PCS_INIT_handler", "a00542.html#ga8307344d190a5459682d315fc7bfe198", null ],
+    [ "PCS_SOFT_START_handler", "a00542.html#gabda6b853bb6547821acd0ec87e0a4842", null ],
+    [ "PCS_STANDBY_handler", "a00542.html#ga42f7c8f65745b2f81bb6dbd381ea8121", null ],
+    [ "PCS_UP_AND_RUNNING_handler", "a00542.html#ga8752fbb48416e60141e205f1cbda0f98", null ],
+    [ "PCS_WAIT_IF_FAULT_ACTIVE_handler", "a00542.html#gaad6ef2378120876a621b349c1380aef7", null ],
+    [ "PwrCtrl_StateMachine", "a00542.html#ga2408c0b52cd2c2487f43716f261434e6", null ]
 ];

@@ -1,19 +1,24 @@
 var a00528 =
 [
-    [ "dev_current_sensor.c", "a00320.html", null ],
-    [ "dev_current_sensor.h", "a00323.html", null ],
-    [ "SENSOR_OFFSET_CAL_s", "a00663.html", [
-      [ "Accumulator", "a00663.html#a1bf80696497119c4e36460f57de7f667", null ],
-      [ "CalibrationComplete", "a00663.html#adf25ddb38dbda4b3bf8401ccfa38187f", null ],
-      [ "LimitHigh", "a00663.html#a26af6df9982c908f6c04dac5febbfabe", null ],
-      [ "LimitLow", "a00663.html#a807559395dd14cc8be15101fbc71677d", null ],
-      [ "MeasurementCounter", "a00663.html#a439f5c23e968e4d9d17def3e46ca3aff", null ],
-      [ "Offset", "a00663.html#ae6e68acb116dc3b5f8a7354c7f7d4146", null ]
-    ] ],
-    [ "Dev_CurrentSensor_Clr_Offset", "a00528.html#ga494b4a948891fd5757ccc647f9962529", null ],
-    [ "Dev_CurrentSensor_Get_CalibrationStatus", "a00528.html#ga218632f9814c3bf20c40cea0794ffc7d", null ],
-    [ "Dev_CurrentSensor_Get_Offset", "a00528.html#ga9f581abf52dc00ba320faafa189fafb9", null ],
-    [ "Dev_CurrentSensorOffsetCal", "a00528.html#gaaa75855922e60913d443c6203475256f", null ],
-    [ "Dev_SensorOffsetCal", "a00528.html#ga03e8d61bbc0f4b686c400440f80dcf69", null ],
-    [ "isecAvgCurrentSensor", "a00528.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f", null ]
+    [ "PBV_DAB_frame_map.h", "a00287.html", null ],
+    [ "FIRMWARE_PROTOCOL_ID", "a00528.html#ga6cf2376a2bcc430349e1744fc506dbdf", null ],
+    [ "PBV_CMD_ID_DAB_OFF", "a00528.html#gaaa818c5afef2b3e33c5de712535d2a0b", null ],
+    [ "PBV_CMD_ID_DAB_ON", "a00528.html#ga62fdc237d6b3d6aa2c0c25b6ecb00d2d", null ],
+    [ "PBV_CMD_ID_DAB_ON_REV", "a00528.html#ga1b7b386520b21da3729e15cd26207365", null ],
+    [ "PBV_CMD_ID_FAN_SPEED", "a00528.html#ga1a16e205c5cdb5eef74680a430fbf26f", null ],
+    [ "PBV_CMD_ID_FREQ_CHANGE", "a00528.html#gacc02c51548e170216482c9ec63095cbd", null ],
+    [ "PBV_CMD_ID_ILOOP_REF_SET", "a00528.html#gae5ba560edfe0a5539560dda1d9b10e8e", null ],
+    [ "PBV_CMD_ID_P2S_PHASE_TARGET", "a00528.html#gaa884de9b9e6ecfdfd1b7e184de4f7c7a", null ],
+    [ "PBV_CMD_ID_PHASE_CHANGE", "a00528.html#ga43cb2ce1ccb1f3605b1f476a803cf899", null ],
+    [ "PBV_CMD_ID_PLOOP_REF_SET", "a00528.html#ga1d4818470bcd6185d9298b1f57efa854", null ],
+    [ "PBV_CMD_ID_VLOOP_REF_SET", "a00528.html#ga9edafe7db394b4dad8369cba7e2b50ce", null ],
+    [ "PBV_CMD_ID_VLOOPREV_REF_SET", "a00528.html#ga6b94edba8b69d6e4e75d16515192decf", null ],
+    [ "PBV_LOG_ID", "a00528.html#ga1e8299e4f0d398aa254b25b863a6d47b", null ],
+    [ "PBV_TX_PROTOCOL_ID", "a00528.html#ga75af25c76e9ef3e1ba4bc883a5f6d4f5", null ],
+    [ "App_PB_DAB_Get_TX_ASCII_ptr", "a00528.html#ga79ec24216fcdceeda0313df0193990ee", null ],
+    [ "App_PBV_DAB_Init", "a00528.html#ga00307bed276aca52423f1e10365e3334", null ],
+    [ "App_PBV_DAB_Process_Rx_Data", "a00528.html#gaf2b5ec7aa4bf88b00eaa69cfeba83160", null ],
+    [ "App_PBV_DAB_Task_10ms", "a00528.html#ga4de477d51ea04cdcfcb1e3eb3ef0053a", null ],
+    [ "App_PBV_DAB_Task_1s", "a00528.html#gad255673713bb77bc36791875207a4393", null ],
+    [ "protocolID", "a00528.html#gae7f76d2864d9f99538052487fb4c9570", null ]
 ];

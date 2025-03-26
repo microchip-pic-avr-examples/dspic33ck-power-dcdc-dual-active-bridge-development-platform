@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Conversion Macros</title>
+<title>Dual Active Bridge Development Board: Secondary Voltage Feedback</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,129 +136,262 @@ $(document).ready(function(){initNavTree('a00507.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Conversion Macros<div class="ingroups"><a class="el" href="a00526.html">Configuration Layer</a> &raquo; <a class="el" href="a00506.html">Primary Current Feedback</a></div></div></div>
+  <div class="summary">
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Secondary Voltage Feedback<div class="ingroups"><a class="el" href="a00529.html">Configuration Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Conversion macros for user-declarations of Primary Current Feedback parameters.  
+<p>Declaration of Secondary Voltage Feedback parameters, fault configuration and macros.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Conversion Macros:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Secondary Voltage Feedback:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00507.svg" width="364" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00507.svg" width="502" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="memitem:gaf8034f2a9a60a8cab6eab35481d514d1" id="r_gaf8034f2a9a60a8cab6eab35481d514d1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gaf8034f2a9a60a8cab6eab35481d514d1">IPRI_OC_THRES_TRIG</a>&#160;&#160;&#160;(<a class="el" href="a00517.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00506.html#gaf66f7333079207c329017043676a1fcb">IPRI_OC_THRES_TRIG_AMPS</a>,<a class="el" href="a00506.html#gadd3268f777497752594e03ab7c9ed8bd">IPRI_CT_SNS_GAIN</a>,<a class="el" href="a00506.html#gae03bb48f1dee21d88493adfa4fd939d8">IPRI_CT_SNS_OFS</a>))</td></tr>
-<tr class="separator:gaf8034f2a9a60a8cab6eab35481d514d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga69d668edae652db23814a4d1bbf0c3f2" id="r_ga69d668edae652db23814a4d1bbf0c3f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#ga69d668edae652db23814a4d1bbf0c3f2">IPRI_OC_THRES_CLEAR</a>&#160;&#160;&#160;(<a class="el" href="a00517.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00506.html#ga3d9ec4eb82b3b94114525bf01962d585">IPRI_OC_THRES_CLEAR_AMPS</a>,<a class="el" href="a00506.html#gadd3268f777497752594e03ab7c9ed8bd">IPRI_CT_SNS_GAIN</a>,<a class="el" href="a00506.html#gae03bb48f1dee21d88493adfa4fd939d8">IPRI_CT_SNS_OFS</a>))</td></tr>
-<tr class="separator:ga69d668edae652db23814a4d1bbf0c3f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafb965e297429b01ecde0a9399f302d26" id="r_gafb965e297429b01ecde0a9399f302d26"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gafb965e297429b01ecde0a9399f302d26">IPRI_OC_T_BLANK_TRIG</a>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00506.html#gaa26d53ce604d0b5ce4b8e6bad69d2eca">IPRI_OC_T_BLANK_TRIG_SEC</a> / <a class="el" href="a00506.html#ga4487a40d5ee45b46fff78d92d3570251">IPRI_OC_TICK_SEC</a>)))</td></tr>
-<tr class="separator:gafb965e297429b01ecde0a9399f302d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad15d6e4434542fae730a4c9b1981a82c" id="r_gad15d6e4434542fae730a4c9b1981a82c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gad15d6e4434542fae730a4c9b1981a82c">IPRI_OC_T_BLANK_CLEAR</a>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00506.html#gab24221cdd03e9a0deab655553752bc26">IPRI_OC_T_BLANK_CLEAR_SEC</a> / <a class="el" href="a00506.html#ga4487a40d5ee45b46fff78d92d3570251">IPRI_OC_TICK_SEC</a>)))</td></tr>
-<tr class="separator:gad15d6e4434542fae730a4c9b1981a82c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6ccef35604a0ba6693e0f56b6cd30de6" id="r_ga6ccef35604a0ba6693e0f56b6cd30de6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#ga6ccef35604a0ba6693e0f56b6cd30de6">IPRI_SC_THRES_TRIG</a>&#160;&#160;&#160;(<a class="el" href="a00517.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00506.html#gab55238e2900bea980e7be8e9d488683e">IPRI_SC_THRES_TRIG_AMPS</a>,<a class="el" href="a00506.html#gadd3268f777497752594e03ab7c9ed8bd">IPRI_CT_SNS_GAIN</a>,<a class="el" href="a00506.html#gae03bb48f1dee21d88493adfa4fd939d8">IPRI_CT_SNS_OFS</a>))</td></tr>
-<tr class="separator:ga6ccef35604a0ba6693e0f56b6cd30de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga802cc98f6b8e4f4721492d0a53db2944" id="r_ga802cc98f6b8e4f4721492d0a53db2944"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#ga802cc98f6b8e4f4721492d0a53db2944">I_SC_T_BLANK_CLEAR</a>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(I_SC_T_BLANK_CLEAR_SEC / I_SC_TICK_SEC)))</td></tr>
-<tr class="separator:ga802cc98f6b8e4f4721492d0a53db2944"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00508" id="r_a00508"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00508.html">Conversion Macros</a></td></tr>
+<tr class="memdesc:a00508"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of Secondary Voltage Feedback parameters. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf7f1d859f3effd96e6613130af09fc0b" id="r_gaf7f1d859f3effd96e6613130af09fc0b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gaf7f1d859f3effd96e6613130af09fc0b">VSEC_OV_THRES_TRIG_VOLTS</a>&#160;&#160;&#160;(float)(500.0)</td></tr>
+<tr class="separator:gaf7f1d859f3effd96e6613130af09fc0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1003ede83a567c60837872c8542824b" id="r_gab1003ede83a567c60837872c8542824b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gab1003ede83a567c60837872c8542824b">VSEC_OV_THRES_CLEAR_VOLTS</a>&#160;&#160;&#160;(float) (20.0)</td></tr>
+<tr class="separator:gab1003ede83a567c60837872c8542824b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf49c547355152112f9ae4b26555d57e2" id="r_gaf49c547355152112f9ae4b26555d57e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gaf49c547355152112f9ae4b26555d57e2">VSEC_OV_T_BLANK_TRIG_SEC</a>&#160;&#160;&#160;(float)  (1.0e-3)</td></tr>
+<tr class="separator:gaf49c547355152112f9ae4b26555d57e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5128a30f14a7b25809efe09d606b8055" id="r_ga5128a30f14a7b25809efe09d606b8055"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#ga5128a30f14a7b25809efe09d606b8055">VSEC_OV_T_BLANK_CLEAR_SEC</a>&#160;&#160;&#160;(float) (10.0e-3)</td></tr>
+<tr class="separator:ga5128a30f14a7b25809efe09d606b8055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga77d2a7b05664c0c08ce317f942deca00" id="r_ga77d2a7b05664c0c08ce317f942deca00"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#ga77d2a7b05664c0c08ce317f942deca00">VSEC_OV_TICK_SEC</a>&#160;&#160;&#160;(<a class="el" href="a00509.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td></tr>
+<tr class="separator:ga77d2a7b05664c0c08ce317f942deca00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab7c6ea26f50ee59cfffa63274edbd8ea" id="r_gab7c6ea26f50ee59cfffa63274edbd8ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gab7c6ea26f50ee59cfffa63274edbd8ea">VSEC_UV_THRES_TRIG_VOLTS</a>&#160;&#160;&#160;(float)(100.0)</td></tr>
+<tr class="separator:gab7c6ea26f50ee59cfffa63274edbd8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad401641684f506e72d672405e4e80bba" id="r_gad401641684f506e72d672405e4e80bba"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gad401641684f506e72d672405e4e80bba">VSEC_UV_THRES_CLEAR_VOLTS</a>&#160;&#160;&#160;(float) (50.0)</td></tr>
+<tr class="separator:gad401641684f506e72d672405e4e80bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacaf7eee4f78c07c9647a18ca030da57d" id="r_gacaf7eee4f78c07c9647a18ca030da57d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gacaf7eee4f78c07c9647a18ca030da57d">VSEC_UV_T_BLANK_TRIG_SEC</a>&#160;&#160;&#160;(float)  (0.0)</td></tr>
+<tr class="separator:gacaf7eee4f78c07c9647a18ca030da57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga683160afa1313d6ba361e499e367a976" id="r_ga683160afa1313d6ba361e499e367a976"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#ga683160afa1313d6ba361e499e367a976">VSEC_UV_T_BLANK_CLEAR_SEC</a>&#160;&#160;&#160;(float)  (0.0)</td></tr>
+<tr class="separator:ga683160afa1313d6ba361e499e367a976"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab4b4e960335284c22232a1a6fcb41573" id="r_gab4b4e960335284c22232a1a6fcb41573"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gab4b4e960335284c22232a1a6fcb41573">VSEC_UV_TICK_SEC</a>&#160;&#160;&#160;(<a class="el" href="a00509.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td></tr>
+<tr class="separator:gab4b4e960335284c22232a1a6fcb41573"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad65db8b07e7c77b600ab24be46652e8b" id="r_gad65db8b07e7c77b600ab24be46652e8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gad65db8b07e7c77b600ab24be46652e8b">VSEC_LOAD_STEP_CLAMPING_VOLTS</a>&#160;&#160;&#160;(float) (16)</td></tr>
+<tr class="separator:gad65db8b07e7c77b600ab24be46652e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae3f52347b2b4a59f50701b297dd93e08" id="r_gae3f52347b2b4a59f50701b297dd93e08"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gae3f52347b2b4a59f50701b297dd93e08">VPRIM_LOAD_STEP_CLAMPING_VOLTS</a>&#160;&#160;&#160;(float) (16)</td></tr>
+<tr class="separator:gae3f52347b2b4a59f50701b297dd93e08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadbb92791a446721a3d4af49d713520ca" id="r_gadbb92791a446721a3d4af49d713520ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html#gadbb92791a446721a3d4af49d713520ca">VSEC_SNS_GAIN</a>&#160;&#160;&#160;(3.18e-3)</td></tr>
+<tr class="separator:gadbb92791a446721a3d4af49d713520ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>These conversion macros are used to convert user settings defined as physical quantities into binary (integer) numbers, which will be written to registers and variables and used in calculations throughout the firmware. </p>
+<p>Declaration of Secondary Voltage Feedback parameters, fault configuration and macros </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga802cc98f6b8e4f4721492d0a53db2944" name="ga802cc98f6b8e4f4721492d0a53db2944"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga802cc98f6b8e4f4721492d0a53db2944">&#9670;&#160;</a></span>I_SC_T_BLANK_CLEAR</h2>
+<a id="gae3f52347b2b4a59f50701b297dd93e08" name="gae3f52347b2b4a59f50701b297dd93e08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae3f52347b2b4a59f50701b297dd93e08">&#9670;&#160;</a></span>VPRIM_LOAD_STEP_CLAMPING_VOLTS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define I_SC_T_BLANK_CLEAR&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(I_SC_T_BLANK_CLEAR_SEC / I_SC_TICK_SEC)))</td>
+          <td class="memname">#define VPRIM_LOAD_STEP_CLAMPING_VOLTS&#160;&#160;&#160;(float) (16)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00098">98</a> of file <a class="el" href="a00308_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00149">149</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gad15d6e4434542fae730a4c9b1981a82c" name="gad15d6e4434542fae730a4c9b1981a82c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad15d6e4434542fae730a4c9b1981a82c">&#9670;&#160;</a></span>IPRI_OC_T_BLANK_CLEAR</h2>
+<a id="gad65db8b07e7c77b600ab24be46652e8b" name="gad65db8b07e7c77b600ab24be46652e8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad65db8b07e7c77b600ab24be46652e8b">&#9670;&#160;</a></span>VSEC_LOAD_STEP_CLAMPING_VOLTS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IPRI_OC_T_BLANK_CLEAR&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00506.html#gab24221cdd03e9a0deab655553752bc26">IPRI_OC_T_BLANK_CLEAR_SEC</a> / <a class="el" href="a00506.html#ga4487a40d5ee45b46fff78d92d3570251">IPRI_OC_TICK_SEC</a>)))</td>
+          <td class="memname">#define VSEC_LOAD_STEP_CLAMPING_VOLTS&#160;&#160;&#160;(float) (16)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00095">95</a> of file <a class="el" href="a00308_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00148">148</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gafb965e297429b01ecde0a9399f302d26" name="gafb965e297429b01ecde0a9399f302d26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafb965e297429b01ecde0a9399f302d26">&#9670;&#160;</a></span>IPRI_OC_T_BLANK_TRIG</h2>
+<a id="ga5128a30f14a7b25809efe09d606b8055" name="ga5128a30f14a7b25809efe09d606b8055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5128a30f14a7b25809efe09d606b8055">&#9670;&#160;</a></span>VSEC_OV_T_BLANK_CLEAR_SEC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IPRI_OC_T_BLANK_TRIG&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(<a class="el" href="a00506.html#gaa26d53ce604d0b5ce4b8e6bad69d2eca">IPRI_OC_T_BLANK_TRIG_SEC</a> / <a class="el" href="a00506.html#ga4487a40d5ee45b46fff78d92d3570251">IPRI_OC_TICK_SEC</a>)))</td>
+          <td class="memname">#define VSEC_OV_T_BLANK_CLEAR_SEC&#160;&#160;&#160;(float) (10.0e-3)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00094">94</a> of file <a class="el" href="a00308_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00134">134</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga69d668edae652db23814a4d1bbf0c3f2" name="ga69d668edae652db23814a4d1bbf0c3f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga69d668edae652db23814a4d1bbf0c3f2">&#9670;&#160;</a></span>IPRI_OC_THRES_CLEAR</h2>
+<a id="gaf49c547355152112f9ae4b26555d57e2" name="gaf49c547355152112f9ae4b26555d57e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf49c547355152112f9ae4b26555d57e2">&#9670;&#160;</a></span>VSEC_OV_T_BLANK_TRIG_SEC</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IPRI_OC_THRES_CLEAR&#160;&#160;&#160;(<a class="el" href="a00517.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00506.html#ga3d9ec4eb82b3b94114525bf01962d585">IPRI_OC_THRES_CLEAR_AMPS</a>,<a class="el" href="a00506.html#gadd3268f777497752594e03ab7c9ed8bd">IPRI_CT_SNS_GAIN</a>,<a class="el" href="a00506.html#gae03bb48f1dee21d88493adfa4fd939d8">IPRI_CT_SNS_OFS</a>))</td>
+          <td class="memname">#define VSEC_OV_T_BLANK_TRIG_SEC&#160;&#160;&#160;(float)  (1.0e-3)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00093">93</a> of file <a class="el" href="a00308_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00133">133</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gaf8034f2a9a60a8cab6eab35481d514d1" name="gaf8034f2a9a60a8cab6eab35481d514d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf8034f2a9a60a8cab6eab35481d514d1">&#9670;&#160;</a></span>IPRI_OC_THRES_TRIG</h2>
+<a id="gab1003ede83a567c60837872c8542824b" name="gab1003ede83a567c60837872c8542824b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab1003ede83a567c60837872c8542824b">&#9670;&#160;</a></span>VSEC_OV_THRES_CLEAR_VOLTS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IPRI_OC_THRES_TRIG&#160;&#160;&#160;(<a class="el" href="a00517.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00506.html#gaf66f7333079207c329017043676a1fcb">IPRI_OC_THRES_TRIG_AMPS</a>,<a class="el" href="a00506.html#gadd3268f777497752594e03ab7c9ed8bd">IPRI_CT_SNS_GAIN</a>,<a class="el" href="a00506.html#gae03bb48f1dee21d88493adfa4fd939d8">IPRI_CT_SNS_OFS</a>))</td>
+          <td class="memname">#define VSEC_OV_THRES_CLEAR_VOLTS&#160;&#160;&#160;(float) (20.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00092">92</a> of file <a class="el" href="a00308_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00128">128</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga6ccef35604a0ba6693e0f56b6cd30de6" name="ga6ccef35604a0ba6693e0f56b6cd30de6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6ccef35604a0ba6693e0f56b6cd30de6">&#9670;&#160;</a></span>IPRI_SC_THRES_TRIG</h2>
+<a id="gaf7f1d859f3effd96e6613130af09fc0b" name="gaf7f1d859f3effd96e6613130af09fc0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf7f1d859f3effd96e6613130af09fc0b">&#9670;&#160;</a></span>VSEC_OV_THRES_TRIG_VOLTS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define IPRI_SC_THRES_TRIG&#160;&#160;&#160;(<a class="el" href="a00517.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(<a class="el" href="a00506.html#gab55238e2900bea980e7be8e9d488683e">IPRI_SC_THRES_TRIG_AMPS</a>,<a class="el" href="a00506.html#gadd3268f777497752594e03ab7c9ed8bd">IPRI_CT_SNS_GAIN</a>,<a class="el" href="a00506.html#gae03bb48f1dee21d88493adfa4fd939d8">IPRI_CT_SNS_OFS</a>))</td>
+          <td class="memname">#define VSEC_OV_THRES_TRIG_VOLTS&#160;&#160;&#160;(float)(500.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00097">97</a> of file <a class="el" href="a00308_source.html">macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00127">127</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga77d2a7b05664c0c08ce317f942deca00" name="ga77d2a7b05664c0c08ce317f942deca00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga77d2a7b05664c0c08ce317f942deca00">&#9670;&#160;</a></span>VSEC_OV_TICK_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_OV_TICK_SEC&#160;&#160;&#160;(<a class="el" href="a00509.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00135">135</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gadbb92791a446721a3d4af49d713520ca" name="gadbb92791a446721a3d4af49d713520ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadbb92791a446721a3d4af49d713520ca">&#9670;&#160;</a></span>VSEC_SNS_GAIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_SNS_GAIN&#160;&#160;&#160;(3.18e-3)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00032">32</a> of file <a class="el" href="a00308_source.html">hardware.h</a>.</p>
+
+</div>
+</div>
+<a id="ga683160afa1313d6ba361e499e367a976" name="ga683160afa1313d6ba361e499e367a976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga683160afa1313d6ba361e499e367a976">&#9670;&#160;</a></span>VSEC_UV_T_BLANK_CLEAR_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_UV_T_BLANK_CLEAR_SEC&#160;&#160;&#160;(float)  (0.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00145">145</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gacaf7eee4f78c07c9647a18ca030da57d" name="gacaf7eee4f78c07c9647a18ca030da57d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacaf7eee4f78c07c9647a18ca030da57d">&#9670;&#160;</a></span>VSEC_UV_T_BLANK_TRIG_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_UV_T_BLANK_TRIG_SEC&#160;&#160;&#160;(float)  (0.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00144">144</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gad401641684f506e72d672405e4e80bba" name="gad401641684f506e72d672405e4e80bba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad401641684f506e72d672405e4e80bba">&#9670;&#160;</a></span>VSEC_UV_THRES_CLEAR_VOLTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_UV_THRES_CLEAR_VOLTS&#160;&#160;&#160;(float) (50.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00139">139</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gab7c6ea26f50ee59cfffa63274edbd8ea" name="gab7c6ea26f50ee59cfffa63274edbd8ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab7c6ea26f50ee59cfffa63274edbd8ea">&#9670;&#160;</a></span>VSEC_UV_THRES_TRIG_VOLTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_UV_THRES_TRIG_VOLTS&#160;&#160;&#160;(float)(100.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00138">138</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gab4b4e960335284c22232a1a6fcb41573" name="gab4b4e960335284c22232a1a6fcb41573"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab4b4e960335284c22232a1a6fcb41573">&#9670;&#160;</a></span>VSEC_UV_TICK_SEC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VSEC_UV_TICK_SEC&#160;&#160;&#160;(<a class="el" href="a00509.html#ga629c6b42f4e4f0bb7b45a365327216c8">T_ADC_SAMPLE_SECS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00146">146</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
 
 </div>
 </div>

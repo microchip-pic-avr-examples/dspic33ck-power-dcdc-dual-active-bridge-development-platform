@@ -1,13 +1,14 @@
 var a00506 =
 [
-    [ "Conversion Macros", "a00507.html", "a00507" ],
-    [ "IPRI_CT_SNS_GAIN", "a00506.html#gadd3268f777497752594e03ab7c9ed8bd", null ],
-    [ "IPRI_CT_SNS_OFS", "a00506.html#gae03bb48f1dee21d88493adfa4fd939d8", null ],
-    [ "IPRI_OC_T_BLANK_CLEAR_SEC", "a00506.html#gab24221cdd03e9a0deab655553752bc26", null ],
-    [ "IPRI_OC_T_BLANK_TRIG_SEC", "a00506.html#gaa26d53ce604d0b5ce4b8e6bad69d2eca", null ],
-    [ "IPRI_OC_THRES_CLEAR_AMPS", "a00506.html#ga3d9ec4eb82b3b94114525bf01962d585", null ],
-    [ "IPRI_OC_THRES_TRIG_AMPS", "a00506.html#gaf66f7333079207c329017043676a1fcb", null ],
-    [ "IPRI_OC_TICK_SEC", "a00506.html#ga4487a40d5ee45b46fff78d92d3570251", null ],
-    [ "IPRI_SC_THRES_TRIG_AMPS", "a00506.html#gab55238e2900bea980e7be8e9d488683e", null ],
-    [ "T_ADC_SAMPLE_SECS", "a00506.html#ga629c6b42f4e4f0bb7b45a365327216c8", null ]
+    [ "VPRI_FACTOR", "a00506.html#ga838e39dc2b9489e0f7186265226749ad", null ],
+    [ "VPRI_OV_T_BLANK_CLEAR", "a00506.html#ga9a9b09ee6494d1465749a8e9fb0c8567", null ],
+    [ "VPRI_OV_T_BLANK_TRIG", "a00506.html#ga1184157d3e57ef49b0e628fa46030981", null ],
+    [ "VPRI_OV_THRES_CLEAR", "a00506.html#gaff26d74d808582c963415a071cdd5e0a", null ],
+    [ "VPRI_OV_THRES_TRIG", "a00506.html#ga3746b4dd49ef223031e563ac1621ac04", null ],
+    [ "VPRI_SCALER", "a00506.html#gab7a9741526251fdc69257a21c67188f4", null ],
+    [ "VPRI_UV_T_BLANK_CLEAR", "a00506.html#ga7fa4415a02bf9697187c8813fb0806e3", null ],
+    [ "VPRI_UV_T_BLANK_TRIG", "a00506.html#ga3fa103425c39e75be9e3fb38c8a5bdd7", null ],
+    [ "VPRI_UV_THRES_CLEAR", "a00506.html#gad4cc96b6dd68ecc9ed427346911e3f57", null ],
+    [ "VPRI_UV_THRES_TRIG", "a00506.html#ga7bdc220c327ec839fc16ba1edbf67b57", null ],
+    [ "VPRIM_LOAD_STEP_CLAMP", "a00506.html#ga2f270c8da43a9fbffba8b40815ac607a", null ]
 ];

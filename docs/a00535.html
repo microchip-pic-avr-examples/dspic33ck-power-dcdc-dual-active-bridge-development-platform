@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Power Control</title>
+<title>Dual Active Bridge Development Board: Driver Layer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,50 +137,79 @@ $(document).ready(function(){initNavTree('a00535.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a>  </div>
-  <div class="headertitle"><div class="title">Power Control</div></div>
+<a href="#groups">Modules</a> &#124;
+<a href="#files">Files</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">Driver Layer</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The Power Control layer contains the state machine managing the power converter.  
+<p>Contain functions and properties of the Driver layer.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Power Control:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Driver Layer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00535.svg" width="358" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00535.svg" width="319" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
 Modules</h2></td></tr>
-<tr class="memitem:a00536" id="r_a00536"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html">Power Control Configuration</a></td></tr>
-<tr class="memdesc:a00536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains Power Control Configuration. <br /></td></tr>
+<tr class="memitem:a00536" id="r_a00536"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html">MCC Custom Code PWM</a></td></tr>
+<tr class="memdesc:a00536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contain functions and data types as MCC extension for PWM. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00537" id="r_a00537"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html">Interrupt Routine and Functions</a></td></tr>
-<tr class="memdesc:a00537"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the interrupt routine and other functions called in the interrupt. <br /></td></tr>
+<tr class="memitem:a00537" id="r_a00537"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html">MCC Custom Code ADC</a></td></tr>
+<tr class="memdesc:a00537"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contain functions and data types as MCC extension for ADC. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00538" id="r_a00538"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html">PWM Configuration</a></td></tr>
-<tr class="memdesc:a00538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains functions related to PWM properties. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
+Files</h2></td></tr>
+<tr class="memitem:a00359" id="r_a00359"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00359.html">drv_mcc_extension.h</a></td></tr>
+<tr class="memdesc:a00359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contain the peripheral header files with MCC extension code. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00539" id="r_a00539"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00539.html">State Machine</a></td></tr>
-<tr class="memdesc:a00539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the state machine of the power control. <br /></td></tr>
+<tr class="memitem:a00371" id="r_a00371"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00371.html">mcc_custom_config.h</a></td></tr>
+<tr class="memdesc:a00371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contain the MCC Custom peripheral configuration that is not supported by MCC Melody tool. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00540" id="r_a00540"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html">Control Loop Configuration</a></td></tr>
-<tr class="memdesc:a00540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the control loop configuration and initialization functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00541" id="r_a00541"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00541.html">Power Control Communication Interface</a></td></tr>
-<tr class="memdesc:a00541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains functions use to interface to Graphical User Interface or Power Board Visualizer. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00542" id="r_a00542"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00542.html">Useful Functions</a></td></tr>
-<tr class="memdesc:a00542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains generic functions that is usable to the application. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00543" id="r_a00543"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html">Power Control Data Types</a></td></tr>
-<tr class="memdesc:a00543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the collection of power control data types. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gafe646acf69be10085d651f4561909f69" id="r_gafe646acf69be10085d651f4561909f69"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00535.html#gafe646acf69be10085d651f4561909f69">MCC_Custom_User_Config</a> (void)</td></tr>
+<tr class="memdesc:gafe646acf69be10085d651f4561909f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains custom peripheral initialization.  <br /></td></tr>
+<tr class="separator:gafe646acf69be10085d651f4561909f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Power control layer provides a wide function in power supply applications. It has something to do with the control, regulation and monitoring of the power supply. Moreover, it sets the peripheral configurations needed for a particular power supply topology as required by the application, as well as sets parameters and performs operations for digital power control. </p>
+<p>The driver layer includes peripheral drivers managed by the MPLABX MCC Melody tool. It is essential to initialize certain peripheral functionalities to enable specific features required for the application. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gafe646acf69be10085d651f4561909f69" name="gafe646acf69be10085d651f4561909f69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafe646acf69be10085d651f4561909f69">&#9670;&#160;</a></span>MCC_Custom_User_Config()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MCC_Custom_User_Config </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function initializes peripheral settings that are needed in the application but is not supported by the generated code through MCC Melody tool. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00368_source.html#l00024">24</a> of file <a class="el" href="a00368_source.html">mcc_custom_config.c</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00535_gafe646acf69be10085d651f4561909f69_cgraph.svg" width="100%" height="466"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

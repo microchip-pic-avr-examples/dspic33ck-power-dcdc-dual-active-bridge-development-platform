@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/dcdt/pwrctrl_dcdt.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/dcdt/pwrctrl_dcdt.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -139,80 +139,75 @@ $(document).ready(function(){initNavTree('a00443.html',''); initResizable(); });
   <div class="summary">
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">pwrctrl_dcdt.h File Reference<div class="ingroups"><a class="el" href="a00535.html">Power Control</a> &raquo; <a class="el" href="a00540.html">Control Loop Configuration</a></div></div></div>
+  <div class="headertitle"><div class="title">pwrctrl_dcdt.c File Reference<div class="ingroups"><a class="el" href="a00538.html">Power Control</a> &raquo; <a class="el" href="a00543.html">Control Loop Configuration</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains public functions and data types relevant for DCDT file interface.  
+<p>Contains individual DCDT control loop initialization functions.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;xc.h&gt;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00452_source.html">smps_control.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00053_source.html">dab_psio/dcdt_generated_code/dab_psio_dcdt.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00062_source.html">dab_pspo/dcdt_generated_code/dab_pspo_dcdt.h</a>&quot;</code><br />
-<code>#include &quot;dab_psvo/dcdt_generated_code/dab_psvo_dcdt.h&quot;</code><br />
-<code>#include &quot;dab_spio/dcdt_generated_code/dab_spio_dcdt.h&quot;</code><br />
-<code>#include &quot;dab_sppo/dcdt_generated_code/dab_sppo_dcdt.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00074_source.html">dab_spvo/dcdt_generated_code/dab_spvo_dcdt.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00446_source.html">pwrctrl_dcdt.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pwrctrl_dcdt.h:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pwrctrl_dcdt.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00444.svg" width="100%" height="476"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00445.svg" width="100%" height="432"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00444.svg" width="100%" height="532"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="a00443_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga4d5efa27da3185177a7e9451a59ced82" id="r_ga4d5efa27da3185177a7e9451a59ced82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html#ga4d5efa27da3185177a7e9451a59ced82">PwrCtrl_IComp_Initialize</a> (void)</td></tr>
-<tr class="memdesc:ga4d5efa27da3185177a7e9451a59ced82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Current Loop Control.  <br /></td></tr>
-<tr class="separator:ga4d5efa27da3185177a7e9451a59ced82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8603aa8f7d4f64fa925228cf9c99de83" id="r_ga8603aa8f7d4f64fa925228cf9c99de83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html#ga8603aa8f7d4f64fa925228cf9c99de83">PwrCtrl_VComp_Initialize</a> (void)</td></tr>
+<tr class="memitem:ga3e431d7a1eef24adda9ba74cba5e5ce4" id="r_ga3e431d7a1eef24adda9ba74cba5e5ce4"><td class="memItemLeft" align="right" valign="top">int16_t VMC_2p2zACoefficients[2]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga3e431d7a1eef24adda9ba74cba5e5ce4">__attribute__</a> ((space(xmemory)))</td></tr>
+<tr class="memdesc:ga3e431d7a1eef24adda9ba74cba5e5ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Voltage Loop A-coefficient array.  <br /></td></tr>
+<tr class="separator:ga3e431d7a1eef24adda9ba74cba5e5ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gace6ab8444e1493b1c2750447a51b9b93" id="r_gace6ab8444e1493b1c2750447a51b9b93"><td class="memItemLeft" align="right" valign="top">int16_t VMC_2p2zControlHistory[2]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gace6ab8444e1493b1c2750447a51b9b93">__attribute__</a> ((space(ymemory), far))</td></tr>
+<tr class="memdesc:gace6ab8444e1493b1c2750447a51b9b93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Voltage Loop Control history.  <br /></td></tr>
+<tr class="separator:gace6ab8444e1493b1c2750447a51b9b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8603aa8f7d4f64fa925228cf9c99de83" id="r_ga8603aa8f7d4f64fa925228cf9c99de83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga8603aa8f7d4f64fa925228cf9c99de83">PwrCtrl_VComp_Initialize</a> (void)</td></tr>
 <tr class="memdesc:ga8603aa8f7d4f64fa925228cf9c99de83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Voltage Loop Control.  <br /></td></tr>
 <tr class="separator:ga8603aa8f7d4f64fa925228cf9c99de83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5d45f928f4747df3d3fe50876e78efc5" id="r_ga5d45f928f4747df3d3fe50876e78efc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html#ga5d45f928f4747df3d3fe50876e78efc5">PwrCtrl_PComp_Initialize</a> (void)</td></tr>
+<tr class="memitem:ga4d5efa27da3185177a7e9451a59ced82" id="r_ga4d5efa27da3185177a7e9451a59ced82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga4d5efa27da3185177a7e9451a59ced82">PwrCtrl_IComp_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga4d5efa27da3185177a7e9451a59ced82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Current Loop Control.  <br /></td></tr>
+<tr class="separator:ga4d5efa27da3185177a7e9451a59ced82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5d45f928f4747df3d3fe50876e78efc5" id="r_ga5d45f928f4747df3d3fe50876e78efc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga5d45f928f4747df3d3fe50876e78efc5">PwrCtrl_PComp_Initialize</a> (void)</td></tr>
 <tr class="memdesc:ga5d45f928f4747df3d3fe50876e78efc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Power Loop Control.  <br /></td></tr>
 <tr class="separator:ga5d45f928f4747df3d3fe50876e78efc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae5d978249e235e284da922df5ec4363a" id="r_gae5d978249e235e284da922df5ec4363a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html#gae5d978249e235e284da922df5ec4363a">PwrCtrl_ResetControlLoopHistories</a> (void)</td></tr>
+<tr class="memitem:gae5d978249e235e284da922df5ec4363a" id="r_gae5d978249e235e284da922df5ec4363a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gae5d978249e235e284da922df5ec4363a">PwrCtrl_ResetControlLoopHistories</a> (void)</td></tr>
 <tr class="memdesc:gae5d978249e235e284da922df5ec4363a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the control and error histories of the control loops.  <br /></td></tr>
 <tr class="separator:gae5d978249e235e284da922df5ec4363a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga6f2fab45cc1fd91be7e11205806b6a63" id="r_ga6f2fab45cc1fd91be7e11205806b6a63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00703.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html#ga6f2fab45cc1fd91be7e11205806b6a63">VMC_2p2z</a></td></tr>
+<tr class="memitem:ga6f2fab45cc1fd91be7e11205806b6a63" id="r_ga6f2fab45cc1fd91be7e11205806b6a63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00706.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga6f2fab45cc1fd91be7e11205806b6a63">VMC_2p2z</a></td></tr>
 <tr class="memdesc:ga6f2fab45cc1fd91be7e11205806b6a63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of voltage mode control generated by DCDT.  <br /></td></tr>
 <tr class="separator:ga6f2fab45cc1fd91be7e11205806b6a63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaeb77b094c98ccef3e5592a3a906f3ff8" id="r_gaeb77b094c98ccef3e5592a3a906f3ff8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00703.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html#gaeb77b094c98ccef3e5592a3a906f3ff8">IMC_2p2z</a></td></tr>
+<tr class="memitem:gaeb77b094c98ccef3e5592a3a906f3ff8" id="r_gaeb77b094c98ccef3e5592a3a906f3ff8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00706.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gaeb77b094c98ccef3e5592a3a906f3ff8">IMC_2p2z</a></td></tr>
 <tr class="memdesc:gaeb77b094c98ccef3e5592a3a906f3ff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of current mode control.  <br /></td></tr>
 <tr class="separator:gaeb77b094c98ccef3e5592a3a906f3ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5aad9c96a95744da30275ec0eacf4ae3" id="r_ga5aad9c96a95744da30275ec0eacf4ae3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00703.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html#ga5aad9c96a95744da30275ec0eacf4ae3">PMC_2p2z</a></td></tr>
+<tr class="memitem:ga5aad9c96a95744da30275ec0eacf4ae3" id="r_ga5aad9c96a95744da30275ec0eacf4ae3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00706.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga5aad9c96a95744da30275ec0eacf4ae3">PMC_2p2z</a></td></tr>
 <tr class="memdesc:ga5aad9c96a95744da30275ec0eacf4ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of power mode control.  <br /></td></tr>
 <tr class="separator:ga5aad9c96a95744da30275ec0eacf4ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4ad4c845903f7f89ed2a89ca3b575159" id="r_ga4ad4c845903f7f89ed2a89ca3b575159"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00703.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html#ga4ad4c845903f7f89ed2a89ca3b575159">VMC_2p2z_Rev</a></td></tr>
+<tr class="memitem:ga4ad4c845903f7f89ed2a89ca3b575159" id="r_ga4ad4c845903f7f89ed2a89ca3b575159"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00706.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ga4ad4c845903f7f89ed2a89ca3b575159">VMC_2p2z_Rev</a></td></tr>
 <tr class="memdesc:ga4ad4c845903f7f89ed2a89ca3b575159"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of voltage mode control generated by DCDT.  <br /></td></tr>
 <tr class="separator:ga4ad4c845903f7f89ed2a89ca3b575159"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae39ac9d96a12def52fd0e134003f9c6e" id="r_gae39ac9d96a12def52fd0e134003f9c6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00703.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html#gae39ac9d96a12def52fd0e134003f9c6e">IMC_2p2z_Rev</a></td></tr>
+<tr class="memitem:gae39ac9d96a12def52fd0e134003f9c6e" id="r_gae39ac9d96a12def52fd0e134003f9c6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00706.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gae39ac9d96a12def52fd0e134003f9c6e">IMC_2p2z_Rev</a></td></tr>
 <tr class="memdesc:gae39ac9d96a12def52fd0e134003f9c6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of current mode control.  <br /></td></tr>
 <tr class="separator:gae39ac9d96a12def52fd0e134003f9c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaadbaf0cbd8e35968c28240f9f0bdd867" id="r_gaadbaf0cbd8e35968c28240f9f0bdd867"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00703.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html#gaadbaf0cbd8e35968c28240f9f0bdd867">PMC_2p2z_Rev</a></td></tr>
+<tr class="memitem:gaadbaf0cbd8e35968c28240f9f0bdd867" id="r_gaadbaf0cbd8e35968c28240f9f0bdd867"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00706.html">SMPS_2P2Z_T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#gaadbaf0cbd8e35968c28240f9f0bdd867">PMC_2p2z_Rev</a></td></tr>
 <tr class="memdesc:gaadbaf0cbd8e35968c28240f9f0bdd867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of power mode control.  <br /></td></tr>
 <tr class="separator:gaadbaf0cbd8e35968c28240f9f0bdd867"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><br  />
- &lt;&gt; </p>
+<div class="textblock"><p>Generated <a class="el" href="a00080_source.html">main.c</a> file from MPLAB Code Configurator</p>
+<p>@Company Microchip Technology Inc.</p>
+<p>@File Name dev_TPBLPFC_typedef.c</p>
+<p>@Summary This is the generated <a class="el" href="a00080_source.html">main.c</a> using PIC24 / dsPIC33 / PIC32MM MCUs.</p>
+<p>@Description This source file provides main entry point for system initialization and application code development. Generation Information : Product Revision : PIC24 / dsPIC33 / PIC32MM MCUs - 1.170.0 Device : dsPIC33CH512MP506S1 The generated drivers are tested against the following: Compiler : XC16 v1.70 MPLAB : MPLAB X v6.00</p>
+<p>&lt;&gt; </p>
 
-<p class="definition">Definition in file <a class="el" href="a00443_source.html">pwrctrl_dcdt.h</a>.</p>
+<p class="definition">Definition in file <a class="el" href="a00443_source.html">pwrctrl_dcdt.c</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

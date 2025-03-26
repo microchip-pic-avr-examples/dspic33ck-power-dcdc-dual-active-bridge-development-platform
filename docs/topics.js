@@ -1,11 +1,11 @@
 var topics =
 [
-    [ "Communication Layer", "a00519.html", "a00519" ],
-    [ "Configuration Layer", "a00526.html", "a00526" ],
-    [ "Device Layer", "a00527.html", "a00527" ],
-    [ "Driver Layer", "a00532.html", "a00532" ],
-    [ "Power Control", "a00535.html", "a00535" ],
-    [ "Fault Monitor", "a00544.html", "a00544" ],
-    [ "Task Scheduler Layer", "a00547.html", "a00547" ],
-    [ "MPLABX MCC Melody Code Generator", "a00548.html", "a00548" ]
+    [ "Communication Layer", "a00522.html", "a00522" ],
+    [ "Configuration Layer", "a00529.html", "a00529" ],
+    [ "Device Layer", "a00530.html", "a00530" ],
+    [ "Driver Layer", "a00535.html", "a00535" ],
+    [ "Power Control", "a00538.html", "a00538" ],
+    [ "Fault Monitor", "a00547.html", "a00547" ],
+    [ "Task Scheduler Layer", "a00550.html", "a00550" ],
+    [ "MPLABX MCC Melody Code Generator", "a00551.html", "a00551" ]
 ];

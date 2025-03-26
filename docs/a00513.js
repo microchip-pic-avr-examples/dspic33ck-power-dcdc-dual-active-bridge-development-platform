@@ -1,9 +1,10 @@
 var a00513 =
 [
-    [ "AGC_CURRENT_FACTOR", "a00513.html#ga4022c2ca098b410cbcb0f16f2e4cc0ea", null ],
-    [ "AGC_MINIMUM_CURRENT_THRESHOLD", "a00513.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40", null ],
-    [ "AGC_VOLTAGE_FACTOR", "a00513.html#gacdae5309d1cb67f967c3b5b64b19d3af", null ],
-    [ "AGC_VOLTAGE_FACTOR_SEC", "a00513.html#gaf85ec768f2e621acc512b9246946f1eb", null ],
-    [ "POWER_FACTOR", "a00513.html#ga5d5113c068bc70c6666522402aa59bcf", null ],
-    [ "POWER_SCALER", "a00513.html#ga80914760246c425bc1536e1d809a071b", null ]
+    [ "Conversion Macros", "a00514.html", "a00514" ],
+    [ "VRAIL_5V_SNS_GAIN", "a00513.html#ga69d0570890525bf6e42a39e93cd23541", null ],
+    [ "VRAIL_5V_UV_T_BLANK_CLEAR_SEC", "a00513.html#ga02e85cdd81dc5896359be594d65fba76", null ],
+    [ "VRAIL_5V_UV_T_BLANK_TRIG_SEC", "a00513.html#gaddc96909e18ab0c1df48af9dea887ea7", null ],
+    [ "VRAIL_5V_UV_THRES_CLEAR_VOLTS", "a00513.html#gac1a611be9e2c0b9d3512c7b7514770e6", null ],
+    [ "VRAIL_5V_UV_THRES_TRIG_VOLTS", "a00513.html#gaba5f233c7bfbdad7b608b9f2a515b9bd", null ],
+    [ "VRAIL_5V_UV_TICK_SEC", "a00513.html#ga5a1db9df5280bf9d6904fdfa187f62e0", null ]
 ];

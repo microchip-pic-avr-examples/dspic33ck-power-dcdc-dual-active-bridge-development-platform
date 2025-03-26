@@ -1,21 +1,13 @@
 var a00548 =
 [
-    [ "ADC Multicore Driver", "a00550.html", "a00550" ],
-    [ "CAN FD Driver", "a00551.html", "a00551" ],
-    [ "CLC Driver", "a00552.html", "a00552" ],
-    [ "CMP DAC Driver", "a00553.html", "a00553" ],
-    [ "CRC Driver", "a00554.html", "a00554" ],
-    [ "PWM Driver", "a00555.html", "a00555" ],
-    [ "PWM HS Driver", "a00556.html", "a00556" ],
-    [ "DMT Driver", "a00557.html", "a00557" ],
-    [ "Interrupt Driver", "a00558.html", "a00558" ],
-    [ "WDT Driver", "a00559.html", "a00559" ],
-    [ "Pins Driver", "a00560.html", "a00560" ],
-    [ "System Driver", "a00561.html", "a00561" ],
-    [ "Reset Driver", "a00562.html", "a00562" ],
-    [ "Clock Driver", "a00563.html", "a00563" ],
-    [ "Traps Driver", "a00564.html", "a00564" ],
-    [ "Timer Driver", "a00565.html", "a00565" ],
-    [ "UART Driver", "a00566.html", "a00566" ],
-    [ "CONFIGBITS Driver", "a00567.html", null ]
+    [ "fault.c", "a00380.html", null ],
+    [ "fault.h", "a00383.html", null ],
+    [ "fault_comm_interface.c", "a00392.html", null ],
+    [ "fault_comm_interface.h", "a00395.html", null ],
+    [ "Fault_EnableShortCircuitProtection", "a00548.html#gaa8479905c2a8b34126d4fe56c1882b1b", null ],
+    [ "Fault_Execute", "a00548.html#gacd1ca209275dae0bc2388ac954858d83", null ],
+    [ "Fault_Execute_100ms", "a00548.html#ga35608d94d8d76de809bb7588a325abc9", null ],
+    [ "Fault_Handler", "a00548.html#gaf27f2f24932cec222273df148f8765cb", null ],
+    [ "Fault_Initialize", "a00548.html#gaaa5a7a6dc7ce982dec4f07edcd73e874", null ],
+    [ "Fault_Reset", "a00548.html#ga8ed0fee0d3aff71d49470aab1728a6ae", null ]
 ];

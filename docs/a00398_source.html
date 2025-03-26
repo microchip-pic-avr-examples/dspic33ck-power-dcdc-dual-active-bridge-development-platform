@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/os/os.c Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/fault/fault_typedef.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,64 +136,61 @@ $(document).ready(function(){initNavTree('a00398_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">os.c</div></div>
+  <div class="headertitle"><div class="title">fault_typedef.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// @file os/os.c</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// @brief contains the init function of the operating system and calls all the other Init functions</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">// @version v1.0</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// @date 2019-23-12</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// @author M52409</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">//</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//=======================================================================================================</span></div>
+<a href="a00398.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DEV_FAULT_TYPEDEF_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DEV_FAULT_TYPEDEF_H</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="a00389.html">fault_common.h</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;os/os_scheduler.h&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;os/os.h&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;stdint.h&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#if OS_FEATURE_WATCHDOG_ENABLED == true</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;os_watchdog.h&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif     </span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#ifndef OS_TIMER_NUMBER_OF_TIMERS</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#warning OS_TIMER_NUMBER_OF_TIMERS needs to be defined in main/project_setting.h</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#ifndef OS_USE_SYSTIME</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#warning OS_USE_SYSTIME needs to be defined in main/project_setting.h</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#if OS_TIMER_NUMBER_OF_TIMERS &gt; 0</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include&quot;os/os_timer.h&quot;</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">//  @brief  Initializes Scheduler</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">//  @note   call this function in your main routine before calling the RunForever function</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">//=======================================================================================================</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">void</span> OS_Init(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/* LDRA_EXCLUDE 337 S */</span>    </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#if OS_RESETTHINGY == 1</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">if</span> (RCONbits.WDTO)</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        os_resetCause |= 1 &lt;&lt; OS_RESETCAUSE_WATCHDOG;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    RCON = 0;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#if OS_FEATURE_WATCHDOG_ENABLED == 1</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    OS_Watchdog_Init();</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    OS_Scheduler_Init();</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#if OS_TIMER_NUMBER_OF_TIMERS &gt; 0</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    OS_Timer_Init();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>}</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="a00686.html">   20</a></span><span class="keyword">struct </span><a class="code hl_struct" href="a00686.html">FAULT_s</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="a00686.html#a9aa55289e8d0d3f1cd2c1b979707653a">   22</a></span>    <a class="code hl_struct" href="a00682.html">FAULT_OBJ_T</a> <a class="code hl_variable" href="a00686.html#a9aa55289e8d0d3f1cd2c1b979707653a">IPrimaryOCP</a>;        </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="a00686.html#a5c0ebb178553b28679126e15448f3680">   23</a></span>    <a class="code hl_struct" href="a00682.html">FAULT_OBJ_T</a> <a class="code hl_variable" href="a00686.html#a5c0ebb178553b28679126e15448f3680">ISecondaryOCP</a>;      </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="a00686.html#a67a6d7934156a505fe648c5a895795ed">   24</a></span>    <a class="code hl_struct" href="a00682.html">FAULT_OBJ_T</a> <a class="code hl_variable" href="a00686.html#a67a6d7934156a505fe648c5a895795ed">VPrimaryOVP</a>;        </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="a00686.html#a6b578aa818e3a0cd2e97b1f83d9243b6">   25</a></span>    <a class="code hl_struct" href="a00682.html">FAULT_OBJ_T</a> <a class="code hl_variable" href="a00686.html#a6b578aa818e3a0cd2e97b1f83d9243b6">VPrimaryUVP</a>;        </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="a00686.html#a4a4096da1c84272a28022842417dc638">   26</a></span>    <a class="code hl_struct" href="a00682.html">FAULT_OBJ_T</a> <a class="code hl_variable" href="a00686.html#a4a4096da1c84272a28022842417dc638">VSecondaryOVP</a>;      </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="a00686.html#a2d333978582de1786722d8740564ea3c">   27</a></span>    <a class="code hl_struct" href="a00682.html">FAULT_OBJ_T</a> <a class="code hl_variable" href="a00686.html#a2d333978582de1786722d8740564ea3c">VSecondaryUVP</a>;      </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="a00686.html#af268179095dc26cb1a693ef5621c70c6">   28</a></span>    <a class="code hl_struct" href="a00682.html">FAULT_OBJ_T</a> <a class="code hl_variable" href="a00686.html#af268179095dc26cb1a693ef5621c70c6">ISenseSCP</a>;          </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="a00686.html#a480a8e0249740ab8759aeee1c804ba5c">   29</a></span>    <a class="code hl_struct" href="a00682.html">FAULT_OBJ_T</a> <a class="code hl_variable" href="a00686.html#a480a8e0249740ab8759aeee1c804ba5c">PowerSupplyOTP</a>;     </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="a00686.html#a0c6c9adf47adaed77dbc76be05305b1d">   30</a></span>    <a class="code hl_struct" href="a00682.html">FAULT_OBJ_T</a> <a class="code hl_variable" href="a00686.html#a0c6c9adf47adaed77dbc76be05305b1d">VRail_5V</a>;            </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
+</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="a00398.html#a554486eab96de8655088ffa31b72e4b6">   32</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00686.html">FAULT_s</a> <a class="code hl_struct" href="a00686.html">FAULT_t</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="a00690.html">   39</a></span><span class="keyword">struct </span><a class="code hl_struct" href="a00690.html">FAULT_SETTINGS_s</a></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="a00690.html#ac82d4f674edd9ce4e697f25d9039a3e0">   41</a></span>    uint16_t <a class="code hl_variable" href="a00690.html#ac82d4f674edd9ce4e697f25d9039a3e0">FaultDetected</a>;     </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="a00690.html#aec432521ca331df364eb6aa8a74422a2">   42</a></span>    <a class="code hl_struct" href="a00686.html">FAULT_t</a> <a class="code hl_variable" href="a00690.html#aec432521ca331df364eb6aa8a74422a2">Object</a>;             </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>};</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="a00398.html#a3cc792759f938259576a59b42b92976d">   44</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00690.html">FAULT_SETTINGS_s</a> <a class="code hl_struct" href="a00690.html">FAULT_SETTINGS_t</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_FAULT_TYPEDEF_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="ttc" id="aa00389_html"><div class="ttname"><a href="a00389.html">fault_common.h</a></div><div class="ttdoc">Contains fault generic public functions.</div></div>
+<div class="ttc" id="aa00682_html"><div class="ttname"><a href="a00682.html">FAULT_OBJ_T</a></div><div class="ttdoc">The Fault object data structure contains a list of elements/variables that are used to detect/check a...</div><div class="ttdef"><b>Definition</b> <a href="a00389_source.html#l00022">fault_common.h:23</a></div></div>
+<div class="ttc" id="aa00686_html"><div class="ttname"><a href="a00686.html">FAULT_s</a></div><div class="ttdoc">Collection of faults to be monitored.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00020">fault_typedef.h:21</a></div></div>
+<div class="ttc" id="aa00686_html_a0c6c9adf47adaed77dbc76be05305b1d"><div class="ttname"><a href="a00686.html#a0c6c9adf47adaed77dbc76be05305b1d">FAULT_s::VRail_5V</a></div><div class="ttdeci">FAULT_OBJ_T VRail_5V</div><div class="ttdoc">Fault object for 5V rail.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00030">fault_typedef.h:30</a></div></div>
+<div class="ttc" id="aa00686_html_a2d333978582de1786722d8740564ea3c"><div class="ttname"><a href="a00686.html#a2d333978582de1786722d8740564ea3c">FAULT_s::VSecondaryUVP</a></div><div class="ttdeci">FAULT_OBJ_T VSecondaryUVP</div><div class="ttdoc">Fault object for Secondary under voltage protection.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00027">fault_typedef.h:27</a></div></div>
+<div class="ttc" id="aa00686_html_a480a8e0249740ab8759aeee1c804ba5c"><div class="ttname"><a href="a00686.html#a480a8e0249740ab8759aeee1c804ba5c">FAULT_s::PowerSupplyOTP</a></div><div class="ttdeci">FAULT_OBJ_T PowerSupplyOTP</div><div class="ttdoc">Fault object for Power Supply Temperature.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00029">fault_typedef.h:29</a></div></div>
+<div class="ttc" id="aa00686_html_a4a4096da1c84272a28022842417dc638"><div class="ttname"><a href="a00686.html#a4a4096da1c84272a28022842417dc638">FAULT_s::VSecondaryOVP</a></div><div class="ttdeci">FAULT_OBJ_T VSecondaryOVP</div><div class="ttdoc">Fault object for Secondary over voltage protection.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00026">fault_typedef.h:26</a></div></div>
+<div class="ttc" id="aa00686_html_a5c0ebb178553b28679126e15448f3680"><div class="ttname"><a href="a00686.html#a5c0ebb178553b28679126e15448f3680">FAULT_s::ISecondaryOCP</a></div><div class="ttdeci">FAULT_OBJ_T ISecondaryOCP</div><div class="ttdoc">Fault object for Secondary over current protection.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00023">fault_typedef.h:23</a></div></div>
+<div class="ttc" id="aa00686_html_a67a6d7934156a505fe648c5a895795ed"><div class="ttname"><a href="a00686.html#a67a6d7934156a505fe648c5a895795ed">FAULT_s::VPrimaryOVP</a></div><div class="ttdeci">FAULT_OBJ_T VPrimaryOVP</div><div class="ttdoc">Fault object for Primary over voltage protection.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00024">fault_typedef.h:24</a></div></div>
+<div class="ttc" id="aa00686_html_a6b578aa818e3a0cd2e97b1f83d9243b6"><div class="ttname"><a href="a00686.html#a6b578aa818e3a0cd2e97b1f83d9243b6">FAULT_s::VPrimaryUVP</a></div><div class="ttdeci">FAULT_OBJ_T VPrimaryUVP</div><div class="ttdoc">Fault object for Primary under voltage protection.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00025">fault_typedef.h:25</a></div></div>
+<div class="ttc" id="aa00686_html_a9aa55289e8d0d3f1cd2c1b979707653a"><div class="ttname"><a href="a00686.html#a9aa55289e8d0d3f1cd2c1b979707653a">FAULT_s::IPrimaryOCP</a></div><div class="ttdeci">FAULT_OBJ_T IPrimaryOCP</div><div class="ttdoc">Fault object for Primary over current protection.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00022">fault_typedef.h:22</a></div></div>
+<div class="ttc" id="aa00686_html_af268179095dc26cb1a693ef5621c70c6"><div class="ttname"><a href="a00686.html#af268179095dc26cb1a693ef5621c70c6">FAULT_s::ISenseSCP</a></div><div class="ttdeci">FAULT_OBJ_T ISenseSCP</div><div class="ttdoc">Fault object for Short circuit protection.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00028">fault_typedef.h:28</a></div></div>
+<div class="ttc" id="aa00690_html"><div class="ttname"><a href="a00690.html">FAULT_SETTINGS_s</a></div><div class="ttdoc">Contains Fault settings.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00039">fault_typedef.h:40</a></div></div>
+<div class="ttc" id="aa00690_html_ac82d4f674edd9ce4e697f25d9039a3e0"><div class="ttname"><a href="a00690.html#ac82d4f674edd9ce4e697f25d9039a3e0">FAULT_SETTINGS_s::FaultDetected</a></div><div class="ttdeci">uint16_t FaultDetected</div><div class="ttdoc">Fault indication for fault occurrence.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00041">fault_typedef.h:41</a></div></div>
+<div class="ttc" id="aa00690_html_aec432521ca331df364eb6aa8a74422a2"><div class="ttname"><a href="a00690.html#aec432521ca331df364eb6aa8a74422a2">FAULT_SETTINGS_s::Object</a></div><div class="ttdeci">FAULT_t Object</div><div class="ttdoc">Fault Objects.</div><div class="ttdef"><b>Definition</b> <a href="a00398_source.html#l00042">fault_typedef.h:42</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

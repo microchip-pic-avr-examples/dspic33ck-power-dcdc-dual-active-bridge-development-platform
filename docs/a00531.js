@@ -1,13 +1,19 @@
 var a00531 =
 [
-    [ "dev_temp.h", "a00347.html", null ],
-    [ "Average_Temp_ADC_Samples", "a00531.html#gaed1c98bc3ba65035d1ac0bdda433d812", null ],
-    [ "Dev_Temp_AverageValue", "a00531.html#ga2d219d0b5470ff7bae4c51c403c19065", null ],
-    [ "Dev_Temp_Get_ADC_Sample", "a00531.html#ga6ce3446cb43022df6a5a96c90ec70a17", null ],
-    [ "Dev_Temp_Get_Temperature_Celcius", "a00531.html#gac9618e1ca87e77920c94cdfdcc80321a", null ],
-    [ "Dev_Temp_Initialize", "a00531.html#ga777c30f75162d97f4e112d1fc8d49f87", null ],
-    [ "Dev_Temp_Is_Over_Temperature", "a00531.html#ga595a5dbd8f35a5e37d5fa77cfcd756a5", null ],
-    [ "Dev_Temp_Task_100ms", "a00531.html#ga642e882a6d78b8915f39b54f7183f71f", null ],
-    [ "Temp_Calculate_Average", "a00531.html#ga87aa48cb3d8848b8dc9bee6ce978b1b1", null ],
-    [ "devTempData", "a00531.html#gac4362e7ed233e3ac6e62b7f6f49a80d0", null ]
+    [ "dev_current_sensor.c", "a00323.html", null ],
+    [ "dev_current_sensor.h", "a00326.html", null ],
+    [ "SENSOR_OFFSET_CAL_s", "a00666.html", [
+      [ "Accumulator", "a00666.html#a1bf80696497119c4e36460f57de7f667", null ],
+      [ "CalibrationComplete", "a00666.html#adf25ddb38dbda4b3bf8401ccfa38187f", null ],
+      [ "LimitHigh", "a00666.html#a26af6df9982c908f6c04dac5febbfabe", null ],
+      [ "LimitLow", "a00666.html#a807559395dd14cc8be15101fbc71677d", null ],
+      [ "MeasurementCounter", "a00666.html#a439f5c23e968e4d9d17def3e46ca3aff", null ],
+      [ "Offset", "a00666.html#ae6e68acb116dc3b5f8a7354c7f7d4146", null ]
+    ] ],
+    [ "Dev_CurrentSensor_Clr_Offset", "a00531.html#ga494b4a948891fd5757ccc647f9962529", null ],
+    [ "Dev_CurrentSensor_Get_CalibrationStatus", "a00531.html#ga218632f9814c3bf20c40cea0794ffc7d", null ],
+    [ "Dev_CurrentSensor_Get_Offset", "a00531.html#ga9f581abf52dc00ba320faafa189fafb9", null ],
+    [ "Dev_CurrentSensorOffsetCal", "a00531.html#gaaa75855922e60913d443c6203475256f", null ],
+    [ "Dev_SensorOffsetCal", "a00531.html#ga03e8d61bbc0f4b686c400440f80dcf69", null ],
+    [ "isecAvgCurrentSensor", "a00531.html#gaf2e1ab5706d4b7e1a47eea25ce323c5f", null ]
 ];

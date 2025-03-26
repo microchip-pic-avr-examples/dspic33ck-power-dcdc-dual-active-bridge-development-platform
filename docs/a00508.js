@@ -1,15 +1,14 @@
 var a00508 =
 [
-    [ "Conversion Macros", "a00509.html", "a00509" ],
-    [ "ISEC_AVG_SNS_GAIN", "a00508.html#gaa04f0731e5ca53dd3034155ddec2fb51", null ],
-    [ "ISEC_AVG_SNS_OFS", "a00508.html#ga3ddd48524fd57578569ad30b31317bee", null ],
-    [ "ISEC_CT_SNS_GAIN", "a00508.html#gad565ee56fd67a47693480901f73b5e2c", null ],
-    [ "ISEC_CT_SNS_OFS", "a00508.html#ga167708b374334a691b34a153fc97ded0", null ],
-    [ "ISEC_LOAD_STEP_CLAMPING_AMPS", "a00508.html#ga6ec24bdfc7696657bf7e95dbaf83d5d9", null ],
-    [ "ISEC_OC_T_BLANK_CLEAR_SEC", "a00508.html#ga80ef2d060cb2e0d45398358f08401976", null ],
-    [ "ISEC_OC_T_BLANK_TRIG_SEC", "a00508.html#ga9dd78aa25c054cc00c115cd70169dcda", null ],
-    [ "ISEC_OC_THRES_CLEAR_AMPS", "a00508.html#gacdbe9002c178691c914b1043a7c070ce", null ],
-    [ "ISEC_OC_THRES_TRIG_AMPS", "a00508.html#ga61571a56765f2041df1adffb0e127623", null ],
-    [ "ISEC_OC_TICK_SEC", "a00508.html#gaf7a4bcd753b1270a1745bc3fe4c403e9", null ],
-    [ "ISEC_SC_THRES_TRIG_AMPS", "a00508.html#ga5f4043a3b61439e7695829b39102281c", null ]
+    [ "VSEC_FACTOR", "a00508.html#ga87426af9b5f855874eedc446074b5b7b", null ],
+    [ "VSEC_LOAD_STEP_CLAMP", "a00508.html#gaf68a4a402cbda8d11a24ba119c2c9aa1", null ],
+    [ "VSEC_OV_T_BLANK_CLEAR", "a00508.html#gafa2427e85d2f9ac0723ed0ed23af656d", null ],
+    [ "VSEC_OV_T_BLANK_TRIG", "a00508.html#ga5a408a256fc1b9b921330828dea28789", null ],
+    [ "VSEC_OV_THRES_CLEAR", "a00508.html#gacefdf0fe6bfec783e2318f5470f4aa2f", null ],
+    [ "VSEC_OV_THRES_TRIG", "a00508.html#ga2cedf2c418fcc28d45db230262989756", null ],
+    [ "VSEC_SCALER", "a00508.html#ga93b81b121d48dd0d5cd464d10740fa88", null ],
+    [ "VSEC_UV_T_BLANK_CLEAR", "a00508.html#gaf6ea7359d607b7241085b9ac7fbdb26b", null ],
+    [ "VSEC_UV_T_BLANK_TRIG", "a00508.html#ga995d68e6451585c1667fd9193c7f0f85", null ],
+    [ "VSEC_UV_THRES_CLEAR", "a00508.html#gafeabe557b94a2db2232adcb85e4616dc", null ],
+    [ "VSEC_UV_THRES_TRIG", "a00508.html#ga3139033462285507b81adb23bbd3931e", null ]
 ];

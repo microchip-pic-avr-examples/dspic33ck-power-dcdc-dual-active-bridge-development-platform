@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: PWM Configuration</title>
+<title>Dual Active Bridge Development Board: Power Control</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,218 +137,50 @@ $(document).ready(function(){initNavTree('a00538.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">PWM Configuration<div class="ingroups"><a class="el" href="a00535.html">Power Control</a></div></div></div>
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Power Control</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains functions related to PWM properties.  
+<p>The Power Control layer contains the state machine managing the power converter.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for PWM Configuration:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Power Control:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00538.svg" width="295" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00538.svg" width="358" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00488" id="r_a00488"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00488.html">pwrctrl_pwm.c</a></td></tr>
-<tr class="memdesc:a00488"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains DAB control phase calculation between primary and secondary, and the PWM distribution. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00539" id="r_a00539"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00539.html">Power Control Configuration</a></td></tr>
+<tr class="memdesc:a00539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains Power Control Configuration. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00491" id="r_a00491"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00491.html">pwrctrl_pwm.h</a></td></tr>
-<tr class="memdesc:a00491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains public functions for PWM. <br  />
- <br /></td></tr>
+<tr class="memitem:a00540" id="r_a00540"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html">Interrupt Routine and Functions</a></td></tr>
+<tr class="memdesc:a00540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the interrupt routine and other functions called in the interrupt. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga73f526371cadb7674354635462e836cc" id="r_ga73f526371cadb7674354635462e836cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#ga73f526371cadb7674354635462e836cc">PwrCtrl_PWM_Update</a> (<a class="el" href="a00755.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
-<tr class="memdesc:ga73f526371cadb7674354635462e836cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">PWM distribution for DAB converter.  <br /></td></tr>
-<tr class="separator:ga73f526371cadb7674354635462e836cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae20d34fb8fc7fbaa57f6c68b2907807f" id="r_gae20d34fb8fc7fbaa57f6c68b2907807f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#gae20d34fb8fc7fbaa57f6c68b2907807f">PwrCtrl_PWM_Enable</a> (void)</td></tr>
-<tr class="memdesc:gae20d34fb8fc7fbaa57f6c68b2907807f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable the PWM output.  <br /></td></tr>
-<tr class="separator:gae20d34fb8fc7fbaa57f6c68b2907807f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga79ec0c0e524a03b3a3d423308b89bb99" id="r_ga79ec0c0e524a03b3a3d423308b89bb99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#ga79ec0c0e524a03b3a3d423308b89bb99">PwrCtrl_PWM_Disable</a> (void)</td></tr>
-<tr class="memdesc:ga79ec0c0e524a03b3a3d423308b89bb99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the PWM output.  <br /></td></tr>
-<tr class="separator:ga79ec0c0e524a03b3a3d423308b89bb99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga09cbca9d9eea8e033ba27cb0f77417c3" id="r_ga09cbca9d9eea8e033ba27cb0f77417c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.html#ga09cbca9d9eea8e033ba27cb0f77417c3">PwrCtrl_PWM_DAB_DirectionSpecificSwapCfg</a> (PWR_CTRL_CHARGE_STATE_t direction)</td></tr>
-<tr class="memdesc:ga09cbca9d9eea8e033ba27cb0f77417c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward/Reverse Direction related swap pattern on PWM output.  <br /></td></tr>
-<tr class="separator:ga09cbca9d9eea8e033ba27cb0f77417c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00541" id="r_a00541"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00541.html">PWM Configuration</a></td></tr>
+<tr class="memdesc:a00541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains functions related to PWM properties. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00542" id="r_a00542"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00542.html">State Machine</a></td></tr>
+<tr class="memdesc:a00542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the state machine of the power control. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00543" id="r_a00543"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html">Control Loop Configuration</a></td></tr>
+<tr class="memdesc:a00543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the control loop configuration and initialization functions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00544" id="r_a00544"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00544.html">Power Control Communication Interface</a></td></tr>
+<tr class="memdesc:a00544"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains functions use to interface to Graphical User Interface or Power Board Visualizer. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00545" id="r_a00545"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00545.html">Useful Functions</a></td></tr>
+<tr class="memdesc:a00545"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains generic functions that is usable to the application. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00546" id="r_a00546"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00546.html">Power Control Data Types</a></td></tr>
+<tr class="memdesc:a00546"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the collection of power control data types. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document includes the power control PWM distribution and other PWM functionalities relevant to the application. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ga09cbca9d9eea8e033ba27cb0f77417c3" name="ga09cbca9d9eea8e033ba27cb0f77417c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga09cbca9d9eea8e033ba27cb0f77417c3">&#9670;&#160;</a></span>PwrCtrl_PWM_DAB_DirectionSpecificSwapCfg()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PwrCtrl_PWM_DAB_DirectionSpecificSwapCfg </td>
-          <td>(</td>
-          <td class="paramtype">PWR_CTRL_CHARGE_STATE_t&#160;</td>
-          <td class="paramname"><em>direction</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function swaps H and L of the physical PWM output by setting the swap bits of the PWM module. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00488_source.html#l00177">177</a> of file <a class="el" href="a00488_source.html">pwrctrl_pwm.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00538_ga09cbca9d9eea8e033ba27cb0f77417c3_cgraph.svg" width="100%" height="511"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00538_ga09cbca9d9eea8e033ba27cb0f77417c3_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ga79ec0c0e524a03b3a3d423308b89bb99" name="ga79ec0c0e524a03b3a3d423308b89bb99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga79ec0c0e524a03b3a3d423308b89bb99">&#9670;&#160;</a></span>PwrCtrl_PWM_Disable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PwrCtrl_PWM_Disable </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function disable the physical PWM output by setting the override bits of the PWM module. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00488_source.html#l00147">147</a> of file <a class="el" href="a00488_source.html">pwrctrl_pwm.c</a>.</p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_ga79ec0c0e524a03b3a3d423308b89bb99_cgraph.svg" width="412" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00538_ga79ec0c0e524a03b3a3d423308b89bb99_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="gae20d34fb8fc7fbaa57f6c68b2907807f" name="gae20d34fb8fc7fbaa57f6c68b2907807f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae20d34fb8fc7fbaa57f6c68b2907807f">&#9670;&#160;</a></span>PwrCtrl_PWM_Enable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PwrCtrl_PWM_Enable </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function turn on the physical PWM outputs by clearing the output override of the PWM module. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00488_source.html#l00117">117</a> of file <a class="el" href="a00488_source.html">pwrctrl_pwm.c</a>.</p>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_gae20d34fb8fc7fbaa57f6c68b2907807f_cgraph.svg" width="410" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00538_gae20d34fb8fc7fbaa57f6c68b2907807f_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ga73f526371cadb7674354635462e836cc" name="ga73f526371cadb7674354635462e836cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga73f526371cadb7674354635462e836cc">&#9670;&#160;</a></span>PwrCtrl_PWM_Update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PwrCtrl_PWM_Update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00755.html">POWER_CONTROL_t</a> *&#160;</td>
-          <td class="paramname"><em>pcInstance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pcInstance</td><td>Pointer to a power control data object of type POWER_CONTROL_t </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function distributes the calculated control phase for the half bridges of the DAB converter. PWM1 and PWM3 drives the primary half bridges and PWM2 and PWM4 drives the secondary half bridges. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00488_source.html#l00025">25</a> of file <a class="el" href="a00488_source.html">pwrctrl_pwm.c</a>.</p>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_ga73f526371cadb7674354635462e836cc_cgraph.svg" width="424" height="291"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00538_ga73f526371cadb7674354635462e836cc_icgraph.svg" width="100%" height="416"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
+<p>Power control layer provides a wide function in power supply applications. It has something to do with the control, regulation and monitoring of the power supply. Moreover, it sets the peripheral configurations needed for a particular power supply topology as required by the application, as well as sets parameters and performs operations for digital power control. </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

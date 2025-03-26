@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Useful Macros</title>
+<title>Dual Active Bridge Development Board: Temperature Feedback</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,464 +136,176 @@ $(document).ready(function(){initNavTree('a00517.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Useful Macros<div class="ingroups"><a class="el" href="a00526.html">Configuration Layer</a></div></div></div>
+  <div class="summary">
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Temperature Feedback<div class="ingroups"><a class="el" href="a00529.html">Configuration Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Collection of macros that the user can utilize when converting physical quantities of parameters into binary (integer) numbers for registers and variables.  
+<p>Declaration of Temperature Feedback parameters.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Useful Macros:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Temperature Feedback:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00517.svg" width="296" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00517.svg" width="526" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="memitem:gaa3c2bb84c225cf77ab67824f886de487" id="r_gaa3c2bb84c225cf77ab67824f886de487"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(a)&#160;&#160;&#160;((int16_t)((a)+((a)&lt;0?-0.5:0.5)))</td></tr>
-<tr class="separator:gaa3c2bb84c225cf77ab67824f886de487"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad8a68cbc825e50630b93047279a32718" id="r_gad8a68cbc825e50630b93047279a32718"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gad8a68cbc825e50630b93047279a32718">_min</a>(a,  b)&#160;&#160;&#160;(((a)&gt;(b)) ? (b):(a))</td></tr>
-<tr class="separator:gad8a68cbc825e50630b93047279a32718"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7742fa23cad0b81a56daae0c5ad63c8b" id="r_ga7742fa23cad0b81a56daae0c5ad63c8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#ga7742fa23cad0b81a56daae0c5ad63c8b">_max</a>(a,  b)&#160;&#160;&#160;(((a)&gt;(b)) ? (a):(b))</td></tr>
-<tr class="separator:ga7742fa23cad0b81a56daae0c5ad63c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1c75b371213fc3a62a8bb5fbc799cfc3" id="r_ga1c75b371213fc3a62a8bb5fbc799cfc3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>(a)&#160;&#160;&#160;((int32_t)((a)+((a)&lt;0?-0.5:0.5)))</td></tr>
-<tr class="separator:ga1c75b371213fc3a62a8bb5fbc799cfc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad7e3572e4f8ef715cd1e722691f87b54" id="r_gad7e3572e4f8ef715cd1e722691f87b54"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gad7e3572e4f8ef715cd1e722691f87b54">WordLowByte</a>(word)&#160;&#160;&#160;((uint8_t) (word &amp; 0x00FF))</td></tr>
-<tr class="separator:gad7e3572e4f8ef715cd1e722691f87b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6f8b8bc288578b9150234364ccb5a6f0" id="r_ga6f8b8bc288578b9150234364ccb5a6f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#ga6f8b8bc288578b9150234364ccb5a6f0">WordHighByte</a>(word)&#160;&#160;&#160;((uint8_t) (word &gt;&gt; 8))</td></tr>
-<tr class="separator:ga6f8b8bc288578b9150234364ccb5a6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafae5fd95c828eb48279a0cbf470d1b45" id="r_gafae5fd95c828eb48279a0cbf470d1b45"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gafae5fd95c828eb48279a0cbf470d1b45">QFORMAT_SHIFT</a>(value)</td></tr>
-<tr class="separator:gafae5fd95c828eb48279a0cbf470d1b45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa1550b4b116085f90e0cd704f1b078b9" id="r_gaa1550b4b116085f90e0cd704f1b078b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gaa1550b4b116085f90e0cd704f1b078b9">TIME_TO_TICKS</a>(time,  tick_period)&#160;&#160;&#160;(<a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(time/tick_period))</td></tr>
-<tr class="separator:gaa1550b4b116085f90e0cd704f1b078b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac24ae161523eadceef352918d1ebb0c8" id="r_gac24ae161523eadceef352918d1ebb0c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gac24ae161523eadceef352918d1ebb0c8">RMS_TO_PEAK</a>&#160;&#160;&#160;(1.414213562)</td></tr>
-<tr class="separator:gac24ae161523eadceef352918d1ebb0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaec140a01387ddcbb23059abeb73d163e" id="r_gaec140a01387ddcbb23059abeb73d163e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gaec140a01387ddcbb23059abeb73d163e">AVG_TO_RMS</a>&#160;&#160;&#160;(1.11)</td></tr>
-<tr class="separator:gaec140a01387ddcbb23059abeb73d163e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gada5ead94c63caa7198833caee45bcd9a" id="r_gada5ead94c63caa7198833caee45bcd9a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gada5ead94c63caa7198833caee45bcd9a">RMS_TO_AVG</a>&#160;&#160;&#160;(1.0/<a class="el" href="a00517.html#gaec140a01387ddcbb23059abeb73d163e">AVG_TO_RMS</a>)</td></tr>
-<tr class="separator:gada5ead94c63caa7198833caee45bcd9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga67a05b5f54847bdcf3a4f8505a8ddf5d" id="r_ga67a05b5f54847bdcf3a4f8505a8ddf5d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#ga67a05b5f54847bdcf3a4f8505a8ddf5d">PWM_HR_EDGE_ALIGNED_PGxPER</a>(freq_hz)&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>((8.0*500.0e+6)/(float)freq_hz)-8.0))</td></tr>
-<tr class="separator:ga67a05b5f54847bdcf3a4f8505a8ddf5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1651dc9a22fef1ab2af194db866dd73f" id="r_ga1651dc9a22fef1ab2af194db866dd73f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#ga1651dc9a22fef1ab2af194db866dd73f">PWM_HR_EDGE_ALIGNED_PGxDC</a>(PGxPER,  duty_percent)&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>((PGxPER+8)*(duty_percent/100.0))))</td></tr>
-<tr class="separator:ga1651dc9a22fef1ab2af194db866dd73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga788298696055df15aab198a429d96ed3" id="r_ga788298696055df15aab198a429d96ed3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#ga788298696055df15aab198a429d96ed3">PWM_HR_PGxTRIGy</a>(trigger_offset)&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>(8.0*500.0e+6*trigger_offset)))</td></tr>
-<tr class="separator:ga788298696055df15aab198a429d96ed3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae9dd7d65ec0c724eb6a3a944f9b60ec0" id="r_gae9dd7d65ec0c724eb6a3a944f9b60ec0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gae9dd7d65ec0c724eb6a3a944f9b60ec0">PWM_HR_PGxDTy</a>(dead_time)&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>(8.0*500.0e+6*dead_time)))</td></tr>
-<tr class="separator:gae9dd7d65ec0c724eb6a3a944f9b60ec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7ed8c7d9c9dc6a5417e022786cfc9c00" id="r_ga7ed8c7d9c9dc6a5417e022786cfc9c00"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00">UNITS_FROM_ENG_TO_ADC</a>(threshold,  gain,  offset)&#160;&#160;&#160;(<a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((((float)threshold*(float)gain) + (float)offset)/3.3*4095.0))</td></tr>
-<tr class="separator:ga7ed8c7d9c9dc6a5417e022786cfc9c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5032cd832e55c41df8dc512000cc9c0d" id="r_ga5032cd832e55c41df8dc512000cc9c0d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#ga5032cd832e55c41df8dc512000cc9c0d">UNITS_FROM_ADC_TO_ENG</a>(AdcValue,  Gain)&#160;&#160;&#160;(<a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((((float)AdcValue /(float)Gain))/4095.0 * 3.3))</td></tr>
-<tr class="separator:ga5032cd832e55c41df8dc512000cc9c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00518" id="r_a00518"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00518.html">Conversion Macros</a></td></tr>
+<tr class="memdesc:a00518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion macros for user-declarations of Temperature Feedback parameters details Conversion macros converting physical quantities of parameters into binary (integer) numbers for registers and variables. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadaf56c98b4dc5aeee1231153c378af0e" id="r_gadaf56c98b4dc5aeee1231153c378af0e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gadaf56c98b4dc5aeee1231153c378af0e">TEMPERATURE_PBV_OFFSET_CELSIUS</a>&#160;&#160;&#160;(40u)</td></tr>
+<tr class="memdesc:gadaf56c98b4dc5aeee1231153c378af0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">To allow the PBV to support up to -40C, an offset was added.  <br /></td></tr>
+<tr class="separator:gadaf56c98b4dc5aeee1231153c378af0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad1f727c2e9b6350745777aca9f272169" id="r_gad1f727c2e9b6350745777aca9f272169"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gad1f727c2e9b6350745777aca9f272169">OTP_THRES_TRIG_CELCIUS</a>&#160;&#160;&#160;(80u)</td></tr>
+<tr class="memdesc:gad1f727c2e9b6350745777aca9f272169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees Celcius.  <br /></td></tr>
+<tr class="separator:gad1f727c2e9b6350745777aca9f272169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadc3762a54e017c4db8ad9b6e83dc071d" id="r_gadc3762a54e017c4db8ad9b6e83dc071d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gadc3762a54e017c4db8ad9b6e83dc071d">OTP_THRES_CLEAR_CELCIUS</a>&#160;&#160;&#160;(70u)</td></tr>
+<tr class="memdesc:gadc3762a54e017c4db8ad9b6e83dc071d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees Celcius.  <br /></td></tr>
+<tr class="separator:gadc3762a54e017c4db8ad9b6e83dc071d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa584ad6b0df4394fb8a954091913a713" id="r_gaa584ad6b0df4394fb8a954091913a713"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gaa584ad6b0df4394fb8a954091913a713">FAULT_PERSISTENCE_COUNT_TEMP</a>&#160;&#160;&#160;(4u)</td></tr>
+<tr class="separator:gaa584ad6b0df4394fb8a954091913a713"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf96b37309868a2ca71aec09e1d2180bc" id="r_gaf96b37309868a2ca71aec09e1d2180bc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gaf96b37309868a2ca71aec09e1d2180bc">NOMINAL_TEMPERATURE_THRESHOLD</a>&#160;&#160;&#160;(float) (40.0)</td></tr>
+<tr class="separator:gaf96b37309868a2ca71aec09e1d2180bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46b916cf898ceb2557a12f208380c5d5" id="r_ga46b916cf898ceb2557a12f208380c5d5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#ga46b916cf898ceb2557a12f208380c5d5">TEMPERATURE_HYSTERESIS</a>&#160;&#160;&#160;(float) (1.0)</td></tr>
+<tr class="memdesc:ga46b916cf898ceb2557a12f208380c5d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degrees Celcius.  <br /></td></tr>
+<tr class="separator:ga46b916cf898ceb2557a12f208380c5d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab586eaca5d59d97c5a098f782633d74c" id="r_gab586eaca5d59d97c5a098f782633d74c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gab586eaca5d59d97c5a098f782633d74c">TEMPERATURE_GAIN</a>&#160;&#160;&#160;(-0.029)</td></tr>
+<tr class="separator:gab586eaca5d59d97c5a098f782633d74c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac02a5a67e0612d6cb90e61cc23398701" id="r_gac02a5a67e0612d6cb90e61cc23398701"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html#gac02a5a67e0612d6cb90e61cc23398701">TEMPERATURE_OFFSET</a>&#160;&#160;&#160;115u</td></tr>
+<tr class="separator:gac02a5a67e0612d6cb90e61cc23398701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Collection of macros that the user can utilize when converting physical quantities of parameters into binary (integer) numbers for registers and variables. </p>
+<p>Declaration of Temperature Feedback parameters </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga7742fa23cad0b81a56daae0c5ad63c8b" name="ga7742fa23cad0b81a56daae0c5ad63c8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7742fa23cad0b81a56daae0c5ad63c8b">&#9670;&#160;</a></span>_max</h2>
+<a id="gaa584ad6b0df4394fb8a954091913a713" name="gaa584ad6b0df4394fb8a954091913a713"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa584ad6b0df4394fb8a954091913a713">&#9670;&#160;</a></span>FAULT_PERSISTENCE_COUNT_TEMP</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _max</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">a, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">b&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;(((a)&gt;(b)) ? (a):(b))</td>
+          <td class="memname">#define FAULT_PERSISTENCE_COUNT_TEMP&#160;&#160;&#160;(4u)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00015">15</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00170">170</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gad8a68cbc825e50630b93047279a32718" name="gad8a68cbc825e50630b93047279a32718"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad8a68cbc825e50630b93047279a32718">&#9670;&#160;</a></span>_min</h2>
+<a id="gaf96b37309868a2ca71aec09e1d2180bc" name="gaf96b37309868a2ca71aec09e1d2180bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf96b37309868a2ca71aec09e1d2180bc">&#9670;&#160;</a></span>NOMINAL_TEMPERATURE_THRESHOLD</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _min</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">a, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">b&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;(((a)&gt;(b)) ? (b):(a))</td>
+          <td class="memname">#define NOMINAL_TEMPERATURE_THRESHOLD&#160;&#160;&#160;(float) (40.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00014">14</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00174">174</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gaa3c2bb84c225cf77ab67824f886de487" name="gaa3c2bb84c225cf77ab67824f886de487"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa3c2bb84c225cf77ab67824f886de487">&#9670;&#160;</a></span>_rnd</h2>
+<a id="gadc3762a54e017c4db8ad9b6e83dc071d" name="gadc3762a54e017c4db8ad9b6e83dc071d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadc3762a54e017c4db8ad9b6e83dc071d">&#9670;&#160;</a></span>OTP_THRES_CLEAR_CELCIUS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _rnd</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">a</td><td>)</td>
-          <td>&#160;&#160;&#160;((int16_t)((a)+((a)&lt;0?-0.5:0.5)))</td>
+          <td class="memname">#define OTP_THRES_CLEAR_CELCIUS&#160;&#160;&#160;(70u)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00013">13</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00169">169</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga1c75b371213fc3a62a8bb5fbc799cfc3" name="ga1c75b371213fc3a62a8bb5fbc799cfc3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1c75b371213fc3a62a8bb5fbc799cfc3">&#9670;&#160;</a></span>_rnd_int32_t</h2>
+<a id="gad1f727c2e9b6350745777aca9f272169" name="gad1f727c2e9b6350745777aca9f272169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad1f727c2e9b6350745777aca9f272169">&#9670;&#160;</a></span>OTP_THRES_TRIG_CELCIUS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _rnd_int32_t</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">a</td><td>)</td>
-          <td>&#160;&#160;&#160;((int32_t)((a)+((a)&lt;0?-0.5:0.5)))</td>
+          <td class="memname">#define OTP_THRES_TRIG_CELCIUS&#160;&#160;&#160;(80u)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00017">17</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00168">168</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="gaec140a01387ddcbb23059abeb73d163e" name="gaec140a01387ddcbb23059abeb73d163e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaec140a01387ddcbb23059abeb73d163e">&#9670;&#160;</a></span>AVG_TO_RMS</h2>
+<a id="gab586eaca5d59d97c5a098f782633d74c" name="gab586eaca5d59d97c5a098f782633d74c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab586eaca5d59d97c5a098f782633d74c">&#9670;&#160;</a></span>TEMPERATURE_GAIN</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define AVG_TO_RMS&#160;&#160;&#160;(1.11)</td>
+          <td class="memname">#define TEMPERATURE_GAIN&#160;&#160;&#160;(-0.029)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00048">48</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00074">74</a> of file <a class="el" href="a00308_source.html">hardware.h</a>.</p>
 
 </div>
 </div>
-<a id="ga1651dc9a22fef1ab2af194db866dd73f" name="ga1651dc9a22fef1ab2af194db866dd73f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1651dc9a22fef1ab2af194db866dd73f">&#9670;&#160;</a></span>PWM_HR_EDGE_ALIGNED_PGxDC</h2>
+<a id="ga46b916cf898ceb2557a12f208380c5d5" name="ga46b916cf898ceb2557a12f208380c5d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga46b916cf898ceb2557a12f208380c5d5">&#9670;&#160;</a></span>TEMPERATURE_HYSTERESIS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PWM_HR_EDGE_ALIGNED_PGxDC</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">PGxPER, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">duty_percent&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>((PGxPER+8)*(duty_percent/100.0))))</td>
+          <td class="memname">#define TEMPERATURE_HYSTERESIS&#160;&#160;&#160;(float) (1.0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00059">59</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00175">175</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
 
 </div>
 </div>
-<a id="ga67a05b5f54847bdcf3a4f8505a8ddf5d" name="ga67a05b5f54847bdcf3a4f8505a8ddf5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga67a05b5f54847bdcf3a4f8505a8ddf5d">&#9670;&#160;</a></span>PWM_HR_EDGE_ALIGNED_PGxPER</h2>
+<a id="gac02a5a67e0612d6cb90e61cc23398701" name="gac02a5a67e0612d6cb90e61cc23398701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac02a5a67e0612d6cb90e61cc23398701">&#9670;&#160;</a></span>TEMPERATURE_OFFSET</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PWM_HR_EDGE_ALIGNED_PGxPER</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">freq_hz</td><td>)</td>
-          <td>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>((8.0*500.0e+6)/(float)freq_hz)-8.0))</td>
+          <td class="memname">#define TEMPERATURE_OFFSET&#160;&#160;&#160;115u</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00055">55</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00308_source.html#l00075">75</a> of file <a class="el" href="a00308_source.html">hardware.h</a>.</p>
 
 </div>
 </div>
-<a id="gae9dd7d65ec0c724eb6a3a944f9b60ec0" name="gae9dd7d65ec0c724eb6a3a944f9b60ec0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae9dd7d65ec0c724eb6a3a944f9b60ec0">&#9670;&#160;</a></span>PWM_HR_PGxDTy</h2>
+<a id="gadaf56c98b4dc5aeee1231153c378af0e" name="gadaf56c98b4dc5aeee1231153c378af0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadaf56c98b4dc5aeee1231153c378af0e">&#9670;&#160;</a></span>TEMPERATURE_PBV_OFFSET_CELSIUS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define PWM_HR_PGxDTy</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">dead_time</td><td>)</td>
-          <td>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>(8.0*500.0e+6*dead_time)))</td>
+          <td class="memname">#define TEMPERATURE_PBV_OFFSET_CELSIUS&#160;&#160;&#160;(40u)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00065">65</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
-
-</div>
-</div>
-<a id="ga788298696055df15aab198a429d96ed3" name="ga788298696055df15aab198a429d96ed3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga788298696055df15aab198a429d96ed3">&#9670;&#160;</a></span>PWM_HR_PGxTRIGy</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PWM_HR_PGxTRIGy</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">trigger_offset</td><td>)</td>
-          <td>&#160;&#160;&#160;((uint16_t)(<a class="el" href="a00517.html#ga1c75b371213fc3a62a8bb5fbc799cfc3">_rnd_int32_t</a>(8.0*500.0e+6*trigger_offset)))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00062">62</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
-
-</div>
-</div>
-<a id="gafae5fd95c828eb48279a0cbf470d1b45" name="gafae5fd95c828eb48279a0cbf470d1b45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gafae5fd95c828eb48279a0cbf470d1b45">&#9670;&#160;</a></span>QFORMAT_SHIFT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define QFORMAT_SHIFT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">value</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">                              ((value) &lt; ((<span class="keywordtype">float</span>)(1&lt;&lt;0)) ? (15) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;1)) ? (14) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;2)) ? (13) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;3)) ? (12) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;4)) ? (11) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;5)) ? (10) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;6)) ? (9) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;7)) ? (8) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;8)) ? (7) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;9)) ? (6) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;10)) ? (5) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;11)) ? (4) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;13)) ? (3) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;13)) ? (2) : \</div>
-<div class="line">                              ((value) &lt; ((float)(1&lt;&lt;14)) ? (1) : (0))))))))))))))))</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00025">25</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
-
-</div>
-</div>
-<a id="gada5ead94c63caa7198833caee45bcd9a" name="gada5ead94c63caa7198833caee45bcd9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gada5ead94c63caa7198833caee45bcd9a">&#9670;&#160;</a></span>RMS_TO_AVG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define RMS_TO_AVG&#160;&#160;&#160;(1.0/<a class="el" href="a00517.html#gaec140a01387ddcbb23059abeb73d163e">AVG_TO_RMS</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00050">50</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
-
-</div>
-</div>
-<a id="gac24ae161523eadceef352918d1ebb0c8" name="gac24ae161523eadceef352918d1ebb0c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac24ae161523eadceef352918d1ebb0c8">&#9670;&#160;</a></span>RMS_TO_PEAK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define RMS_TO_PEAK&#160;&#160;&#160;(1.414213562)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00045">45</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
-
-</div>
-</div>
-<a id="gaa1550b4b116085f90e0cd704f1b078b9" name="gaa1550b4b116085f90e0cd704f1b078b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa1550b4b116085f90e0cd704f1b078b9">&#9670;&#160;</a></span>TIME_TO_TICKS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define TIME_TO_TICKS</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">time, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">tick_period&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;(<a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>(time/tick_period))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00042">42</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
-
-</div>
-</div>
-<a id="ga5032cd832e55c41df8dc512000cc9c0d" name="ga5032cd832e55c41df8dc512000cc9c0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga5032cd832e55c41df8dc512000cc9c0d">&#9670;&#160;</a></span>UNITS_FROM_ADC_TO_ENG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UNITS_FROM_ADC_TO_ENG</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">AdcValue, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Gain&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;(<a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((((float)AdcValue /(float)Gain))/4095.0 * 3.3))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00072">72</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
-
-</div>
-</div>
-<a id="ga7ed8c7d9c9dc6a5417e022786cfc9c00" name="ga7ed8c7d9c9dc6a5417e022786cfc9c00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7ed8c7d9c9dc6a5417e022786cfc9c00">&#9670;&#160;</a></span>UNITS_FROM_ENG_TO_ADC</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UNITS_FROM_ENG_TO_ADC</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">threshold, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">gain, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">offset&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;(<a class="el" href="a00517.html#gaa3c2bb84c225cf77ab67824f886de487">_rnd</a>((((float)threshold*(float)gain) + (float)offset)/3.3*4095.0))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00070">70</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
-
-</div>
-</div>
-<a id="ga6f8b8bc288578b9150234364ccb5a6f0" name="ga6f8b8bc288578b9150234364ccb5a6f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6f8b8bc288578b9150234364ccb5a6f0">&#9670;&#160;</a></span>WordHighByte</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WordHighByte</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">word</td><td>)</td>
-          <td>&#160;&#160;&#160;((uint8_t) (word &gt;&gt; 8))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00021">21</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
-
-</div>
-</div>
-<a id="gad7e3572e4f8ef715cd1e722691f87b54" name="gad7e3572e4f8ef715cd1e722691f87b54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad7e3572e4f8ef715cd1e722691f87b54">&#9670;&#160;</a></span>WordLowByte</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WordLowByte</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">word</td><td>)</td>
-          <td>&#160;&#160;&#160;((uint8_t) (word &amp; 0x00FF))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00311_source.html#l00020">20</a> of file <a class="el" href="a00311_source.html">useful_macros.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00167">167</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
 
 </div>
 </div>

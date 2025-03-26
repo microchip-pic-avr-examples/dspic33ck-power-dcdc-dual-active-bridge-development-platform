@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/driver/mcc_extension/mcc_custom_config.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/driver/mcc_extension/mcc_custom_config.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,18 +136,31 @@ $(document).ready(function(){initNavTree('a00368_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">mcc_custom_config.h</div></div>
+  <div class="headertitle"><div class="title">mcc_custom_config.c</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00368.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifndef APP_MCC_CUSTOM_CONFIG_H</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#define APP_MCC_CUSTOM_CONFIG_H</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00532.html#gafe646acf69be10085d651f4561909f69">MCC_Custom_User_Config</a> (<span class="keywordtype">void</span>);</div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="a00359.html">driver/mcc_extension/drv_mcc_extension.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="a00356.html">driver/mcc_extension/drv_custom_config_pwm.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="a00353.html">driver/mcc_extension/drv_custom_config_adc.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;pwrctrl/pwrctrl.h&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#endif  </span><span class="comment">/* APP_MCC_CUSTOM_CONFIG_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="ttc" id="aa00532_html_gafe646acf69be10085d651f4561909f69"><div class="ttname"><a href="a00532.html#gafe646acf69be10085d651f4561909f69">MCC_Custom_User_Config</a></div><div class="ttdeci">void MCC_Custom_User_Config(void)</div><div class="ttdoc">Contains custom peripheral initialization.</div><div class="ttdef"><b>Definition</b> <a href="a00365_source.html#l00024">mcc_custom_config.c:24</a></div></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="a00535.html#gafe646acf69be10085d651f4561909f69">   24</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00535.html#gafe646acf69be10085d651f4561909f69">MCC_Custom_User_Config</a> (<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="comment">// Initialize PWM as re-triggerable for the cascaded PWM scheme</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// and setup the PWM fault PCI for hardware fault</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_function" href="a00536.html#gac779b9d8bce64e8de686bd78be25ea09">DRV_Config_Custom_PWM</a>();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>}</div>
+</div>
+<div class="ttc" id="aa00353_html"><div class="ttname"><a href="a00353.html">drv_custom_config_adc.h</a></div><div class="ttdoc">Contains ADC initialization that was not supported by MCC generated code.</div></div>
+<div class="ttc" id="aa00356_html"><div class="ttname"><a href="a00356.html">drv_custom_config_pwm.h</a></div><div class="ttdoc">Contains PWM initialization that was not supported by MCC generated code.</div></div>
+<div class="ttc" id="aa00359_html"><div class="ttname"><a href="a00359.html">drv_mcc_extension.h</a></div><div class="ttdoc">Contain the peripheral header files with MCC extension code.</div></div>
+<div class="ttc" id="aa00535_html_gafe646acf69be10085d651f4561909f69"><div class="ttname"><a href="a00535.html#gafe646acf69be10085d651f4561909f69">MCC_Custom_User_Config</a></div><div class="ttdeci">void MCC_Custom_User_Config(void)</div><div class="ttdoc">Contains custom peripheral initialization.</div><div class="ttdef"><b>Definition</b> <a href="a00368_source.html#l00024">mcc_custom_config.c:24</a></div></div>
+<div class="ttc" id="aa00536_html_gac779b9d8bce64e8de686bd78be25ea09"><div class="ttname"><a href="a00536.html#gac779b9d8bce64e8de686bd78be25ea09">DRV_Config_Custom_PWM</a></div><div class="ttdeci">static __inline__ void DRV_Config_Custom_PWM(void)</div><div class="ttdoc">Contains PWM initialization that was not supported by MCC generated code.</div><div class="ttdef"><b>Definition</b> <a href="a00356_source.html#l00025">drv_custom_config_pwm.h:25</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

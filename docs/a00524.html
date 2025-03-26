@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: User Configuration</title>
+<title>Dual Active Bridge Development Board: CAN Communication</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,73 +137,321 @@ $(document).ready(function(){initNavTree('a00524.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">User Configuration<div class="ingroups"><a class="el" href="a00519.html">Communication Layer</a> &raquo; <a class="el" href="a00520.html">Power Board Visualizer</a></div></div></div>
+  <div class="headertitle"><div class="title">CAN Communication<div class="ingroups"><a class="el" href="a00522.html">Communication Layer</a> &raquo; <a class="el" href="a00523.html">Power Board Visualizer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected.  
+<p>This abstracts the MCC driver api.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for User Configuration:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CAN Communication:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00524.svg" width="343" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00524.svg" width="358" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00643.html">APP_PBV_INTF_API_s</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure of API function pointers.  <a href="a00643.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga79f8710b3f0d8c70122b335311789f84" id="r_ga79f8710b3f0d8c70122b335311789f84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00524.html#ga79f8710b3f0d8c70122b335311789f84">PBV_CAN_Init</a> (<a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *boardToPBV, <a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *boardToPBVAscii, <a class="el" href="a00654.html">PBV_Datatype_RX_t</a> *pbvToBoard)</td></tr>
+<tr class="memdesc:ga79f8710b3f0d8c70122b335311789f84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes CAN objects with PBV objects ( only CAN IDs for now)  <br /></td></tr>
+<tr class="separator:ga79f8710b3f0d8c70122b335311789f84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5fb4f1d3c69d1871c10a2c0a0ad27f8a" id="r_ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00524.html#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a">PBV_CAN_Receive_from_GUI</a> ()</td></tr>
+<tr class="memdesc:ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the queue and if a message is received then links the data pointer to can object.  <br /></td></tr>
+<tr class="separator:ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8a1a918272c7acb8edadb6686bdf7410" id="r_ga8a1a918272c7acb8edadb6686bdf7410"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00524.html#ga8a1a918272c7acb8edadb6686bdf7410">PBV_CAN_Transmit_Ascii_to_GUI</a> ()</td></tr>
+<tr class="memdesc:ga8a1a918272c7acb8edadb6686bdf7410"><td class="mdescLeft">&#160;</td><td class="mdescRight">transmits the Ascii msg to PBV  <br /></td></tr>
+<tr class="separator:ga8a1a918272c7acb8edadb6686bdf7410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae06ebd7cad07c3a104d5b46c6f6323dc" id="r_gae06ebd7cad07c3a104d5b46c6f6323dc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00524.html#gae06ebd7cad07c3a104d5b46c6f6323dc">PBV_CAN_Transmit_to_GUI</a> ()</td></tr>
+<tr class="memdesc:gae06ebd7cad07c3a104d5b46c6f6323dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits the numerical msg to PBV.  <br /></td></tr>
+<tr class="separator:gae06ebd7cad07c3a104d5b46c6f6323dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga857a8826c159110cf094721b35f5637d" id="r_ga857a8826c159110cf094721b35f5637d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00524.html#ga857a8826c159110cf094721b35f5637d">PBV_CAN_Reinit</a> (<a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *ptr)</td></tr>
+<tr class="memdesc:ga857a8826c159110cf094721b35f5637d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinitializes the can object with new can id.  <br /></td></tr>
+<tr class="separator:ga857a8826c159110cf094721b35f5637d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga324f8d21b38a8db2c2eff48363fc09cd" id="r_ga324f8d21b38a8db2c2eff48363fc09cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00524.html#ga324f8d21b38a8db2c2eff48363fc09cd">PBV_CAN_Link_Data_TX</a> (<a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *ptr)</td></tr>
+<tr class="memdesc:ga324f8d21b38a8db2c2eff48363fc09cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Links the data from TX PBV datatype to CAN TX object.  <br /></td></tr>
+<tr class="separator:ga324f8d21b38a8db2c2eff48363fc09cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaca26b408b2f31bdd8d4d130092a52a89" id="r_gaca26b408b2f31bdd8d4d130092a52a89"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00524.html#gaca26b408b2f31bdd8d4d130092a52a89">PBV_CAN_Link_Data_RX</a> (<a class="el" href="a00654.html">PBV_Datatype_RX_t</a> *ptr)</td></tr>
+<tr class="memdesc:gaca26b408b2f31bdd8d4d130092a52a89"><td class="mdescLeft">&#160;</td><td class="mdescRight">links the received data to the application data structure  <br /></td></tr>
+<tr class="separator:gaca26b408b2f31bdd8d4d130092a52a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga40c15cce2e781ba3b9268150395d466c" id="r_ga40c15cce2e781ba3b9268150395d466c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00643.html">APP_PBV_INTF_API_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00524.html#ga40c15cce2e781ba3b9268150395d466c">appPbvFuncs</a></td></tr>
-<tr class="memdesc:ga40c15cce2e781ba3b9268150395d466c"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure of API function pointers.  <br /></td></tr>
-<tr class="separator:ga40c15cce2e781ba3b9268150395d466c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab3e1f18d37c5cf8872a425dc2dc82f01" id="r_gab3e1f18d37c5cf8872a425dc2dc82f01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00590.html">CAN_MSG_OBJ_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00524.html#gab3e1f18d37c5cf8872a425dc2dc82f01">pbvCanObjectTx</a></td></tr>
+<tr class="memdesc:gab3e1f18d37c5cf8872a425dc2dc82f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN object for Numeric TX. Initialized by <a class="el" href="a00524.html#ga79f8710b3f0d8c70122b335311789f84" title="Initializes CAN objects with PBV objects ( only CAN IDs for now)">PBV_CAN_Init()</a>  <br /></td></tr>
+<tr class="separator:gab3e1f18d37c5cf8872a425dc2dc82f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9ceb5cc979f0da93465c1599bc5fcd4e" id="r_ga9ceb5cc979f0da93465c1599bc5fcd4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00590.html">CAN_MSG_OBJ_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00524.html#ga9ceb5cc979f0da93465c1599bc5fcd4e">pbvCanObjectRx</a></td></tr>
+<tr class="memdesc:ga9ceb5cc979f0da93465c1599bc5fcd4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN object for numeric RX. Does not have to be initialized.  <br /></td></tr>
+<tr class="separator:ga9ceb5cc979f0da93465c1599bc5fcd4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga83ff770dbe2c555914a0a8817520e6ff" id="r_ga83ff770dbe2c555914a0a8817520e6ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00590.html">CAN_MSG_OBJ_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00524.html#ga83ff770dbe2c555914a0a8817520e6ff">pbvCanObjectAscii</a></td></tr>
+<tr class="memdesc:ga83ff770dbe2c555914a0a8817520e6ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN object for ascii TX. Initialized by <a class="el" href="a00524.html#ga79f8710b3f0d8c70122b335311789f84" title="Initializes CAN objects with PBV objects ( only CAN IDs for now)">PBV_CAN_Init()</a>  <br /></td></tr>
+<tr class="separator:ga83ff770dbe2c555914a0a8817520e6ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected. </p>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ga40c15cce2e781ba3b9268150395d466c" name="ga40c15cce2e781ba3b9268150395d466c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga40c15cce2e781ba3b9268150395d466c">&#9670;&#160;</a></span>appPbvFuncs</h2>
+<p>This layer abstracts the MCC driver api to have the same interface as the UART. </p>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga79f8710b3f0d8c70122b335311789f84" name="ga79f8710b3f0d8c70122b335311789f84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga79f8710b3f0d8c70122b335311789f84">&#9670;&#160;</a></span>PBV_CAN_Init()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00643.html">APP_PBV_INTF_API_t</a> appPbvFuncs</td>
+          <td class="memname">void PBV_CAN_Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *&#160;</td>
+          <td class="paramname"><em>boardToPBV</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *&#160;</td>
+          <td class="paramname"><em>boardToPBVAscii</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a> *&#160;</td>
+          <td class="paramname"><em>pbvToBoard</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line">}</div>
-</div><!-- fragment --><p>&lt; Includes </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a></td><td>* ptr to numerical data </td></tr>
+    <tr><td class="paramname"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a></td><td>* ptr to ascii data </td></tr>
+    <tr><td class="paramname"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a></td><td>* ptr to rx numerical data. here as a place holder, only needed for completeness </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>Initialize the CAN communication. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00275_source.html#l00026">26</a> of file <a class="el" href="a00275_source.html">PBV_config.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00272_source.html#l00044">44</a> of file <a class="el" href="a00272_source.html">PBV_CAN.c</a>.</p>
+
+</div>
+</div>
+<a id="gaca26b408b2f31bdd8d4d130092a52a89" name="gaca26b408b2f31bdd8d4d130092a52a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaca26b408b2f31bdd8d4d130092a52a89">&#9670;&#160;</a></span>PBV_CAN_Link_Data_RX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PBV_CAN_Link_Data_RX </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a></td><td>* </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This links the received data (uint8_t *) to the application data structure data (uint8_t *) </p>
+
+<p class="definition">Definition at line <a class="el" href="a00272_source.html#l00252">252</a> of file <a class="el" href="a00272_source.html">PBV_CAN.c</a>.</p>
+
+</div>
+</div>
+<a id="ga324f8d21b38a8db2c2eff48363fc09cd" name="ga324f8d21b38a8db2c2eff48363fc09cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga324f8d21b38a8db2c2eff48363fc09cd">&#9670;&#160;</a></span>PBV_CAN_Link_Data_TX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PBV_CAN_Link_Data_TX </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a></td><td>* </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>This function links the data (uint_8 *) from the passing struct to the CAN object data (uint_8 *)</dd></dl>
+<p>This function links the data (uint_8 *) from the passing struct to the CAN object data (uint_8 *) </p>
+
+<p class="definition">Definition at line <a class="el" href="a00272_source.html#l00238">238</a> of file <a class="el" href="a00272_source.html">PBV_CAN.c</a>.</p>
+
+</div>
+</div>
+<a id="ga5fb4f1d3c69d1871c10a2c0a0ad27f8a" name="ga5fb4f1d3c69d1871c10a2c0a0ad27f8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5fb4f1d3c69d1871c10a2c0a0ad27f8a">&#9670;&#160;</a></span>PBV_CAN_Receive_from_GUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t PBV_CAN_Receive_from_GUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>int (0 on successful, 1 on unsuccessful)</dd></dl>
+<p>Checks the queue and if a message is received then links the data pointer to can object </p>
+
+<p class="definition">Definition at line <a class="el" href="a00272_source.html#l00067">67</a> of file <a class="el" href="a00272_source.html">PBV_CAN.c</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00524_ga5fb4f1d3c69d1871c10a2c0a0ad27f8a_cgraph.svg" width="100%" height="530"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ga857a8826c159110cf094721b35f5637d" name="ga857a8826c159110cf094721b35f5637d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga857a8826c159110cf094721b35f5637d">&#9670;&#160;</a></span>PBV_CAN_Reinit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PBV_CAN_Reinit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a></td><td>* </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function is needed in CAN TX to reinitialize the CAN TX object with new parameters. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00272_source.html#l00112">112</a> of file <a class="el" href="a00272_source.html">PBV_CAN.c</a>.</p>
+
+</div>
+</div>
+<a id="ga8a1a918272c7acb8edadb6686bdf7410" name="ga8a1a918272c7acb8edadb6686bdf7410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8a1a918272c7acb8edadb6686bdf7410">&#9670;&#160;</a></span>PBV_CAN_Transmit_Ascii_to_GUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t PBV_CAN_Transmit_Ascii_to_GUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>0 on successful transmission.</dd></dl>
+<p>Transmits the Ascii msg to PBV </p>
+
+<p class="definition">Definition at line <a class="el" href="a00272_source.html#l00083">83</a> of file <a class="el" href="a00272_source.html">PBV_CAN.c</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00524_ga8a1a918272c7acb8edadb6686bdf7410_cgraph.svg" width="100%" height="517"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="gae06ebd7cad07c3a104d5b46c6f6323dc" name="gae06ebd7cad07c3a104d5b46c6f6323dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae06ebd7cad07c3a104d5b46c6f6323dc">&#9670;&#160;</a></span>PBV_CAN_Transmit_to_GUI()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t PBV_CAN_Transmit_to_GUI </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>int</dd></dl>
+<p>This function sends the message on <a class="el" href="a00762.html" title="This defines the object required for the maintenance of the receive FIFO message object.">CAN1</a> Transmit Queue. TODO: make this portable to other transmit queues. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00272_source.html#l00097">97</a> of file <a class="el" href="a00272_source.html">PBV_CAN.c</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00524_gae06ebd7cad07c3a104d5b46c6f6323dc_cgraph.svg" width="100%" height="517"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ga83ff770dbe2c555914a0a8817520e6ff" name="ga83ff770dbe2c555914a0a8817520e6ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga83ff770dbe2c555914a0a8817520e6ff">&#9670;&#160;</a></span>pbvCanObjectAscii</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00590.html">CAN_MSG_OBJ_t</a> pbvCanObjectAscii</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00272_source.html#l00033">33</a> of file <a class="el" href="a00272_source.html">PBV_CAN.c</a>.</p>
+
+</div>
+</div>
+<a id="ga9ceb5cc979f0da93465c1599bc5fcd4e" name="ga9ceb5cc979f0da93465c1599bc5fcd4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9ceb5cc979f0da93465c1599bc5fcd4e">&#9670;&#160;</a></span>pbvCanObjectRx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00590.html">CAN_MSG_OBJ_t</a> pbvCanObjectRx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00272_source.html#l00027">27</a> of file <a class="el" href="a00272_source.html">PBV_CAN.c</a>.</p>
+
+</div>
+</div>
+<a id="gab3e1f18d37c5cf8872a425dc2dc82f01" name="gab3e1f18d37c5cf8872a425dc2dc82f01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab3e1f18d37c5cf8872a425dc2dc82f01">&#9670;&#160;</a></span>pbvCanObjectTx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00590.html">CAN_MSG_OBJ_t</a> pbvCanObjectTx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00272_source.html#l00021">21</a> of file <a class="el" href="a00272_source.html">PBV_CAN.c</a>.</p>
 
 </div>
 </div>

@@ -36,6 +36,7 @@ The platform is designed to handle voltage levels of up to 800 VDC on the primar
  - Utilization of dsPIC peripherals that allows switching frequency operation ranging from 65KHz to 300KHz
  - dspic33 plug-in module mating socket pinout compatible to other DSC DP PIMs.
  - Can be operated in forward and reverse mode operation
+	
 ---
 
 ## Related Documentation
@@ -45,16 +46,16 @@ __Firmware Documentation__
 - [Online Firmware Documentation of this Code Example](https://microchip-pic-avr-examples.github.io/dspic33ck-power-dcdc-dual-active-bridge-development-platform/)
 
 __Firmware Version__ 
-- [Forward Direction Operation Firmware Code version 1.0]()
-- [Forward and Reverse Direction Operation Firmware Code version 2.0]()
+- [Forward Direction Operation Firmware Code version 1.0](https://mplab-discover.microchip.com/com.microchip.mplabx.project.dspic33ck-power-dcdc-dual-active-bridge-development-platform/1.0.0)
+- [Forward and Reverse Direction Operation Firmware Code version 2.0](https://mplab-discover.microchip.com/com.microchip.mplabx.project.dspic33ck-power-dcdc-dual-active-bridge-development-platform/2.0.0)
 
 __Hardware Documentation__
 
 - [11kW Dual Active Bridge DC-DC Demonstration Application](https://www.microchip.com/en-us/tools-resources/reference-designs/11-kw-dual-active-bridge-dc-dc-demonstration-application)
 - [Isolated Voltage Acquisition Board User’s Guide](https://www.microchip.com/70005524)
 - [SiC FET Plug-In Module (SiC FET PIM) User’s Guide](https://www.microchip.com/50003512)
-- Operational Manuals
-   - [AC Voltage Inverter](https://www.microchip.com/70005570)
+- Operational Manual
+- Users Guide
 
 __Target Device Documentation__
 
@@ -125,7 +126,7 @@ To enable CAN communication from the PC to the DAB application board, a USB to C
 
 <p><center><a target="_blank" rel="nofollow">
 <p>
-<img src="images/dab-connection.jpg" alt="dsPIC33C DAB Development Board Hardware set-up" width="800">
+<img src="images/dab-connection-forward.jpg" alt="dsPIC33C DAB Development Board Hardware set-up" width="800">
 </a>
 </center>
 </p>
@@ -134,6 +135,22 @@ To enable CAN communication from the PC to the DAB application board, a USB to C
 <center>
 <a target="_blank" rel="nofollow">
 dsPIC33C DAB Development Board Hardware set-up for Forward mode Operation
+</a>
+</center>
+</p>
+
+
+<p><center><a target="_blank" rel="nofollow">
+<p>
+<img src="images/dab-connection.jpg" alt="dsPIC33C DAB Development Board Hardware set-up" width="800">
+</a>
+</center>
+</p>
+
+<p>
+<center>
+<a target="_blank" rel="nofollow">
+dsPIC33C DAB Development Board Hardware set-up for Reverse mode Operation
 </a>
 </center>
 </p>

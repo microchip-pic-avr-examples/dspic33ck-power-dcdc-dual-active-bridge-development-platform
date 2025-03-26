@@ -28,7 +28,6 @@ var NAVTREE =
     [ "Dual Active Bridge Development Board", "index.html#autotoc_md1", [
       [ "Summary", "index.html#autotoc_md3", null ],
       [ "Highlights", "index.html#autotoc_md5", null ],
-      [ "- Can be operated in forward and reverse mode operation", "index.html#autotoc_md6", null ],
       [ "Related Documentation", "index.html#autotoc_md7", null ],
       [ "Software Used", "index.html#autotoc_md9", null ],
       [ "Hardware Used", "index.html#autotoc_md11", null ],
@@ -36,14 +35,14 @@ var NAVTREE =
       [ "Programming Hex File using available hex files", "index.html#autotoc_md14", null ],
       [ "Quick Start Guide", "index.html#autotoc_md16", null ]
     ] ],
-    [ "Firmware Overview", "a00764.html", [
-      [ "DAB Output Voltage Selection", "a00764.html#autotoc_md20", null ],
-      [ "Mode of Operation", "a00764.html#autotoc_md22", null ],
-      [ "Converter State Machine", "a00764.html#autotoc_md24", null ],
-      [ "Power Control Data Structure", "a00764.html#autotoc_md25", null ],
-      [ "Fault Protection", "a00764.html#autotoc_md27", null ],
-      [ "PWM Setup", "a00764.html#autotoc_md31", null ],
-      [ "Power Control Compensator", "a00764.html#autotoc_md33", null ]
+    [ "Firmware Overview", "a00767.html", [
+      [ "DAB Output Voltage Selection", "a00767.html#autotoc_md20", null ],
+      [ "Mode of Operation", "a00767.html#autotoc_md22", null ],
+      [ "Converter State Machine", "a00767.html#autotoc_md24", null ],
+      [ "Power Control Data Structure", "a00767.html#autotoc_md25", null ],
+      [ "Fault Protection", "a00767.html#autotoc_md27", null ],
+      [ "PWM Setup", "a00767.html#autotoc_md31", null ],
+      [ "Power Control Compensator", "a00767.html#autotoc_md33", null ]
     ] ],
     [ "Firmware Detail", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
@@ -67,14 +66,14 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"a00053.html",
-"a00517.html#ga7742fa23cad0b81a56daae0c5ad63c8b",
-"a00533.html#gga047f851c8ef37ed494a184f9dc539301abb733b7a2b425e98d00e2334b526829f",
-"a00541.html#ga80737f595e2855e9361772d2c1a9852d",
-"a00553.html#gae8fc6e741033d7c25cce81d0ccdfd7b8",
-"a00565.html#ga2841c95f77415643312872bc9e042fd9",
-"a00623.html#ab9b28c9b2b3f5e4eaef68e56ba5dcc33",
-"a00755.html#a13383149438802e4c6c08683d6d004db"
+"a00056.html",
+"a00520.html#ga7742fa23cad0b81a56daae0c5ad63c8b",
+"a00536.html#gga047f851c8ef37ed494a184f9dc539301ab969866938456f4915051d9b7995ac68",
+"a00544.html#ga7a61c299efe9f39fbddb6d902d4b3adc",
+"a00556.html#gae550f4f54854dbd48f70218625390014",
+"a00568.html#ga27bf11425ad1e1d2e8e16a14aebb5a9c",
+"a00626.html#ab6aa2863d2196e9f95f70fde91049ee6",
+"a00758.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

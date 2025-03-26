@@ -1,17 +1,17 @@
 var a00504 =
 [
-    [ "Conversion Macros", "a00505.html", "a00505" ],
-    [ "VPRIM_LOAD_STEP_CLAMPING_VOLTS", "a00504.html#gae3f52347b2b4a59f50701b297dd93e08", null ],
-    [ "VSEC_LOAD_STEP_CLAMPING_VOLTS", "a00504.html#gad65db8b07e7c77b600ab24be46652e8b", null ],
-    [ "VSEC_OV_T_BLANK_CLEAR_SEC", "a00504.html#ga5128a30f14a7b25809efe09d606b8055", null ],
-    [ "VSEC_OV_T_BLANK_TRIG_SEC", "a00504.html#gaf49c547355152112f9ae4b26555d57e2", null ],
-    [ "VSEC_OV_THRES_CLEAR_VOLTS", "a00504.html#gab1003ede83a567c60837872c8542824b", null ],
-    [ "VSEC_OV_THRES_TRIG_VOLTS", "a00504.html#gaf7f1d859f3effd96e6613130af09fc0b", null ],
-    [ "VSEC_OV_TICK_SEC", "a00504.html#ga77d2a7b05664c0c08ce317f942deca00", null ],
-    [ "VSEC_SNS_GAIN", "a00504.html#gadbb92791a446721a3d4af49d713520ca", null ],
-    [ "VSEC_UV_T_BLANK_CLEAR_SEC", "a00504.html#ga683160afa1313d6ba361e499e367a976", null ],
-    [ "VSEC_UV_T_BLANK_TRIG_SEC", "a00504.html#gacaf7eee4f78c07c9647a18ca030da57d", null ],
-    [ "VSEC_UV_THRES_CLEAR_VOLTS", "a00504.html#gad401641684f506e72d672405e4e80bba", null ],
-    [ "VSEC_UV_THRES_TRIG_VOLTS", "a00504.html#gab7c6ea26f50ee59cfffa63274edbd8ea", null ],
-    [ "VSEC_UV_TICK_SEC", "a00504.html#gab4b4e960335284c22232a1a6fcb41573", null ]
+    [ "ADC_PERIOD_RANGE", "a00504.html#ga437af142b62c5aaa24e036a25b81bdd1", null ],
+    [ "DEGREES_PHASE_10x", "a00504.html#ga8a2a936326c4e675da1e98a8661843ff", null ],
+    [ "DEGREES_PHASE_FACTOR", "a00504.html#gad5d86e418e1507f6584595a8ed8b5e10", null ],
+    [ "DEGREES_PHASE_SCALER", "a00504.html#ga985f58915c79f9f205b0ad2c51f53a2a", null ],
+    [ "DEGREES_PHASE_SCALING_10", "a00504.html#ga2aa2f9a51e6d0c4f080cd83ae96989bd", null ],
+    [ "MAX_PWM_DEAD_TIME", "a00504.html#ga1ca2efa729e26db33b57a3c71e9fd8ac", null ],
+    [ "MAX_PWM_PERIOD", "a00504.html#ga186594aa5d23f8d898758992a70b2d13", null ],
+    [ "MAX_SWITCHING_PERIOD", "a00504.html#ga6b442951e644a17742ef24efa981f4c2", null ],
+    [ "MIN_PHASE_SHIFTED_PULSE", "a00504.html#gad6a2ee2364ce0f4f20b7527a1e95d181", null ],
+    [ "MIN_PWM_DEAD_TIME", "a00504.html#gabc0fa5be333bec97b04a2dbdd15b1042", null ],
+    [ "MIN_PWM_PERIOD", "a00504.html#gaab2f7ae5f2d6809dd3894e30692f30b1", null ],
+    [ "MIN_SWITCHING_PERIOD", "a00504.html#ga5ed32182c39d3e960b242387f435759b", null ],
+    [ "PERIOD_RANGE", "a00504.html#gaf207f331e3e052a4ad198b0837e64cd9", null ],
+    [ "PWM_CLOCK_PERIOD", "a00504.html#gafd17199da18b5a3321b37016464983b0", null ]
 ];

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_isr_extension.c File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_isr.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,224 +137,35 @@ $(document).ready(function(){initNavTree('a00485.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">pwrctrl_isr_extension.c File Reference<div class="ingroups"><a class="el" href="a00535.html">Power Control</a> &raquo; <a class="el" href="a00537.html">Interrupt Routine and Functions</a></div></div></div>
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">pwrctrl_isr.h File Reference<div class="ingroups"><a class="el" href="a00538.html">Power Control</a> &raquo; <a class="el" href="a00540.html">Interrupt Routine and Functions</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains some of the functions used in the interrupt service routine of control loop.  
+<p>Contains public function relevant for power control interrupt.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
-<code>#include &lt;math.h&gt;</code><br />
-<code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00092_source.html">adc/adc_types.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00083_source.html">adc/adc1.h</a>&quot;</code><br />
-<code>#include &quot;system/pins.h&quot;</code><br />
-<code>#include &quot;config/macros.h&quot;</code><br />
-<code>#include &quot;config/config.h&quot;</code><br />
-<code>#include &quot;pwrctrl.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00380_source.html">fault/fault.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00443_source.html">dcdt/pwrctrl_dcdt.h</a>&quot;</code><br />
-</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pwrctrl_isr_extension.c:</div>
+<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00486.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00487.svg" width="100%" height="488"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="a00485_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ga9bdc078fe328d76d13c139cab37a7a24" id="r_ga9bdc078fe328d76d13c139cab37a7a24"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga9bdc078fe328d76d13c139cab37a7a24">MIN_REFERENCE_THRESHOLD_IV</a>&#160;&#160;&#160;(10)</td></tr>
-<tr class="memdesc:ga9bdc078fe328d76d13c139cab37a7a24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power converter control loop.  <br /></td></tr>
-<tr class="separator:ga9bdc078fe328d76d13c139cab37a7a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a353947a539068ea42ccc58c50fff4d51" id="r_a353947a539068ea42ccc58c50fff4d51"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#a353947a539068ea42ccc58c50fff4d51">MIN_REFERENCE_THRESHOLD_P</a>&#160;&#160;&#160;(15)</td></tr>
-<tr class="separator:a353947a539068ea42ccc58c50fff4d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b9f06a8bbfe86a39a38dddc3e02e9dd" id="r_a3b9f06a8bbfe86a39a38dddc3e02e9dd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#a3b9f06a8bbfe86a39a38dddc3e02e9dd">PIRM_MIN_VOLTAGE_55V</a>&#160;&#160;&#160;(250)</td></tr>
-<tr class="separator:a3b9f06a8bbfe86a39a38dddc3e02e9dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a199cd3937c2b6bb315066dd420395db9" id="r_a199cd3937c2b6bb315066dd420395db9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#a199cd3937c2b6bb315066dd420395db9">PRIMARY_VOLTAGE_MODE_SENSOR_SAFE_CHECK</a>()</td></tr>
-<tr class="separator:a199cd3937c2b6bb315066dd420395db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga8e52f74dc17c38d13a3980af0968fc2f" id="r_ga8e52f74dc17c38d13a3980af0968fc2f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga8e52f74dc17c38d13a3980af0968fc2f">PwrCtrl_AdaptiveGainUpdate</a> (void)</td></tr>
-<tr class="memdesc:ga8e52f74dc17c38d13a3980af0968fc2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the Adaptive gain for the power converter control loop.  <br /></td></tr>
-<tr class="separator:ga8e52f74dc17c38d13a3980af0968fc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa34c5b66d8f20f01daef50d0e88cf20e" id="r_gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaa34c5b66d8f20f01daef50d0e88cf20e">PwrCtrl_UpdateADConverterData</a> (void)</td></tr>
-<tr class="memdesc:gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members with ADC raw values.  <br /></td></tr>
-<tr class="separator:gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaf49f142990b8dc3f750e88365bf8fed" id="r_gaaf49f142990b8dc3f750e88365bf8fed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaaf49f142990b8dc3f750e88365bf8fed">PwrCtrl_10KHzVPLoopPrepareData</a> (void)</td></tr>
-<tr class="memdesc:gaaf49f142990b8dc3f750e88365bf8fed"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function prepares the data for control loop and selects which control loop will be executed.  <br /></td></tr>
-<tr class="separator:gaaf49f142990b8dc3f750e88365bf8fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2eeebdb0cef4bbfeed446752525dd879" id="r_a2eeebdb0cef4bbfeed446752525dd879"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#a2eeebdb0cef4bbfeed446752525dd879">PwrCtrl_ControlLoopExecute</a> (void)</td></tr>
-<tr class="separator:a2eeebdb0cef4bbfeed446752525dd879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabda1b0b4f44a931cc725c3f5fa45be7b" id="r_gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gabda1b0b4f44a931cc725c3f5fa45be7b">PwrCtrl_PrimToSecPHDegree</a> (void)</td></tr>
-<tr class="memdesc:gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members with phase values normalized in degree.  <br /></td></tr>
-<tr class="separator:gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga80c3a681fbe9c0d7041146d82134f0cb" id="r_ga80c3a681fbe9c0d7041146d82134f0cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga80c3a681fbe9c0d7041146d82134f0cb">PwrCtrl_DeadTimeAdjust</a> (void)</td></tr>
-<tr class="memdesc:ga80c3a681fbe9c0d7041146d82134f0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members dead time based on load.  <br /></td></tr>
-<tr class="separator:ga80c3a681fbe9c0d7041146d82134f0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ga963f5607c8862374734b3cc799dedc68" id="r_ga963f5607c8862374734b3cc799dedc68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00470.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga963f5607c8862374734b3cc799dedc68">vPrimAveraging</a></td></tr>
-<tr class="memdesc:ga963f5607c8862374734b3cc799dedc68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of primary voltage averaging.  <br /></td></tr>
-<tr class="separator:ga963f5607c8862374734b3cc799dedc68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaef7d489f0d36cd14c2f49022909e01b4" id="r_gaef7d489f0d36cd14c2f49022909e01b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00470.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaef7d489f0d36cd14c2f49022909e01b4">vSecAveraging</a></td></tr>
-<tr class="memdesc:gaef7d489f0d36cd14c2f49022909e01b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of secondary voltage averaging.  <br /></td></tr>
-<tr class="separator:gaef7d489f0d36cd14c2f49022909e01b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga672f4741d032387a584ef0444f637cce" id="r_ga672f4741d032387a584ef0444f637cce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00470.html#aeb85fd21821814ad43f0744c4bf7434e">AVERAGING_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga672f4741d032387a584ef0444f637cce">iSecAveraging</a></td></tr>
-<tr class="memdesc:ga672f4741d032387a584ef0444f637cce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of secondary current averaging.  <br /></td></tr>
-<tr class="separator:ga672f4741d032387a584ef0444f637cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6b5615f3ef634a80843e80a706202ae" id="r_ab6b5615f3ef634a80843e80a706202ae"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#ab6b5615f3ef634a80843e80a706202ae">VLoopInterleaveExec</a> = true</td></tr>
-<tr class="separator:ab6b5615f3ef634a80843e80a706202ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae32c9e5ed4d1fb98fc13b26601782c10" id="r_gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00540.html#gae32c9e5ed4d1fb98fc13b26601782c10">ControlLoop_Interrupt_CallBack</a> (void)</td></tr>
+<tr class="memdesc:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power converter control loop.  <br /></td></tr>
+<tr class="separator:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>&lt;&gt; </p>
+<div class="textblock"><p><br  />
+ &lt;&gt; </p>
 
-<p class="definition">Definition in file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a353947a539068ea42ccc58c50fff4d51" name="a353947a539068ea42ccc58c50fff4d51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a353947a539068ea42ccc58c50fff4d51">&#9670;&#160;</a></span>MIN_REFERENCE_THRESHOLD_P</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MIN_REFERENCE_THRESHOLD_P&#160;&#160;&#160;(15)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00214">214</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
-
-</div>
-</div>
-<a id="a3b9f06a8bbfe86a39a38dddc3e02e9dd" name="a3b9f06a8bbfe86a39a38dddc3e02e9dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b9f06a8bbfe86a39a38dddc3e02e9dd">&#9670;&#160;</a></span>PIRM_MIN_VOLTAGE_55V</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PIRM_MIN_VOLTAGE_55V&#160;&#160;&#160;(250)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00215">215</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
-
-</div>
-</div>
-<a id="a199cd3937c2b6bb315066dd420395db9" name="a199cd3937c2b6bb315066dd420395db9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a199cd3937c2b6bb315066dd420395db9">&#9670;&#160;</a></span>PRIMARY_VOLTAGE_MODE_SENSOR_SAFE_CHECK</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PRIMARY_VOLTAGE_MODE_SENSOR_SAFE_CHECK</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span> { \</div>
-<div class="line">    if (<a class="code hl_variable" href="a00536.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00755.html#a2c015371f9d53a7ba0131e65634f8129">Properties</a>.<a class="code hl_variable" href="a00751.html#a77adde2f7eb1f326d84f31bf34c99b99">IReference</a> &gt; <a class="code hl_define" href="a00537.html#ga9bdc078fe328d76d13c139cab37a7a24">MIN_REFERENCE_THRESHOLD_IV</a>) \</div>
-<div class="line">        if (<a class="code hl_variable" href="a00536.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00755.html#a2c015371f9d53a7ba0131e65634f8129">Properties</a>.<a class="code hl_variable" href="a00751.html#aa7c7be85fbd243019a3d4117936a5eb6">VPriReference</a> &gt; <a class="code hl_define" href="a00537.html#ga9bdc078fe328d76d13c139cab37a7a24">MIN_REFERENCE_THRESHOLD_IV</a>) \</div>
-<div class="line">            if (<a class="code hl_variable" href="a00536.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00755.html#a2c015371f9d53a7ba0131e65634f8129">Properties</a>.<a class="code hl_variable" href="a00751.html#a19c96c8c63b39d18db0eae64f208dcf7">PwrReference</a> &gt; <a class="code hl_define" href="a00485.html#a353947a539068ea42ccc58c50fff4d51">MIN_REFERENCE_THRESHOLD_P</a>) \</div>
-<div class="line">                if (<a class="code hl_variable" href="a00537.html#ga963f5607c8862374734b3cc799dedc68">vPrimAveraging</a>.<a class="code hl_variable" href="a00719.html#ababc9b3b062bdea79c71035d651fbe79">AverageValue</a> &lt; <a class="code hl_define" href="a00485.html#a3b9f06a8bbfe86a39a38dddc3e02e9dd">PIRM_MIN_VOLTAGE_55V</a>) { \</div>
-<div class="line">                    <a class="code hl_variable" href="a00536.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00755.html#a2c015371f9d53a7ba0131e65634f8129">Properties</a>.<a class="code hl_variable" href="a00751.html#a77adde2f7eb1f326d84f31bf34c99b99">IReference</a> = <a class="code hl_define" href="a00537.html#ga9bdc078fe328d76d13c139cab37a7a24">MIN_REFERENCE_THRESHOLD_IV</a>; \</div>
-<div class="line">                    <a class="code hl_variable" href="a00536.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00755.html#a13383149438802e4c6c08683d6d004db">ILoop</a>.<a class="code hl_variable" href="a00747.html#a727f4f7790931ccc89ce7743dbe80b4e">Reference</a> = <a class="code hl_define" href="a00537.html#ga9bdc078fe328d76d13c139cab37a7a24">MIN_REFERENCE_THRESHOLD_IV</a>; \</div>
-<div class="line">                    <a class="code hl_variable" href="a00536.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00755.html#a2c015371f9d53a7ba0131e65634f8129">Properties</a>.<a class="code hl_variable" href="a00751.html#a19c96c8c63b39d18db0eae64f208dcf7">PwrReference</a> = <a class="code hl_define" href="a00485.html#a353947a539068ea42ccc58c50fff4d51">MIN_REFERENCE_THRESHOLD_P</a>; \</div>
-<div class="line">                    <a class="code hl_variable" href="a00536.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>.<a class="code hl_variable" href="a00755.html#a14f61bb42ecc88a3ff43a417b48194b0">PLoop</a>.<a class="code hl_variable" href="a00747.html#a727f4f7790931ccc89ce7743dbe80b4e">Reference</a> = <a class="code hl_define" href="a00485.html#a353947a539068ea42ccc58c50fff4d51">MIN_REFERENCE_THRESHOLD_P</a>; \</div>
-<div class="line">                } \</div>
-<div class="line">} <span class="keywordflow">while</span> (0)</div>
-<div class="ttc" id="aa00485_html_a353947a539068ea42ccc58c50fff4d51"><div class="ttname"><a href="a00485.html#a353947a539068ea42ccc58c50fff4d51">MIN_REFERENCE_THRESHOLD_P</a></div><div class="ttdeci">#define MIN_REFERENCE_THRESHOLD_P</div><div class="ttdef"><b>Definition</b> <a href="a00485_source.html#l00214">pwrctrl_isr_extension.c:214</a></div></div>
-<div class="ttc" id="aa00485_html_a3b9f06a8bbfe86a39a38dddc3e02e9dd"><div class="ttname"><a href="a00485.html#a3b9f06a8bbfe86a39a38dddc3e02e9dd">PIRM_MIN_VOLTAGE_55V</a></div><div class="ttdeci">#define PIRM_MIN_VOLTAGE_55V</div><div class="ttdef"><b>Definition</b> <a href="a00485_source.html#l00215">pwrctrl_isr_extension.c:215</a></div></div>
-<div class="ttc" id="aa00536_html_ga5762de26b3d1b822c6a4b9c1605cd387"><div class="ttname"><a href="a00536.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a></div><div class="ttdeci">POWER_CONTROL_t dab</div><div class="ttdoc">Global data object for a DAB Converter.</div><div class="ttdef"><b>Definition</b> <a href="a00461_source.html#l00028">pwrctrl.c:28</a></div></div>
-<div class="ttc" id="aa00537_html_ga963f5607c8862374734b3cc799dedc68"><div class="ttname"><a href="a00537.html#ga963f5607c8862374734b3cc799dedc68">vPrimAveraging</a></div><div class="ttdeci">AVERAGING_t vPrimAveraging</div><div class="ttdoc">Data Object of primary voltage averaging.</div><div class="ttdef"><b>Definition</b> <a href="a00485_source.html#l00034">pwrctrl_isr_extension.c:34</a></div></div>
-<div class="ttc" id="aa00537_html_ga9bdc078fe328d76d13c139cab37a7a24"><div class="ttname"><a href="a00537.html#ga9bdc078fe328d76d13c139cab37a7a24">MIN_REFERENCE_THRESHOLD_IV</a></div><div class="ttdeci">#define MIN_REFERENCE_THRESHOLD_IV</div><div class="ttdoc">Executes the power converter control loop.</div><div class="ttdef"><b>Definition</b> <a href="a00485_source.html#l00213">pwrctrl_isr_extension.c:213</a></div></div>
-<div class="ttc" id="aa00719_html_ababc9b3b062bdea79c71035d651fbe79"><div class="ttname"><a href="a00719.html#ababc9b3b062bdea79c71035d651fbe79">AVERAGING_s::AverageValue</a></div><div class="ttdeci">uint16_t AverageValue</div><div class="ttdef"><b>Definition</b> <a href="a00470_source.html#l00022">pwrctrl_common.h:22</a></div></div>
-<div class="ttc" id="aa00747_html_a727f4f7790931ccc89ce7743dbe80b4e"><div class="ttname"><a href="a00747.html#a727f4f7790931ccc89ce7743dbe80b4e">CONTROLLER_s::Reference</a></div><div class="ttdeci">int16_t Reference</div><div class="ttdoc">actual reference</div><div class="ttdef"><b>Definition</b> <a href="a00497_source.html#l00120">pwrctrl_typedef.h:120</a></div></div>
-<div class="ttc" id="aa00751_html_a19c96c8c63b39d18db0eae64f208dcf7"><div class="ttname"><a href="a00751.html#a19c96c8c63b39d18db0eae64f208dcf7">PWR_CTRL_PROPERTIES_s::PwrReference</a></div><div class="ttdeci">uint16_t PwrReference</div><div class="ttdoc">User power reference setting used to control the converter controller.</div><div class="ttdef"><b>Definition</b> <a href="a00497_source.html#l00154">pwrctrl_typedef.h:154</a></div></div>
-<div class="ttc" id="aa00751_html_a77adde2f7eb1f326d84f31bf34c99b99"><div class="ttname"><a href="a00751.html#a77adde2f7eb1f326d84f31bf34c99b99">PWR_CTRL_PROPERTIES_s::IReference</a></div><div class="ttdeci">int16_t IReference</div><div class="ttdoc">User current reference setting used to control the converter controller.</div><div class="ttdef"><b>Definition</b> <a href="a00497_source.html#l00153">pwrctrl_typedef.h:153</a></div></div>
-<div class="ttc" id="aa00751_html_aa7c7be85fbd243019a3d4117936a5eb6"><div class="ttname"><a href="a00751.html#aa7c7be85fbd243019a3d4117936a5eb6">PWR_CTRL_PROPERTIES_s::VPriReference</a></div><div class="ttdeci">uint16_t VPriReference</div><div class="ttdoc">User primary-voltage port reference setting used to control the power converter output voltage in boo...</div><div class="ttdef"><b>Definition</b> <a href="a00497_source.html#l00152">pwrctrl_typedef.h:152</a></div></div>
-<div class="ttc" id="aa00755_html_a13383149438802e4c6c08683d6d004db"><div class="ttname"><a href="a00755.html#a13383149438802e4c6c08683d6d004db">POWER_CONTROL_s::ILoop</a></div><div class="ttdeci">CONTROLLER_t ILoop</div><div class="ttdoc">structure for current controller data</div><div class="ttdef"><b>Definition</b> <a href="a00497_source.html#l00178">pwrctrl_typedef.h:178</a></div></div>
-<div class="ttc" id="aa00755_html_a14f61bb42ecc88a3ff43a417b48194b0"><div class="ttname"><a href="a00755.html#a14f61bb42ecc88a3ff43a417b48194b0">POWER_CONTROL_s::PLoop</a></div><div class="ttdeci">CONTROLLER_t PLoop</div><div class="ttdoc">structure for power controller data</div><div class="ttdef"><b>Definition</b> <a href="a00497_source.html#l00180">pwrctrl_typedef.h:180</a></div></div>
-<div class="ttc" id="aa00755_html_a2c015371f9d53a7ba0131e65634f8129"><div class="ttname"><a href="a00755.html#a2c015371f9d53a7ba0131e65634f8129">POWER_CONTROL_s::Properties</a></div><div class="ttdeci">PWR_CTRL_PROPERTIES_t Properties</div><div class="ttdoc">Power Control properties</div><div class="ttdef"><b>Definition</b> <a href="a00497_source.html#l00171">pwrctrl_typedef.h:171</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00216">216</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a2eeebdb0cef4bbfeed446752525dd879" name="a2eeebdb0cef4bbfeed446752525dd879"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2eeebdb0cef4bbfeed446752525dd879">&#9670;&#160;</a></span>PwrCtrl_ControlLoopExecute()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PwrCtrl_ControlLoopExecute </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00228">228</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00485_a2eeebdb0cef4bbfeed446752525dd879_cgraph.svg" width="468" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00485_a2eeebdb0cef4bbfeed446752525dd879_icgraph.svg" width="391" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ab6b5615f3ef634a80843e80a706202ae" name="ab6b5615f3ef634a80843e80a706202ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6b5615f3ef634a80843e80a706202ae">&#9670;&#160;</a></span>VLoopInterleaveExec</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool VLoopInterleaveExec = true</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00485_source.html#l00054">54</a> of file <a class="el" href="a00485_source.html">pwrctrl_isr_extension.c</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00485_source.html">pwrctrl_isr.h</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

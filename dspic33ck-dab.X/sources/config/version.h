@@ -31,10 +31,7 @@
 #define FIRMWARE_VERSION_MAJOR    (0x02)
 #define FIRMWARE_VERSION_MINOR    (0x00)
 #define FIRMWARE_VERSION_REVISION (0x0000)
-//#define FIRMWARE_VERSION_REVISION (0x0002) //reverse/discharger mode implementation
-//#define FIRMWARE_VERSION_REVISION (0x0003) //load disconnect supress while not up and running state. Avoids false detection during ref transitions
-//#define FIRMWARE_VERSION_REVISION (0x0004) //minumum phase clamping lim increased due to glitch on startup.  Transformer Fault OC handling improved 
-//#define FIRMWARE_VERSION_REVISION (0x0005)   //cleanup, comments, macros
+
 #define FIRMWARE_VERSION (uint32_t)(FIRMWARE_VERSION_MAJOR << 24)+ (uint32_t)(FIRMWARE_VERSION_MINOR<<16) + (uint32_t)(FIRMWARE_VERSION_REVISION)
 /*********************************************************************************
  * @ingroup apps-layer-properties-public-defines

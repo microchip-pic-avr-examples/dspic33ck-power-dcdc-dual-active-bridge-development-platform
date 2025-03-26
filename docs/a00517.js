@@ -1,20 +1,12 @@
 var a00517 =
 [
-    [ "_max", "a00517.html#ga7742fa23cad0b81a56daae0c5ad63c8b", null ],
-    [ "_min", "a00517.html#gad8a68cbc825e50630b93047279a32718", null ],
-    [ "_rnd", "a00517.html#gaa3c2bb84c225cf77ab67824f886de487", null ],
-    [ "_rnd_int32_t", "a00517.html#ga1c75b371213fc3a62a8bb5fbc799cfc3", null ],
-    [ "AVG_TO_RMS", "a00517.html#gaec140a01387ddcbb23059abeb73d163e", null ],
-    [ "PWM_HR_EDGE_ALIGNED_PGxDC", "a00517.html#ga1651dc9a22fef1ab2af194db866dd73f", null ],
-    [ "PWM_HR_EDGE_ALIGNED_PGxPER", "a00517.html#ga67a05b5f54847bdcf3a4f8505a8ddf5d", null ],
-    [ "PWM_HR_PGxDTy", "a00517.html#gae9dd7d65ec0c724eb6a3a944f9b60ec0", null ],
-    [ "PWM_HR_PGxTRIGy", "a00517.html#ga788298696055df15aab198a429d96ed3", null ],
-    [ "QFORMAT_SHIFT", "a00517.html#gafae5fd95c828eb48279a0cbf470d1b45", null ],
-    [ "RMS_TO_AVG", "a00517.html#gada5ead94c63caa7198833caee45bcd9a", null ],
-    [ "RMS_TO_PEAK", "a00517.html#gac24ae161523eadceef352918d1ebb0c8", null ],
-    [ "TIME_TO_TICKS", "a00517.html#gaa1550b4b116085f90e0cd704f1b078b9", null ],
-    [ "UNITS_FROM_ADC_TO_ENG", "a00517.html#ga5032cd832e55c41df8dc512000cc9c0d", null ],
-    [ "UNITS_FROM_ENG_TO_ADC", "a00517.html#ga7ed8c7d9c9dc6a5417e022786cfc9c00", null ],
-    [ "WordHighByte", "a00517.html#ga6f8b8bc288578b9150234364ccb5a6f0", null ],
-    [ "WordLowByte", "a00517.html#gad7e3572e4f8ef715cd1e722691f87b54", null ]
+    [ "Conversion Macros", "a00518.html", "a00518" ],
+    [ "FAULT_PERSISTENCE_COUNT_TEMP", "a00517.html#gaa584ad6b0df4394fb8a954091913a713", null ],
+    [ "NOMINAL_TEMPERATURE_THRESHOLD", "a00517.html#gaf96b37309868a2ca71aec09e1d2180bc", null ],
+    [ "OTP_THRES_CLEAR_CELCIUS", "a00517.html#gadc3762a54e017c4db8ad9b6e83dc071d", null ],
+    [ "OTP_THRES_TRIG_CELCIUS", "a00517.html#gad1f727c2e9b6350745777aca9f272169", null ],
+    [ "TEMPERATURE_GAIN", "a00517.html#gab586eaca5d59d97c5a098f782633d74c", null ],
+    [ "TEMPERATURE_HYSTERESIS", "a00517.html#ga46b916cf898ceb2557a12f208380c5d5", null ],
+    [ "TEMPERATURE_OFFSET", "a00517.html#gac02a5a67e0612d6cb90e61cc23398701", null ],
+    [ "TEMPERATURE_PBV_OFFSET_CELSIUS", "a00517.html#gadaf56c98b4dc5aeee1231153c378af0e", null ]
 ];

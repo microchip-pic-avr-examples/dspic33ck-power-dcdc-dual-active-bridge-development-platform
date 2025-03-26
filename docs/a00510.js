@@ -1,10 +1,9 @@
 var a00510 =
 [
-    [ "Conversion Macros", "a00511.html", "a00511" ],
-    [ "VRAIL_5V_SNS_GAIN", "a00510.html#ga69d0570890525bf6e42a39e93cd23541", null ],
-    [ "VRAIL_5V_UV_T_BLANK_CLEAR_SEC", "a00510.html#ga02e85cdd81dc5896359be594d65fba76", null ],
-    [ "VRAIL_5V_UV_T_BLANK_TRIG_SEC", "a00510.html#gaddc96909e18ab0c1df48af9dea887ea7", null ],
-    [ "VRAIL_5V_UV_THRES_CLEAR_VOLTS", "a00510.html#gac1a611be9e2c0b9d3512c7b7514770e6", null ],
-    [ "VRAIL_5V_UV_THRES_TRIG_VOLTS", "a00510.html#gaba5f233c7bfbdad7b608b9f2a515b9bd", null ],
-    [ "VRAIL_5V_UV_TICK_SEC", "a00510.html#ga5a1db9df5280bf9d6904fdfa187f62e0", null ]
+    [ "I_SC_T_BLANK_CLEAR", "a00510.html#ga802cc98f6b8e4f4721492d0a53db2944", null ],
+    [ "IPRI_OC_T_BLANK_CLEAR", "a00510.html#gad15d6e4434542fae730a4c9b1981a82c", null ],
+    [ "IPRI_OC_T_BLANK_TRIG", "a00510.html#gafb965e297429b01ecde0a9399f302d26", null ],
+    [ "IPRI_OC_THRES_CLEAR", "a00510.html#ga69d668edae652db23814a4d1bbf0c3f2", null ],
+    [ "IPRI_OC_THRES_TRIG", "a00510.html#gaf8034f2a9a60a8cab6eab35481d514d1", null ],
+    [ "IPRI_SC_THRES_TRIG", "a00510.html#ga6ccef35604a0ba6693e0f56b6cd30de6", null ]
 ];

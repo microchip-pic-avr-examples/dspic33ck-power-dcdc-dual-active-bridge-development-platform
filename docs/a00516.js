@@ -1,13 +1,9 @@
 var a00516 =
 [
-    [ "CURRENT_CALIBRATION", "a00516.html#ga4dac1dfb10918e33515fd140e62a247e", null ],
-    [ "DAC_DEBUG", "a00516.html#ga06a509daec59519381724d6f4c6c9a98", null ],
-    [ "DCDC400V_SYSTEM", "a00516.html#ga643cae3876a193f7910cdd4963d6cc3f", null ],
-    [ "DCDC800V_SYSTEM", "a00516.html#gab82279541c39e463eca29e7804800145", null ],
-    [ "OPEN_LOOP_PBV", "a00516.html#ga98d40d6d77de8363187fdb3b1c6da065", null ],
-    [ "OPEN_LOOP_POTI", "a00516.html#gaffb8d78227a5b391853bbce53ca09857", null ],
-    [ "PBV_CANFD", "a00516.html#ga1151367cf9963cedbb90f4d5940d22b8", null ],
-    [ "PBV_UART", "a00516.html#ga3bf2f552a3148e521b11370c78f22121", null ],
-    [ "PERIOD_MODULATION_DEMO", "a00516.html#ga45df5256ba4c507175bdb3138ff68f1d", null ],
-    [ "VPRI_OPTOCOUPLER_POLARITY", "a00516.html#ga9da067b210e8083bb0545db1930060dc", null ]
+    [ "AGC_CURRENT_FACTOR", "a00516.html#ga4022c2ca098b410cbcb0f16f2e4cc0ea", null ],
+    [ "AGC_MINIMUM_CURRENT_THRESHOLD", "a00516.html#ga5a1b7f3b96ba61a6b0de4a89c5b93f40", null ],
+    [ "AGC_VOLTAGE_FACTOR", "a00516.html#gacdae5309d1cb67f967c3b5b64b19d3af", null ],
+    [ "AGC_VOLTAGE_FACTOR_SEC", "a00516.html#gaf85ec768f2e621acc512b9246946f1eb", null ],
+    [ "POWER_FACTOR", "a00516.html#ga5d5113c068bc70c6666522402aa59bcf", null ],
+    [ "POWER_SCALER", "a00516.html#ga80914760246c425bc1536e1d809a071b", null ]
 ];

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/config/hardware.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/config/config.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,64 +136,185 @@ $(document).ready(function(){initNavTree('a00305_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">hardware.h</div></div>
+  <div class="headertitle"><div class="title">config.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// more than once.  </span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef HARDWARE_H</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define HARDWARE_H</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//------------------------------------------------------------------------------</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// hardware constants (voltage &amp; current sense, gains and offsets)</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef CONFIG_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define CONFIG_H</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;xc.h&gt;</span> <span class="comment">// include processor files - each processor file is guarded.  </span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdint.h&gt;</span> <span class="comment">// include standard integer data types</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span> <span class="comment">// include standard boolean data types</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;stddef.h&gt;</span> <span class="comment">// include standard definition data types</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// VPRI_SNS_GAIN: VPRI_SNS = VPRI * VPRI_SNS_GAIN + VPRI_SNS_OFS</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#if defined (VPRI_OPTOCOUPLER_POLARITY) &amp;&amp; (VPRI_OPTOCOUPLER_POLARITY ==  true)</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">    #define VPRI_SNS_GAIN               (float)(-3.600e-3)   </span><span class="comment">// V/V  </span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">    #define VPRI_SNS_OFS                (3.3183)   </span><span class="comment">// V</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="a00502.html#gae3dffcdc110b55af6c257bfc0748cf81">   19</a></span><span class="preprocessor">    #define VPRI_SNS_GAIN               (float)(3.600e-3)   </span><span class="comment">// V/V  </span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="a00502.html#ga35eab816332f1b3d80d161f125c5044a">   20</a></span><span class="preprocessor">    #define VPRI_SNS_OFS                (0.0)   </span><span class="comment">// V</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="a00502.html#gab88335efd29659386531beabaffdf660">   23</a></span><span class="preprocessor">#define VPRI_VOLTAGE_GAIN            (float)0.2229 </span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
- <span class="comment">// end of group primary-voltage-feedback ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// VSEC_SNS = VSEC * VSEC_SNS_GAIN</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="a00504.html#gadbb92791a446721a3d4af49d713520ca">   32</a></span><span class="preprocessor">#define VSEC_SNS_GAIN               (3.18e-3)   </span><span class="comment">// V/V</span></div>
- // end of group ~~~~~~~~~~~~~~~~~~~~<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define VSEC_VOLTAGE_GAIN           (float)0.2534 </span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// IPRI_CT_SNS = IPRI_CT * IPRI_CT_SNS_GAIN + IPRI_CT_SNS_OFS</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">// note that the IPRI_CT_SNS is rectified via hardware</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="a00506.html#gadd3268f777497752594e03ab7c9ed8bd">   44</a></span><span class="preprocessor">#define IPRI_CT_SNS_GAIN            (82.5e-3)  </span><span class="comment">// V/A</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="a00506.html#gae03bb48f1dee21d88493adfa4fd939d8">   45</a></span><span class="preprocessor">#define IPRI_CT_SNS_OFS             (0.0)      </span><span class="comment">// V</span></div>
- // end of group ~~~~~~~~~~~~~~~~~~~~<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">// ISEC_CT_SNS = ISEC_CT * ISEC_CT_SNS_GAIN + ISEC_CT_SNS_OFS</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">// note that the ISEC_CT_SNS is rectified on the power board</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="a00508.html#gad565ee56fd67a47693480901f73b5e2c">   54</a></span><span class="preprocessor">#define ISEC_CT_SNS_GAIN            (66.0e-3)   </span><span class="comment">// V/A</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="a00508.html#ga167708b374334a691b34a153fc97ded0">   55</a></span><span class="preprocessor">#define ISEC_CT_SNS_OFS             (0.0)     </span><span class="comment">// V</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// ISEC_AVG_SNS = ISEC_AVG * ISEC_AVG_SNS_GAIN + ISEC_AVG_SNS_OFS</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="a00508.html#gaa04f0731e5ca53dd3034155ddec2fb51">   58</a></span><span class="preprocessor">#define ISEC_AVG_SNS_GAIN           (25.0e-3)   </span><span class="comment">// V/A</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="a00508.html#ga3ddd48524fd57578569ad30b31317bee">   59</a></span><span class="preprocessor">#define ISEC_AVG_SNS_OFS            (1.65)      </span><span class="comment">// V</span></div>
- // end of group ~~~~~~~~~~~~~~~~~~~~<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">// VRAIL_5V_SNS = VRAIL_5V * VRAIL_5V_SNS_GAIN</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="a00510.html#ga69d0570890525bf6e42a39e93cd23541">   67</a></span><span class="preprocessor">#define VRAIL_5V_SNS_GAIN           (0.5)       </span><span class="comment">// V/V</span></div>
- // end of group ~~~~~~~~~~~~~~~~~~~~<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="a00514.html#gab586eaca5d59d97c5a098f782633d74c">   74</a></span><span class="preprocessor">#define TEMPERATURE_GAIN           (-0.029)       </span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="a00514.html#gac02a5a67e0612d6cb90e61cc23398701">   75</a></span><span class="preprocessor">#define TEMPERATURE_OFFSET          115u</span></div>
- <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif  </span><span class="comment">/* HARDWARE_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="a00519.html#ga45df5256ba4c507175bdb3138ff68f1d">   14</a></span><span class="preprocessor">#define PERIOD_MODULATION_DEMO    false  </span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="a00519.html#ga643cae3876a193f7910cdd4963d6cc3f">   15</a></span><span class="preprocessor">#define DCDC400V_SYSTEM           true  </span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="a00519.html#gab82279541c39e463eca29e7804800145">   16</a></span><span class="preprocessor">#define DCDC800V_SYSTEM           false  </span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="a00503.html#ga99b5526b36699f6f8c57ed94954a9b77">   24</a></span><span class="preprocessor">#define MAXIMUM_SWITCHING_FREQUENCY     (float)170.0e+3</span><span class="comment">//230.0e+3 ///&lt; Maximum Switching frequency in [Hz]</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="a00503.html#gae8f8211058cb5c9a0691fbf041d32043">   25</a></span><span class="preprocessor">#define MINIMUM_SWITCHING_FREQUENCY     (float) 65.0e+3 </span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="a00503.html#gad8b5e420d5663a13bb68f6883cad64c8">   27</a></span><span class="preprocessor">#define MINIMUM_DEADTIME                (float)150e-9 </span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="a00503.html#gac6d318c94c201374c73969ce117024a8">   28</a></span><span class="preprocessor">#define MAXIMUM_DEADTIME                (float)500e-9 </span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="a00503.html#ga10e0f079254bb242838a78371205ca1a">   29</a></span><span class="preprocessor">#define MINIMUM_PHASESHIFTED_PULSE      (float)300e-9</span><span class="comment">//(float) 80e-9 ///&lt; Minimum phase shifted pulse in seconds [sec]</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="a00503.html#ga14f8c324344d8c244db7c1ffc95daacc">   31</a></span><span class="preprocessor">#define PRI_TO_SEC_PHASE_DEGREES_LIMIT  90u </span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#if defined(PERIOD_MODULATION_DEMO) &amp;&amp; (PERIOD_MODULATION_DEMO == true)</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="a00503.html#gad98508b79a9e1e8c4841dbf9816c7deb">   34</a></span><span class="preprocessor">#define PRI_TO_SEC_PHASE_TARGET         830u </span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="a00503.html#gab1ca6d03eb3a85cc6d07ac9196ccc466">   35</a></span><span class="preprocessor">#define PERIODSTEP                      (2&lt;&lt;3) </span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="a00503.html#gad09c14122e0caaaa2fcf393c2b74588f">   36</a></span><span class="preprocessor">#define PHASETIMESTEP                   (1&lt;&lt;3) </span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif</span></div>
+ <span class="comment">// end of group pwm-fundamentals ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="a00515.html#ga43edf0d1b9579419b244048d67b8744c">   44</a></span><span class="preprocessor">#define VPLOOP_ILOOP_EXE_RATIO           (uint16_t)(10 / 2) </span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="a00515.html#gafe9bc7e554222335c9b10bda87709883">   45</a></span><span class="preprocessor">#define AGC_MINIMUM_VIN_THRESHOLD       160u </span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="a00515.html#ga2d6249446db551d0d518cad5fcd5a0ff">   46</a></span><span class="preprocessor">#define AGC_MINIMUM_ISEC_THRESHOLD      7 </span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="a00515.html#ga73ac2fb840e4ddfb6c430e67a7ecae4b">   47</a></span><span class="preprocessor">#define AGC_MINIMUM_VIN_THRESHOLD_SEC       160u </span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">// fault related parameters</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">// #defines for fault thresholds in human readable form (SI or derived SI units)</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">// all fault parameters follow the same convention</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">// for example, for ISEC_CT over current protection</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// if fault clear: </span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">// if ISEC_CT &gt; ISEC_OC_THRES_TRIG_AMPS for longer than ISEC_OC_T_BLANK_TRIG_SEC</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">//      then set fault</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">// if fault set:</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">// if ISEC_CT &lt;= ISEC_OC_THRES_CLEAR_AMPS for longer than ISEC_OC_T_BLANK_CLEAR_SEC</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">//      then clear fault</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">// ISEC_OC_TICK_SEC is the rate at which the fault handler is invoked</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">// it is required for the firmware to measure trigger and clear blanking times</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="a00509.html#ga629c6b42f4e4f0bb7b45a365327216c8">   70</a></span><span class="preprocessor">#define T_ADC_SAMPLE_SECS                   (float) (10.0e-6) </span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="a00509.html#gaf66f7333079207c329017043676a1fcb">   72</a></span><span class="preprocessor">#define IPRI_OC_THRES_TRIG_AMPS             (float) (39.0) </span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="a00509.html#ga3d9ec4eb82b3b94114525bf01962d585">   73</a></span><span class="preprocessor">#define IPRI_OC_THRES_CLEAR_AMPS            (float) (2.0)</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="a00509.html#gaa26d53ce604d0b5ce4b8e6bad69d2eca">   74</a></span><span class="preprocessor">#define IPRI_OC_T_BLANK_TRIG_SEC            (float) (50.0e-6)</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="a00509.html#gab24221cdd03e9a0deab655553752bc26">   75</a></span><span class="preprocessor">#define IPRI_OC_T_BLANK_CLEAR_SEC           (float) (0.0)</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="a00509.html#ga4487a40d5ee45b46fff78d92d3570251">   76</a></span><span class="preprocessor">#define IPRI_OC_TICK_SEC                    (T_ADC_SAMPLE_SECS)</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="a00509.html#gab55238e2900bea980e7be8e9d488683e">   78</a></span><span class="preprocessor">#define IPRI_SC_THRES_TRIG_AMPS             (float) (39.0)</span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="a00511.html#ga61571a56765f2041df1adffb0e127623">   85</a></span><span class="preprocessor">#define ISEC_OC_THRES_TRIG_AMPS             (float) (49.0)</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="a00511.html#gacdbe9002c178691c914b1043a7c070ce">   86</a></span><span class="preprocessor">#define ISEC_OC_THRES_CLEAR_AMPS            (float)  (2.0)</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="a00511.html#ga9dd78aa25c054cc00c115cd70169dcda">   87</a></span><span class="preprocessor">#define ISEC_OC_T_BLANK_TRIG_SEC            (float) (50.0e-6)</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="a00511.html#ga80ef2d060cb2e0d45398358f08401976">   88</a></span><span class="preprocessor">#define ISEC_OC_T_BLANK_CLEAR_SEC           (float)  (0.0)</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="a00511.html#gaf7a4bcd753b1270a1745bc3fe4c403e9">   89</a></span><span class="preprocessor">#define ISEC_OC_TICK_SEC                    (T_ADC_SAMPLE_SECS) </span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="a00511.html#ga5f4043a3b61439e7695829b39102281c">   91</a></span><span class="preprocessor">#define ISEC_SC_THRES_TRIG_AMPS             (float) (49.0)</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="a00511.html#ga6ec24bdfc7696657bf7e95dbaf83d5d9">   92</a></span><span class="preprocessor">#define ISEC_LOAD_STEP_CLAMPING_AMPS        (float) (1.5) </span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#if(DCDC400V_SYSTEM)</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="a00505.html#ga3de0595efbf0659d33138d8f32e9e34e">  100</a></span><span class="preprocessor">    #define VPRI_OV_THRES_TRIG_VOLTS            (float)(700.0)</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="a00505.html#gae8ebc2c2c94c46d6bfbdc05ac7ffdecb">  101</a></span><span class="preprocessor">    #define VPRI_OV_THRES_CLEAR_VOLTS           (float)(600.0)</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#elif(DCDC800V_SYSTEM)</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">    #define VPRI_OV_THRES_TRIG_VOLTS            (float)900.0</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">    #define VPRI_OV_THRES_CLEAR_VOLTS           (float)800.0</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="a00505.html#gaf81643989e826fa9c4349f4184a56a0d">  106</a></span><span class="preprocessor">#define VPRI_OV_T_BLANK_TRIG_SEC            (float)  (0.0)</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="a00505.html#gae45b4bac6339131a7cb30567551a2cd5">  107</a></span><span class="preprocessor">#define VPRI_OV_T_BLANK_CLEAR_SEC           (float)  (0.0)</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="a00505.html#gab881ac722074c5a0c9a96b33737b44f2">  108</a></span><span class="preprocessor">#define VPRI_OV_TICK_SEC                    (T_ADC_SAMPLE_SECS)</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#if(DCDC400V_SYSTEM)</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="a00505.html#ga886eaaa750e2ef06f90bdd463c7f6346">  111</a></span><span class="preprocessor">    #define VPRI_UV_THRES_TRIG_VOLTS            (float)(300.0)</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="a00505.html#gaf0c600dfc98788eda04c6051f1e67dff">  112</a></span><span class="preprocessor">    #define VPRI_UV_THRES_CLEAR_VOLTS           (float)(200.0)</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#elif(DCDC800V_SYSTEM)</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">    #define VPRI_UV_THRES_TRIG_VOLTS            (float)450.0</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">    #define VPRI_UV_THRES_CLEAR_VOLTS           (float)300.0</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="a00505.html#ga6ff4ff92efb2e17e98e3b963e6dc0cae">  117</a></span><span class="preprocessor">#define VPRI_UV_T_BLANK_TRIG_SEC            (float)  (0.0)</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="a00505.html#gae060c2f32be9e0c4fbe4d30968d86a50">  118</a></span><span class="preprocessor">#define VPRI_UV_T_BLANK_CLEAR_SEC           (float)  (0.0)</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="a00505.html#gac8e4597345a6c7e57405fa9084be0dcb">  119</a></span><span class="preprocessor">#define VPRI_UV_TICK_SEC                    (T_ADC_SAMPLE_SECS)</span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#if(DCDC400V_SYSTEM)</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="a00507.html#gaf7f1d859f3effd96e6613130af09fc0b">  127</a></span><span class="preprocessor">#define VSEC_OV_THRES_TRIG_VOLTS            (float)(500.0)</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="a00507.html#gab1003ede83a567c60837872c8542824b">  128</a></span><span class="preprocessor">#define VSEC_OV_THRES_CLEAR_VOLTS           (float) (20.0)</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="preprocessor">#elif(DCDC800V_SYSTEM)</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#define VSEC_OV_THRES_TRIG_VOLTS            (float)950.0</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="preprocessor">#define VSEC_OV_THRES_CLEAR_VOLTS           (float) 20.0</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="a00507.html#gaf49c547355152112f9ae4b26555d57e2">  133</a></span><span class="preprocessor">#define VSEC_OV_T_BLANK_TRIG_SEC            (float)  (1.0e-3)</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="a00507.html#ga5128a30f14a7b25809efe09d606b8055">  134</a></span><span class="preprocessor">#define VSEC_OV_T_BLANK_CLEAR_SEC           (float) (10.0e-3)</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="a00507.html#ga77d2a7b05664c0c08ce317f942deca00">  135</a></span><span class="preprocessor">#define VSEC_OV_TICK_SEC                    (T_ADC_SAMPLE_SECS)</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">#if(DCDC400V_SYSTEM)</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="a00507.html#gab7c6ea26f50ee59cfffa63274edbd8ea">  138</a></span><span class="preprocessor">#define VSEC_UV_THRES_TRIG_VOLTS            (float)(100.0)</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="a00507.html#gad401641684f506e72d672405e4e80bba">  139</a></span><span class="preprocessor">#define VSEC_UV_THRES_CLEAR_VOLTS           (float) (50.0)</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="preprocessor">#elif(DCDC800V_SYSTEM)</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="preprocessor">#define VSEC_UV_THRES_TRIG_VOLTS            (float)550.0</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="preprocessor">#define VSEC_UV_THRES_CLEAR_VOLTS           (float) 50.0</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="a00507.html#gacaf7eee4f78c07c9647a18ca030da57d">  144</a></span><span class="preprocessor">#define VSEC_UV_T_BLANK_TRIG_SEC            (float)  (0.0)</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="a00507.html#ga683160afa1313d6ba361e499e367a976">  145</a></span><span class="preprocessor">#define VSEC_UV_T_BLANK_CLEAR_SEC           (float)  (0.0)</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="a00507.html#gab4b4e960335284c22232a1a6fcb41573">  146</a></span><span class="preprocessor">#define VSEC_UV_TICK_SEC                    (T_ADC_SAMPLE_SECS)</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="a00507.html#gad65db8b07e7c77b600ab24be46652e8b">  148</a></span><span class="preprocessor">#define VSEC_LOAD_STEP_CLAMPING_VOLTS       (float) (16)</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="a00507.html#gae3f52347b2b4a59f50701b297dd93e08">  149</a></span><span class="preprocessor">#define VPRIM_LOAD_STEP_CLAMPING_VOLTS       (float) (16)</span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="a00513.html#gaba5f233c7bfbdad7b608b9f2a515b9bd">  156</a></span><span class="preprocessor">#define VRAIL_5V_UV_THRES_TRIG_VOLTS        (float) (3.5)</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="a00513.html#gac1a611be9e2c0b9d3512c7b7514770e6">  157</a></span><span class="preprocessor">#define VRAIL_5V_UV_THRES_CLEAR_VOLTS       (float) (3.8)</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="a00513.html#gaddc96909e18ab0c1df48af9dea887ea7">  158</a></span><span class="preprocessor">#define VRAIL_5V_UV_T_BLANK_TRIG_SEC        (float) (50.0e-6)</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="a00513.html#ga02e85cdd81dc5896359be594d65fba76">  159</a></span><span class="preprocessor">#define VRAIL_5V_UV_T_BLANK_CLEAR_SEC       (float) (0.0)</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="a00513.html#ga5a1db9df5280bf9d6904fdfa187f62e0">  160</a></span><span class="preprocessor">#define VRAIL_5V_UV_TICK_SEC                (T_ADC_SAMPLE_SECS)</span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="a00517.html#gadaf56c98b4dc5aeee1231153c378af0e">  167</a></span><span class="preprocessor">#define TEMPERATURE_PBV_OFFSET_CELSIUS         (40u)     </span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="a00517.html#gad1f727c2e9b6350745777aca9f272169">  168</a></span><span class="preprocessor">#define OTP_THRES_TRIG_CELCIUS                 (80u)  </span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="a00517.html#gadc3762a54e017c4db8ad9b6e83dc071d">  169</a></span><span class="preprocessor">#define OTP_THRES_CLEAR_CELCIUS                (70u)  </span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="a00517.html#gaa584ad6b0df4394fb8a954091913a713">  170</a></span><span class="preprocessor">#define FAULT_PERSISTENCE_COUNT_TEMP           (4u)</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">// Stabilize the temperature around 40 degrees C by varying</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">// the fan speed</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="a00517.html#gaf96b37309868a2ca71aec09e1d2180bc">  174</a></span><span class="preprocessor">#define NOMINAL_TEMPERATURE_THRESHOLD       (float) (40.0) </span><span class="comment">//&lt; Degrees Celcius</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="a00517.html#ga46b916cf898ceb2557a12f208380c5d5">  175</a></span><span class="preprocessor">#define TEMPERATURE_HYSTERESIS               (float) (1.0) </span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">// control (for debug only)</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="a00519.html#ga06a509daec59519381724d6f4c6c9a98">  187</a></span><span class="preprocessor">#define DAC_DEBUG           false    </span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="a00519.html#gaffb8d78227a5b391853bbce53ca09857">  188</a></span><span class="preprocessor">#define OPEN_LOOP_POTI      false    </span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="a00519.html#ga98d40d6d77de8363187fdb3b1c6da065">  189</a></span><span class="preprocessor">#define OPEN_LOOP_PBV       false    </span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">#if((OPEN_LOOP_POTI == true) || (OPEN_LOOP_PBV == true))</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="a00519.html#ga4dac1dfb10918e33515fd140e62a247e">  192</a></span><span class="preprocessor">#define CURRENT_CALIBRATION             false  </span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="preprocessor">#define CURRENT_CALIBRATION             true  </span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="a00519.html#ga9da067b210e8083bb0545db1930060dc">  196</a></span><span class="preprocessor">#define VPRI_OPTOCOUPLER_POLARITY       false </span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">// fault disables (for debug only)</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="comment">// during debug mode, Current calibration needs to be set to false</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="preprocessor">#define FAULT_VPRI_OV   true</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="preprocessor">#define FAULT_VPRI_UV   false</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="preprocessor">#define FAULT_ISEC_OC   true</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="preprocessor">#define FAULT_IPRI_OC   true</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="preprocessor">#define FAULT_VSEC_OV   true</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="preprocessor">#define FAULT_PS_OTP    true</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="preprocessor">#define FAULT_SHORT_CCT true</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="preprocessor">#define FAULT_VRAIL_5V  true</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="preprocessor">#define LOAD_DISCONNECT true</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="preprocessor">#endif  </span><span class="comment">/* CONFIG_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

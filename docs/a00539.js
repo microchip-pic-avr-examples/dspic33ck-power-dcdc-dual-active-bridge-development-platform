@@ -1,10 +1,10 @@
 var a00539 =
 [
-    [ "pwrctrl_sm.c", "a00494.html", null ],
-    [ "PCS_INIT_handler", "a00539.html#ga8307344d190a5459682d315fc7bfe198", null ],
-    [ "PCS_SOFT_START_handler", "a00539.html#gabda6b853bb6547821acd0ec87e0a4842", null ],
-    [ "PCS_STANDBY_handler", "a00539.html#ga42f7c8f65745b2f81bb6dbd381ea8121", null ],
-    [ "PCS_UP_AND_RUNNING_handler", "a00539.html#ga8752fbb48416e60141e205f1cbda0f98", null ],
-    [ "PCS_WAIT_IF_FAULT_ACTIVE_handler", "a00539.html#gaad6ef2378120876a621b349c1380aef7", null ],
-    [ "PwrCtrl_StateMachine", "a00539.html#ga2408c0b52cd2c2487f43716f261434e6", null ]
+    [ "pwrctrl.c", "a00464.html", null ],
+    [ "PwrCtrl_ControlLoopInitialize", "a00539.html#gae58162e874535adf2003e9ed8a13b656", null ],
+    [ "PwrCtrl_Execute", "a00539.html#ga48dcb018afa53b60b6112cde00561c4b", null ],
+    [ "PwrCtrl_Initialize", "a00539.html#ga2c39b57545ef7b5c79bac36ab30da7d8", null ],
+    [ "PwrCtrl_Reset", "a00539.html#ga8c07187b0c96b5916e4b46daa47500c5", null ],
+    [ "PwrCtrl_StartUpInitialize", "a00539.html#ga45940145031d4886842c27f5e5277e9b", null ],
+    [ "dab", "a00539.html#ga5762de26b3d1b822c6a4b9c1605cd387", null ]
 ];

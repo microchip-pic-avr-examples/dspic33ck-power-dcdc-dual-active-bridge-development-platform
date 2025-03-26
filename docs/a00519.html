@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Communication Layer</title>
+<title>Dual Active Bridge Development Board: Special Firmware Options</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,30 +136,214 @@ $(document).ready(function(){initNavTree('a00519.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#groups">Modules</a>  </div>
-  <div class="headertitle"><div class="title">Communication Layer</div></div>
+  <div class="headertitle"><div class="title">Special Firmware Options<div class="ingroups"><a class="el" href="a00529.html">Configuration Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The communication layer establish the data to be displayed and the communication connection between the device and the application board to display in the GUI.  
+<p>Special functions use to enable or disable special firmware options.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Communication Layer:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Special Firmware Options:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00519.svg" width="363" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00519.svg" width="362" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:a00520" id="r_a00520"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00520.html">Power Board Visualizer</a></td></tr>
-<tr class="memdesc:a00520"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver for Power Board Visualizer. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3bf2f552a3148e521b11370c78f22121" id="r_ga3bf2f552a3148e521b11370c78f22121"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga3bf2f552a3148e521b11370c78f22121">PBV_UART</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ga3bf2f552a3148e521b11370c78f22121"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable UART interrupts before.  <br /></td></tr>
+<tr class="separator:ga3bf2f552a3148e521b11370c78f22121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1151367cf9963cedbb90f4d5940d22b8" id="r_ga1151367cf9963cedbb90f4d5940d22b8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga1151367cf9963cedbb90f4d5940d22b8">PBV_CANFD</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:ga1151367cf9963cedbb90f4d5940d22b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use CAN communication for PBV.  <br /></td></tr>
+<tr class="separator:ga1151367cf9963cedbb90f4d5940d22b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga45df5256ba4c507175bdb3138ff68f1d" id="r_ga45df5256ba4c507175bdb3138ff68f1d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga45df5256ba4c507175bdb3138ff68f1d">PERIOD_MODULATION_DEMO</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memdesc:ga45df5256ba4c507175bdb3138ff68f1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modulates the period; for further development.  <br /></td></tr>
+<tr class="separator:ga45df5256ba4c507175bdb3138ff68f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga643cae3876a193f7910cdd4963d6cc3f" id="r_ga643cae3876a193f7910cdd4963d6cc3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga643cae3876a193f7910cdd4963d6cc3f">DCDC400V_SYSTEM</a>&#160;&#160;&#160;true</td></tr>
+<tr class="memdesc:ga643cae3876a193f7910cdd4963d6cc3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">When true, operates the DAB with protection thresholds for 400V output.  <br /></td></tr>
+<tr class="separator:ga643cae3876a193f7910cdd4963d6cc3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab82279541c39e463eca29e7804800145" id="r_gab82279541c39e463eca29e7804800145"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#gab82279541c39e463eca29e7804800145">DCDC800V_SYSTEM</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memdesc:gab82279541c39e463eca29e7804800145"><td class="mdescLeft">&#160;</td><td class="mdescRight">When true, operates the DAB with protection thresholds for 800V output.  <br /></td></tr>
+<tr class="separator:gab82279541c39e463eca29e7804800145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga06a509daec59519381724d6f4c6c9a98" id="r_ga06a509daec59519381724d6f4c6c9a98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga06a509daec59519381724d6f4c6c9a98">DAC_DEBUG</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memdesc:ga06a509daec59519381724d6f4c6c9a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">test values with PIM DAC output  <br /></td></tr>
+<tr class="separator:ga06a509daec59519381724d6f4c6c9a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaffb8d78227a5b391853bbce53ca09857" id="r_gaffb8d78227a5b391853bbce53ca09857"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#gaffb8d78227a5b391853bbce53ca09857">OPEN_LOOP_POTI</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memdesc:gaffb8d78227a5b391853bbce53ca09857"><td class="mdescLeft">&#160;</td><td class="mdescRight">test the code with Digital Power Development Board; runs in openloop using potentiometer  <br /></td></tr>
+<tr class="separator:gaffb8d78227a5b391853bbce53ca09857"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga98d40d6d77de8363187fdb3b1c6da065" id="r_ga98d40d6d77de8363187fdb3b1c6da065"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga98d40d6d77de8363187fdb3b1c6da065">OPEN_LOOP_PBV</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memdesc:ga98d40d6d77de8363187fdb3b1c6da065"><td class="mdescLeft">&#160;</td><td class="mdescRight">use Power Board visualizer to change the parameters in Open loop operation  <br /></td></tr>
+<tr class="separator:ga98d40d6d77de8363187fdb3b1c6da065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4dac1dfb10918e33515fd140e62a247e" id="r_ga4dac1dfb10918e33515fd140e62a247e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga4dac1dfb10918e33515fd140e62a247e">CURRENT_CALIBRATION</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memdesc:ga4dac1dfb10918e33515fd140e62a247e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable current calibration.  <br /></td></tr>
+<tr class="separator:ga4dac1dfb10918e33515fd140e62a247e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9da067b210e8083bb0545db1930060dc" id="r_ga9da067b210e8083bb0545db1930060dc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga9da067b210e8083bb0545db1930060dc">VPRI_OPTOCOUPLER_POLARITY</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memdesc:ga9da067b210e8083bb0545db1930060dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">false if not inverted; true if inverted  <br /></td></tr>
+<tr class="separator:ga9da067b210e8083bb0545db1930060dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>The communication layer facilitates the display of data and the connection between a device and an application board to show metrics like voltage, current, and energy consumption in the GUI. It employs tools or software to graphically represent power distribution and consumption, offering real-time monitoring, data logging, and analytics to help users manage the power supply effectively. </p>
+<p>Special functions use to enable or disable special firmware options. </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="ga4dac1dfb10918e33515fd140e62a247e" name="ga4dac1dfb10918e33515fd140e62a247e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4dac1dfb10918e33515fd140e62a247e">&#9670;&#160;</a></span>CURRENT_CALIBRATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CURRENT_CALIBRATION&#160;&#160;&#160;false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00192">192</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga06a509daec59519381724d6f4c6c9a98" name="ga06a509daec59519381724d6f4c6c9a98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga06a509daec59519381724d6f4c6c9a98">&#9670;&#160;</a></span>DAC_DEBUG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DAC_DEBUG&#160;&#160;&#160;false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00187">187</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga643cae3876a193f7910cdd4963d6cc3f" name="ga643cae3876a193f7910cdd4963d6cc3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga643cae3876a193f7910cdd4963d6cc3f">&#9670;&#160;</a></span>DCDC400V_SYSTEM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DCDC400V_SYSTEM&#160;&#160;&#160;true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00015">15</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gab82279541c39e463eca29e7804800145" name="gab82279541c39e463eca29e7804800145"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab82279541c39e463eca29e7804800145">&#9670;&#160;</a></span>DCDC800V_SYSTEM</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DCDC800V_SYSTEM&#160;&#160;&#160;false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00016">16</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga98d40d6d77de8363187fdb3b1c6da065" name="ga98d40d6d77de8363187fdb3b1c6da065"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga98d40d6d77de8363187fdb3b1c6da065">&#9670;&#160;</a></span>OPEN_LOOP_PBV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OPEN_LOOP_PBV&#160;&#160;&#160;false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00189">189</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="gaffb8d78227a5b391853bbce53ca09857" name="gaffb8d78227a5b391853bbce53ca09857"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaffb8d78227a5b391853bbce53ca09857">&#9670;&#160;</a></span>OPEN_LOOP_POTI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define OPEN_LOOP_POTI&#160;&#160;&#160;false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00188">188</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga1151367cf9963cedbb90f4d5940d22b8" name="ga1151367cf9963cedbb90f4d5940d22b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1151367cf9963cedbb90f4d5940d22b8">&#9670;&#160;</a></span>PBV_CANFD</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_CANFD&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00016">16</a> of file <a class="el" href="a00302_source.html">comms_config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga3bf2f552a3148e521b11370c78f22121" name="ga3bf2f552a3148e521b11370c78f22121"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3bf2f552a3148e521b11370c78f22121">&#9670;&#160;</a></span>PBV_UART</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PBV_UART&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00302_source.html#l00015">15</a> of file <a class="el" href="a00302_source.html">comms_config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga45df5256ba4c507175bdb3138ff68f1d" name="ga45df5256ba4c507175bdb3138ff68f1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga45df5256ba4c507175bdb3138ff68f1d">&#9670;&#160;</a></span>PERIOD_MODULATION_DEMO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PERIOD_MODULATION_DEMO&#160;&#160;&#160;false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00014">14</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
+<a id="ga9da067b210e8083bb0545db1930060dc" name="ga9da067b210e8083bb0545db1930060dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9da067b210e8083bb0545db1930060dc">&#9670;&#160;</a></span>VPRI_OPTOCOUPLER_POLARITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define VPRI_OPTOCOUPLER_POLARITY&#160;&#160;&#160;false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00305_source.html#l00196">196</a> of file <a class="el" href="a00305_source.html">config.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

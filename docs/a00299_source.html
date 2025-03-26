@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/config/comms_config.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/comm/PBV_UART.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,24 +136,42 @@ $(document).ready(function(){initNavTree('a00299_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">comms_config.h</div></div>
+  <div class="headertitle"><div class="title">PBV_UART.h</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/* </span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @file    comms_config.h   </span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @author  </span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @brief   project configuration</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef COMMS_CONFIG_H</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define COMMS_CONFIG_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// PBV working with CAN OR UART</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="a00516.html#ga3bf2f552a3148e521b11370c78f22121">   15</a></span><span class="preprocessor">#define PBV_UART                0   </span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="a00516.html#ga1151367cf9963cedbb90f4d5940d22b8">   16</a></span><span class="preprocessor">#define PBV_CANFD               1   </span></div>
- <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif  </span><span class="comment">/*  COMMS_CONFIG_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @file    PBV_UART.h</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @author  M70027</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @ingroup PBV_UART</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @brief   Power Board Visualizer UART interface </span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// more than once. </span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef APP_PBV_UART_INTERFACE_H</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define APP_PBV_UART_INTERFACE_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;PBV_interface.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00525.html#ga128b03f3aae4aa8dbdb7ef7aafe06123">PBV_UART_Init</a>(<a class="code hl_struct" href="a00650.html">PBV_Datatype_TX_t</a> * boardToPBV, <a class="code hl_struct" href="a00650.html">PBV_Datatype_TX_t</a> * boardToPBVAscii, <a class="code hl_struct" href="a00654.html">PBV_Datatype_RX_t</a> *pbvToBoard);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>uint8_t <a class="code hl_function" href="a00525.html#ga89e085a040c28fbc1aa46e802a199aef">PBV_UART_Receive_from_GUI</a>();</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>uint8_t <a class="code hl_function" href="a00525.html#ga62df1acc42e1303b61baa63272714c5c">PBV_UART_Transmit_to_GUI</a>();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>uint8_t <a class="code hl_function" href="a00525.html#ga806896a92cf7ed615414e19b84f8ead9">PBV_UART_Transmit_Ascii_to_GUI</a>();</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00525.html#ga1f9bd9678769a26b10a91a77d1d395fb">PBV_UART_Reinit</a>(<a class="code hl_struct" href="a00650.html">PBV_Datatype_TX_t</a> * ptr);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00525.html#ga9f93d97912e80ec10fd1b5dd7d4ff345">PBV_UART_Link_Data_TX</a>(<a class="code hl_struct" href="a00650.html">PBV_Datatype_TX_t</a> * ptr);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordtype">int</span> <a class="code hl_function" href="a00525.html#gaabb5dd946884a6b442b3e8923e398519">PBV_UART_Link_Data_RX</a>(<a class="code hl_struct" href="a00654.html">PBV_Datatype_RX_t</a> * ptr);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00525_html_ga128b03f3aae4aa8dbdb7ef7aafe06123"><div class="ttname"><a href="a00525.html#ga128b03f3aae4aa8dbdb7ef7aafe06123">PBV_UART_Init</a></div><div class="ttdeci">void PBV_UART_Init(PBV_Datatype_TX_t *boardToPBV, PBV_Datatype_TX_t *boardToPBVAscii, PBV_Datatype_RX_t *pbvToBoard)</div><div class="ttdoc">initializes UART objects</div><div class="ttdef"><b>Definition</b> <a href="a00296_source.html#l00165">PBV_UART.c:165</a></div></div>
+<div class="ttc" id="aa00525_html_ga1f9bd9678769a26b10a91a77d1d395fb"><div class="ttname"><a href="a00525.html#ga1f9bd9678769a26b10a91a77d1d395fb">PBV_UART_Reinit</a></div><div class="ttdeci">void PBV_UART_Reinit(PBV_Datatype_TX_t *ptr)</div><div class="ttdoc">reinitializes the UART object with new protocol id.</div><div class="ttdef"><b>Definition</b> <a href="a00296_source.html#l00526">PBV_UART.c:526</a></div></div>
+<div class="ttc" id="aa00525_html_ga62df1acc42e1303b61baa63272714c5c"><div class="ttname"><a href="a00525.html#ga62df1acc42e1303b61baa63272714c5c">PBV_UART_Transmit_to_GUI</a></div><div class="ttdeci">uint8_t PBV_UART_Transmit_to_GUI()</div><div class="ttdoc">implements the state machine for UART numerical TX</div><div class="ttdef"><b>Definition</b> <a href="a00296_source.html#l00423">PBV_UART.c:423</a></div></div>
+<div class="ttc" id="aa00525_html_ga806896a92cf7ed615414e19b84f8ead9"><div class="ttname"><a href="a00525.html#ga806896a92cf7ed615414e19b84f8ead9">PBV_UART_Transmit_Ascii_to_GUI</a></div><div class="ttdeci">uint8_t PBV_UART_Transmit_Ascii_to_GUI()</div><div class="ttdoc">implements the state machine for UART ascii TX</div><div class="ttdef"><b>Definition</b> <a href="a00296_source.html#l00320">PBV_UART.c:320</a></div></div>
+<div class="ttc" id="aa00525_html_ga89e085a040c28fbc1aa46e802a199aef"><div class="ttname"><a href="a00525.html#ga89e085a040c28fbc1aa46e802a199aef">PBV_UART_Receive_from_GUI</a></div><div class="ttdeci">uint8_t PBV_UART_Receive_from_GUI()</div><div class="ttdoc">implements the state machine for UART Frame receiving from PBV.</div><div class="ttdef"><b>Definition</b> <a href="a00296_source.html#l00189">PBV_UART.c:189</a></div></div>
+<div class="ttc" id="aa00525_html_ga9f93d97912e80ec10fd1b5dd7d4ff345"><div class="ttname"><a href="a00525.html#ga9f93d97912e80ec10fd1b5dd7d4ff345">PBV_UART_Link_Data_TX</a></div><div class="ttdeci">void PBV_UART_Link_Data_TX(PBV_Datatype_TX_t *ptr)</div><div class="ttdoc">links the data from the calling application to the UART TX object</div><div class="ttdef"><b>Definition</b> <a href="a00296_source.html#l00541">PBV_UART.c:541</a></div></div>
+<div class="ttc" id="aa00525_html_gaabb5dd946884a6b442b3e8923e398519"><div class="ttname"><a href="a00525.html#gaabb5dd946884a6b442b3e8923e398519">PBV_UART_Link_Data_RX</a></div><div class="ttdeci">int PBV_UART_Link_Data_RX(PBV_Datatype_RX_t *ptr)</div><div class="ttdoc">Links the data from received frame to the calling application</div><div class="ttdef"><b>Definition</b> <a href="a00296_source.html#l00562">PBV_UART.c:562</a></div></div>
+<div class="ttc" id="aa00650_html"><div class="ttname"><a href="a00650.html">PBV_Datatype_TX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00075">PBV_interface.h:75</a></div></div>
+<div class="ttc" id="aa00654_html"><div class="ttname"><a href="a00654.html">PBV_Datatype_RX_t</a></div><div class="ttdef"><b>Definition</b> <a href="a00293_source.html#l00089">PBV_interface.h:89</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
