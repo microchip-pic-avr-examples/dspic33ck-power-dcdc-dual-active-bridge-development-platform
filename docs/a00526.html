@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Fault Monitor</title>
+<title>Dual Active Bridge Development Board: PBV Interface</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,32 +137,670 @@ $(document).ready(function(){initNavTree('a00526.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#groups">Modules</a>  </div>
-  <div class="headertitle"><div class="title">Fault Monitor</div></div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">PBV Interface<div class="ingroups"><a class="el" href="a00522.html">Communication Layer</a> &raquo; <a class="el" href="a00523.html">Power Board Visualizer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>The Fault Handler is an independent firmware task which is used to define certain so-called Fault Objects.  
+<p>These implement the PBV state machine of RX and TX, as well as link data that is received by peripherals to application.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Fault Monitor:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for PBV Interface:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00526.svg" width="292" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00526.svg" width="316" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
-Modules</h2></td></tr>
-<tr class="memitem:a00527" id="r_a00527"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html">Fault Configuration</a></td></tr>
-<tr class="memdesc:a00527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains functions that initialize, execute and handles the power supply fault. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <a href="a00650.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00528" id="r_a00528"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00528.html">Generic Fault Driver</a></td></tr>
-<tr class="memdesc:a00528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains generic fault functions. <br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
+  <a href="a00654.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gabec937769d77285d1b9cc8cd5cae957b" id="r_gabec937769d77285d1b9cc8cd5cae957b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#gabec937769d77285d1b9cc8cd5cae957b">PBV_SIGNAL_ASCII_MODE</a> { <a class="el" href="a00526.html#ggabec937769d77285d1b9cc8cd5cae957ba7872ad957b7cdf2a5e1c874a31235dbf">PBV_SIGNAL_MODE</a> = 0
+, <a class="el" href="a00526.html#ggabec937769d77285d1b9cc8cd5cae957ba709216fec5fab27b5647077bef347b82">PBV_ASCII_MODE</a> = 1
+ }</td></tr>
+<tr class="memdesc:gabec937769d77285d1b9cc8cd5cae957b"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; includes  <a href="a00526.html#gabec937769d77285d1b9cc8cd5cae957b">More...</a><br /></td></tr>
+<tr class="separator:gabec937769d77285d1b9cc8cd5cae957b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad6a8f9f019d4804bbaa6370fa9dc74e4" id="r_gad6a8f9f019d4804bbaa6370fa9dc74e4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#gad6a8f9f019d4804bbaa6370fa9dc74e4">PBV_MESSAGE_TX_STATE</a> { <a class="el" href="a00526.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4a332681d4fa0e1d061bbbc4c11855d073">PBV_MESSAGE_TRANSMITTED</a> = 0
+, <a class="el" href="a00526.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4a4e5a244a7ef71a86c1aeea8b2205c2df">PBV_MESSAGE_INIT</a> = 1
+, <a class="el" href="a00526.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4aaefca80eb0e1efe7661e9651e60eb1cf">PBV_MESSAGE_TRANSMIT_START</a> = 2
+, <a class="el" href="a00526.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4ab499d51ce9c035cda510f8108209d78f">PBV_MESSAGE_TRANSMITTING</a> = 3
+, <a class="el" href="a00526.html#ggad6a8f9f019d4804bbaa6370fa9dc74e4a4f1a8d1d39e171ab526f52413e3f6e5c">PBV_MESSAGE_TX_ERROR</a> = 4
+ }</td></tr>
+<tr class="memdesc:gad6a8f9f019d4804bbaa6370fa9dc74e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power Board Visualizer TX Object transmission states.  <a href="a00526.html#gad6a8f9f019d4804bbaa6370fa9dc74e4">More...</a><br /></td></tr>
+<tr class="separator:gad6a8f9f019d4804bbaa6370fa9dc74e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga26db6be2cdb24ea5b5c7c70d0a6c3b25" id="r_ga26db6be2cdb24ea5b5c7c70d0a6c3b25"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#ga26db6be2cdb24ea5b5c7c70d0a6c3b25">PBV_MESSAGE_RX_STATE</a> { <a class="el" href="a00526.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25ac36f583a85f8a64d2acbd4d9b448da91">PBV_MESSAGE_RECEIVED</a> = 0
+, <a class="el" href="a00526.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25a194a96a562c6685141b95b9f70100945">PBV_MESSAGE_READY_TO_RECEIVE</a> = 1
+, <a class="el" href="a00526.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25aaa64e0649433884fd0bde3a67db72c8e">PBV_STATE_RECEIVING</a> = 2
+, <a class="el" href="a00526.html#gga26db6be2cdb24ea5b5c7c70d0a6c3b25aec84c3a41f51e515332f122bbc982c83">PBV_MESSAGE_RX_ERROR</a> = 3
+ }</td></tr>
+<tr class="memdesc:ga26db6be2cdb24ea5b5c7c70d0a6c3b25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power Board Visualizer RX Object Receiving states.  <a href="a00526.html#ga26db6be2cdb24ea5b5c7c70d0a6c3b25">More...</a><br /></td></tr>
+<tr class="separator:ga26db6be2cdb24ea5b5c7c70d0a6c3b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ga1e6458a65d5d665835759cfc42280c1b" id="r_ga1e6458a65d5d665835759cfc42280c1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#ga1e6458a65d5d665835759cfc42280c1b">PBV_Change_from_Sixteen_to_Eight</a> (uint16_t *sixteenPtr, uint8_t *eightPtr, uint16_t length)</td></tr>
+<tr class="memdesc:ga1e6458a65d5d665835759cfc42280c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function changes 16 bit data to 8 bit data.  <br /></td></tr>
+<tr class="separator:ga1e6458a65d5d665835759cfc42280c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf92cac9156ceacf492c28455ba3c75f5" id="r_gaf92cac9156ceacf492c28455ba3c75f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#gaf92cac9156ceacf492c28455ba3c75f5">PBV_Change_from_Eight_to_Sixteen</a> (uint8_t *eightPtr, uint16_t *sixteenPtr, uint16_t length)</td></tr>
+<tr class="memdesc:gaf92cac9156ceacf492c28455ba3c75f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function changes 8 bit data to sixteen bit data.  <br /></td></tr>
+<tr class="separator:gaf92cac9156ceacf492c28455ba3c75f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga240a50c9b64de11e7ecb765451da38a1" id="r_ga240a50c9b64de11e7ecb765451da38a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#ga240a50c9b64de11e7ecb765451da38a1">App_PBV_Init</a> (<a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *boardToPbv, <a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *boardToPpvAscii, <a class="el" href="a00654.html">PBV_Datatype_RX_t</a> *pbvToBoard)</td></tr>
+<tr class="memdesc:ga240a50c9b64de11e7ecb765451da38a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the PBV init, by linking the application object pointers from the application to CAN or UART data types.  <br /></td></tr>
+<tr class="separator:ga240a50c9b64de11e7ecb765451da38a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab70a27b3aad7113c3983e82413ca5e4f" id="r_gab70a27b3aad7113c3983e82413ca5e4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#gab70a27b3aad7113c3983e82413ca5e4f">App_PBV_Re_Init</a> (<a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *ptr)</td></tr>
+<tr class="memdesc:gab70a27b3aad7113c3983e82413ca5e4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reinitializes the objects if any parameters( ID, length, etc) are to be changed to the CAN or UART objects.  <br /></td></tr>
+<tr class="separator:gab70a27b3aad7113c3983e82413ca5e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf88c754c75b6057cf183685d282a2fe6" id="r_gaf88c754c75b6057cf183685d282a2fe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#gaf88c754c75b6057cf183685d282a2fe6">App_Receive_From_PBV</a> (<a class="el" href="a00654.html">PBV_Datatype_RX_t</a> *ptr)</td></tr>
+<tr class="memdesc:gaf88c754c75b6057cf183685d282a2fe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function changes the state of the application object. this acts as a trigger for the periodic task to receive data.  <br /></td></tr>
+<tr class="separator:gaf88c754c75b6057cf183685d282a2fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga39ed8d2ee366abaf4aa95a424f9108e3" id="r_ga39ed8d2ee366abaf4aa95a424f9108e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#ga39ed8d2ee366abaf4aa95a424f9108e3">App_Send_To_PBV</a> (<a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *ptr)</td></tr>
+<tr class="memdesc:ga39ed8d2ee366abaf4aa95a424f9108e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function links the data from application object to the CAN or UART object and <br  />
+ This function changes the state of the application object.  <br /></td></tr>
+<tr class="separator:ga39ed8d2ee366abaf4aa95a424f9108e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b078af24577006b714fabf52a93c4f1" id="r_ga7b078af24577006b714fabf52a93c4f1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#ga7b078af24577006b714fabf52a93c4f1">App_Read_Received_From_PBV</a> (<a class="el" href="a00654.html">PBV_Datatype_RX_t</a> *ptr)</td></tr>
+<tr class="memdesc:ga7b078af24577006b714fabf52a93c4f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function links the data received by CAN or UART objects to the application object.  <br /></td></tr>
+<tr class="separator:ga7b078af24577006b714fabf52a93c4f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga779af4e1b7fd3111ccb7ade537d98efb" id="r_ga779af4e1b7fd3111ccb7ade537d98efb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#ga779af4e1b7fd3111ccb7ade537d98efb">App_PBV_Task</a> (void)</td></tr>
+<tr class="memdesc:ga779af4e1b7fd3111ccb7ade537d98efb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main application task for Power Board Visualizer.  <br /></td></tr>
+<tr class="separator:ga779af4e1b7fd3111ccb7ade537d98efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga29c25924bdc76c615288681bf1b17893" id="r_ga29c25924bdc76c615288681bf1b17893"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#ga29c25924bdc76c615288681bf1b17893">App_PBV_Task_10ms</a> ()</td></tr>
+<tr class="memdesc:ga29c25924bdc76c615288681bf1b17893"><td class="mdescLeft">&#160;</td><td class="mdescRight">task to be executed every 10ms  <br /></td></tr>
+<tr class="separator:ga29c25924bdc76c615288681bf1b17893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga148dc2088cd891c3b3fbf77229504f3f" id="r_ga148dc2088cd891c3b3fbf77229504f3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#ga148dc2088cd891c3b3fbf77229504f3f">App_PBV_Task_100us</a> ()</td></tr>
+<tr class="memdesc:ga148dc2088cd891c3b3fbf77229504f3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task to be executed every 100 us.  <br /></td></tr>
+<tr class="separator:ga148dc2088cd891c3b3fbf77229504f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga40c15cce2e781ba3b9268150395d466c" id="r_ga40c15cce2e781ba3b9268150395d466c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00646.html">APP_PBV_INTF_API_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#ga40c15cce2e781ba3b9268150395d466c">appPbvFuncs</a></td></tr>
+<tr class="memdesc:ga40c15cce2e781ba3b9268150395d466c"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Includes  <br /></td></tr>
+<tr class="separator:ga40c15cce2e781ba3b9268150395d466c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7b84a5cf46437e02c28cbf7093de26f4" id="r_ga7b84a5cf46437e02c28cbf7093de26f4"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#ga7b84a5cf46437e02c28cbf7093de26f4">appSystemToPbvPtr</a></td></tr>
+<tr class="memdesc:ga7b84a5cf46437e02c28cbf7093de26f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the <a class="el" href="a00650.html">PBV_Datatype_TX_t</a> object that will be passed from the application.  <br /></td></tr>
+<tr class="separator:ga7b84a5cf46437e02c28cbf7093de26f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5acff66c0316c83c9e40c586b573cdcb" id="r_ga5acff66c0316c83c9e40c586b573cdcb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00654.html">PBV_Datatype_RX_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00526.html#ga5acff66c0316c83c9e40c586b573cdcb">appPbvToSystemPtr</a></td></tr>
+<tr class="memdesc:ga5acff66c0316c83c9e40c586b573cdcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the <a class="el" href="a00654.html">PBV_Datatype_RX_t</a> object that will be passed from the application.  <br /></td></tr>
+<tr class="separator:ga5acff66c0316c83c9e40c586b573cdcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>Fault monitor is one of the vital components in creating different power supply applications. It is responsible for the protection of power supply including the monitoring and handling of faults that may be encountered while power supply is in operation. It is implemented as high-priority task included in the real-time operating system. Thresholds are being set for voltage, current, and temperature level that are being monitored if user-defined fault objects violate the minimum and maximum input and output voltage and current, and maximum temperature level allowed. Once the fault monitor objects detect a fault, this will trigger the fault responses and respond immediately. </p>
+<p>These implement the PBV state machine of RX and TX, as well as link data that is received by peripherals to application. </p>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga26db6be2cdb24ea5b5c7c70d0a6c3b25" name="ga26db6be2cdb24ea5b5c7c70d0a6c3b25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga26db6be2cdb24ea5b5c7c70d0a6c3b25">&#9670;&#160;</a></span>PBV_MESSAGE_RX_STATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00526.html#ga26db6be2cdb24ea5b5c7c70d0a6c3b25">PBV_MESSAGE_RX_STATE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>These states are used to keep track of the receiving of messages </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga26db6be2cdb24ea5b5c7c70d0a6c3b25ac36f583a85f8a64d2acbd4d9b448da91" name="gga26db6be2cdb24ea5b5c7c70d0a6c3b25ac36f583a85f8a64d2acbd4d9b448da91"></a>PBV_MESSAGE_RECEIVED&#160;</td><td class="fielddoc"><p>Message Received. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga26db6be2cdb24ea5b5c7c70d0a6c3b25a194a96a562c6685141b95b9f70100945" name="gga26db6be2cdb24ea5b5c7c70d0a6c3b25a194a96a562c6685141b95b9f70100945"></a>PBV_MESSAGE_READY_TO_RECEIVE&#160;</td><td class="fielddoc"><p>Message Reception triggered. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga26db6be2cdb24ea5b5c7c70d0a6c3b25aaa64e0649433884fd0bde3a67db72c8e" name="gga26db6be2cdb24ea5b5c7c70d0a6c3b25aaa64e0649433884fd0bde3a67db72c8e"></a>PBV_STATE_RECEIVING&#160;</td><td class="fielddoc"><p>Message beinf received. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga26db6be2cdb24ea5b5c7c70d0a6c3b25aec84c3a41f51e515332f122bbc982c83" name="gga26db6be2cdb24ea5b5c7c70d0a6c3b25aec84c3a41f51e515332f122bbc982c83"></a>PBV_MESSAGE_RX_ERROR&#160;</td><td class="fielddoc"><p>if some error happens (CRC ?) </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00049">49</a> of file <a class="el" href="a00293_source.html">PBV_interface.h</a>.</p>
+
+</div>
+</div>
+<a id="gad6a8f9f019d4804bbaa6370fa9dc74e4" name="gad6a8f9f019d4804bbaa6370fa9dc74e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad6a8f9f019d4804bbaa6370fa9dc74e4">&#9670;&#160;</a></span>PBV_MESSAGE_TX_STATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00526.html#gad6a8f9f019d4804bbaa6370fa9dc74e4">PBV_MESSAGE_TX_STATE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>These states are used to keep track of the transmission of message </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggad6a8f9f019d4804bbaa6370fa9dc74e4a332681d4fa0e1d061bbbc4c11855d073" name="ggad6a8f9f019d4804bbaa6370fa9dc74e4a332681d4fa0e1d061bbbc4c11855d073"></a>PBV_MESSAGE_TRANSMITTED&#160;</td><td class="fielddoc"><p>Message transmitted. successful transmit. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad6a8f9f019d4804bbaa6370fa9dc74e4a4e5a244a7ef71a86c1aeea8b2205c2df" name="ggad6a8f9f019d4804bbaa6370fa9dc74e4a4e5a244a7ef71a86c1aeea8b2205c2df"></a>PBV_MESSAGE_INIT&#160;</td><td class="fielddoc"><p>Init State. Only Send Messages in this State <br  />
+ </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad6a8f9f019d4804bbaa6370fa9dc74e4aaefca80eb0e1efe7661e9651e60eb1cf" name="ggad6a8f9f019d4804bbaa6370fa9dc74e4aaefca80eb0e1efe7661e9651e60eb1cf"></a>PBV_MESSAGE_TRANSMIT_START&#160;</td><td class="fielddoc"><p>Start Transmitting message. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad6a8f9f019d4804bbaa6370fa9dc74e4ab499d51ce9c035cda510f8108209d78f" name="ggad6a8f9f019d4804bbaa6370fa9dc74e4ab499d51ce9c035cda510f8108209d78f"></a>PBV_MESSAGE_TRANSMITTING&#160;</td><td class="fielddoc"><p>Transmitting Message. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad6a8f9f019d4804bbaa6370fa9dc74e4a4f1a8d1d39e171ab526f52413e3f6e5c" name="ggad6a8f9f019d4804bbaa6370fa9dc74e4a4f1a8d1d39e171ab526f52413e3f6e5c"></a>PBV_MESSAGE_TX_ERROR&#160;</td><td class="fielddoc"><p>if some error happens. unsuccessful transmit </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00033">33</a> of file <a class="el" href="a00293_source.html">PBV_interface.h</a>.</p>
+
+</div>
+</div>
+<a id="gabec937769d77285d1b9cc8cd5cae957b" name="gabec937769d77285d1b9cc8cd5cae957b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabec937769d77285d1b9cc8cd5cae957b">&#9670;&#160;</a></span>PBV_SIGNAL_ASCII_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00526.html#gabec937769d77285d1b9cc8cd5cae957b">PBV_SIGNAL_ASCII_MODE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Power Board Visualizer TX type</p>
+<p>This type defines if the TX Object is transmitting numbers or ASCII </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggabec937769d77285d1b9cc8cd5cae957ba7872ad957b7cdf2a5e1c874a31235dbf" name="ggabec937769d77285d1b9cc8cd5cae957ba7872ad957b7cdf2a5e1c874a31235dbf"></a>PBV_SIGNAL_MODE&#160;</td><td class="fielddoc"><p>Object will transmit/receive signals. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggabec937769d77285d1b9cc8cd5cae957ba709216fec5fab27b5647077bef347b82" name="ggabec937769d77285d1b9cc8cd5cae957ba709216fec5fab27b5647077bef347b82"></a>PBV_ASCII_MODE&#160;</td><td class="fielddoc"><p>Object will transmit Ascii data. </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00293_source.html#l00021">21</a> of file <a class="el" href="a00293_source.html">PBV_interface.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga240a50c9b64de11e7ecb765451da38a1" name="ga240a50c9b64de11e7ecb765451da38a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga240a50c9b64de11e7ecb765451da38a1">&#9670;&#160;</a></span>App_PBV_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App_PBV_Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *&#160;</td>
+          <td class="paramname"><em>boardToPbv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *&#160;</td>
+          <td class="paramname"><em>boardToPpvAscii</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a> *&#160;</td>
+          <td class="paramname"><em>pbvToBoard</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a></td><td>* - ptr to numerical data </td></tr>
+    <tr><td class="paramname"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a></td><td>* - ptr to ascii data </td></tr>
+    <tr><td class="paramname"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a></td><td>* - ptr to data from pbv </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>Initializes the PBV init, by linking the application object pointers from the application to CAN or UART data types </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00103">103</a> of file <a class="el" href="a00290_source.html">PBV_interface.c</a>.</p>
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00526_ga240a50c9b64de11e7ecb765451da38a1_icgraph.svg" width="298" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gab70a27b3aad7113c3983e82413ca5e4f" name="gab70a27b3aad7113c3983e82413ca5e4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab70a27b3aad7113c3983e82413ca5e4f">&#9670;&#160;</a></span>App_PBV_Re_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App_PBV_Re_Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a></td><td>* - ptr to numerical data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>Reinitializes the objects if any parameters( ID, length, etc) are to be changed to the CAN or UART objects. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00122">122</a> of file <a class="el" href="a00290_source.html">PBV_interface.c</a>.</p>
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00526_gab70a27b3aad7113c3983e82413ca5e4f_icgraph.svg" width="478" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga779af4e1b7fd3111ccb7ade537d98efb" name="ga779af4e1b7fd3111ccb7ade537d98efb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga779af4e1b7fd3111ccb7ade537d98efb">&#9670;&#160;</a></span>App_PBV_Task()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void App_PBV_Task </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>Main application task. this looks at the states of the TX and RX pointers, and if the states are changed for RX/TX then executes TX and RX. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00196">196</a> of file <a class="el" href="a00290_source.html">PBV_interface.c</a>.</p>
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00526_ga779af4e1b7fd3111ccb7ade537d98efb_icgraph.svg" width="471" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga148dc2088cd891c3b3fbf77229504f3f" name="ga148dc2088cd891c3b3fbf77229504f3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga148dc2088cd891c3b3fbf77229504f3f">&#9670;&#160;</a></span>App_PBV_Task_100us()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App_PBV_Task_100us </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>task that is to be executed every 100 us (UART) for executing UART State machine. calling task has to ensure that the system is not overloaded </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00244">244</a> of file <a class="el" href="a00290_source.html">PBV_interface.c</a>.</p>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00526_ga148dc2088cd891c3b3fbf77229504f3f_cgraph.svg" width="328" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga29c25924bdc76c615288681bf1b17893" name="ga29c25924bdc76c615288681bf1b17893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga29c25924bdc76c615288681bf1b17893">&#9670;&#160;</a></span>App_PBV_Task_10ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App_PBV_Task_10ms </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">none</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>task that is to be executed every 100 ms (CAN msg) can work on slower task as mcc implements a queuing buffer </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00229">229</a> of file <a class="el" href="a00290_source.html">PBV_interface.c</a>.</p>
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00526_ga29c25924bdc76c615288681bf1b17893_cgraph.svg" width="324" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00526_ga29c25924bdc76c615288681bf1b17893_icgraph.svg" width="307" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga7b078af24577006b714fabf52a93c4f1" name="ga7b078af24577006b714fabf52a93c4f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7b078af24577006b714fabf52a93c4f1">&#9670;&#160;</a></span>App_Read_Received_From_PBV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int App_Read_Received_From_PBV </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a></td><td>* - ptr </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function links the data received by CAN or UART objects to the application object </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00182">182</a> of file <a class="el" href="a00290_source.html">PBV_interface.c</a>.</p>
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00526_ga7b078af24577006b714fabf52a93c4f1_icgraph.svg" width="530" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gaf88c754c75b6057cf183685d282a2fe6" name="gaf88c754c75b6057cf183685d282a2fe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf88c754c75b6057cf183685d282a2fe6">&#9670;&#160;</a></span>App_Receive_From_PBV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App_Receive_From_PBV </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a></td><td>* - ptr to numerical data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function changes the state of the application object. this acts as a trigger for the periodic task to receive data </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00139">139</a> of file <a class="el" href="a00290_source.html">PBV_interface.c</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00526_gaf88c754c75b6057cf183685d282a2fe6_icgraph.svg" width="556" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ga39ed8d2ee366abaf4aa95a424f9108e3" name="ga39ed8d2ee366abaf4aa95a424f9108e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga39ed8d2ee366abaf4aa95a424f9108e3">&#9670;&#160;</a></span>App_Send_To_PBV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void App_Send_To_PBV </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a> *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a></td><td>* - ptr </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function links the data from application object to the CAN or UART object and <br  />
+ This function changes the state of the application object. This acts as a trigger for the periodic task to send data </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00158">158</a> of file <a class="el" href="a00290_source.html">PBV_interface.c</a>.</p>
+<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00526_ga39ed8d2ee366abaf4aa95a424f9108e3_icgraph.svg" width="526" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="gaf92cac9156ceacf492c28455ba3c75f5" name="gaf92cac9156ceacf492c28455ba3c75f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf92cac9156ceacf492c28455ba3c75f5">&#9670;&#160;</a></span>PBV_Change_from_Eight_to_Sixteen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PBV_Change_from_Eight_to_Sixteen </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>eightPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>sixteenPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sixteenPtr</td><td>- ptr to sixteen bit data </td></tr>
+    <tr><td class="paramname">eightPtr</td><td>- ptr to eigtht bit data </td></tr>
+    <tr><td class="paramname">length</td><td>- length of eight bit</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function changes 8 bit data to sixteen bit data </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00064">64</a> of file <a class="el" href="a00290_source.html">PBV_interface.c</a>.</p>
+<div id="dynsection-10" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00526_gaf92cac9156ceacf492c28455ba3c75f5_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ga1e6458a65d5d665835759cfc42280c1b" name="ga1e6458a65d5d665835759cfc42280c1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1e6458a65d5d665835759cfc42280c1b">&#9670;&#160;</a></span>PBV_Change_from_Sixteen_to_Eight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PBV_Change_from_Sixteen_to_Eight </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>sixteenPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>eightPtr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>&lt;&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sixteenPtr</td><td>- ptr to sixteen bit data </td></tr>
+    <tr><td class="paramname">eightPtr</td><td>- ptr to eigtht bit data </td></tr>
+    <tr><td class="paramname">length</td><td>- length of sixteen bit </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function changes 16 bit data to 8 bit data </p>
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00046">46</a> of file <a class="el" href="a00290_source.html">PBV_interface.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ga40c15cce2e781ba3b9268150395d466c" name="ga40c15cce2e781ba3b9268150395d466c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga40c15cce2e781ba3b9268150395d466c">&#9670;&#160;</a></span>appPbvFuncs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00646.html">APP_PBV_INTF_API_t</a> appPbvFuncs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This structure has the function pointers that links to the interfaces from CAN or UART depending upon the selection in <a class="el" href="a00305_source.html">config.h</a></p>
+<p>&lt; Includes </p>
+
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00026">26</a> of file <a class="el" href="a00278_source.html">PBV_config.c</a>.</p>
+
+</div>
+</div>
+<a id="ga5acff66c0316c83c9e40c586b573cdcb" name="ga5acff66c0316c83c9e40c586b573cdcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5acff66c0316c83c9e40c586b573cdcb">&#9670;&#160;</a></span>appPbvToSystemPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00654.html">PBV_Datatype_RX_t</a>* appPbvToSystemPtr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00027">27</a> of file <a class="el" href="a00290_source.html">PBV_interface.c</a>.</p>
+
+</div>
+</div>
+<a id="ga7b84a5cf46437e02c28cbf7093de26f4" name="ga7b84a5cf46437e02c28cbf7093de26f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7b84a5cf46437e02c28cbf7093de26f4">&#9670;&#160;</a></span>appSystemToPbvPtr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00650.html">PBV_Datatype_TX_t</a>* appSystemToPbvPtr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00290_source.html#l00019">19</a> of file <a class="el" href="a00290_source.html">PBV_interface.c</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

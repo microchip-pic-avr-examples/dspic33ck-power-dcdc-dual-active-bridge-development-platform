@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_current_sensor.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/config/hardware.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,26 +136,64 @@ $(document).ready(function(){initNavTree('a00308_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">dev_current_sensor.h</div></div>
+  <div class="headertitle"><div class="title">hardware.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00308.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DEV_CURRENT_SENSOR_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DEV_CURRENT_SENSOR_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// more than once.  </span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#ifndef HARDWARE_H</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#define HARDWARE_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// hardware constants (voltage &amp; current sense, gains and offsets)</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//------------------------------------------------------------------------------</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00510.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00510.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">extern</span> uint16_t <a class="code hl_function" href="a00510.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">extern</span> uint16_t <a class="code hl_function" href="a00510.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_CURRENT_SENSOR_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="ttc" id="aa00510_html_ga218632f9814c3bf20c40cea0794ffc7d"><div class="ttname"><a href="a00510.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a></div><div class="ttdeci">uint16_t Dev_CurrentSensor_Get_CalibrationStatus(void)</div><div class="ttdoc">API function to get the calibration status.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00101">dev_current_sensor.c:101</a></div></div>
-<div class="ttc" id="aa00510_html_ga494b4a948891fd5757ccc647f9962529"><div class="ttname"><a href="a00510.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a></div><div class="ttdeci">void Dev_CurrentSensor_Clr_Offset(void)</div><div class="ttdoc">API function to clear the sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00121">dev_current_sensor.c:121</a></div></div>
-<div class="ttc" id="aa00510_html_ga9f581abf52dc00ba320faafa189fafb9"><div class="ttname"><a href="a00510.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a></div><div class="ttdeci">uint16_t Dev_CurrentSensor_Get_Offset(void)</div><div class="ttdoc">API function to get the sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00111">dev_current_sensor.c:111</a></div></div>
-<div class="ttc" id="aa00510_html_gaaa75855922e60913d443c6203475256f"><div class="ttname"><a href="a00510.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a></div><div class="ttdeci">void Dev_CurrentSensorOffsetCal(void)</div><div class="ttdoc">Measures the currents sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00305_source.html#l00087">dev_current_sensor.c:87</a></div></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// VPRI_SNS_GAIN: VPRI_SNS = VPRI * VPRI_SNS_GAIN + VPRI_SNS_OFS</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#if defined (VPRI_OPTOCOUPLER_POLARITY) &amp;&amp; (VPRI_OPTOCOUPLER_POLARITY ==  true)</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">    #define VPRI_SNS_GAIN               (float)(-3.600e-3)   </span><span class="comment">// V/V  </span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">    #define VPRI_SNS_OFS                (3.3183)   </span><span class="comment">// V</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="a00505.html#gae3dffcdc110b55af6c257bfc0748cf81">   19</a></span><span class="preprocessor">    #define VPRI_SNS_GAIN               (float)(3.600e-3)   </span><span class="comment">// V/V  </span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="a00505.html#ga35eab816332f1b3d80d161f125c5044a">   20</a></span><span class="preprocessor">    #define VPRI_SNS_OFS                (0.0)   </span><span class="comment">// V</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="a00505.html#gab88335efd29659386531beabaffdf660">   23</a></span><span class="preprocessor">#define VPRI_VOLTAGE_GAIN            (float)0.2229 </span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+ <span class="comment">// end of group primary-voltage-feedback ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// VSEC_SNS = VSEC * VSEC_SNS_GAIN</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="a00507.html#gadbb92791a446721a3d4af49d713520ca">   32</a></span><span class="preprocessor">#define VSEC_SNS_GAIN               (3.18e-3)   </span><span class="comment">// V/V</span></div>
+ // end of group ~~~~~~~~~~~~~~~~~~~~<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define VSEC_VOLTAGE_GAIN           (float)0.2534 </span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// IPRI_CT_SNS = IPRI_CT * IPRI_CT_SNS_GAIN + IPRI_CT_SNS_OFS</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">// note that the IPRI_CT_SNS is rectified via hardware</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="a00509.html#gadd3268f777497752594e03ab7c9ed8bd">   44</a></span><span class="preprocessor">#define IPRI_CT_SNS_GAIN            (82.5e-3)  </span><span class="comment">// V/A</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="a00509.html#gae03bb48f1dee21d88493adfa4fd939d8">   45</a></span><span class="preprocessor">#define IPRI_CT_SNS_OFS             (0.0)      </span><span class="comment">// V</span></div>
+ // end of group ~~~~~~~~~~~~~~~~~~~~<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">// ISEC_CT_SNS = ISEC_CT * ISEC_CT_SNS_GAIN + ISEC_CT_SNS_OFS</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">// note that the ISEC_CT_SNS is rectified on the power board</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="a00511.html#gad565ee56fd67a47693480901f73b5e2c">   54</a></span><span class="preprocessor">#define ISEC_CT_SNS_GAIN            (66.0e-3)   </span><span class="comment">// V/A</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="a00511.html#ga167708b374334a691b34a153fc97ded0">   55</a></span><span class="preprocessor">#define ISEC_CT_SNS_OFS             (0.0)     </span><span class="comment">// V</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// ISEC_AVG_SNS = ISEC_AVG * ISEC_AVG_SNS_GAIN + ISEC_AVG_SNS_OFS</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="a00511.html#gaa04f0731e5ca53dd3034155ddec2fb51">   58</a></span><span class="preprocessor">#define ISEC_AVG_SNS_GAIN           (25.0e-3)   </span><span class="comment">// V/A</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="a00511.html#ga3ddd48524fd57578569ad30b31317bee">   59</a></span><span class="preprocessor">#define ISEC_AVG_SNS_OFS            (1.65)      </span><span class="comment">// V</span></div>
+ // end of group ~~~~~~~~~~~~~~~~~~~~<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">// VRAIL_5V_SNS = VRAIL_5V * VRAIL_5V_SNS_GAIN</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="a00513.html#ga69d0570890525bf6e42a39e93cd23541">   67</a></span><span class="preprocessor">#define VRAIL_5V_SNS_GAIN           (0.5)       </span><span class="comment">// V/V</span></div>
+ // end of group ~~~~~~~~~~~~~~~~~~~~<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="a00517.html#gab586eaca5d59d97c5a098f782633d74c">   74</a></span><span class="preprocessor">#define TEMPERATURE_GAIN           (-0.029)       </span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="a00517.html#gac02a5a67e0612d6cb90e61cc23398701">   75</a></span><span class="preprocessor">#define TEMPERATURE_OFFSET          115u</span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif  </span><span class="comment">/* HARDWARE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

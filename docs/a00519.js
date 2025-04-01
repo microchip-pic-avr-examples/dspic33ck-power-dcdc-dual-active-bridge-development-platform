@@ -1,16 +1,13 @@
 var a00519 =
 [
-    [ "pwrctrl_isr.c", "a00461.html", null ],
-    [ "pwrctrl_isr.h", "a00464.html", null ],
-    [ "pwrctrl_isr_extension.c", "a00467.html", null ],
-    [ "ControlLoop_Interrupt_CallBack", "a00519.html#gae32c9e5ed4d1fb98fc13b26601782c10", null ],
-    [ "PwrCtrl_10KHzVPLoopPrepareData", "a00519.html#gaaf49f142990b8dc3f750e88365bf8fed", null ],
-    [ "PwrCtrl_AdaptiveGainUpdate", "a00519.html#ga8e52f74dc17c38d13a3980af0968fc2f", null ],
-    [ "PwrCtrl_ControlLoopExecute", "a00519.html#ga2eeebdb0cef4bbfeed446752525dd879", null ],
-    [ "PwrCtrl_DeadTimeAdjust", "a00519.html#ga80c3a681fbe9c0d7041146d82134f0cb", null ],
-    [ "PwrCtrl_PrimToSecPHDegree", "a00519.html#gabda1b0b4f44a931cc725c3f5fa45be7b", null ],
-    [ "PwrCtrl_UpdateADConverterData", "a00519.html#gaa34c5b66d8f20f01daef50d0e88cf20e", null ],
-    [ "iSecAveraging", "a00519.html#ga672f4741d032387a584ef0444f637cce", null ],
-    [ "vPrimAveraging", "a00519.html#ga963f5607c8862374734b3cc799dedc68", null ],
-    [ "vSecAveraging", "a00519.html#gaef7d489f0d36cd14c2f49022909e01b4", null ]
+    [ "CURRENT_CALIBRATION", "a00519.html#ga4dac1dfb10918e33515fd140e62a247e", null ],
+    [ "DAC_DEBUG", "a00519.html#ga06a509daec59519381724d6f4c6c9a98", null ],
+    [ "DCDC400V_SYSTEM", "a00519.html#ga643cae3876a193f7910cdd4963d6cc3f", null ],
+    [ "DCDC800V_SYSTEM", "a00519.html#gab82279541c39e463eca29e7804800145", null ],
+    [ "OPEN_LOOP_PBV", "a00519.html#ga98d40d6d77de8363187fdb3b1c6da065", null ],
+    [ "OPEN_LOOP_POTI", "a00519.html#gaffb8d78227a5b391853bbce53ca09857", null ],
+    [ "PBV_CANFD", "a00519.html#ga1151367cf9963cedbb90f4d5940d22b8", null ],
+    [ "PBV_UART", "a00519.html#ga3bf2f552a3148e521b11370c78f22121", null ],
+    [ "PERIOD_MODULATION_DEMO", "a00519.html#ga45df5256ba4c507175bdb3138ff68f1d", null ],
+    [ "VPRI_OPTOCOUPLER_POLARITY", "a00519.html#ga9da067b210e8083bb0545db1930060dc", null ]
 ];

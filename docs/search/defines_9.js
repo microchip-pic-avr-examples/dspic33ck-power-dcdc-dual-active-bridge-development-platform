@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['sensor_5foffset_5fnum_5fmeasurements_0',['SENSOR_OFFSET_NUM_MEASUREMENTS',['../a00305.html#a175e2f52c3522e4154a8d21da88426df',1,'dev_current_sensor.c']]],
-  ['step_5fsize_1',['STEP_SIZE',['../a00314.html#a47024204d8ea2cdcc3154f63677b3832',1,'dev_fan.h']]]
+  ['pirm_5fmin_5fvoltage_5f55v_0',['PIRM_MIN_VOLTAGE_55V',['../a00488.html#a3b9f06a8bbfe86a39a38dddc3e02e9dd',1,'pwrctrl_isr_extension.c']]],
+  ['primary_5fvoltage_5fmode_5fsensor_5fsafe_5fcheck_1',['PRIMARY_VOLTAGE_MODE_SENSOR_SAFE_CHECK',['../a00488.html#a199cd3937c2b6bb315066dd420395db9',1,'pwrctrl_isr_extension.c']]]
 ];

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Firmware Overview</title>
+<title>Dual Active Bridge Development Board: START_UP_RAMP_s Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -135,168 +135,151 @@ $(document).ready(function(){initNavTree('a00746.html',''); initResizable(); });
 </div>
 </div>
 
-<div><div class="header">
-  <div class="headertitle"><div class="title">Firmware Overview</div></div>
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Data Fields</a>  </div>
+  <div class="headertitle"><div class="title">START_UP_RAMP_s Struct Reference<div class="ingroups"><a class="el" href="a00538.html">Power Control</a> &raquo; <a class="el" href="a00546.html">Power Control Data Types</a></div></div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md18"></a> The firmware overview indicates that the power controller state machine and fault handler are executed every 100 microseconds by the scheduler. Additionally, the GUI handler operates every 10 milliseconds, while the LED and fan operations, along with temperature checks, are performed every 100 milliseconds.</p>
-<p>The system has a single interrupt source, the <a class="el" href="a00519.html#gae32c9e5ed4d1fb98fc13b26601782c10" title="Executes the power converter control loop.">ControlLoop_Interrupt_CallBack()</a>, which is executed every 10 microseconds. This callback measures voltages and currents on the DAB board using an ADC and feeds the data to three control loops. The Voltage and Power loops operate at 10 kHz, interleaved, while the Current Loop operates at 100 kHz.</p>
-<center> <img src="images/tasks-diagram.png" alt="firmware-0" width="800" class="inline"/> <br  />
- Firmware overview. </center> <p>The Microchip Code Configurator (MCC) is utilized to set up peripherals. This configuration occurs at run-time at the beginning of the main() function, prior to the initiation of the background loop.</p>
-<p>The project files are organized as follows:</p>
-<ul>
-<li><a class="el" href="a00062_source.html">main.c</a>: Contains the initialization of the MCC generated code, Operating system (OS) interrupt, power control, fault, and initialization of other the tasks.</li>
-<li><a class="el" href="a00065_source.html">main_tasks.c</a>: Allocates the tasks that needs to be executed in a particular time.</li>
-<li>PBV Communication:<ul>
-<li><a class="el" href="a00254_source.html">PBV_CAN.c</a>: Manages CAN communication objects and functions.</li>
-<li><a class="el" href="a00278_source.html">PBV_UART.c</a>: Manages UART communication objects and functions.</li>
-<li><a class="el" href="a00260_source.html">PBV_config.c</a>: Configures functions for CAN and UART communication for the Power Board Visualizer (PBV).</li>
-<li><a class="el" href="a00266_source.html">PBV_dab_frame_map.c</a>: User configuration for data transmission and reception with PBV.</li>
-<li><a class="el" href="a00272_source.html">PBV_interface.c</a>: Contains generic communication functions for PBV.</li>
+
+<p>Stores data related to the ramping up/down of the reference.  
+ <a href="a00746.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00500_source.html">C:/MCU16Projects/bitbucket/dspic33ck-power-dcdc-dual-active-bridge-development-platform/dspic33ck-dab.X/sources/pwrctrl/pwrctrl_typedef.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for START_UP_RAMP_s:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00744.svg" width="148" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Data Fields</h2></td></tr>
+<tr class="memitem:ac73dde33a2be13416f717c1ab8954227" id="r_ac73dde33a2be13416f717c1ab8954227"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00746.html#ac73dde33a2be13416f717c1ab8954227">Counter</a></td></tr>
+<tr class="memdesc:ac73dde33a2be13416f717c1ab8954227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soft-Start Execution Counter. This setting is set/cleared by the device driver and is 'read only'.  <br /></td></tr>
+<tr class="separator:ac73dde33a2be13416f717c1ab8954227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a366f1914db6923e6f49ba15572ea2" id="r_a16a366f1914db6923e6f49ba15572ea2"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00746.html#a16a366f1914db6923e6f49ba15572ea2">Delay</a></td></tr>
+<tr class="memdesc:a16a366f1914db6923e6f49ba15572ea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soft-Start Period (POD, RAMP PERIOD, PGD, etc.)  <br /></td></tr>
+<tr class="separator:a16a366f1914db6923e6f49ba15572ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accf24954a61bfc0ab7ca1768da52625a" id="r_accf24954a61bfc0ab7ca1768da52625a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00746.html#accf24954a61bfc0ab7ca1768da52625a">StepSize</a></td></tr>
+<tr class="memdesc:accf24954a61bfc0ab7ca1768da52625a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size/value of one reference increment/decrement or this period.  <br /></td></tr>
+<tr class="separator:accf24954a61bfc0ab7ca1768da52625a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a910c9c759d95750a76fb660bf8325e6c" id="r_a910c9c759d95750a76fb660bf8325e6c"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00746.html#a910c9c759d95750a76fb660bf8325e6c">ptrReference</a></td></tr>
+<tr class="memdesc:a910c9c759d95750a76fb660bf8325e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer the reference variable  <br /></td></tr>
+<tr class="separator:a910c9c759d95750a76fb660bf8325e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7738d75eba1234a8928245eae64a01a7" id="r_a7738d75eba1234a8928245eae64a01a7"><td class="memItemLeft" align="right" valign="top">uint16_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00746.html#a7738d75eba1234a8928245eae64a01a7">ptrReferenceTarget</a></td></tr>
+<tr class="memdesc:a7738d75eba1234a8928245eae64a01a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the ramp-up reference target  <br /></td></tr>
+<tr class="separator:a7738d75eba1234a8928245eae64a01a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13025badec30c52baf766e745d4c699f" id="r_a13025badec30c52baf766e745d4c699f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00746.html#a13025badec30c52baf766e745d4c699f">RampComplete</a></td></tr>
+<tr class="memdesc:a13025badec30c52baf766e745d4c699f"><td class="mdescLeft">&#160;</td><td class="mdescRight">indicates when ramp-up is complete  <br /></td></tr>
+<tr class="separator:a13025badec30c52baf766e745d4c699f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>This data structure manages the ramping up/down of the reference depending on the target. "reference" is the actual reference currently being used while "targetReference" can be different that reference during soft-start. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00500_source.html#l00098">98</a> of file <a class="el" href="a00500_source.html">pwrctrl_typedef.h</a>.</p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="ac73dde33a2be13416f717c1ab8954227" name="ac73dde33a2be13416f717c1ab8954227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac73dde33a2be13416f717c1ab8954227">&#9670;&#160;</a></span>Counter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Counter</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00500_source.html#l00100">100</a> of file <a class="el" href="a00500_source.html">pwrctrl_typedef.h</a>.</p>
+
+</div>
+</div>
+<a id="a16a366f1914db6923e6f49ba15572ea2" name="a16a366f1914db6923e6f49ba15572ea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16a366f1914db6923e6f49ba15572ea2">&#9670;&#160;</a></span>Delay</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Delay</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00500_source.html#l00101">101</a> of file <a class="el" href="a00500_source.html">pwrctrl_typedef.h</a>.</p>
+
+</div>
+</div>
+<a id="a910c9c759d95750a76fb660bf8325e6c" name="a910c9c759d95750a76fb660bf8325e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a910c9c759d95750a76fb660bf8325e6c">&#9670;&#160;</a></span>ptrReference</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t* ptrReference</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00500_source.html#l00103">103</a> of file <a class="el" href="a00500_source.html">pwrctrl_typedef.h</a>.</p>
+
+</div>
+</div>
+<a id="a7738d75eba1234a8928245eae64a01a7" name="a7738d75eba1234a8928245eae64a01a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7738d75eba1234a8928245eae64a01a7">&#9670;&#160;</a></span>ptrReferenceTarget</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t* ptrReferenceTarget</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00500_source.html#l00104">104</a> of file <a class="el" href="a00500_source.html">pwrctrl_typedef.h</a>.</p>
+
+</div>
+</div>
+<a id="a13025badec30c52baf766e745d4c699f" name="a13025badec30c52baf766e745d4c699f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13025badec30c52baf766e745d4c699f">&#9670;&#160;</a></span>RampComplete</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RampComplete</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00500_source.html#l00105">105</a> of file <a class="el" href="a00500_source.html">pwrctrl_typedef.h</a>.</p>
+
+</div>
+</div>
+<a id="accf24954a61bfc0ab7ca1768da52625a" name="accf24954a61bfc0ab7ca1768da52625a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accf24954a61bfc0ab7ca1768da52625a">&#9670;&#160;</a></span>StepSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t StepSize</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00500_source.html#l00102">102</a> of file <a class="el" href="a00500_source.html">pwrctrl_typedef.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>dspic33ck-dab.X/sources/pwrctrl/<a class="el" href="a00500_source.html">pwrctrl_typedef.h</a></li>
 </ul>
-</li>
-<li>Device Management:<ul>
-<li><a class="el" href="a00305.html" title="Contains current sensor initialization and calibration evaluation.">dev_current_sensor.c</a>: Measures current sensor offset.</li>
-<li><a class="el" href="a00311.html" title="Contains fan initialization and execution functions.">dev_fan.c</a>: Initializes and controls fan speed.</li>
-<li><a class="el" href="a00323.html" title="Contains LED initialization and execution functions.">dev_led.c</a>: Provides LED functions to indicate the power converter's state.</li>
-<li><a class="el" href="a00329_source.html">dev_temp.c</a>: Indicates and calculates the board temperature.</li>
-</ul>
-</li>
-<li>Driver Management:<ul>
-<li><a class="el" href="a00350_source.html">mcc_custom_config.c</a>: Contains peripheral functions that are manually changed.</li>
-</ul>
-</li>
-<li>Fault Handling:<ul>
-<li><a class="el" href="a00362.html" title="Contains fault functions including the fault handler, fault object initialization and fault execution...">fault.c</a>: Manages fault initialization, execution, and handling.</li>
-<li><a class="el" href="a00374.html" title="Contains API functions for fault protection.">fault_comm_interface.c</a>: Contains functions that interfaces to the communication interface</li>
-<li><a class="el" href="a00368_source.html">fault_common.c</a>: Contains generic fault handling functions.</li>
-</ul>
-</li>
-<li>Power Control:<ul>
-<li><a class="el" href="a00443.html" title="Contains power control initialization including control loop initialization and start-up initializati...">pwrctrl.c</a>: Manages power control initialization, control loop, and execution.</li>
-<li><a class="el" href="a00455.html" title="Contains power control interface with communication/gui.">pwrctrl_comm_interface.c</a>: Contains functions that interfaces to the communication interface.</li>
-<li><a class="el" href="a00449.html" title="Contains generic functions that handles power control ramp Up/Down and the averaging generic function...">pwrctrl_common.c</a>: Contains generic functions for power control ramp up/down and averaging.</li>
-<li><a class="el" href="a00461.html" title="Contains Control loop interrupt Callback that acquires the ADC raw data and process it in the control...">pwrctrl_isr.c</a>: Handles control loop interrupt callbacks, ADC data acquisition, and PWM distribution.</li>
-<li><a class="el" href="a00467.html" title="Contains some of the functions used in the interrupt service routine of control loop.">pwrctrl_isr_extension.c</a>: Contains functions that is called in the ISR.</li>
-<li><a class="el" href="a00470.html" title="Contains DAB control phase calculation between primary and secondary, and the PWM distribution.">pwrctrl_pwm.c</a>: Calculates DAB control phase and manages PWM distribution.</li>
-<li><a class="el" href="a00476.html" title="Contains power control state machine functions that is executed every 100us.">pwrctrl_sm.c</a>: Executes the power control state machine every 100 microseconds.</li>
-</ul>
-</li>
-</ul>
-<center> <img src="images/dab-block-diagram.jpg" alt="firmware-0" width="850" class="inline"/> <br  />
- Firmware block diagram. </center> <p>The firmware block diagram illustrates the use of the dspic33C for a Dual Active Bridge converter. The following provides a detailed explanation of the firmware development for this application.</p>
-<hr  />
- <h1><a class="anchor" id="autotoc_md20"></a>
-Modes of Operation</h1>
-<p>The DAB board operates in two modes, capable of outputting either 400V or 800V, depending on the user-specified settings. These modes are controlled by two defines in the <a class="el" href="a00287_source.html">config/config.h</a> file: </p><pre class="fragment">#define DCDC400V_SYSTEM
-</pre><p> The 400V battery system operates within a voltage range of approximately 300V (discharged) to 450V (fully charged). </p><pre class="fragment">#define DCDC800V_SYSTEM
-</pre><p> The 800V battery system operates within a voltage range of approximately 600V (discharged) to 900V (fully charged).</p>
-<p>Typically, a single-phase totem pole combined with a DAB DC/DC converter is used for the 400V system (450V input, 300V to 450V output). For the 800V system, a three-phase totem pole combined with a DAB DC/DC converter is recommended (800V input, 600V to 900V output).</p>
-<p>When switching between modes, the fault protection thresholds are automatically adjusted to match the selected voltage range.</p>
-<hr  />
- <h1><a class="anchor" id="autotoc_md22"></a>
-Converter State Machine</h1>
-<p>The main power controller state machine, executed every 100 microseconds, is detailed in the function Dev_PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance) located in <a class="el" href="a00476.html" title="Contains power control state machine functions that is executed every 100us.">pwrctrl/pwrctrl_sm.c</a>. The state machine progresses through a series of steps in a specific chronological order during its execution.</p>
-<h2>Operating States</h2>
-<p>The state machine for the power control system (PCS) operates as follows:</p>
-<ul>
-<li><a class="el" href="a00521.html#ga8307344d190a5459682d315fc7bfe198" title="Executes function for initialze state machine.">PCS_INIT_handler()</a>: Resets conditional flag bits, disables PWM output, and runs initial current calibration offset. Then, it checks the fault handler.</li>
-<li><a class="el" href="a00521.html#gaad6ef2378120876a621b349c1380aef7" title="Executes the fault handler state machine.">PCS_WAIT_IF_FAULT_ACTIVE_handler()</a>: Checks for fault events. If none are detected, it transitions to the StandBy state.</li>
-<li><a class="el" href="a00521.html#ga42f7c8f65745b2f81bb6dbd381ea8121" title="Executes Standby State machine.">PCS_STANDBY_handler()</a>: Waits for no fault events and the power control enable bit to be set. Once set, it resets fault status bits, PWM control settings, enables the power control running bit and PWM output, initializes control loop references, and moves to the soft start state.</li>
-<li><a class="el" href="a00521.html#gabda6b853bb6547821acd0ec87e0a4842" title="Executes the power control soft start state machine.">PCS_SOFT_START_handler()</a>: Gradually adjusts power control references until the desired control reference is reached, then transitions to the online state.</li>
-<li><a class="el" href="a00521.html#ga8752fbb48416e60141e205f1cbda0f98" title="Executes the Online state.">PCS_UP_AND_RUNNING_handler()</a>: Enters constant regulation mode after successful startup, maintaining this mode until shutdown or suspension. It monitors and adjusts the control reference as needed using a defined transition ramp.</li>
-</ul>
-<center> <img src="images/dab-state-machine.jpg" alt="state-machine" width="450" class="inline"/> <br  />
- Power supply state machine. </center> <p><span id="soft-starting-the-converter"><a class="anchor" id="soft-starting-the-converter"></a> </span></p>
-<h1><a class="anchor" id="autotoc_md23"></a>
-Power Control Data Structure</h1>
-<p>Before utilizing the state machine, it is essential to define and initialize at least one Power control data object within the power control code. The following outlines the data structure of POWER_CONTROL_t and its usage. </p><div class="fragment"><div class="line"><span class="keyword">struct </span><a class="code hl_struct" href="a00737.html">POWER_CONTROL_s</a></div>
-<div class="line">{</div>
-<div class="line">    <a class="code hl_struct" href="a00713.html">STATUS_FLAGS_t</a>          <a class="code hl_variable" href="a00737.html#ae5b4ae59c620ed360f0cb1c66ea0cd4e">Status</a>; </div>
-<div class="line">    PWR_CTRL_STATE_t        <a class="code hl_variable" href="a00737.html#a8b22029ea33e1bafe7050317294309c2">State</a>;  </div>
-<div class="line">    <a class="code hl_struct" href="a00733.html">PWR_CTRL_PROPERTIES_t</a>   <a class="code hl_variable" href="a00737.html#a2c015371f9d53a7ba0131e65634f8129">Properties</a>; </div>
-<div class="line">    <a class="code hl_struct" href="a00705.html">SWITCH_NODE_t</a>           <a class="code hl_variable" href="a00737.html#a133fe9da595a11547aacc8e4f1ae3b8a">Pwm</a>;    </div>
-<div class="line">    <a class="code hl_struct" href="a00709.html">FEEDBACK_SETTINGS_t</a>     <a class="code hl_variable" href="a00737.html#a9961eac6798b52736528d9d4aa30d922">Data</a>;   </div>
-<div class="line">    <a class="code hl_struct" href="a00669.html">FAULT_SETTINGS_t</a>        <a class="code hl_variable" href="a00737.html#aead2ae6cfabf4831af21d23684e19d1f">Fault</a>;  </div>
-<div class="line">    <a class="code hl_struct" href="a00725.html">START_UP_RAMP_t</a>         <a class="code hl_variable" href="a00737.html#afd1d9d28f344713441a2330e010de959">VRamp</a>;  </div>
-<div class="line">    <a class="code hl_struct" href="a00725.html">START_UP_RAMP_t</a>         <a class="code hl_variable" href="a00737.html#afdaae86371984281bf846fac8b1d918a">IRamp</a>;  </div>
-<div class="line">    <a class="code hl_struct" href="a00725.html">START_UP_RAMP_t</a>         <a class="code hl_variable" href="a00737.html#a7969f4ded01738878ec44b5a56985c85">PRamp</a>;  </div>
-<div class="line">    <a class="code hl_struct" href="a00729.html">CONTROLLER_t</a>            <a class="code hl_variable" href="a00737.html#a13383149438802e4c6c08683d6d004db">ILoop</a>;  </div>
-<div class="line">    <a class="code hl_struct" href="a00729.html">CONTROLLER_t</a>            <a class="code hl_variable" href="a00737.html#a74800143138c6a887f2edec0e47008a8">VLoop</a>;  </div>
-<div class="line">    <a class="code hl_struct" href="a00729.html">CONTROLLER_t</a>            <a class="code hl_variable" href="a00737.html#a14f61bb42ecc88a3ff43a417b48194b0">PLoop</a>;  </div>
-<div class="line">    PWR_CTRL_CHARGE_STATE_t    <a class="code hl_variable" href="a00737.html#aab4ae5a26b108cbc7a8c541c3b82ed2f">PowerDirection</a>;  </div>
-<div class="line">};</div>
-<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="a00737.html">POWER_CONTROL_s</a> <a class="code hl_struct" href="a00737.html">POWER_CONTROL_t</a>;</div>
-<div class="ttc" id="aa00669_html"><div class="ttname"><a href="a00669.html">FAULT_SETTINGS_s</a></div><div class="ttdoc">Contains Fault settings.</div><div class="ttdef"><b>Definition</b> <a href="a00380_source.html#l00039">fault_typedef.h:40</a></div></div>
-<div class="ttc" id="aa00705_html"><div class="ttname"><a href="a00705.html">SWITCH_NODE_s</a></div><div class="ttdoc">Power converter switch-node specifications.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00035">pwrctrl_typedef.h:36</a></div></div>
-<div class="ttc" id="aa00709_html"><div class="ttname"><a href="a00709.html">FEEDBACK_SETTINGS_s</a></div><div class="ttdoc">Publicly accessible data buffer of most recent runtime data values.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00057">pwrctrl_typedef.h:58</a></div></div>
-<div class="ttc" id="aa00713_html"><div class="ttname"><a href="a00713.html">STATUS_FLAGS_s</a></div><div class="ttdoc">Power converter status flags.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00079">pwrctrl_typedef.h:79</a></div></div>
-<div class="ttc" id="aa00725_html"><div class="ttname"><a href="a00725.html">START_UP_RAMP_s</a></div><div class="ttdoc">Stores data related to the ramping up/down of the reference.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00098">pwrctrl_typedef.h:99</a></div></div>
-<div class="ttc" id="aa00729_html"><div class="ttname"><a href="a00729.html">CONTROLLER_s</a></div><div class="ttdoc">Stores data related to the control loop properties.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00118">pwrctrl_typedef.h:119</a></div></div>
-<div class="ttc" id="aa00733_html"><div class="ttname"><a href="a00733.html">PWR_CTRL_PROPERTIES_s</a></div><div class="ttdoc">Collection of power control properties.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00148">pwrctrl_typedef.h:149</a></div></div>
-<div class="ttc" id="aa00737_html"><div class="ttname"><a href="a00737.html">POWER_CONTROL_s</a></div><div class="ttdoc">Power control API structure.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00166">pwrctrl_typedef.h:167</a></div></div>
-<div class="ttc" id="aa00737_html_a13383149438802e4c6c08683d6d004db"><div class="ttname"><a href="a00737.html#a13383149438802e4c6c08683d6d004db">POWER_CONTROL_s::ILoop</a></div><div class="ttdeci">CONTROLLER_t ILoop</div><div class="ttdoc">structure for current controller data</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00177">pwrctrl_typedef.h:177</a></div></div>
-<div class="ttc" id="aa00737_html_a133fe9da595a11547aacc8e4f1ae3b8a"><div class="ttname"><a href="a00737.html#a133fe9da595a11547aacc8e4f1ae3b8a">POWER_CONTROL_s::Pwm</a></div><div class="ttdeci">SWITCH_NODE_t Pwm</div><div class="ttdoc">Switch node settings.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00171">pwrctrl_typedef.h:171</a></div></div>
-<div class="ttc" id="aa00737_html_a14f61bb42ecc88a3ff43a417b48194b0"><div class="ttname"><a href="a00737.html#a14f61bb42ecc88a3ff43a417b48194b0">POWER_CONTROL_s::PLoop</a></div><div class="ttdeci">CONTROLLER_t PLoop</div><div class="ttdoc">structure for power controller data</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00179">pwrctrl_typedef.h:179</a></div></div>
-<div class="ttc" id="aa00737_html_a2c015371f9d53a7ba0131e65634f8129"><div class="ttname"><a href="a00737.html#a2c015371f9d53a7ba0131e65634f8129">POWER_CONTROL_s::Properties</a></div><div class="ttdeci">PWR_CTRL_PROPERTIES_t Properties</div><div class="ttdoc">Power Control properties</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00170">pwrctrl_typedef.h:170</a></div></div>
-<div class="ttc" id="aa00737_html_a74800143138c6a887f2edec0e47008a8"><div class="ttname"><a href="a00737.html#a74800143138c6a887f2edec0e47008a8">POWER_CONTROL_s::VLoop</a></div><div class="ttdeci">CONTROLLER_t VLoop</div><div class="ttdoc">structure for voltage controller data</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00178">pwrctrl_typedef.h:178</a></div></div>
-<div class="ttc" id="aa00737_html_a7969f4ded01738878ec44b5a56985c85"><div class="ttname"><a href="a00737.html#a7969f4ded01738878ec44b5a56985c85">POWER_CONTROL_s::PRamp</a></div><div class="ttdeci">START_UP_RAMP_t PRamp</div><div class="ttdoc">Power ramp-up settings.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00176">pwrctrl_typedef.h:176</a></div></div>
-<div class="ttc" id="aa00737_html_a8b22029ea33e1bafe7050317294309c2"><div class="ttname"><a href="a00737.html#a8b22029ea33e1bafe7050317294309c2">POWER_CONTROL_s::State</a></div><div class="ttdeci">PWR_CTRL_STATE_t State</div><div class="ttdoc">Power Control State ID.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00169">pwrctrl_typedef.h:169</a></div></div>
-<div class="ttc" id="aa00737_html_a9961eac6798b52736528d9d4aa30d922"><div class="ttname"><a href="a00737.html#a9961eac6798b52736528d9d4aa30d922">POWER_CONTROL_s::Data</a></div><div class="ttdeci">FEEDBACK_SETTINGS_t Data</div><div class="ttdoc">Feedback channel settings.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00172">pwrctrl_typedef.h:172</a></div></div>
-<div class="ttc" id="aa00737_html_aab4ae5a26b108cbc7a8c541c3b82ed2f"><div class="ttname"><a href="a00737.html#aab4ae5a26b108cbc7a8c541c3b82ed2f">POWER_CONTROL_s::PowerDirection</a></div><div class="ttdeci">PWR_CTRL_CHARGE_STATE_t PowerDirection</div><div class="ttdoc">defines if the power converter is in charging or discharging mode</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00180">pwrctrl_typedef.h:180</a></div></div>
-<div class="ttc" id="aa00737_html_ae5b4ae59c620ed360f0cb1c66ea0cd4e"><div class="ttname"><a href="a00737.html#ae5b4ae59c620ed360f0cb1c66ea0cd4e">POWER_CONTROL_s::Status</a></div><div class="ttdeci">STATUS_FLAGS_t Status</div><div class="ttdoc">Power Supply status flags.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00168">pwrctrl_typedef.h:168</a></div></div>
-<div class="ttc" id="aa00737_html_aead2ae6cfabf4831af21d23684e19d1f"><div class="ttname"><a href="a00737.html#aead2ae6cfabf4831af21d23684e19d1f">POWER_CONTROL_s::Fault</a></div><div class="ttdeci">FAULT_SETTINGS_t Fault</div><div class="ttdoc">Fault flags and settings.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00173">pwrctrl_typedef.h:173</a></div></div>
-<div class="ttc" id="aa00737_html_afd1d9d28f344713441a2330e010de959"><div class="ttname"><a href="a00737.html#afd1d9d28f344713441a2330e010de959">POWER_CONTROL_s::VRamp</a></div><div class="ttdeci">START_UP_RAMP_t VRamp</div><div class="ttdoc">Voltage ramp-up settings.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00174">pwrctrl_typedef.h:174</a></div></div>
-<div class="ttc" id="aa00737_html_afdaae86371984281bf846fac8b1d918a"><div class="ttname"><a href="a00737.html#afdaae86371984281bf846fac8b1d918a">POWER_CONTROL_s::IRamp</a></div><div class="ttdeci">START_UP_RAMP_t IRamp</div><div class="ttdoc">Current ramp-up settings.</div><div class="ttdef"><b>Definition</b> <a href="a00479_source.html#l00175">pwrctrl_typedef.h:175</a></div></div>
-</div><!-- fragment --><h4>Declaration Examples</h4>
-<div class="fragment"><div class="line"><a class="code hl_struct" href="a00737.html">POWER_CONTROL_t</a> <a class="code hl_variable" href="a00518.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a>;    <span class="comment">// Declare DAB converter data structure</span></div>
-<div class="ttc" id="aa00518_html_ga5762de26b3d1b822c6a4b9c1605cd387"><div class="ttname"><a href="a00518.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a></div><div class="ttdeci">POWER_CONTROL_t dab</div><div class="ttdoc">Global data object for a DAB Converter.</div><div class="ttdef"><b>Definition</b> <a href="a00443_source.html#l00028">pwrctrl.c:28</a></div></div>
-</div><!-- fragment --><hr  />
-<h1><a class="anchor" id="autotoc_md25"></a>
-Fault Protection</h1>
-<p>The fault protection code, executed every 10 microseconds within the interrupt service routine in the function Dev_Fault_Execute(), is located in the file <a class="el" href="a00362.html" title="Contains fault functions including the fault handler, fault object initialization and fault execution...">fault/fault.c</a>. There are two types of protection: firmware fault protection, implemented on the dsPIC on the DP-PIM, and hardware fault protection, implemented on the DAB power board. The primary purpose of these protections is to prevent catastrophic board damage, especially from input and output overcurrent events.</p>
-<hr  />
-<h2>Firmware Fault Protection</h2>
-<p>All our firmware fault protection systems operate with the same functionality, incorporating a trigger threshold, a clear threshold, a fault blanking time, and a fault clear time.</p>
-<p>For instance, in the case of a fault with a "max" threshold (e.g., output over-voltage protection), the fault is triggered when the source exceeds the threshold. A timer starts once this threshold is breached. If the source remains above the threshold beyond the fault blanking time, the fault becomes active, causing the PWMs to switch off and the converter to enter the "FAULT ACTIVE" state. If the source drops below the threshold before the blanking time expires, the timer resets.</p>
-<p>When the fault is active, it will be cleared if the source stays below the clear threshold for the fault clear time. Once all faults are cleared, the converter will either restart or be ready to start again. </p>
-<center> <img src="images/fault.png" alt="fault-protection" width="800" class="inline"/> <br  />
- Firmware Fault protection. </center> <p>The accompanying flowchart illustrates the process in detail. If "fault active" is true, the fault is active, and the converter is disabled. Conversely, if "fault active" is false, the converter is permitted to attempt startup. </p>
-<center> <img src="images/fault-diagram.png" alt="fault-protection" width="750" class="inline"/> <br  />
- Flowchart illustrating the firmware fault protection. </center> <p>The table below lists all faults that are protected by our firmware, which executes fault protection every 10 microseconds. </p>
-<center> <img src="images/dab-fault-threshold.jpg" alt="fault-protection" width="700" class="inline"/> <br  />
- DAB faults with firmware protection. </center> <hr  />
-<h2>Hardware fault protection</h2>
-<p>The hardware fault protection system is engineered to avert significant board damage, particularly from input or output overcurrent. It activates instantaneously, setting all PWM drive signals to zero and shutting down the converter. This system functions independently of the dsPIC, ensuring that any drive signals from the dsPIC are overridden by the hardware protection before reaching the FET drivers.</p>
-<p>When the hardware fault protection is triggered, it latches, meaning it will not reset automatically and requires manual intervention to clear.</p>
-<p>To restart the board, there is a need to disable all PWMs by either removing the input supply or erasing the dsPIC firmware (the latter is recommended for safety).</p>
-<p>The dsPIC implements output overcurrent protection using comparators and DACs as follows:</p>
-<ul>
-<li>The current transformer in the high voltage bridge sense is connected to CMP1DAC.</li>
-<li>The current transformer in the low voltage bridge sense is connected to CMP3DAC.</li>
-</ul>
-<p>These comparators has built-in digital filter that could blank the unwanted comparator output transitions due to analog comparator input signals that has been corrupted by the large electromagnetic fields generated by the external switching power transistors.</p>
-<p>If either comparator trips, it disable all PWM drive signals and placing the converter in the "FAULT ACTIVE" state. Since this is also a hardware fault protection, this fault protection is also latched, necessitating a dsPIC reset to restart the converter. If this fault protection is activated, the RESET flag in the Power Board Visualizer GUI will be set, indicating that the dsPIC needs to be reset to restart the DAB converter.</p>
-<center> <img src="images/fault-protection.jpg" alt="" width="250" class="inline"/></center><center> DAB faults with hardware protection. </center> <hr  />
-<h1><a class="anchor" id="autotoc_md29"></a>
-PWM Setup</h1>
-<p>The PWM setup for the DAB application is primarily configured using MCC-generated initialization functions in the main function, with additional custom configurations applied as needed. The application employs a dual phase shift (DPS) modulation scheme, which adjusts the phases in both primary and secondary bridges. This approach offers advantages over traditional phase shift (TPS) control by reducing current stress and enhancing system efficiency.</p>
-<center> <img src="images/digital-pwm-signal.jpg" alt="PWM signal" width="800" class="inline"/></center><center> DAB Dual phase shift control </center> <hr  />
-<h2>PWM Routing</h2>
-<p>In this application, the primary bridge of the DAB is driven by PWM1 (for P1 and P2) and PWM3 (for P3 and P4), while the secondary bridge is driven by PWM2 (for S1 and S2) and PWM4 (for S3 and S4). Each PWM operates in complementary mode, with PWM3 and PWM4 having swapped outputs. The output swapping of the PWM is an additional PWM settings that can be found in <a class="el" href="a00338.html" title="Contains PWM initialization that was not supported by MCC generated code.">driver/mcc_extension/drv_custom_config_pwm.h</a>. </p>
-<center> <img src="images/dab-schematic.jpg" alt="" width="800" class="inline"/></center><center> Simplified DAB schematic </center> <center> <img src="images/pwm-soc.jpg" alt="" width="800" class="inline"/></center><center> Cascaded PWM modules </center> <p>In a cascaded PWM configuration, the first PWM triggers subsequent PWMs in sequence, ensuring synchronized updates across all PWMs within the same cycle. In the DAB application, PWM1 acts as the master, while PWM2, PWM3, and PWM4 are secondary PWMs that follow PWM1. The configuration ensures that the start of each PWM cycle is dependent on the preceding PWM (e.g., PWM2 starts after PWM1, PWM3 after PWM2, and PWM4 after PWM3). PWM4, being the last in the sequence, broadcasts the update signal to all PWMs, ensuring synchronized data updates.</p>
-<center> <img src="images/pwm-configuration.jpg" alt="PWM config MCC" width="1200" class="inline"/> <br  />
- PWM configuration in MCC Melody. </center> <hr  />
- <h1><a class="anchor" id="autotoc_md31"></a>
-Power Control Compensator</h1>
-<p>In this project, the Microchip <a href="https://www.microchip.com/en-us/development-tool/dcdt">Digital Compensator Design Tool</a> has been employed for managing control loops. This software utility is specifically designed to aid engineers in the development and optimization of digital compensators for power supply systems. The tool streamlines the design process of digital control loops by offering an intuitive interface for configuring and tuning compensators.</p>
-<p>This tool generates control loop files that are essential for code development. These files can be found in the directory pwrctrl/dcdt/. In the file <a class="el" href="a00425.html" title="Contains individual DCDT control loop initialization functions.">pwrctrl_dcdt.c</a>, users need to initialize the A- and B- coefficients of the control loop from DCDT, as well as set the scaling and limits for the control loop output. The control loop compensator is executed within the control loop interrupt service routine. This application includes three compensators: Voltage Loop, Current Loop, and Power Loop. The compensators are configured to allow users to adjust their limits in the Power Board Visualizer. The compensator with the lowest reference threshold will take precedence in controlling the loop.</p>
-<center> <img src="images/pbv-control-loop.jpg" alt="" width="600" class="inline"/></center><center> DAB Power Board Visualizer Control Loop </center> <p>In this application, the Voltage loop and Power Loop is executed every 10KHz, with phase shift of 180 degrees making it interleaved with each other, while the Current Loop is executed every 100KHz. This timing diagram shows how much the control loop interrupt service routine in the CPU load.</p>
-<center> <img src="images/control-loop-timing.jpg" alt="" width="700" class="inline"/></center><center> DAB Vloop, Ploop and ILoop Timing </center> <center> <img src="images/isr-timing.jpg" alt="" width="700" class="inline"/></center><center> DAB ISR Timing </center> <hr  />
-<p>&copy; 2024, Microchip Technology Inc.</p>
-<hr  />
- </div></div><!-- contents -->
-</div><!-- PageDoc -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

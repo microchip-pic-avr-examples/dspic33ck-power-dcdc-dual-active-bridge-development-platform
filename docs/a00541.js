@@ -1,7 +1,9 @@
 var a00541 =
 [
-    [ "WATCHDOG_CLR_KEY", "a00541.html#ga9fe59f55f06cfb2df71dcf9f0b64cd3c", null ],
-    [ "WATCHDOG_TimerClear", "a00541.html#ga0709c01950447ea286ea4538174a7a82", null ],
-    [ "WATCHDOG_TimerSoftwareDisable", "a00541.html#ga74fb697367e441a6ac0a56e33794ebc4", null ],
-    [ "WATCHDOG_TimerSoftwareEnable", "a00541.html#gaf945fced45ce9cc9a9922d8f31e09e67", null ]
+    [ "pwrctrl_pwm.c", "a00491.html", null ],
+    [ "pwrctrl_pwm.h", "a00494.html", null ],
+    [ "PwrCtrl_PWM_DAB_DirectionSpecificSwapCfg", "a00541.html#ga09cbca9d9eea8e033ba27cb0f77417c3", null ],
+    [ "PwrCtrl_PWM_Disable", "a00541.html#ga79ec0c0e524a03b3a3d423308b89bb99", null ],
+    [ "PwrCtrl_PWM_Enable", "a00541.html#gae20d34fb8fc7fbaa57f6c68b2907807f", null ],
+    [ "PwrCtrl_PWM_Update", "a00541.html#ga73f526371cadb7674354635462e836cc", null ]
 ];

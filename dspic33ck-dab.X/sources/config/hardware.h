@@ -32,6 +32,8 @@
 #define VSEC_SNS_GAIN               (3.18e-3)   // V/V
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
+#define VSEC_VOLTAGE_GAIN           (float)0.2534 ////< scaling for voltage vs ADC value
+
 
 /******************************************************************************
  * @ingroup primary-current-feedback

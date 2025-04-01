@@ -35,7 +35,8 @@ The platform is designed to handle voltage levels of up to 800 VDC on the primar
  - Digitally-Controlled Dual Active Bridge Converter
  - Utilization of dsPIC peripherals that allows switching frequency operation ranging from 65KHz to 300KHz
  - dspic33 plug-in module mating socket pinout compatible to other DSC DP PIMs.
-
+ - Can be operated in forward and reverse mode operation
+	
 ---
 
 ## Related Documentation
@@ -44,13 +45,17 @@ __Firmware Documentation__
 
 - [Online Firmware Documentation of this Code Example](https://microchip-pic-avr-examples.github.io/dspic33ck-power-dcdc-dual-active-bridge-development-platform/)
 
+__Firmware Version__ 
+- [Forward Direction Operation Firmware Code version 1.0](https://mplab-discover.microchip.com/com.microchip.mplabx.project.dspic33ck-power-dcdc-dual-active-bridge-development-platform/1.0.0)
+- [Forward and Reverse Direction Operation Firmware Code version 2.0](https://mplab-discover.microchip.com/com.microchip.mplabx.project.dspic33ck-power-dcdc-dual-active-bridge-development-platform/2.0.0)
+
 __Hardware Documentation__
 
 - [11kW Dual Active Bridge DC-DC Demonstration Application](https://www.microchip.com/en-us/tools-resources/reference-designs/11-kw-dual-active-bridge-dc-dc-demonstration-application)
 - [Isolated Voltage Acquisition Board User’s Guide](https://www.microchip.com/70005524)
 - [SiC FET Plug-In Module (SiC FET PIM) User’s Guide](https://www.microchip.com/50003512)
-- Operational Manuals
-   - [AC Voltage Inverter](https://www.microchip.com/70005570)
+- Operational Manual
+- Users Guide
 
 __Target Device Documentation__
 
@@ -86,11 +91,11 @@ __Please always check for the latest data sheets on the respective product websi
 ## Directory Structure
 The directory structure for this project is summarized below.
 
-	├───dspic33ck-dab.X							DAB main project 
-	├───images									Images for the Readme 
-	├───power_board_visualizer_xmls				Power Board Visualizer Projects
-	├───pre_compiled_hex_files					Pre compiled Hex files for 400V output operation 
-	└───sources									Common Sources between both projects
+	├───dspic33ck-dab.X	          DAB main project 
+	├───images	                  Images for the Readme 
+	├───power_board_visualizer_xmls   Power Board Visualizer Projects
+	├───pre_compiled_hex_files	  Pre compiled Hex files for 400V output operation 
+	└───sources	                  Common Sources between both projects
 
 ---
 
@@ -121,6 +126,22 @@ To enable CAN communication from the PC to the DAB application board, a USB to C
 
 <p><center><a target="_blank" rel="nofollow">
 <p>
+<img src="images/dab-connection-forward.jpg" alt="dsPIC33C DAB Development Board Hardware set-up" width="800">
+</a>
+</center>
+</p>
+
+<p>
+<center>
+<a target="_blank" rel="nofollow">
+dsPIC33C DAB Development Board Hardware set-up for Forward mode Operation
+</a>
+</center>
+</p>
+
+
+<p><center><a target="_blank" rel="nofollow">
+<p>
 <img src="images/dab-connection.jpg" alt="dsPIC33C DAB Development Board Hardware set-up" width="800">
 </a>
 </center>
@@ -129,7 +150,7 @@ To enable CAN communication from the PC to the DAB application board, a USB to C
 <p>
 <center>
 <a target="_blank" rel="nofollow">
-dsPIC33C DAB Development Board Hardware set-up
+dsPIC33C DAB Development Board Hardware set-up for Reverse mode Operation
 </a>
 </center>
 </p>
@@ -160,16 +181,17 @@ DAB project running on Power Board Visualizer GUI
 </p>
 
 
-1. Start/Stop Button
-	- This button toggles the application on and off. Each button press sends a corresponding message over CANFD. For detailed CAN message descriptions, click on the Info tab.
-2. Voltage Output, Current Output, and Power Output Reference Sliders
-	- These sliders are used to set reference values for output voltage, current, and power for the DAB. The lowest value among them will control the output. Ensure to press the Set button below the slider to communicate the reference value to the microcontroller.
+1. Start Fwd / Stop / Start Rev Button
+	- This button toggles the application on and off and allows user to select the mode of operation, either forward mode or reverse mode operation. Each button press sends a corresponding message over CANFD. For detailed CAN message descriptions, click on the Info tab.
+	- <b> NOTE: </b> To carefully transition the mode from forward to reverse operation, and vice versa, the operation needs to be stop first.
+2. Voltage Output for Forward and Reverse operation, Current Output, and Power Output Reference Sliders
+	- These sliders are used to set reference values for output voltage, current, and power for the DAB. The lowest value among them will control the output. Ensure to press the Set button below the slider to communicate the reference value to the microcontroller. A dedicated voltage output setup for Forward and reverse operation is provided to the user.
 3. Comm Status and COM Selector
 	- The "COM?" button lists all available communication ports for the PBV. If the Peak Dongle drivers are installed and the Peak USB dongle is connected, it will appear as PCAN_USB:FD. Select the appropriate port and click enable. The Power Board Visualizer will then open the selected Comm port.
 4. DAB Controller State
 	- This section displays the current state of the system. Detailed information about each state and the state machine can be found in the Firmware Overview section.
 5. DAB Status Flags
-	- This section lists the high-level state of the system and any fault conditions that occur.
+	- This section lists the high-level state of the system and any fault conditions that occur. It also shows as to what DAB operation is currently active (ie. Forward or Reverse mode of operation)
 
 #### Sequence of Actions to Power On
 After opening the appropriate Power Board Visualizer project, follow these steps to start the board:
@@ -177,11 +199,12 @@ After opening the appropriate Power Board Visualizer project, follow these steps
 1. Select the correct communication port and enable it.
 2. Verify that everything is set up correctly by checking for status/housekeeping data and ensuring the system is in the PCS_STANDBY state. Confirm that the correct operation mode is programmed by examining the status flags.
 3. Adjust the reference voltage/current if necessary.
-4. Click on "Start." The system will quickly transition through various states and should eventually reach the PCS_UP_AND_RUNNING state.
+4. Click on "Start Fwd" for Forward mode or "Start Rev" for Reverse mode.  The system will quickly transition through various states and should eventually reach the PCS_UP_AND_RUNNING state.
+5. When changing DAB mode of operation, click on "Stop" to end the previous operation, then initiate the "Start" on the newly desired DAB mode of operation.
 
-<p><center><a target="_blank" rel="nofollow" href="images/dab-in-stand-by.png">
+<p><center><a target="_blank" rel="nofollow" href="images/dab-fwd-mode.jpg">
 <p>
-<img src="images/dab-in-stand-by.png" alt="DAB in StandBy state" width="800">
+<img src="images/dab-fwd-mode.jpg" alt="DAB in Forward mode Operation" width="800">
 </a>
 </center>
 </p>
@@ -189,16 +212,16 @@ After opening the appropriate Power Board Visualizer project, follow these steps
 <p>
 <center>
 <a target="_blank" rel="nofollow">
-DAB in StandBy state
+DAB in Forward Mode Operation
 </a>
 </center>
 </p>
 
 
 
-<p><center><a target="_blank" rel="nofollow" href="images/dab-running.png">
+<p><center><a target="_blank" rel="nofollow" href="images/dab-stop.jpg">
 <p>
-<img src="images/dab-running.png" alt="DAB in running state" width="800">
+<img src="images/dab-stop.jpg" alt="DAB in StandBy State" width="800">
 </a>
 </center>
 </p>
@@ -206,11 +229,27 @@ DAB in StandBy state
 <p>
 <center>
 <a target="_blank" rel="nofollow">
-DAB in running state
+DAB in StandBy State
+</a>
+</center>
+</p>
+
+
+<p><center><a target="_blank" rel="nofollow" href="images/dab-rev-mode.jpg">
+<p>
+<img src="images/dab-rev-mode.jpg" alt="DAB in Reverse Mode Operation" width="800">
+</a>
+</center>
+</p>
+
+<p>
+<center>
+<a target="_blank" rel="nofollow">
+DAB in Reverse Mode Operation
 </a>
 </center>
 </p>
 
 ---
-&copy; 2024, Microchip Technology Inc.
+&copy; 2025, Microchip Technology Inc.
 

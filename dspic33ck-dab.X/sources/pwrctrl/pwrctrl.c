@@ -25,7 +25,7 @@
  * @details The 'dab' data object holds all status, control and monitoring values 
  * of the POWER_CONTROL_t power controller. 
  ******************************************************************************/
-POWER_CONTROL_t dab;    // Declare DAB converter data structure
+POWER_CONTROL_t dab;    // Declare DAB converter data structure, global, only one instance
 
 // PRIVATE FUNCTIONS
 static void PwrCtrl_StartUpInitialize(void);
@@ -57,7 +57,7 @@ void PwrCtrl_Initialize(void)
     dab.Pwm.PBVPeriodTarget = MAX_PWM_PERIOD;
     
     // Initialize the DAB to charging state
-    dab.PowerDirection = PWR_CTRL_CHARGING;
+    dab.PowerDirection = PWR_CTRL_STOP;
     
     // Initialize Start-Up ramp settings
     PwrCtrl_StartUpInitialize();
@@ -186,8 +186,18 @@ void PwrCtrl_ControlLoopInitialize(void)
 static void PwrCtrl_StartUpInitialize(void)
 {
     // Initialize Voltage ramp-up settings
-    dab.VRamp.ptrReference = (uint16_t*)&dab.VLoop.Reference;
-    dab.VRamp.ptrReferenceTarget = &dab.Properties.VSecReference;
+    dab.VRamp.ptrReference = (uint16_t *)&dab.VLoop.Reference;
+    
+
+    if(dab.PowerDirection == PWR_CTRL_DISCHARGING)
+    {    
+        dab.VRamp.ptrReferenceTarget = &dab.Properties.VPriReference;
+    }
+    else
+    {
+        dab.VRamp.ptrReferenceTarget = &dab.Properties.VSecReference;
+    }    
+    
     dab.VRamp.StepSize = 1;
     dab.VRamp.Delay = 20;
     dab.VRamp.Counter = 0;

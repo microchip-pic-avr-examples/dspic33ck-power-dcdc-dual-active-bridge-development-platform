@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Fault Configuration</title>
+<title>Dual Active Bridge Development Board: User Configuration</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,263 +137,73 @@ $(document).ready(function(){initNavTree('a00527.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Fault Configuration<div class="ingroups"><a class="el" href="a00526.html">Fault Monitor</a></div></div></div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">User Configuration<div class="ingroups"><a class="el" href="a00522.html">Communication Layer</a> &raquo; <a class="el" href="a00523.html">Power Board Visualizer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains functions that initialize, execute and handles the power supply fault.  
+<p>This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Fault Configuration:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for User Configuration:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00527.svg" width="286" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00527.svg" width="343" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:a00362" id="r_a00362"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html">fault.c</a></td></tr>
-<tr class="memdesc:a00362"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains fault functions including the fault handler, fault object initialization and fault execution. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00365" id="r_a00365"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00365.html">fault.h</a></td></tr>
-<tr class="memdesc:a00365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains public fault functions. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00374" id="r_a00374"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00374.html">fault_comm_interface.c</a></td></tr>
-<tr class="memdesc:a00374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains API functions for fault protection. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00377" id="r_a00377"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00377.html">fault_comm_interface.h</a></td></tr>
-<tr class="memdesc:a00377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains API functions for fault protection. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00646.html">APP_PBV_INTF_API_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure of API function pointers.  <a href="a00646.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gaf27f2f24932cec222273df148f8765cb" id="r_gaf27f2f24932cec222273df148f8765cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a> (void)</td></tr>
-<tr class="memdesc:gaf27f2f24932cec222273df148f8765cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the fault trip by turning off the power control switching.  <br /></td></tr>
-<tr class="separator:gaf27f2f24932cec222273df148f8765cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaa5a7a6dc7ce982dec4f07edcd73e874" id="r_gaaa5a7a6dc7ce982dec4f07edcd73e874"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#gaaa5a7a6dc7ce982dec4f07edcd73e874">Fault_Initialize</a> (void)</td></tr>
-<tr class="memdesc:gaaa5a7a6dc7ce982dec4f07edcd73e874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the fault objects.  <br /></td></tr>
-<tr class="separator:gaaa5a7a6dc7ce982dec4f07edcd73e874"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacd1ca209275dae0bc2388ac954858d83" id="r_gacd1ca209275dae0bc2388ac954858d83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#gacd1ca209275dae0bc2388ac954858d83">Fault_Execute</a> (void)</td></tr>
-<tr class="memdesc:gacd1ca209275dae0bc2388ac954858d83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the fault handlers.  <br /></td></tr>
-<tr class="separator:gacd1ca209275dae0bc2388ac954858d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8ed0fee0d3aff71d49470aab1728a6ae" id="r_ga8ed0fee0d3aff71d49470aab1728a6ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#ga8ed0fee0d3aff71d49470aab1728a6ae">Fault_Reset</a> (void)</td></tr>
-<tr class="memdesc:ga8ed0fee0d3aff71d49470aab1728a6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the fault object flag bits.  <br /></td></tr>
-<tr class="separator:ga8ed0fee0d3aff71d49470aab1728a6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa8479905c2a8b34126d4fe56c1882b1b" id="r_gaa8479905c2a8b34126d4fe56c1882b1b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#gaa8479905c2a8b34126d4fe56c1882b1b">Fault_EnableShortCircuitProtection</a> (void)</td></tr>
-<tr class="memdesc:gaa8479905c2a8b34126d4fe56c1882b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable Short circuit hardware protection.  <br /></td></tr>
-<tr class="separator:gaa8479905c2a8b34126d4fe56c1882b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga35608d94d8d76de809bb7588a325abc9" id="r_ga35608d94d8d76de809bb7588a325abc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#ga35608d94d8d76de809bb7588a325abc9">Fault_Execute_100ms</a> (void)</td></tr>
-<tr class="memdesc:ga35608d94d8d76de809bb7588a325abc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault evaluation for Temperature and other slow fault detection executed every 100ms.  <br /></td></tr>
-<tr class="separator:ga35608d94d8d76de809bb7588a325abc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga40c15cce2e781ba3b9268150395d466c" id="r_ga40c15cce2e781ba3b9268150395d466c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00646.html">APP_PBV_INTF_API_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#ga40c15cce2e781ba3b9268150395d466c">appPbvFuncs</a></td></tr>
+<tr class="memdesc:ga40c15cce2e781ba3b9268150395d466c"><td class="mdescLeft">&#160;</td><td class="mdescRight">structure of API function pointers.  <br /></td></tr>
+<tr class="separator:ga40c15cce2e781ba3b9268150395d466c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>This document covers the fault initialization, the fault execute function, and the fault handler. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="gaa8479905c2a8b34126d4fe56c1882b1b" name="gaa8479905c2a8b34126d4fe56c1882b1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa8479905c2a8b34126d4fe56c1882b1b">&#9670;&#160;</a></span>Fault_EnableShortCircuitProtection()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void Fault_EnableShortCircuitProtection </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function setup the short circuit protection threshold and turns on the DAC (Digital-to-Analog) module. This hardware protection use Comparator DACs to detect short circuit. <br  />
- </p>
-
-<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00237">237</a> of file <a class="el" href="a00362_source.html">fault.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00527_gaa8479905c2a8b34126d4fe56c1882b1b_icgraph.svg" width="328" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gacd1ca209275dae0bc2388ac954858d83" name="gacd1ca209275dae0bc2388ac954858d83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gacd1ca209275dae0bc2388ac954858d83">&#9670;&#160;</a></span>Fault_Execute()</h2>
+<p>This provides a mechanism to abstract away the underlying physical layer by using function pointers, that point to different layers depending upon which layer is selected. </p>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ga40c15cce2e781ba3b9268150395d466c" name="ga40c15cce2e781ba3b9268150395d466c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga40c15cce2e781ba3b9268150395d466c">&#9670;&#160;</a></span>appPbvFuncs</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Fault_Execute </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">const <a class="el" href="a00646.html">APP_PBV_INTF_API_t</a> appPbvFuncs</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function evaluates if any of the fault objects has been tripped. When fault detection occurs, the power converter will shutdown thus turn-off the power converter. </p>
+<b>Initial value:</b><div class="fragment"><div class="line">= {</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">}</div>
+</div><!-- fragment --><p>&lt; Includes </p>
 
-<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00115">115</a> of file <a class="el" href="a00362_source.html">fault.c</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00527_gacd1ca209275dae0bc2388ac954858d83_cgraph.svg" width="100%" height="556"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00527_gacd1ca209275dae0bc2388ac954858d83_icgraph.svg" width="308" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga35608d94d8d76de809bb7588a325abc9" name="ga35608d94d8d76de809bb7588a325abc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga35608d94d8d76de809bb7588a325abc9">&#9670;&#160;</a></span>Fault_Execute_100ms()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Fault_Execute_100ms </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function checks if the board temperature is within the nominal operating range. When value exceeds the limit, the power control can trip or perform temperature derating for temperature fault. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00263">263</a> of file <a class="el" href="a00362_source.html">fault.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00527_ga35608d94d8d76de809bb7588a325abc9_cgraph.svg" width="100%" height="454"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00527_ga35608d94d8d76de809bb7588a325abc9_icgraph.svg" width="312" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gaf27f2f24932cec222273df148f8765cb" name="gaf27f2f24932cec222273df148f8765cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf27f2f24932cec222273df148f8765cb">&#9670;&#160;</a></span>Fault_Handler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Fault_Handler </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function handles the occurence of fault when one of the fault condition trips. It shuts down the operation of the power control, set the FaultActive bit and clear the Running bit indicating that power converter has been turned-off. A fault pin is also set to low to blocked the PWM signal as a hardware protection. <br  />
- </p>
-
-<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00041">41</a> of file <a class="el" href="a00362_source.html">fault.c</a>.</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00527_gaf27f2f24932cec222273df148f8765cb_cgraph.svg" width="562" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00527_gaf27f2f24932cec222273df148f8765cb_icgraph.svg" width="504" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gaaa5a7a6dc7ce982dec4f07edcd73e874" name="gaaa5a7a6dc7ce982dec4f07edcd73e874"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaaa5a7a6dc7ce982dec4f07edcd73e874">&#9670;&#160;</a></span>Fault_Initialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Fault_Initialize </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function initializes the fault objects following each respective fault thresholds. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00065">65</a> of file <a class="el" href="a00362_source.html">fault.c</a>.</p>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00527_gaaa5a7a6dc7ce982dec4f07edcd73e874_cgraph.svg" width="328" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga8ed0fee0d3aff71d49470aab1728a6ae" name="ga8ed0fee0d3aff71d49470aab1728a6ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8ed0fee0d3aff71d49470aab1728a6ae">&#9670;&#160;</a></span>Fault_Reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Fault_Reset </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<p>This function clears the fault status bits for Fault Active and Fault Latched. A fault pin is also drive to high to allow PWM signal drive. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00200">200</a> of file <a class="el" href="a00362_source.html">fault.c</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00527_ga8ed0fee0d3aff71d49470aab1728a6ae_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00278_source.html#l00026">26</a> of file <a class="el" href="a00278_source.html">PBV_config.c</a>.</p>
 
 </div>
 </div>

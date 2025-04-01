@@ -21,6 +21,7 @@
 #include "fault_common.h"
 #include "fault.h"
 #include "fault_comm_interface.h"
+#include "../driver/mcc_extension/drv_mcc_extension_pwm.h"
 
 // PRIVATE FUNCTIONS
 static void Fault_EnableShortCircuitProtection(void);
@@ -146,8 +147,24 @@ void Fault_Execute(void)
     #endif  
     
     // Hardware short circuit
-    if(CMP1_StatusGet() || CMP3_StatusGet()){
-        
+//    if(CMP1_StatusGet() || CMP3_StatusGet()){
+//        
+//        Fault_Handler();
+//        
+//        // Set fault bits
+//        dab.Fault.Object.ISenseSCP.FaultActive = 1;
+//        dab.Fault.Object.ISenseSCP.FaultLatch = 1;
+//
+//        faultCheck &= dab.Fault.Object.ISenseSCP.FaultActive;
+//    }
+    
+
+    //sometimes the comparator state changes back to 0 by the time it is read by fault controller code
+    //it is still captured inside PWM generator as fault signal.
+    //act on this signal if detected, as generic Short Circuit detection fault.
+    //PWM signals are already turned off by HW, so adjust SW flow accordingly
+    if(FAULT_ACTIVE)
+    {
         Fault_Handler();
         
         // Set fault bits
@@ -157,29 +174,60 @@ void Fault_Execute(void)
         faultCheck &= dab.Fault.Object.ISenseSCP.FaultActive;
     }
     
+    
+    //check OC comparator and set fault signals if needed
+    if(CMP3_StatusGet() )
+    {
+        Fault_Handler();
+        
+        // Set fault bits
+        dab.Fault.Object.IPrimaryOCP.FaultActive = 1;
+        dab.Fault.Object.IPrimaryOCP.FaultLatch = 1;
+
+        faultCheck &= dab.Fault.Object.IPrimaryOCP.FaultActive;
+    }
+    //check OC comparator and set fault signals if needed
+    if(CMP1_StatusGet())
+    {
+        Fault_Handler();
+        
+        // Set fault bits
+        dab.Fault.Object.ISecondaryOCP.FaultActive = 1;
+        dab.Fault.Object.ISecondaryOCP.FaultLatch = 1;
+
+        faultCheck &= dab.Fault.Object.ISecondaryOCP.FaultActive;
+    }
+    
     #if defined (LOAD_DISCONNECT) && (LOAD_DISCONNECT ==  true)
     // Protection when Load is removed by accident. 
     //DAB does not sink power in this modulation. Voltage builds up on output.
-    if(dab.PowerDirection==PWR_CTRL_CHARGING)    
-    {    
-        if((iSecAveraging.AverageValue <=  (ISEC_LOAD_STEP_CLAMP>>2)) && 
-           (vSecAveraging.AverageValue > (dab.VLoop.Reference + VSEC_LOAD_STEP_CLAMP)) && 
-           (dab.Properties.IReference >= 1) )
+    if(dab.State==PWRCTRL_STATE_ONLINE)//ignore all other transient or off states
+    {     
+        if(dab.PowerDirection==PWR_CTRL_CHARGING)    
+        {    
+            if((iSecAveraging.AverageValue <=  (ISEC_LOAD_STEP_CLAMP>>2)) && 
+               (vSecAveraging.AverageValue > (dab.VLoop.Reference + VSEC_LOAD_STEP_CLAMP)) && 
+               (dab.Properties.IReference >= 3) && 
+               (dab.Properties.PwrReference >= 100)
+                    )
+            {
+                loadDisconnect = true;
+                Fault_Handler();
+            }   
+        }
+        if(dab.PowerDirection==PWR_CTRL_DISCHARGING)    
         {
-            loadDisconnect = true;
-            Fault_Handler();
-        }   
+            if((iSecAveraging.AverageValue <=  (ISEC_LOAD_STEP_CLAMP>>2)) && 
+               (vPrimAveraging.AverageValue > (dab.VLoop.Reference + VPRIM_LOAD_STEP_CLAMP)) && 
+               (dab.Properties.IReference >= 3) && 
+               (dab.Properties.PwrReference >= 100)
+                    )
+            {
+                loadDisconnect = true;
+                Fault_Handler();
+            } 
+        }  
     }
-    if(dab.PowerDirection==PWR_CTRL_DISCHARGING)    
-    {
-        if((iSecAveraging.AverageValue <=  (ISEC_LOAD_STEP_CLAMP>>2)) && 
-           (vPrimAveraging.AverageValue > (dab.VLoop.Reference + VPRIM_LOAD_STEP_CLAMP)) && 
-           (dab.Properties.IReference >= 1) )
-        {
-            loadDisconnect = true;
-            Fault_Handler();
-        } 
-    }   
     #endif
 
     dab.Status.bits.FaultActive = faultCheck;

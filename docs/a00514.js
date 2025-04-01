@@ -1,8 +1,7 @@
 var a00514 =
 [
-    [ "MCC Custom Code PWM", "a00515.html", "a00515" ],
-    [ "MCC Custom Code ADC", "a00516.html", "a00516" ],
-    [ "drv_mcc_extension.h", "a00341.html", null ],
-    [ "mcc_custom_config.h", "a00353.html", null ],
-    [ "MCC_Custom_User_Config", "a00514.html#gafe646acf69be10085d651f4561909f69", null ]
+    [ "VRAIL_5V_UV_T_BLANK_CLEAR", "a00514.html#ga197548e0249065a587df067bb2b6bfb6", null ],
+    [ "VRAIL_5V_UV_T_BLANK_TRIG", "a00514.html#ga573c9325062416430b7fdc8f41a93988", null ],
+    [ "VRAIL_5V_UV_THRES_CLEAR", "a00514.html#gaeffd832d63247c37746ec9a51023126f", null ],
+    [ "VRAIL_5V_UV_THRES_TRIG", "a00514.html#gae66c69a25a09bf23a8542f9e2ca4b016", null ]
 ];

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/src/pins.c Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/system/reset_types.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,7 +136,7 @@ $(document).ready(function(){initNavTree('a00203_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">pins.c</div></div>
+  <div class="headertitle"><div class="title">reset_types.h</div></div>
 </div><!--header-->
 <div class="contents">
 <a href="a00203.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
@@ -161,70 +161,47 @@ $(document).ready(function(){initNavTree('a00203_source.html',''); initResizable
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    THIS SOFTWARE.</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// Section: Includes</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;xc.h&gt;</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;../pins.h&quot;</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">// Section: File specific functions</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">// Section: Driver Interface Function Definitions</span></div>
-<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="a00542.html#gad6f767603dec823a33d6b0aceea97e27">   46</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00542.html#gad6f767603dec823a33d6b0aceea97e27">PINS_Initialize</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#ifndef RESET_TYPES_H</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define    RESET_TYPES_H</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="a00203.html#a92cc33c67de24fe26250120e3aafda6c">   46</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="a00203.html#a92cc33c67de24fe26250120e3aafda6c">RESET_TYPES</a></div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>{</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    LATA = 0x0000;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    LATB = 0x0000;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    LATC = 0x0000;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    LATD = 0x0208;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    TRISA = 0x0017;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    TRISB = 0x03FF;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    TRISC = 0xB2FF;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    TRISD = 0x6CD4;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    CNPUA = 0x0000;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    CNPUB = 0x0000;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    CNPUC = 0x0000;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    CNPUD = 0x0000;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    CNPDA = 0x0000;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    CNPDB = 0x0000;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    CNPDC = 0x0000;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    CNPDD = 0x0000;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    ODCA = 0x0000;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    ODCB = 0x0000;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    ODCC = 0x0000;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    ODCD = 0x0200;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    ANSELA = 0x001F;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    ANSELB = 0x0387;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    ANSELC = 0x00CF;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    ANSELD = 0x2C00;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>     __builtin_write_RPCON(0x0000); <span class="comment">// unlock PPS</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        RPINR18bits.U1RXR = 0x0044; <span class="comment">//RD4-&gt;UART1:U1RX;</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        RPINR26bits.CAN1RXR = 0x0046; <span class="comment">//RD6-&gt;CAN1:CAN1RX;</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        RPOR12bits.RP56R = 0x0011;  <span class="comment">//RC8-&gt;SCCP3:OCM3;</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        RPOR17bits.RP67R = 0x0001;  <span class="comment">//RD3-&gt;UART1:U1TX;</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        RPOR18bits.RP69R = 0x0015;  <span class="comment">//RD5-&gt;CAN1:CAN1TX;</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>     __builtin_write_RPCON(0x0800); <span class="comment">// lock PPS</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="a00203.html#a92cc33c67de24fe26250120e3aafda6cad974210eb3f052af587cafd1471f0f67">   48</a></span>    <a class="code hl_enumvalue" href="a00203.html#a92cc33c67de24fe26250120e3aafda6cad974210eb3f052af587cafd1471f0f67">RESET_ERROR_RCON_TRAPR</a>      = 1, </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="a00203.html#a92cc33c67de24fe26250120e3aafda6cad50f2cab06dc54dd6fee62dc023aadb9">   49</a></span>    <a class="code hl_enumvalue" href="a00203.html#a92cc33c67de24fe26250120e3aafda6cad50f2cab06dc54dd6fee62dc023aadb9">RESET_ERROR_RCON_IOPUWR</a>     = 2, </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="a00203.html#a92cc33c67de24fe26250120e3aafda6cad15efd66bf9cfb08382194b72b39cd96">   50</a></span>    <a class="code hl_enumvalue" href="a00203.html#a92cc33c67de24fe26250120e3aafda6cad15efd66bf9cfb08382194b72b39cd96">RESET_ERROR_RCON_CM</a>         = 3, </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_enumvalue" href="a00203.html#a92cc33c67de24fe26250120e3aafda6caad384de18a0059f8c1f7edd96d92fcd6">RESET_ERROR_RCON_WDTO_ISR</a>   = 4  </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="a00203.html#a92cc33c67de24fe26250120e3aafda6caad384de18a0059f8c1f7edd96d92fcd6">   52</a></span>};</div>
 </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="ttc" id="aa00542_html_gad6f767603dec823a33d6b0aceea97e27"><div class="ttname"><a href="a00542.html#gad6f767603dec823a33d6b0aceea97e27">PINS_Initialize</a></div><div class="ttdeci">void PINS_Initialize(void)</div><div class="ttdoc">Initializes the PINS module.</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00046">pins.c:46</a></div></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="};">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="a00203.html#a3b9230c673ed49797255d1f6173d45bc">   59</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="a00203.html#a3b9230c673ed49797255d1f6173d45bc">RESET_MASKS</a></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{ </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="a00203.html#a3b9230c673ed49797255d1f6173d45bcade24eaaa45bcfb478a59f3883741fb88">   61</a></span>  <a class="code hl_enumvalue" href="a00203.html#a3b9230c673ed49797255d1f6173d45bcade24eaaa45bcfb478a59f3883741fb88">RESET_MASK_POR</a>       = 0x0001,   </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="a00203.html#a3b9230c673ed49797255d1f6173d45bca0195abe5d431a7bed22c78fab34e17ad">   62</a></span>  <a class="code hl_enumvalue" href="a00203.html#a3b9230c673ed49797255d1f6173d45bca0195abe5d431a7bed22c78fab34e17ad">RESET_MASK_WDTO</a>      = 0x0010,   </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="a00203.html#a3b9230c673ed49797255d1f6173d45bca614781b5da4962bd9265aa5fca72c7c1">   63</a></span>  <a class="code hl_enumvalue" href="a00203.html#a3b9230c673ed49797255d1f6173d45bca614781b5da4962bd9265aa5fca72c7c1">RESET_MASK_SWR</a>       = 0x0040,   </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="a00203.html#a3b9230c673ed49797255d1f6173d45bca3fa962659b419b21fc3d0a6543384e6f">   64</a></span>  <a class="code hl_enumvalue" href="a00203.html#a3b9230c673ed49797255d1f6173d45bca3fa962659b419b21fc3d0a6543384e6f">RESET_MASK_EXTR</a>      = 0x0080,   </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="a00203.html#a3b9230c673ed49797255d1f6173d45bca8d4a8d4c0d7ad5ea8646046862decb4e">   65</a></span>  <a class="code hl_enumvalue" href="a00203.html#a3b9230c673ed49797255d1f6173d45bca8d4a8d4c0d7ad5ea8646046862decb4e">RESET_MASK_CM</a>        = 0x0200,   </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="a00203.html#a3b9230c673ed49797255d1f6173d45bcaaae0abec60599ee127c50bc78bf200fa">   66</a></span>  <a class="code hl_enumvalue" href="a00203.html#a3b9230c673ed49797255d1f6173d45bcaaae0abec60599ee127c50bc78bf200fa">RESET_MASK_IOPUWR</a>    = 0x4000,   </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="a00203.html#a3b9230c673ed49797255d1f6173d45bcac55f85ffed9cf26e28cd21e20dc062aa">   67</a></span>  <a class="code hl_enumvalue" href="a00203.html#a3b9230c673ed49797255d1f6173d45bcac55f85ffed9cf26e28cd21e20dc062aa">RESET_MASK_TRAPR</a>     = 0x8000,   </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>};</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#endif    </span><span class="comment">/* RESET_TYPES_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="ttc" id="aa00203_html_a3b9230c673ed49797255d1f6173d45bc"><div class="ttname"><a href="a00203.html#a3b9230c673ed49797255d1f6173d45bc">RESET_MASKS</a></div><div class="ttdeci">RESET_MASKS</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00059">reset_types.h:60</a></div></div>
+<div class="ttc" id="aa00203_html_a3b9230c673ed49797255d1f6173d45bca0195abe5d431a7bed22c78fab34e17ad"><div class="ttname"><a href="a00203.html#a3b9230c673ed49797255d1f6173d45bca0195abe5d431a7bed22c78fab34e17ad">RESET_MASK_WDTO</a></div><div class="ttdeci">@ RESET_MASK_WDTO</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00062">reset_types.h:62</a></div></div>
+<div class="ttc" id="aa00203_html_a3b9230c673ed49797255d1f6173d45bca3fa962659b419b21fc3d0a6543384e6f"><div class="ttname"><a href="a00203.html#a3b9230c673ed49797255d1f6173d45bca3fa962659b419b21fc3d0a6543384e6f">RESET_MASK_EXTR</a></div><div class="ttdeci">@ RESET_MASK_EXTR</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00064">reset_types.h:64</a></div></div>
+<div class="ttc" id="aa00203_html_a3b9230c673ed49797255d1f6173d45bca614781b5da4962bd9265aa5fca72c7c1"><div class="ttname"><a href="a00203.html#a3b9230c673ed49797255d1f6173d45bca614781b5da4962bd9265aa5fca72c7c1">RESET_MASK_SWR</a></div><div class="ttdeci">@ RESET_MASK_SWR</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00063">reset_types.h:63</a></div></div>
+<div class="ttc" id="aa00203_html_a3b9230c673ed49797255d1f6173d45bca8d4a8d4c0d7ad5ea8646046862decb4e"><div class="ttname"><a href="a00203.html#a3b9230c673ed49797255d1f6173d45bca8d4a8d4c0d7ad5ea8646046862decb4e">RESET_MASK_CM</a></div><div class="ttdeci">@ RESET_MASK_CM</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00065">reset_types.h:65</a></div></div>
+<div class="ttc" id="aa00203_html_a3b9230c673ed49797255d1f6173d45bcaaae0abec60599ee127c50bc78bf200fa"><div class="ttname"><a href="a00203.html#a3b9230c673ed49797255d1f6173d45bcaaae0abec60599ee127c50bc78bf200fa">RESET_MASK_IOPUWR</a></div><div class="ttdeci">@ RESET_MASK_IOPUWR</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00066">reset_types.h:66</a></div></div>
+<div class="ttc" id="aa00203_html_a3b9230c673ed49797255d1f6173d45bcac55f85ffed9cf26e28cd21e20dc062aa"><div class="ttname"><a href="a00203.html#a3b9230c673ed49797255d1f6173d45bcac55f85ffed9cf26e28cd21e20dc062aa">RESET_MASK_TRAPR</a></div><div class="ttdeci">@ RESET_MASK_TRAPR</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00067">reset_types.h:67</a></div></div>
+<div class="ttc" id="aa00203_html_a3b9230c673ed49797255d1f6173d45bcade24eaaa45bcfb478a59f3883741fb88"><div class="ttname"><a href="a00203.html#a3b9230c673ed49797255d1f6173d45bcade24eaaa45bcfb478a59f3883741fb88">RESET_MASK_POR</a></div><div class="ttdeci">@ RESET_MASK_POR</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00061">reset_types.h:61</a></div></div>
+<div class="ttc" id="aa00203_html_a92cc33c67de24fe26250120e3aafda6c"><div class="ttname"><a href="a00203.html#a92cc33c67de24fe26250120e3aafda6c">RESET_TYPES</a></div><div class="ttdeci">RESET_TYPES</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00046">reset_types.h:47</a></div></div>
+<div class="ttc" id="aa00203_html_a92cc33c67de24fe26250120e3aafda6caad384de18a0059f8c1f7edd96d92fcd6"><div class="ttname"><a href="a00203.html#a92cc33c67de24fe26250120e3aafda6caad384de18a0059f8c1f7edd96d92fcd6">RESET_ERROR_RCON_WDTO_ISR</a></div><div class="ttdeci">@ RESET_ERROR_RCON_WDTO_ISR</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00052">reset_types.h:51</a></div></div>
+<div class="ttc" id="aa00203_html_a92cc33c67de24fe26250120e3aafda6cad15efd66bf9cfb08382194b72b39cd96"><div class="ttname"><a href="a00203.html#a92cc33c67de24fe26250120e3aafda6cad15efd66bf9cfb08382194b72b39cd96">RESET_ERROR_RCON_CM</a></div><div class="ttdeci">@ RESET_ERROR_RCON_CM</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00050">reset_types.h:50</a></div></div>
+<div class="ttc" id="aa00203_html_a92cc33c67de24fe26250120e3aafda6cad50f2cab06dc54dd6fee62dc023aadb9"><div class="ttname"><a href="a00203.html#a92cc33c67de24fe26250120e3aafda6cad50f2cab06dc54dd6fee62dc023aadb9">RESET_ERROR_RCON_IOPUWR</a></div><div class="ttdeci">@ RESET_ERROR_RCON_IOPUWR</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00049">reset_types.h:49</a></div></div>
+<div class="ttc" id="aa00203_html_a92cc33c67de24fe26250120e3aafda6cad974210eb3f052af587cafd1471f0f67"><div class="ttname"><a href="a00203.html#a92cc33c67de24fe26250120e3aafda6cad974210eb3f052af587cafd1471f0f67">RESET_ERROR_RCON_TRAPR</a></div><div class="ttdeci">@ RESET_ERROR_RCON_TRAPR</div><div class="ttdef"><b>Definition</b> <a href="a00203_source.html#l00048">reset_types.h:48</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

@@ -19,6 +19,6 @@ uint8_t PBV_UART_Transmit_to_GUI();
 uint8_t PBV_UART_Transmit_Ascii_to_GUI();
 void PBV_UART_Reinit(PBV_Datatype_TX_t * ptr);
 void PBV_UART_Link_Data_TX(PBV_Datatype_TX_t * ptr);
-void PBV_UART_Link_Data_RX(PBV_Datatype_RX_t * ptr);
+int PBV_UART_Link_Data_RX(PBV_Datatype_RX_t * ptr);
 
 #endif

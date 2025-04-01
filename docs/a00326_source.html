@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_led.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/dev_current_sensor.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,72 +136,26 @@ $(document).ready(function(){initNavTree('a00326_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">dev_led.h</div></div>
+  <div class="headertitle"><div class="title">dev_current_sensor.h</div></div>
 </div><!--header-->
 <div class="contents">
 <a href="a00326.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// This is a guard condition so that contents of this file are not included</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">// more than once.  </span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#ifndef DEV_LED_H</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define DEV_LED_H</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;xc.h&gt;</span>     <span class="comment">// include processor files - each processor file is guarded.  </span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;stdint.h&gt;</span> <span class="comment">// include standard integer data types</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="a00326.html#a42308849576b2f1ead04e472d38985da">   31</a></span><span class="preprocessor">#define NUM_OF_LEDS     3</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
- <span class="comment">//</span><div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">//module API                mapped to   MCC custom labels</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="a00326.html#a61a32ccd374bf5d2904a973830ca2f7b">   41</a></span><span class="preprocessor">#define LED_Board_Red_On                LED_RED_SetHigh</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="a00326.html#af299247f6c447b7b376ced264d739cc5">   42</a></span><span class="preprocessor">#define LED_Board_Red_Off               LED_RED_SetLow</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="a00326.html#ae0de68d2452e62129bf0d5860dfb27d4">   43</a></span><span class="preprocessor">#define LED_Board_Red_Toggle_State      LED_RED_Toggle</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="a00326.html#aac93fadbf5a22e17126b58efc901e218">   45</a></span><span class="preprocessor">#define LED_Board_Green_On              LED_GREEN_SetHigh</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="a00326.html#ac5ccf337acbae5091e0cbc8148b0bcd7">   46</a></span><span class="preprocessor">#define LED_Board_Green_Off             LED_GREEN_SetLow</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="a00326.html#ad09b82a87c5196dacd7b0d7fb41f2e22">   47</a></span><span class="preprocessor">#define LED_Board_Green_Toggle_State    LED_GREEN_Toggle</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="a00326.html#ab985e272ea5eac0aa414c97b42bedfc6">   49</a></span><span class="preprocessor">#define LED_DP_PIM_on                   LED_DP_PIM_SetHigh</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="a00326.html#aa45b71b36f2f20f80f11eabfb6a696e2">   50</a></span><span class="preprocessor">#define LED_DP_PIM_off                  LED_DP_PIM_SetLow</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="a00326.html#a5f928ddff5ba51f3389a73185e9c856e">   51</a></span><span class="preprocessor">#define LED_DP_PIM_Toggle_State         LED_DP_PIM_Toggle</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
- <span class="comment">// end of dev-led-porting-macros</span><div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="a00326.html#a475de8c8db0474d30041ba8dd09bae62">   60</a></span><span class="preprocessor">#define LED_PIM_RED                 0  </span><span class="comment">//labeling</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="a00326.html#aeb672e6a70610b38fdc98e57cf0dbb1b">   61</a></span><span class="preprocessor">#define LED_BOARD_RED               1</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="a00326.html#a4747e134730e2696f0e8a34f81832b7d">   62</a></span><span class="preprocessor">#define LED_BOARD_GREEN             2</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="a00326.html#af50bb2f71c69952dc0a1b0a5bf943d60">   65</a></span><span class="preprocessor">#define BLINK_100ms_INTERVAL       1 </span><span class="comment">//blink is ticked from 100ms Task. Adjust if faster Tick rate is used</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="a00326.html#a6b6174d3dbb46d28d4ad20ad4c762e89">   66</a></span><span class="preprocessor">#define BLINK_SLOW_INTERVAL        (BLINK_100ms_INTERVAL*20) </span><span class="comment">//( *100ms)    2 sec</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="a00326.html#aa79ae5803dc1df4832d901732c227b6b">   67</a></span><span class="preprocessor">#define BLINK_FAST_INTERVAL        (BLINK_100ms_INTERVAL*2)  </span><span class="comment">//             0.5</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="a00326.html#ae2ec6c3e936dcaccf4bc733c26bbc32b">   68</a></span><span class="preprocessor">#define BLINK_INTERVAL             (BLINK_100ms_INTERVAL*5)  </span><span class="comment">//             0.5                      </span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
- <span class="comment">// end of dev-led-enums-public</span><div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#ga6fc0416c8ff212d938628b290a18a390">Dev_LED_On</a>(uint8_t led_id);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#ga645c25dba273dcf25dc202d31f441154">Dev_LED_Off</a>(uint8_t led_id);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#gacf12fda3f7d99f77a0e68b846273984f">Dev_LED_Toggle</a>(uint8_t led_id);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#gaf44b310330b9dbf4597275fdade9b5f7">Dev_LED_Blink</a>(uint8_t led_id);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#ga371fdb6009ec0f15b00e75ad4ef4d177">Dev_LED_Blink_Slow</a>(uint8_t led_id);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#ga9a710b93c9efd76f1c850ee4415f736c">Dev_LED_Blink_Fast</a>(uint8_t led_id);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">//void Dev_LED_Blink_Iter(uint8_t led_id, uint8_t count);</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00512.html#gad26b3effecb0675aad3bcba8993a0bb2">Dev_LED_Task_100ms</a>();</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_LED_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="ttc" id="aa00512_html_ga2d2db02502e7b576a9149d114f303daa"><div class="ttname"><a href="a00512.html#ga2d2db02502e7b576a9149d114f303daa">Dev_LED_Initialize</a></div><div class="ttdeci">void Dev_LED_Initialize(void)</div><div class="ttdoc">This function contains the LED initialization.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00078">dev_led.c:78</a></div></div>
-<div class="ttc" id="aa00512_html_ga371fdb6009ec0f15b00e75ad4ef4d177"><div class="ttname"><a href="a00512.html#ga371fdb6009ec0f15b00e75ad4ef4d177">Dev_LED_Blink_Slow</a></div><div class="ttdeci">void Dev_LED_Blink_Slow(uint8_t led_id)</div><div class="ttdoc">Set the LED in SLOW blinking mode.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00192">dev_led.c:192</a></div></div>
-<div class="ttc" id="aa00512_html_ga645c25dba273dcf25dc202d31f441154"><div class="ttname"><a href="a00512.html#ga645c25dba273dcf25dc202d31f441154">Dev_LED_Off</a></div><div class="ttdeci">void Dev_LED_Off(uint8_t led_id)</div><div class="ttdoc">Switch off the LED.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00118">dev_led.c:118</a></div></div>
-<div class="ttc" id="aa00512_html_ga6fc0416c8ff212d938628b290a18a390"><div class="ttname"><a href="a00512.html#ga6fc0416c8ff212d938628b290a18a390">Dev_LED_On</a></div><div class="ttdeci">void Dev_LED_On(uint8_t led_id)</div><div class="ttdoc">Switch on the LED.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00094">dev_led.c:94</a></div></div>
-<div class="ttc" id="aa00512_html_ga9a710b93c9efd76f1c850ee4415f736c"><div class="ttname"><a href="a00512.html#ga9a710b93c9efd76f1c850ee4415f736c">Dev_LED_Blink_Fast</a></div><div class="ttdeci">void Dev_LED_Blink_Fast(uint8_t led_id)</div><div class="ttdoc">Set the LED in FAST blinking mode.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00207">dev_led.c:207</a></div></div>
-<div class="ttc" id="aa00512_html_gacf12fda3f7d99f77a0e68b846273984f"><div class="ttname"><a href="a00512.html#gacf12fda3f7d99f77a0e68b846273984f">Dev_LED_Toggle</a></div><div class="ttdeci">void Dev_LED_Toggle(uint8_t led_id)</div><div class="ttdoc">Toggles the LED state.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00142">dev_led.c:142</a></div></div>
-<div class="ttc" id="aa00512_html_gad26b3effecb0675aad3bcba8993a0bb2"><div class="ttname"><a href="a00512.html#gad26b3effecb0675aad3bcba8993a0bb2">Dev_LED_Task_100ms</a></div><div class="ttdeci">void Dev_LED_Task_100ms()</div><div class="ttdoc">This function needs to be called every 100ms and contains the code to update the status of the LEDs.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00224">dev_led.c:224</a></div></div>
-<div class="ttc" id="aa00512_html_gaf44b310330b9dbf4597275fdade9b5f7"><div class="ttname"><a href="a00512.html#gaf44b310330b9dbf4597275fdade9b5f7">Dev_LED_Blink</a></div><div class="ttdeci">void Dev_LED_Blink(uint8_t led_id)</div><div class="ttdoc">Set the LED in blinking mode.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00161">dev_led.c:161</a></div></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DEV_CURRENT_SENSOR_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DEV_CURRENT_SENSOR_H</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00531.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">void</span> <a class="code hl_function" href="a00531.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">extern</span> uint16_t <a class="code hl_function" href="a00531.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">extern</span> uint16_t <a class="code hl_function" href="a00531.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif  </span><span class="comment">/* DEV_CURRENT_SENSOR_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="ttc" id="aa00531_html_ga218632f9814c3bf20c40cea0794ffc7d"><div class="ttname"><a href="a00531.html#ga218632f9814c3bf20c40cea0794ffc7d">Dev_CurrentSensor_Get_CalibrationStatus</a></div><div class="ttdeci">uint16_t Dev_CurrentSensor_Get_CalibrationStatus(void)</div><div class="ttdoc">API function to get the calibration status.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00101">dev_current_sensor.c:101</a></div></div>
+<div class="ttc" id="aa00531_html_ga494b4a948891fd5757ccc647f9962529"><div class="ttname"><a href="a00531.html#ga494b4a948891fd5757ccc647f9962529">Dev_CurrentSensor_Clr_Offset</a></div><div class="ttdeci">void Dev_CurrentSensor_Clr_Offset(void)</div><div class="ttdoc">API function to clear the sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00121">dev_current_sensor.c:121</a></div></div>
+<div class="ttc" id="aa00531_html_ga9f581abf52dc00ba320faafa189fafb9"><div class="ttname"><a href="a00531.html#ga9f581abf52dc00ba320faafa189fafb9">Dev_CurrentSensor_Get_Offset</a></div><div class="ttdeci">uint16_t Dev_CurrentSensor_Get_Offset(void)</div><div class="ttdoc">API function to get the sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00111">dev_current_sensor.c:111</a></div></div>
+<div class="ttc" id="aa00531_html_gaaa75855922e60913d443c6203475256f"><div class="ttname"><a href="a00531.html#gaaa75855922e60913d443c6203475256f">Dev_CurrentSensorOffsetCal</a></div><div class="ttdeci">void Dev_CurrentSensorOffsetCal(void)</div><div class="ttdoc">Measures the currents sensor offset.</div><div class="ttdef"><b>Definition</b> <a href="a00323_source.html#l00087">dev_current_sensor.c:87</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

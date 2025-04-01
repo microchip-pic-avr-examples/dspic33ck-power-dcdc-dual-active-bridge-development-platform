@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/fault/fault.c File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/driver/mcc_extension/drv_mcc_extension_adc.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,81 +137,116 @@ $(document).ready(function(){initNavTree('a00362.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">fault.c File Reference<div class="ingroups"><a class="el" href="a00526.html">Fault Monitor</a> &raquo; <a class="el" href="a00527.html">Fault Configuration</a></div></div></div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">drv_mcc_extension_adc.h File Reference<div class="ingroups"><a class="el" href="a00535.html">Driver Layer</a> &raquo; <a class="el" href="a00537.html">MCC Custom Code ADC</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains fault functions including the fault handler, fault object initialization and fault execution.  
+<p>Contains public functions and defines for the MCC code extension for ADC. <br  />
+  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;xc.h&quot;</code><br />
+<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stddef.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00107_source.html">cmp/cmp1.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00113_source.html">cmp/cmp3.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00152_source.html">pwm_hs/pwm.h</a>&quot;</code><br />
-<code>#include &quot;system/pins.h&quot;</code><br />
-<code>#include &quot;config/macros.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00302_source.html">device/device.h</a>&quot;</code><br />
-<code>#include &quot;pwrctrl/pwrctrl.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00371_source.html">fault_common.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00365_source.html">fault.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00377_source.html">fault_comm_interface.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for fault.c:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for drv_mcc_extension_adc.h:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00363.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00363.svg" width="336" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00364.svg" width="374" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00362_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a799f42245358585723c53fb29008fda3" id="r_a799f42245358585723c53fb29008fda3"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00537.html#ga7b9b42cf017f1b61599aee687cc2803a">ADC_FILTER_MODE_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html#a799f42245358585723c53fb29008fda3">ADC_FILTER_MODE_t</a></td></tr>
+<tr class="separator:a799f42245358585723c53fb29008fda3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8993058275f94e962b30da4ae3b2e8a" id="r_ac8993058275f94e962b30da4ae3b2e8a"><td class="memItemLeft" align="right" valign="top">typedef enum <a class="el" href="a00537.html#gade4789b79009bb5798d22406600442a8">ADC_FILTER_OVRSAM_AVG_e</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html#ac8993058275f94e962b30da4ae3b2e8a">ADC_FILTER_OVRSAM_AVG_t</a></td></tr>
+<tr class="separator:ac8993058275f94e962b30da4ae3b2e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ga7b9b42cf017f1b61599aee687cc2803a" id="r_ga7b9b42cf017f1b61599aee687cc2803a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga7b9b42cf017f1b61599aee687cc2803a">ADC_FILTER_MODE_e</a> { <a class="el" href="a00537.html#gga7b9b42cf017f1b61599aee687cc2803aa92b3f4d7ad60ba627e8913772ab28791">ADC_FILTER_MODE_OVERSAMPLING</a> = 0
+, <a class="el" href="a00537.html#gga7b9b42cf017f1b61599aee687cc2803aa7744c10b74df8d669851f30b101554ac">ADC_FILTER_MODE_AVERAGING</a> = 3
+ }</td></tr>
+<tr class="memdesc:ga7b9b42cf017f1b61599aee687cc2803a"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC Filter Modes of operation.  <a href="a00537.html#ga7b9b42cf017f1b61599aee687cc2803a">More...</a><br /></td></tr>
+<tr class="separator:ga7b9b42cf017f1b61599aee687cc2803a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gade4789b79009bb5798d22406600442a8" id="r_gade4789b79009bb5798d22406600442a8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gade4789b79009bb5798d22406600442a8">ADC_FILTER_OVRSAM_AVG_e</a> { <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8ac592295deb7ffa249a21e64907cf2c13">ADC_FILTER_OVRSAM_AVG_2x</a> = 0
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8a1a5c4a9f038101bad68a56ce52a7b99f">ADC_FILTER_OVRSAM_AVG_4x</a> = 1
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8a01fffdf4afdc19bc3f00de0d152dcd63">ADC_FILTER_OVRSAM_AVG_8x</a> = 2
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8a6943e4ed06207ea3d52435cd23c7612e">ADC_FILTER_OVRSAM_AVG_16x</a> = 3
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8a6e9e2dd1ce8aa49c2fa9235dad126d50">ADC_FILTER_OVRSAM_AVG_32x</a> = 4
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8a56481c3dd7f242f83dac9be77ac97d93">ADC_FILTER_OVRSAM_AVG_64x</a> = 5
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8aded484f19a56bac94569c4768bf26b16">ADC_FILTER_OVRSAM_AVG_128x</a> = 6
+, <a class="el" href="a00537.html#ggade4789b79009bb5798d22406600442a8a70761444839d59d84be99373fb963124">ADC_FILTER_OVRSAM_AVG_256x</a> = 7
+ }</td></tr>
+<tr class="memdesc:gade4789b79009bb5798d22406600442a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC Filter Oversampling Ratio when in averaging mode.  <a href="a00537.html#gade4789b79009bb5798d22406600442a8">More...</a><br /></td></tr>
+<tr class="separator:gade4789b79009bb5798d22406600442a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaa8479905c2a8b34126d4fe56c1882b1b" id="r_gaa8479905c2a8b34126d4fe56c1882b1b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#gaa8479905c2a8b34126d4fe56c1882b1b">Fault_EnableShortCircuitProtection</a> (void)</td></tr>
-<tr class="memdesc:gaa8479905c2a8b34126d4fe56c1882b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable Short circuit hardware protection.  <br /></td></tr>
-<tr class="separator:gaa8479905c2a8b34126d4fe56c1882b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf27f2f24932cec222273df148f8765cb" id="r_gaf27f2f24932cec222273df148f8765cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#gaf27f2f24932cec222273df148f8765cb">Fault_Handler</a> (void)</td></tr>
-<tr class="memdesc:gaf27f2f24932cec222273df148f8765cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the fault trip by turning off the power control switching.  <br /></td></tr>
-<tr class="separator:gaf27f2f24932cec222273df148f8765cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaa5a7a6dc7ce982dec4f07edcd73e874" id="r_gaaa5a7a6dc7ce982dec4f07edcd73e874"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#gaaa5a7a6dc7ce982dec4f07edcd73e874">Fault_Initialize</a> (void)</td></tr>
-<tr class="memdesc:gaaa5a7a6dc7ce982dec4f07edcd73e874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the fault objects.  <br /></td></tr>
-<tr class="separator:gaaa5a7a6dc7ce982dec4f07edcd73e874"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacd1ca209275dae0bc2388ac954858d83" id="r_gacd1ca209275dae0bc2388ac954858d83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#gacd1ca209275dae0bc2388ac954858d83">Fault_Execute</a> (void)</td></tr>
-<tr class="memdesc:gacd1ca209275dae0bc2388ac954858d83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the fault handlers.  <br /></td></tr>
-<tr class="separator:gacd1ca209275dae0bc2388ac954858d83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8ed0fee0d3aff71d49470aab1728a6ae" id="r_ga8ed0fee0d3aff71d49470aab1728a6ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#ga8ed0fee0d3aff71d49470aab1728a6ae">Fault_Reset</a> (void)</td></tr>
-<tr class="memdesc:ga8ed0fee0d3aff71d49470aab1728a6ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the fault object flag bits.  <br /></td></tr>
-<tr class="separator:ga8ed0fee0d3aff71d49470aab1728a6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga35608d94d8d76de809bb7588a325abc9" id="r_ga35608d94d8d76de809bb7588a325abc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00527.html#ga35608d94d8d76de809bb7588a325abc9">Fault_Execute_100ms</a> (void)</td></tr>
-<tr class="memdesc:ga35608d94d8d76de809bb7588a325abc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fault evaluation for Temperature and other slow fault detection executed every 100ms.  <br /></td></tr>
-<tr class="separator:ga35608d94d8d76de809bb7588a325abc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a0b92b835c70ac5377be52d14b4758422" id="r_a0b92b835c70ac5377be52d14b4758422"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html#a0b92b835c70ac5377be52d14b4758422">loadDisconnect</a> = false</td></tr>
-<tr class="separator:a0b92b835c70ac5377be52d14b4758422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga71c6250f386033c07dae0150d67b100f" id="r_ga71c6250f386033c07dae0150d67b100f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga71c6250f386033c07dae0150d67b100f">ADC_Filter_Enable</a> (uint16_t filterIndex, bool enable)</td></tr>
+<tr class="memdesc:ga71c6250f386033c07dae0150d67b100f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the ADC filter feature of the ADC.  <br /></td></tr>
+<tr class="separator:ga71c6250f386033c07dae0150d67b100f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ef63752d3c218e541d437721a3559fa" id="r_ga6ef63752d3c218e541d437721a3559fa"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga6ef63752d3c218e541d437721a3559fa">ADC_Filter_Mode</a> (uint16_t filterIndex, <a class="el" href="a00362.html#a799f42245358585723c53fb29008fda3">ADC_FILTER_MODE_t</a> mode)</td></tr>
+<tr class="memdesc:ga6ef63752d3c218e541d437721a3559fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ADC instance filter mode.  <br /></td></tr>
+<tr class="separator:ga6ef63752d3c218e541d437721a3559fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7475de7e65b22a255c8587d7535359b3" id="r_ga7475de7e65b22a255c8587d7535359b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga7475de7e65b22a255c8587d7535359b3">ADC_Filter_Averaging</a> (uint16_t filterIndex, <a class="el" href="a00362.html#ac8993058275f94e962b30da4ae3b2e8a">ADC_FILTER_OVRSAM_AVG_t</a> averagingRatio)</td></tr>
+<tr class="memdesc:ga7475de7e65b22a255c8587d7535359b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ADC instance number of samples to average.  <br /></td></tr>
+<tr class="separator:ga7475de7e65b22a255c8587d7535359b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0645000c951ca217ee18beb7233da254" id="r_ga0645000c951ca217ee18beb7233da254"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#ga0645000c951ca217ee18beb7233da254">ADC_Filter_Input</a> (uint16_t filterIndex, uint16_t channelIndex)</td></tr>
+<tr class="memdesc:ga0645000c951ca217ee18beb7233da254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the ADC instance to be filtered.  <br /></td></tr>
+<tr class="separator:ga0645000c951ca217ee18beb7233da254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee0723998267abf6433b4b008758506b" id="r_gaee0723998267abf6433b4b008758506b"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00537.html#gaee0723998267abf6433b4b008758506b">ADC_Filter_GetResult</a> (uint16_t filterIndex)</td></tr>
+<tr class="memdesc:gaee0723998267abf6433b4b008758506b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the ADC filter result.  <br /></td></tr>
+<tr class="separator:gaee0723998267abf6433b4b008758506b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>&lt;&gt; </p>
+<div class="textblock"><p><br  />
+ &lt;&gt; </p>
 
-<p class="definition">Definition in file <a class="el" href="a00362_source.html">fault.c</a>.</p>
-</div><h2 class="groupheader">Variable Documentation</h2>
-<a id="a0b92b835c70ac5377be52d14b4758422" name="a0b92b835c70ac5377be52d14b4758422"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b92b835c70ac5377be52d14b4758422">&#9670;&#160;</a></span>loadDisconnect</h2>
+<p class="definition">Definition in file <a class="el" href="a00362_source.html">drv_mcc_extension_adc.h</a>.</p>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a799f42245358585723c53fb29008fda3" name="a799f42245358585723c53fb29008fda3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a799f42245358585723c53fb29008fda3">&#9670;&#160;</a></span>ADC_FILTER_MODE_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool loadDisconnect = false</td>
+          <td class="memname">typedef enum <a class="el" href="a00537.html#ga7b9b42cf017f1b61599aee687cc2803a">ADC_FILTER_MODE_e</a> <a class="el" href="a00362.html#a799f42245358585723c53fb29008fda3">ADC_FILTER_MODE_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00028">28</a> of file <a class="el" href="a00362_source.html">fault.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00026">26</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_adc.h</a>.</p>
+
+</div>
+</div>
+<a id="ac8993058275f94e962b30da4ae3b2e8a" name="ac8993058275f94e962b30da4ae3b2e8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8993058275f94e962b30da4ae3b2e8a">&#9670;&#160;</a></span>ADC_FILTER_OVRSAM_AVG_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef enum <a class="el" href="a00537.html#gade4789b79009bb5798d22406600442a8">ADC_FILTER_OVRSAM_AVG_e</a> <a class="el" href="a00362.html#ac8993058275f94e962b30da4ae3b2e8a">ADC_FILTER_OVRSAM_AVG_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00362_source.html#l00044">44</a> of file <a class="el" href="a00362_source.html">drv_mcc_extension_adc.h</a>.</p>
 
 </div>
 </div>

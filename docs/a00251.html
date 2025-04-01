@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/uart/uart_types.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/mcc_generated_files/timer/src/tmr1.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,58 +137,196 @@ $(document).ready(function(){initNavTree('a00251.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#enum-members">Enumerations</a>  </div>
-  <div class="headertitle"><div class="title">uart_types.h File Reference<div class="ingroups"><a class="el" href="a00530.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00548.html">UART Driver</a></div></div></div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">tmr1.c File Reference<div class="ingroups"><a class="el" href="a00551.html">MPLABX MCC Melody Code Generator</a> &raquo; <a class="el" href="a00568.html">Timer Driver</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the generated driver types header file for the UART driver.  
+<p>This is the generated driver source file for TMR1 driver.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00257_source.html">../tmr1.h</a>&quot;</code><br />
+<code>#include &quot;../timer_interface.h&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for tmr1.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00253.svg" width="532" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00252.svg" width="448" height="310"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="a00251_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a0a3dd05b76cb2737b01393490458d8bc" id="r_a0a3dd05b76cb2737b01393490458d8bc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a0a3dd05b76cb2737b01393490458d8bc">UART_ERROR_MASKS</a> { <a class="el" href="a00251.html#a0a3dd05b76cb2737b01393490458d8bcabfdb4d381a6b2a21580d26c621a2c542">UART_ERROR_FRAMING_MASK</a> = 0x1
-, <a class="el" href="a00251.html#a0a3dd05b76cb2737b01393490458d8bcabdbe5aa10ce87aa8de0c87209d361976">UART_ERROR_PARITY_MASK</a> = 0x2
-, <a class="el" href="a00251.html#a0a3dd05b76cb2737b01393490458d8bcade56f98b9bab2648473a7be7bca1b7fd">UART_ERROR_RX_OVERRUN_MASK</a> = 0x4
-, <a class="el" href="a00251.html#a0a3dd05b76cb2737b01393490458d8bca066a2aa4da0463889e0e694cbaee2a39">UART_ERROR_TX_COLLISION_MASK</a> = 0x8
-, <a class="el" href="a00251.html#a0a3dd05b76cb2737b01393490458d8bcae7d9757a81fe8d27a215c3e7231585f7">UART_ERROR_AUTOBAUD_OVERFLOW_MASK</a> = 0x10
- }</td></tr>
-<tr class="separator:a0a3dd05b76cb2737b01393490458d8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ab1af98b17905c2c4854e5d9a460a64b5" id="r_ab1af98b17905c2c4854e5d9a460a64b5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#ab1af98b17905c2c4854e5d9a460a64b5">MASK_32_BIT_LOW</a>&#160;&#160;&#160;0x0000FFFFU</td></tr>
+<tr class="separator:ab1af98b17905c2c4854e5d9a460a64b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e3affedd77bf522f423cdd636f6e90b" id="r_a3e3affedd77bf522f423cdd636f6e90b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a3e3affedd77bf522f423cdd636f6e90b">MASK_32_BIT_HIGH</a>&#160;&#160;&#160;0xFFFF0000U</td></tr>
+<tr class="separator:a3e3affedd77bf522f423cdd636f6e90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gaeca9435d024c8eeada966c9dffbb8427" id="r_gaeca9435d024c8eeada966c9dffbb8427"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00568.html#gaeca9435d024c8eeada966c9dffbb8427">TMR1_Initialize</a> (void)</td></tr>
+<tr class="memdesc:gaeca9435d024c8eeada966c9dffbb8427"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the TMR1 module.  <br /></td></tr>
+<tr class="separator:gaeca9435d024c8eeada966c9dffbb8427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2841c95f77415643312872bc9e042fd9" id="r_ga2841c95f77415643312872bc9e042fd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00568.html#ga2841c95f77415643312872bc9e042fd9">TMR1_Deinitialize</a> (void)</td></tr>
+<tr class="memdesc:ga2841c95f77415643312872bc9e042fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the TMR1 to POR values.  <br /></td></tr>
+<tr class="separator:ga2841c95f77415643312872bc9e042fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafed3745413684e23104d29539be4f2e5" id="r_gafed3745413684e23104d29539be4f2e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00568.html#gafed3745413684e23104d29539be4f2e5">TMR1_Start</a> (void)</td></tr>
+<tr class="memdesc:gafed3745413684e23104d29539be4f2e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer.  <br /></td></tr>
+<tr class="separator:gafed3745413684e23104d29539be4f2e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga27bf11425ad1e1d2e8e16a14aebb5a9c" id="r_ga27bf11425ad1e1d2e8e16a14aebb5a9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00568.html#ga27bf11425ad1e1d2e8e16a14aebb5a9c">TMR1_Stop</a> (void)</td></tr>
+<tr class="memdesc:ga27bf11425ad1e1d2e8e16a14aebb5a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer.  <br /></td></tr>
+<tr class="separator:ga27bf11425ad1e1d2e8e16a14aebb5a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaee0dcecbe2ec34ee2a5ab9e263b63ca3" id="r_gaee0dcecbe2ec34ee2a5ab9e263b63ca3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00568.html#gaee0dcecbe2ec34ee2a5ab9e263b63ca3">TMR1_PeriodSet</a> (uint32_t count)</td></tr>
+<tr class="memdesc:gaee0dcecbe2ec34ee2a5ab9e263b63ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the TMR1 period count value.  <br /></td></tr>
+<tr class="separator:gaee0dcecbe2ec34ee2a5ab9e263b63ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae817aeb318bfedb428c2e0a237b1a7b3" id="r_gae817aeb318bfedb428c2e0a237b1a7b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00568.html#gae817aeb318bfedb428c2e0a237b1a7b3">TMR1_InterruptPrioritySet</a> (enum INTERRUPT_PRIORITY priority)</td></tr>
+<tr class="memdesc:gae817aeb318bfedb428c2e0a237b1a7b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the TMR1 interrupt priority value.  <br /></td></tr>
+<tr class="separator:gae817aeb318bfedb428c2e0a237b1a7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf9de8f06456af5b10227545089697ff" id="r_gacf9de8f06456af5b10227545089697ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00568.html#gacf9de8f06456af5b10227545089697ff">TMR1_TimeoutCallbackRegister</a> (void(*handler)(void))</td></tr>
+<tr class="memdesc:gacf9de8f06456af5b10227545089697ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for TMR1 Timeout event.  <br /></td></tr>
+<tr class="separator:gacf9de8f06456af5b10227545089697ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a201468129b483039afc5a619e2d31097" id="r_a201468129b483039afc5a619e2d31097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a201468129b483039afc5a619e2d31097">__attribute__</a> ((weak))</td></tr>
+<tr class="separator:a201468129b483039afc5a619e2d31097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a226557d5e42f7e29ddaff30606138459" id="r_a226557d5e42f7e29ddaff30606138459"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a226557d5e42f7e29ddaff30606138459">__attribute__</a> ((interrupt, no_auto_psv))</td></tr>
+<tr class="separator:a226557d5e42f7e29ddaff30606138459"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a512265a75e92bc48c7b17170e1790855" id="r_a512265a75e92bc48c7b17170e1790855"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a512265a75e92bc48c7b17170e1790855">TMR1_PeriodCountSet</a> (size_t count)</td></tr>
+<tr class="separator:a512265a75e92bc48c7b17170e1790855"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a03cba0dc29b9a8a3692a916de86ecff0" id="r_a03cba0dc29b9a8a3692a916de86ecff0"><td class="memItemLeft" align="right" valign="top">static void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a03cba0dc29b9a8a3692a916de86ecff0">TMR1_TimeoutHandler</a> )(void) = NULL</td></tr>
+<tr class="separator:a03cba0dc29b9a8a3692a916de86ecff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4146a540908bbc651749031d3f3c1456" id="r_ga4146a540908bbc651749031d3f3c1456"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00630.html">TIMER_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00568.html#ga4146a540908bbc651749031d3f3c1456">Timer1</a></td></tr>
+<tr class="memdesc:ga4146a540908bbc651749031d3f3c1456"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00630.html" title="Structure containing the function pointers of TIMER driver.">TIMER_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. Timer1 can be changed by the user in the TIMER user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
+<tr class="separator:ga4146a540908bbc651749031d3f3c1456"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>UART Generated Driver Types Header File</p>
+<div class="textblock"><p>TMR1 Generated Driver Source File</p>
 <div class="fragment"></div><!-- fragment -->
-<p class="definition">Definition in file <a class="el" href="a00251_source.html">uart_types.h</a>.</p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a0a3dd05b76cb2737b01393490458d8bc" name="a0a3dd05b76cb2737b01393490458d8bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a3dd05b76cb2737b01393490458d8bc">&#9670;&#160;</a></span>UART_ERROR_MASKS</h2>
+<p class="definition">Definition in file <a class="el" href="a00251_source.html">tmr1.c</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a3e3affedd77bf522f423cdd636f6e90b" name="a3e3affedd77bf522f423cdd636f6e90b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e3affedd77bf522f423cdd636f6e90b">&#9670;&#160;</a></span>MASK_32_BIT_HIGH</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00251.html#a0a3dd05b76cb2737b01393490458d8bc">UART_ERROR_MASKS</a></td>
+          <td class="memname">#define MASK_32_BIT_HIGH&#160;&#160;&#160;0xFFFF0000U</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0a3dd05b76cb2737b01393490458d8bcabfdb4d381a6b2a21580d26c621a2c542" name="a0a3dd05b76cb2737b01393490458d8bcabfdb4d381a6b2a21580d26c621a2c542"></a>UART_ERROR_FRAMING_MASK&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a0a3dd05b76cb2737b01393490458d8bcabdbe5aa10ce87aa8de0c87209d361976" name="a0a3dd05b76cb2737b01393490458d8bcabdbe5aa10ce87aa8de0c87209d361976"></a>UART_ERROR_PARITY_MASK&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a0a3dd05b76cb2737b01393490458d8bcade56f98b9bab2648473a7be7bca1b7fd" name="a0a3dd05b76cb2737b01393490458d8bcade56f98b9bab2648473a7be7bca1b7fd"></a>UART_ERROR_RX_OVERRUN_MASK&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a0a3dd05b76cb2737b01393490458d8bca066a2aa4da0463889e0e694cbaee2a39" name="a0a3dd05b76cb2737b01393490458d8bca066a2aa4da0463889e0e694cbaee2a39"></a>UART_ERROR_TX_COLLISION_MASK&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a0a3dd05b76cb2737b01393490458d8bcae7d9757a81fe8d27a215c3e7231585f7" name="a0a3dd05b76cb2737b01393490458d8bcae7d9757a81fe8d27a215c3e7231585f7"></a>UART_ERROR_AUTOBAUD_OVERFLOW_MASK&#160;</td><td class="fielddoc"></td></tr>
-</table>
 
-<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00047">47</a> of file <a class="el" href="a00251_source.html">uart_types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00045">45</a> of file <a class="el" href="a00251_source.html">tmr1.c</a>.</p>
+
+</div>
+</div>
+<a id="ab1af98b17905c2c4854e5d9a460a64b5" name="ab1af98b17905c2c4854e5d9a460a64b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1af98b17905c2c4854e5d9a460a64b5">&#9670;&#160;</a></span>MASK_32_BIT_LOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MASK_32_BIT_LOW&#160;&#160;&#160;0x0000FFFFU</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00044">44</a> of file <a class="el" href="a00251_source.html">tmr1.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a226557d5e42f7e29ddaff30606138459" name="a226557d5e42f7e29ddaff30606138459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a226557d5e42f7e29ddaff30606138459">&#9670;&#160;</a></span>__attribute__() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void __attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(interrupt, no_auto_psv)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00137">137</a> of file <a class="el" href="a00251_source.html">tmr1.c</a>.</p>
+
+</div>
+</div>
+<a id="a201468129b483039afc5a619e2d31097" name="a201468129b483039afc5a619e2d31097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a201468129b483039afc5a619e2d31097">&#9670;&#160;</a></span>__attribute__() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void __attribute__ </td>
+          <td>(</td>
+          <td class="paramtype">(weak)&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00132">132</a> of file <a class="el" href="a00251_source.html">tmr1.c</a>.</p>
+
+</div>
+</div>
+<a id="a512265a75e92bc48c7b17170e1790855" name="a512265a75e92bc48c7b17170e1790855"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a512265a75e92bc48c7b17170e1790855">&#9670;&#160;</a></span>TMR1_PeriodCountSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TMR1_PeriodCountSet </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00143">143</a> of file <a class="el" href="a00251_source.html">tmr1.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a03cba0dc29b9a8a3692a916de86ecff0" name="a03cba0dc29b9a8a3692a916de86ecff0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03cba0dc29b9a8a3692a916de86ecff0">&#9670;&#160;</a></span>TMR1_TimeoutHandler</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* TMR1_TimeoutHandler) (void) </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> = NULL</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00251_source.html#l00049">49</a> of file <a class="el" href="a00251_source.html">tmr1.c</a>.</p>
 
 </div>
 </div>

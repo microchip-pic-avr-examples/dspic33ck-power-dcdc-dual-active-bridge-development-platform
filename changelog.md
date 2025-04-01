@@ -1,3 +1,8 @@
+# dspic33ck-power-dcdc-dual-active-bridge-development-platform, release v2.0.0
+### Release Highlights
+Added the reverse operating mode feature. The firmware is running bidirectional mode. 
+Revised the power Board visualizer to adopt the new feature.
+
 # dspic33ck-power-dcdc-dual-active-bridge-development-platform, release v1.0.0
 ### Release Highlights
 This DAB code is a preliminary release tested in 11KW prototype board. 
@@ -15,4 +20,4 @@ This DAB code is a preliminary release tested in 11KW prototype board.
 * MPLAB MCC Melody version 5.5.1 
 * Device File Pack (DFP) version 1.13.366
 	
-&copy; 2024, Microchip Technology Inc.
+&copy; 2025, Microchip Technology Inc.
