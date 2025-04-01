@@ -326,14 +326,6 @@ Discharge Direction:
   </center>
 </p>
 
-In this application, the Voltage loop and Power Loop is executed every 10KHz, with phase shift of 180 degrees making it interleaved with each other, while the Current Loop is executed every 100KHz. This timing diagram shows how much the control loop interrupt service routine in the CPU load.
-
-<p>
-  <center>
-    <img src="images/control-loop-timing.jpg" width="700"></p>
-    DAB Vloop, Ploop and ILoop Timing
-  </center>
-</p>
 
 ---
 
