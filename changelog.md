@@ -1,11 +1,11 @@
 # dspic33ck-power-dcdc-dual-active-bridge-development-platform, release v2.0.0
 ### Release Highlights
-Added the reverse operating mode feature. The firmware is running bidirectional mode. 
-Revised the power Board visualizer to adopt the new feature.
+* Added the reverse operating mode feature. The firmware is running in bi-directional mode. 
+* Revised the power Board visualizer to adopt the new feature.
 
 # dspic33ck-power-dcdc-dual-active-bridge-development-platform, release v1.0.0
 ### Release Highlights
-This DAB code is a preliminary release tested in 11KW prototype board. 
+* This DAB code is a preliminary release tested in 11KW prototype board. 
 
 ### Features of the initial firmware version 1.0.0
 * support for CK device 
