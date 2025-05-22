@@ -51,11 +51,11 @@ __Firmware Version__
 
 __Hardware Documentation__
 
+- [Operational Manual: 11kW dsPIC33 Dual Active Bridge Demonstration Application](https://www.microchip.com/DS70005602)
+- [User Guide: 11kW dsPIC33 Dual Active Bridge Demonstration Application](https://www.microchip.com/DS70005603)
 - [11kW Dual Active Bridge DC-DC Demonstration Application](https://www.microchip.com/en-us/tools-resources/reference-designs/11-kw-dual-active-bridge-dc-dc-demonstration-application)
 - [Isolated Voltage Acquisition Board User’s Guide](https://www.microchip.com/70005524)
 - [SiC FET Plug-In Module (SiC FET PIM) User’s Guide](https://www.microchip.com/50003512)
-- Operational Manual
-- Users Guide
 
 __Target Device Documentation__
 
