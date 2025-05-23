@@ -368,8 +368,8 @@ void PwrCtrl_ControlLoopExecute(void)
         dab.Pwm.ControlPhase += MIN_PHASE_SHIFTED_PULSE;
         
         // Clamping value of maximum control phase
-        if(dab.Pwm.ControlPhase > (dab.Pwm.ControlDutyCycle - MAXIMUM_DEADTIME))//MIN_PHASE_SHIFTED_PULSE))
-            dab.Pwm.ControlPhase = dab.Pwm.ControlDutyCycle - MAXIMUM_DEADTIME;//MIN_PHASE_SHIFTED_PULSE;
+        if(dab.Pwm.ControlPhase > (dab.Pwm.ControlDutyCycle - MAX_PWM_DEAD_TIME))//MIN_PHASE_SHIFTED_PULSE))
+            dab.Pwm.ControlPhase = dab.Pwm.ControlDutyCycle - MAX_PWM_DEAD_TIME;//MIN_PHASE_SHIFTED_PULSE;
         
         // Clamping value of minimum control phase 
          else if(dab.Pwm.ControlPhase < MIN_PHASE_SHIFTED_PULSE) 
