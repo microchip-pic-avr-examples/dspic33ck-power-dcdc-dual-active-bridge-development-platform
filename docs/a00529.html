@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: Task Scheduler Layer</title>
+<title>Dual Active Bridge Development Board: Configuration Layer</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,185 +137,58 @@ $(document).ready(function(){initNavTree('a00529.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Task Scheduler Layer</div></div>
+<a href="#groups">Modules</a>  </div>
+  <div class="headertitle"><div class="title">Configuration Layer</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contain functions and properties necessary to schedule a task.  
+<p>Allow user to quickly change fundamental system parameters, hardware changes and even migrating the firmware across different designs wiht minimal modification in the actual source code.  
 <a href="#details">More...</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga4bcf2a4c1b64471da77bdd8bb7ebf77d" id="r_ga4bcf2a4c1b64471da77bdd8bb7ebf77d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ga4bcf2a4c1b64471da77bdd8bb7ebf77d">Tasks_Realtime_1ms</a> (void)</td></tr>
-<tr class="memdesc:ga4bcf2a4c1b64471da77bdd8bb7ebf77d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tasks_Realtime_1ms gets called directly from the timer interrupt every millisecond.  <br /></td></tr>
-<tr class="separator:ga4bcf2a4c1b64471da77bdd8bb7ebf77d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3644aab65c940684125864b9f6fd1d47" id="r_ga3644aab65c940684125864b9f6fd1d47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ga3644aab65c940684125864b9f6fd1d47">Tasks_1ms</a> (void)</td></tr>
-<tr class="memdesc:ga3644aab65c940684125864b9f6fd1d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tasks_1ms gets called every millisecond, put your things in it that need to be called regularly.  <br /></td></tr>
-<tr class="separator:ga3644aab65c940684125864b9f6fd1d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga05751024e03719cbe14d88fb0af408dd" id="r_ga05751024e03719cbe14d88fb0af408dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ga05751024e03719cbe14d88fb0af408dd">Tasks_10ms</a> (void)</td></tr>
-<tr class="memdesc:ga05751024e03719cbe14d88fb0af408dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tasks_10ms gets called every 10ms, put your things in it that need to be called regularly.  <br /></td></tr>
-<tr class="separator:ga05751024e03719cbe14d88fb0af408dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6d5c487ee3f418e6d0432867d11adaed" id="r_ga6d5c487ee3f418e6d0432867d11adaed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ga6d5c487ee3f418e6d0432867d11adaed">Tasks_100ms</a> (void)</td></tr>
-<tr class="memdesc:ga6d5c487ee3f418e6d0432867d11adaed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tasks_100ms gets called every 100 ms, put your things in it that need to be called regularly.  <br /></td></tr>
-<tr class="separator:ga6d5c487ee3f418e6d0432867d11adaed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac181d28cf7f396a9ee79b7c8b76b97ad" id="r_gac181d28cf7f396a9ee79b7c8b76b97ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#gac181d28cf7f396a9ee79b7c8b76b97ad">Tasks_1s</a> (void)</td></tr>
-<tr class="memdesc:gac181d28cf7f396a9ee79b7c8b76b97ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tasks_1s gets called every second, put your things in it that need to be called regularly.  <br /></td></tr>
-<tr class="separator:gac181d28cf7f396a9ee79b7c8b76b97ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga77974d0a54f4172e2867de5980fc598f" id="r_ga77974d0a54f4172e2867de5980fc598f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ga77974d0a54f4172e2867de5980fc598f">Tasks_Background</a> (void)</td></tr>
-<tr class="memdesc:ga77974d0a54f4172e2867de5980fc598f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tasks_Background gets called all the time when no other of the above tasks are being called.  <br /></td></tr>
-<tr class="separator:ga77974d0a54f4172e2867de5980fc598f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>A firmware task scheduler with a 100 microsecond (µs) execution interval is a critical component in real-time embedded systems, where precise timing and deterministic behavior are paramount. This scheduler is designed to manage and execute a series of tasks or operations at a highly granular time resolution, ensuring that each task is initiated every 100 µs. Such a high-frequency task scheduler is typically implemented using a hardware timer or interrupt service routine (ISR) to maintain strict timing accuracy. The scheduler must be optimized for minimal overhead to ensure that the majority of the 100 µs window is available for task execution rather than administrative functions. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ga6d5c487ee3f418e6d0432867d11adaed" name="ga6d5c487ee3f418e6d0432867d11adaed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga6d5c487ee3f418e6d0432867d11adaed">&#9670;&#160;</a></span>Tasks_100ms()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Tasks_100ms </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>there could be some jitter here because it is not called directly by a timer interrupt </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00065_source.html#l00141">141</a> of file <a class="el" href="a00065_source.html">main_tasks.c</a>.</p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Configuration Layer:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00529_ga6d5c487ee3f418e6d0432867d11adaed_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00529.svg" width="367" height="526"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="ga05751024e03719cbe14d88fb0af408dd" name="ga05751024e03719cbe14d88fb0af408dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga05751024e03719cbe14d88fb0af408dd">&#9670;&#160;</a></span>Tasks_10ms()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Tasks_10ms </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>there could be some jitter here because it is not called directly by a timer interrupt </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00065_source.html#l00127">127</a> of file <a class="el" href="a00065_source.html">main_tasks.c</a>.</p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00529_ga05751024e03719cbe14d88fb0af408dd_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ga3644aab65c940684125864b9f6fd1d47" name="ga3644aab65c940684125864b9f6fd1d47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3644aab65c940684125864b9f6fd1d47">&#9670;&#160;</a></span>Tasks_1ms()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Tasks_1ms </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>there could be some jitter here because it is not called directly by a timer interrupt </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00065_source.html#l00115">115</a> of file <a class="el" href="a00065_source.html">main_tasks.c</a>.</p>
-
-</div>
-</div>
-<a id="gac181d28cf7f396a9ee79b7c8b76b97ad" name="gac181d28cf7f396a9ee79b7c8b76b97ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gac181d28cf7f396a9ee79b7c8b76b97ad">&#9670;&#160;</a></span>Tasks_1s()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Tasks_1s </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>there could be some jitter here because it is not called directly by a timer interrupt </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00065_source.html#l00155">155</a> of file <a class="el" href="a00065_source.html">main_tasks.c</a>.</p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00529_gac181d28cf7f396a9ee79b7c8b76b97ad_cgraph.svg" width="542" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ga77974d0a54f4172e2867de5980fc598f" name="ga77974d0a54f4172e2867de5980fc598f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga77974d0a54f4172e2867de5980fc598f">&#9670;&#160;</a></span>Tasks_Background()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Tasks_Background </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>call this function when you want to implement your own timing or get code called as often as possible. You can also put your timing variables into Tasks_Realtime_100us or Tasks_Realtime_1ms. This way you get accurate timing variables that you can use here. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00065_source.html#l00170">170</a> of file <a class="el" href="a00065_source.html">main_tasks.c</a>.</p>
-
-</div>
-</div>
-<a id="ga4bcf2a4c1b64471da77bdd8bb7ebf77d" name="ga4bcf2a4c1b64471da77bdd8bb7ebf77d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4bcf2a4c1b64471da77bdd8bb7ebf77d">&#9670;&#160;</a></span>Tasks_Realtime_1ms()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Tasks_Realtime_1ms </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd>keep this routine as short as possible </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00065_source.html#l00090">90</a> of file <a class="el" href="a00065_source.html">main_tasks.c</a>.</p>
-
-</div>
-</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="groups" name="groups"></a>
+Modules</h2></td></tr>
+<tr class="memitem:a00503" id="r_a00503"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00503.html">PWM Settings</a></td></tr>
+<tr class="memdesc:a00503"><td class="mdescLeft">&#160;</td><td class="mdescRight">User-declaration of global defines for PWM signal generator settings. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00505" id="r_a00505"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00505.html">Primary Voltage Feedback</a></td></tr>
+<tr class="memdesc:a00505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of Primary Voltage Feedback parameters, fault configuration and macros. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00507" id="r_a00507"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00507.html">Secondary Voltage Feedback</a></td></tr>
+<tr class="memdesc:a00507"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of Secondary Voltage Feedback parameters, fault configuration and macros. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00509" id="r_a00509"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00509.html">Primary Current Feedback</a></td></tr>
+<tr class="memdesc:a00509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of Primary Current Feedback parameters, fault configuration and macros. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00511" id="r_a00511"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00511.html">Secondary Current Feedback</a></td></tr>
+<tr class="memdesc:a00511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of Secondary Current Feedback parameters, fault configuration and macros. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00513" id="r_a00513"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00513.html">5V Voltage Feedback</a></td></tr>
+<tr class="memdesc:a00513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of 5V Voltage Feedback parameters, fault configuration and macros. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00515" id="r_a00515"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00515.html">Control Loop</a></td></tr>
+<tr class="memdesc:a00515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of macros calculating additional parameters for Control Loop. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00517" id="r_a00517"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html">Temperature Feedback</a></td></tr>
+<tr class="memdesc:a00517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declaration of Temperature Feedback parameters. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00519" id="r_a00519"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html">Special Firmware Options</a></td></tr>
+<tr class="memdesc:a00519"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special functions use to enable or disable special firmware options. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00520" id="r_a00520"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00520.html">Useful Macros</a></td></tr>
+<tr class="memdesc:a00520"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of macros that the user can utilize when converting physical quantities of parameters into binary (integer) numbers for registers and variables. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<p>The main purpose of a configuration layer is to provide one central point in the firmware architecture where hardware dependencies can be specified, signal scalings can be defined and specific chip resources can be assigned to support/ connect generic software functions to the hardware.</p>
+<p>This central definitions allow fast modifications and optimizations but also support fast code migration between different hardware platforms. Thus, fast adaptation of new hardware can be achieved by modifying this set of centralized definitions. <br  />
+ </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

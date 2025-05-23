@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/device/device.h Source File</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/config/comms_config.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,24 +136,24 @@ $(document).ready(function(){initNavTree('a00302_source.html',''); initResizable
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">device.h</div></div>
+  <div class="headertitle"><div class="title">comms_config.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00302.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef DEVICE_H</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define DEVICE_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/* </span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @file    comms_config.h   </span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @author  </span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @brief   project configuration</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef COMMS_CONFIG_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define COMMS_CONFIG_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="a00308.html">dev_current_sensor.h</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="a00314.html">dev_fan.h</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="a00326.html">dev_led.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="a00332.html">dev_temp.h</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif  </span><span class="comment">/* DEVICE_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="ttc" id="aa00308_html"><div class="ttname"><a href="a00308.html">dev_current_sensor.h</a></div><div class="ttdoc">Contains current sensor public functions.</div></div>
-<div class="ttc" id="aa00314_html"><div class="ttname"><a href="a00314.html">dev_fan.h</a></div><div class="ttdoc">fan device driver</div></div>
-<div class="ttc" id="aa00326_html"><div class="ttname"><a href="a00326.html">dev_led.h</a></div><div class="ttdoc">led device driver</div></div>
-<div class="ttc" id="aa00332_html"><div class="ttname"><a href="a00332.html">dev_temp.h</a></div><div class="ttdoc">Contains temperature initialization and execution functions.</div></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">// PBV working with CAN OR UART</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="a00519.html#ga3bf2f552a3148e521b11370c78f22121">   15</a></span><span class="preprocessor">#define PBV_UART                0   </span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="a00519.html#ga1151367cf9963cedbb90f4d5940d22b8">   16</a></span><span class="preprocessor">#define PBV_CANFD               1   </span></div>
+ <span class="comment">// end of group ~~~~~~~~~~~~~~~~~~~~</span><div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif  </span><span class="comment">/*  COMMS_CONFIG_H */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->

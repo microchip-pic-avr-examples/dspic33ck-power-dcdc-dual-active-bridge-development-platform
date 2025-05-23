@@ -113,7 +113,9 @@
 #define VSEC_UV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VSEC_UV_T_BLANK_CLEAR_SEC / VSEC_UV_TICK_SEC)))    
 
 #define VSEC_LOAD_STEP_CLAMP                (UNITS_FROM_ENG_TO_ADC(VSEC_LOAD_STEP_CLAMPING_VOLTS,VSEC_SNS_GAIN,0.0))
-#define VPRIM_LOAD_STEP_CLAMP                (UNITS_FROM_ENG_TO_ADC( VPRIM_LOAD_STEP_CLAMPING_VOLTS,VPRI_SNS_GAIN,0.0))
+
+#define VSEC_SCALER                         (10u)
+#define VSEC_FACTOR                         (uint16_t)((1 / VSEC_VOLTAGE_GAIN) * VSEC_SCALER) 
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
@@ -130,6 +132,7 @@
 #define VPRI_UV_T_BLANK_TRIG                ((uint16_t)(_rnd(VPRI_UV_T_BLANK_TRIG_SEC / VSEC_UV_TICK_SEC))) 
 #define VPRI_UV_T_BLANK_CLEAR               ((uint16_t)(_rnd(VPRI_UV_T_BLANK_CLEAR_SEC / VSEC_UV_TICK_SEC))) 
 
+#define VPRIM_LOAD_STEP_CLAMP                (UNITS_FROM_ENG_TO_ADC( VPRIM_LOAD_STEP_CLAMPING_VOLTS,VPRI_SNS_GAIN,0.0))
 
 #define VPRI_SCALER                         (10u)
 #define VPRI_FACTOR                         (uint16_t)((1 / VPRI_VOLTAGE_GAIN) * VPRI_SCALER) 
@@ -166,9 +169,12 @@
 #define POWER_FACTOR                        (uint16_t)(((ADC_REFERENCE * ADC_REFERENCE * pow(2.0, POWER_SCALER))) / ((ADC_RESOLUTION * VSEC_SNS_GAIN) * (ADC_RESOLUTION * ISEC_AVG_SNS_GAIN))) 
 
 #define AGC_VOLTAGE_FACTOR                      (uint32_t)(AGC_MINIMUM_VIN_THRESHOLD * pow(2.0, 15))
+#define AGC_VOLTAGE_FACTOR_SEC                  (uint32_t)(AGC_MINIMUM_VIN_THRESHOLD_SEC * pow(2.0, 15))
 #define AGC_MINIMUM_CURRENT_THRESHOLD                   (UNITS_FROM_ENG_TO_ADC(AGC_MINIMUM_ISEC_THRESHOLD,ISEC_AVG_SNS_GAIN,0.0))
 #define AGC_CURRENT_FACTOR                      (uint32_t)(AGC_MINIMUM_CURRENT_THRESHOLD * pow(2.0, 15))
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
+        
+
 
 
 #endif	/* MACROS_H */

@@ -60,9 +60,10 @@ void ControlLoop_Interrupt_CallBack(void)
     
     #if defined (OPEN_LOOP_PBV) && (OPEN_LOOP_PBV == false)
  
-    if(dab.Status.bits.Running == 1){ 
+//    if(dab.Status.bits.Running == 1){ 
     // Execute Power Converter Control Loop
-        PwrCtrl_ControlLoopExecute(); }
+        PwrCtrl_ControlLoopExecute(); 
+//    }
     
     // Measure Primary to Secondary phase in degrees
     PwrCtrl_PrimToSecPHDegree(); 
@@ -95,6 +96,11 @@ void ControlLoop_Interrupt_CallBack(void)
     
     #endif
 
+    if(dab.Status.bits.Running == 0)
+    { 
+    // Suppress Power Converter Control Loop values
+        dab.Pwm.ControlPhase = 0;
+    }
     // Update PWM Properties
     PwrCtrl_PWM_Update(&dab);
     

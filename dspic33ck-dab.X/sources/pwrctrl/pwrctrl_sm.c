@@ -34,6 +34,8 @@
                                
 // DAB header files
 #include "pwrctrl.h"
+#include "pwm_hs/pwm.h"
+
 #include "config/macros.h"
 #include "device/device.h"
 #include "fault/fault.h"
@@ -109,6 +111,10 @@ void PwrCtrl_StateMachine(POWER_CONTROL_t* pcInstance)
  *********************************************************************************/
 static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
 {
+    PwrCtrl_Initialize();//enforce reinit of all compensators variables to 0, avoid glitches at a new startup
+    PwrCtrl_PWM_Disable();
+    PWM_Disable();
+    
     #if defined (CURRENT_CALIBRATION) && (CURRENT_CALIBRATION == true)    
     // Execute current sensor offset calibration
     Dev_CurrentSensorOffsetCal();
@@ -119,10 +125,7 @@ static void PCS_INIT_handler(POWER_CONTROL_t* pcInstance)
     {
         // Current sensor calibration is complete. Update the offset of the current sensor
         pcInstance->Data.ISecSensorOffset = Dev_CurrentSensor_Get_Offset();
-        
-        // Ensure PWM output is disabled
-        PwrCtrl_PWM_Disable();
-        
+   
         // Reset fault objects status bits
         Fault_Reset();
         
@@ -190,7 +193,8 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
     {
         // Reset fault objects status bits
         Fault_Reset();
-            
+        
+        PwrCtrl_PWM_DAB_DirectionSpecificSwapCfg(dab.PowerDirection);
         // Reset the power control properties and control loop histories
         PwrCtrl_Reset();
             
@@ -219,6 +223,20 @@ static void PCS_STANDBY_handler(POWER_CONTROL_t* pcInstance)
 
             // Next State assigned to STATE_SOFT_START
             pcInstance->State = PWRCTRL_STATE_SOFT_START;
+            
+            
+            
+            if(dab.PowerDirection == PWR_CTRL_DISCHARGING)
+            {    
+                dab.VRamp.ptrReferenceTarget = &dab.Properties.VPriReference;
+            }
+            else
+            {
+                dab.VRamp.ptrReferenceTarget = &dab.Properties.VSecReference;
+            }    
+            
+            
+            
         }
     }
 }
@@ -317,13 +335,25 @@ static void PCS_UP_AND_RUNNING_handler(POWER_CONTROL_t* pcInstance)
                 (pcInstance->Pwm.ControlPhase != pcInstance->Pwm.PBVControlPhaseTarget))
             pcInstance->State = PWRCTRL_STATE_SOFT_START;
     #endif
-            
         // Check if there is change in power control references    
-        else if ((pcInstance->ILoop.Reference != pcInstance->Properties.IReference) ||
-                (pcInstance->VLoop.Reference != pcInstance->Properties.VSecReference) ||
-                (pcInstance->PLoop.Reference != pcInstance->Properties.PwrReference))
-            
-            // State back to STATE_SOFT_START
-            pcInstance->State = PWRCTRL_STATE_SOFT_START;
+        else
+        {
+            if(dab.PowerDirection == PWR_CTRL_CHARGING)
+            { 
+                if ((pcInstance->ILoop.Reference != pcInstance->Properties.IReference) ||
+                    (pcInstance->VLoop.Reference != pcInstance->Properties.VSecReference) ||
+                    (pcInstance->PLoop.Reference != pcInstance->Properties.PwrReference))
+                // State back to STATE_SOFT_START
+                pcInstance->State = PWRCTRL_STATE_SOFT_START;
+            }
+            if(dab.PowerDirection == PWR_CTRL_DISCHARGING)
+            { 
+                if ((pcInstance->ILoop.Reference != pcInstance->Properties.IReference) ||
+                    (pcInstance->VLoop.Reference != pcInstance->Properties.VPriReference) ||
+                    (pcInstance->PLoop.Reference != pcInstance->Properties.PwrReference))
+                // State back to STATE_SOFT_START
+                pcInstance->State = PWRCTRL_STATE_SOFT_START;
+            }
+        }
     }
 } 

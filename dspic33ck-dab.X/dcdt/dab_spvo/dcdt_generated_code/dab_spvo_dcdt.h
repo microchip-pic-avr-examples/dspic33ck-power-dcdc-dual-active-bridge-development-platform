@@ -6,12 +6,12 @@
 
   File Name:     dab_spvo_dcdt.h
   Project Name:  dab_spvo
-  Date:          2/29/2024
-  Time:          16:18.05
+  Date:          2/4/2025
+  Time:          19:55.01
 
   Software License Agreement
 
-  Copyright © 2024 Microchip Technology Inc.  All rights reserved.
+  Copyright © 2025 Microchip Technology Inc.  All rights reserved.
   Microchip licenses to you the right to use, modify, copy and distribute
   Software only when embedded on a Microchip microcontroller or digital
   signal controller, which is integrated into your product or third party
@@ -40,9 +40,9 @@
   Compensator Type:  2P2Z
       Entry                Value  
     ---------            ---------
-  Pole 0                 4.0000e+02 Hz
-  Pole 2                 4.0000e+03 Hz
-  Zero 1                 1.0000e+01 Hz
+  Pole 0                 2.5000e+02 Hz
+  Pole 2                 4.3250e+03 Hz
+  Zero 1                 2.0000e+01 Hz
   Gain(Kdc)              1.000
   Warp                   false
   PWM Frequency          1.0000e+04
@@ -70,21 +70,21 @@
   H(s) = Kdc X --- X ------------
                 s    Wz1(Wp2 + s)
 
-                  2.51e+03   2.51e+04(6.28e+01 + s)
+                  1.57e+03   2.72e+04(1.26e+02 + s)
   H(s) = 1.000 X -------- X ----------------------
-                     s       6.28e+01(2.51e+04 + s)
+                     s       1.26e+02(2.72e+04 + s)
 
 
 
   Digital Compensator Coefficients
 
-  Name    Value      Normalized    Q15      Hex
-  ----    -----      ----------    ---      ---
-  a1      0.886      0.040         1299     0x0513
-  a2      0.114      0.005         166      0x00A6
-  b0      22.344     1.000         32764    0x7FFC
-  b1      0.140      0.006         205      0x00CD
-  b2      -22.205    -0.994        -32559   0x80D1
+  Name    Value     Normalized    Q15      Hex
+  ----    -----     ----------    ---      ---
+  a1      0.848     0.117         3834     0x0EFA
+  a2      0.152     0.021         687      0x02AF
+  b0      7.246     1.000         32764    0x7FFC
+  b1      0.090     0.012         409      0x0199
+  b2      -7.155    -0.987        -32355   0x819D
 
 
   z-domain transfer function
@@ -93,20 +93,21 @@
   H(z) = --- = ------------------------
          e(z)  A0 - A1z^(-1) - A2z^(-2)
 
-          (22.344) + (0.140)z^(-1) + (-22.205)z^(-2)
+          (7.246) + (0.090)z^(-1) + (-7.155)z^(-2)
   H(z) = ---------------------------------------------
-          1 - (0.886)z^(-1) - (0.114)z^(-2)
+          1 - (0.848)z^(-1) - (0.152)z^(-2)
 
 **/
 
+
 // Compensator Coefficient Defines
-#define DAB_SPVO_COMP_2P2Z_COEFF_A1      0x0513
-#define DAB_SPVO_COMP_2P2Z_COEFF_A2      0x00A6
+#define DAB_SPVO_COMP_2P2Z_COEFF_A1      0x0EFA
+#define DAB_SPVO_COMP_2P2Z_COEFF_A2      0x02AF
 #define DAB_SPVO_COMP_2P2Z_COEFF_B0      0x7FFC
-#define DAB_SPVO_COMP_2P2Z_COEFF_B1      0x00CD
-#define DAB_SPVO_COMP_2P2Z_COEFF_B2      0x80D1
-#define DAB_SPVO_COMP_2P2Z_POSTSCALER    0x5963
-#define DAB_SPVO_COMP_2P2Z_POSTSHIFT     0xFFFB
+#define DAB_SPVO_COMP_2P2Z_COEFF_B1      0x0199
+#define DAB_SPVO_COMP_2P2Z_COEFF_B2      0x819D
+#define DAB_SPVO_COMP_2P2Z_POSTSCALER    0x73F1
+#define DAB_SPVO_COMP_2P2Z_POSTSHIFT     0xFFFD
 #define DAB_SPVO_COMP_2P2Z_PRESHIFT      0x0000
 
 

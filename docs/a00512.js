@@ -1,20 +1,11 @@
 var a00512 =
 [
-    [ "dev_led.c", "a00323.html", null ],
-    [ "dev_led.h", "a00326.html", null ],
-    [ "LED_STATE_BLINK", "a00512.html#gae7328822ca8e2fd16a638854eeae068b", null ],
-    [ "LED_STATE_BLINK_COUNT", "a00512.html#gaaa38f6cc3eb9957214f94466dd2650cc", null ],
-    [ "LED_STATE_BLINK_FAST", "a00512.html#ga065311bdf1ad091dc6f4aa643bd59f48", null ],
-    [ "LED_STATE_BLINK_SLOW", "a00512.html#gac387d5ec1a81ff6058b9bf31e5809e9d", null ],
-    [ "LED_STATE_OFF", "a00512.html#ga900bdeb2c6d6ab966bad8f4fd78e8cd2", null ],
-    [ "LED_STATE_ON", "a00512.html#ga04ba0e3f7ea33a087f01b2745a2de63b", null ],
-    [ "Dev_LED_Blink", "a00512.html#gaf44b310330b9dbf4597275fdade9b5f7", null ],
-    [ "Dev_LED_Blink_Fast", "a00512.html#ga9a710b93c9efd76f1c850ee4415f736c", null ],
-    [ "Dev_LED_Blink_Iter", "a00512.html#gab8abb73dda8dc3829d57da8c681f4931", null ],
-    [ "Dev_LED_Blink_Slow", "a00512.html#ga371fdb6009ec0f15b00e75ad4ef4d177", null ],
-    [ "Dev_LED_Initialize", "a00512.html#ga2d2db02502e7b576a9149d114f303daa", null ],
-    [ "Dev_LED_Off", "a00512.html#ga645c25dba273dcf25dc202d31f441154", null ],
-    [ "Dev_LED_On", "a00512.html#ga6fc0416c8ff212d938628b290a18a390", null ],
-    [ "Dev_LED_Task_100ms", "a00512.html#gad26b3effecb0675aad3bcba8993a0bb2", null ],
-    [ "Dev_LED_Toggle", "a00512.html#gacf12fda3f7d99f77a0e68b846273984f", null ]
+    [ "ISEC_AVG_SENSOR_OFFSET_LIMIT_HIGH", "a00512.html#ga32693322c9fff62a2374fd3de9d0f5e8", null ],
+    [ "ISEC_AVG_SENSOR_OFFSET_LIMIT_LOW", "a00512.html#ga0ed005156ed4fc2064d588f00d44223d", null ],
+    [ "ISEC_LOAD_STEP_CLAMP", "a00512.html#ga9ba7015c9437b2c07790b380a9a48367", null ],
+    [ "ISEC_OC_T_BLANK_CLEAR", "a00512.html#ga5699b0f92b1002c48afde85f493ef541", null ],
+    [ "ISEC_OC_T_BLANK_TRIG", "a00512.html#gaf082faecd5f7c3303a4c765d8d8b0472", null ],
+    [ "ISEC_OC_THRES_CLEAR", "a00512.html#ga2a0efa36638d988404f55a254a4c62fe", null ],
+    [ "ISEC_OC_THRES_TRIG", "a00512.html#gac6376b7fb30da56ecf5719bad64079b7", null ],
+    [ "ISEC_SC_THRES_TRIG", "a00512.html#ga4ceda5524d91a9e630c2da6a209c2662", null ]
 ];

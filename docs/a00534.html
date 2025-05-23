@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: CLC Driver</title>
+<title>Dual Active Bridge Development Board: Temperature Detection</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -138,210 +138,175 @@ $(document).ready(function(){initNavTree('a00534.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
-<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">CLC Driver<div class="ingroups"><a class="el" href="a00530.html">MPLABX MCC Melody Code Generator</a></div></div></div>
+  <div class="headertitle"><div class="title">Temperature Detection<div class="ingroups"><a class="el" href="a00530.html">Device Layer</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Configurable Logic Cell driver allows the user to specify combinations of signals as inputs to a logic function and to use the logic output to control other peripherals or I/O pins using dsPIC MCUs.  
+<p>The Temperature device layer is the proprietary user code used to configure and detect the board temperature.  
 <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for CLC Driver:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for Temperature Detection:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00534.svg" width="294" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00534.svg" width="307" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:a00098" id="r_a00098"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html">clc1.h</a></td></tr>
-<tr class="memdesc:a00098"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver header file for the CLC1 driver. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00104" id="r_a00104"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00104.html">clc1.c</a></td></tr>
-<tr class="memdesc:a00104"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the generated driver source file for CLC1 driver. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00577.html">CLC_INTERFACE</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure containing the function pointers of CLC driver.  <a href="a00577.html#details">More...</a><br /></td></tr>
+<tr class="memitem:a00350" id="r_a00350"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00350.html">dev_temp.h</a></td></tr>
+<tr class="memdesc:a00350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains temperature initialization and execution functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaaa42a5ba0915a962cd75964a4dcde3b4" id="r_gaaa42a5ba0915a962cd75964a4dcde3b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> (void)</td></tr>
-<tr class="memdesc:gaaa42a5ba0915a962cd75964a4dcde3b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the CLC1 module.  <br /></td></tr>
-<tr class="separator:gaaa42a5ba0915a962cd75964a4dcde3b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga01516d04dce352de74ae123cf553cb30" id="r_ga01516d04dce352de74ae123cf553cb30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga01516d04dce352de74ae123cf553cb30">CLC1_Deinitialize</a> (void)</td></tr>
-<tr class="memdesc:ga01516d04dce352de74ae123cf553cb30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the CLC1 to POR values.  <br /></td></tr>
-<tr class="separator:ga01516d04dce352de74ae123cf553cb30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf3af7f12e3d269fdc409d1a279736b27" id="r_gaf3af7f12e3d269fdc409d1a279736b27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#gaf3af7f12e3d269fdc409d1a279736b27">CLC1_OutputStatusGet</a> (void)</td></tr>
-<tr class="memdesc:gaf3af7f12e3d269fdc409d1a279736b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns output pin status of the CLC1 module.  <br /></td></tr>
-<tr class="separator:gaf3af7f12e3d269fdc409d1a279736b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7c85f3e09616a9a2855839d4b45c0e43" id="r_ga7c85f3e09616a9a2855839d4b45c0e43"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga7c85f3e09616a9a2855839d4b45c0e43">CLC1_Enable</a> (void)</td></tr>
-<tr class="memdesc:ga7c85f3e09616a9a2855839d4b45c0e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function enables the CLC1 module.  <br /></td></tr>
-<tr class="separator:ga7c85f3e09616a9a2855839d4b45c0e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga278c795208d6f58fb1b0c1bf2739f883" id="r_ga278c795208d6f58fb1b0c1bf2739f883"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga278c795208d6f58fb1b0c1bf2739f883">CLC1_Disable</a> (void)</td></tr>
-<tr class="memdesc:ga278c795208d6f58fb1b0c1bf2739f883"><td class="mdescLeft">&#160;</td><td class="mdescRight">This inline function disables the CLC1 module.  <br /></td></tr>
-<tr class="separator:ga278c795208d6f58fb1b0c1bf2739f883"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaecad61896990ca955aab640a8609a74d" id="r_gaecad61896990ca955aab640a8609a74d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#gaecad61896990ca955aab640a8609a74d">CLC1_PositiveEdgeCallbackRegister</a> (void(*handler)(void))</td></tr>
-<tr class="memdesc:gaecad61896990ca955aab640a8609a74d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for CLC1 PositiveEdge event.  <br /></td></tr>
-<tr class="separator:gaecad61896990ca955aab640a8609a74d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga055481a146c113692385b653e64331f8" id="r_ga055481a146c113692385b653e64331f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga055481a146c113692385b653e64331f8">CLC1_PositiveEdgeCallback</a> (void)</td></tr>
-<tr class="memdesc:ga055481a146c113692385b653e64331f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using CLC1_PositiveEdgeCallbackRegister.  <br /></td></tr>
-<tr class="separator:ga055481a146c113692385b653e64331f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab37490b9172b07cf29c311b7501d04f6" id="r_gab37490b9172b07cf29c311b7501d04f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#gab37490b9172b07cf29c311b7501d04f6">CLC1_NegativeEdgeCallbackRegister</a> (void(*handler)(void))</td></tr>
-<tr class="memdesc:gab37490b9172b07cf29c311b7501d04f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function can be used to override default callback and to define custom callback for CLC1 NegativeEdge event.  <br /></td></tr>
-<tr class="separator:gab37490b9172b07cf29c311b7501d04f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf25cf35f34affb5c7832814688a02873" id="r_gaf25cf35f34affb5c7832814688a02873"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#gaf25cf35f34affb5c7832814688a02873">CLC1_NegativeEdgeCallback</a> (void)</td></tr>
-<tr class="memdesc:gaf25cf35f34affb5c7832814688a02873"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the default callback with weak attribute. The user can override and implement the default callback without weak attribute or can register a custom callback function using CLC1_NegativeEdgeCallbackRegister.  <br /></td></tr>
-<tr class="separator:gaf25cf35f34affb5c7832814688a02873"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaac6c1a14b3589b2c967b9a1b6bb01551" id="r_gaac6c1a14b3589b2c967b9a1b6bb01551"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#gaac6c1a14b3589b2c967b9a1b6bb01551">CLC1_Tasks</a> (void)</td></tr>
-<tr class="memdesc:gaac6c1a14b3589b2c967b9a1b6bb01551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements the tasks for polled implementations where the hardware supports dedicated event for Positive edge, Negative edge or both. Note: If both Positive Edge and Negative Edge uses polling mode then Callback function of positive edge takes the priority if both event occurred.  <br /></td></tr>
-<tr class="separator:gaac6c1a14b3589b2c967b9a1b6bb01551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga777c30f75162d97f4e112d1fc8d49f87" id="r_ga777c30f75162d97f4e112d1fc8d49f87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga777c30f75162d97f4e112d1fc8d49f87">Dev_Temp_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga777c30f75162d97f4e112d1fc8d49f87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the temperature data structure.  <br /></td></tr>
+<tr class="separator:ga777c30f75162d97f4e112d1fc8d49f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga642e882a6d78b8915f39b54f7183f71f" id="r_ga642e882a6d78b8915f39b54f7183f71f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga642e882a6d78b8915f39b54f7183f71f">Dev_Temp_Task_100ms</a> (void)</td></tr>
+<tr class="memdesc:ga642e882a6d78b8915f39b54f7183f71f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the Temperature reading every 100ms.  <br /></td></tr>
+<tr class="separator:ga642e882a6d78b8915f39b54f7183f71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2d219d0b5470ff7bae4c51c403c19065" id="r_ga2d219d0b5470ff7bae4c51c403c19065"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga2d219d0b5470ff7bae4c51c403c19065">Dev_Temp_AverageValue</a> (void)</td></tr>
+<tr class="memdesc:ga2d219d0b5470ff7bae4c51c403c19065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the average adc temperature reading.  <br /></td></tr>
+<tr class="separator:ga2d219d0b5470ff7bae4c51c403c19065"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9618e1ca87e77920c94cdfdcc80321a" id="r_gac9618e1ca87e77920c94cdfdcc80321a"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#gac9618e1ca87e77920c94cdfdcc80321a">Dev_Temp_Get_Temperature_Celcius</a> (void)</td></tr>
+<tr class="memdesc:gac9618e1ca87e77920c94cdfdcc80321a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This converts the raw values to temperature celcius as per device lookup table.  <br /></td></tr>
+<tr class="separator:gac9618e1ca87e77920c94cdfdcc80321a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga595a5dbd8f35a5e37d5fa77cfcd756a5" id="r_ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga595a5dbd8f35a5e37d5fa77cfcd756a5">Dev_Temp_Is_Over_Temperature</a> (void)</td></tr>
+<tr class="memdesc:ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the status of the Over Temperature flag.  <br /></td></tr>
+<tr class="separator:ga595a5dbd8f35a5e37d5fa77cfcd756a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6ce3446cb43022df6a5a96c90ec70a17" id="r_ga6ce3446cb43022df6a5a96c90ec70a17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga6ce3446cb43022df6a5a96c90ec70a17">Dev_Temp_Get_ADC_Sample</a> (void)</td></tr>
+<tr class="memdesc:ga6ce3446cb43022df6a5a96c90ec70a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the temperature ADC sample.  <br /></td></tr>
+<tr class="separator:ga6ce3446cb43022df6a5a96c90ec70a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaed1c98bc3ba65035d1ac0bdda433d812" id="r_gaed1c98bc3ba65035d1ac0bdda433d812"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#gaed1c98bc3ba65035d1ac0bdda433d812">Average_Temp_ADC_Samples</a> (void)</td></tr>
+<tr class="memdesc:gaed1c98bc3ba65035d1ac0bdda433d812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the temperature average value.  <br /></td></tr>
+<tr class="separator:gaed1c98bc3ba65035d1ac0bdda433d812"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga87aa48cb3d8848b8dc9bee6ce978b1b1" id="r_ga87aa48cb3d8848b8dc9bee6ce978b1b1"><td class="memItemLeft" align="right" valign="top">static uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#ga87aa48cb3d8848b8dc9bee6ce978b1b1">Temp_Calculate_Average</a> (uint16_t *buffer, uint16_t length)</td></tr>
+<tr class="memdesc:ga87aa48cb3d8848b8dc9bee6ce978b1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Averages the temperature ADC samples.  <br /></td></tr>
+<tr class="separator:ga87aa48cb3d8848b8dc9bee6ce978b1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:gaf313a644645eaeb160dd1eba82ff4506" id="r_gaf313a644645eaeb160dd1eba82ff4506"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="a00577.html">CLC_INTERFACE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#gaf313a644645eaeb160dd1eba82ff4506">CLC1</a></td></tr>
-<tr class="memdesc:gaf313a644645eaeb160dd1eba82ff4506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure object of type <a class="el" href="a00577.html" title="Structure containing the function pointers of CLC driver.">CLC_INTERFACE</a> with the custom name given by the user in the Melody Driver User interface. The default name e.g. CLC1 can be changed by the user in the CLC user interface. This allows defining a structure with application specific name using the 'Custom Name' field. Application specific name allows the API Portability.  <br /></td></tr>
-<tr class="separator:gaf313a644645eaeb160dd1eba82ff4506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac4362e7ed233e3ac6e62b7f6f49a80d0" id="r_gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00350.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00534.html#gac4362e7ed233e3ac6e62b7f6f49a80d0">devTempData</a></td></tr>
+<tr class="memdesc:gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data Object of temperature settings.  <br /></td></tr>
+<tr class="separator:gac4362e7ed233e3ac6e62b7f6f49a80d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="fragment"></div><!-- fragment --><h2 class="groupheader">Function Documentation</h2>
-<a id="ga01516d04dce352de74ae123cf553cb30" name="ga01516d04dce352de74ae123cf553cb30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga01516d04dce352de74ae123cf553cb30">&#9670;&#160;</a></span>CLC1_Deinitialize()</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="gaed1c98bc3ba65035d1ac0bdda433d812" name="gaed1c98bc3ba65035d1ac0bdda433d812"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaed1c98bc3ba65035d1ac0bdda433d812">&#9670;&#160;</a></span>Average_Temp_ADC_Samples()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void CLC1_Deinitialize </td>
+          <td class="memname">static uint16_t Average_Temp_ADC_Samples </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function returns the average result of the temperature ADC samples. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00085">85</a> of file <a class="el" href="a00104_source.html">clc1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00139">139</a> of file <a class="el" href="a00347_source.html">dev_temp.c</a>.</p>
 <div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_ga01516d04dce352de74ae123cf553cb30_cgraph.svg" width="286" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_gaed1c98bc3ba65035d1ac0bdda433d812_cgraph.svg" width="424" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="ga278c795208d6f58fb1b0c1bf2739f883" name="ga278c795208d6f58fb1b0c1bf2739f883"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga278c795208d6f58fb1b0c1bf2739f883">&#9670;&#160;</a></span>CLC1_Disable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void CLC1_Disable </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00534.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> function should be called before calling this function. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00098_source.html#l00110">110</a> of file <a class="el" href="a00098_source.html">clc1.h</a>.</p>
 <div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_ga278c795208d6f58fb1b0c1bf2739f883_icgraph.svg" width="286" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_gaed1c98bc3ba65035d1ac0bdda433d812_icgraph.svg" width="570" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ga7c85f3e09616a9a2855839d4b45c0e43" name="ga7c85f3e09616a9a2855839d4b45c0e43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga7c85f3e09616a9a2855839d4b45c0e43">&#9670;&#160;</a></span>CLC1_Enable()</h2>
+<a id="ga2d219d0b5470ff7bae4c51c403c19065" name="ga2d219d0b5470ff7bae4c51c403c19065"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d219d0b5470ff7bae4c51c403c19065">&#9670;&#160;</a></span>Dev_Temp_AverageValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void CLC1_Enable </td>
+          <td class="memname">uint16_t Dev_Temp_AverageValue </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00534.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> function should be called before calling this function. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function returns the average ADC temperature reading. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00098_source.html#l00097">97</a> of file <a class="el" href="a00098_source.html">clc1.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00073">73</a> of file <a class="el" href="a00347_source.html">dev_temp.c</a>.</p>
+
+</div>
+</div>
+<a id="ga6ce3446cb43022df6a5a96c90ec70a17" name="ga6ce3446cb43022df6a5a96c90ec70a17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga6ce3446cb43022df6a5a96c90ec70a17">&#9670;&#160;</a></span>Dev_Temp_Get_ADC_Sample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_Temp_Get_ADC_Sample </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function gets the temperature ADC sample and adds it to the temperature buffer for averaging use. </p>
+<p>&lt; store last 128 values and then average</p>
+<p>&lt; flag to monitor if full then do averaging.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00117">117</a> of file <a class="el" href="a00347_source.html">dev_temp.c</a>.</p>
 <div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_ga7c85f3e09616a9a2855839d4b45c0e43_icgraph.svg" width="444" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_ga6ce3446cb43022df6a5a96c90ec70a17_cgraph.svg" width="447" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_ga6ce3446cb43022df6a5a96c90ec70a17_icgraph.svg" width="566" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="gaaa42a5ba0915a962cd75964a4dcde3b4" name="gaaa42a5ba0915a962cd75964a4dcde3b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaaa42a5ba0915a962cd75964a4dcde3b4">&#9670;&#160;</a></span>CLC1_Initialize()</h2>
+<a id="gac9618e1ca87e77920c94cdfdcc80321a" name="gac9618e1ca87e77920c94cdfdcc80321a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac9618e1ca87e77920c94cdfdcc80321a">&#9670;&#160;</a></span>Dev_Temp_Get_Temperature_Celcius()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CLC1_Initialize </td>
+          <td class="memname">int8_t Dev_Temp_Get_Temperature_Celcius </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -349,41 +314,28 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function takes in the current adc values and get the closest high temperature value in the lookup table. i.e. if the averaged value is 3195, it will return the temperature value corresponding to 3079 i.e. 65. This value is offset by 40 degrees to avoid working with negative. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00063">63</a> of file <a class="el" href="a00104_source.html">clc1.c</a>.</p>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_gaaa42a5ba0915a962cd75964a4dcde3b4_cgraph.svg" width="356" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00087">87</a> of file <a class="el" href="a00347_source.html">dev_temp.c</a>.</p>
 <div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_gaaa42a5ba0915a962cd75964a4dcde3b4_icgraph.svg" width="296" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_gac9618e1ca87e77920c94cdfdcc80321a_icgraph.svg" width="566" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="gaf25cf35f34affb5c7832814688a02873" name="gaf25cf35f34affb5c7832814688a02873"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf25cf35f34affb5c7832814688a02873">&#9670;&#160;</a></span>CLC1_NegativeEdgeCallback()</h2>
+<a id="ga777c30f75162d97f4e112d1fc8d49f87" name="ga777c30f75162d97f4e112d1fc8d49f87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga777c30f75162d97f4e112d1fc8d49f87">&#9670;&#160;</a></span>Dev_Temp_Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CLC1_NegativeEdgeCallback </td>
+          <td class="memname">void Dev_Temp_Initialize </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -391,190 +343,81 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_gaf25cf35f34affb5c7832814688a02873_icgraph.svg" width="534" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function initializes the temperature data structure. </p>
+<p>&lt; Over temperature flag</p>
+<p>&lt; if Sensor is present <br  />
+</p>
+<p>&lt; temperature raw</p>
+<p>&lt; temperature raw</p>
+<p>&lt; temperature celcius.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00045">45</a> of file <a class="el" href="a00347_source.html">dev_temp.c</a>.</p>
 
 </div>
 </div>
-<a id="gab37490b9172b07cf29c311b7501d04f6" name="gab37490b9172b07cf29c311b7501d04f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab37490b9172b07cf29c311b7501d04f6">&#9670;&#160;</a></span>CLC1_NegativeEdgeCallbackRegister()</h2>
+<a id="ga595a5dbd8f35a5e37d5fa77cfcd756a5" name="ga595a5dbd8f35a5e37d5fa77cfcd756a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga595a5dbd8f35a5e37d5fa77cfcd756a5">&#9670;&#160;</a></span>Dev_Temp_Is_Over_Temperature()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CLC1_NegativeEdgeCallbackRegister </td>
+          <td class="memname">uint8_t Dev_Temp_Is_Over_Temperature </td>
           <td>(</td>
-          <td class="paramtype">void(*)(void)&#160;</td>
-          <td class="paramname"><em>handler</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>- Address of the callback function. <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true Over temperature is detected </dd>
+<dd>
+false Over temperature is not detected</dd></dl>
+<p>This function returns the status of the Over Temperature flag. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00109">109</a> of file <a class="el" href="a00104_source.html">clc1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00105">105</a> of file <a class="el" href="a00347_source.html">dev_temp.c</a>.</p>
+
+</div>
+</div>
+<a id="ga642e882a6d78b8915f39b54f7183f71f" name="ga642e882a6d78b8915f39b54f7183f71f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga642e882a6d78b8915f39b54f7183f71f">&#9670;&#160;</a></span>Dev_Temp_Task_100ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Dev_Temp_Task_100ms </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function executes temperature reading every 100ms </p>
+
+<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00060">60</a> of file <a class="el" href="a00347_source.html">dev_temp.c</a>.</p>
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_ga642e882a6d78b8915f39b54f7183f71f_cgraph.svg" width="662" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_gab37490b9172b07cf29c311b7501d04f6_icgraph.svg" width="534" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_ga642e882a6d78b8915f39b54f7183f71f_icgraph.svg" width="324" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="gaf3af7f12e3d269fdc409d1a279736b27" name="gaf3af7f12e3d269fdc409d1a279736b27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf3af7f12e3d269fdc409d1a279736b27">&#9670;&#160;</a></span>CLC1_OutputStatusGet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool CLC1_OutputStatusGet </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00534.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> function should be called before calling this function. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Output pin status <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00148">148</a> of file <a class="el" href="a00104_source.html">clc1.c</a>.</p>
-
-</div>
-</div>
-<a id="ga055481a146c113692385b653e64331f8" name="ga055481a146c113692385b653e64331f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga055481a146c113692385b653e64331f8">&#9670;&#160;</a></span>CLC1_PositiveEdgeCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CLC1_PositiveEdgeCallback </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_ga055481a146c113692385b653e64331f8_icgraph.svg" width="530" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gaecad61896990ca955aab640a8609a74d" name="gaecad61896990ca955aab640a8609a74d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaecad61896990ca955aab640a8609a74d">&#9670;&#160;</a></span>CLC1_PositiveEdgeCallbackRegister()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CLC1_PositiveEdgeCallbackRegister </td>
-          <td>(</td>
-          <td class="paramtype">void(*)(void)&#160;</td>
-          <td class="paramname"><em>handler</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handler</td><td>- Address of the callback function. <br  />
- </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00096">96</a> of file <a class="el" href="a00104_source.html">clc1.c</a>.</p>
-<div id="dynsection-9" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-9-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00534_gaecad61896990ca955aab640a8609a74d_icgraph.svg" width="530" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="gaac6c1a14b3589b2c967b9a1b6bb01551" name="gaac6c1a14b3589b2c967b9a1b6bb01551"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaac6c1a14b3589b2c967b9a1b6bb01551">&#9670;&#160;</a></span>CLC1_Tasks()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CLC1_Tasks </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="a00534.html#gaaa42a5ba0915a962cd75964a4dcde3b4">CLC1_Initialize</a> function should be called before calling this function. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">none</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>none <br  />
- </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00124">124</a> of file <a class="el" href="a00104_source.html">clc1.c</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="gaf313a644645eaeb160dd1eba82ff4506" name="gaf313a644645eaeb160dd1eba82ff4506"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaf313a644645eaeb160dd1eba82ff4506">&#9670;&#160;</a></span>CLC1</h2>
+<a id="ga87aa48cb3d8848b8dc9bee6ce978b1b1" name="ga87aa48cb3d8848b8dc9bee6ce978b1b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga87aa48cb3d8848b8dc9bee6ce978b1b1">&#9670;&#160;</a></span>Temp_Calculate_Average()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -583,17 +426,58 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const struct <a class="el" href="a00577.html">CLC_INTERFACE</a> CLC1</td>
+          <td class="memname">static uint16_t Temp_Calculate_Average </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>This function averages the temperature ADC samples. </p>
 
-<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00051">51</a> of file <a class="el" href="a00104_source.html">clc1.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00153">153</a> of file <a class="el" href="a00347_source.html">dev_temp.c</a>.</p>
+<div id="dynsection-8" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00534_ga87aa48cb3d8848b8dc9bee6ce978b1b1_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="gac4362e7ed233e3ac6e62b7f6f49a80d0" name="gac4362e7ed233e3ac6e62b7f6f49a80d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac4362e7ed233e3ac6e62b7f6f49a80d0">&#9670;&#160;</a></span>devTempData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00350.html#a01967840b431008a1b1a2528d97b612d">TEMP_SETTINGS_t</a> devTempData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The 'devTempData' data object holds the settings for temperature sensor. </p>
+
+<p class="definition">Definition at line <a class="el" href="a00347_source.html#l00030">30</a> of file <a class="el" href="a00347_source.html">dev_temp.c</a>.</p>
 
 </div>
 </div>

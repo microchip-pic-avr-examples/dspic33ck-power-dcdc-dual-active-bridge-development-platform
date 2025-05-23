@@ -1,82 +1,54 @@
 var a00525 =
 [
-    [ "SWITCH_NODE_s", "a00705.html", [
-      [ "ControlDutyCycle", "a00705.html#a5eb08d6bfe077124da067795181f03a2", null ],
-      [ "ControlPeriod", "a00705.html#a2b3122d0cc562492b079305016344571", null ],
-      [ "ControlPhase", "a00705.html#ab2fe25cd913f397b52515ce1f98d31dc", null ],
-      [ "ControlPhase_P2S_Degreex10", "a00705.html#a2f9a96c90798708142be79f979e0e723", null ],
-      [ "ControlPhase_P2S_Target", "a00705.html#a1b2f921d9eb1d364246e97c1f0d00b99", null ],
-      [ "DeadTimeHigh", "a00705.html#a54a8a0e5503b84ab2643656320c176b4", null ],
-      [ "DeadTimeLow", "a00705.html#aa24ebdbedfb58e84843be95b5138b1ed", null ],
-      [ "LowPowerSlowMode", "a00705.html#aa6105071906dfaff3e2062b6406ceb17", null ],
-      [ "PBVControlPhaseTarget", "a00705.html#afe456845608e185d7666f1e8db9f118e", null ],
-      [ "PBVPeriodTarget", "a00705.html#aa9fe0fb976db533a369cd12c3589765e", null ]
+    [ "UART_MSG_RX_OBJ", "a00658.html", [
+      [ "CRC", "a00658.html#afb8cac113b1a41d1c48d80018ddb6744", null ],
+      [ "data", "a00658.html#af6818e30aac80097c9ba1786e8408956", null ],
+      [ "Length_in_Bytes", "a00658.html#a3b818f332a9c32b3297efe5f9c6b021d", null ],
+      [ "Offset", "a00658.html#ae6e68acb116dc3b5f8a7354c7f7d4146", null ],
+      [ "PBV_Header", "a00658.html#a84122a7e2f523d0278895ca4f5d8748c", null ],
+      [ "Protocol_ID", "a00658.html#abfd2be56b2355b0fadf7124f95b00431", null ],
+      [ "UART_Frame_State", "a00658.html#a86b4ce2d2304f1de364f16d241b9c7d6", null ]
     ] ],
-    [ "FEEDBACK_SETTINGS_s", "a00709.html", [
-      [ "ISecAverage", "a00709.html#a852e1ba399fd7762820a5a48b277e235", null ],
-      [ "ISecAverageRectified", "a00709.html#a2ebeb1daee42d50afad2f53cfe8f8548", null ],
-      [ "ISecSensorOffset", "a00709.html#aad3cd92609bdf3ca099564c676a824cb", null ],
-      [ "ISensePrimary", "a00709.html#a4bb8d9e45d3b1791b7597c46356d6f7f", null ],
-      [ "ISenseSecondary", "a00709.html#ab69cdd1acf7db7e5e2521d1afe46d8f9", null ],
-      [ "SecPower", "a00709.html#a6961d340d23b02e801410da9d41e9c20", null ],
-      [ "Temperature", "a00709.html#ad389e5a23077ca8d6548dffd7f5ec1c1", null ],
-      [ "VPriVoltage", "a00709.html#a05578776f684221691f412d73de487ea", null ],
-      [ "VRail_5V", "a00709.html#acc72d884c453d1343c8e836369311454", null ],
-      [ "VSecVoltage", "a00709.html#a4e6e0db2e515990bc32d13435a75b50e", null ]
+    [ "UART_MSG_TX_OBJ", "a00662.html", [
+      [ "CRC", "a00662.html#afb8cac113b1a41d1c48d80018ddb6744", null ],
+      [ "data", "a00662.html#abe222f6d3581e7920dcad5306cc906a8", null ],
+      [ "Length_in_Bytes", "a00662.html#a3b818f332a9c32b3297efe5f9c6b021d", null ],
+      [ "Offset", "a00662.html#ae6e68acb116dc3b5f8a7354c7f7d4146", null ],
+      [ "PBV_Header", "a00662.html#a84122a7e2f523d0278895ca4f5d8748c", null ],
+      [ "Protocol_ID", "a00662.html#abfd2be56b2355b0fadf7124f95b00431", null ],
+      [ "UART_Frame_State", "a00662.html#a86b4ce2d2304f1de364f16d241b9c7d6", null ]
     ] ],
-    [ "STATUS_FLAGS_s", "a00713.html", [
-      [ "FaultActive", "a00713.html#ab17555f3ee595c55c595050bf51ef37b", null ],
-      [ "notUsed", "a00713.html#a180e365a3f5a6999428d31f218afae4d", null ],
-      [ "Running", "a00713.html#aa54b2d19226054f61f2998337cebcb5a", null ],
-      [ "value", "a00713.html#a900b69af7d674b8db3bceae754b4955a", null ]
-    ] ],
-    [ "START_UP_RAMP_s", "a00725.html", [
-      [ "Counter", "a00725.html#ac73dde33a2be13416f717c1ab8954227", null ],
-      [ "Delay", "a00725.html#a16a366f1914db6923e6f49ba15572ea2", null ],
-      [ "ptrReference", "a00725.html#a910c9c759d95750a76fb660bf8325e6c", null ],
-      [ "ptrReferenceTarget", "a00725.html#a7738d75eba1234a8928245eae64a01a7", null ],
-      [ "RampComplete", "a00725.html#a13025badec30c52baf766e745d4c699f", null ],
-      [ "StepSize", "a00725.html#accf24954a61bfc0ab7ca1768da52625a", null ]
-    ] ],
-    [ "CONTROLLER_s", "a00729.html", [
-      [ "AgcFactor", "a00729.html#ad2437ec40aae749bff226d6a65e0b464", null ],
-      [ "Enable", "a00729.html#a3348c072797d519fa8f99e521ab65a69", null ],
-      [ "Feedback", "a00729.html#aa1bd4a14393dc18506716866224cbae8", null ],
-      [ "Output", "a00729.html#a255356ba374a77c95d307ba0bf811554", null ],
-      [ "Reference", "a00729.html#a727f4f7790931ccc89ce7743dbe80b4e", null ]
-    ] ],
-    [ "PWR_CTRL_PROPERTIES_s", "a00733.html", [
-      [ "ChargingState", "a00733.html#ae3595664cdc2ecd4b147334fe73c47be", null ],
-      [ "Enable", "a00733.html#a3348c072797d519fa8f99e521ab65a69", null ],
-      [ "IReference", "a00733.html#a77adde2f7eb1f326d84f31bf34c99b99", null ],
-      [ "PwrReference", "a00733.html#a19c96c8c63b39d18db0eae64f208dcf7", null ],
-      [ "VPriReference", "a00733.html#aa7c7be85fbd243019a3d4117936a5eb6", null ],
-      [ "VSecReference", "a00733.html#aa9713a077db135ad061aae799db7be2c", null ]
-    ] ],
-    [ "POWER_CONTROL_s", "a00737.html", [
-      [ "Data", "a00737.html#a9961eac6798b52736528d9d4aa30d922", null ],
-      [ "Fault", "a00737.html#aead2ae6cfabf4831af21d23684e19d1f", null ],
-      [ "ILoop", "a00737.html#a13383149438802e4c6c08683d6d004db", null ],
-      [ "IRamp", "a00737.html#afdaae86371984281bf846fac8b1d918a", null ],
-      [ "PLoop", "a00737.html#a14f61bb42ecc88a3ff43a417b48194b0", null ],
-      [ "PowerDirection", "a00737.html#aab4ae5a26b108cbc7a8c541c3b82ed2f", null ],
-      [ "PRamp", "a00737.html#a7969f4ded01738878ec44b5a56985c85", null ],
-      [ "Properties", "a00737.html#a2c015371f9d53a7ba0131e65634f8129", null ],
-      [ "Pwm", "a00737.html#a133fe9da595a11547aacc8e4f1ae3b8a", null ],
-      [ "State", "a00737.html#a8b22029ea33e1bafe7050317294309c2", null ],
-      [ "Status", "a00737.html#ae5b4ae59c620ed360f0cb1c66ea0cd4e", null ],
-      [ "VLoop", "a00737.html#a74800143138c6a887f2edec0e47008a8", null ],
-      [ "VRamp", "a00737.html#afd1d9d28f344713441a2330e010de959", null ]
-    ] ],
-    [ "PWR_CTRL_CHARGE_STATE_e", "a00525.html#gae94eaf60955fa03f484bca0efeb21372", [
-      [ "PWR_CTRL_CHARGING", "a00525.html#ggae94eaf60955fa03f484bca0efeb21372a7e93608f89f7322341ebf9cb1de80510", null ],
-      [ "PWR_CTRL_DISCHARGING", "a00525.html#ggae94eaf60955fa03f484bca0efeb21372abd8cec55edea529de0821c90b1d9ebeb", null ]
-    ] ],
-    [ "PWR_CTRL_STATES_e", "a00525.html#ga6abbf677724014640a3ad06684ff488b", [
-      [ "PWRCTRL_STATE_INITIALIZE", "a00525.html#gga6abbf677724014640a3ad06684ff488ba8c956a177c166f90721f74c6d6586c02", null ],
-      [ "PWRCTRL_STATE_FAULT_DETECTION", "a00525.html#gga6abbf677724014640a3ad06684ff488badc35bd1d52664024d8d8fe1360b7f786", null ],
-      [ "PWRCTRL_STATE_STANDBY", "a00525.html#gga6abbf677724014640a3ad06684ff488ba454f037f198f953960eaec16f459104a", null ],
-      [ "PWRCTRL_STATE_SOFT_START", "a00525.html#gga6abbf677724014640a3ad06684ff488ba97dd8660a6b2331c038a6e0346668c82", null ],
-      [ "PWRCTRL_STATE_ONLINE", "a00525.html#gga6abbf677724014640a3ad06684ff488ba08bb03d1d4ff0769adb84e8daf1b0ea5", null ]
-    ] ]
+    [ "PBV_CRC_POLYNOM", "a00525.html#ga955beef6a0717d0cee4e6bf929d60175", null ],
+    [ "PBV_CRC_POLYNOM_REV", "a00525.html#gab7226cbc4f89e6bf061b82459118b9b3", null ],
+    [ "PBV_END_OF_FRAME", "a00525.html#ga51629afbb385165374465af4587cb953", null ],
+    [ "PBV_HEADER_SIZE", "a00525.html#ga9e84c6159dbb2284250a313f654c4b12", null ],
+    [ "PBV_IsRxReady", "a00525.html#gaefb5d870608d2bb16fc82ca118733f56", null ],
+    [ "PBV_RCV_DATABUFFER_SIZE", "a00525.html#ga53a98e4f1e1956439607425ca9c21cf8", null ],
+    [ "PBV_Read", "a00525.html#gad6abe24371a852499c00404df02e28b3", null ],
+    [ "PBV_ReadyToSend", "a00525.html#ga39ec59e3bcf1e885dd4628be4c4a051d", null ],
+    [ "PBV_START_OF_FRAME", "a00525.html#gad554e7bcc3a1b1e14ad57eb12b85fa9b", null ],
+    [ "PBV_Write", "a00525.html#gae27af64e723989f0d2ac43575064cac5", null ],
+    [ "RCV_MESSAGE_RECEIVED", "a00525.html#ga443b7921d4a31afc977f25a3631c8881", null ],
+    [ "RCV_READ_CRC_HIGHBYTE", "a00525.html#ga2470e4ae25e1fca00857f6eeb52eae31", null ],
+    [ "RCV_READ_CRC_LOWBYTE", "a00525.html#gac1e22358aaac2b92b7dc2a126f3a92c2", null ],
+    [ "RCV_READ_DATA", "a00525.html#ga76f3de99dcbdee1adc6d99d05325ed65", null ],
+    [ "RCV_READ_EOF", "a00525.html#gaaecba0e8f633dbb93f05aac2158a943f", null ],
+    [ "RCV_READ_ID_HIGHBYTE", "a00525.html#gaac3939a57045ea826702a31d874b5097", null ],
+    [ "RCV_READ_ID_LOWBYTE", "a00525.html#gae110ee771cbc8b58e90e617fd9971251", null ],
+    [ "RCV_READ_LENGTH_HIGHBYTE", "a00525.html#ga1391cd3dda6af4eebcf296055f179dfd", null ],
+    [ "RCV_READ_LENGTH_LOWBYTE", "a00525.html#ga94bdd8694247d17ccb0fec4df9a666c1", null ],
+    [ "RCV_WAIT_FOR_STARTBYTE", "a00525.html#ga7bc6067e16f9a833202bf0ff4d271b25", null ],
+    [ "UART_MSG_RX_OBJ_t", "a00525.html#ga299f74587846446589fc3b2862a62b0a", null ],
+    [ "UART_MSG_TX_OBJ_t", "a00525.html#ga0dfab6e8ce4feb9fdf71d60fc12fbdc9", null ],
+    [ "PBV_Calculate_CRC", "a00525.html#ga24413d8db99647b26a8e7ae233c5c63e", null ],
+    [ "PBV_UART_Init", "a00525.html#ga128b03f3aae4aa8dbdb7ef7aafe06123", null ],
+    [ "PBV_UART_Link_Data_RX", "a00525.html#gaabb5dd946884a6b442b3e8923e398519", null ],
+    [ "PBV_UART_Link_Data_TX", "a00525.html#ga9f93d97912e80ec10fd1b5dd7d4ff345", null ],
+    [ "PBV_UART_Receive_from_GUI", "a00525.html#ga89e085a040c28fbc1aa46e802a199aef", null ],
+    [ "PBV_UART_Reinit", "a00525.html#ga1f9bd9678769a26b10a91a77d1d395fb", null ],
+    [ "PBV_UART_Transmit_Ascii_to_GUI", "a00525.html#ga806896a92cf7ed615414e19b84f8ead9", null ],
+    [ "PBV_UART_Transmit_to_GUI", "a00525.html#ga62df1acc42e1303b61baa63272714c5c", null ],
+    [ "pbvUartObjectAscii", "a00525.html#ga0eb8134e6cf94e44b6ae636b333f1c4a", null ],
+    [ "pbvUartObjectRx", "a00525.html#gaf5a7fa328c97a86a1e39ab5ea136528f", null ],
+    [ "pbvUartObjectTx", "a00525.html#ga6bf40e327e52e70256e121e91b4ee192", null ]
 ];

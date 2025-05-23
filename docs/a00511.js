@@ -1,15 +1,15 @@
 var a00511 =
 [
-    [ "dev_fan.c", "a00311.html", null ],
-    [ "dev_fan.h", "a00314.html", null ],
-    [ "Calculate_Speed", "a00511.html#ga66c5db181798514534d7f97b622ca35e", null ],
-    [ "Convert_From_Percentage", "a00511.html#ga3ba0ef09cbd1274a9c325fc04cab411d", null ],
-    [ "Dev_Fan_Initialize", "a00511.html#gad4274efc956bcca058565b186c2fd1a0", null ],
-    [ "Dev_Fan_Set_Override", "a00511.html#gabf5c734c9834b070c4adf1af69e9f048", null ],
-    [ "Dev_Fan_Set_Speed", "a00511.html#ga5cfd61659ae6b17ad25e51bfc211723b", null ],
-    [ "Dev_Fan_Task_100ms", "a00511.html#ga1bd7dce99469a41bbb705d939ea512ad", null ],
-    [ "Dev_Fan_Task_1s", "a00511.html#gafd7dde7baca2e1dd3a745bf5f8258da7", null ],
-    [ "Override_Speed", "a00511.html#ga0d2b426f7411623a821415f02956aac8", null ],
-    [ "Update_Speed", "a00511.html#gad7e38e334c2209a2a296bf3f573fed78", null ],
-    [ "devFanData", "a00511.html#ga52debd393de750722aca541b24b1bc6d", null ]
+    [ "Conversion Macros", "a00512.html", "a00512" ],
+    [ "ISEC_AVG_SNS_GAIN", "a00511.html#gaa04f0731e5ca53dd3034155ddec2fb51", null ],
+    [ "ISEC_AVG_SNS_OFS", "a00511.html#ga3ddd48524fd57578569ad30b31317bee", null ],
+    [ "ISEC_CT_SNS_GAIN", "a00511.html#gad565ee56fd67a47693480901f73b5e2c", null ],
+    [ "ISEC_CT_SNS_OFS", "a00511.html#ga167708b374334a691b34a153fc97ded0", null ],
+    [ "ISEC_LOAD_STEP_CLAMPING_AMPS", "a00511.html#ga6ec24bdfc7696657bf7e95dbaf83d5d9", null ],
+    [ "ISEC_OC_T_BLANK_CLEAR_SEC", "a00511.html#ga80ef2d060cb2e0d45398358f08401976", null ],
+    [ "ISEC_OC_T_BLANK_TRIG_SEC", "a00511.html#ga9dd78aa25c054cc00c115cd70169dcda", null ],
+    [ "ISEC_OC_THRES_CLEAR_AMPS", "a00511.html#gacdbe9002c178691c914b1043a7c070ce", null ],
+    [ "ISEC_OC_THRES_TRIG_AMPS", "a00511.html#ga61571a56765f2041df1adffb0e127623", null ],
+    [ "ISEC_OC_TICK_SEC", "a00511.html#gaf7a4bcd753b1270a1745bc3fe4c403e9", null ],
+    [ "ISEC_SC_THRES_TRIG_AMPS", "a00511.html#ga5f4043a3b61439e7695829b39102281c", null ]
 ];

@@ -249,7 +249,7 @@ void PBV_CAN_Link_Data_TX(PBV_Datatype_TX_t * ptr){
  * @return  void
  * @details This links the received data (uint8_t *) to the application data structure data (uint8_t *)
  **********************************************************************************/
-void PBV_CAN_Link_Data_RX(PBV_Datatype_RX_t * ptr){
+int PBV_CAN_Link_Data_RX(PBV_Datatype_RX_t * ptr){
     if (ptr->PBV_Message_State == 0){
         ptr->Data_Buffer = pbvCanObjectRx.data;
         ptr->PBV_Protcol_ID = pbvCanObjectRx.msgId;
@@ -308,4 +308,5 @@ void PBV_CAN_Link_Data_RX(PBV_Datatype_RX_t * ptr){
                 break;
         }
     }
+    return 0;
 }

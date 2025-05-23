@@ -31,8 +31,8 @@ static __inline__ void DRV_Config_Custom_PWM(void)
     PWM_Trigger_Mode(PWM_SEC_2, PWM_TRIG_MODE_RETRIGGERABLE);
     
     // PWM Swap output based on the hardware
-    PWM_Swap_PWMxL_and_PWMxH(PWM_PRI_2, true);
-    PWM_Swap_PWMxL_and_PWMxH(PWM_SEC_2, true);
+    //PWM_Swap_PWMxL_and_PWMxH(PWM_PRI_2, true);
+    //PWM_Swap_PWMxL_and_PWMxH(PWM_SEC_2, true);
     
     // Fault mode is Latched mode
     PWM_PCI_Fault_AcceptanceCriteria(PWM_PRI_1, PWM_PCI_ACCEPT_LATCHED);     

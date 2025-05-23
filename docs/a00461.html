@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_isr.c File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/dcdt/XFT_smps_2p2z_dspic.s File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -136,89 +136,107 @@ $(document).ready(function(){initNavTree('a00461.html',''); initResizable(); });
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">pwrctrl_isr.c File Reference<div class="ingroups"><a class="el" href="a00517.html">Power Control</a> &raquo; <a class="el" href="a00519.html">Interrupt Routine and Functions</a></div></div></div>
+  <div class="headertitle"><div class="title">XFT_smps_2p2z_dspic.s File Reference<div class="ingroups"><a class="el" href="a00538.html">Power Control</a> &raquo; <a class="el" href="a00543.html">Control Loop Configuration</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains Control loop interrupt Callback that acquires the ADC raw data and process it in the control loop, and use the control output for the PWM distribution for this converter.  
+<p>Contains the dcdt generated assembly code for 2p2z control type with modified code for Adaptive Gain control.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
-<code>#include &lt;math.h&gt;</code><br />
-<code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00227_source.html">timer/sccp1.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00068_source.html">adc/adc1.h</a>&quot;</code><br />
-<code>#include &quot;system/pins.h&quot;</code><br />
-<code>#include &quot;config/macros.h&quot;</code><br />
-<code>#include &quot;config/config.h&quot;</code><br />
-<code>#include &quot;pwrctrl.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00365_source.html">fault/fault.h</a>&quot;</code><br />
-</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pwrctrl_isr.c:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00462.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-</div>
+
 <p><a href="a00461_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:gabda1b0b4f44a931cc725c3f5fa45be7b" id="r_gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#gabda1b0b4f44a931cc725c3f5fa45be7b">PwrCtrl_PrimToSecPHDegree</a> (void)</td></tr>
-<tr class="memdesc:gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members with phase values normalized in degree.  <br /></td></tr>
-<tr class="separator:gabda1b0b4f44a931cc725c3f5fa45be7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga80c3a681fbe9c0d7041146d82134f0cb" id="r_ga80c3a681fbe9c0d7041146d82134f0cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga80c3a681fbe9c0d7041146d82134f0cb">PwrCtrl_DeadTimeAdjust</a> (void)</td></tr>
-<tr class="memdesc:ga80c3a681fbe9c0d7041146d82134f0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members dead time based on load.  <br /></td></tr>
-<tr class="separator:ga80c3a681fbe9c0d7041146d82134f0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4d366f40ad4926202db3d6334f0cc41" id="r_ac4d366f40ad4926202db3d6334f0cc41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00461.html#ac4d366f40ad4926202db3d6334f0cc41">PwrCtrl_PeriodModulator</a> (void)</td></tr>
-<tr class="separator:ac4d366f40ad4926202db3d6334f0cc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa34c5b66d8f20f01daef50d0e88cf20e" id="r_gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#gaa34c5b66d8f20f01daef50d0e88cf20e">PwrCtrl_UpdateADConverterData</a> (void)</td></tr>
-<tr class="memdesc:gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function updates the DAB data members with ADC raw values.  <br /></td></tr>
-<tr class="separator:gaa34c5b66d8f20f01daef50d0e88cf20e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2eeebdb0cef4bbfeed446752525dd879" id="r_ga2eeebdb0cef4bbfeed446752525dd879"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#ga2eeebdb0cef4bbfeed446752525dd879">PwrCtrl_ControlLoopExecute</a> (void)</td></tr>
-<tr class="memdesc:ga2eeebdb0cef4bbfeed446752525dd879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power converter control loop.  <br /></td></tr>
-<tr class="separator:ga2eeebdb0cef4bbfeed446752525dd879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaaf49f142990b8dc3f750e88365bf8fed" id="r_gaaf49f142990b8dc3f750e88365bf8fed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#gaaf49f142990b8dc3f750e88365bf8fed">PwrCtrl_10KHzVPLoopPrepareData</a> (void)</td></tr>
-<tr class="memdesc:gaaf49f142990b8dc3f750e88365bf8fed"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function prepares the data for control loop and selects which control loop will be executed.  <br /></td></tr>
-<tr class="separator:gaaf49f142990b8dc3f750e88365bf8fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae32c9e5ed4d1fb98fc13b26601782c10" id="r_gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#gae32c9e5ed4d1fb98fc13b26601782c10">ControlLoop_Interrupt_CallBack</a> (void)</td></tr>
-<tr class="memdesc:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power converter control loop.  <br /></td></tr>
-<tr class="separator:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>&lt;&gt; </p>
+<div class="textblock"><p>Operation:</p>
+<div class="fragment"><div class="line">                                          Wcp0   ( S + Wcz1 )               </div>
+<div class="line">  Calculate the transfer function Hc(s) = ---- X ------------------------   </div>
+<div class="line">                                           S     ( S + Wcp1 )( S + Wcp2 )   </div>
+<div class="line">                                           </div>
+<div class="line">    Error Normalization</div>
+<div class="line">      ------------</div>
+<div class="line">     |   prsft    |</div>
+<div class="line">      ------------</div>
+<div class="line">Reference   |       e(n)          e(n-1)        e(n-2)</div>
+<div class="line">Input       |             --------      --------</div>
+<div class="line">        -   -   -        |        |    |        |</div>
+<div class="line">  o----|-|-|x|-|x|----o-&gt;| z^(-1) |-o-&gt;| z^(-1) |-o          Post</div>
+<div class="line">        -   -   -     |  |        | |  |        | |         Scaling</div>
+<div class="line">        |      NORM   |   --------  |   --------  |</div>
+<div class="line">        |             |             |             |          --------</div>
+<div class="line">Measured|            ---           ---           ---       |          |     - - - - - - - - - -</div>
+<div class="line">Input   |       B0=&gt;| X |     B1=&gt;| X |     B2=&gt;| X |      |posft     |    |                   |</div>
+<div class="line">        |            ---           ---           ---       |postScalar|    |     P O W E R     |</div>
+<div class="line">        |             |             |             |         ----------     |     P L A N T     |</div>
+<div class="line">        |            -------------------------------------        |        |                   |</div>
+<div class="line">        |           |                                     | U[n] ---       |                   |</div>
+<div class="line">        |           |        A C C U M U L A T O R        |--o--| X |------O Duty Ratio=&gt;PWM  |</div>
+<div class="line">        |           |                                     |  |   ---       |                   |</div>
+<div class="line">        |            -------------------------------------   |             | Voltage/Current   |</div>
+<div class="line">        |             |              |                       |             |      Feedback     |</div>
+<div class="line">        |            ---            ---                      |             |         O         |</div>
+<div class="line">        |       A2=&gt;| X |      A1=&gt;| X |                     |             |         |         |</div>
+<div class="line">        |            ---            ---                      |              - - - - - - - - - -</div>
+<div class="line">        |             |              |                       |                      |</div>
+<div class="line">        |             |   --------   |  --------             |                      | A/D</div>
+<div class="line">        |             |  |        |  | |        |            |                      | Input</div>
+<div class="line">        |             o--| z^(-1) |&lt;-o-| z^(-1) |&lt;-----------                       |</div>
+<div class="line">        |                |        |    |        |                                   |</div>
+<div class="line">        |                 --------      --------                                    |</div>
+<div class="line">        |                  u[n-2]        u[n-1]                                     |</div>
+<div class="line">        |                                                                           |</div>
+<div class="line">        |                                                                           |</div>
+<div class="line">         ---------------------------------------------------------------------------</div>
+<div class="line"> </div>
+<div class="line">   controlHistory[n] = errorHistory[n]   * bCoefficients[0]</div>
+<div class="line">                     + errorHistory[n-1] * bCoefficients[1]</div>
+<div class="line">                     + errorHistory[n-2] * bCoefficients[2]</div>
+<div class="line">                     + controlHistory[n-1] * aCoefficients[0]</div>
+<div class="line">                     + controlHistory[n-2] * aCoefficients[1]</div>
+<div class="line"> </div>
+<div class="line">  where:</div>
+<div class="line"> </div>
+<div class="line">   aCoefficients[0]  = A1</div>
+<div class="line">   aCoefficients[1]  = A2</div>
+<div class="line">   bCoefficients[0]  = B0</div>
+<div class="line">   bCoefficients[1]  = B1</div>
+<div class="line">   bCoefficients[2]  = B2</div>
+<div class="line">   controlHistory[0] = u(n)</div>
+<div class="line">   controlHistory[1] = u(n-1)</div>
+<div class="line">   errorHistory[0]   = e(n) =&gt; most recent error {(controlReference) - (sourceRegister)}</div>
+<div class="line">   errorHistory[1]   = e(n-1)</div>
+<div class="line">   errorHistory[2]   = e(n-2)</div>
+<div class="line">   preShift          = prsft    =&gt; pre scaling factor for Q15 normalization purposes</div>
+<div class="line">   postShift         = posft    =&gt; post scaling factor for normalization purposes</div>
+<div class="line">   postScaler        = postScaler =&gt; post scaling coefficient for normalization purpose</div>
+<div class="line"> </div>
+<div class="line">   Function call inputs:</div>
+<div class="line">   sourceRegister    = ADBUFx  =&gt; measured feedback input   </div>
+<div class="line">   controlReference  = V_ref    =&gt; reference voltage</div>
+<div class="line">   targetRegister = PDCx =&gt; output duty cycle</div>
+<div class="line"> </div>
+<div class="line">  where:</div>
+<div class="line"> </div>
+<div class="line">   aCoefficients, bCoefficients, controlHistory, errorHistory, </div>
+<div class="line">   preShift and postShift are all members of the data structure SMPS_2P2Z_T.</div>
+<div class="line"> </div>
+<div class="line"> Input:</div>
+<div class="line">       w0 = Address of SMPS_2P2Z_T data structure</div>
+<div class="line">       w1 = Address of the Source Register (Input)</div>
+<div class="line">       w2 = Control Reference</div>
+<div class="line">       w3 = Address of the Target Register (Output)</div>
+<div class="line"> Return:</div>
+<div class="line">       w0 = Address of SMPS_2P2Z_T data structure</div>
+<div class="line">       w1 = Address of the Source Register (Input)</div>
+<div class="line">       w2 = Control Reference</div>
+<div class="line">       w3 = Address of the Target Register (Output)</div>
+<div class="line"> </div>
+<div class="line"> System resources usage:</div>
+<div class="line">       {w4..w5}        saved, used, restored</div>
+<div class="line">       {w8,w10}        saved, used, restored</div>
+<div class="line">        AccA           used, not restored</div>
+<div class="line">        CORCON         saved, used, restored</div>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The function in this assembly file requires CORCON register to be setup in a certain state in order to operate correctly. Due to this requirement, this function will save the CORCON register on the stack in the beginning of the function and restore it before the function return. After saving the CORCON register, this function writes to all bits of the CORCON register. Thus, for the brief duration when this function is executing, the state of CORCON register may be different from its state as set by the function caller. This may change the CPU core behaviour with respect to exception processing latency, DO loop termination, CPU interrupt priority level and DSP-engine behaviour.   </dd></dl>
 
-<p class="definition">Definition in file <a class="el" href="a00461_source.html">pwrctrl_isr.c</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="ac4d366f40ad4926202db3d6334f0cc41" name="ac4d366f40ad4926202db3d6334f0cc41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4d366f40ad4926202db3d6334f0cc41">&#9670;&#160;</a></span>PwrCtrl_PeriodModulator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PwrCtrl_PeriodModulator </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00461_ac4d366f40ad4926202db3d6334f0cc41_icgraph.svg" width="368" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-</div><!-- contents -->
+<p class="definition">Definition in file <a class="el" href="a00461_source.html">XFT_smps_2p2z_dspic.s</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
 <!-- start footer part -->

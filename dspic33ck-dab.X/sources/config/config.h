@@ -14,7 +14,7 @@
 #define PERIOD_MODULATION_DEMO    false  ///< Modulates the period; for further development
 #define DCDC400V_SYSTEM           true  ///< When true, operates the DAB with protection thresholds for 400V output
 #define DCDC800V_SYSTEM           false  ///< When true, operates the DAB with protection thresholds for 800V output
-#define ENABLE_VLOOP_AGC          false ///< This is an optional feature (not needed for battery application)
+
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 /******************************************************************************
@@ -26,7 +26,7 @@
 
 #define MINIMUM_DEADTIME                (float)150e-9 ///< Minimum Deadtime in seconds [sec]
 #define MAXIMUM_DEADTIME                (float)500e-9 ///< Maximum Deadtime in seconds [sec]
-#define MINIMUM_PHASESHIFTED_PULSE      (float) 80e-9 ///< Minimum phase shifted pulse in seconds [sec]
+#define MINIMUM_PHASESHIFTED_PULSE      (float)300e-9//(float) 80e-9 ///< Minimum phase shifted pulse in seconds [sec]
 
 #define PRI_TO_SEC_PHASE_DEGREES_LIMIT  90u ///< Maximum Limit for primary to secondary phase in degrees [deg]
 
@@ -44,6 +44,7 @@
 #define VPLOOP_ILOOP_EXE_RATIO           (uint16_t)(10 / 2) ///< ratio of ILOOP /VPLOOP execution [100KHz / 10KHz], the divide 2 is for interleaved VLoop and PLoop
 #define AGC_MINIMUM_VIN_THRESHOLD       160u ///< Minimum VIN threshold to activate AGC in [V]  
 #define AGC_MINIMUM_ISEC_THRESHOLD      7 ///< Minimum current threshold to activate AGC in [A]
+#define AGC_MINIMUM_VIN_THRESHOLD_SEC       160u ///< Minimum VIN secondary threshold to activate AGC reverse mode in [V]  
 /** @} */ // end of group ~~~~~~~~~~~~~~~~~~~~
 
 //------------------------------------------------------------------------------

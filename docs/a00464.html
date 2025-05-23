@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl_isr.h File Reference</title>
+<title>Dual Active Bridge Development Board: dspic33ck-dab.X/sources/pwrctrl/pwrctrl.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -137,34 +137,62 @@ $(document).ready(function(){initNavTree('a00464.html',''); initResizable(); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">pwrctrl_isr.h File Reference<div class="ingroups"><a class="el" href="a00517.html">Power Control</a> &raquo; <a class="el" href="a00519.html">Interrupt Routine and Functions</a></div></div></div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">pwrctrl.c File Reference<div class="ingroups"><a class="el" href="a00538.html">Power Control</a> &raquo; <a class="el" href="a00539.html">Power Control Configuration</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains public function relevant for power control interrupt.  
+<p>Contains power control initialization including control loop initialization and start-up initialization, and the power control execution.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> This graph shows which files directly or indirectly include this file:</div>
+<div class="textblock"><code>#include &lt;xc.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00179_source.html">pwm_hs/pwm_hs_types.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00170_source.html">pwm_hs/pwm.h</a>&quot;</code><br />
+<code>#include &quot;config/macros.h&quot;</code><br />
+<code>#include &quot;pwrctrl.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00383_source.html">fault/fault.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00446_source.html">dcdt/pwrctrl_dcdt.h</a>&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Include dependency graph for pwrctrl.c:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00466.svg" width="100%" height="488"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00465.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 </div>
 <p><a href="a00464_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gae32c9e5ed4d1fb98fc13b26601782c10" id="r_gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00519.html#gae32c9e5ed4d1fb98fc13b26601782c10">ControlLoop_Interrupt_CallBack</a> (void)</td></tr>
-<tr class="memdesc:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power converter control loop.  <br /></td></tr>
-<tr class="separator:gae32c9e5ed4d1fb98fc13b26601782c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga45940145031d4886842c27f5e5277e9b" id="r_ga45940145031d4886842c27f5e5277e9b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00539.html#ga45940145031d4886842c27f5e5277e9b">PwrCtrl_StartUpInitialize</a> (void)</td></tr>
+<tr class="memdesc:ga45940145031d4886842c27f5e5277e9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the StartUp Ramp configuration.  <br /></td></tr>
+<tr class="separator:ga45940145031d4886842c27f5e5277e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae58162e874535adf2003e9ed8a13b656" id="r_gae58162e874535adf2003e9ed8a13b656"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00539.html#gae58162e874535adf2003e9ed8a13b656">PwrCtrl_ControlLoopInitialize</a> (void)</td></tr>
+<tr class="memdesc:gae58162e874535adf2003e9ed8a13b656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the control loop.  <br /></td></tr>
+<tr class="separator:gae58162e874535adf2003e9ed8a13b656"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2408c0b52cd2c2487f43716f261434e6" id="r_ga2408c0b52cd2c2487f43716f261434e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00542.html#ga2408c0b52cd2c2487f43716f261434e6">PwrCtrl_StateMachine</a> (<a class="el" href="a00758.html">POWER_CONTROL_t</a> *pcInstance)</td></tr>
+<tr class="memdesc:ga2408c0b52cd2c2487f43716f261434e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages the power control state machine.  <br /></td></tr>
+<tr class="separator:ga2408c0b52cd2c2487f43716f261434e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2c39b57545ef7b5c79bac36ab30da7d8" id="r_ga2c39b57545ef7b5c79bac36ab30da7d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00539.html#ga2c39b57545ef7b5c79bac36ab30da7d8">PwrCtrl_Initialize</a> (void)</td></tr>
+<tr class="memdesc:ga2c39b57545ef7b5c79bac36ab30da7d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the power control parameters.  <br /></td></tr>
+<tr class="separator:ga2c39b57545ef7b5c79bac36ab30da7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga48dcb018afa53b60b6112cde00561c4b" id="r_ga48dcb018afa53b60b6112cde00561c4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00539.html#ga48dcb018afa53b60b6112cde00561c4b">PwrCtrl_Execute</a> (void)</td></tr>
+<tr class="memdesc:ga48dcb018afa53b60b6112cde00561c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the power control state machine.  <br /></td></tr>
+<tr class="separator:ga48dcb018afa53b60b6112cde00561c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c07187b0c96b5916e4b46daa47500c5" id="r_ga8c07187b0c96b5916e4b46daa47500c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00539.html#ga8c07187b0c96b5916e4b46daa47500c5">PwrCtrl_Reset</a> (void)</td></tr>
+<tr class="memdesc:ga8c07187b0c96b5916e4b46daa47500c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the power control properties.  <br /></td></tr>
+<tr class="separator:ga8c07187b0c96b5916e4b46daa47500c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ga5762de26b3d1b822c6a4b9c1605cd387" id="r_ga5762de26b3d1b822c6a4b9c1605cd387"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00758.html">POWER_CONTROL_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00539.html#ga5762de26b3d1b822c6a4b9c1605cd387">dab</a></td></tr>
+<tr class="memdesc:ga5762de26b3d1b822c6a4b9c1605cd387"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global data object for a DAB Converter.  <br /></td></tr>
+<tr class="separator:ga5762de26b3d1b822c6a4b9c1605cd387"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><br  />
- &lt;&gt; </p>
+<div class="textblock"><p>&lt;&gt; </p>
 
-<p class="definition">Definition in file <a class="el" href="a00464_source.html">pwrctrl_isr.h</a>.</p>
+<p class="definition">Definition in file <a class="el" href="a00464_source.html">pwrctrl.c</a>.</p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.8.20-->
